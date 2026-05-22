@@ -3,54 +3,70 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\ForgotPasswordRequest;
-use App\Http\Requests\Auth\ResetPasswordRequest;
-use App\Models\User;
+use App\Http\Requests\Auth\PasswordResetRequest;
+use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 
 class PasswordResetController extends Controller
 {
-    /**
-     * Send a password reset link.
-     *
-     * The response is intentionally ambiguous (same message whether the email
-     * exists or not) to prevent user-enumeration attacks.
-     */
-    public function forgotPassword(ForgotPasswordRequest $request): JsonResponse
+    /** Send a password reset link to the given email. */
+    public function sendResetLink(Request $request): JsonResponse|RedirectResponse
     {
-        Password::sendResetLink($request->only('email'));
+        $request->validate(['email' => ['required', 'email']]);
 
-        return response()->json([
-            'message' => 'If an account exists for that email, a reset link has been sent.',
-        ]);
-    }
+        $status = Password::sendResetLink($request->only('email'));
 
-    /**
-     * Reset the user's password using a token from the reset email.
-     *
-     * All existing API tokens are revoked after a successful reset so that
-     * any active sessions on compromised devices are immediately invalidated.
-     */
-    public function resetPassword(ResetPasswordRequest $request): JsonResponse
-    {
-        $status = Password::reset(
-            $request->only('email', 'password', 'password_confirmation', 'token'),
-            function (User $user, string $password) {
-                $user->forceFill(['password' => Hash::make($password)])->save();
-                $user->tokens()->delete();
+        if ($request->expectsJson()) {
+            if ($status === Password::RESET_LINK_SENT) {
+                return response()->json(['message' => __($status)]);
             }
-        );
 
-        if ($status === Password::PASSWORD_RESET) {
-            return response()->json([
-                'message' => 'Password reset successfully. Please log in with your new password.',
+            throw ValidationException::withMessages([
+                'email' => __($status),
             ]);
         }
 
-        return response()->json([
-            'message' => 'Invalid or expired reset token. Please request a new one.',
-        ], 422);
+        return $status === Password::RESET_LINK_SENT
+            ? back()->with('status', __($status))
+            : back()->withErrors(['email' => __($status)]);
+    }
+
+    /** Reset the user's password using the given token. */
+    public function reset(PasswordResetRequest $request): JsonResponse|RedirectResponse
+    {
+        $status = Password::reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            function ($user) use ($request) {
+                $user->forceFill([
+                    'password'       => Hash::make($request->password),
+                    'remember_token' => Str::random(60),
+                ])->save();
+
+                // Revoke all existing API tokens after password reset
+                $user->tokens()->delete();
+
+                event(new PasswordReset($user));
+            }
+        );
+
+        if ($request->expectsJson()) {
+            if ($status === Password::PASSWORD_RESET) {
+                return response()->json(['message' => __($status)]);
+            }
+
+            throw ValidationException::withMessages([
+                'email' => __($status),
+            ]);
+        }
+
+        return $status === Password::PASSWORD_RESET
+            ? redirect()->route('login')->with('status', __($status))
+            : back()->withErrors(['email' => __($status)]);
     }
 }

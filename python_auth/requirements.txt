@@ -1,0 +1,8 @@
+fastapi>=0.100.0
+uvicorn[standard]>=0.23.0
+bcrypt>=4.0.0
+passlib>=1.7.4   # optional – only used if you replace bcrypt with passlib
+sqlalchemy>=2.0.0
+python-multipart>=0.0.6
+pydantic-settings>=2.0.0
+pydantic[email]>=2.0.0
