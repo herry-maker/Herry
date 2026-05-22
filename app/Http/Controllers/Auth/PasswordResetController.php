@@ -7,7 +7,6 @@ use App\Http\Requests\Auth\ForgotPasswordRequest;
 use App\Http\Requests\Auth\ResetPasswordRequest;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 
@@ -30,7 +29,7 @@ class PasswordResetController extends Controller
             $request->only('email', 'password', 'password_confirmation', 'token'),
             function ($user, string $password): void {
                 $user->forceFill([
-                    'password'       => Hash::make($password),
+                    'password'       => $password, // 'hashed' cast on User handles bcrypt
                     'remember_token' => Str::random(60),
                 ])->save();
 

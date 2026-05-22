@@ -36,7 +36,11 @@ class AuthController extends Controller
     {
         $user = User::where('email', $request->email)->first();
 
-        if (! $user || ! Hash::check($request->password, $user->password)) {
+        // Always run Hash::check — even for unknown emails — to prevent timing-based
+        // enumeration attacks that reveal whether an address is registered.
+        $hash = $user?->password ?? '$2y$12$invalid.hash.that.never.matches.anything.here';
+
+        if (! $user || ! Hash::check($request->password, $hash)) {
             return response()->json(['message' => 'Invalid credentials.'], 401);
         }
 
