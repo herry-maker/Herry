@@ -146,3 +146,4 @@ SANCTUM_STATEFUL_DOMAINS=localhost,127.0.0.1
 SANCTUM_TOKEN_PREFIX=herry_
 MAIL_MAILER=log          # Use smtp/mailgun in production for real emails
 ```
+# Auto-push enabled via Git post-commit hook
