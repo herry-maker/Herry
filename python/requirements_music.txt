@@ -1,0 +1,13 @@
+# Music Transcription Dependencies
+pdf2image>=1.16.3
+python-magic>=0.4.27
+Pillow>=10.0.0
+opencv-python>=4.8.0
+numpy>=1.24.0
+music21>=8.3.0
+pytesseract>=0.3.10
+
+# System requirement: poppler-utils
+# Ubuntu/Debian: sudo apt-get install poppler-utils
+# macOS: brew install poppler
+# Windows: Download from https://github.com/oschwartz10612/poppler-windows/releases/
