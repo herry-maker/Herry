@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgentMonitorController;
 use App\Http\Controllers\MusicTranscriptionController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,4 +26,7 @@ Route::prefix('api/music')->group(function () {
     
     // Delete a transcribed file
     Route::delete('/delete/{file}', [MusicTranscriptionController::class, 'deleteTranscription']);
+
+    // Research agent monitor status (JSON)
+    Route::get('/agent', [AgentMonitorController::class, 'status'])->name('agent-status');
 });
