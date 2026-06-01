@@ -79,11 +79,20 @@ class AuthController extends Controller
 
     public function updateProfile(UpdateProfileRequest $request): JsonResponse
     {
-        $request->user()->update($request->validated());
+        $user = $request->user();
+        $data = $request->validated();
+
+        // A new email address must go through the verification flow again.
+        if (isset($data['email']) && $data['email'] !== $user->email) {
+            $data['email_verified_at'] = null;
+        }
+
+        // forceFill so email_verified_at (not in $fillable) can be reset safely.
+        $user->forceFill($data)->save();
 
         return response()->json([
             'message' => 'Profile updated.',
-            'user'    => $request->user()->fresh(),
+            'user'    => $user->fresh(),
         ]);
     }
 

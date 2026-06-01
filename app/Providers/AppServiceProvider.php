@@ -2,9 +2,12 @@
 
 namespace App\Providers;
 
+use Illuminate\Auth\Notifications\ResetPassword;
+use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -17,6 +20,27 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->configureRateLimiting();
+        $this->configureNotificationUrls();
+    }
+
+    private function configureNotificationUrls(): void
+    {
+        $frontend = rtrim((string) config('app.frontend_url', config('app.url')), '/');
+
+        // Password-reset email links point to the frontend SPA, not a Laravel route.
+        ResetPassword::createUrlUsing(function (object $notifiable, string $token) use ($frontend): string {
+            return $frontend . '/reset-password?token=' . $token
+                . '&email=' . rawurlencode((string) $notifiable->getEmailForPasswordReset());
+        });
+
+        // Email-verification links are signed API routes served by this backend.
+        VerifyEmail::createUrlUsing(function (object $notifiable): string {
+            return URL::temporarySignedRoute(
+                'verification.verify',
+                now()->addMinutes(60),
+                ['id' => $notifiable->getKey(), 'hash' => sha1($notifiable->getEmailForVerification())],
+            );
+        });
     }
 
     private function configureRateLimiting(): void

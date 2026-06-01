@@ -113,6 +113,23 @@ class TestProtectedEndpoints:
 
 
 # ---------------------------------------------------------------------------
+# Context manager
+# ---------------------------------------------------------------------------
+
+class TestContextManager:
+    def test_enter_returns_client(self):
+        with AuthClient(base_url="http://api") as client:
+            assert isinstance(client, AuthClient)
+
+    def test_exit_closes_session(self):
+        client = AuthClient(base_url="http://api")
+        with patch.object(client._session, "close") as mock_close:
+            with client:
+                pass
+        mock_close.assert_called_once()
+
+
+# ---------------------------------------------------------------------------
 # AuthAPIError formatting
 # ---------------------------------------------------------------------------
 

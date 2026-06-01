@@ -16,11 +16,14 @@ class PasswordResetController extends Controller
     {
         $status = Password::sendResetLink($request->only('email'));
 
-        if ($status !== Password::RESET_LINK_SENT) {
-            return response()->json(['message' => __($status)], 422);
+        // Return 429 when the broker's own throttle fires (too many requests for the
+        // same email within the configured window), but always respond with 200 for
+        // any other outcome so we never reveal whether an address is registered.
+        if ($status === Password::RESET_THROTTLED) {
+            return response()->json(['message' => __($status)], 429);
         }
 
-        return response()->json(['message' => __($status)]);
+        return response()->json(['message' => __('passwords.sent')]);
     }
 
     public function resetPassword(ResetPasswordRequest $request): JsonResponse

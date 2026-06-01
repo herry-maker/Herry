@@ -32,6 +32,12 @@ class AuthClient:
             "Content-Type": "application/json",
         })
 
+    def __enter__(self) -> "AuthClient":
+        return self
+
+    def __exit__(self, *_: object) -> None:
+        self._session.close()
+
     # ------------------------------------------------------------------
     # Token management
     # ------------------------------------------------------------------

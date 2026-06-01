@@ -3,8 +3,12 @@
 namespace Tests\Feature\Auth;
 
 use App\Models\User;
+use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\URL;
 use Laravel\Sanctum\PersonalAccessToken;
 use Tests\TestCase;
 
@@ -354,5 +358,183 @@ class AuthTest extends TestCase
         ]);
 
         $this->assertArrayNotHasKey('password', $response->json('user') ?? []);
+    }
+
+    // -----------------------------------------------------------------------
+    // Password Reset
+    // -----------------------------------------------------------------------
+
+    public function test_forgot_password_always_returns_ok_for_real_email(): void
+    {
+        $user = User::factory()->create();
+
+        $this->postJson('/api/auth/forgot-password', ['email' => $user->email])
+            ->assertOk();
+    }
+
+    public function test_forgot_password_returns_ok_for_unknown_email(): void
+    {
+        // Must not reveal whether the address is registered (user enumeration prevention).
+        $this->postJson('/api/auth/forgot-password', ['email' => 'ghost@example.com'])
+            ->assertOk();
+    }
+
+    public function test_forgot_password_validates_email_format(): void
+    {
+        $this->postJson('/api/auth/forgot-password', ['email' => 'not-an-email'])
+            ->assertUnprocessable()
+            ->assertJsonValidationErrors(['email']);
+    }
+
+    public function test_user_can_reset_password(): void
+    {
+        $user  = User::factory()->create();
+        $token = Password::broker()->createToken($user);
+
+        $this->postJson('/api/auth/reset-password', [
+            'token'                 => $token,
+            'email'                 => $user->email,
+            'password'              => 'NewPass2pass',
+            'password_confirmation' => 'NewPass2pass',
+        ])->assertOk();
+
+        $this->assertTrue(Hash::check('NewPass2pass', $user->fresh()->password));
+    }
+
+    public function test_password_reset_revokes_all_tokens(): void
+    {
+        $user  = User::factory()->create();
+        $user->createToken('t1');
+        $user->createToken('t2');
+        $token = Password::broker()->createToken($user);
+
+        $this->postJson('/api/auth/reset-password', [
+            'token'                 => $token,
+            'email'                 => $user->email,
+            'password'              => 'NewPass2pass',
+            'password_confirmation' => 'NewPass2pass',
+        ])->assertOk();
+
+        $this->assertDatabaseCount('personal_access_tokens', 0);
+    }
+
+    public function test_reset_password_rejects_invalid_token(): void
+    {
+        $user = User::factory()->create();
+
+        $this->postJson('/api/auth/reset-password', [
+            'token'                 => 'invalid-token',
+            'email'                 => $user->email,
+            'password'              => 'NewPass2pass',
+            'password_confirmation' => 'NewPass2pass',
+        ])->assertUnprocessable();
+    }
+
+    // -----------------------------------------------------------------------
+    // Email Verification
+    // -----------------------------------------------------------------------
+
+    public function test_user_can_verify_email(): void
+    {
+        $user  = User::factory()->unverified()->create();
+        $token = $user->createToken('test')->plainTextToken;
+
+        $url = URL::temporarySignedRoute(
+            'verification.verify',
+            now()->addMinutes(60),
+            ['id' => $user->id, 'hash' => sha1($user->email)],
+        );
+
+        $this->postJson($url, [], ['Authorization' => "Bearer $token"])
+            ->assertOk()
+            ->assertJsonPath('message', 'Email verified successfully.');
+
+        $this->assertNotNull($user->fresh()->email_verified_at);
+    }
+
+    public function test_verify_email_rejects_invalid_signature(): void
+    {
+        $user  = User::factory()->unverified()->create();
+        $token = $user->createToken('test')->plainTextToken;
+
+        $this->postJson(
+            "/api/auth/email/verify/{$user->id}/badhash",
+            [],
+            ['Authorization' => "Bearer $token"],
+        )->assertForbidden();
+    }
+
+    public function test_verify_email_returns_ok_when_already_verified(): void
+    {
+        $user  = User::factory()->create(); // factory sets email_verified_at by default
+        $token = $user->createToken('test')->plainTextToken;
+
+        $url = URL::temporarySignedRoute(
+            'verification.verify',
+            now()->addMinutes(60),
+            ['id' => $user->id, 'hash' => sha1($user->email)],
+        );
+
+        $this->postJson($url, [], ['Authorization' => "Bearer $token"])
+            ->assertOk()
+            ->assertJsonPath('message', 'Email already verified.');
+    }
+
+    public function test_resend_verification_sends_notification(): void
+    {
+        Notification::fake();
+
+        $user  = User::factory()->unverified()->create();
+        $token = $user->createToken('test')->plainTextToken;
+
+        $this->postJson('/api/auth/email/resend', [], ['Authorization' => "Bearer $token"])
+            ->assertOk()
+            ->assertJsonPath('message', 'Verification link sent.');
+
+        Notification::assertSentTo($user, VerifyEmail::class);
+    }
+
+    public function test_resend_verification_returns_message_when_already_verified(): void
+    {
+        $user  = User::factory()->create();
+        $token = $user->createToken('test')->plainTextToken;
+
+        $this->postJson('/api/auth/email/resend', [], ['Authorization' => "Bearer $token"])
+            ->assertOk()
+            ->assertJsonPath('message', 'Email already verified.');
+    }
+
+    // -----------------------------------------------------------------------
+    // Profile update — email change resets verification
+    // -----------------------------------------------------------------------
+
+    public function test_email_change_resets_verified_status(): void
+    {
+        $user  = User::factory()->create(); // verified by default
+        $token = $user->createToken('test')->plainTextToken;
+
+        $this->assertNotNull($user->email_verified_at);
+
+        $this->putJson(
+            '/api/auth/me',
+            ['email' => 'newemail@example.com'],
+            ['Authorization' => "Bearer $token"],
+        )->assertOk();
+
+        $this->assertNull($user->fresh()->email_verified_at);
+    }
+
+    public function test_name_change_preserves_verified_status(): void
+    {
+        $user  = User::factory()->create();
+        $token = $user->createToken('test')->plainTextToken;
+
+        $this->putJson(
+            '/api/auth/me',
+            ['name' => 'New Name'],
+            ['Authorization' => "Bearer $token"],
+        )->assertOk();
+
+        $this->assertNotNull($user->fresh()->email_verified_at);
     }
 }
