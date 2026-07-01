@@ -111,6 +111,22 @@ class TestProtectedEndpoints:
 
         assert client.token == "new_tok"
 
+    def test_verify_email_requires_token(self):
+        client = AuthClient(base_url="http://api")
+        with pytest.raises(RuntimeError, match="Not authenticated"):
+            client.verify_email("/api/auth/email/verify/1/abc?expires=1&signature=x")
+
+    def test_verify_email_calls_signed_url(self):
+        client = AuthClient(base_url="http://api")
+        client.token = "tok"
+        resp = _mock_response(200, {"message": "Email verified successfully."})
+
+        with patch.object(client._session, "post", return_value=resp) as mock_post:
+            data = client.verify_email("/api/auth/email/verify/1/abc?expires=1&signature=x")
+
+        mock_post.assert_called_once()
+        assert data["message"] == "Email verified successfully."
+
 
 # ---------------------------------------------------------------------------
 # Context manager

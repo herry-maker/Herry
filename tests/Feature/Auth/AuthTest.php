@@ -22,6 +22,8 @@ class AuthTest extends TestCase
 
     public function test_user_can_register(): void
     {
+        Notification::fake();
+
         $response = $this->postJson('/api/auth/register', [
             'name'                  => 'Alice Smith',
             'email'                 => 'alice@example.com',
@@ -39,6 +41,21 @@ class AuthTest extends TestCase
         $user = User::where('email', 'alice@example.com')->first();
         $this->assertTrue(Hash::check('Secret1pass', $user->password));
         $this->assertNotEquals('Secret1pass', $user->password);
+    }
+
+    public function test_register_sends_email_verification_notification(): void
+    {
+        Notification::fake();
+
+        $this->postJson('/api/auth/register', [
+            'name'                  => 'Frank',
+            'email'                 => 'frank@example.com',
+            'password'              => 'Secret1pass',
+            'password_confirmation' => 'Secret1pass',
+        ])->assertStatus(201);
+
+        $user = User::where('email', 'frank@example.com')->first();
+        Notification::assertSentTo($user, VerifyEmail::class);
     }
 
     public function test_register_returns_a_working_token(): void

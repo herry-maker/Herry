@@ -154,6 +154,17 @@ class AuthClient:
         self._require_token()
         return self._post("/api/auth/email/resend", {})
 
+    def verify_email(self, signed_url: str) -> dict[str, Any]:
+        """Verify email using the full signed URL from the verification email.
+
+        The SPA receives the signed URL (e.g.
+        ``/api/auth/email/verify/{id}/{hash}?expires=...&signature=...``),
+        then calls this method with the Bearer token set via login/register.
+        """
+        self._require_token()
+        response = self._session.post(f"{self.base_url}{signed_url}" if signed_url.startswith("/") else signed_url)
+        return self._handle(response)
+
     # ------------------------------------------------------------------
     # Internal HTTP helpers
     # ------------------------------------------------------------------

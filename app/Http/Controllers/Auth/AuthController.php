@@ -22,10 +22,12 @@ class AuthController extends Controller
             'password' => $request->password,
         ]);
 
+        $user->sendEmailVerificationNotification();
+
         $token = $user->createToken('auth_token', ['*'], now()->addDays(30))->plainTextToken;
 
         return response()->json([
-            'message' => 'Registration successful.',
+            'message' => 'Registration successful. Please check your email to verify your address.',
             'user'    => $user,
             'token'   => $token,
             'type'    => 'Bearer',
