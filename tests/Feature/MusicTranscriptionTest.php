@@ -36,7 +36,7 @@ class MusicTranscriptionTest extends TestCase
         // Note: Without actual Python dependencies, this may fail
         // In production, mock the Python subprocess or use dependency injection
         
-        $response->assertStatus([201, 422]); // Either success or validation error
+        $this->assertContains($response->getStatusCode(), [201, 422]); // Either success or validation error
     }
 
     /**
@@ -120,8 +120,8 @@ class MusicTranscriptionTest extends TestCase
 
         $response = $this->getJson('/api/music/download/test_file.mscx');
 
-        // Should return the file or 200
-        $this->assertIn($response->getStatusCode(), [200, 404]);
+        // Should return the file or 404 (Storage::fake doesn't serve file downloads).
+        $this->assertContains($response->getStatusCode(), [200, 404]);
     }
 
     /**
@@ -149,7 +149,7 @@ class MusicTranscriptionTest extends TestCase
         $response = $this->deleteJson('/api/music/delete/test_delete.mscx');
 
         // Should return success message
-        $this->assertIn($response->getStatusCode(), [200, 404]);
+        $this->assertContains($response->getStatusCode(), [200, 404]);
     }
 
     /**
@@ -199,7 +199,7 @@ class MusicTranscriptionTest extends TestCase
             'title' => 'My Custom Title',
         ]);
 
-        $response->assertStatus([201, 422]); // Either success or subprocess error
+        $this->assertContains($response->getStatusCode(), [201, 422]); // Either success or subprocess error
     }
 
     /**

@@ -45,9 +45,9 @@ class AppServiceProvider extends ServiceProvider
 
     private function configureRateLimiting(): void
     {
-        // Auth endpoints: 5 attempts per minute per IP, plus a separate 10/minute
-        // per email+IP bucket so distributed attacks against one account are also
-        // throttled even when individual IPs stay under the global limit.
+        // Login / forgot-password: 5 attempts per minute per IP, plus a tighter
+        // per-email+IP bucket to stop credential stuffing against a single account
+        // even when the attacker rotates IPs.
         RateLimiter::for('auth', function (Request $request) {
             return [
                 Limit::perMinute(5)->by($request->ip()),
@@ -55,9 +55,14 @@ class AppServiceProvider extends ServiceProvider
             ];
         });
 
-        // Standard API limit.
+        // Standard API limit for authenticated endpoints.
         RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
+        });
+
+        // Tighter limit for password-reset email sending (prevents email flooding).
+        RateLimiter::for('password-reset', function (Request $request) {
+            return Limit::perMinutes(15, 3)->by($request->ip());
         });
     }
 }

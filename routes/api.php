@@ -14,9 +14,13 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('auth')->middleware('throttle:auth')->group(function (): void {
     Route::post('register', [AuthController::class, 'register']);
     Route::post('login',    [AuthController::class, 'login']);
+});
 
-    Route::post('forgot-password', [PasswordResetController::class, 'forgotPassword']);
-    Route::post('reset-password',  [PasswordResetController::class, 'resetPassword']);
+Route::prefix('auth')->group(function (): void {
+    Route::post('forgot-password', [PasswordResetController::class, 'forgotPassword'])
+        ->middleware('throttle:password-reset');
+    Route::post('reset-password', [PasswordResetController::class, 'resetPassword'])
+        ->middleware('throttle:password-reset');
 });
 
 /*
