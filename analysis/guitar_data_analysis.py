@@ -356,8 +356,19 @@ class GuitarStudentDataAnalyzer:
             'student_classifications': self.student_profiles
         }
         
+        class _NumpyEncoder(json.JSONEncoder):
+            def default(self, obj):
+                if hasattr(obj, 'item'):  # numpy scalar
+                    return obj.item()
+                return super().default(obj)
+
+        # Convert numpy int64 dict keys to plain strings
+        export_data['semester_statistics'] = {
+            str(k): v for k, v in export_data['semester_statistics'].items()
+        }
+
         with open(output_file, 'w') as f:
-            json.dump(export_data, f, indent=2)
+            json.dump(export_data, f, indent=2, cls=_NumpyEncoder)
         
         print(f"✓ Analysis data exported to: {output_file}")
 
