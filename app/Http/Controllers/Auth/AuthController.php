@@ -16,15 +16,13 @@ class AuthController extends Controller
 {
     public function register(RegisterRequest $request): JsonResponse
     {
-        $user = User::create([
-            'name'     => $request->name,
-            'email'    => $request->email,
-            'password' => $request->password,
-        ]);
+        $user = User::create(
+            $request->safe()->only(['name', 'email', 'password']),
+        );
 
         $user->sendEmailVerificationNotification();
 
-        $token = $user->createToken('auth_token', ['*'], now()->addDays(30))->plainTextToken;
+        $token = $user->createToken('auth_token', ['*'], $this->tokenExpiry())->plainTextToken;
 
         return response()->json([
             'message' => 'Registration successful. Please check your email to verify your address.',
@@ -49,7 +47,7 @@ class AuthController extends Controller
         $token = $user->createToken(
             $request->header('User-Agent', 'api_token'),
             ['*'],
-            now()->addDays(30),
+            $this->tokenExpiry(),
         )->plainTextToken;
 
         return response()->json([
@@ -112,6 +110,12 @@ class AuthController extends Controller
         return response()->json(['message' => 'Password changed successfully.']);
     }
 
+    private function tokenExpiry(): \Carbon\Carbon
+    {
+        $minutes = (int) config('sanctum.expiration', 60 * 24 * 30);
+        return now()->addMinutes($minutes);
+    }
+
     public function refresh(Request $request): JsonResponse
     {
         $user = $request->user();
@@ -120,7 +124,7 @@ class AuthController extends Controller
         $token = $user->createToken(
             $request->header('User-Agent', 'api_token'),
             ['*'],
-            now()->addDays(30),
+            $this->tokenExpiry(),
         )->plainTextToken;
 
         return response()->json([
