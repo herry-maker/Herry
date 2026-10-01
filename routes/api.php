@@ -28,7 +28,7 @@ Route::prefix('auth')->group(function (): void {
 | Protected Auth Routes
 |--------------------------------------------------------------------------
 */
-Route::prefix('auth')->middleware('auth:sanctum')->group(function (): void {
+Route::prefix('auth')->middleware(['auth:sanctum', 'throttle:api'])->group(function (): void {
     Route::get('me',         [AuthController::class, 'me']);
     Route::put('me',         [AuthController::class, 'updateProfile']);
     Route::put('password',   [AuthController::class, 'changePassword']);

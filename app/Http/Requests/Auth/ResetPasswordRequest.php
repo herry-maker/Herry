@@ -12,6 +12,13 @@ class ResetPasswordRequest extends FormRequest
         return true;
     }
 
+    protected function prepareForValidation(): void
+    {
+        if ($this->email) {
+            $this->merge(['email' => strtolower(trim($this->email))]);
+        }
+    }
+
     public function rules(): array
     {
         return [
