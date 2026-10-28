@@ -84,13 +84,14 @@ Detection is gated by a noise floor tracked from unpitched frames (not a fixed l
 
 ---
 
-## Pitch Detector (`/pitch`)
+## Djahwasi Pitch Detector (`/pitch`)
 
-A general-purpose pitch detector at `public/pitch/index.html`, served at `/pitch`. Built like the tuner: one self-contained page, relative paths, a manifest and icons beside it, no build step. Where the tuner is organised around guitar strings, this app reports whatever periodic sound it hears, from a bass low B to the top of a piano.
+Djahwasi Pitch Detector, a general-purpose pitch detector at `public/pitch/index.html`, served at `/pitch`. Built like the tuner: one self-contained page, relative paths, a manifest and icons beside it, no build step. Where the tuner is organised around guitar strings, this app reports whatever periodic sound it hears, from a bass low B to the top of a piano.
 
 - **Three sources**: the microphone, an audio file (WAV, MP3, M4A/AAC, OGG, FLAC, or a video's audio track, by button or drag-and-drop), and a **self-test tone** generated inside the page and routed straight into the detector. The self-test separates "the detector is broken" from "the microphone is not delivering sound": if it reads the chosen note, the detector works.
 - **Readout**: note name and octave, cents from equal temperament (A4 adjustable 415 to 466 Hz), frequency, fractional MIDI number, clarity, and a level meter that shows the input level, the tracked noise floor and the gate.
-- **Pitch trace**: the last 12 seconds of pitch on a log-frequency axis with note gridlines, plus a spectrum strip with the detected fundamental and its harmonics marked.
+- **Pitch trace**: the last 3 minutes of pitch are kept and shown on a log-frequency axis with note gridlines, viewable as the last 12 s, 1 min or 3 min. **Save CSV** exports the trace (relative time, wall-clock time, f0, MIDI, note, cents, clarity, level); **Save image** exports a branded PNG of the trace. A spectrum strip marks the detected fundamental and its harmonics.
+- **Recording**: **Record** captures the microphone for up to 3 minutes (it stops by itself at 3:00). On stop the recording is analysed like an opened file, with the full pitch-track chart, playback, CSV export and a **Save recording** button (WebM/Opus in Chrome and Firefox, M4A in Safari).
 - **File analysis**: the whole file is analysed offline in a Web Worker (4096-sample window, 1024-sample hop) and drawn as a pitch track. Click the chart to play from that point with the live readout running. Summary figures (voiced fraction, median, 5 to 95 percent range) and a **CSV export** (time, f0, MIDI, note, cents, clarity, level) support transcription and performance-analysis work.
 - **Algorithm**: McLeod Pitch Method (normalized square difference function) with the autocorrelation computed by FFT, parabolic peak interpolation and median smoothing. Validated in Node on synthetic tones from 30 Hz to 2.5 kHz within 2 cents, at input levels down to −60 dBFS and at 6 dB signal-to-noise ratio; about 1 ms per frame.
 - **Robust input handling**: noise-floor gate instead of a fixed level cutoff; the audio context is recreated if iOS changes the hardware sample rate when the microphone opens; a tap-to-resume prompt if the browser suspends audio; a silence watchdog; device picker when more than one microphone exists; specific messages for each permission and device error.
