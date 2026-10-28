@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#101418" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
+<meta name="description" content="Pitch Detector: real-time fundamental frequency, note name and cents from a microphone, an audio file or a built-in test tone, with a pitch trace, spectrum, file analysis and CSV export.">
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Pitch">
+<title>Pitch Detector</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --panel-2:#eef1f5; --line:#d7dce3; --ink:#15191e; --ink-dim:#5d6671;
+  --accent:#1f6feb; --ok:#1a8f4a; --flat:#c2700c; --sharp:#c8323c; --warn:#b35c00; --warn-bg:#fff4e5;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  --body:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#101418; --panel:#171c22; --panel-2:#1f262e; --line:#2c353f; --ink:#e8edf2; --ink-dim:#97a3b0;
+    --accent:#58a6ff; --ok:#4ad07a; --flat:#f0a73a; --sharp:#ff6b6b; --warn:#f0a73a; --warn-bg:#2a2214;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101418; --panel:#171c22; --panel-2:#1f262e; --line:#2c353f; --ink:#e8edf2; --ink-dim:#97a3b0;
+  --accent:#58a6ff; --ok:#4ad07a; --flat:#f0a73a; --sharp:#ff6b6b; --warn:#f0a73a; --warn-bg:#2a2214;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.4}
+body{padding:16px;padding-bottom:max(24px,env(safe-area-inset-bottom))}
+.wrap{max-width:1040px;margin:0 auto;display:grid;gap:14px}
+@media (min-width:900px){ .wrap{grid-template-columns:1.2fr 1fr;align-items:start} .span{grid-column:1/-1} }
+header{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px}
+h1{font-size:22px;margin:0;font-weight:700;letter-spacing:-.01em}
+h1 small{font-weight:400;color:var(--ink-dim);font-size:14px;margin-left:8px}
+h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-dim);margin:0 0 10px;font-weight:600}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button,select,input[type=file]{font:inherit}
+button{background:var(--panel-2);color:var(--ink);border:1px solid var(--line);border-radius:9px;padding:9px 14px;cursor:pointer;font-weight:600;min-height:40px}
+button:hover{border-color:var(--ink-dim)}
+button[aria-pressed="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}
+button.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+button:disabled{opacity:.5;cursor:default}
+select{background:var(--panel-2);color:var(--ink);border:1px solid var(--line);border-radius:9px;padding:8px 10px;min-height:40px;max-width:100%}
+label.f{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--ink-dim)}
+label.f > *{color:var(--ink)}
+.status{border-radius:9px;padding:10px 12px;background:var(--panel-2);font-size:14px;min-height:40px}
+.status[data-tone="warn"]{background:var(--warn-bg);color:var(--warn)}
+.status[data-tone="ok"]{color:var(--ok)}
+/* readout */
+.readout{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;align-items:center}
+.note{font-size:clamp(72px,18vw,128px);line-height:1;font-weight:700;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.note sup{font-size:.36em;vertical-align:top;position:relative;top:.25em;margin-left:2px;color:var(--ink-dim)}
+.note[data-state="idle"]{color:var(--ink-dim);opacity:.45}
+.note[data-state="ok"]{color:var(--ok)}
+.figures{display:grid;gap:4px;font-family:var(--mono);font-size:14px;color:var(--ink-dim)}
+.figures b{color:var(--ink);font-weight:600;font-size:22px}
+.figures > span{display:block}
+.cents{margin-top:12px}
+.cents .bar{position:relative;height:18px;border-radius:9px;background:var(--panel-2);border:1px solid var(--line);overflow:hidden}
+.cents .zone{position:absolute;left:47%;width:6%;top:0;bottom:0;background:color-mix(in srgb,var(--ok) 28%,transparent)}
+.cents .tick{position:absolute;top:0;bottom:0;width:1px;background:var(--line)}
+.cents .needle{position:absolute;top:0;bottom:0;width:3px;margin-left:-1.5px;left:50%;background:var(--accent);transition:left .08s linear}
+.cents[data-state="ok"] .needle{background:var(--ok)}
+.cents[data-state="flat"] .needle{background:var(--flat)}
+.cents[data-state="sharp"] .needle{background:var(--sharp)}
+.cents[data-state="idle"] .needle{opacity:.3}
+.cents .scale{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--ink-dim);margin-top:3px}
+.level{margin-top:10px;font-family:var(--mono);font-size:12px;color:var(--ink-dim)}
+.level .bar{position:relative;height:8px;border-radius:4px;background:var(--panel-2);border:1px solid var(--line);overflow:hidden;margin-top:4px}
+.level .fill{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--accent)}
+.level .fill.hot{background:var(--sharp)}
+.level .gate{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--flat)}
+.level .meta{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+canvas{display:block;width:100%;background:var(--panel-2);border:1px solid var(--line);border-radius:8px}
+#trace{height:180px}
+#spec{height:90px;margin-top:8px}
+#fileChart{height:160px;cursor:pointer}
+.small{font-size:12px;color:var(--ink-dim)}
+.kv{display:grid;grid-template-columns:max-content 1fr;gap:3px 12px;font-family:var(--mono);font-size:12px}
+.kv dt{color:var(--ink-dim)} .kv dd{margin:0;word-break:break-word}
+details summary{cursor:pointer;font-weight:600;font-size:14px}
+ul.tips{margin:8px 0 0;padding-left:18px;font-size:13px} ul.tips li{margin:4px 0}
+.hide{display:none !important}
+progress{width:100%;height:8px}
+.stats{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--mono);font-size:12px;color:var(--ink-dim)}
+.stats b{color:var(--ink)}
+.sr-only{position:absolute;left:-9999px}
+a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="span">
+    <h1>Pitch Detector <small>fundamental frequency · note · cents</small></h1>
+    <nav class="small"><a href="../tuner/">Guitar tuner</a></nav>
+  </header>
+
+  <section class="card span" aria-label="Sound source">
+    <div class="row">
+      <button type="button" id="mic" class="primary" aria-pressed="false"><span id="micLabel">Start microphone</span></button>
+      <button type="button" id="fileBtn">Open audio file</button>
+      <input type="file" id="file" accept="audio/*,video/*,.wav,.mp3,.m4a,.ogg,.flac,.aac,.webm,.mp4" class="sr-only" tabindex="-1">
+      <button type="button" id="test" aria-pressed="false">Self-test tone</button>
+      <select id="testNote" aria-label="Self-test note"></select>
+      <select id="device" aria-label="Microphone" class="hide"></select>
+    </div>
+    <div class="status" id="status" role="status" aria-live="polite">Press <strong>Start microphone</strong> and make a sound, open an audio file, or run the self-test tone to check the detector without a microphone.</div>
+  </section>
+
+  <section class="card" aria-label="Readout">
+    <h2>Detected pitch</h2>
+    <div class="readout">
+      <div class="note" id="note" data-state="idle"><span id="noteName">—</span><sup id="octave"></sup></div>
+      <div class="figures">
+        <span><b id="hz">—</b> Hz</span>
+        <span>cents <b id="centsVal">0</b></span>
+        <span>MIDI <span id="midi">—</span> · clarity <span id="clarity">—</span></span>
+        <span id="last" class="small">&nbsp;</span>
+      </div>
+    </div>
+    <div class="cents" id="cents" data-state="idle">
+      <div class="bar"><div class="zone"></div><div class="tick" style="left:25%"></div><div class="tick" style="left:50%"></div><div class="tick" style="left:75%"></div><div class="needle" id="needle"></div></div>
+      <div class="scale"><span>−50</span><span>−25</span><span>0</span><span>+25</span><span>+50</span></div>
+    </div>
+    <div class="level">
+      <div class="meta"><span>input <span id="levelDb">−∞</span> dB</span><span>noise floor <span id="floorDb">—</span> dB</span><span>peak <span id="peakVal">—</span></span></div>
+      <div class="bar"><div class="fill" id="levelFill"></div><div class="gate" id="gateMark" style="left:0"></div></div>
+    </div>
+  </section>
+
+  <section class="card" aria-label="Pitch trace and spectrum">
+    <h2>Pitch trace <span class="small">last 12 s</span></h2>
+    <canvas id="trace" aria-label="Pitch over the last twelve seconds" role="img"></canvas>
+    <canvas id="spec" aria-label="Spectrum with the detected fundamental marked" role="img"></canvas>
+  </section>
+
+  <section class="card span hide" id="fileCard" aria-label="File analysis">
+    <h2>File analysis</h2>
+    <div class="row">
+      <button type="button" id="play" disabled aria-pressed="false">Play</button>
+      <button type="button" id="csv" disabled>Download CSV</button>
+      <span class="small" id="fileName"></span>
+    </div>
+    <progress id="progress" value="0" max="1" class="hide"></progress>
+    <canvas id="fileChart" aria-label="Pitch track of the whole file; click to play from a point" role="img"></canvas>
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <section class="card" aria-label="Settings">
+    <h2>Settings</h2>
+    <div class="row">
+      <label class="f">Range<select id="range">
+        <option value="27.5,4200">Auto · A0–C8 (27.5–4200 Hz)</option>
+        <option value="60,1200">Voice (60–1200 Hz)</option>
+        <option value="70,1400">Guitar (70–1400 Hz)</option>
+        <option value="30,400">Bass (30–400 Hz)</option>
+        <option value="180,4200">Violin · flute (180–4200 Hz)</option>
+        <option value="27.5,4200">Piano (27.5–4200 Hz)</option>
+      </select></label>
+      <label class="f">A4<select id="a4"></select></label>
+      <label class="f">Names<select id="names"><option value="sharp">C♯ D♯ (sharps)</option><option value="flat">D♭ E♭ (flats)</option></select></label>
+      <label class="f">Sensitivity<select id="sens">
+        <option value="0.93">Strict (clean tones only)</option>
+        <option value="0.85" selected>Normal</option>
+        <option value="0.72">Sensitive (noisy rooms, breathy voice)</option>
+      </select></label>
+      <label class="f">Smoothing<select id="smooth"><option value="1">Off</option><option value="3">Light</option><option value="5" selected>Medium</option><option value="9">Heavy</option></select></label>
+    </div>
+  </section>
+
+  <section class="card" aria-label="Diagnostics">
+    <details id="diag">
+      <summary>Diagnostics &amp; troubleshooting</summary>
+      <dl class="kv" style="margin-top:10px">
+        <dt>secure context</dt><dd id="dSecure">—</dd>
+        <dt>getUserMedia</dt><dd id="dGum">—</dd>
+        <dt>audio context</dt><dd id="dCtx">not created</dd>
+        <dt>sample rate</dt><dd id="dSr">—</dd>
+        <dt>input</dt><dd id="dInput">none</dd>
+        <dt>track settings</dt><dd id="dTrack">—</dd>
+        <dt>frames analysed</dt><dd id="dFrames">0</dd>
+        <dt>last error</dt><dd id="dErr">none</dd>
+      </dl>
+      <ul class="tips">
+        <li><strong>Nothing is detected from any source?</strong> Run <em>Self-test tone</em>. If it reads the chosen note, the detector works and the problem is the input path (microphone, permission or level). If it does not, reload the page and check <em>last error</em> above.</li>
+        <li><strong>Microphone button does nothing or says blocked:</strong> the page must be opened over <code>https://</code> or <code>localhost</code>, in a real browser tab (not an in-app browser or an iframe without microphone permission). Allow the microphone in the address bar and in the operating system's privacy settings.</li>
+        <li><strong>Input stays at −∞ dB:</strong> the browser is receiving silence. Another app may hold the microphone, the wrong device may be selected (use the device list that appears after permission), or the system input is muted.</li>
+        <li><strong>Level moves but no note appears:</strong> the sound is not periodic enough. Move closer, sustain the note, lower the <em>Sensitivity</em> to <em>Sensitive</em>, or pick a narrower <em>Range</em>.</li>
+        <li><strong>Wrong octave:</strong> narrow the <em>Range</em> to the instrument; strong second harmonics in bass notes can fool any detector when the band is wide open.</li>
+      </ul>
+    </details>
+  </section>
+</div>
+
+<script>
+// ---------- pitch detector: McLeod Pitch Method (normalized square difference) with FFT autocorrelation ----------
+// Written as a factory so the identical source can run on the page and inside a Worker for file analysis.
+function makeDetector() {
+  const fftCache = new Map();
+  function fftTables(N) {
+    let t = fftCache.get(N);
+    if (t) return t;
+    const rev = new Uint32Array(N), bits = Math.log2(N);
+    for (let i = 0; i < N; i++) { let r = 0, x = i; for (let b = 0; b < bits; b++) { r = (r << 1) | (x & 1); x >>= 1; } rev[i] = r; }
+    const cos = new Float64Array(N / 2), sin = new Float64Array(N / 2);
+    for (let i = 0; i < N / 2; i++) { cos[i] = Math.cos(-2 * Math.PI * i / N); sin[i] = Math.sin(-2 * Math.PI * i / N); }
+    t = { rev, cos, sin }; fftCache.set(N, t); return t;
+  }
+  function fft(re, im, inv) {
+    const N = re.length, { rev, cos, sin } = fftTables(N);
+    for (let i = 0; i < N; i++) { const j = rev[i]; if (j > i) { let t = re[i]; re[i] = re[j]; re[j] = t; t = im[i]; im[i] = im[j]; im[j] = t; } }
+    for (let size = 2; size <= N; size <<= 1) {
+      const half = size >> 1, step = N / size;
+      for (let start = 0; start < N; start += size) {
+        for (let k = 0, w = 0; k < half; k++, w += step) {
+          const wr = cos[w], wi = inv ? -sin[w] : sin[w], a = start + k, b = a + half;
+          const xr = re[b] * wr - im[b] * wi, xi = re[b] * wi + im[b] * wr;
+          re[b] = re[a] - xr; im[b] = im[a] - xi; re[a] += xr; im[a] += xi;
+        }
+      }
+    }
+  }
+  let scratch = null;
+  // b: Float32Array window; sr: sample rate; minHz/maxHz: search band; k: McLeod peak threshold (0.8..1)
+  return function detect(b, sr, minHz, maxHz, k) {
+    const n = b.length;
+    let mean = 0; for (let i = 0; i < n; i++) mean += b[i]; mean /= n;
+    const N = 1 << Math.ceil(Math.log2(2 * n));
+    if (!scratch || scratch.re.length !== N || scratch.sq.length !== n + 1) scratch = { re: new Float64Array(N), im: new Float64Array(N), sq: new Float64Array(n + 1) };
+    const { re, im, sq } = scratch;
+    re.fill(0); im.fill(0);
+    let energy = 0, peak = 0;
+    for (let i = 0; i < n; i++) { const x = b[i] - mean; re[i] = x; energy += x * x; sq[i + 1] = energy; const ax = x < 0 ? -x : x; if (ax > peak) peak = ax; }
+    const rms = Math.sqrt(energy / n);
+    if (rms === 0) return { hz: 0, clarity: 0, rms, peak };
+    fft(re, im, false);
+    for (let i = 0; i < N; i++) { re[i] = re[i] * re[i] + im[i] * im[i]; im[i] = 0; }
+    fft(re, im, true);                                   // re[tau] = N * autocorrelation(tau)
+    const maxLag = Math.min(n >> 1, Math.ceil(sr / minHz));
+    const minLag = Math.max(2, Math.floor(sr / maxHz));
+    const nsdf = new Float32Array(maxLag + 1);
+    for (let tau = 0; tau <= maxLag; tau++) {
+      const m = sq[n - tau] + (sq[n] - sq[tau]);
+      nsdf[tau] = m > 0 ? (2 * re[tau] / N) / m : 0;
+    }
+    let tau = 0;
+    while (tau <= maxLag && nsdf[tau] > 0) tau++;        // skip the unit lobe at lag 0
+    const peaks = [];
+    while (tau <= maxLag) {                               // key maximum of every positive region
+      while (tau <= maxLag && nsdf[tau] <= 0) tau++;
+      let best = -1, bestV = -Infinity;
+      while (tau <= maxLag && nsdf[tau] > 0) { if (nsdf[tau] > bestV) { bestV = nsdf[tau]; best = tau; } tau++; }
+      if (best >= minLag) peaks.push(best);
+    }
+    if (!peaks.length) return { hz: 0, clarity: 0, rms, peak };
+    let highest = -Infinity;
+    for (const p of peaks) if (nsdf[p] > highest) highest = nsdf[p];
+    const thresh = highest * (k || 0.9);
+    const chosen = peaks.find(p => nsdf[p] >= thresh);
+    let t = chosen, c0 = nsdf[chosen];
+    if (chosen > 0 && chosen < maxLag) {                  // parabolic interpolation around the peak
+      const a = nsdf[chosen - 1], c = nsdf[chosen + 1], d = a - 2 * c0 + c;
+      if (d < 0) { const off = 0.5 * (a - c) / d; t = chosen + off; c0 = c0 - 0.25 * (a - c) * off; }
+    }
+    return { hz: sr / t, clarity: Math.min(1, c0), rms, peak };
+  };
+}
+
+(() => {
+  'use strict';
+  const detect = makeDetector();
+  const SHARPS = ['C','C♯','D','D♯','E','F','F♯','G','G♯','A','A♯','B'];
+  const FLATS  = ['C','D♭','D','E♭','E','F','G♭','G','A♭','A','B♭','B'];
+  const WIN = 4096;                 // analysis window in samples (85 ms at 48 kHz; two periods of 23 Hz)
+  const TRACE_MS = 12000;
+  const IN_TUNE = 5;                // cents
+  const ABS_FLOOR = 5e-4;           // −66 dBFS: anything quieter is treated as silence
+  const GATE_RATIO = 2;             // signal must exceed the tracked noise floor by this factor (6 dB)
+  const HOLD_MS = 350;              // keep the reading this long after the last confident frame
+
+  const $ = id => document.getElementById(id);
+  const el = {
+    mic: $('mic'), micLabel: $('micLabel'), fileBtn: $('fileBtn'), file: $('file'), test: $('test'), testNote: $('testNote'), device: $('device'), status: $('status'),
+    note: $('note'), noteName: $('noteName'), octave: $('octave'), hz: $('hz'), centsVal: $('centsVal'), midi: $('midi'), clarity: $('clarity'), last: $('last'),
+    cents: $('cents'), needle: $('needle'), levelDb: $('levelDb'), floorDb: $('floorDb'), peakVal: $('peakVal'), levelFill: $('levelFill'), gateMark: $('gateMark'),
+    trace: $('trace'), spec: $('spec'), fileCard: $('fileCard'), play: $('play'), csv: $('csv'), fileName: $('fileName'), progress: $('progress'), fileChart: $('fileChart'), stats: $('stats'),
+    range: $('range'), a4: $('a4'), names: $('names'), sens: $('sens'), smooth: $('smooth'),
+    dSecure: $('dSecure'), dGum: $('dGum'), dCtx: $('dCtx'), dSr: $('dSr'), dInput: $('dInput'), dTrack: $('dTrack'), dFrames: $('dFrames'), dErr: $('dErr'),
+  };
+  const css = getComputedStyle(document.documentElement);
+  const C = k => css.getPropertyValue(k).trim();
+
+  // ---------- state ----------
+  const state = {
+    a4: 440, names: 'sharp', minHz: 27.5, maxHz: 4200, clarityMin: 0.85, smooth: 5,
+    running: false, source: null,           // 'mic' | 'file' | 'test'
+    freq: 0, midi: null, cents: 0, clarity: 0, rms: 0, peak: 0, floor: null, gate: ABS_FLOOR,
+    lastValid: 0, hist: [], trace: [], frames: 0, lastReading: null, firstFrameAt: 0, silentSince: 0,
+  };
+  try {
+    const s = JSON.parse(localStorage.getItem('pitch.settings') || '{}');
+    if (s.a4 >= 415 && s.a4 <= 466) state.a4 = s.a4;
+    if (s.names === 'flat') state.names = 'flat';
+    if (typeof s.range === 'string') { const [lo, hi] = s.range.split(',').map(Number); if (lo > 0 && hi > lo) { state.minHz = lo; state.maxHz = hi; el.range.value = s.range; } }
+    if (s.clarityMin > 0 && s.clarityMin < 1) state.clarityMin = s.clarityMin;
+    if (s.smooth >= 1) state.smooth = s.smooth;
+  } catch (e) {}
+  const save = () => { try { localStorage.setItem('pitch.settings', JSON.stringify({ a4: state.a4, names: state.names, range: el.range.value, clarityMin: state.clarityMin, smooth: state.smooth })); } catch (e) {} };
+
+  // ---------- music math ----------
+  const midiToHz = m => state.a4 * Math.pow(2, (m - 69) / 12);
+  const hzToMidi = f => 69 + 12 * Math.log2(f / state.a4);
+  const noteName = m => (state.names === 'flat' ? FLATS : SHARPS)[((m % 12) + 12) % 12];
+  const octaveOf = m => Math.floor(m / 12) - 1;
+  const dB = v => v > 0 ? 20 * Math.log10(v) : -Infinity;
+  const fmtDb = v => isFinite(v) ? v.toFixed(0) : '−∞';
+
+  // ---------- settings UI ----------
+  for (let a = 415; a <= 466; a++) { const o = document.createElement('option'); o.value = a; o.textContent = `${a} Hz`; el.a4.appendChild(o); }
+  el.a4.value = state.a4; el.names.value = state.names; el.sens.value = String(state.clarityMin); el.smooth.value = String(state.smooth);
+  if (!el.sens.value) el.sens.value = '0.85';
+  if (!el.smooth.value) el.smooth.value = '5';
+  el.a4.addEventListener('change', () => { state.a4 = +el.a4.value; save(); });
+  el.names.addEventListener('change', () => { state.names = el.names.value; save(); });
+  el.range.addEventListener('change', () => { const [lo, hi] = el.range.value.split(',').map(Number); state.minHz = lo; state.maxHz = hi; state.hist = []; save(); });
+  el.sens.addEventListener('change', () => { state.clarityMin = +el.sens.value; save(); if (fileTrack) { summarise(fileTrack); drawFileChart(); } });
+  el.smooth.addEventListener('change', () => { state.smooth = +el.smooth.value; state.hist = []; save(); });
+  for (let m = 36; m <= 96; m++) { const o = document.createElement('option'); o.value = m; o.textContent = `${SHARPS[m % 12]}${octaveOf(m)}`; el.testNote.appendChild(o); }
+  el.testNote.value = 69;
+
+  // ---------- diagnostics ----------
+  const diag = {};
+  function setDiag(k, v) { if (el[k]) el[k].textContent = v; diag[k] = v; }
+  setDiag('dSecure', window.isSecureContext ? 'yes' : 'NO · microphone needs https:// or localhost');
+  setDiag('dGum', (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) ? 'available' : 'NOT available in this browser or context');
+  function fail(err, where) {
+    const msg = err ? `${err.name || 'Error'}: ${err.message || err}` : 'unknown';
+    setDiag('dErr', `${where}: ${msg}`);
+    console.error(where, err);
+  }
+  function refreshCtxDiag() {
+    if (!actx) return;
+    setDiag('dCtx', actx.state);
+    setDiag('dSr', `${actx.sampleRate} Hz · window ${WIN} samples (${(WIN / actx.sampleRate * 1000).toFixed(0)} ms)`);
+  }
+
+  // ---------- status ----------
+  function setStatus(tone, html) { el.status.dataset.tone = tone || ''; el.status.innerHTML = html; }
+  const idleText = 'Press <strong>Start microphone</strong> and make a sound, open an audio file, or run the self-test tone to check the detector without a microphone.';
+
+  // ---------- audio graph ----------
+  let actx = null, analyser = null, input = null, stream = null, buf = new Float32Array(WIN), byteBuf = null, specBuf = null;
+  let fileSource = null, testNodes = null, resumeHook = null;
+  const AC = window.AudioContext || window.webkitAudioContext;
+  function ensureCtx() {
+    if (!AC) throw new Error('Web Audio is not supported in this browser');
+    if (!actx || actx.state === 'closed') {
+      actx = new AC();
+      actx.onstatechange = () => { refreshCtxDiag(); if (state.running && actx.state !== 'running') needGesture(); };
+    }
+    if (actx.state !== 'running') actx.resume().catch(e => fail(e, 'resume'));
+    refreshCtxDiag();
+    return actx;
+  }
+  // Safari and Chrome suspend an AudioContext that was not started by a user gesture; ask for a tap and resume on it.
+  function needGesture() {
+    if (resumeHook) return;
+    setStatus('warn', 'The browser paused audio. <strong>Tap or click anywhere</strong> to resume.');
+    resumeHook = () => { document.removeEventListener('pointerdown', resumeHook); document.removeEventListener('keydown', resumeHook); resumeHook = null; if (actx) actx.resume().then(() => { if (state.running) setStatus('', listeningText()); }).catch(e => fail(e, 'resume')); };
+    document.addEventListener('pointerdown', resumeHook); document.addEventListener('keydown', resumeHook);
+  }
+  function attach(ctx, node, source, label) {
+    analyser = ctx.createAnalyser(); analyser.fftSize = WIN; analyser.smoothingTimeConstant = 0.3;
+    input = node; node.connect(analyser);
+    buf = new Float32Array(WIN); specBuf = new Float32Array(analyser.frequencyBinCount); byteBuf = analyser.getFloatTimeDomainData ? null : new Uint8Array(WIN);
+    state.running = true; state.source = source; state.hist = []; state.trace = []; state.floor = null; state.frames = 0; state.firstFrameAt = 0; state.silentSince = 0; state.midi = null; state.lastValid = 0;
+    setDiag('dInput', label);
+    el.mic.setAttribute('aria-pressed', source === 'mic' ? 'true' : 'false'); el.micLabel.textContent = source === 'mic' ? 'Stop microphone' : 'Start microphone';
+    el.test.setAttribute('aria-pressed', source === 'test' ? 'true' : 'false');
+    el.play.setAttribute('aria-pressed', source === 'file' ? 'true' : 'false'); el.play.textContent = source === 'file' ? 'Stop' : 'Play';
+    refreshCtxDiag();
+    if (ctx.state !== 'running') { ctx.resume().catch(e => fail(e, 'resume')); setTimeout(() => { if (state.running && ctx.state !== 'running') needGesture(); }, 800); }
+    setStatus('', listeningText());
+    keepAwake();
+  }
+  function listeningText() {
+    if (state.source === 'mic') return 'Listening. Sing, play or hum a steady note.';
+    if (state.source === 'file') return 'Playing the file through the detector. The chart below shows the whole file; click it to jump.';
+    return `Self-test: a ${SHARPS[el.testNote.value % 12]}${octaveOf(+el.testNote.value)} tone (${midiToHz(+el.testNote.value).toFixed(2)} Hz) is routed straight into the detector.`;
+  }
+  function stopAll(keepStatus) {
+    state.running = false; state.source = null; state.midi = null; state.freq = 0; state.clarity = 0; state.rms = 0; state.peak = 0;
+    if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
+    if (fileSource) { const f = fileSource; fileSource = null; try { f.stop(); } catch (e) {} }
+    if (testNodes) { const t = testNodes; testNodes = null; try { t.gain.gain.setTargetAtTime(0.0001, actx.currentTime, 0.03); t.o1.stop(actx.currentTime + 0.2); t.o2.stop(actx.currentTime + 0.2); } catch (e) {} }
+    if (input) { try { input.disconnect(); } catch (e) {} input = null; }
+    analyser = null;
+    el.mic.setAttribute('aria-pressed', 'false'); el.micLabel.textContent = 'Start microphone';
+    el.test.setAttribute('aria-pressed', 'false');
+    el.play.setAttribute('aria-pressed', 'false'); el.play.textContent = 'Play';
+    setDiag('dInput', 'none');
+    releaseWake();
+    paint();
+    if (!keepStatus) setStatus('', idleText);
+  }
+
+  // ---------- microphone ----------
+  async function startMic(deviceId) {
+    if (state.running) stopAll(true);
+    if (!window.isSecureContext) { setStatus('warn', 'The microphone only works on a secure page. Open this app over <strong>https://</strong> (or http://localhost). You can still open an audio file or run the self-test.'); return; }
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { setStatus('warn', 'This browser or embedded view offers no microphone access. Open the page in Chrome, Safari, Firefox or Edge in its own tab.'); return; }
+    let ctx;
+    try { ctx = ensureCtx(); } catch (e) { fail(e, 'AudioContext'); setStatus('warn', 'Web Audio is not available in this browser.'); return; }
+    setStatus('', 'Waiting for microphone permission…');
+    const constraints = { audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false } };
+    if (deviceId) constraints.audio.deviceId = { exact: deviceId };
+    try {
+      stream = await navigator.mediaDevices.getUserMedia(constraints);
+    } catch (err) {
+      fail(err, 'getUserMedia');
+      const n = err && err.name;
+      if (n === 'NotAllowedError' || n === 'SecurityError') setStatus('warn', 'Microphone permission was refused. Allow it in the address bar (padlock icon) and in the operating system privacy settings, then try again.');
+      else if (n === 'NotFoundError' || n === 'DevicesNotFoundError') setStatus('warn', 'No microphone was found. Plug one in, or open an audio file instead.');
+      else if (n === 'NotReadableError' || n === 'AbortError') setStatus('warn', 'The microphone is busy or unreadable. Close other apps or tabs that use it (video calls, recorders) and try again.');
+      else if (n === 'OverconstrainedError') { setStatus('warn', 'That microphone is no longer available. Trying the default device…'); return startMic(null); }
+      else setStatus('warn', `Could not open the microphone (${n || 'error'}). See Diagnostics for details.`);
+      return;
+    }
+    const track = stream.getAudioTracks()[0];
+    const settings = track && track.getSettings ? track.getSettings() : {};
+    setDiag('dTrack', JSON.stringify(settings));
+    // iOS switches the hardware rate when the microphone opens; a context created earlier may then run at the wrong rate.
+    if (settings.sampleRate && ctx.sampleRate !== settings.sampleRate) {
+      try { await ctx.close(); } catch (e) {}
+      actx = null; ctx = ensureCtx();
+      setDiag('dErr', `sample rate changed to ${settings.sampleRate} Hz; audio context recreated`);
+    }
+    track.onended = () => { if (state.source === 'mic') { stopAll(true); setStatus('warn', 'The microphone was disconnected or taken over by another app.'); } };
+    attach(ctx, ctx.createMediaStreamSource(stream), 'mic', `microphone · ${track.label || 'unnamed device'}`);
+    listDevices();
+  }
+  async function listDevices() {
+    if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) return;
+    try {
+      const devs = (await navigator.mediaDevices.enumerateDevices()).filter(d => d.kind === 'audioinput');
+      if (devs.length < 2) return;
+      const cur = stream && stream.getAudioTracks()[0].getSettings().deviceId;
+      el.device.innerHTML = '';
+      devs.forEach((d, i) => { const o = document.createElement('option'); o.value = d.deviceId; o.textContent = d.label || `Microphone ${i + 1}`; if (d.deviceId === cur) o.selected = true; el.device.appendChild(o); });
+      el.device.classList.remove('hide');
+    } catch (e) { fail(e, 'enumerateDevices'); }
+  }
+  el.device.addEventListener('change', () => startMic(el.device.value));
+  el.mic.addEventListener('click', () => state.source === 'mic' ? stopAll() : startMic(el.device.classList.contains('hide') ? null : el.device.value));
+
+  // ---------- self-test tone: a known pitch routed straight into the detector (and quietly to the speaker) ----------
+  function startTest() {
+    if (state.running) stopAll(true);
+    let ctx; try { ctx = ensureCtx(); } catch (e) { fail(e, 'AudioContext'); setStatus('warn', 'Web Audio is not available in this browser.'); return; }
+    const hz = midiToHz(+el.testNote.value);
+    const o1 = ctx.createOscillator(); o1.type = 'triangle'; o1.frequency.value = hz;
+    const o2 = ctx.createOscillator(); o2.type = 'sine'; o2.frequency.value = hz * 2;
+    const g2 = ctx.createGain(); g2.gain.value = 0.3;
+    const mix = ctx.createGain(); mix.gain.value = 0.5;
+    const spk = ctx.createGain(); spk.gain.value = 0.12;
+    o1.connect(mix); o2.connect(g2); g2.connect(mix); mix.connect(spk); spk.connect(ctx.destination);
+    o1.start(); o2.start();
+    testNodes = { o1, o2, gain: mix };
+    attach(ctx, mix, 'test', `self-test oscillator · ${hz.toFixed(2)} Hz`);
+  }
+  el.test.addEventListener('click', () => state.source === 'test' ? stopAll() : startTest());
+  el.testNote.addEventListener('change', () => { if (state.source === 'test') { const hz = midiToHz(+el.testNote.value), now = actx.currentTime; testNodes.o1.frequency.setTargetAtTime(hz, now, 0.02); testNodes.o2.frequency.setTargetAtTime(hz * 2, now, 0.02); setDiag('dInput', `self-test oscillator · ${hz.toFixed(2)} Hz`); setStatus('', listeningText()); } });
+
+  // ---------- audio file: offline pitch track in a Worker, plus playback through the live chain ----------
+  let fileBuf = null, fileTrack = null, playStart = 0, playOffset = 0, worker = null;
+  function decode(ctx, data) {
+    return new Promise((res, rej) => {
+      let p;
+      try { p = ctx.decodeAudioData(data, res, rej); } catch (e) { rej(e); return; }
+      if (p && p.then) p.then(res, rej);
+    });
+  }
+  async function openFile(file) {
+    if (state.running) stopAll(true);
+    let ctx; try { ctx = ensureCtx(); } catch (e) { fail(e, 'AudioContext'); setStatus('warn', 'Web Audio is not available in this browser.'); return; }
+    el.fileCard.classList.remove('hide'); el.fileName.textContent = file.name; el.play.disabled = true; el.csv.disabled = true; el.stats.textContent = ''; fileTrack = null;
+    setStatus('', `Decoding <strong>${escapeHtml(file.name)}</strong>…`);
+    try { fileBuf = await decode(ctx, await file.arrayBuffer()); }
+    catch (e) { fail(e, 'decodeAudioData'); setStatus('warn', 'That file could not be decoded. Try WAV, MP3, M4A/AAC, OGG or FLAC, or a video with an audio track.'); return; }
+    // mono mix for analysis
+    const n = fileBuf.length, ch = fileBuf.numberOfChannels, mono = new Float32Array(n);
+    for (let c = 0; c < ch; c++) { const d = fileBuf.getChannelData(c); for (let i = 0; i < n; i++) mono[i] += d[i] / ch; }
+    el.progress.classList.remove('hide'); el.progress.value = 0;
+    setStatus('', `Analysing ${(fileBuf.duration).toFixed(1)} s of audio…`);
+    analyseOffline(mono, fileBuf.sampleRate).then(track => {
+      fileTrack = track; el.progress.classList.add('hide'); el.play.disabled = false; el.csv.disabled = false;
+      summarise(track); drawFileChart();
+      setStatus('ok', `Analysed <strong>${escapeHtml(file.name)}</strong>. Press <strong>Play</strong> to hear it with the live readout, or download the pitch track as CSV.`);
+    }).catch(e => { fail(e, 'analysis'); el.progress.classList.add('hide'); setStatus('warn', 'Analysis failed. See Diagnostics for details.'); });
+  }
+  function analyseOffline(mono, sr) {
+    const hop = 1024, win = WIN;
+    const job = { sr, win, hop, minHz: state.minHz, maxHz: state.maxHz, k: 0.9 };
+    const src = `const detect = (${makeDetector.toString()})();
+      onmessage = e => {
+        const { mono, sr, win, hop, minHz, maxHz, k } = e.data;
+        const frames = Math.max(0, Math.floor((mono.length - win) / hop) + 1);
+        const t = new Float32Array(frames), hz = new Float32Array(frames), cl = new Float32Array(frames), rms = new Float32Array(frames);
+        for (let f = 0; f < frames; f++) {
+          const r = detect(mono.subarray(f * hop, f * hop + win), sr, minHz, maxHz, k);
+          t[f] = (f * hop + win / 2) / sr; hz[f] = r.hz; cl[f] = r.clarity; rms[f] = r.rms;
+          if ((f & 127) === 0) postMessage({ progress: f / frames });
+        }
+        postMessage({ done: true, t, hz, cl, rms }, [t.buffer, hz.buffer, cl.buffer, rms.buffer]);
+      };`;
+    return new Promise((res, rej) => {
+      const run = () => {
+        // fallback without Worker support: analyse on the main thread in slices
+        if (mono.byteLength === 0) return rej(new Error('audio buffer was handed to a worker that failed'));
+        const frames = Math.max(0, Math.floor((mono.length - win) / hop) + 1);
+        const t = new Float32Array(frames), hz = new Float32Array(frames), cl = new Float32Array(frames), rms = new Float32Array(frames);
+        let f = 0;
+        const step = () => {
+          const end = Math.min(frames, f + 64);
+          for (; f < end; f++) { const r = detect(mono.subarray(f * hop, f * hop + win), sr, job.minHz, job.maxHz, job.k); t[f] = (f * hop + win / 2) / sr; hz[f] = r.hz; cl[f] = r.clarity; rms[f] = r.rms; }
+          el.progress.value = f / frames;
+          if (f < frames) setTimeout(step, 0); else res(finish({ t, hz, cl, rms }));
+        };
+        step();
+      };
+      const finish = d => ({ t: d.t, hz: d.hz, cl: d.cl, rms: d.rms, sr, clarityMin: state.clarityMin });
+      if (typeof Worker === 'undefined') return run();
+      try {
+        if (worker) worker.terminate();
+        worker = new Worker(URL.createObjectURL(new Blob([src], { type: 'text/javascript' })));
+        worker.onmessage = e => { if (e.data.progress !== undefined) el.progress.value = e.data.progress; else if (e.data.done) res(finish(e.data)); };
+        worker.onerror = e => { fail(e, 'worker'); run(); };
+        worker.postMessage({ mono, ...job }, [mono.buffer]);
+      } catch (e) { fail(e, 'worker'); run(); }
+    });
+  }
+  function voiced(track, i) { return track.hz[i] > 0 && track.cl[i] >= state.clarityMin && track.rms[i] > ABS_FLOOR; }
+  function summarise(track) {
+    const hz = [];
+    for (let i = 0; i < track.t.length; i++) if (voiced(track, i)) hz.push(track.hz[i]);
+    if (!hz.length) { el.stats.innerHTML = '<span>No stable pitch found. Try the <em>Sensitive</em> setting or a narrower range, then open the file again.</span>'; return; }
+    hz.sort((a, b) => a - b);
+    const med = hz[hz.length >> 1], lo = hz[Math.floor(hz.length * 0.05)], hi = hz[Math.floor(hz.length * 0.95)];
+    const nm = f => { const m = Math.round(hzToMidi(f)); return `${noteName(m)}${octaveOf(m)}`; };
+    el.stats.innerHTML = `<span>duration <b>${fileBuf.duration.toFixed(2)} s</b></span><span>voiced <b>${(100 * hz.length / track.t.length).toFixed(0)}%</b></span><span>median <b>${med.toFixed(1)} Hz · ${nm(med)}</b></span><span>5–95% range <b>${lo.toFixed(1)}–${hi.toFixed(1)} Hz · ${nm(lo)}–${nm(hi)}</b></span><span>frames <b>${track.t.length}</b> · hop ${(1024 / track.sr * 1000).toFixed(1)} ms</span>`;
+  }
+  function playFile(from) {
+    if (!fileBuf) return;
+    if (state.running) stopAll(true);
+    const ctx = ensureCtx();
+    fileSource = ctx.createBufferSource(); fileSource.buffer = fileBuf;
+    const g = ctx.createGain(); g.gain.value = 0.8; fileSource.connect(g); g.connect(ctx.destination);
+    playOffset = Math.max(0, Math.min(fileBuf.duration - 0.05, from || 0)); playStart = ctx.currentTime;
+    fileSource.onended = () => { if (fileSource) { stopAll(true); setStatus('', 'Playback finished. Press <strong>Play</strong> to hear it again, or click the chart to start from a point.'); drawFileChart(); } };
+    attach(ctx, fileSource, 'file', `file · ${el.fileName.textContent}`);
+    fileSource.start(0, playOffset);
+  }
+  const playPos = () => state.source === 'file' && actx ? playOffset + (actx.currentTime - playStart) : null;
+  el.play.addEventListener('click', () => state.source === 'file' ? stopAll() : playFile(0));
+  el.fileChart.addEventListener('click', e => { if (!fileBuf) return; const r = el.fileChart.getBoundingClientRect(); playFile((e.clientX - r.left) / r.width * fileBuf.duration); });
+  el.fileBtn.addEventListener('click', () => el.file.click());
+  el.file.addEventListener('change', () => { const f = el.file.files[0]; if (f) openFile(f); el.file.value = ''; });
+  document.addEventListener('dragover', e => { e.preventDefault(); });
+  document.addEventListener('drop', e => { e.preventDefault(); const f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]; if (f) openFile(f); });
+  el.csv.addEventListener('click', () => {
+    if (!fileTrack) return;
+    const rows = ['time_s,f0_hz,midi,note,cents,clarity,rms_dbfs'];
+    for (let i = 0; i < fileTrack.t.length; i++) {
+      const v = voiced(fileTrack, i), f = fileTrack.hz[i];
+      let midi = '', note = '', cents = '';
+      if (v) { const mm = hzToMidi(f), m = Math.round(mm); midi = mm.toFixed(3); note = `${noteName(m)}${octaveOf(m)}`; cents = (100 * (mm - m)).toFixed(1); }
+      rows.push(`${fileTrack.t[i].toFixed(4)},${v ? f.toFixed(3) : ''},${midi},${note},${cents},${fileTrack.cl[i].toFixed(3)},${fmtDb(dB(fileTrack.rms[i]))}`);
+    }
+    const blob = new Blob([rows.join('\n')], { type: 'text/csv' });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = (el.fileName.textContent.replace(/\.[^.]+$/, '') || 'pitch') + '-pitch.csv';
+    document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+  });
+  const escapeHtml = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+  // ---------- per-frame analysis ----------
+  function analyse(now) {
+    if (!analyser) return;
+    if (byteBuf) { analyser.getByteTimeDomainData(byteBuf); for (let i = 0; i < WIN; i++) buf[i] = (byteBuf[i] - 128) / 128; }
+    else analyser.getFloatTimeDomainData(buf);
+    const r = detect(buf, actx.sampleRate, state.minHz, state.maxHz, 0.9);
+    state.frames++; state.rms = r.rms; state.peak = r.peak; state.clarity = r.clarity;
+    if (!state.firstFrameAt) state.firstFrameAt = now;
+    // noise floor: estimated only from unpitched frames (silence, room noise), so a sustained note never raises it
+    // and a quiet note never lowers it to its own level. Drops quickly, rises slowly (a clap does not move it).
+    if (r.rms > 0 && r.clarity < 0.6 && state.frames > 6) {          // first frames: analyser buffer still filling
+      if (state.floor === null) state.floor = r.rms;
+      else if (r.rms < state.floor) state.floor += (r.rms - state.floor) * 0.3;
+      else state.floor += (r.rms - state.floor) * 0.004;
+    }
+    // a clearly periodic frame proves the floor is well below its level, so a loud attack cannot hide the decay that follows
+    if (r.hz > 0 && r.clarity >= 0.9 && state.floor !== null && state.floor > r.rms / (GATE_RATIO * 1.5)) state.floor = r.rms / (GATE_RATIO * 1.5);
+    state.gate = Math.max(ABS_FLOOR, (state.floor || 0) * GATE_RATIO);
+    const confident = r.hz > 0 && r.clarity >= state.clarityMin && r.rms > state.gate && r.hz >= state.minHz && r.hz <= state.maxHz;
+    if (confident) {
+      state.hist.push(r.hz); while (state.hist.length > state.smooth) state.hist.shift();
+      const sorted = [...state.hist].sort((a, b) => a - b);
+      const med = sorted[sorted.length >> 1];
+      const mm = hzToMidi(med), m = Math.round(mm);
+      state.freq = med; state.midi = m; state.cents = 100 * (mm - m); state.lastValid = now;
+      state.lastReading = { note: `${noteName(m)}${octaveOf(m)}`, hz: med };
+    } else if (now - state.lastValid > HOLD_MS) { state.hist = []; state.midi = null; }
+    state.trace.push({ t: now, hz: state.midi !== null ? state.freq : null });
+    while (state.trace.length && now - state.trace[0].t > TRACE_MS) state.trace.shift();
+    // silence watchdog for the microphone
+    if (state.source === 'mic') {
+      if (r.peak === 0) { if (!state.silentSince) state.silentSince = now; else if (now - state.silentSince > 2500 && !el.status.dataset.silent) { el.status.dataset.silent = '1'; setStatus('warn', 'The microphone is open but delivering <strong>pure silence</strong>. Check the system input device and mute switch, close other apps using the microphone, or pick another device in the list above.'); } }
+      else if (state.silentSince) { state.silentSince = 0; if (el.status.dataset.silent) { delete el.status.dataset.silent; setStatus('', listeningText()); } }
+    }
+  }
+
+  // ---------- rendering ----------
+  function paint() {
+    const live = state.midi !== null;
+    if (live) {
+      const ok = Math.abs(state.cents) <= IN_TUNE;
+      el.noteName.textContent = noteName(state.midi); el.octave.textContent = octaveOf(state.midi);
+      el.note.dataset.state = ok ? 'ok' : 'live';
+      el.hz.textContent = state.freq < 100 ? state.freq.toFixed(2) : state.freq.toFixed(1);
+      const cr = Math.round(state.cents);
+      el.centsVal.textContent = (cr > 0 ? '+' : cr < 0 ? '−' : '') + Math.abs(cr);
+      el.midi.textContent = hzToMidi(state.freq).toFixed(2);
+      el.clarity.textContent = `${(state.clarity * 100).toFixed(0)}%`;
+      el.cents.dataset.state = ok ? 'ok' : state.cents < 0 ? 'flat' : 'sharp';
+      el.needle.style.left = `${50 + Math.max(-50, Math.min(50, state.cents))}%`;
+    } else {
+      el.noteName.textContent = state.running ? '·' : '—'; el.octave.textContent = '';
+      el.note.dataset.state = 'idle'; el.cents.dataset.state = 'idle'; el.needle.style.left = '50%';
+      el.hz.textContent = '—'; el.centsVal.textContent = '0'; el.midi.textContent = '—';
+      el.clarity.textContent = state.running && state.clarity > 0 ? `${(state.clarity * 100).toFixed(0)}%` : '—';
+    }
+    el.last.textContent = state.lastReading ? `last stable: ${state.lastReading.note} · ${state.lastReading.hz.toFixed(1)} Hz` : ' ';
+    const ldb = dB(state.rms), pos = v => Math.max(0, Math.min(100, (v + 80) / 80 * 100));
+    el.levelDb.textContent = fmtDb(ldb); el.floorDb.textContent = state.floor !== null ? fmtDb(dB(state.floor)) : '—';
+    el.peakVal.textContent = state.running ? state.peak.toFixed(3) : '—';
+    el.levelFill.style.width = `${state.running ? pos(ldb) : 0}%`; el.levelFill.classList.toggle('hot', state.peak > 0.98);
+    el.gateMark.style.left = `${pos(dB(state.gate))}%`;
+    el.dFrames.textContent = state.frames;
+  }
+  const dpr = Math.min(2, window.devicePixelRatio || 1);
+  function fit(canvas) {
+    const r = canvas.getBoundingClientRect(), w = Math.round(r.width * dpr), h = Math.round(r.height * dpr);
+    if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
+    const g = canvas.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    return [g, r.width, r.height];
+  }
+  const view = { lo: Math.log2(100), hi: Math.log2(800) };   // trace y-axis in log2(Hz), eased toward the data
+  function drawTrace(now) {
+    const [g, w, h] = fit(el.trace);
+    g.clearRect(0, 0, w, h);
+    const vals = state.trace.filter(p => p.hz).map(p => Math.log2(p.hz));
+    if (vals.length) {
+      let lo = Math.min(...vals) - 0.25, hi = Math.max(...vals) + 0.25;
+      if (hi - lo < 1) { const c = (hi + lo) / 2; lo = c - 0.5; hi = c + 0.5; }
+      view.lo += (lo - view.lo) * 0.08; view.hi += (hi - view.hi) * 0.08;
+    }
+    const yFor = l2 => h - (l2 - view.lo) / (view.hi - view.lo) * h;
+    const xFor = t => w - (now - t) / TRACE_MS * w;
+    // semitone grid, C labels
+    const mLo = Math.floor(hzToMidi(Math.pow(2, view.lo))), mHi = Math.ceil(hzToMidi(Math.pow(2, view.hi)));
+    g.font = `11px ${C('--mono')}`; g.textBaseline = 'middle'; g.textAlign = 'left';
+    for (let m = mLo; m <= mHi; m++) {
+      const y = yFor(Math.log2(midiToHz(m)));
+      const isC = m % 12 === 0, isA = m % 12 === 9;
+      g.strokeStyle = C('--line'); g.globalAlpha = isC ? 1 : (mHi - mLo < 30 ? 0.45 : 0);
+      if (g.globalAlpha > 0) { g.beginPath(); g.moveTo(0, y + .5); g.lineTo(w, y + .5); g.stroke(); }
+      g.globalAlpha = 1;
+      if (isC || (isA && mHi - mLo < 30)) { g.fillStyle = C('--ink-dim'); g.fillText(`${noteName(m)}${octaveOf(m)}`, 4, y - 7); }
+    }
+    g.lineWidth = 2; g.lineJoin = 'round'; g.lineCap = 'round';
+    let open = false;
+    for (const p of state.trace) {
+      if (!p.hz) { if (open) { g.stroke(); open = false; } continue; }
+      const x = xFor(p.t), y = yFor(Math.log2(p.hz));
+      if (!open) { g.beginPath(); g.strokeStyle = C('--accent'); g.moveTo(x, y); open = true; } else g.lineTo(x, y);
+    }
+    if (open) g.stroke();
+    if (state.midi !== null) { g.fillStyle = C('--accent'); g.beginPath(); g.arc(w - 2, yFor(Math.log2(state.freq)), 3.5, 0, Math.PI * 2); g.fill(); }
+    if (!state.trace.length) { g.fillStyle = C('--ink-dim'); g.textAlign = 'center'; g.fillText(state.running ? 'waiting for a steady pitch' : 'pitch over time appears here', w / 2, h / 2); }
+  }
+  function drawSpec() {
+    const [g, w, h] = fit(el.spec);
+    g.clearRect(0, 0, w, h);
+    if (!analyser) { g.fillStyle = C('--ink-dim'); g.font = `11px ${C('--mono')}`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('spectrum', w / 2, h / 2); return; }
+    analyser.getFloatFrequencyData(specBuf);
+    const sr = actx.sampleRate, bins = specBuf.length, fLo = 25, fHi = Math.min(6000, sr / 2);
+    const xFor = f => (Math.log(f / fLo) / Math.log(fHi / fLo)) * w;
+    const yFor = db => h - Math.max(0, Math.min(1, (db + 100) / 90)) * h;
+    g.beginPath(); g.strokeStyle = C('--ink-dim'); g.lineWidth = 1;
+    let started = false;
+    for (let i = 1; i < bins; i++) {
+      const f = i * sr / 2 / bins; if (f < fLo || f > fHi) continue;
+      const x = xFor(f), y = yFor(specBuf[i]);
+      if (!started) { g.moveTo(x, y); started = true; } else g.lineTo(x, y);
+    }
+    g.stroke();
+    g.font = `10px ${C('--mono')}`; g.fillStyle = C('--ink-dim'); g.textAlign = 'center'; g.textBaseline = 'bottom';
+    [50, 100, 200, 500, 1000, 2000, 5000].forEach(f => { if (f < fHi) g.fillText(f >= 1000 ? `${f / 1000}k` : String(f), xFor(f), h - 2); });
+    if (state.midi !== null) {
+      g.strokeStyle = C('--accent'); g.lineWidth = 1.5;
+      for (let k = 1; k <= 6; k++) { const f = state.freq * k; if (f > fHi) break; g.globalAlpha = k === 1 ? 1 : 0.35; g.beginPath(); g.moveTo(xFor(f), 0); g.lineTo(xFor(f), h); g.stroke(); }
+      g.globalAlpha = 1;
+    }
+  }
+  function drawFileChart() {
+    const [g, w, h] = fit(el.fileChart);
+    g.clearRect(0, 0, w, h);
+    if (!fileTrack) return;
+    const vals = [];
+    for (let i = 0; i < fileTrack.t.length; i++) if (voiced(fileTrack, i)) vals.push(Math.log2(fileTrack.hz[i]));
+    if (!vals.length) { g.fillStyle = C('--ink-dim'); g.font = `11px ${C('--mono')}`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('no stable pitch in this file', w / 2, h / 2); return; }
+    let lo = Math.min(...vals) - 0.2, hi = Math.max(...vals) + 0.2; if (hi - lo < 1) { const c = (hi + lo) / 2; lo = c - .5; hi = c + .5; }
+    const yFor = l2 => h - (l2 - lo) / (hi - lo) * h, xFor = t => t / fileBuf.duration * w;
+    g.font = `10px ${C('--mono')}`; g.textBaseline = 'middle'; g.textAlign = 'left';
+    const mLo = Math.floor(hzToMidi(Math.pow(2, lo))), mHi = Math.ceil(hzToMidi(Math.pow(2, hi)));
+    for (let m = mLo; m <= mHi; m++) { if (m % 12 !== 0 && !(m % 12 === 9 && mHi - mLo < 30)) continue; const y = yFor(Math.log2(midiToHz(m))); g.strokeStyle = C('--line'); g.beginPath(); g.moveTo(0, y + .5); g.lineTo(w, y + .5); g.stroke(); g.fillStyle = C('--ink-dim'); g.fillText(`${noteName(m)}${octaveOf(m)}`, 4, y - 6); }
+    g.fillStyle = C('--accent');
+    for (let i = 0; i < fileTrack.t.length; i++) if (voiced(fileTrack, i)) g.fillRect(xFor(fileTrack.t[i]) - 0.75, yFor(Math.log2(fileTrack.hz[i])) - 1, 1.5, 2);
+    g.textAlign = 'center'; g.textBaseline = 'bottom'; g.fillStyle = C('--ink-dim');
+    const stepS = fileBuf.duration > 60 ? 10 : fileBuf.duration > 20 ? 5 : 1;
+    for (let s = 0; s <= fileBuf.duration; s += stepS) g.fillText(`${s}s`, xFor(s), h - 2);
+    const pp = playPos();
+    if (pp !== null) { g.strokeStyle = C('--sharp'); g.lineWidth = 1.5; g.beginPath(); g.moveTo(xFor(pp), 0); g.lineTo(xFor(pp), h); g.stroke(); }
+  }
+
+  // keep the screen on while listening (where the browser allows it)
+  let wake = null;
+  async function keepAwake() { try { if (navigator.wakeLock && !wake) { wake = await navigator.wakeLock.request('screen'); wake.addEventListener('release', () => { wake = null; }); } } catch (e) {} }
+  function releaseWake() { if (wake) { wake.release().catch(() => {}); wake = null; } }
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && state.running) { keepAwake(); if (actx && actx.state !== 'running') actx.resume().catch(() => {}); } });
+
+  document.addEventListener('keydown', e => {
+    const tag = (e.target.tagName || '').toLowerCase();
+    if (tag === 'select' || tag === 'input' || tag === 'button' || e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.key === ' ') { e.preventDefault(); state.source === 'mic' ? stopAll() : startMic(); }
+  });
+
+  function loop(now) {
+    if (state.running) analyse(now);
+    paint(); drawTrace(now); drawSpec();
+    if (state.source === 'file') drawFileChart();
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+  window.addEventListener('resize', () => { drawFileChart(); });
+  paint();
+})();
+</script>
+</body>
+</html>

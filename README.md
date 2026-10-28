@@ -80,6 +80,26 @@ The microphone needs a secure context (`https://` or `localhost`). Two ways to r
 
 All asset paths are relative, so the folder also works unchanged on any static host.
 
+Detection is gated by a noise floor tracked from unpitched frames (not a fixed level), so quiet inputs such as a phone microphone with automatic gain control off are still read. If nothing is detected, the input level and clarity figures under the readout show whether sound is reaching the page at all.
+
+---
+
+## Pitch Detector (`/pitch`)
+
+A general-purpose pitch detector at `public/pitch/index.html`, served at `/pitch`. Built like the tuner: one self-contained page, relative paths, a manifest and icons beside it, no build step. Where the tuner is organised around guitar strings, this app reports whatever periodic sound it hears, from a bass low B to the top of a piano.
+
+- **Three sources**: the microphone, an audio file (WAV, MP3, M4A/AAC, OGG, FLAC, or a video's audio track, by button or drag-and-drop), and a **self-test tone** generated inside the page and routed straight into the detector. The self-test separates "the detector is broken" from "the microphone is not delivering sound": if it reads the chosen note, the detector works.
+- **Readout**: note name and octave, cents from equal temperament (A4 adjustable 415 to 466 Hz), frequency, fractional MIDI number, clarity, and a level meter that shows the input level, the tracked noise floor and the gate.
+- **Pitch trace**: the last 12 seconds of pitch on a log-frequency axis with note gridlines, plus a spectrum strip with the detected fundamental and its harmonics marked.
+- **File analysis**: the whole file is analysed offline in a Web Worker (4096-sample window, 1024-sample hop) and drawn as a pitch track. Click the chart to play from that point with the live readout running. Summary figures (voiced fraction, median, 5 to 95 percent range) and a **CSV export** (time, f0, MIDI, note, cents, clarity, level) support transcription and performance-analysis work.
+- **Algorithm**: McLeod Pitch Method (normalized square difference function) with the autocorrelation computed by FFT, parabolic peak interpolation and median smoothing. Validated in Node on synthetic tones from 30 Hz to 2.5 kHz within 2 cents, at input levels down to −60 dBFS and at 6 dB signal-to-noise ratio; about 1 ms per frame.
+- **Robust input handling**: noise-floor gate instead of a fixed level cutoff; the audio context is recreated if iOS changes the hardware sample rate when the microphone opens; a tap-to-resume prompt if the browser suspends audio; a silence watchdog; device picker when more than one microphone exists; specific messages for each permission and device error.
+- **Diagnostics panel**: secure context, microphone API availability, audio context state, sample rate, device label, applied track settings, frames analysed and the last error, with a troubleshooting checklist.
+- **Settings** persist in `localStorage`: range preset (voice, guitar, bass, violin/flute, piano, auto), A4, sharps or flats, sensitivity (clarity threshold) and smoothing.
+- **Keyboard**: space starts or stops the microphone.
+
+Run it the same way as the tuner: `php artisan serve` and open `http://localhost:8000/pitch/`, or open `public/pitch/index.html` from disk. The microphone needs `https://` or `localhost`; the file and self-test sources work anywhere. The GitHub Pages workflow publishes it at `https://<owner>.github.io/<repo>/pitch/` beside the tuner.
+
 ---
 
 ## API Endpoints

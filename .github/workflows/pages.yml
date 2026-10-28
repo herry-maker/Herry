@@ -1,13 +1,15 @@
-# Publishes the Djahwasi Guitar Tuner (public/tuner) to GitHub Pages.
+# Publishes the Djahwasi Guitar Tuner (public/tuner) to the root of GitHub Pages and the Pitch Detector (public/pitch) at /pitch/.
 # One-time setup: repository Settings → Pages → Source: "GitHub Actions".
-# The site then lives at https://<owner>.github.io/<repo>/ and, being https, can use the microphone.
-name: Deploy tuner to GitHub Pages
+# The site then lives at https://<owner>.github.io/<repo>/ (tuner) and https://<owner>.github.io/<repo>/pitch/ (pitch detector);
+# being https, both can use the microphone.
+name: Deploy tuner and pitch detector to GitHub Pages
 
 on:
   push:
     branches: [main, ccr-2feb12c0-507m69]
     paths:
       - 'public/tuner/**'
+      - 'public/pitch/**'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 
@@ -32,8 +34,14 @@ jobs:
       - uses: actions/configure-pages@v5
         with:
           enablement: true
+      - name: Assemble site (tuner at /, pitch detector at /pitch/)
+        run: |
+          mkdir -p site/pitch site/tuner
+          cp -r public/tuner/. site/
+          cp -r public/tuner/. site/tuner/
+          cp -r public/pitch/. site/pitch/
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: public/tuner
+          path: site
       - id: deployment
         uses: actions/deploy-pages@v4
