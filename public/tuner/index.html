@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#150c09">
 <meta name="description" content="Djahwasi Guitar Tuner: strobe-style tuner with microphone pitch detection, capo, alternate tunings, tone generator and reference tones.">
-<link rel="icon" href="/tuner/icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/tuner/icon.svg">
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./icon.svg">
 <title>Djahwasi Guitar Tuner</title>
-<link rel="manifest" href="/tuner/manifest.webmanifest">
+<link rel="manifest" href="./manifest.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap">
@@ -508,9 +508,9 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
   function releaseWake() { if (wake) { wake.release().catch(() => {}); wake = null; } }
   document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && state.running) keepAwake(); });
 
-  if ('serviceWorker' in navigator && location.pathname.startsWith('/tuner')) {
-    window.addEventListener('load', () => { navigator.serviceWorker.register('/tuner/sw.js', { scope: '/tuner/' }).catch(() => {}); });
-  }
+  // offline shell: only when served from a folder address (…/tuner/) over https or localhost
+  const canSW = 'serviceWorker' in navigator && location.pathname.endsWith('/') && (location.protocol === 'https:' || location.hostname === 'localhost');
+  if (canSW) window.addEventListener('load', () => { navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(() => {}); });
 
   // ---------- pitch detection: McLeod normalized square difference ----------
   function detect(b, sr) {

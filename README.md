@@ -73,7 +73,12 @@ Djahwasi Guitar Tuner, a strobe-style tuner at `public/tuner/index.html`, served
 - **Tone generator**: pick a root note, pluck or sustain it, play any interval above it (root, then interval, then both), or strum the whole tuning.
 - **Open a recording**: analyse an audio file through the same pitch pipeline, for browsers or embeds where the microphone is blocked.
 
-The microphone needs a secure context (`https://` or `localhost`), so run `php artisan serve` and open `http://localhost:8000/tuner`, or open the HTML file directly.
+The microphone needs a secure context (`https://` or `localhost`). Two ways to run it:
+
+- `php artisan serve`, then open `http://localhost:8000/tuner/`.
+- Open `public/tuner/index.html` straight from disk in Chrome or Firefox (press Ctrl+O or Cmd+O in the browser, or drag the file into a tab).
+
+All asset paths are relative, so the folder also works unchanged on any static host.
 
 ---
 
