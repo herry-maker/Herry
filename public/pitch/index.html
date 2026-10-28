@@ -61,7 +61,7 @@ h1 .logo{border-radius:8px;flex:none}
 .scale .pos{position:absolute;top:7px;width:12px;height:12px;border-radius:50%;background:var(--accent);transform:translateX(-50%);transition:left .1s linear}
 #harm{height:70px;margin-top:6px}
 #onsetStrip{height:46px;margin-top:6px}
-#levelStrip{height:46px;margin-top:6px}
+#levelStrip{height:64px;margin-top:6px}
 input[type=number]{font:inherit;background:var(--panel-2);color:var(--ink);border:1px solid var(--line);border-radius:9px;padding:6px 8px;width:92px;min-height:34px}
 .desc{font-size:13px;color:var(--ink-dim);margin-top:6px;min-height:1.4em}
 h1 small{font-weight:400;color:var(--ink-dim);font-size:14px;margin-left:8px}
@@ -212,6 +212,11 @@ a{color:var(--accent)}
         <button type="button" id="setPP" class="btn-sm" title="Play as softly as you mean by pianissimo, then press">Set <i>pp</i> here</button>
         <button type="button" id="setFF" class="btn-sm" title="Play as loudly as you mean by fortissimo, then press">Set <i>ff</i> here</button>
         <button type="button" id="dynReset" class="btn-sm">Default</button>
+      </div>
+      <div class="row" style="margin-top:8px">
+        <label class="f"><span><i>pp</i> at (dBFS)</span><input type="number" id="ppIn" min="-90" max="-6" step="1"></label>
+        <label class="f"><span><i>ff</i> at (dBFS)</span><input type="number" id="ffIn" min="-80" max="0" step="1"></label>
+        <span class="small" id="dynStep"></span>
       </div>
       <div class="row" style="margin-top:8px">
         <label class="f">Meter reads (dB SPL)<input type="number" id="splRef" min="20" max="130" step="1" placeholder="e.g. 70"></label>
@@ -483,7 +488,7 @@ function makeFeatures() {
     rec: $('rec'), recTime: $('recTime'), saveRec: $('saveRec'),
     beatLight: $('beatLight'), bpm: $('bpm'), bpmConf: $('bpmConf'), onsetCount: $('onsetCount'), ioi: $('ioi'), onsetStrip: $('onsetStrip'), beatReset: $('beatReset'),
     lvlSlow: $('lvlSlow'), dynMark: $('dynMark'), dynScale: $('dynScale'), dynPos: $('dynPos'), lvlRms: $('lvlRms'), lvlPeak: $('lvlPeak'), lvlRange: $('lvlRange'), lvlSpl: $('lvlSpl'), levelStrip: $('levelStrip'),
-    setPP: $('setPP'), setFF: $('setFF'), dynReset: $('dynReset'), splRef: $('splRef'), splSet: $('splSet'), splClear: $('splClear'),
+    setPP: $('setPP'), setFF: $('setFF'), dynReset: $('dynReset'), ppIn: $('ppIn'), ffIn: $('ffIn'), dynStep: $('dynStep'), splRef: $('splRef'), splSet: $('splSet'), splClear: $('splClear'),
     centroid: $('centroid'), bright: $('bright'), spread: $('spread'), flat: $('flat'), oddEven: $('oddEven'), tilt: $('tilt'), harm: $('harm'), timbreDesc: $('timbreDesc'), traceLabel: $('traceLabel'), traceCsv: $('traceCsv'), tracePng: $('tracePng'), traceClear: $('traceClear'),
     note: $('note'), noteName: $('noteName'), octave: $('octave'), hz: $('hz'), centsVal: $('centsVal'), midi: $('midi'), clarity: $('clarity'), last: $('last'),
     cents: $('cents'), needle: $('needle'), levelDb: $('levelDb'), floorDb: $('floorDb'), peakVal: $('peakVal'), levelFill: $('levelFill'), gateMark: $('gateMark'),
@@ -895,9 +900,18 @@ function makeFeatures() {
     MARKS.forEach((m, i) => { const d = document.createElement('div'); d.className = 'mark'; d.textContent = m; d.style.left = `${(i / 7) * 100}%`; el.dynScale.appendChild(d); });
   }
   buildScale();
-  el.setPP.addEventListener('click', () => { if (isFinite(state.slowDb) && state.slowDb < state.dynFF - 5) { state.dynPP = Math.round(state.slowDb); save(); } else setStatus('warn', 'Play softly first; pp must sit at least 5 dB below ff.'); });
-  el.setFF.addEventListener('click', () => { if (isFinite(state.slowDb) && state.slowDb > state.dynPP + 5) { state.dynFF = Math.round(state.slowDb); save(); } else setStatus('warn', 'Play loudly first; ff must sit at least 5 dB above pp.'); });
-  el.dynReset.addEventListener('click', () => { state.dynPP = -45; state.dynFF = -15; save(); });
+  el.setPP.addEventListener('click', () => { if (isFinite(state.slowDb) && state.slowDb < state.dynFF - 5) { state.dynPP = Math.round(state.slowDb); save(); syncDyn(); } else setStatus('warn', 'Play softly first; pp must sit at least 5 dB below ff.'); });
+  el.setFF.addEventListener('click', () => { if (isFinite(state.slowDb) && state.slowDb > state.dynPP + 5) { state.dynFF = Math.round(state.slowDb); save(); syncDyn(); } else setStatus('warn', 'Play loudly first; ff must sit at least 5 dB above pp.'); });
+  el.dynReset.addEventListener('click', () => { state.dynPP = -45; state.dynFF = -15; save(); syncDyn(); });
+  // typed anchors: pp must stay at least 5 dB below ff
+  function syncDyn() {
+    if (document.activeElement !== el.ppIn) el.ppIn.value = state.dynPP;
+    if (document.activeElement !== el.ffIn) el.ffIn.value = state.dynFF;
+    el.dynStep.textContent = `one step = ${((state.dynFF - state.dynPP) / 5).toFixed(1)} dB`;
+  }
+  el.ppIn.addEventListener('change', () => { const v = Math.round(+el.ppIn.value); if (isFinite(v) && v <= state.dynFF - 5) { state.dynPP = v; save(); } syncDyn(); });
+  el.ffIn.addEventListener('change', () => { const v = Math.round(+el.ffIn.value); if (isFinite(v) && v >= state.dynPP + 5) { state.dynFF = v; save(); } syncDyn(); });
+  syncDyn();
   el.splSet.addEventListener('click', () => { const ref = +el.splRef.value; if (!(ref >= 20 && ref <= 130) || !isFinite(state.slowDb)) { setStatus('warn', 'Type the meter reading (20 to 130 dB SPL) while the microphone is running, then press Calibrate.'); return; } state.splOffset = ref - state.slowDb; save(); setStatus('ok', `Calibrated: ${ref} dB SPL at ${state.slowDb.toFixed(0)} dBFS. The dB SPL figure is approximate and only valid for this microphone and distance.`); });
   el.splClear.addEventListener('click', () => { state.splOffset = null; save(); });
   el.beatReset.addEventListener('click', () => { state.onsets = []; state.onsetTimes = []; state.bpm = null; state.bpmHist = []; state.bpmConf = 0; });
@@ -1110,11 +1124,14 @@ function makeFeatures() {
   }
   function drawLevel(now) {
     const [g, w, h] = fit(el.levelStrip); g.clearRect(0, 0, w, h);
-    const span = 60000, xFor = t => w - (now - t) / span * w, yFor = db => h - Math.max(0, Math.min(1, (db + 80) / 80)) * h;
+    const span = 60000, xFor = t => w - (now - t) / span * w;
+    const step = (state.dynFF - state.dynPP) / 5, yLo = state.dynPP - 2 * step, yHi = state.dynFF + 2 * step;
+    const yFor = db => h - Math.max(0, Math.min(1, (db - yLo) / (yHi - yLo))) * h;
     g.strokeStyle = C('--line'); g.lineWidth = 1;
     [state.dynPP, state.dynFF].forEach(db => { const y = yFor(db); g.beginPath(); g.moveTo(0, y + .5); g.lineTo(w, y + .5); g.stroke(); });
     g.font = `10px ${C('--mono')}`; g.fillStyle = C('--ink-dim'); g.textAlign = 'left'; g.textBaseline = 'bottom';
-    g.fillText('pp', 3, yFor(state.dynPP) - 1); g.fillText('ff', 3, yFor(state.dynFF) - 1);
+    const lab = (txt, y) => { g.textBaseline = y < 12 ? 'top' : 'bottom'; g.fillText(txt, 3, y < 12 ? y + 2 : y - 1); };
+    lab('pp', yFor(state.dynPP)); lab('ff', yFor(state.dynFF));
     g.strokeStyle = C('--accent'); g.lineWidth = 1.5; g.beginPath(); let open = false;
     for (const p of state.trace) { if (p.t < now - span || typeof p.slow !== 'number' || !isFinite(p.slow)) { if (open) { g.stroke(); open = false; } continue; } const x = xFor(p.t), y = yFor(p.slow); if (!open) { g.beginPath(); g.moveTo(x, y); open = true; } else g.lineTo(x, y); }
     if (open) g.stroke();
