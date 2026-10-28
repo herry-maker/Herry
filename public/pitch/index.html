@@ -214,8 +214,8 @@ a{color:var(--accent)}
         <button type="button" id="dynReset" class="btn-sm">Default</button>
       </div>
       <div class="row" style="margin-top:8px">
-        <label class="f"><i>pp</i> at (dBFS)<input type="number" id="ppIn" min="-90" max="-6" step="1"></label>
-        <label class="f"><i>ff</i> at (dBFS)<input type="number" id="ffIn" min="-80" max="0" step="1"></label>
+        <label class="f"><span><i>pp</i> at (dBFS)</span><input type="number" id="ppIn" min="-90" max="-6" step="1"></label>
+        <label class="f"><span><i>ff</i> at (dBFS)</span><input type="number" id="ffIn" min="-80" max="0" step="1"></label>
         <span class="small" id="dynStep"></span>
       </div>
       <div class="row" style="margin-top:8px">
@@ -1124,7 +1124,9 @@ function makeFeatures() {
   }
   function drawLevel(now) {
     const [g, w, h] = fit(el.levelStrip); g.clearRect(0, 0, w, h);
-    const span = 60000, xFor = t => w - (now - t) / span * w, yFor = db => h - Math.max(0, Math.min(1, (db + 80) / 80)) * h;
+    const span = 60000, xFor = t => w - (now - t) / span * w;
+    const step = (state.dynFF - state.dynPP) / 5, yLo = state.dynPP - 2 * step, yHi = state.dynFF + 2 * step;
+    const yFor = db => h - Math.max(0, Math.min(1, (db - yLo) / (yHi - yLo))) * h;
     g.strokeStyle = C('--line'); g.lineWidth = 1;
     [state.dynPP, state.dynFF].forEach(db => { const y = yFor(db); g.beginPath(); g.moveTo(0, y + .5); g.lineTo(w, y + .5); g.stroke(); });
     g.font = `10px ${C('--mono')}`; g.fillStyle = C('--ink-dim'); g.textAlign = 'left'; g.textBaseline = 'bottom';
