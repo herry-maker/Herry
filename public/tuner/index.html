@@ -218,6 +218,7 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
       <button id="mic" class="mic" type="button" aria-pressed="false"><span class="dot"></span><span id="micLabel">Start listening</span></button>
       <button id="guide" class="guide" type="button" aria-pressed="false">Tune all strings</button>
       <button id="recBtn" class="guide" type="button">Open a recording</button>
+      <button id="installBtn" class="guide" type="button" hidden>Install app</button>
       <input id="recFile" type="file" accept="audio/*" hidden>
     </div>
   </header>
@@ -262,6 +263,7 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
   </section>
 
   <p class="foot">Tap a peg to hear its reference tone and lock it as the target. The disk drifts <b>clockwise when sharp</b> and <b>counter-clockwise when flat</b>. It stands still inside ±3 cents. Pitch is read with a normalized autocorrelation (McLeod) on 4096 samples, so the low E on a bass still registers.</p>
+  <p class="foot" id="iosHint" hidden>On iPhone or iPad: tap Safari's Share button, then <b>Add to Home Screen</b>. The tuner then opens full screen as an app.</p>
   <p class="foot"><kbd>space</kbd> start or stop · <kbd>1</kbd>–<kbd>6</kbd> pick a string · <kbd>esc</kbd> clear the target</p>
 </div>
 
@@ -511,6 +513,25 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
   }
   function releaseWake() { if (wake) { wake.release().catch(() => {}); wake = null; } }
   document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && state.running) keepAwake(); });
+
+  // ---------- install (PWA) ----------
+  const standalone = matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+  const installable = location.pathname.endsWith('/') && location.protocol === 'https:' && !standalone;
+  let installEvt = null;
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault(); installEvt = e;
+    if (installable) $('installBtn').hidden = false;
+  });
+  $('installBtn').addEventListener('click', async () => {
+    if (!installEvt) return;
+    installEvt.prompt();
+    const choice = await installEvt.userChoice.catch(() => ({ outcome: 'dismissed' }));
+    installEvt = null;
+    if (choice.outcome === 'accepted') $('installBtn').hidden = true;
+  });
+  window.addEventListener('appinstalled', () => { $('installBtn').hidden = true; $('iosHint').hidden = true; });
+  const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  if (installable && isIOS) $('iosHint').hidden = false;
 
   // offline shell: only when served from a folder address (…/tuner/) over https or localhost
   const canSW = 'serviceWorker' in navigator && location.pathname.endsWith('/') && (location.protocol === 'https:' || location.hostname === 'localhost');
