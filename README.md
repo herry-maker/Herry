@@ -57,6 +57,31 @@ Download from [poppler-windows releases](https://github.com/oschwartz10612/poppl
 
 ---
 
+## Djahwasi Guitar Tuner (`/tuner`)
+
+Djahwasi Guitar Tuner, a strobe-style tuner at `public/tuner/index.html`, served at `/tuner`. The page is self-contained, with a manifest, service worker and icon beside it in `public/tuner/`. No build step, no dependencies beyond the browser.
+
+- **Pitch detection** in the browser with the Web Audio API and a McLeod normalized autocorrelation on 4096 samples, accurate down to a bass low E (41 Hz).
+- **Strobe disk**: the stripes drift clockwise when sharp, counter-clockwise when flat, and freeze inside ±3 cents. A cents arc and brass pointer sit over the disk.
+- **Tunings**: Standard, Drop D, half-step down, DADGAD, Open G, Open D, 4-string bass, ukulele. A4 is adjustable from 415 to 466 Hz. Settings persist in `localStorage`.
+- **Headstock pegs**: tap a peg to hear a reference tone and lock it as the target string.
+- **Tune all strings**: a guided mode that walks through the strings in order, marks each one done after it is held in tune for 1.2 s, and plays a confirmation tick.
+- **Drift trace**: the strip at the foot toggles between the live waveform and an 8-second history of the pitch error in cents.
+- **Installable**: ships a web manifest and a service worker, so it can be added to a phone's home screen and opened offline.
+- **Keyboard**: space starts or stops listening, 1 to 6 pick a string, Esc clears the target.
+- **Capo**: set the capo fret (0 to 12) and every string target transposes; pegs show the sounding note with the open-string name beneath.
+- **Tone generator**: pick a root note, pluck or sustain it, play any interval above it (root, then interval, then both), or strum the whole tuning.
+- **Open a recording**: analyse an audio file through the same pitch pipeline, for browsers or embeds where the microphone is blocked.
+
+The microphone needs a secure context (`https://` or `localhost`). Two ways to run it:
+
+- `php artisan serve`, then open `http://localhost:8000/tuner/`.
+- Open `public/tuner/index.html` straight from disk in Chrome or Firefox (press Ctrl+O or Cmd+O in the browser, or drag the file into a tab).
+
+All asset paths are relative, so the folder also works unchanged on any static host.
+
+---
+
 ## API Endpoints
 
 ### Authentication Endpoints
