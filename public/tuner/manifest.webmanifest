@@ -1,0 +1,15 @@
+{
+  "name": "Strobe Tuner",
+  "short_name": "Strobe",
+  "description": "Strobe-style guitar tuner with microphone pitch detection, alternate tunings and reference tones.",
+  "start_url": "/tuner/",
+  "scope": "/tuner/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#150c09",
+  "theme_color": "#150c09",
+  "icons": [
+    { "src": "/tuner/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/tuner/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

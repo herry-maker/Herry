@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#150c09">
 <meta name="description" content="Strobe-style guitar tuner: microphone pitch detection, alternate tunings, reference tones.">
+<link rel="icon" href="/tuner/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/tuner/icon.svg">
 <title>Strobe Tuner</title>
+<link rel="manifest" href="/tuner/manifest.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap">
@@ -65,11 +68,14 @@ select{
 .stepper button{background:none;border:0;width:30px;height:32px;color:var(--brass);font-size:16px;line-height:1}
 .stepper button:hover{background:var(--panel-2)}
 .stepper output{font:500 13px/1 var(--mono);min-width:64px;text-align:center;color:var(--ink);font-variant-numeric:tabular-nums}
-.mic{
+.mic,.guide{
   display:inline-flex;align-items:center;gap:8px;border:1px solid var(--brass-deep);background:linear-gradient(180deg,#3a2616,#2a1810);
   color:var(--ink);border-radius:6px;padding:8px 14px;font:600 13px/1 var(--body);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 1px 0 rgba(0,0,0,.5);
 }
+.guide{border-color:var(--line);background:var(--panel);font-weight:500}
+.guide[aria-pressed="true"]{border-color:var(--brass);color:var(--brass)}
+.guide:hover{filter:brightness(1.08)}
 .mic .dot{width:8px;height:8px;border-radius:50%;background:var(--ink-dim);box-shadow:0 0 0 2px rgba(0,0,0,.35) inset}
 .mic[aria-pressed="true"] .dot{background:var(--ok);box-shadow:0 0 10px var(--ok)}
 .mic:hover{filter:brightness(1.08)}
@@ -140,12 +146,21 @@ select{
 .peg.is-locked .knob{transform:rotate(-20deg)}
 .peg[aria-pressed="true"] .peg-str::after{content:" · target"}
 .peg.is-ringing .knob{animation:ring .6s ease-out}
+.peg.is-done .knob::before{
+  content:"✓";position:absolute;right:-5px;top:-5px;width:19px;height:19px;border-radius:50%;
+  background:var(--ok);color:#13230f;font:700 12px/19px var(--body);text-align:center;z-index:2;
+  box-shadow:0 0 0 2px var(--panel);
+}
 @keyframes ring{0%{transform:scale(1)}30%{transform:scale(1.08)}100%{transform:scale(1)}}
 
 /* scope strip */
 .scope{display:flex;flex-direction:column;gap:6px}
 .scope canvas{width:100%;height:56px;display:block;border-radius:6px;background:var(--panel);border:1px solid var(--line)}
-.scope .meta{display:flex;justify-content:space-between;gap:12px;font:400 11px/1 var(--mono);color:var(--ink-dim);letter-spacing:.06em;font-variant-numeric:tabular-nums}
+.scope .meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 12px;font:400 11px/1 var(--mono);color:var(--ink-dim);letter-spacing:.06em;font-variant-numeric:tabular-nums}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:5px;overflow:hidden}
+.seg button{background:none;border:0;padding:4px 9px;font:500 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim)}
+.seg button[aria-pressed="true"]{background:var(--panel-2);color:var(--brass)}
+kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width:2px;border-radius:3px;padding:2px 4px;color:var(--ink-dim)}
 
 .foot{font:400 12px/1.5 var(--body);color:var(--ink-dim);text-align:center;max-width:52ch;margin:0 auto}
 .foot b{color:var(--ink);font-weight:600}
@@ -180,6 +195,7 @@ select{
         </div>
       </div>
       <button id="mic" class="mic" type="button" aria-pressed="false"><span class="dot"></span><span id="micLabel">Start listening</span></button>
+      <button id="guide" class="guide" type="button" aria-pressed="false">Tune all strings</button>
     </div>
   </header>
 
@@ -201,10 +217,17 @@ select{
 
   <section class="scope" aria-label="Input signal">
     <canvas id="scope" aria-hidden="true"></canvas>
-    <div class="meta"><span id="levelMeta">input −∞ dB</span><span id="clarityMeta">clarity —</span><span id="srMeta"></span></div>
+    <div class="meta">
+      <div class="seg" role="group" aria-label="Strip view">
+        <button id="viewWave" type="button" aria-pressed="true">Wave</button>
+        <button id="viewDrift" type="button" aria-pressed="false">Drift · 8 s</button>
+      </div>
+      <span id="levelMeta">input −∞ dB</span><span id="clarityMeta">clarity —</span><span id="srMeta"></span>
+    </div>
   </section>
 
   <p class="foot">Tap a peg to hear its reference tone and lock it as the target. The disk drifts <b>clockwise when sharp</b> and <b>counter-clockwise when flat</b>. It stands still inside ±3 cents. Pitch is read with a normalized autocorrelation (McLeod) on 4096 samples, so the low E on a bass still registers.</p>
+  <p class="foot"><kbd>space</kbd> start or stop · <kbd>1</kbd>–<kbd>6</kbd> pick a string · <kbd>esc</kbd> clear the target</p>
 </div>
 
 <script>
@@ -231,6 +254,7 @@ select{
     a4: 440, tuningIdx: 0, lock: null,
     running: false, freq: 0, cents: 0, midi: null, clarity: 0, level: 0,
     lastValid: 0, needle: 0, phase: 0, hist: [],
+    guide: false, done: new Set(), okSince: 0, trace: [], view: 'wave',
   };
   try {
     const t = parseInt(localStorage.getItem('strobe.tuning'), 10);
@@ -242,7 +266,7 @@ select{
 
   const $ = id => document.getElementById(id);
   const el = {
-    tuning: $('tuning'), a4: $('a4'), mic: $('mic'), micLabel: $('micLabel'),
+    tuning: $('tuning'), a4: $('a4'), mic: $('mic'), micLabel: $('micLabel'), guide: $('guide'),
     note: $('note'), noteName: $('noteName'), octave: $('octave'), cents: $('cents'), centsVal: $('centsVal'), hz: $('hzVal'),
     status: $('status'), pegs: $('pegs'), strobe: $('strobe'), scope: $('scope'),
     levelMeta: $('levelMeta'), clarityMeta: $('clarityMeta'), srMeta: $('srMeta'),
@@ -259,6 +283,8 @@ select{
   const noteName = m => names()[((m % 12) + 12) % 12];
   const octaveOf = m => Math.floor(m / 12) - 1;
 
+  const ordinalOf = n => n + (n === 1 ? 'st' : n === 2 ? 'nd' : n === 3 ? 'rd' : 'th');
+
   // ---------- UI build ----------
   TUNINGS.forEach((t, i) => {
     const o = document.createElement('option');
@@ -271,7 +297,7 @@ select{
     const t = tuning();
     el.pegs.innerHTML = '';
     el.pegs.style.setProperty('--n', t.notes.length); el.pegs.dataset.n = t.notes.length;
-    const ordinal = n => n + (n === 1 ? 'st' : n === 2 ? 'nd' : n === 3 ? 'rd' : 'th');
+    const ordinal = ordinalOf;
     t.notes.forEach((m, i) => {
       const li = document.createElement('li');
       const b = document.createElement('button');
@@ -290,6 +316,7 @@ select{
     const t = tuning();
     [...el.pegs.querySelectorAll('.peg')].forEach((b, i) => {
       b.classList.toggle('is-locked', state.lock === i);
+      b.classList.toggle('is-done', state.done.has(i));
       b.setAttribute('aria-pressed', state.lock === i ? 'true' : 'false');
       const near = state.midi !== null && t.notes[i] === state.midi;
       b.classList.toggle('is-near', near && Math.abs(state.cents) > IN_TUNE);
@@ -299,7 +326,7 @@ select{
   function updateA4() { el.a4.value = `${state.a4} Hz`; buildPegs(); save(); }
   $('a4down').addEventListener('click', () => { state.a4 = Math.max(415, state.a4 - 1); updateA4(); });
   $('a4up').addEventListener('click',   () => { state.a4 = Math.min(466, state.a4 + 1); updateA4(); });
-  el.tuning.addEventListener('change', () => { state.tuningIdx = +el.tuning.value; state.lock = null; buildPegs(); save(); setStatus(); });
+  el.tuning.addEventListener('change', () => { state.tuningIdx = +el.tuning.value; state.lock = null; state.done.clear(); if (state.guide) state.lock = 0; buildPegs(); save(); setStatus(); });
   el.a4.value = `${state.a4} Hz`;
   buildPegs();
 
@@ -324,12 +351,43 @@ select{
     out.gain.exponentialRampToValueAtTime(0.0001, now + 2.4);
     o1.start(now); o2.start(now); o1.stop(now + 2.5); o2.stop(now + 2.5);
   }
+  function tick() {
+    const ctx = ensureCtx(), now = ctx.currentTime;
+    const g = ctx.createGain(); g.gain.setValueAtTime(0.0001, now); g.gain.exponentialRampToValueAtTime(0.18, now + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, now + 0.25);
+    const o = ctx.createOscillator(); o.type = 'sine'; o.frequency.value = 1318.5;
+    o.connect(g); g.connect(ctx.destination); o.start(now); o.stop(now + 0.3);
+  }
   function onPeg(i, btn) {
     const m = tuning().notes[i];
     pluck(midiToHz(m));
     btn.classList.remove('is-ringing'); void btn.offsetWidth; btn.classList.add('is-ringing');
-    state.lock = state.lock === i ? null : i;
+    state.lock = (state.lock === i && !state.guide) ? null : i;
+    state.okSince = 0;
     refreshPegs(); setStatus();
+  }
+  function setGuide(on) {
+    state.guide = on; state.done.clear(); state.okSince = 0;
+    state.lock = on ? 0 : null;
+    el.guide.setAttribute('aria-pressed', on ? 'true' : 'false');
+    refreshPegs(); setStatus();
+    if (on && !state.running) startMic();
+  }
+  el.guide.addEventListener('click', () => setGuide(!state.guide));
+  // the string is held in tune for HOLD_MS before the guide moves on
+  const HOLD_MS = 1200;
+  function guideStep(now) {
+    if (!state.guide || state.lock === null) return;
+    const inTune = state.midi !== null && Math.abs(state.cents) <= IN_TUNE;
+    if (!inTune) { state.okSince = 0; return; }
+    if (!state.okSince) { state.okSince = now; return; }
+    if (now - state.okSince < HOLD_MS) return;
+    state.done.add(state.lock); state.okSince = 0; tick();
+    const n = tuning().notes.length;
+    let next = -1;
+    for (let k = 1; k <= n; k++) { const j = (state.lock + k) % n; if (!state.done.has(j)) { next = j; break; } }
+    if (next === -1) { state.guide = false; state.lock = null; el.guide.setAttribute('aria-pressed', 'false'); lastStatusKey = ''; }
+    else state.lock = next;
+    refreshPegs();
   }
 
   // ---------- microphone ----------
@@ -354,7 +412,8 @@ select{
     const hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 25;
     analyser = ctx.createAnalyser(); analyser.fftSize = FFT; analyser.smoothingTimeConstant = 0;
     src.connect(hp); hp.connect(analyser);
-    state.running = true; state.hist = [];
+    state.running = true; state.hist = []; state.trace = [];
+    keepAwake();
     el.mic.setAttribute('aria-pressed', 'true'); el.micLabel.textContent = 'Listening · stop';
     el.srMeta.textContent = `${(sampleRate / 1000).toFixed(1)} kHz · ${FFT} samples`;
     setStatus();
@@ -362,12 +421,37 @@ select{
   function stopMic() {
     state.running = false; state.midi = null; state.freq = 0; state.clarity = 0; state.level = 0;
     if (stream) stream.getTracks().forEach(t => t.stop());
-    stream = null; analyser = null;
+    stream = null; analyser = null; state.okSince = 0;
+    releaseWake();
     el.mic.setAttribute('aria-pressed', 'false'); el.micLabel.textContent = 'Start listening';
     el.srMeta.textContent = '';
     paintReadout(); refreshPegs(); setStatus();
   }
   el.mic.addEventListener('click', () => state.running ? stopMic() : startMic());
+
+  document.addEventListener('keydown', e => {
+    const tag = (e.target.tagName || '').toLowerCase();
+    if (tag === 'select' || tag === 'input' || tag === 'textarea' || e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.key === ' ' && tag !== 'button') { e.preventDefault(); state.running ? stopMic() : startMic(); }
+    else if (e.key === 'Escape') { state.lock = null; state.okSince = 0; refreshPegs(); setStatus(); }
+    else if (/^[1-9]$/.test(e.key)) {
+      const n = tuning().notes.length, i = n - +e.key;
+      const btn = el.pegs.querySelectorAll('.peg')[i];
+      if (btn) onPeg(i, btn);
+    }
+  });
+
+  // keep the screen on while tuning (optional; phones and some app views refuse it)
+  let wake = null;
+  async function keepAwake() {
+    try { if (navigator.wakeLock && !wake) { wake = await navigator.wakeLock.request('screen'); wake.addEventListener('release', () => { wake = null; }); } } catch (e) {}
+  }
+  function releaseWake() { if (wake) { wake.release().catch(() => {}); wake = null; } }
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && state.running) keepAwake(); });
+
+  if ('serviceWorker' in navigator && location.pathname.startsWith('/tuner')) {
+    window.addEventListener('load', () => { navigator.serviceWorker.register('/tuner/sw.js', { scope: '/tuner/' }).catch(() => {}); });
+  }
 
   // ---------- pitch detection: McLeod normalized square difference ----------
   function detect(b, sr) {
@@ -428,8 +512,12 @@ select{
       } else if (now - state.lastValid > 700) {
         state.hist = []; state.midi = null; state.freq = 0; state.clarity = 0;
       }
+      state.trace.push({ t: now, c: state.midi !== null ? state.cents : null });
+      while (state.trace.length && now - state.trace[0].t > TRACE_MS) state.trace.shift();
+      guideStep(now);
     }
   }
+  const TRACE_MS = 8000;
 
   // ---------- rendering ----------
   const dpr = Math.min(2, window.devicePixelRatio || 1);
@@ -525,13 +613,44 @@ select{
     }
   }
 
-  function drawScope() {
+  $('viewWave').addEventListener('click', () => setView('wave'));
+  $('viewDrift').addEventListener('click', () => setView('drift'));
+  function setView(v) {
+    state.view = v;
+    $('viewWave').setAttribute('aria-pressed', v === 'wave' ? 'true' : 'false');
+    $('viewDrift').setAttribute('aria-pressed', v === 'drift' ? 'true' : 'false');
+  }
+  function drawDrift(g, w, h, now) {
+    const yFor = c => h / 2 - Math.max(-50, Math.min(50, c)) / 50 * (h / 2 - 4);
+    g.fillStyle = 'rgba(163,223,147,.14)';
+    g.fillRect(0, yFor(IN_TUNE), w, yFor(-IN_TUNE) - yFor(IN_TUNE));
+    g.strokeStyle = C('--line'); g.lineWidth = 1;
+    [-25, 25].forEach(c => { g.beginPath(); g.moveTo(0, yFor(c) + .5); g.lineTo(w, yFor(c) + .5); g.stroke(); });
+    g.fillStyle = C('--ink-dim'); g.font = `400 9px ${C('--mono')}`; g.textAlign = 'left'; g.textBaseline = 'middle';
+    g.fillText('+25', 4, yFor(25)); g.fillText('−25', 4, yFor(-25));
+    if (!state.trace.length) return;
+    const xFor = t => w - (now - t) / TRACE_MS * w;
+    g.lineWidth = 1.5; g.lineJoin = 'round';
+    let open = false;
+    for (const p of state.trace) {
+      if (p.c === null) { if (open) { g.stroke(); open = false; } continue; }
+      const ok = Math.abs(p.c) <= IN_TUNE;
+      const col = ok ? C('--ok') : p.c < 0 ? C('--flat') : C('--sharp');
+      if (!open) { g.beginPath(); g.strokeStyle = col; g.moveTo(xFor(p.t), yFor(p.c)); open = true; }
+      else { g.lineTo(xFor(p.t), yFor(p.c)); if (g.strokeStyle !== col) { g.stroke(); g.beginPath(); g.strokeStyle = col; g.moveTo(xFor(p.t), yFor(p.c)); } }
+    }
+    if (open) g.stroke();
+    const last = state.trace[state.trace.length - 1];
+    if (last.c !== null) { g.fillStyle = g.strokeStyle; g.beginPath(); g.arc(xFor(last.t), yFor(last.c), 2.5, 0, TAU); g.fill(); }
+  }
+  function drawScope(now) {
     const [w, h] = fit(el.scope);
     const g = el.scope.getContext('2d');
     g.setTransform(dpr, 0, 0, dpr, 0, 0);
     g.clearRect(0, 0, w, h);
     g.strokeStyle = C('--line'); g.lineWidth = 1;
     g.beginPath(); g.moveTo(0, h / 2 + .5); g.lineTo(w, h / 2 + .5); g.stroke();
+    if (state.view === 'drift') return drawDrift(g, w, h, now);
     if (!analyser) return;
     g.strokeStyle = state.midi !== null ? C('--brass') : C('--ink-dim'); g.lineWidth = 1.25;
     g.beginPath();
@@ -570,7 +689,14 @@ select{
     if (text) { el.status.dataset.tone = tone || ''; el.status.innerHTML = text; lastStatusKey = 'msg'; return; }
     const t = tuning();
     let key, html, tn = '';
-    if (!state.running) {
+    const allDone = state.done.size && state.done.size === t.notes.length;
+    if (allDone && !state.guide) {
+      key = 'alldone'; tn = 'ok';
+      html = `<strong>All ${t.notes.length} strings in tune.</strong> Play something.`;
+    } else if (state.guide && state.lock !== null && state.midi === null) {
+      key = 'guide' + state.lock + state.done.size;
+      html = `Guide · ${state.done.size + 1} of ${t.notes.length}: pluck the <strong>${ordinalOf(t.notes.length - state.lock)} string</strong> (${noteName(t.notes[state.lock])}${octaveOf(t.notes[state.lock])}) and hold it in tune.`;
+    } else if (!state.running) {
       key = 'idle' + state.lock;
       html = state.lock !== null
         ? `Target set to <strong>${noteName(t.notes[state.lock])}${octaveOf(t.notes[state.lock])}</strong>. Press <strong>Start listening</strong> and tune to it.`
@@ -596,7 +722,7 @@ select{
   function loop(now) {
     const dt = Math.min(50, now - prev); prev = now;
     if (state.running) { analyse(now); paintReadout(); refreshPegs(); setStatus(); }
-    drawStrobe(dt); drawScope();
+    drawStrobe(dt); drawScope(now);
     requestAnimationFrame(loop);
   }
   requestAnimationFrame(loop);

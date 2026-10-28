@@ -59,12 +59,16 @@ Download from [poppler-windows releases](https://github.com/oschwartz10612/poppl
 
 ## Guitar Tuner (`/tuner`)
 
-A strobe-style guitar tuner at `public/tuner/index.html`, served at `/tuner`. It is a single self-contained HTML file: no build step, no dependencies beyond the browser.
+A strobe-style guitar tuner at `public/tuner/index.html`, served at `/tuner`. The page is self-contained, with a manifest, service worker and icon beside it in `public/tuner/`. No build step, no dependencies beyond the browser.
 
 - **Pitch detection** in the browser with the Web Audio API and a McLeod normalized autocorrelation on 4096 samples, accurate down to a bass low E (41 Hz).
 - **Strobe disk**: the stripes drift clockwise when sharp, counter-clockwise when flat, and freeze inside ±3 cents. A cents arc and brass pointer sit over the disk.
 - **Tunings**: Standard, Drop D, half-step down, DADGAD, Open G, Open D, 4-string bass, ukulele. A4 is adjustable from 415 to 466 Hz. Settings persist in `localStorage`.
 - **Headstock pegs**: tap a peg to hear a reference tone and lock it as the target string.
+- **Tune all strings**: a guided mode that walks through the strings in order, marks each one done after it is held in tune for 1.2 s, and plays a confirmation tick.
+- **Drift trace**: the strip at the foot toggles between the live waveform and an 8-second history of the pitch error in cents.
+- **Installable**: ships a web manifest and a service worker, so it can be added to a phone's home screen and opened offline.
+- **Keyboard**: space starts or stops listening, 1 to 6 pick a string, Esc clears the target.
 
 The microphone needs a secure context (`https://` or `localhost`), so run `php artisan serve` and open `http://localhost:8000/tuner`, or open the HTML file directly.
 
