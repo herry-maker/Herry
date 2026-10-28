@@ -6,14 +6,14 @@
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#101418" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
-<meta name="description" content="Pitch Detector: real-time fundamental frequency, note name and cents from a microphone, an audio file or a built-in test tone, with a pitch trace, spectrum, file analysis and CSV export.">
+<meta name="description" content="Djahwasi Pitch Detector: real-time pitch, beat and tempo, level in dB, dynamics and timbre from a microphone, an audio file or a built-in test tone, with a 7-minute pitch trace, recording, file analysis and CSV export.">
 <link rel="icon" href="./icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="./apple-touch-icon.png">
 <link rel="manifest" href="./manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Pitch">
-<title>Pitch Detector</title>
+<meta name="apple-mobile-web-app-title" content="Djahwasi Pitch">
+<title>Djahwasi Pitch Detector</title>
 <style>
 :root{
   --bg:#f6f7f9; --panel:#ffffff; --panel-2:#eef1f5; --line:#d7dce3; --ink:#15191e; --ink-dim:#5d6671;
@@ -37,7 +37,33 @@ body{padding:16px;padding-bottom:max(24px,env(safe-area-inset-bottom))}
 .wrap{max-width:1040px;margin:0 auto;display:grid;gap:14px}
 @media (min-width:900px){ .wrap{grid-template-columns:1.2fr 1fr;align-items:start} .span{grid-column:1/-1} }
 header{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px}
-h1{font-size:22px;margin:0;font-weight:700;letter-spacing:-.01em}
+h1{font-size:22px;margin:0;font-weight:700;letter-spacing:-.01em;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+h1 .logo{border-radius:8px;flex:none}
+.brand-foot{text-align:center;font-size:12px;color:var(--ink-dim);padding:6px 0 0}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.seg button{border:0;border-radius:0;min-height:34px;padding:6px 10px;font-size:13px}
+.seg button+button{border-left:1px solid var(--line)}
+.between{justify-content:space-between}
+.rec-dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--sharp);margin-right:6px;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:.25}}
+#rec[aria-pressed="true"]{background:var(--sharp);border-color:var(--sharp);color:#fff}
+.btn-sm{min-height:34px;padding:6px 10px;font-size:13px;font-weight:500}
+.triple{grid-column:1/-1;display:grid;gap:14px}
+@media (min-width:900px){ .triple{grid-template-columns:1fr 1fr 1fr} }
+.big{font-size:44px;font-weight:700;letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums}
+.big small{font-size:14px;font-weight:500;color:var(--ink-dim);margin-left:6px;letter-spacing:0}
+.beat-light{display:inline-block;width:18px;height:18px;border-radius:50%;background:var(--panel-2);border:1px solid var(--line);vertical-align:middle;margin-right:8px;transition:background .05s}
+.beat-light.on{background:var(--accent);box-shadow:0 0 14px var(--accent)}
+.dyn{font-family:var(--display,Georgia,serif);font-style:italic;font-weight:700;font-size:48px;line-height:1}
+.scale{position:relative;height:26px;margin:8px 0 4px}
+.scale .track{position:absolute;left:0;right:0;top:11px;height:4px;background:var(--line);border-radius:2px}
+.scale .mark{position:absolute;top:0;transform:translateX(-50%);font-family:var(--display,Georgia,serif);font-style:italic;font-size:12px;color:var(--ink-dim)}
+.scale .pos{position:absolute;top:7px;width:12px;height:12px;border-radius:50%;background:var(--accent);transform:translateX(-50%);transition:left .1s linear}
+#harm{height:70px;margin-top:6px}
+#onsetStrip{height:46px;margin-top:6px}
+#levelStrip{height:46px;margin-top:6px}
+input[type=number]{font:inherit;background:var(--panel-2);color:var(--ink);border:1px solid var(--line);border-radius:9px;padding:6px 8px;width:92px;min-height:34px}
+.desc{font-size:13px;color:var(--ink-dim);margin-top:6px;min-height:1.4em}
 h1 small{font-weight:400;color:var(--ink-dim);font-size:14px;margin-left:8px}
 h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-dim);margin:0 0 10px;font-weight:600}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
@@ -99,8 +125,8 @@ a{color:var(--accent)}
 <body>
 <div class="wrap">
   <header class="span">
-    <h1>Pitch Detector <small>fundamental frequency · note · cents</small></h1>
-    <nav class="small"><a href="../tuner/">Guitar tuner</a></nav>
+    <h1><svg class="logo" viewBox="0 0 512 512" width="30" height="30" aria-hidden="true"><rect width="512" height="512" rx="104" fill="#101418"/><path d="M64 256h48l32-96 40 192 40-256 40 320 40-224 32 128 32-64h80" fill="none" stroke="#58a6ff" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/><circle cx="256" cy="256" r="26" fill="#4ad07a"/></svg>Djahwasi Pitch Detector <small>fundamental frequency · note · cents</small></h1>
+    <nav class="small"><a href="../tuner/">Djahwasi Guitar Tuner</a></nav>
   </header>
 
   <section class="card span" aria-label="Sound source">
@@ -108,6 +134,8 @@ a{color:var(--accent)}
       <button type="button" id="mic" class="primary" aria-pressed="false"><span id="micLabel">Start microphone</span></button>
       <button type="button" id="fileBtn">Open audio file</button>
       <input type="file" id="file" accept="audio/*,video/*,.wav,.mp3,.m4a,.ogg,.flac,.aac,.webm,.mp4" class="sr-only" tabindex="-1">
+      <button type="button" id="rec" aria-pressed="false" title="Record the microphone for up to 7 minutes, then analyse and save it">Record</button>
+      <span id="recTime" class="small hide" aria-live="off"></span>
       <button type="button" id="test" aria-pressed="false">Self-test tone</button>
       <select id="testNote" aria-label="Self-test note"></select>
       <select id="device" aria-label="Microphone" class="hide"></select>
@@ -137,16 +165,82 @@ a{color:var(--accent)}
   </section>
 
   <section class="card" aria-label="Pitch trace and spectrum">
-    <h2>Pitch trace <span class="small">last 12 s</span></h2>
-    <canvas id="trace" aria-label="Pitch over the last twelve seconds" role="img"></canvas>
+    <div class="row between" style="margin-bottom:8px">
+      <h2 style="margin:0">Pitch trace <span class="small" id="traceLabel">last 12 s</span></h2>
+      <div class="row">
+        <div class="seg" role="group" aria-label="Trace length">
+          <button type="button" data-span="12000" aria-pressed="true">12 s</button>
+          <button type="button" data-span="60000" aria-pressed="false">1 min</button>
+          <button type="button" data-span="180000" aria-pressed="false">3 min</button>
+          <button type="button" data-span="420000" aria-pressed="false">7 min</button>
+        </div>
+        <button type="button" id="traceCsv" class="btn-sm">Save CSV</button>
+        <button type="button" id="tracePng" class="btn-sm">Save image</button>
+        <button type="button" id="traceClear" class="btn-sm">Clear</button>
+      </div>
+    </div>
+    <canvas id="trace" aria-label="Pitch over the selected period, up to the last seven minutes" role="img"></canvas>
     <canvas id="spec" aria-label="Spectrum with the detected fundamental marked" role="img"></canvas>
   </section>
+
+  <div class="triple">
+    <section class="card" aria-label="Beat and tempo">
+      <h2>Beat · tempo</h2>
+      <div class="big"><span class="beat-light" id="beatLight" aria-hidden="true"></span><span id="bpm">—</span><small>BPM</small></div>
+      <div class="kv" style="margin-top:8px">
+        <dt>confidence</dt><dd id="bpmConf">—</dd>
+        <dt>onsets (8 s)</dt><dd id="onsetCount">—</dd>
+        <dt>last interval</dt><dd id="ioi">—</dd>
+      </div>
+      <canvas id="onsetStrip" aria-label="Onset strength over the last eight seconds" role="img"></canvas>
+      <div class="row" style="margin-top:8px"><button type="button" id="beatReset" class="btn-sm">Reset</button><span class="small">Onsets from spectral flux; tempo from the autocorrelation of the onset envelope (40–220 BPM).</span></div>
+    </section>
+    <section class="card" aria-label="Level and dynamics">
+      <h2>Level · dynamics</h2>
+      <div class="row between">
+        <div class="big"><span id="lvlSlow">—</span><small>dBFS</small></div>
+        <div class="dyn" id="dynMark">—</div>
+      </div>
+      <div class="scale" id="dynScale"><div class="track"></div><div class="pos" id="dynPos" style="left:0"></div></div>
+      <div class="kv" style="margin-top:6px">
+        <dt>rms · peak</dt><dd><span id="lvlRms">—</span> · <span id="lvlPeak">—</span> dBFS</dd>
+        <dt>range (7 min)</dt><dd id="lvlRange">—</dd>
+        <dt>≈ dB SPL</dt><dd id="lvlSpl">not calibrated</dd>
+      </div>
+      <canvas id="levelStrip" aria-label="Level over the last minute" role="img"></canvas>
+      <div class="row" style="margin-top:8px">
+        <button type="button" id="setPP" class="btn-sm" title="Play as softly as you mean by pianissimo, then press">Set <i>pp</i> here</button>
+        <button type="button" id="setFF" class="btn-sm" title="Play as loudly as you mean by fortissimo, then press">Set <i>ff</i> here</button>
+        <button type="button" id="dynReset" class="btn-sm">Default</button>
+      </div>
+      <div class="row" style="margin-top:8px">
+        <label class="f">Meter reads (dB SPL)<input type="number" id="splRef" min="20" max="130" step="1" placeholder="e.g. 70"></label>
+        <button type="button" id="splSet" class="btn-sm">Calibrate</button>
+        <button type="button" id="splClear" class="btn-sm">Clear</button>
+      </div>
+      <p class="small" style="margin:6px 0 0">dBFS is level relative to digital full scale. Hold a sound-level meter beside the microphone, type its reading and press Calibrate to show approximate dB SPL. The dynamic marks are relative: anchor <i>pp</i> and <i>ff</i> to your own playing.</p>
+    </section>
+    <section class="card" aria-label="Timbre">
+      <h2>Timbre</h2>
+      <div class="big"><span id="centroid">—</span><small>Hz centroid</small></div>
+      <div class="kv" style="margin-top:8px">
+        <dt>brightness</dt><dd id="bright">—</dd>
+        <dt>spread · roll-off</dt><dd id="spread">—</dd>
+        <dt>flatness</dt><dd id="flat">—</dd>
+        <dt>odd / even</dt><dd id="oddEven">—</dd>
+        <dt>tilt</dt><dd id="tilt">—</dd>
+      </div>
+      <canvas id="harm" aria-label="Relative level of the first ten harmonics" role="img"></canvas>
+      <div class="desc" id="timbreDesc"></div>
+    </section>
+  </div>
 
   <section class="card span hide" id="fileCard" aria-label="File analysis">
     <h2>File analysis</h2>
     <div class="row">
       <button type="button" id="play" disabled aria-pressed="false">Play</button>
       <button type="button" id="csv" disabled>Download CSV</button>
+      <button type="button" id="saveRec" class="hide">Save recording</button>
       <span class="small" id="fileName"></span>
     </div>
     <progress id="progress" value="0" max="1" class="hide"></progress>
@@ -198,6 +292,7 @@ a{color:var(--accent)}
       </ul>
     </details>
   </section>
+  <p class="brand-foot span">Djahwasi Pitch Detector · pitch · beat · level · dynamics · timbre · trace kept for 7 minutes · recordings up to 7 minutes · <a href="../tuner/">Djahwasi Guitar Tuner</a></p>
 </div>
 
 <script>
@@ -228,9 +323,23 @@ function makeDetector() {
       }
     }
   }
-  let scratch = null;
+  let scratch = null, specScratch = null;
+  // Hann-windowed magnitude spectrum of b (length a power of two). Scaled so a full-scale sine peaks at 1.0.
+  function spectrum(b) {
+    const n = b.length;
+    if (!specScratch || specScratch.re.length !== n) {
+      const win = new Float32Array(n); for (let i = 0; i < n; i++) win[i] = 0.5 - 0.5 * Math.cos(2 * Math.PI * i / n);
+      specScratch = { re: new Float64Array(n), im: new Float64Array(n), win, mags: new Float32Array(n >> 1) };
+    }
+    const { re, im, win, mags } = specScratch;
+    for (let i = 0; i < n; i++) { re[i] = b[i] * win[i]; im[i] = 0; }
+    fft(re, im, false);
+    const scale = 4 / n;
+    for (let i = 0; i < (n >> 1); i++) mags[i] = Math.sqrt(re[i] * re[i] + im[i] * im[i]) * scale;
+    return mags;
+  }
   // b: Float32Array window; sr: sample rate; minHz/maxHz: search band; k: McLeod peak threshold (0.8..1)
-  return function detect(b, sr, minHz, maxHz, k) {
+  function detect(b, sr, minHz, maxHz, k) {
     const n = b.length;
     let mean = 0; for (let i = 0; i < n; i++) mean += b[i]; mean /= n;
     const N = 1 << Math.ceil(Math.log2(2 * n));
@@ -271,16 +380,98 @@ function makeDetector() {
       if (d < 0) { const off = 0.5 * (a - c) / d; t = chosen + off; c0 = c0 - 0.25 * (a - c) * off; }
     }
     return { hz: sr / t, clarity: Math.min(1, c0), rms, peak };
-  };
+  }
+  return { detect, spectrum };
+}
+
+// ---------- spectral descriptors, onset detection and tempo: shared by the page and the Worker ----------
+function makeFeatures() {
+  // timbre descriptors from a magnitude spectrum; f0 (Hz) enables the harmonic measures
+  function descriptors(mags, binHz, f0) {
+    const n = mags.length, iLo = Math.max(1, Math.floor(50 / binHz)), iHi = Math.min(n - 1, Math.floor(8000 / binHz));
+    let sum = 0, wsum = 0, psum = 0, logSum = 0, cnt = 0;
+    for (let i = iLo; i <= iHi; i++) { const m = mags[i], p = m * m + 1e-20; sum += m; wsum += m * i; psum += p; logSum += Math.log(p); cnt++; }
+    if (sum <= 0) return null;
+    const centroid = (wsum / sum) * binHz;
+    const flatness = Math.exp(logSum / cnt) / (psum / cnt);
+    let acc = 0, rolloff = 0; for (let i = iLo; i <= iHi; i++) { acc += mags[i] * mags[i]; if (acc >= 0.85 * psum) { rolloff = i * binHz; break; } }
+    let v = 0; for (let i = iLo; i <= iHi; i++) { const d = i * binHz - centroid; v += mags[i] * d * d; }
+    const spread = Math.sqrt(v / sum);
+    let harmonics = null, oddEven = null, tilt = null;
+    if (f0 > 0) {
+      const h = [];
+      for (let k = 1; k <= 10; k++) {
+        const c = k * f0 / binHz, lo = Math.max(1, Math.floor(c * 0.96)), hi = Math.min(n - 1, Math.ceil(c * 1.04));
+        if (lo > hi) { h.push(0); continue; }
+        let pk = 0; for (let i = lo; i <= hi; i++) if (mags[i] > pk) pk = mags[i];
+        h.push(pk);
+      }
+      const top = Math.max(...h);
+      if (top > 0) {
+        harmonics = h.map(x => x > 0 ? 20 * Math.log10(x / top) : -80);
+        let odd = 0, even = 0; for (let k = 2; k <= 10; k++) { const e = h[k - 1] * h[k - 1]; if (k % 2) odd += e; else even += e; }
+        oddEven = even > 0 && odd > 0 ? 10 * Math.log10(odd / even) : null;
+        // slope of harmonic level against log2(harmonic number), dB per octave, over harmonics that are present
+        let sx = 0, sy = 0, sxx = 0, sxy = 0, m = 0;
+        for (let k = 1; k <= 10; k++) { if (harmonics[k - 1] <= -60) continue; const x = Math.log2(k), y = harmonics[k - 1]; sx += x; sy += y; sxx += x * x; sxy += x * y; m++; }
+        if (m >= 3 && m * sxx - sx * sx > 0) tilt = (m * sxy - sx * sy) / (m * sxx - sx * sx);
+      }
+    }
+    return { centroid, spread, flatness, rolloff, harmonics, oddEven, tilt };
+  }
+  // half-wave rectified spectral flux between two magnitude spectra, up to 8 kHz
+  function flux(mags, prev, binHz) {
+    const hi = Math.min(mags.length, Math.floor(8000 / binHz)); let f = 0;
+    for (let i = 1; i < hi; i++) { const d = mags[i] - prev[i]; if (d > 0) f += d; }
+    return f;
+  }
+  // onsets: local maxima of the flux that stand 1.5 standard deviations above the mean of the preceding 1.5 s
+  function pickOnsets(times, fluxes, minGapMs) {
+    const out = []; let last = -Infinity;
+    for (let i = 1; i < fluxes.length - 1; i++) {
+      const f = fluxes[i];
+      if (f < fluxes[i - 1] || f <= fluxes[i + 1]) continue;
+      let sum = 0, sq = 0, m = 0;
+      for (let j = i - 1; j >= 0 && times[i] - times[j] <= 1500; j--) { sum += fluxes[j]; sq += fluxes[j] * fluxes[j]; m++; }
+      if (m < 5) continue;
+      const mean = sum / m, sd = Math.sqrt(Math.max(0, sq / m - mean * mean));
+      if (f > mean + 1.5 * sd + 1e-4 && f > 1.5 * mean && times[i] - last >= (minGapMs || 120)) { out.push(i); last = times[i]; }
+    }
+    return out;
+  }
+  // tempo from an onset-strength envelope sampled at fps: detrend, rectify, autocorrelate with a log-normal prior at 110 BPM
+  function tempo(env, fps) {
+    const n = env.length; if (n < fps * 3) return null;
+    const w = Math.max(1, Math.round(fps * 0.5)), d = new Float32Array(n); let acc = 0;
+    for (let i = 0; i < n; i++) { acc += env[i]; if (i >= w) acc -= env[i - w]; d[i] = Math.max(0, env[i] - acc / Math.min(i + 1, w)); }
+    const minLag = Math.max(2, Math.round(60 / 220 * fps)), maxLag = Math.min(n >> 1, Math.round(60 / 40 * fps));
+    let e0 = 0; for (let i = 0; i < n; i++) e0 += d[i] * d[i]; if (e0 <= 0) return null;
+    const acf = new Float32Array(maxLag + 1), raw = new Float32Array(maxLag + 1); let best = -1, bestV = 0;
+    for (let lag = minLag; lag <= maxLag; lag++) {
+      let sum = 0; for (let i = lag; i < n; i++) sum += d[i] * d[i - lag];
+      raw[lag] = sum / e0;
+      const prior = Math.exp(-0.5 * Math.pow(Math.log2((60 * fps / lag) / 110) / 0.9, 2));
+      acf[lag] = raw[lag] * prior;
+      if (acf[lag] > bestV) { bestV = acf[lag]; best = lag; }
+    }
+    if (best < 0) return null;
+    let lag = best;
+    if (best > minLag && best < maxLag) { const a = acf[best - 1], b = acf[best], c = acf[best + 1], den = a - 2 * b + c; if (den < 0) lag = best + 0.5 * (a - c) / den; }
+    return { bpm: 60 * fps / lag, confidence: raw[best] };
+  }
+  return { descriptors, flux, pickOnsets, tempo };
 }
 
 (() => {
   'use strict';
-  const detect = makeDetector();
+  const { detect, spectrum } = makeDetector();
+  const F = makeFeatures();
   const SHARPS = ['C','C♯','D','D♯','E','F','F♯','G','G♯','A','A♯','B'];
   const FLATS  = ['C','D♭','D','E♭','E','F','G♭','G','A♭','A','B♭','B'];
   const WIN = 4096;                 // analysis window in samples (85 ms at 48 kHz; two periods of 23 Hz)
-  const TRACE_MS = 12000;
+  const TRACE_KEEP_MS = 420000;     // the trace buffer holds the last 7 minutes
+  const REC_MAX_MS = 420000;        // recordings stop by themselves at 7 minutes
+  const BRAND = 'Djahwasi Pitch Detector';
   const IN_TUNE = 5;                // cents
   const ABS_FLOOR = 5e-4;           // −66 dBFS: anything quieter is treated as silence
   const GATE_RATIO = 2;             // signal must exceed the tracked noise floor by this factor (6 dB)
@@ -289,6 +480,11 @@ function makeDetector() {
   const $ = id => document.getElementById(id);
   const el = {
     mic: $('mic'), micLabel: $('micLabel'), fileBtn: $('fileBtn'), file: $('file'), test: $('test'), testNote: $('testNote'), device: $('device'), status: $('status'),
+    rec: $('rec'), recTime: $('recTime'), saveRec: $('saveRec'),
+    beatLight: $('beatLight'), bpm: $('bpm'), bpmConf: $('bpmConf'), onsetCount: $('onsetCount'), ioi: $('ioi'), onsetStrip: $('onsetStrip'), beatReset: $('beatReset'),
+    lvlSlow: $('lvlSlow'), dynMark: $('dynMark'), dynScale: $('dynScale'), dynPos: $('dynPos'), lvlRms: $('lvlRms'), lvlPeak: $('lvlPeak'), lvlRange: $('lvlRange'), lvlSpl: $('lvlSpl'), levelStrip: $('levelStrip'),
+    setPP: $('setPP'), setFF: $('setFF'), dynReset: $('dynReset'), splRef: $('splRef'), splSet: $('splSet'), splClear: $('splClear'),
+    centroid: $('centroid'), bright: $('bright'), spread: $('spread'), flat: $('flat'), oddEven: $('oddEven'), tilt: $('tilt'), harm: $('harm'), timbreDesc: $('timbreDesc'), traceLabel: $('traceLabel'), traceCsv: $('traceCsv'), tracePng: $('tracePng'), traceClear: $('traceClear'),
     note: $('note'), noteName: $('noteName'), octave: $('octave'), hz: $('hz'), centsVal: $('centsVal'), midi: $('midi'), clarity: $('clarity'), last: $('last'),
     cents: $('cents'), needle: $('needle'), levelDb: $('levelDb'), floorDb: $('floorDb'), peakVal: $('peakVal'), levelFill: $('levelFill'), gateMark: $('gateMark'),
     trace: $('trace'), spec: $('spec'), fileCard: $('fileCard'), play: $('play'), csv: $('csv'), fileName: $('fileName'), progress: $('progress'), fileChart: $('fileChart'), stats: $('stats'),
@@ -300,10 +496,16 @@ function makeDetector() {
 
   // ---------- state ----------
   const state = {
-    a4: 440, names: 'sharp', minHz: 27.5, maxHz: 4200, clarityMin: 0.85, smooth: 5,
+    a4: 440, names: 'sharp', minHz: 27.5, maxHz: 4200, clarityMin: 0.85, smooth: 5, span: 12000,
     running: false, source: null,           // 'mic' | 'file' | 'test'
     freq: 0, midi: null, cents: 0, clarity: 0, rms: 0, peak: 0, floor: null, gate: ABS_FLOOR,
     lastValid: 0, hist: [], trace: [], frames: 0, lastReading: null, firstFrameAt: 0, silentSince: 0,
+    // beat
+    onsets: [], onsetTimes: [], lastOnsetAt: 0, beatAt: 0, bpm: null, bpmConf: 0, bpmHist: [], lastTempoAt: 0,
+    // level and dynamics
+    slowPow: 0, slowDb: -Infinity, dynPP: -45, dynFF: -15, splOffset: null,
+    // timbre
+    feat: null, specDb: null,
   };
   try {
     const s = JSON.parse(localStorage.getItem('pitch.settings') || '{}');
@@ -312,8 +514,11 @@ function makeDetector() {
     if (typeof s.range === 'string') { const [lo, hi] = s.range.split(',').map(Number); if (lo > 0 && hi > lo) { state.minHz = lo; state.maxHz = hi; el.range.value = s.range; } }
     if (s.clarityMin > 0 && s.clarityMin < 1) state.clarityMin = s.clarityMin;
     if (s.smooth >= 1) state.smooth = s.smooth;
+    if ([12000, 60000, 180000, 420000].includes(s.span)) state.span = s.span;
+    if (typeof s.dynPP === 'number' && typeof s.dynFF === 'number' && s.dynFF > s.dynPP) { state.dynPP = s.dynPP; state.dynFF = s.dynFF; }
+    if (typeof s.splOffset === 'number') state.splOffset = s.splOffset;
   } catch (e) {}
-  const save = () => { try { localStorage.setItem('pitch.settings', JSON.stringify({ a4: state.a4, names: state.names, range: el.range.value, clarityMin: state.clarityMin, smooth: state.smooth })); } catch (e) {} };
+  const save = () => { try { localStorage.setItem('pitch.settings', JSON.stringify({ a4: state.a4, names: state.names, range: el.range.value, clarityMin: state.clarityMin, smooth: state.smooth, span: state.span, dynPP: state.dynPP, dynFF: state.dynFF, splOffset: state.splOffset })); } catch (e) {} };
 
   // ---------- music math ----------
   const midiToHz = m => state.a4 * Math.pow(2, (m - 69) / 12);
@@ -357,7 +562,7 @@ function makeDetector() {
   const idleText = 'Press <strong>Start microphone</strong> and make a sound, open an audio file, or run the self-test tone to check the detector without a microphone.';
 
   // ---------- audio graph ----------
-  let actx = null, analyser = null, input = null, stream = null, buf = new Float32Array(WIN), byteBuf = null, specBuf = null;
+  let actx = null, analyser = null, input = null, stream = null, buf = new Float32Array(WIN), byteBuf = null, specBuf = null, prevMags = null;
   let fileSource = null, testNodes = null, resumeHook = null;
   const AC = window.AudioContext || window.webkitAudioContext;
   function ensureCtx() {
@@ -378,10 +583,10 @@ function makeDetector() {
     document.addEventListener('pointerdown', resumeHook); document.addEventListener('keydown', resumeHook);
   }
   function attach(ctx, node, source, label) {
-    analyser = ctx.createAnalyser(); analyser.fftSize = WIN; analyser.smoothingTimeConstant = 0.3;
+    analyser = ctx.createAnalyser(); analyser.fftSize = WIN; analyser.smoothingTimeConstant = 0;
     input = node; node.connect(analyser);
-    buf = new Float32Array(WIN); specBuf = new Float32Array(analyser.frequencyBinCount); byteBuf = analyser.getFloatTimeDomainData ? null : new Uint8Array(WIN);
-    state.running = true; state.source = source; state.hist = []; state.trace = []; state.floor = null; state.frames = 0; state.firstFrameAt = 0; state.silentSince = 0; state.midi = null; state.lastValid = 0;
+    buf = new Float32Array(WIN); specBuf = null; prevMags = null; byteBuf = analyser.getFloatTimeDomainData ? null : new Uint8Array(WIN);
+    state.running = true; state.source = source; state.hist = []; state.floor = null; state.frames = 0; state.firstFrameAt = 0; state.silentSince = 0; state.midi = null; state.lastValid = 0;
     setDiag('dInput', label);
     el.mic.setAttribute('aria-pressed', source === 'mic' ? 'true' : 'false'); el.micLabel.textContent = source === 'mic' ? 'Stop microphone' : 'Start microphone';
     el.test.setAttribute('aria-pressed', source === 'test' ? 'true' : 'false');
@@ -397,6 +602,7 @@ function makeDetector() {
     return `Self-test: a ${SHARPS[el.testNote.value % 12]}${octaveOf(+el.testNote.value)} tone (${midiToHz(+el.testNote.value).toFixed(2)} Hz) is routed straight into the detector.`;
   }
   function stopAll(keepStatus) {
+    if (recorder && recorder.state !== 'inactive') stopRecording();
     state.running = false; state.source = null; state.midi = null; state.freq = 0; state.clarity = 0; state.rms = 0; state.peak = 0;
     if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
     if (fileSource) { const f = fileSource; fileSource = null; try { f.stop(); } catch (e) {} }
@@ -490,6 +696,7 @@ function makeDetector() {
   }
   async function openFile(file) {
     if (state.running) stopAll(true);
+    if (!(recBlob && file.name && file.name.startsWith('djahwasi-recording-'))) el.saveRec.classList.add('hide');
     let ctx; try { ctx = ensureCtx(); } catch (e) { fail(e, 'AudioContext'); setStatus('warn', 'Web Audio is not available in this browser.'); return; }
     el.fileCard.classList.remove('hide'); el.fileName.textContent = file.name; el.play.disabled = true; el.csv.disabled = true; el.stats.textContent = ''; fileTrack = null;
     setStatus('', `Decoding <strong>${escapeHtml(file.name)}</strong>…`);
@@ -509,17 +716,25 @@ function makeDetector() {
   function analyseOffline(mono, sr) {
     const hop = 1024, win = WIN;
     const job = { sr, win, hop, minHz: state.minHz, maxHz: state.maxHz, k: 0.9 };
-    const src = `const detect = (${makeDetector.toString()})();
+    const src = `const { detect, spectrum } = (${makeDetector.toString()})(); const F = (${makeFeatures.toString()})();
       onmessage = e => {
         const { mono, sr, win, hop, minHz, maxHz, k } = e.data;
-        const frames = Math.max(0, Math.floor((mono.length - win) / hop) + 1);
+        const frames = Math.max(0, Math.floor((mono.length - win) / hop) + 1), binHz = sr / win;
         const t = new Float32Array(frames), hz = new Float32Array(frames), cl = new Float32Array(frames), rms = new Float32Array(frames);
+        const cen = new Float32Array(frames), flat = new Float32Array(frames), flux = new Float32Array(frames);
+        let prev = null;
         for (let f = 0; f < frames; f++) {
-          const r = detect(mono.subarray(f * hop, f * hop + win), sr, minHz, maxHz, k);
+          const seg = mono.subarray(f * hop, f * hop + win);
+          const r = detect(seg, sr, minHz, maxHz, k);
           t[f] = (f * hop + win / 2) / sr; hz[f] = r.hz; cl[f] = r.clarity; rms[f] = r.rms;
+          const mags = spectrum(seg);
+          const d = F.descriptors(mags, binHz, r.hz);
+          if (d) { cen[f] = d.centroid; flat[f] = d.flatness; }
+          if (prev) flux[f] = F.flux(mags, prev, binHz); else prev = new Float32Array(mags.length);
+          prev.set(mags);
           if ((f & 127) === 0) postMessage({ progress: f / frames });
         }
-        postMessage({ done: true, t, hz, cl, rms }, [t.buffer, hz.buffer, cl.buffer, rms.buffer]);
+        postMessage({ done: true, t, hz, cl, rms, cen, flat, flux }, [t.buffer, hz.buffer, cl.buffer, rms.buffer, cen.buffer, flat.buffer, flux.buffer]);
       };`;
     return new Promise((res, rej) => {
       const run = () => {
@@ -527,16 +742,30 @@ function makeDetector() {
         if (mono.byteLength === 0) return rej(new Error('audio buffer was handed to a worker that failed'));
         const frames = Math.max(0, Math.floor((mono.length - win) / hop) + 1);
         const t = new Float32Array(frames), hz = new Float32Array(frames), cl = new Float32Array(frames), rms = new Float32Array(frames);
-        let f = 0;
+        const cen = new Float32Array(frames), flat = new Float32Array(frames), flux = new Float32Array(frames), binHz = sr / win;
+        let f = 0, prev = null;
         const step = () => {
           const end = Math.min(frames, f + 64);
-          for (; f < end; f++) { const r = detect(mono.subarray(f * hop, f * hop + win), sr, job.minHz, job.maxHz, job.k); t[f] = (f * hop + win / 2) / sr; hz[f] = r.hz; cl[f] = r.clarity; rms[f] = r.rms; }
+          for (; f < end; f++) {
+            const seg = mono.subarray(f * hop, f * hop + win), r = detect(seg, sr, job.minHz, job.maxHz, job.k);
+            t[f] = (f * hop + win / 2) / sr; hz[f] = r.hz; cl[f] = r.clarity; rms[f] = r.rms;
+            const mags = spectrum(seg), d = F.descriptors(mags, binHz, r.hz);
+            if (d) { cen[f] = d.centroid; flat[f] = d.flatness; }
+            if (prev) flux[f] = F.flux(mags, prev, binHz); else prev = new Float32Array(mags.length);
+            prev.set(mags);
+          }
           el.progress.value = f / frames;
-          if (f < frames) setTimeout(step, 0); else res(finish({ t, hz, cl, rms }));
+          if (f < frames) setTimeout(step, 0); else res(finish({ t, hz, cl, rms, cen, flat, flux }));
         };
         step();
       };
-      const finish = d => ({ t: d.t, hz: d.hz, cl: d.cl, rms: d.rms, sr, clarityMin: state.clarityMin });
+      const finish = d => {
+        const fps = sr / hop, times = Array.from(d.t, x => x * 1000);
+        const onsetIdx = F.pickOnsets(times, d.flux, 120).filter(i => d.rms[i] > ABS_FLOOR * 2);
+        const onset = new Uint8Array(d.t.length); onsetIdx.forEach(i => { onset[i] = 1; });
+        const tp = F.tempo(d.flux, fps);
+        return { t: d.t, hz: d.hz, cl: d.cl, rms: d.rms, cen: d.cen, flat: d.flat, flux: d.flux, onset, onsets: onsetIdx.length, tempo: tp, sr, hop };
+      };
       if (typeof Worker === 'undefined') return run();
       try {
         if (worker) worker.terminate();
@@ -555,7 +784,17 @@ function makeDetector() {
     hz.sort((a, b) => a - b);
     const med = hz[hz.length >> 1], lo = hz[Math.floor(hz.length * 0.05)], hi = hz[Math.floor(hz.length * 0.95)];
     const nm = f => { const m = Math.round(hzToMidi(f)); return `${noteName(m)}${octaveOf(m)}`; };
-    el.stats.innerHTML = `<span>duration <b>${fileBuf.duration.toFixed(2)} s</b></span><span>voiced <b>${(100 * hz.length / track.t.length).toFixed(0)}%</b></span><span>median <b>${med.toFixed(1)} Hz · ${nm(med)}</b></span><span>5–95% range <b>${lo.toFixed(1)}–${hi.toFixed(1)} Hz · ${nm(lo)}–${nm(hi)}</b></span><span>frames <b>${track.t.length}</b> · hop ${(1024 / track.sr * 1000).toFixed(1)} ms</span>`;
+    el.stats.innerHTML = `<span>duration <b>${fileBuf.duration.toFixed(2)} s</b></span><span>voiced <b>${(100 * hz.length / track.t.length).toFixed(0)}%</b></span><span>median <b>${med.toFixed(1)} Hz · ${nm(med)}</b></span><span>5–95% range <b>${lo.toFixed(1)}–${hi.toFixed(1)} Hz · ${nm(lo)}–${nm(hi)}</b></span><span>frames <b>${track.t.length}</b> · hop ${(1024 / track.sr * 1000).toFixed(1)} ms</span>` + extraStats(track);
+  }
+  function extraStats(track) {
+    const lv = [], cen = [];
+    for (let i = 0; i < track.t.length; i++) { if (track.rms[i] > ABS_FLOOR * 2) { lv.push(dB(track.rms[i])); if (track.cen[i] > 0) cen.push(track.cen[i]); } }
+    let out = '';
+    if (track.tempo && track.tempo.confidence > 0.08 && track.onsets >= 4) out += `<span>tempo <b>${track.tempo.bpm.toFixed(0)} BPM</b> (${track.onsets} onsets)</span>`;
+    else out += `<span>tempo <b>—</b> (${track.onsets} onsets)</span>`;
+    if (lv.length) { lv.sort((a, b) => a - b); const p5 = lv[Math.floor(lv.length * 0.05)], p95 = lv[Math.floor(lv.length * 0.95)], mx = lv[lv.length - 1]; out += `<span>level <b>${mx.toFixed(0)} dBFS peak-rms</b> · 5–95% <b>${p5.toFixed(0)} to ${p95.toFixed(0)} dBFS</b> (${(p95 - p5).toFixed(0)} dB) · <b>${dynMark(p5)}–${dynMark(p95)}</b></span>`; }
+    if (cen.length) { cen.sort((a, b) => a - b); out += `<span>centroid median <b>${cen[cen.length >> 1].toFixed(0)} Hz</b></span>`; }
+    return out;
   }
   function playFile(from) {
     if (!fileBuf) return;
@@ -577,18 +816,131 @@ function makeDetector() {
   document.addEventListener('drop', e => { e.preventDefault(); const f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]; if (f) openFile(f); });
   el.csv.addEventListener('click', () => {
     if (!fileTrack) return;
-    const rows = ['time_s,f0_hz,midi,note,cents,clarity,rms_dbfs'];
+    const rows = ['time_s,f0_hz,midi,note,cents,clarity,rms_dbfs,dynamic,centroid_hz,flatness,onset'];
     for (let i = 0; i < fileTrack.t.length; i++) {
-      const v = voiced(fileTrack, i), f = fileTrack.hz[i];
+      const v = voiced(fileTrack, i), f = fileTrack.hz[i], ldb = dB(fileTrack.rms[i]);
       let midi = '', note = '', cents = '';
       if (v) { const mm = hzToMidi(f), m = Math.round(mm); midi = mm.toFixed(3); note = `${noteName(m)}${octaveOf(m)}`; cents = (100 * (mm - m)).toFixed(1); }
-      rows.push(`${fileTrack.t[i].toFixed(4)},${v ? f.toFixed(3) : ''},${midi},${note},${cents},${fileTrack.cl[i].toFixed(3)},${fmtDb(dB(fileTrack.rms[i]))}`);
+      rows.push(`${fileTrack.t[i].toFixed(4)},${v ? f.toFixed(3) : ''},${midi},${note},${cents},${fileTrack.cl[i].toFixed(3)},${fmtDb(ldb)},${fileTrack.rms[i] > ABS_FLOOR * 2 ? dynMark(ldb) : ''},${fileTrack.cen[i] ? fileTrack.cen[i].toFixed(0) : ''},${fileTrack.cen[i] ? fileTrack.flat[i].toFixed(3) : ''},${fileTrack.onset[i]}`);
     }
-    const blob = new Blob([rows.join('\n')], { type: 'text/csv' });
-    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = (el.fileName.textContent.replace(/\.[^.]+$/, '') || 'pitch') + '-pitch.csv';
-    document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+    download(new Blob([rows.join('\n')], { type: 'text/csv' }), (el.fileName.textContent.replace(/\.[^.]+$/, '') || 'djahwasi-pitch') + '-pitch.csv');
   });
   const escapeHtml = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+  // ---------- recording: MediaRecorder on the microphone stream, 7-minute cap, then analysed like a file ----------
+  let recorder = null, recChunks = [], recStartedAt = 0, recTimer = null, recBlob = null, recExt = 'webm';
+  const stamp = () => { const d = new Date(), z = n => String(n).padStart(2, '0'); return `${d.getFullYear()}${z(d.getMonth() + 1)}${z(d.getDate())}-${z(d.getHours())}${z(d.getMinutes())}${z(d.getSeconds())}`; };
+  const mmss = ms => { const s = Math.max(0, Math.round(ms / 1000)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
+  function pickMime() {
+    if (typeof MediaRecorder === 'undefined') return null;
+    for (const [m, ext] of [['audio/webm;codecs=opus', 'webm'], ['audio/webm', 'webm'], ['audio/mp4', 'm4a'], ['audio/ogg;codecs=opus', 'ogg'], ['', 'webm']]) {
+      if (!m || MediaRecorder.isTypeSupported(m)) return { mime: m, ext };
+    }
+    return null;
+  }
+  async function startRecording() {
+    if (state.source !== 'mic') { await startMic(el.device.classList.contains('hide') ? null : el.device.value); if (state.source !== 'mic') return; }
+    const pick = pickMime();
+    if (!pick) { setStatus('warn', 'This browser cannot record audio (no MediaRecorder). The pitch trace can still be saved as CSV or image.'); return; }
+    try { recorder = pick.mime ? new MediaRecorder(stream, { mimeType: pick.mime }) : new MediaRecorder(stream); }
+    catch (e) { fail(e, 'MediaRecorder'); setStatus('warn', 'Recording could not start. See Diagnostics for the error.'); return; }
+    recExt = pick.ext; recChunks = []; recBlob = null; el.saveRec.classList.add('hide');
+    recorder.ondataavailable = e => { if (e.data && e.data.size) recChunks.push(e.data); };
+    recorder.onstop = onRecordingStopped;
+    recorder.start(1000);
+    recStartedAt = performance.now();
+    el.rec.setAttribute('aria-pressed', 'true'); el.rec.textContent = 'Stop recording';
+    el.recTime.classList.remove('hide');
+    recTimer = setInterval(() => {
+      const t = performance.now() - recStartedAt;
+      el.recTime.innerHTML = `<span class="rec-dot"></span>${mmss(t)} / ${mmss(REC_MAX_MS)}`;
+      if (t >= REC_MAX_MS) stopRecording();
+    }, 250);
+    setStatus('', `<strong>Recording.</strong> Up to ${mmss(REC_MAX_MS)}; press <strong>Stop recording</strong> when done. The recording is then analysed and can be saved.`);
+  }
+  function stopRecording() {
+    clearInterval(recTimer); recTimer = null;
+    el.rec.setAttribute('aria-pressed', 'false'); el.rec.textContent = 'Record';
+    el.recTime.classList.add('hide');
+    if (recorder && recorder.state !== 'inactive') { try { recorder.stop(); } catch (e) { fail(e, 'recorder.stop'); } }
+  }
+  function onRecordingStopped() {
+    const type = (recorder && recorder.mimeType) || recChunks[0]?.type || 'audio/webm';
+    recorder = null;
+    if (!recChunks.length) { setStatus('warn', 'The recording is empty. Nothing was saved.'); return; }
+    recBlob = new Blob(recChunks, { type }); recChunks = [];
+    const name = `djahwasi-recording-${stamp()}.${recExt}`;
+    try { recBlob.name = name; } catch (e) {}
+    el.saveRec.classList.remove('hide');
+    const file = new File([recBlob], name, { type });
+    openFile(file);   // decode, analyse, chart, CSV, playback
+  }
+  el.rec.addEventListener('click', () => (recorder && recorder.state !== 'inactive') ? stopRecording() : startRecording());
+  el.saveRec.addEventListener('click', () => { if (recBlob) download(recBlob, `djahwasi-recording-${stamp()}.${recExt}`); });
+  function download(blob, name) {
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name;
+    document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+  }
+
+  // ---------- level, dynamics and SPL calibration ----------
+  const MARKS = ['ppp', 'pp', 'p', 'mp', 'mf', 'f', 'ff', 'fff'];
+  function dynIndex(db) {
+    if (!isFinite(db)) return -1;
+    const step = (state.dynFF - state.dynPP) / 5;
+    return Math.max(0, Math.min(7, Math.round((db - state.dynPP) / step) + 1));
+  }
+  const dynMark = db => { const i = dynIndex(db); return i < 0 ? '—' : MARKS[i]; };
+  function buildScale() {
+    el.dynScale.querySelectorAll('.mark').forEach(m => m.remove());
+    MARKS.forEach((m, i) => { const d = document.createElement('div'); d.className = 'mark'; d.textContent = m; d.style.left = `${(i / 7) * 100}%`; el.dynScale.appendChild(d); });
+  }
+  buildScale();
+  el.setPP.addEventListener('click', () => { if (isFinite(state.slowDb) && state.slowDb < state.dynFF - 5) { state.dynPP = Math.round(state.slowDb); save(); } else setStatus('warn', 'Play softly first; pp must sit at least 5 dB below ff.'); });
+  el.setFF.addEventListener('click', () => { if (isFinite(state.slowDb) && state.slowDb > state.dynPP + 5) { state.dynFF = Math.round(state.slowDb); save(); } else setStatus('warn', 'Play loudly first; ff must sit at least 5 dB above pp.'); });
+  el.dynReset.addEventListener('click', () => { state.dynPP = -45; state.dynFF = -15; save(); });
+  el.splSet.addEventListener('click', () => { const ref = +el.splRef.value; if (!(ref >= 20 && ref <= 130) || !isFinite(state.slowDb)) { setStatus('warn', 'Type the meter reading (20 to 130 dB SPL) while the microphone is running, then press Calibrate.'); return; } state.splOffset = ref - state.slowDb; save(); setStatus('ok', `Calibrated: ${ref} dB SPL at ${state.slowDb.toFixed(0)} dBFS. The dB SPL figure is approximate and only valid for this microphone and distance.`); });
+  el.splClear.addEventListener('click', () => { state.splOffset = null; save(); });
+  el.beatReset.addEventListener('click', () => { state.onsets = []; state.onsetTimes = []; state.bpm = null; state.bpmHist = []; state.bpmConf = 0; });
+
+  // ---------- pitch trace: span selector, CSV and image export ----------
+  const spanLabel = ms => ms >= 60000 ? `last ${ms / 60000} min` : `last ${ms / 1000} s`;
+  function setSpan(ms) {
+    state.span = ms; el.traceLabel.textContent = spanLabel(ms);
+    document.querySelectorAll('.seg [data-span]').forEach(b => b.setAttribute('aria-pressed', +b.dataset.span === ms ? 'true' : 'false'));
+    save();
+  }
+  document.querySelectorAll('.seg [data-span]').forEach(b => b.addEventListener('click', () => setSpan(+b.dataset.span)));
+  setSpan(state.span);
+  el.traceClear.addEventListener('click', () => { state.trace = []; state.lastReading = null; });
+  const clockOffset = Date.now() - performance.now();
+  el.traceCsv.addEventListener('click', () => {
+    const pts = state.trace;
+    if (!pts.length) { setStatus('warn', 'The pitch trace is empty. Start the microphone or play a file first.'); return; }
+    const t0 = pts[0].t;
+    const rows = ['time_s,clock_iso,f0_hz,midi,note,cents,clarity,rms_dbfs,level_slow_dbfs,dynamic,spl_db_approx,centroid_hz,flatness'];
+    for (const p of pts) {
+      let f0 = '', midi = '', note = '', cents = '';
+      if (p.hz) { const mm = hzToMidi(p.hz), m = Math.round(mm); f0 = p.hz.toFixed(3); midi = mm.toFixed(3); note = `${noteName(m)}${octaveOf(m)}`; cents = (100 * (mm - m)).toFixed(1); }
+      const slow = typeof p.slow === 'number' ? p.slow : dB(p.rms || 0);
+      rows.push(`${((p.t - t0) / 1000).toFixed(3)},${new Date(p.t + clockOffset).toISOString()},${f0},${midi},${note},${cents},${(p.cl || 0).toFixed(3)},${fmtDb(dB(p.rms || 0))},${fmtDb(slow)},${isFinite(slow) ? dynMark(slow) : ''},${state.splOffset !== null && isFinite(slow) ? (slow + state.splOffset).toFixed(1) : ''},${p.cen ? p.cen.toFixed(0) : ''},${p.flat ? p.flat.toFixed(3) : ''}`);
+    }
+    download(new Blob([rows.join('\n')], { type: 'text/csv' }), `djahwasi-pitch-trace-${stamp()}.csv`);
+  });
+  el.tracePng.addEventListener('click', () => {
+    if (!state.trace.length) { setStatus('warn', 'The pitch trace is empty. Start the microphone or play a file first.'); return; }
+    const c = document.createElement('canvas'); const W = 1800, H = 640, pad = 56; c.width = W; c.height = H;
+    const g = c.getContext('2d');
+    g.fillStyle = C('--panel'); g.fillRect(0, 0, W, H);
+    g.fillStyle = C('--ink'); g.font = `700 26px ${C('--body')}`; g.textBaseline = 'top'; g.textAlign = 'left';
+    g.fillText(`${BRAND} · pitch trace`, pad, 18);
+    const span = Math.min(state.span, Math.max(1000, performance.now() - state.trace[0].t));
+    g.fillStyle = C('--ink-dim'); g.font = `400 15px ${C('--body')}`;
+    g.fillText(`${new Date().toLocaleString()} · ${spanLabel(state.span)} · A4 = ${state.a4} Hz · ${el.range.options[el.range.selectedIndex].textContent}`, pad, 50);
+    g.save(); g.translate(pad, 80);
+    renderTrace(g, W - 2 * pad, H - 80 - pad, performance.now(), span, { big: true });
+    g.restore();
+    c.toBlob(b => download(b, `djahwasi-pitch-trace-${stamp()}.png`), 'image/png');
+  });
 
   // ---------- per-frame analysis ----------
   function analyse(now) {
@@ -617,8 +969,45 @@ function makeDetector() {
       state.freq = med; state.midi = m; state.cents = 100 * (mm - m); state.lastValid = now;
       state.lastReading = { note: `${noteName(m)}${octaveOf(m)}`, hz: med };
     } else if (now - state.lastValid > HOLD_MS) { state.hist = []; state.midi = null; }
-    state.trace.push({ t: now, hz: state.midi !== null ? state.freq : null });
-    while (state.trace.length && now - state.trace[0].t > TRACE_MS) state.trace.shift();
+    // slow level (300 ms), timbre and onsets from the same window
+    const dt = state.prevFrameAt ? Math.min(100, now - state.prevFrameAt) : 16; state.prevFrameAt = now;
+    const a = 1 - Math.exp(-dt / 300); state.slowPow += (r.rms * r.rms - state.slowPow) * a; state.slowDb = dB(Math.sqrt(state.slowPow));
+    const mags = spectrum(buf), binHz = actx.sampleRate / WIN;
+    if (!state.specDb || state.specDb.length !== mags.length) state.specDb = new Float32Array(mags.length).fill(-100);
+    for (let i = 0; i < mags.length; i++) { const v = mags[i] > 1e-6 ? 20 * Math.log10(mags[i]) : -120; state.specDb[i] += (v - state.specDb[i]) * 0.5; }
+    state.feat = r.rms > state.gate ? F.descriptors(mags, binHz, state.midi !== null ? state.freq : 0) : null;
+    if (prevMags) {
+      const fx = F.flux(mags, prevMags, binHz);
+      state.onsets.push({ t: now, f: fx });
+      while (state.onsets.length && now - state.onsets[0].t > 8000) state.onsets.shift();
+      const n = state.onsets.length;
+      if (n >= 3) {        // is the previous frame a local maximum that stands out of the last 1.5 s?
+        const c = state.onsets[n - 2];
+        if (c.f >= state.onsets[n - 3].f && c.f > state.onsets[n - 1].f && c.t - state.lastOnsetAt >= 120) {
+          let sum = 0, sq = 0, m = 0;
+          for (let j = n - 3; j >= 0 && c.t - state.onsets[j].t <= 1500; j--) { sum += state.onsets[j].f; sq += state.onsets[j].f * state.onsets[j].f; m++; }
+          if (m >= 5) { const mean = sum / m, sd = Math.sqrt(Math.max(0, sq / m - mean * mean)); if (c.f > mean + 1.5 * sd + 1e-4 && c.f > 1.5 * mean && r.rms > state.gate) { state.lastOnsetAt = c.t; state.beatAt = now; state.onsetTimes.push(c.t); } }
+        }
+      }
+      while (state.onsetTimes.length && now - state.onsetTimes[0] > 8000) state.onsetTimes.shift();
+      if (now - state.lastTempoAt > 500 && state.onsets.length > 60) {
+        state.lastTempoAt = now;
+        const fps = 100, span = 8000, env = new Float32Array(span / 1000 * fps), t0 = now - span; let j = 0;
+        for (let i = 0; i < env.length; i++) {
+          const t = t0 + i * 1000 / fps;
+          while (j < state.onsets.length - 1 && state.onsets[j + 1].t <= t) j++;
+          env[i] = state.onsets[j].t <= t ? state.onsets[j].f : 0;
+        }
+        const tp = F.tempo(env, fps);
+        if (tp && tp.confidence > 0.12 && state.onsetTimes.length >= 4) {
+          state.bpmHist.push(tp.bpm); while (state.bpmHist.length > 5) state.bpmHist.shift();
+          const sorted = [...state.bpmHist].sort((x, y) => x - y); state.bpm = sorted[sorted.length >> 1]; state.bpmConf = tp.confidence;
+        } else if (now - (state.onsetTimes[state.onsetTimes.length - 1] || 0) > 4000) { state.bpm = null; state.bpmHist = []; state.bpmConf = 0; }
+      }
+    } else prevMags = new Float32Array(mags.length);
+    prevMags.set(mags);
+    state.trace.push({ t: now, hz: state.midi !== null ? state.freq : null, cl: r.clarity, rms: r.rms, slow: state.slowDb, cen: state.feat ? state.feat.centroid : 0, flat: state.feat ? state.feat.flatness : 0 });
+    while (state.trace.length && now - state.trace[0].t > TRACE_KEEP_MS) state.trace.shift();
     // silence watchdog for the microphone
     if (state.source === 'mic') {
       if (r.peak === 0) { if (!state.silentSince) state.silentSince = now; else if (now - state.silentSince > 2500 && !el.status.dataset.silent) { el.status.dataset.silent = '1'; setStatus('warn', 'The microphone is open but delivering <strong>pure silence</strong>. Check the system input device and mute switch, close other apps using the microphone, or pick another device in the list above.'); } }
@@ -653,6 +1042,82 @@ function makeDetector() {
     el.levelFill.style.width = `${state.running ? pos(ldb) : 0}%`; el.levelFill.classList.toggle('hot', state.peak > 0.98);
     el.gateMark.style.left = `${pos(dB(state.gate))}%`;
     el.dFrames.textContent = state.frames;
+    paintPanels();
+  }
+  let lastPanelAt = 0;
+  function paintPanels() {
+    const now = performance.now();
+    el.beatLight.classList.toggle('on', now - state.beatAt < 120);
+    if (now - lastPanelAt < 150) return;
+    lastPanelAt = now;
+    // beat
+    el.bpm.textContent = state.bpm ? state.bpm.toFixed(0) : '—';
+    el.bpmConf.textContent = state.bpm ? `${(Math.min(1, state.bpmConf / 0.5) * 100).toFixed(0)}%` : '—';
+    el.onsetCount.textContent = state.running ? String(state.onsetTimes.length) : '—';
+    const ot = state.onsetTimes; el.ioi.textContent = ot.length >= 2 ? `${((ot[ot.length - 1] - ot[ot.length - 2]) / 1000).toFixed(2)} s` : '—';
+    // level and dynamics
+    const slow = state.running ? state.slowDb : -Infinity;
+    el.lvlSlow.textContent = fmtDb(slow); el.lvlRms.textContent = fmtDb(dB(state.rms)); el.lvlPeak.textContent = state.running && state.peak > 0 ? dB(state.peak).toFixed(0) : '−∞';
+    el.dynMark.textContent = state.running ? dynMark(slow) : '—';
+    const i = dynIndex(slow); el.dynPos.style.left = `${i < 0 ? 0 : Math.max(0, Math.min(100, ((slow - state.dynPP) / ((state.dynFF - state.dynPP) / 5) + 1) / 7 * 100))}%`;
+    el.dynPos.style.opacity = i < 0 ? 0.3 : 1;
+    let lo = Infinity, hi = -Infinity;
+    for (const p of state.trace) if (p.rms > ABS_FLOOR && typeof p.slow === 'number' && isFinite(p.slow)) { if (p.slow < lo) lo = p.slow; if (p.slow > hi) hi = p.slow; }
+    el.lvlRange.textContent = isFinite(lo) ? `${lo.toFixed(0)} to ${hi.toFixed(0)} dBFS (${(hi - lo).toFixed(0)} dB)` : '—';
+    el.lvlSpl.textContent = state.splOffset === null ? 'not calibrated' : (isFinite(slow) ? `${(slow + state.splOffset).toFixed(0)} dB SPL (approx.)` : '—');
+    // timbre
+    const f = state.feat;
+    if (f) {
+      el.centroid.textContent = f.centroid.toFixed(0);
+      el.bright.textContent = state.midi !== null ? `${(f.centroid / state.freq).toFixed(1)} × f0` : '—';
+      el.spread.textContent = `${f.spread.toFixed(0)} Hz · ${f.rolloff.toFixed(0)} Hz`;
+      el.flat.textContent = `${(f.flatness * 100).toFixed(1)}% ${f.flatness < 0.05 ? '(tonal)' : f.flatness < 0.3 ? '(mixed)' : '(noisy)'}`;
+      el.oddEven.textContent = f.oddEven !== null ? `${f.oddEven > 0 ? '+' : ''}${f.oddEven.toFixed(1)} dB` : '—';
+      el.tilt.textContent = f.tilt !== null ? `${f.tilt.toFixed(1)} dB/oct` : '—';
+      const words = [];
+      if (state.midi !== null) { const b = f.centroid / state.freq; words.push(b < 2 ? 'dark' : b < 4 ? 'warm' : b < 7 ? 'bright' : 'brilliant'); }
+      else words.push(f.centroid < 500 ? 'low-centred' : f.centroid < 2000 ? 'mid-centred' : 'high-centred');
+      words.push(f.flatness < 0.05 ? 'clean tone' : f.flatness < 0.3 ? 'some breath or noise' : 'noise-like');
+      if (f.oddEven !== null) { if (f.oddEven > 6) words.push('hollow (odd harmonics dominate)'); else if (f.oddEven < -6) words.push('even harmonics dominate'); }
+      if (f.tilt !== null) words.push(f.tilt < -12 ? 'fundamental-heavy' : f.tilt > -4 ? 'rich upper harmonics' : 'balanced spectrum');
+      el.timbreDesc.textContent = words.join(' · ');
+    } else {
+      ['centroid', 'bright', 'spread', 'flat', 'oddEven', 'tilt'].forEach(k => { el[k].textContent = '—'; });
+      el.timbreDesc.textContent = state.running ? 'waiting for sound above the gate' : '';
+    }
+  }
+  function drawHarm() {
+    const [g, w, h] = fit(el.harm); g.clearRect(0, 0, w, h);
+    const f = state.feat; g.font = `10px ${C('--mono')}`; g.textAlign = 'center'; g.textBaseline = 'bottom'; g.fillStyle = C('--ink-dim');
+    if (!f || !f.harmonics) { g.textBaseline = 'middle'; g.fillText(state.midi !== null ? 'harmonics' : 'harmonics appear when a pitch is detected', w / 2, h / 2); return; }
+    const n = f.harmonics.length, bw = w / n;
+    f.harmonics.forEach((d, i) => {
+      const hh = Math.max(0, (d + 60) / 60) * (h - 14);
+      g.fillStyle = i === 0 ? C('--accent') : (i + 1) % 2 ? C('--flat') : C('--ink-dim');
+      g.fillRect(i * bw + 3, h - 12 - hh, bw - 6, hh);
+      g.fillStyle = C('--ink-dim'); g.fillText(String(i + 1), i * bw + bw / 2, h);
+    });
+  }
+  function drawOnsets(now) {
+    const [g, w, h] = fit(el.onsetStrip); g.clearRect(0, 0, w, h);
+    const pts = state.onsets; if (!pts.length) return;
+    let mx = 0; for (const p of pts) if (p.f > mx) mx = p.f; if (mx <= 0) return;
+    const xFor = t => w - (now - t) / 8000 * w;
+    g.strokeStyle = C('--ink-dim'); g.lineWidth = 1; g.beginPath();
+    pts.forEach((p, i) => { const x = xFor(p.t), y = h - p.f / mx * (h - 4); i ? g.lineTo(x, y) : g.moveTo(x, y); }); g.stroke();
+    g.strokeStyle = C('--accent'); g.lineWidth = 2;
+    for (const t of state.onsetTimes) { const x = xFor(t); g.beginPath(); g.moveTo(x, 0); g.lineTo(x, h); g.stroke(); }
+  }
+  function drawLevel(now) {
+    const [g, w, h] = fit(el.levelStrip); g.clearRect(0, 0, w, h);
+    const span = 60000, xFor = t => w - (now - t) / span * w, yFor = db => h - Math.max(0, Math.min(1, (db + 80) / 80)) * h;
+    g.strokeStyle = C('--line'); g.lineWidth = 1;
+    [state.dynPP, state.dynFF].forEach(db => { const y = yFor(db); g.beginPath(); g.moveTo(0, y + .5); g.lineTo(w, y + .5); g.stroke(); });
+    g.font = `10px ${C('--mono')}`; g.fillStyle = C('--ink-dim'); g.textAlign = 'left'; g.textBaseline = 'bottom';
+    g.fillText('pp', 3, yFor(state.dynPP) - 1); g.fillText('ff', 3, yFor(state.dynFF) - 1);
+    g.strokeStyle = C('--accent'); g.lineWidth = 1.5; g.beginPath(); let open = false;
+    for (const p of state.trace) { if (p.t < now - span || typeof p.slow !== 'number' || !isFinite(p.slow)) { if (open) { g.stroke(); open = false; } continue; } const x = xFor(p.t), y = yFor(p.slow); if (!open) { g.beginPath(); g.moveTo(x, y); open = true; } else g.lineTo(x, y); }
+    if (open) g.stroke();
   }
   const dpr = Math.min(2, window.devicePixelRatio || 1);
   function fit(canvas) {
@@ -661,48 +1126,73 @@ function makeDetector() {
     const g = canvas.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0);
     return [g, r.width, r.height];
   }
-  const view = { lo: Math.log2(100), hi: Math.log2(800) };   // trace y-axis in log2(Hz), eased toward the data
-  function drawTrace(now) {
-    const [g, w, h] = fit(el.trace);
-    g.clearRect(0, 0, w, h);
-    const vals = state.trace.filter(p => p.hz).map(p => Math.log2(p.hz));
-    if (vals.length) {
-      let lo = Math.min(...vals) - 0.25, hi = Math.max(...vals) + 0.25;
-      if (hi - lo < 1) { const c = (hi + lo) / 2; lo = c - 0.5; hi = c + 0.5; }
-      view.lo += (lo - view.lo) * 0.08; view.hi += (hi - view.hi) * 0.08;
+  const view = { lo: Math.log2(100), hi: Math.log2(800) };   // live trace y-axis in log2(Hz), eased toward the data
+  // Draws the stored trace into any 2D context: the live canvas and the exported image share this.
+  function renderTrace(g, w, h, now, span, opts) {
+    opts = opts || {};
+    const pts = state.trace, from = now - span;
+    let lo = view.lo, hi = view.hi;
+    if (opts.big) {           // the export fits its own axis to the data in the window
+      const vals = []; for (const p of pts) if (p.hz && p.t >= from) vals.push(Math.log2(p.hz));
+      if (vals.length) { lo = Math.min(...vals) - 0.25; hi = Math.max(...vals) + 0.25; if (hi - lo < 1) { const c = (hi + lo) / 2; lo = c - 0.5; hi = c + 0.5; } }
     }
-    const yFor = l2 => h - (l2 - view.lo) / (view.hi - view.lo) * h;
-    const xFor = t => w - (now - t) / TRACE_MS * w;
-    // semitone grid, C labels
-    const mLo = Math.floor(hzToMidi(Math.pow(2, view.lo))), mHi = Math.ceil(hzToMidi(Math.pow(2, view.hi)));
-    g.font = `11px ${C('--mono')}`; g.textBaseline = 'middle'; g.textAlign = 'left';
+    const yFor = l2 => h - (l2 - lo) / (hi - lo) * h;
+    const xFor = t => w - (now - t) / span * w;
+    g.fillStyle = C('--panel-2'); g.fillRect(0, 0, w, h);
+    const fs = opts.big ? 14 : 11;
+    g.font = `${fs}px ${C('--mono')}`; g.textBaseline = 'middle'; g.textAlign = 'left';
+    const mLo = Math.floor(hzToMidi(Math.pow(2, lo))), mHi = Math.ceil(hzToMidi(Math.pow(2, hi)));
     for (let m = mLo; m <= mHi; m++) {
       const y = yFor(Math.log2(midiToHz(m)));
       const isC = m % 12 === 0, isA = m % 12 === 9;
       g.strokeStyle = C('--line'); g.globalAlpha = isC ? 1 : (mHi - mLo < 30 ? 0.45 : 0);
       if (g.globalAlpha > 0) { g.beginPath(); g.moveTo(0, y + .5); g.lineTo(w, y + .5); g.stroke(); }
       g.globalAlpha = 1;
-      if (isC || (isA && mHi - mLo < 30)) { g.fillStyle = C('--ink-dim'); g.fillText(`${noteName(m)}${octaveOf(m)}`, 4, y - 7); }
+      if (isC || (isA && mHi - mLo < 30)) { g.fillStyle = C('--ink-dim'); g.fillText(`${noteName(m)}${octaveOf(m)}`, 4, y - fs * 0.7); }
     }
-    g.lineWidth = 2; g.lineJoin = 'round'; g.lineCap = 'round';
-    let open = false;
-    for (const p of state.trace) {
+    // time ticks
+    const tick = span >= 420000 ? 60000 : span >= 180000 ? 30000 : span >= 60000 ? 10000 : 2000;
+    g.textAlign = 'center'; g.textBaseline = 'bottom'; g.fillStyle = C('--ink-dim'); g.strokeStyle = C('--line');
+    for (let back = 0; back <= span; back += tick) {
+      const x = xFor(now - back);
+      g.globalAlpha = 0.6; g.beginPath(); g.moveTo(x + .5, h - fs * 1.6); g.lineTo(x + .5, h); g.stroke(); g.globalAlpha = 1;
+      if (back > 0 && x > fs * 2) g.fillText(back >= 60000 ? `−${back / 60000}:${String((back % 60000) / 1000).padStart(2, '0')}` : `−${back / 1000}s`, x, h - 2);
+    }
+    g.lineWidth = opts.big ? 2.5 : 2; g.lineJoin = 'round'; g.lineCap = 'round'; g.strokeStyle = C('--accent');
+    let open = false, lastX = -Infinity;
+    for (const p of pts) {
+      if (p.t < from) continue;
       if (!p.hz) { if (open) { g.stroke(); open = false; } continue; }
-      const x = xFor(p.t), y = yFor(Math.log2(p.hz));
-      if (!open) { g.beginPath(); g.strokeStyle = C('--accent'); g.moveTo(x, y); open = true; } else g.lineTo(x, y);
+      const x = xFor(p.t);
+      if (open && x - lastX < 0.4) continue;      // one segment per 0.4 px keeps 7 minutes cheap to draw
+      const y = yFor(Math.log2(p.hz)); lastX = x;
+      if (!open) { g.beginPath(); g.moveTo(x, y); open = true; } else g.lineTo(x, y);
     }
     if (open) g.stroke();
-    if (state.midi !== null) { g.fillStyle = C('--accent'); g.beginPath(); g.arc(w - 2, yFor(Math.log2(state.freq)), 3.5, 0, Math.PI * 2); g.fill(); }
-    if (!state.trace.length) { g.fillStyle = C('--ink-dim'); g.textAlign = 'center'; g.fillText(state.running ? 'waiting for a steady pitch' : 'pitch over time appears here', w / 2, h / 2); }
+    return { lo, hi, yFor };
+  }
+  function drawTrace(now) {
+    const [g, w, h] = fit(el.trace);
+    g.clearRect(0, 0, w, h);
+    const from = now - state.span;
+    const vals = []; for (const p of state.trace) if (p.hz && p.t >= from) vals.push(Math.log2(p.hz));
+    if (vals.length) {
+      let lo = Math.min(...vals) - 0.25, hi = Math.max(...vals) + 0.25;
+      if (hi - lo < 1) { const c = (hi + lo) / 2; lo = c - 0.5; hi = c + 0.5; }
+      view.lo += (lo - view.lo) * 0.08; view.hi += (hi - view.hi) * 0.08;
+    }
+    const r = renderTrace(g, w, h, now, state.span);
+    if (state.midi !== null) { g.fillStyle = C('--accent'); g.beginPath(); g.arc(w - 2, r.yFor(Math.log2(state.freq)), 3.5, 0, Math.PI * 2); g.fill(); }
+    if (!vals.length) { g.fillStyle = C('--ink-dim'); g.font = `11px ${C('--mono')}`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(state.running ? 'waiting for a steady pitch' : 'pitch over time appears here (kept for 7 minutes)', w / 2, h / 2); }
   }
   function drawSpec() {
     const [g, w, h] = fit(el.spec);
     g.clearRect(0, 0, w, h);
     if (!analyser) { g.fillStyle = C('--ink-dim'); g.font = `11px ${C('--mono')}`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('spectrum', w / 2, h / 2); return; }
-    analyser.getFloatFrequencyData(specBuf);
+    const specBuf = state.specDb; if (!specBuf) return;
     const sr = actx.sampleRate, bins = specBuf.length, fLo = 25, fHi = Math.min(6000, sr / 2);
     const xFor = f => (Math.log(f / fLo) / Math.log(fHi / fLo)) * w;
-    const yFor = db => h - Math.max(0, Math.min(1, (db + 100) / 90)) * h;
+    const yFor = db => h - Math.max(0, Math.min(1, (db + 96) / 96)) * h;
     g.beginPath(); g.strokeStyle = C('--ink-dim'); g.lineWidth = 1;
     let started = false;
     for (let i = 1; i < bins; i++) {
@@ -731,7 +1221,9 @@ function makeDetector() {
     g.font = `10px ${C('--mono')}`; g.textBaseline = 'middle'; g.textAlign = 'left';
     const mLo = Math.floor(hzToMidi(Math.pow(2, lo))), mHi = Math.ceil(hzToMidi(Math.pow(2, hi)));
     for (let m = mLo; m <= mHi; m++) { if (m % 12 !== 0 && !(m % 12 === 9 && mHi - mLo < 30)) continue; const y = yFor(Math.log2(midiToHz(m))); g.strokeStyle = C('--line'); g.beginPath(); g.moveTo(0, y + .5); g.lineTo(w, y + .5); g.stroke(); g.fillStyle = C('--ink-dim'); g.fillText(`${noteName(m)}${octaveOf(m)}`, 4, y - 6); }
-    g.fillStyle = C('--accent');
+    g.fillStyle = C('--flat'); g.globalAlpha = 0.7;
+    for (let i = 0; i < fileTrack.t.length; i++) if (fileTrack.onset[i]) g.fillRect(xFor(fileTrack.t[i]) - 0.5, 0, 1, 8);
+    g.globalAlpha = 1; g.fillStyle = C('--accent');
     for (let i = 0; i < fileTrack.t.length; i++) if (voiced(fileTrack, i)) g.fillRect(xFor(fileTrack.t[i]) - 0.75, yFor(Math.log2(fileTrack.hz[i])) - 1, 1.5, 2);
     g.textAlign = 'center'; g.textBaseline = 'bottom'; g.fillStyle = C('--ink-dim');
     const stepS = fileBuf.duration > 60 ? 10 : fileBuf.duration > 20 ? 5 : 1;
@@ -754,7 +1246,7 @@ function makeDetector() {
 
   function loop(now) {
     if (state.running) analyse(now);
-    paint(); drawTrace(now); drawSpec();
+    paint(); drawTrace(now); drawSpec(); drawHarm(); drawOnsets(now); drawLevel(now);
     if (state.source === 'file') drawFileChart();
     requestAnimationFrame(loop);
   }

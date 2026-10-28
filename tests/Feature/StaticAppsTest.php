@@ -35,6 +35,6 @@ class StaticAppsTest extends TestCase
         $response = $this->app->handle(Request::create('/pitch/'));
 
         $this->assertSame(200, $response->getStatusCode());
-        $this->assertStringContainsString('<title>Pitch Detector</title>', $response->getFile()->getContent());
+        $this->assertStringContainsString('<title>Djahwasi Pitch Detector</title>', $response->getFile()->getContent());
     }
 }
