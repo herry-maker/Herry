@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#101418" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
-<meta name="description" content="Djahwasi Pitch Detector: real-time pitch, beat and tempo, level in dB, dynamics and timbre from a microphone, an audio file or a built-in test tone, with a 3-minute pitch trace, recording, file analysis and CSV export.">
+<meta name="description" content="Djahwasi Pitch Detector: real-time pitch, beat and tempo, level in dB, dynamics and timbre from a microphone, an audio file or a built-in test tone, with a 7-minute pitch trace, recording, file analysis and CSV export.">
 <link rel="icon" href="./icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="./apple-touch-icon.png">
 <link rel="manifest" href="./manifest.webmanifest">
@@ -134,7 +134,7 @@ a{color:var(--accent)}
       <button type="button" id="mic" class="primary" aria-pressed="false"><span id="micLabel">Start microphone</span></button>
       <button type="button" id="fileBtn">Open audio file</button>
       <input type="file" id="file" accept="audio/*,video/*,.wav,.mp3,.m4a,.ogg,.flac,.aac,.webm,.mp4" class="sr-only" tabindex="-1">
-      <button type="button" id="rec" aria-pressed="false" title="Record the microphone for up to 3 minutes, then analyse and save it">Record</button>
+      <button type="button" id="rec" aria-pressed="false" title="Record the microphone for up to 7 minutes, then analyse and save it">Record</button>
       <span id="recTime" class="small hide" aria-live="off"></span>
       <button type="button" id="test" aria-pressed="false">Self-test tone</button>
       <select id="testNote" aria-label="Self-test note"></select>
@@ -172,13 +172,14 @@ a{color:var(--accent)}
           <button type="button" data-span="12000" aria-pressed="true">12 s</button>
           <button type="button" data-span="60000" aria-pressed="false">1 min</button>
           <button type="button" data-span="180000" aria-pressed="false">3 min</button>
+          <button type="button" data-span="420000" aria-pressed="false">7 min</button>
         </div>
         <button type="button" id="traceCsv" class="btn-sm">Save CSV</button>
         <button type="button" id="tracePng" class="btn-sm">Save image</button>
         <button type="button" id="traceClear" class="btn-sm">Clear</button>
       </div>
     </div>
-    <canvas id="trace" aria-label="Pitch over the selected period, up to the last three minutes" role="img"></canvas>
+    <canvas id="trace" aria-label="Pitch over the selected period, up to the last seven minutes" role="img"></canvas>
     <canvas id="spec" aria-label="Spectrum with the detected fundamental marked" role="img"></canvas>
   </section>
 
@@ -203,7 +204,7 @@ a{color:var(--accent)}
       <div class="scale" id="dynScale"><div class="track"></div><div class="pos" id="dynPos" style="left:0"></div></div>
       <div class="kv" style="margin-top:6px">
         <dt>rms · peak</dt><dd><span id="lvlRms">—</span> · <span id="lvlPeak">—</span> dBFS</dd>
-        <dt>range (3 min)</dt><dd id="lvlRange">—</dd>
+        <dt>range (7 min)</dt><dd id="lvlRange">—</dd>
         <dt>≈ dB SPL</dt><dd id="lvlSpl">not calibrated</dd>
       </div>
       <canvas id="levelStrip" aria-label="Level over the last minute" role="img"></canvas>
@@ -291,7 +292,7 @@ a{color:var(--accent)}
       </ul>
     </details>
   </section>
-  <p class="brand-foot span">Djahwasi Pitch Detector · pitch · beat · level · dynamics · timbre · trace kept for 3 minutes · recordings up to 3 minutes · <a href="../tuner/">Djahwasi Guitar Tuner</a></p>
+  <p class="brand-foot span">Djahwasi Pitch Detector · pitch · beat · level · dynamics · timbre · trace kept for 7 minutes · recordings up to 7 minutes · <a href="../tuner/">Djahwasi Guitar Tuner</a></p>
 </div>
 
 <script>
@@ -468,8 +469,8 @@ function makeFeatures() {
   const SHARPS = ['C','C♯','D','D♯','E','F','F♯','G','G♯','A','A♯','B'];
   const FLATS  = ['C','D♭','D','E♭','E','F','G♭','G','A♭','A','B♭','B'];
   const WIN = 4096;                 // analysis window in samples (85 ms at 48 kHz; two periods of 23 Hz)
-  const TRACE_KEEP_MS = 180000;     // the trace buffer holds the last 3 minutes
-  const REC_MAX_MS = 180000;        // recordings stop by themselves at 3 minutes
+  const TRACE_KEEP_MS = 420000;     // the trace buffer holds the last 7 minutes
+  const REC_MAX_MS = 420000;        // recordings stop by themselves at 7 minutes
   const BRAND = 'Djahwasi Pitch Detector';
   const IN_TUNE = 5;                // cents
   const ABS_FLOOR = 5e-4;           // −66 dBFS: anything quieter is treated as silence
@@ -513,7 +514,7 @@ function makeFeatures() {
     if (typeof s.range === 'string') { const [lo, hi] = s.range.split(',').map(Number); if (lo > 0 && hi > lo) { state.minHz = lo; state.maxHz = hi; el.range.value = s.range; } }
     if (s.clarityMin > 0 && s.clarityMin < 1) state.clarityMin = s.clarityMin;
     if (s.smooth >= 1) state.smooth = s.smooth;
-    if ([12000, 60000, 180000].includes(s.span)) state.span = s.span;
+    if ([12000, 60000, 180000, 420000].includes(s.span)) state.span = s.span;
     if (typeof s.dynPP === 'number' && typeof s.dynFF === 'number' && s.dynFF > s.dynPP) { state.dynPP = s.dynPP; state.dynFF = s.dynFF; }
     if (typeof s.splOffset === 'number') state.splOffset = s.splOffset;
   } catch (e) {}
@@ -826,7 +827,7 @@ function makeFeatures() {
   });
   const escapeHtml = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-  // ---------- recording: MediaRecorder on the microphone stream, 3-minute cap, then analysed like a file ----------
+  // ---------- recording: MediaRecorder on the microphone stream, 7-minute cap, then analysed like a file ----------
   let recorder = null, recChunks = [], recStartedAt = 0, recTimer = null, recBlob = null, recExt = 'webm';
   const stamp = () => { const d = new Date(), z = n => String(n).padStart(2, '0'); return `${d.getFullYear()}${z(d.getMonth() + 1)}${z(d.getDate())}-${z(d.getHours())}${z(d.getMinutes())}${z(d.getSeconds())}`; };
   const mmss = ms => { const s = Math.max(0, Math.round(ms / 1000)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
@@ -1150,7 +1151,7 @@ function makeFeatures() {
       if (isC || (isA && mHi - mLo < 30)) { g.fillStyle = C('--ink-dim'); g.fillText(`${noteName(m)}${octaveOf(m)}`, 4, y - fs * 0.7); }
     }
     // time ticks
-    const tick = span >= 180000 ? 30000 : span >= 60000 ? 10000 : 2000;
+    const tick = span >= 420000 ? 60000 : span >= 180000 ? 30000 : span >= 60000 ? 10000 : 2000;
     g.textAlign = 'center'; g.textBaseline = 'bottom'; g.fillStyle = C('--ink-dim'); g.strokeStyle = C('--line');
     for (let back = 0; back <= span; back += tick) {
       const x = xFor(now - back);
@@ -1163,7 +1164,7 @@ function makeFeatures() {
       if (p.t < from) continue;
       if (!p.hz) { if (open) { g.stroke(); open = false; } continue; }
       const x = xFor(p.t);
-      if (open && x - lastX < 0.4) continue;      // one segment per 0.4 px keeps 3 minutes cheap to draw
+      if (open && x - lastX < 0.4) continue;      // one segment per 0.4 px keeps 7 minutes cheap to draw
       const y = yFor(Math.log2(p.hz)); lastX = x;
       if (!open) { g.beginPath(); g.moveTo(x, y); open = true; } else g.lineTo(x, y);
     }
@@ -1182,7 +1183,7 @@ function makeFeatures() {
     }
     const r = renderTrace(g, w, h, now, state.span);
     if (state.midi !== null) { g.fillStyle = C('--accent'); g.beginPath(); g.arc(w - 2, r.yFor(Math.log2(state.freq)), 3.5, 0, Math.PI * 2); g.fill(); }
-    if (!vals.length) { g.fillStyle = C('--ink-dim'); g.font = `11px ${C('--mono')}`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(state.running ? 'waiting for a steady pitch' : 'pitch over time appears here (kept for 3 minutes)', w / 2, h / 2); }
+    if (!vals.length) { g.fillStyle = C('--ink-dim'); g.font = `11px ${C('--mono')}`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(state.running ? 'waiting for a steady pitch' : 'pitch over time appears here (kept for 7 minutes)', w / 2, h / 2); }
   }
   function drawSpec() {
     const [g, w, h] = fit(el.spec);

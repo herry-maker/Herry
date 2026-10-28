@@ -1,7 +1,7 @@
 {
   "name": "Djahwasi Pitch Detector",
   "short_name": "Djahwasi Pitch",
-  "description": "Djahwasi Pitch Detector: real-time pitch detection from a microphone, an audio file or a test tone: note, cents, Hz, pitch trace, spectrum, 3-minute pitch trace, recording and CSV export.",
+  "description": "Djahwasi Pitch Detector: real-time pitch detection from a microphone, an audio file or a test tone: note, cents, Hz, pitch trace, spectrum, 7-minute pitch trace, recording and CSV export.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
