@@ -281,13 +281,15 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
     { name: 'Ukulele  G C E A',           notes: [67,60,64,69] },
   ];
   const IN_TUNE = 3;           // cents
+  const ABS_FLOOR = 5e-4;      // −66 dBFS: below this the input is treated as silence
+  const GATE_RATIO = 2;        // a note must sit 6 dB above the tracked noise floor
   const FFT = 4096;
   const MIN_HZ = 28, MAX_HZ = 1400;
 
   // ---------- state ----------
   const state = {
     a4: 440, tuningIdx: 0, lock: null,
-    running: false, freq: 0, cents: 0, midi: null, clarity: 0, level: 0,
+    running: false, freq: 0, cents: 0, midi: null, clarity: 0, rawClarity: 0, level: 0, floor: null,
     lastValid: 0, needle: 0, phase: 0, hist: [],
     guide: false, done: new Set(), okSince: 0, trace: [], view: 'wave',
     capo: 0, toneMidi: 57,
@@ -435,9 +437,16 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
   }
 
   // ---------- microphone ----------
-  let analyser = null, stream = null, buf = new Float32Array(FFT), sampleRate = 48000;
+  let analyser = null, stream = null, buf = new Float32Array(FFT), sampleRate = 48000, frame = 0, resumeHook = null;
+  // Safari and Chrome keep an AudioContext suspended until a user gesture starts it; ask for a tap and resume on it.
+  function needGesture() {
+    if (resumeHook) return;
+    setStatus('warn', 'The browser paused audio. <strong>Tap or click anywhere</strong> to resume.');
+    resumeHook = () => { document.removeEventListener('pointerdown', resumeHook); document.removeEventListener('keydown', resumeHook); resumeHook = null; if (actx) actx.resume().then(() => { lastStatusKey = ''; setStatus(); }).catch(() => {}); };
+    document.addEventListener('pointerdown', resumeHook); document.addEventListener('keydown', resumeHook);
+  }
   async function startMic() {
-    const ctx = ensureCtx();
+    let ctx = ensureCtx();
     if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
       setStatus('warn', 'This browser offers no microphone access. Open the page in Chrome, Safari or Firefox.');
       return;
@@ -451,6 +460,14 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
         : 'No microphone found. Plug one in or use the pegs to tune by ear.');
       return;
     }
+    const track = stream.getAudioTracks()[0];
+    const settings = track && track.getSettings ? track.getSettings() : {};
+    // iOS switches the hardware rate when the microphone opens; a context created before that may then run at the wrong rate
+    if (settings.sampleRate && ctx.sampleRate !== settings.sampleRate) {
+      try { await ctx.close(); } catch (e) {}
+      actx = null; ctx = ensureCtx();
+    }
+    track.onended = () => { if (state.running) { stopMic(); setStatus('warn', 'The microphone was disconnected or taken over by another app.'); } };
     attach(ctx, ctx.createMediaStreamSource(stream), 'Listening · stop');
   }
   // the same analysis chain serves the microphone and a decoded recording
@@ -459,8 +476,9 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
     const hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 25;
     analyser = ctx.createAnalyser(); analyser.fftSize = FFT; analyser.smoothingTimeConstant = 0;
     src.connect(hp); hp.connect(analyser);
-    state.running = true; state.hist = []; state.trace = [];
+    state.running = true; state.hist = []; state.trace = []; state.floor = null; frame = 0;
     keepAwake();
+    if (ctx.state !== 'running') { ctx.resume().catch(() => {}); setTimeout(() => { if (state.running && ctx.state !== 'running') needGesture(); }, 800); }
     el.mic.setAttribute('aria-pressed', 'true'); el.micLabel.textContent = label;
     el.srMeta.textContent = `${(sampleRate / 1000).toFixed(1)} kHz · ${FFT} samples`;
     lastStatusKey = ''; setStatus();
@@ -481,7 +499,7 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
   $('recBtn').addEventListener('click', () => $('recFile').click());
   $('recFile').addEventListener('change', () => { const f = $('recFile').files[0]; if (f) openRecording(f); $('recFile').value = ''; });
   function stopMic() {
-    state.running = false; state.midi = null; state.freq = 0; state.clarity = 0; state.level = 0;
+    state.running = false; state.midi = null; state.freq = 0; state.clarity = 0; state.rawClarity = 0; state.level = 0;
     if (stream) stream.getTracks().forEach(t => t.stop());
     if (recSource) { const r = recSource; recSource = null; try { r.stop(); } catch (e) {} }
     stream = null; analyser = null; state.okSince = 0;
@@ -522,24 +540,25 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
     let sum = 0;
     for (let i = 0; i < n; i++) sum += b[i] * b[i];
     const rms = Math.sqrt(sum / n);
-    if (rms < 0.008) return { hz: 0, clarity: 0, rms };
+    if (rms < ABS_FLOOR) return { hz: 0, clarity: 0, rms };
     const minLag = Math.max(2, Math.floor(sr / MAX_HZ));
     const maxLag = Math.min(n >> 1, Math.floor(sr / MIN_HZ));
     const nsdf = new Float32Array(maxLag + 1);
-    for (let tau = minLag; tau <= maxLag; tau++) {
+    nsdf[0] = 1;
+    for (let tau = 1; tau <= maxLag; tau++) {
       let acf = 0, m = 0;
       for (let i = 0, j = tau; j < n; i++, j++) { const x = b[i], y = b[j]; acf += x * y; m += x * x + y * y; }
       nsdf[tau] = m > 0 ? (2 * acf) / m : 0;
     }
     // key maxima between positive zero crossings
     const peaks = [];
-    let tau = minLag;
-    while (tau <= maxLag && nsdf[tau] > 0) tau++;          // skip the initial lobe
+    let tau = 0;
+    while (tau <= maxLag && nsdf[tau] > 0) tau++;          // skip the unit lobe at lag 0
     while (tau <= maxLag) {
       while (tau <= maxLag && nsdf[tau] <= 0) tau++;         // wait for positive
       let best = -1, bestV = -Infinity;
       while (tau <= maxLag && nsdf[tau] > 0) { if (nsdf[tau] > bestV) { bestV = nsdf[tau]; best = tau; } tau++; }
-      if (best > 0) peaks.push(best);
+      if (best >= minLag) peaks.push(best);
     }
     if (!peaks.length) return { hz: 0, clarity: 0, rms };
     let highest = 0;
@@ -548,7 +567,7 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
     let chosen = peaks.find(p => nsdf[p] >= thresh);
     // parabolic interpolation
     let t = chosen;
-    if (t > minLag && t < maxLag) {
+    if (t > 1 && t < maxLag) {
       const a = nsdf[t - 1], c0 = nsdf[t], c = nsdf[t + 1];
       const d = a - 2 * c0 + c;
       if (d !== 0) t = t + 0.5 * (a - c) / d;
@@ -557,14 +576,21 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
   }
 
   // ---------- analysis step ----------
-  let frame = 0;
   function analyse(now) {
     if (!analyser) return;
     analyser.getFloatTimeDomainData(buf);
     if ((frame++ & 1) === 0) {
       const r = detect(buf, sampleRate);
-      state.level = r.rms;
-      if (r.hz > 0 && r.clarity > 0.86 && r.hz >= MIN_HZ && r.hz <= MAX_HZ) {
+      state.level = r.rms; state.rawClarity = r.clarity;
+      // noise floor from unpitched frames only: drops fast, rises slowly; a clearly periodic frame proves it is lower still
+      if (r.rms > 0 && r.clarity < 0.6 && frame > 12) {
+        if (state.floor === null) state.floor = r.rms;
+        else if (r.rms < state.floor) state.floor += (r.rms - state.floor) * 0.3;
+        else state.floor += (r.rms - state.floor) * 0.004;
+      }
+      if (r.hz > 0 && r.clarity >= 0.9 && state.floor !== null && state.floor > r.rms / (GATE_RATIO * 1.5)) state.floor = r.rms / (GATE_RATIO * 1.5);
+      const gate = Math.max(ABS_FLOOR, (state.floor || 0) * GATE_RATIO);
+      if (r.hz > 0 && r.clarity > 0.86 && r.rms > gate && r.hz >= MIN_HZ && r.hz <= MAX_HZ) {
         state.hist.push(r.hz); if (state.hist.length > 5) state.hist.shift();
         const sorted = [...state.hist].sort((a, b) => a - b);
         const med = sorted[sorted.length >> 1];
@@ -790,7 +816,7 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
       el.note.dataset.state = 'idle'; el.cents.dataset.state = 'idle';
       el.centsVal.textContent = '0'; el.hz.textContent = '—';
       el.levelMeta.textContent = `input ${state.level > 0 ? (20 * Math.log10(state.level)).toFixed(0) : '−∞'} dB`;
-      el.clarityMeta.textContent = 'clarity —';
+      el.clarityMeta.textContent = state.running && state.rawClarity > 0 ? `clarity ${(state.rawClarity * 100).toFixed(0)}%` : 'clarity —';
       return;
     }
     const ok = Math.abs(state.cents) <= IN_TUNE;
@@ -831,7 +857,7 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
       const dir = state.cents < 0 ? 'flat · tighten a little' : 'sharp · loosen a little';
       const nm = `${noteName(state.midi)}${octaveOf(state.midi)}`;
       const far = Math.abs(state.cents) > 50;
-      key = ok ? 'ok' : (state.cents < 0 ? 'flat' : 'sharp') + (far ? 'far' : '');
+      key = (ok ? 'ok' : (state.cents < 0 ? 'flat' : 'sharp') + (far ? 'far' : '')) + nm;
       tn = ok ? 'ok' : '';
       html = ok ? `<strong>${nm}</strong> in tune.` : far ? `<strong>${nm}</strong> is far off. Check you are on the right string, or tap the peg you mean.` : `<strong>${nm}</strong> is ${dir}.`;
     }

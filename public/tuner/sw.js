@@ -1,5 +1,5 @@
 // Djahwasi Guitar Tuner service worker: keeps the app shell available offline.
-const CACHE = 'strobe-tuner-v5';
+const CACHE = 'strobe-tuner-v6';
 const SCOPE = new URL('./', self.location).pathname;
 const SHELL = [SCOPE, SCOPE + 'index.html', SCOPE + 'manifest.webmanifest', SCOPE + 'icon.svg', SCOPE + 'icon-192.png', SCOPE + 'icon-512.png', SCOPE + 'apple-touch-icon.png'];
 
@@ -18,7 +18,7 @@ self.addEventListener('fetch', event => {
   const req = event.request;
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
-  const isShell = url.origin === location.origin && url.pathname.startsWith(SCOPE);
+  const isShell = url.origin === location.origin && (SHELL.includes(url.pathname) || url.pathname === SCOPE + 'sw.js');
   const isFont = url.hostname === 'fonts.googleapis.com' || url.hostname === 'fonts.gstatic.com';
   if (!isShell && !isFont) return;
   event.respondWith(
