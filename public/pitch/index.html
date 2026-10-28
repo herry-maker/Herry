@@ -71,6 +71,14 @@ input[type=number]{font:inherit;background:var(--panel-2);color:var(--ink);borde
 .tile .v{font-family:var(--mono);font-size:22px;font-weight:600;margin:4px 0 2px;font-variant-numeric:tabular-nums}
 .tile .v small{font-size:12px;font-weight:400;color:var(--ink-dim);margin-left:4px}
 .tile .m{font-size:12px;color:var(--ink-dim);line-height:1.35}
+.report{display:grid;gap:12px;margin-top:12px}
+@media (min-width:900px){ .report{grid-template-columns:repeat(2,1fr)} }
+.report .blk{background:var(--panel-2);border:1px solid var(--line);border-radius:9px;padding:10px 12px}
+.report h3{margin:0 0 6px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-dim)}
+.report .kv{grid-template-columns:max-content 1fr}
+.report .verdict{font-size:13px;margin-top:6px}
+#tempogram{height:120px;margin-top:8px}
+#mfcc{height:70px;margin-top:6px}
 h1 small{font-weight:400;color:var(--ink-dim);font-size:14px;margin-left:8px}
 h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-dim);margin:0 0 10px;font-weight:600}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
@@ -213,6 +221,7 @@ a{color:var(--accent)}
         <dt>rms · peak</dt><dd><span id="lvlRms">—</span> · <span id="lvlPeak">—</span> dBFS</dd>
         <dt>range (7 min)</dt><dd id="lvlRange">—</dd>
         <dt>≈ dB SPL</dt><dd id="lvlSpl">not calibrated</dd>
+        <dt>loudness M · S</dt><dd><span id="lufsM">—</span> · <span id="lufsS">—</span> LUFS</dd>
       </div>
       <canvas id="levelStrip" aria-label="Level over the last minute" role="img"></canvas>
       <div class="row" style="margin-top:8px">
@@ -243,6 +252,7 @@ a{color:var(--accent)}
         <dt>tilt</dt><dd id="tilt">—</dd>
       </div>
       <canvas id="harm" aria-label="Relative level of the first ten harmonics" role="img"></canvas>
+      <canvas id="mfcc" aria-label="Mel-frequency cepstral coefficients 1 to 12" role="img"></canvas>
       <div class="desc" id="timbreDesc"></div>
     </section>
   </div>
@@ -272,6 +282,15 @@ a{color:var(--accent)}
     <progress id="progress" value="0" max="1" class="hide"></progress>
     <canvas id="fileChart" aria-label="Pitch track of the whole file; click to play from a point" role="img"></canvas>
     <div class="stats" id="stats"></div>
+    <div id="reportWrap" class="hide">
+      <div class="row between" style="margin-top:14px">
+        <h2 style="margin:0">Performance report <span class="small">tempo · dynamics · timbre · articulation</span></h2>
+        <div class="row"><button type="button" id="notesCsv" class="btn-sm">Download notes CSV</button><button type="button" id="reportJson" class="btn-sm">Download report (JSON)</button></div>
+      </div>
+      <div class="small" id="snrNote" style="margin-top:6px"></div>
+      <canvas id="tempogram" aria-label="Local tempo across the file" role="img"></canvas>
+      <div class="report" id="report"></div>
+    </div>
   </section>
 
   <section class="card" aria-label="Settings">
@@ -318,7 +337,7 @@ a{color:var(--accent)}
       </ul>
     </details>
   </section>
-  <p class="brand-foot span">Djahwasi Pitch Detector · pitch · beat · level · dynamics · timbre · statistics · trace kept for 7 minutes · recordings up to 7 minutes · <a href="../tuner/">Djahwasi Guitar Tuner</a></p>
+  <p class="brand-foot span">Djahwasi Pitch Detector · pitch · beat · level · dynamics · timbre · statistics · performance report · trace kept for 7 minutes · recordings up to 7 minutes · <a href="../tuner/">Djahwasi Guitar Tuner</a></p>
 </div>
 
 <script>
@@ -506,7 +525,69 @@ function makeFeatures() {
     const rms = Math.sqrt(sq / n);
     return { mean, variance, std, skewness, kurtosis, zcr: zc / ((n - 1) / sr), rms, peak, crest: rms > 0 ? 20 * Math.log10(peak / rms) : 0 };
   }
-  return { descriptors, flux, pickOnsets, tempo, stats };
+  // ---- MFCC: 26 mel filters, 13 coefficients, from a magnitude spectrum ----
+  const melCache = new Map();
+  const hzToMel = f => 2595 * Math.log10(1 + f / 700), melToHz = m => 700 * (Math.pow(10, m / 2595) - 1);
+  function melBank(sr, nBins, nFilt) {
+    const key = `${sr}:${nBins}:${nFilt}`; let bank = melCache.get(key); if (bank) return bank;
+    const fMax = Math.min(8000, sr / 2), binHz = (sr / 2) / nBins, mLo = hzToMel(20), mHi = hzToMel(fMax), pts = [];
+    for (let i = 0; i <= nFilt + 1; i++) pts.push(melToHz(mLo + (mHi - mLo) * i / (nFilt + 1)) / binHz);
+    bank = [];
+    for (let f = 0; f < nFilt; f++) {
+      const a = pts[f], b = pts[f + 1], c = pts[f + 2], lo = Math.max(1, Math.floor(a)), hi = Math.min(nBins - 1, Math.ceil(c)), w = new Float32Array(hi - lo + 1);
+      for (let i = lo; i <= hi; i++) w[i - lo] = i < b ? Math.max(0, (i - a) / (b - a)) : Math.max(0, (c - i) / (c - b));
+      bank.push({ lo, w });
+    }
+    melCache.set(key, bank); return bank;
+  }
+  function mfcc(mags, sr, nFilt, nCoef) {
+    nFilt = nFilt || 26; nCoef = nCoef || 13;
+    const bank = melBank(sr, mags.length, nFilt), logE = new Float32Array(nFilt);
+    for (let f = 0; f < nFilt; f++) { const { lo, w } = bank[f]; let e = 0; for (let i = 0; i < w.length; i++) { const m = mags[lo + i]; e += m * m * w[i]; } logE[f] = Math.log(e + 1e-12); }
+    const out = new Float32Array(nCoef);
+    for (let k = 0; k < nCoef; k++) { let acc = 0; for (let f = 0; f < nFilt; f++) acc += logE[f] * Math.cos(Math.PI * k * (f + 0.5) / nFilt); out[k] = acc * Math.sqrt(2 / nFilt) * (k === 0 ? Math.SQRT1_2 : 1); }
+    return out;
+  }
+  // ---- EBU R128 / ITU-R BS.1770 loudness for a mono signal ----
+  function biquad(x, b0, b1, b2, a1, a2) {
+    const y = new Float32Array(x.length); let x1 = 0, x2 = 0, y1 = 0, y2 = 0;
+    for (let i = 0; i < x.length; i++) { const v = b0 * x[i] + b1 * x1 + b2 * x2 - a1 * y1 - a2 * y2; x2 = x1; x1 = x[i]; y2 = y1; y1 = v; y[i] = v; }
+    return y;
+  }
+  // K-weighting coefficients for any sample rate (analogue prototypes from ITU-R BS.1770 as derived by De Man and used in
+  // libebur128); at 48 kHz they reproduce the coefficients printed in the Recommendation.
+  function kCoeffs(sr) {
+    let f0 = 1681.974450955533, G = 3.999843853973347, Q = 0.7071752369554196, K = Math.tan(Math.PI * f0 / sr);
+    const Vh = Math.pow(10, G / 20), Vb = Math.pow(Vh, 0.4996667741545416), a0 = 1 + K / Q + K * K;
+    const shelf = { b: [(Vh + Vb * K / Q + K * K) / a0, 2 * (K * K - Vh) / a0, (Vh - Vb * K / Q + K * K) / a0], a: [1, 2 * (K * K - 1) / a0, (1 - K / Q + K * K) / a0] };
+    f0 = 38.13547087602444; Q = 0.5003270373238773; K = Math.tan(Math.PI * f0 / sr);
+    const d = 1 + K / Q + K * K;
+    const hp = { b: [1, -2, 1], a: [1, 2 * (K * K - 1) / d, (1 - K / Q + K * K) / d] };
+    return { shelf, hp };
+  }
+  function kWeight(x, sr) {
+    const { shelf, hp } = kCoeffs(sr);
+    const y1 = biquad(x, shelf.b[0], shelf.b[1], shelf.b[2], shelf.a[1], shelf.a[2]);
+    return biquad(y1, hp.b[0], hp.b[1], hp.b[2], hp.a[1], hp.a[2]);
+  }
+  function r128(mono, sr) {
+    const y = kWeight(mono, sr), n = y.length;
+    const blockLoud = (len, hop) => { const out = []; for (let s0 = 0; s0 + len <= n; s0 += hop) { let ms = 0; for (let i = s0; i < s0 + len; i++) ms += y[i] * y[i]; ms /= len; out.push(ms > 0 ? -0.691 + 10 * Math.log10(ms) : -Infinity); } return out; };
+    const mom = blockLoud(Math.round(0.4 * sr), Math.round(0.1 * sr)), sh = blockLoud(Math.round(3 * sr), Math.round(1 * sr));
+    const pw = l => Math.pow(10, (l + 0.691) / 10);
+    const gated = (blocks, rel) => { let b = blocks.filter(l => l > -70); if (!b.length) return null; const m1 = -0.691 + 10 * Math.log10(b.reduce((a, l) => a + pw(l), 0) / b.length); b = b.filter(l => l > m1 + rel); return b.length ? b : null; };
+    const gi = gated(mom, -10), integrated = gi ? -0.691 + 10 * Math.log10(gi.reduce((a, l) => a + pw(l), 0) / gi.length) : -Infinity;
+    const gl = gated(sh, -20); let lra = 0;
+    if (gl && gl.length >= 2) { const sorted = [...gl].sort((a, b) => a - b); lra = sorted[Math.min(sorted.length - 1, Math.floor(sorted.length * 0.95))] - sorted[Math.floor(sorted.length * 0.10)]; }
+    return { integrated, lra, maxMomentary: mom.length ? Math.max(...mom) : -Infinity, maxShort: sh.length ? Math.max(...sh) : -Infinity, momentary: Float32Array.from(mom), short: Float32Array.from(sh) };
+  }
+  // fine rms envelope in dB, one value per blockMs
+  function envelope(mono, sr, blockMs) {
+    const len = Math.max(1, Math.round(sr * (blockMs || 5) / 1000)), m = Math.floor(mono.length / len), out = new Float32Array(m);
+    for (let b = 0; b < m; b++) { let ms = 0; for (let i = b * len; i < (b + 1) * len; i++) ms += mono[i] * mono[i]; out[b] = ms > 0 ? 10 * Math.log10(ms / len) : -120; }
+    return { db: out, blockMs: len / sr * 1000 };
+  }
+  return { descriptors, flux, pickOnsets, tempo, stats, mfcc, kCoeffs, kWeight, r128, envelope };
 }
 
 (() => {
@@ -531,6 +612,7 @@ function makeFeatures() {
     beatLight: $('beatLight'), bpm: $('bpm'), bpmConf: $('bpmConf'), onsetCount: $('onsetCount'), ioi: $('ioi'), onsetStrip: $('onsetStrip'), beatReset: $('beatReset'),
     lvlSlow: $('lvlSlow'), dynMark: $('dynMark'), dynScale: $('dynScale'), dynPos: $('dynPos'), lvlRms: $('lvlRms'), lvlPeak: $('lvlPeak'), lvlRange: $('lvlRange'), lvlSpl: $('lvlSpl'), levelStrip: $('levelStrip'),
     setPP: $('setPP'), setFF: $('setFF'), dynReset: $('dynReset'), ppIn: $('ppIn'), ffIn: $('ffIn'), dynStep: $('dynStep'), splRef: $('splRef'), splSet: $('splSet'), splClear: $('splClear'),
+    mfcc: $('mfcc'), lufsM: $('lufsM'), lufsS: $('lufsS'), reportWrap: $('reportWrap'), report: $('report'), snrNote: $('snrNote'), tempogram: $('tempogram'), notesCsv: $('notesCsv'), reportJson: $('reportJson'),
     stWin: $('statWin'), stMean: $('stMean'), stStd: $('stStd'), stSkew: $('stSkew'), stKurt: $('stKurt'), stZcr: $('stZcr'), stRms: $('stRms'), stCrest: $('stCrest'), stWords: $('stWords'),
     centroid: $('centroid'), bright: $('bright'), spread: $('spread'), flat: $('flat'), oddEven: $('oddEven'), tilt: $('tilt'), harm: $('harm'), timbreDesc: $('timbreDesc'), traceLabel: $('traceLabel'), traceCsv: $('traceCsv'), tracePng: $('tracePng'), traceClear: $('traceClear'),
     note: $('note'), noteName: $('noteName'), octave: $('octave'), hz: $('hz'), centsVal: $('centsVal'), midi: $('midi'), clarity: $('clarity'), last: $('last'),
@@ -553,7 +635,7 @@ function makeFeatures() {
     // level and dynamics
     slowPow: 0, slowDb: -Infinity, dynPP: -45, dynFF: -15, splOffset: null,
     // timbre
-    feat: null, specDb: null, st: null,
+    feat: null, specDb: null, st: null, mfcc: null, lufsM: -Infinity, lufsS: -Infinity, momHist: [],
   };
   try {
     const s = JSON.parse(localStorage.getItem('pitch.settings') || '{}');
@@ -611,6 +693,7 @@ function makeFeatures() {
 
   // ---------- audio graph ----------
   let actx = null, analyser = null, input = null, stream = null, buf = new Float32Array(WIN), byteBuf = null, specBuf = null, prevMags = null;
+  let kAnalyser = null, kBuf = null, kNodes = null;
   let fileSource = null, testNodes = null, resumeHook = null;
   const AC = window.AudioContext || window.webkitAudioContext;
   function ensureCtx() {
@@ -633,6 +716,15 @@ function makeFeatures() {
   function attach(ctx, node, source, label) {
     analyser = ctx.createAnalyser(); analyser.fftSize = WIN; analyser.smoothingTimeConstant = 0;
     input = node; node.connect(analyser);
+    // K-weighting (BS.1770) for live loudness with the exact coefficients for this sample rate, into a long analyser
+    // (the last 400 ms are read each frame for momentary loudness)
+    try {
+      const kc = F.kCoeffs(ctx.sampleRate);
+      const shelf = ctx.createIIRFilter(kc.shelf.b, kc.shelf.a), hp = ctx.createIIRFilter(kc.hp.b, kc.hp.a);
+      kAnalyser = ctx.createAnalyser(); kAnalyser.fftSize = 32768; kAnalyser.smoothingTimeConstant = 0;
+      node.connect(shelf); shelf.connect(hp); hp.connect(kAnalyser); kNodes = { shelf, hp }; kBuf = new Float32Array(32768);
+    } catch (e) { kAnalyser = null; fail(e, 'k-weighting'); }
+    state.momHist = [];
     buf = new Float32Array(WIN); specBuf = null; prevMags = null; byteBuf = analyser.getFloatTimeDomainData ? null : new Uint8Array(WIN);
     state.running = true; state.source = source; state.hist = []; state.floor = null; state.frames = 0; state.firstFrameAt = 0; state.silentSince = 0; state.midi = null; state.lastValid = 0;
     setDiag('dInput', label);
@@ -656,7 +748,7 @@ function makeFeatures() {
     if (fileSource) { const f = fileSource; fileSource = null; try { f.stop(); } catch (e) {} }
     if (testNodes) { const t = testNodes; testNodes = null; try { t.gain.gain.setTargetAtTime(0.0001, actx.currentTime, 0.03); t.o1.stop(actx.currentTime + 0.2); t.o2.stop(actx.currentTime + 0.2); } catch (e) {} }
     if (input) { try { input.disconnect(); } catch (e) {} input = null; }
-    analyser = null;
+    analyser = null; kAnalyser = null; kNodes = null; state.lufsM = -Infinity; state.lufsS = -Infinity; state.mfcc = null;
     el.mic.setAttribute('aria-pressed', 'false'); el.micLabel.textContent = 'Start microphone';
     el.test.setAttribute('aria-pressed', 'false');
     el.play.setAttribute('aria-pressed', 'false'); el.play.textContent = 'Play';
@@ -746,7 +838,7 @@ function makeFeatures() {
     if (state.running) stopAll(true);
     if (!(recBlob && file.name && file.name.startsWith('djahwasi-recording-'))) el.saveRec.classList.add('hide');
     let ctx; try { ctx = ensureCtx(); } catch (e) { fail(e, 'AudioContext'); setStatus('warn', 'Web Audio is not available in this browser.'); return; }
-    el.fileCard.classList.remove('hide'); el.fileName.textContent = file.name; el.play.disabled = true; el.csv.disabled = true; el.stats.textContent = ''; fileTrack = null;
+    el.fileCard.classList.remove('hide'); el.fileName.textContent = file.name; el.play.disabled = true; el.csv.disabled = true; el.stats.textContent = ''; fileTrack = null; el.reportWrap.classList.add('hide');
     setStatus('', `Decoding <strong>${escapeHtml(file.name)}</strong>…`);
     try { fileBuf = await decode(ctx, await file.arrayBuffer()); }
     catch (e) { fail(e, 'decodeAudioData'); setStatus('warn', 'That file could not be decoded. Try WAV, MP3, M4A/AAC, OGG or FLAC, or a video with an audio track.'); return; }
@@ -757,7 +849,7 @@ function makeFeatures() {
     setStatus('', `Analysing ${(fileBuf.duration).toFixed(1)} s of audio…`);
     analyseOffline(mono, fileBuf.sampleRate).then(track => {
       fileTrack = track; el.progress.classList.add('hide'); el.play.disabled = false; el.csv.disabled = false;
-      summarise(track); drawFileChart();
+      summarise(track); drawFileChart(); renderReport(track);
       setStatus('ok', `Analysed <strong>${escapeHtml(file.name)}</strong>. Press <strong>Play</strong> to hear it with the live readout, or download the pitch track as CSV.`);
     }).catch(e => { fail(e, 'analysis'); el.progress.classList.add('hide'); setStatus('warn', 'Analysis failed. See Diagnostics for details.'); });
   }
@@ -771,7 +863,10 @@ function makeFeatures() {
         const t = new Float32Array(frames), hz = new Float32Array(frames), cl = new Float32Array(frames), rms = new Float32Array(frames);
         const cen = new Float32Array(frames), flat = new Float32Array(frames), flux = new Float32Array(frames);
         const std = new Float32Array(frames), skew = new Float32Array(frames), kurt = new Float32Array(frames), zcr = new Float32Array(frames), crest = new Float32Array(frames);
+        const mf = new Float32Array(frames * 13);
         const whole = F.stats(mono, sr);
+        postMessage({ progress: 0.02 });
+        const loud = F.r128(mono, sr), env = F.envelope(mono, sr, 5);
         let prev = null;
         for (let f = 0; f < frames; f++) {
           const seg = mono.subarray(f * hop, f * hop + win);
@@ -781,11 +876,12 @@ function makeFeatures() {
           const mags = spectrum(seg);
           const d = F.descriptors(mags, binHz, r.hz);
           if (d) { cen[f] = d.centroid; flat[f] = d.flatness; }
+          mf.set(F.mfcc(mags, sr), f * 13);
           if (prev) flux[f] = F.flux(mags, prev, binHz); else prev = new Float32Array(mags.length);
           prev.set(mags);
-          if ((f & 127) === 0) postMessage({ progress: f / frames });
+          if ((f & 127) === 0) postMessage({ progress: 0.05 + 0.95 * f / frames });
         }
-        postMessage({ done: true, t, hz, cl, rms, cen, flat, flux, std, skew, kurt, zcr, crest, whole }, [t.buffer, hz.buffer, cl.buffer, rms.buffer, cen.buffer, flat.buffer, flux.buffer, std.buffer, skew.buffer, kurt.buffer, zcr.buffer, crest.buffer]);
+        postMessage({ done: true, t, hz, cl, rms, cen, flat, flux, std, skew, kurt, zcr, crest, whole, mf, loud, env }, [t.buffer, hz.buffer, cl.buffer, rms.buffer, cen.buffer, flat.buffer, flux.buffer, std.buffer, skew.buffer, kurt.buffer, zcr.buffer, crest.buffer, mf.buffer, env.db.buffer]);
       };`;
     return new Promise((res, rej) => {
       const run = () => {
@@ -795,7 +891,7 @@ function makeFeatures() {
         const t = new Float32Array(frames), hz = new Float32Array(frames), cl = new Float32Array(frames), rms = new Float32Array(frames);
         const cen = new Float32Array(frames), flat = new Float32Array(frames), flux = new Float32Array(frames), binHz = sr / win;
         const std = new Float32Array(frames), skew = new Float32Array(frames), kurt = new Float32Array(frames), zcr = new Float32Array(frames), crest = new Float32Array(frames);
-        const whole = F.stats(mono, sr);
+        const mf = new Float32Array(frames * 13), whole = F.stats(mono, sr), loud = F.r128(mono, sr), env = F.envelope(mono, sr, 5);
         let f = 0, prev = null;
         const step = () => {
           const end = Math.min(frames, f + 64);
@@ -805,11 +901,12 @@ function makeFeatures() {
             const st = F.stats(seg, sr); std[f] = st.std; skew[f] = st.skewness; kurt[f] = st.kurtosis; zcr[f] = st.zcr; crest[f] = st.crest;
             const mags = spectrum(seg), d = F.descriptors(mags, binHz, r.hz);
             if (d) { cen[f] = d.centroid; flat[f] = d.flatness; }
+            mf.set(F.mfcc(mags, sr), f * 13);
             if (prev) flux[f] = F.flux(mags, prev, binHz); else prev = new Float32Array(mags.length);
             prev.set(mags);
           }
           el.progress.value = f / frames;
-          if (f < frames) setTimeout(step, 0); else res(finish({ t, hz, cl, rms, cen, flat, flux, std, skew, kurt, zcr, crest, whole }));
+          if (f < frames) setTimeout(step, 0); else res(finish({ t, hz, cl, rms, cen, flat, flux, std, skew, kurt, zcr, crest, whole, mf, loud, env }));
         };
         step();
       };
@@ -818,7 +915,9 @@ function makeFeatures() {
         const onsetIdx = F.pickOnsets(times, d.flux, 120).filter(i => d.rms[i] > ABS_FLOOR * 2);
         const onset = new Uint8Array(d.t.length); onsetIdx.forEach(i => { onset[i] = 1; });
         const tp = F.tempo(d.flux, fps);
-        return { t: d.t, hz: d.hz, cl: d.cl, rms: d.rms, cen: d.cen, flat: d.flat, flux: d.flux, std: d.std, skew: d.skew, kurt: d.kurt, zcr: d.zcr, crest: d.crest, whole: d.whole, onset, onsets: onsetIdx.length, tempo: tp, sr, hop };
+        const track = { t: d.t, hz: d.hz, cl: d.cl, rms: d.rms, cen: d.cen, flat: d.flat, flux: d.flux, std: d.std, skew: d.skew, kurt: d.kurt, zcr: d.zcr, crest: d.crest, whole: d.whole, mf: d.mf, loud: d.loud, env: d.env, onset, onsetIdx, onsets: onsetIdx.length, tempo: tp, sr, hop };
+        track.report = buildReport(track);
+        return track;
       };
       if (typeof Worker === 'undefined') return run();
       try {
@@ -830,6 +929,133 @@ function makeFeatures() {
       } catch (e) { fail(e, 'worker'); run(); }
     });
   }
+  // ---------- performance report: tempo variety, dynamics, timbre, articulation ----------
+  const pct = (arr, q) => { if (!arr.length) return NaN; const a = [...arr].sort((x, y) => x - y); return a[Math.min(a.length - 1, Math.floor(a.length * q))]; };
+  const meanOf = a => a.length ? a.reduce((x, y) => x + y, 0) / a.length : NaN;
+  const sdOf = a => { if (a.length < 2) return NaN; const m = meanOf(a); return Math.sqrt(a.reduce((x, y) => x + (y - m) * (y - m), 0) / (a.length - 1)); };
+  const slopeOf = (xs, ys) => { const n = xs.length; if (n < 3) return NaN; const mx = meanOf(xs), my = meanOf(ys); let sxy = 0, sxx = 0; for (let i = 0; i < n; i++) { sxy += (xs[i] - mx) * (ys[i] - my); sxx += (xs[i] - mx) * (xs[i] - mx); } return sxx > 0 ? sxy / sxx : NaN; };
+  function buildReport(tr) {
+    const fps = tr.sr / tr.hop, n = tr.t.length, dur = n / fps;
+    // noise floor and SNR from the frame levels
+    const lv = Array.from(tr.rms, r => dB(r)).filter(isFinite);
+    const floorDb = pct(lv, 0.10), loudDb = pct(lv, 0.95), snr = loudDb - floorDb;
+    // tempo variety: local tempo over 6 s windows, 1 s hop
+    const win = Math.round(6 * fps), hop = Math.round(1 * fps), tg = [];
+    for (let s0 = 0; s0 + win <= n; s0 += hop) { const tp = F.tempo(tr.flux.subarray(s0, s0 + win), fps); tg.push({ t: (s0 + win / 2) / fps, bpm: tp && tp.confidence > 0.1 ? tp.bpm : null, conf: tp ? tp.confidence : 0 }); }
+    const bpms = tg.filter(x => x.bpm).map(x => x.bpm), bts = tg.filter(x => x.bpm).map(x => x.t);
+    const tempoMean = meanOf(bpms), tempoSd = sdOf(bpms), tempoCv = tempoSd / tempoMean * 100, tempoTrend = slopeOf(bts, bpms) * 60;   // BPM per minute
+    const onT = tr.onsetIdx.map(i => tr.t[i]); const ioi = []; for (let i = 1; i < onT.length; i++) ioi.push(onT[i] - onT[i - 1]);
+    const ioiCv = ioi.length > 2 ? sdOf(ioi) / meanOf(ioi) * 100 : NaN;
+    // articulation per note from the 5 ms envelope
+    const env = tr.env.db, bm = tr.env.blockMs, notes = [];
+    for (let k = 0; k < onT.length; k++) {
+      const t0 = onT[k], t1 = k + 1 < onT.length ? onT[k + 1] : Math.min(dur, t0 + 2), b0 = Math.max(0, Math.floor((t0 * 1000 - 30) / bm)), b1 = Math.min(env.length - 1, Math.floor(t1 * 1000 / bm));
+      if (b1 - b0 < 4) continue;
+      let pk = -Infinity, pb = b0; for (let b = b0; b <= Math.min(b1, b0 + Math.round(600 / bm)); b++) if (env[b] > pk) { pk = env[b]; pb = b; }
+      if (!isFinite(pk) || pk < floorDb + 6) continue;
+      // attack: from the last point below peak-20 dB (≈10 % amplitude) before the peak, to the first point above peak-1 dB (≈90 %)
+      let a0 = pb; while (a0 > b0 && env[a0] > pk - 20) a0--;
+      let a1 = a0; while (a1 < pb && env[a1] < pk - 1) a1++;
+      const attack = Math.max(bm, (a1 - a0) * bm) / 1000, lat = Math.log10(attack);
+      // decay: least-squares slope of the envelope (dB/s) from the peak to 20 dB down or the next onset
+      let d1 = pb; while (d1 < b1 && env[d1] > pk - 20) d1++;
+      const xs = [], ys = []; for (let b = pb; b <= d1; b++) { xs.push(b * bm / 1000); ys.push(env[b]); }
+      const decay = xs.length >= 4 ? slopeOf(xs, ys) : NaN;
+      // duty: fraction of the inter-onset interval during which the note stays within 12 dB of its peak
+      let s12 = pb; while (s12 < b1 && env[s12] > pk - 12) s12++;
+      const duty = Math.min(1, ((s12 - pb) * bm / 1000 + attack) / Math.max(0.05, t1 - t0));
+      // pitch near the peak
+      const fi = Math.min(n - 1, Math.round(pb * bm / 1000 * fps)); let note = '', hz = 0;
+      for (let j = fi; j < Math.min(n, fi + 6); j++) if (voiced(tr, j)) { hz = tr.hz[j]; const m = Math.round(hzToMidi(hz)); note = `${noteName(m)}${octaveOf(m)}`; break; }
+      notes.push({ t: t0, ioi: k + 1 < onT.length ? t1 - t0 : NaN, peakDb: pk, attackMs: attack * 1000, lat, decay, duty, hz, note });
+    }
+    const lats = notes.map(x => x.lat).filter(isFinite), decays = notes.map(x => x.decay).filter(isFinite), duties = notes.map(x => x.duty).filter(isFinite);
+    // temporal sparsity of the onset detection function
+    const odf = F.stats(tr.flux, fps);
+    const fluxCv = odf && odf.rms > 0 ? odf.std / Math.max(1e-9, Math.abs(odf.mean)) : NaN;
+    // timbre summary
+    const cenV = []; for (let i = 0; i < n; i++) if (tr.cen[i] > 0 && tr.rms[i] > ABS_FLOOR * 2) cenV.push(tr.cen[i]);
+    const mfMean = new Array(13).fill(0), mfSd = new Array(13).fill(0); let mfN = 0;
+    for (let i = 0; i < n; i++) { if (tr.rms[i] <= ABS_FLOOR * 2) continue; mfN++; for (let k = 0; k < 13; k++) mfMean[k] += tr.mf[i * 13 + k]; }
+    if (mfN) { for (let k = 0; k < 13; k++) mfMean[k] /= mfN; for (let i = 0; i < n; i++) { if (tr.rms[i] <= ABS_FLOOR * 2) continue; for (let k = 0; k < 13; k++) { const d = tr.mf[i * 13 + k] - mfMean[k]; mfSd[k] += d * d; } } for (let k = 0; k < 13; k++) mfSd[k] = Math.sqrt(mfSd[k] / Math.max(1, mfN - 1)); }
+    const p5 = pct(lv, 0.05), p95 = pct(lv, 0.95);
+    return {
+      duration_s: dur, noise_floor_dbfs: floorDb, snr_db: snr,
+      tempo: { global_bpm: tr.tempo ? tr.tempo.bpm : NaN, global_confidence: tr.tempo ? tr.tempo.confidence : 0, local: tg, mean_bpm: tempoMean, sd_bpm: tempoSd, cv_percent: tempoCv, min_bpm: bpms.length ? Math.min(...bpms) : NaN, max_bpm: bpms.length ? Math.max(...bpms) : NaN, trend_bpm_per_min: tempoTrend, onsets: onT.length, ioi_mean_s: meanOf(ioi), ioi_cv_percent: ioiCv },
+      dynamics: { rms_p5_dbfs: p5, rms_p95_dbfs: p95, dynamic_range_db: p95 - p5, rms_sd_db: sdOf(lv), integrated_lufs: tr.loud.integrated, lra_lu: tr.loud.lra, max_momentary_lufs: tr.loud.maxMomentary, max_short_term_lufs: tr.loud.maxShort },
+      timbre: { centroid_median_hz: pct(cenV, 0.5), centroid_sd_hz: sdOf(cenV), flux_mean: odf ? odf.mean : NaN, flux_sd: odf ? odf.std : NaN, flux_cv: fluxCv, mfcc_mean: mfMean, mfcc_sd: mfSd },
+      articulation: { notes: notes.length, lat_median: pct(lats, 0.5), attack_ms_median: pct(notes.map(x => x.attackMs), 0.5), decay_db_per_s_median: pct(decays, 0.5), duty_median: pct(duties, 0.5), odf_crest_db: odf ? odf.crest : NaN, odf_kurtosis: odf ? odf.kurtosis : NaN, noteList: notes },
+    };
+  }
+  const fmt = (v, d) => isFinite(v) ? v.toFixed(d === undefined ? 1 : d) : '—';
+  function renderReport(tr) {
+    const r = tr.report; if (!r) { el.reportWrap.classList.add('hide'); return; }
+    el.reportWrap.classList.remove('hide');
+    el.snrNote.innerHTML = `noise floor <b>${fmt(r.noise_floor_dbfs, 0)} dBFS</b> (10th percentile of frame level) · loud passages <b>${fmt(r.noise_floor_dbfs + r.snr_db, 0)} dBFS</b> · signal-to-noise <b>${fmt(r.snr_db, 0)} dB</b>. ` +
+      (r.snr_db < 15 ? '<span style="color:var(--warn)">Low SNR: soft passages, attack times and spectral measures are unreliable in this recording.</span>' : r.snr_db < 25 ? 'Moderate SNR: treat pianissimo measures and MFCCs with care.' : 'Good SNR for all measures.');
+    const T = r.tempo, D = r.dynamics, M = r.timbre, A = r.articulation;
+    const trend = !isFinite(T.trend_bpm_per_min) ? '—' : Math.abs(T.trend_bpm_per_min) < 2 ? 'steady' : T.trend_bpm_per_min > 0 ? `accelerando (+${fmt(T.trend_bpm_per_min, 1)} BPM/min)` : `ritardando (${fmt(T.trend_bpm_per_min, 1)} BPM/min)`;
+    const tempoWord = !isFinite(T.cv_percent) ? 'too few confident windows for a verdict' : T.cv_percent < 3 ? 'very steady pulse' : T.cv_percent < 8 ? 'steady with slight flexibility' : T.cv_percent < 15 ? 'flexible timing (rubato)' : 'highly variable or unmeasurable pulse';
+    const dynWord = !isFinite(D.dynamic_range_db) ? '' : D.dynamic_range_db < 8 ? 'narrow dynamics: compressed playing or a recording dominated by ambient noise' : D.dynamic_range_db < 18 ? 'moderate dynamic range' : 'wide, expressive dynamic range';
+    const artWord = !isFinite(A.duty_median) ? '' : A.duty_median < 0.35 ? 'detached (staccato-like)' : A.duty_median < 0.7 ? 'moderately connected' : 'connected (legato-like)';
+    const attWord = !isFinite(A.lat_median) ? '' : A.lat_median < -1.6 ? 'sharp attacks' : A.lat_median < -1.1 ? 'moderate attacks' : 'soft, gradual attacks';
+    el.report.innerHTML = `
+      <div class="blk"><h3>1 · Tempo variety</h3><dl class="kv">
+        <dt>global tempo</dt><dd>${fmt(T.global_bpm, 0)} BPM (confidence ${fmt(T.global_confidence * 100, 0)}%)</dd>
+        <dt>tempogram</dt><dd>mean ${fmt(T.mean_bpm, 1)} · sd ${fmt(T.sd_bpm, 1)} BPM · CV ${fmt(T.cv_percent, 1)}% · ${fmt(T.min_bpm, 0)}–${fmt(T.max_bpm, 0)} BPM</dd>
+        <dt>trend</dt><dd>${trend}</dd>
+        <dt>onsets · IOI</dt><dd>${T.onsets} onsets · mean IOI ${fmt(T.ioi_mean_s, 3)} s · IOI CV ${fmt(T.ioi_cv_percent, 0)}%</dd></dl>
+        <div class="verdict"><b>${tempoWord}</b></div></div>
+      <div class="blk"><h3>2 · Dynamics</h3><dl class="kv">
+        <dt>RMS curve</dt><dd>5th–95th percentile ${fmt(D.rms_p5_dbfs, 0)} to ${fmt(D.rms_p95_dbfs, 0)} dBFS · sd ${fmt(D.rms_sd_db, 1)} dB</dd>
+        <dt>dynamic range</dt><dd>${fmt(D.dynamic_range_db, 0)} dB · ${dynMark(D.rms_p5_dbfs)}–${dynMark(D.rms_p95_dbfs)}</dd>
+        <dt>EBU R128</dt><dd>integrated ${fmt(D.integrated_lufs, 1)} LUFS · LRA ${fmt(D.lra_lu, 1)} LU</dd>
+        <dt>max loudness</dt><dd>momentary ${fmt(D.max_momentary_lufs, 1)} · short-term ${fmt(D.max_short_term_lufs, 1)} LUFS</dd></dl>
+        <div class="verdict"><b>${dynWord}</b></div></div>
+      <div class="blk"><h3>3 · Timbre</h3><dl class="kv">
+        <dt>spectral centroid</dt><dd>median ${fmt(M.centroid_median_hz, 0)} Hz · sd ${fmt(M.centroid_sd_hz, 0)} Hz</dd>
+        <dt>spectral flux</dt><dd>mean ${fmt(M.flux_mean, 3)} · sd ${fmt(M.flux_sd, 3)} · CV ${fmt(M.flux_cv, 2)}</dd>
+        <dt>MFCC mean (1–12)</dt><dd>${M.mfcc_mean.slice(1).map(v => fmt(v, 1)).join(', ')}</dd>
+        <dt>MFCC sd (1–12)</dt><dd>${M.mfcc_sd.slice(1).map(v => fmt(v, 1)).join(', ')}</dd></dl>
+        <div class="verdict"><b>${!isFinite(M.flux_cv) ? '' : M.flux_cv > 1.2 ? 'active, changing timbre' : 'stable timbre'}</b></div></div>
+      <div class="blk"><h3>4 · Articulation</h3><dl class="kv">
+        <dt>notes analysed</dt><dd>${A.notes}</dd>
+        <dt>log-attack time</dt><dd>median ${fmt(A.lat_median, 2)} (attack ${fmt(A.attack_ms_median, 0)} ms)</dd>
+        <dt>decay rate</dt><dd>median ${fmt(A.decay_db_per_s_median, 0)} dB/s</dd>
+        <dt>duty ratio</dt><dd>median ${fmt(A.duty_median, 2)} of the inter-onset interval within 12 dB of the peak</dd>
+        <dt>temporal sparsity</dt><dd>ODF crest ${fmt(A.odf_crest_db, 1)} dB · ODF kurtosis ${fmt(A.odf_kurtosis, 1)}</dd></dl>
+        <div class="verdict"><b>${[attWord, artWord].filter(Boolean).join(' · ')}</b></div></div>`;
+    drawTempogram(tr);
+  }
+  function drawTempogram(tr) {
+    const [g, w, h] = fit(el.tempogram); g.clearRect(0, 0, w, h);
+    const r = tr.report; const pts = r ? r.tempo.local : [];
+    g.font = `10px ${C('--mono')}`; g.fillStyle = C('--ink-dim'); g.textAlign = 'left'; g.textBaseline = 'top';
+    g.fillText('tempogram · local tempo, 6 s windows', 4, 3);
+    const vals = pts.filter(p => p.bpm).map(p => p.bpm);
+    if (!vals.length) { g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('no confident local tempo', w / 2, h / 2); return; }
+    let lo = Math.min(...vals) - 10, hi = Math.max(...vals) + 10; if (hi - lo < 30) { const c = (hi + lo) / 2; lo = c - 15; hi = c + 15; }
+    const xFor = t => t / r.duration_s * w, yFor = b => h - (b - lo) / (hi - lo) * (h - 18) - 4;
+    g.strokeStyle = C('--line');
+    for (let b = Math.ceil(lo / 10) * 10; b <= hi; b += 10) { const y = yFor(b); g.beginPath(); g.moveTo(0, y + .5); g.lineTo(w, y + .5); g.stroke(); g.textBaseline = 'bottom'; g.fillText(`${b}`, 4, y - 1); }
+    if (isFinite(r.tempo.mean_bpm)) { g.strokeStyle = C('--ok'); g.setLineDash([4, 4]); const y = yFor(r.tempo.mean_bpm); g.beginPath(); g.moveTo(0, y); g.lineTo(w, y); g.stroke(); g.setLineDash([]); }
+    g.strokeStyle = C('--accent'); g.lineWidth = 2; g.beginPath(); let open = false;
+    for (const p of pts) { if (!p.bpm) { open = false; continue; } const x = xFor(p.t), y = yFor(p.bpm); if (!open) { g.moveTo(x, y); open = true; } else g.lineTo(x, y); }
+    g.stroke(); g.fillStyle = C('--accent');
+    for (const p of pts) if (p.bpm) { g.beginPath(); g.arc(xFor(p.t), yFor(p.bpm), 2.5, 0, Math.PI * 2); g.fill(); }
+  }
+  el.notesCsv.addEventListener('click', () => {
+    if (!fileTrack || !fileTrack.report) return;
+    const rows = ['index,time_s,note,f0_hz,ioi_s,local_bpm,peak_dbfs,dynamic,attack_ms,log_attack_time,decay_db_per_s,duty_ratio'];
+    fileTrack.report.articulation.noteList.forEach((x, i) => rows.push(`${i + 1},${x.t.toFixed(3)},${x.note},${x.hz ? x.hz.toFixed(2) : ''},${isFinite(x.ioi) ? x.ioi.toFixed(3) : ''},${isFinite(x.ioi) && x.ioi > 0 ? (60 / x.ioi).toFixed(1) : ''},${x.peakDb.toFixed(1)},${dynMark(x.peakDb)},${x.attackMs.toFixed(0)},${x.lat.toFixed(3)},${isFinite(x.decay) ? x.decay.toFixed(1) : ''},${x.duty.toFixed(3)}`));
+    download(new Blob([rows.join('\n')], { type: 'text/csv' }), (el.fileName.textContent.replace(/\.[^.]+$/, '') || 'djahwasi') + '-notes.csv');
+  });
+  el.reportJson.addEventListener('click', () => {
+    if (!fileTrack || !fileTrack.report) return;
+    const r = JSON.parse(JSON.stringify(fileTrack.report, (k, v) => typeof v === 'number' && !isFinite(v) ? null : v));
+    r.file = el.fileName.textContent; r.generated = new Date().toISOString(); r.app = BRAND; r.a4 = state.a4; r.dynamics_anchors_dbfs = { pp: state.dynPP, ff: state.dynFF };
+    download(new Blob([JSON.stringify(r, null, 2)], { type: 'application/json' }), (el.fileName.textContent.replace(/\.[^.]+$/, '') || 'djahwasi') + '-report.json');
+  });
   function voiced(track, i) { return track.hz[i] > 0 && track.cl[i] >= state.clarityMin && track.rms[i] > ABS_FLOOR; }
   function summarise(track) {
     const hz = [];
@@ -872,12 +1098,12 @@ function makeFeatures() {
   document.addEventListener('drop', e => { e.preventDefault(); const f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]; if (f) openFile(f); });
   el.csv.addEventListener('click', () => {
     if (!fileTrack) return;
-    const rows = ['time_s,f0_hz,midi,note,cents,clarity,rms_dbfs,dynamic,centroid_hz,flatness,onset,std,skewness,kurtosis_excess,zcr_per_s,crest_db'];
+    const rows = ['time_s,f0_hz,midi,note,cents,clarity,rms_dbfs,dynamic,centroid_hz,flatness,onset,std,skewness,kurtosis_excess,zcr_per_s,crest_db,flux,' + Array.from({ length: 13 }, (_, k) => `mfcc_${k}`).join(',')];
     for (let i = 0; i < fileTrack.t.length; i++) {
       const v = voiced(fileTrack, i), f = fileTrack.hz[i], ldb = dB(fileTrack.rms[i]);
       let midi = '', note = '', cents = '';
       if (v) { const mm = hzToMidi(f), m = Math.round(mm); midi = mm.toFixed(3); note = `${noteName(m)}${octaveOf(m)}`; cents = (100 * (mm - m)).toFixed(1); }
-      rows.push(`${fileTrack.t[i].toFixed(4)},${v ? f.toFixed(3) : ''},${midi},${note},${cents},${fileTrack.cl[i].toFixed(3)},${fmtDb(ldb)},${fileTrack.rms[i] > ABS_FLOOR * 2 ? dynMark(ldb) : ''},${fileTrack.cen[i] ? fileTrack.cen[i].toFixed(0) : ''},${fileTrack.cen[i] ? fileTrack.flat[i].toFixed(3) : ''},${fileTrack.onset[i]},${fileTrack.std[i].toFixed(5)},${fileTrack.skew[i].toFixed(3)},${fileTrack.kurt[i].toFixed(3)},${fileTrack.zcr[i].toFixed(1)},${fileTrack.crest[i].toFixed(2)}`);
+      rows.push(`${fileTrack.t[i].toFixed(4)},${v ? f.toFixed(3) : ''},${midi},${note},${cents},${fileTrack.cl[i].toFixed(3)},${fmtDb(ldb)},${fileTrack.rms[i] > ABS_FLOOR * 2 ? dynMark(ldb) : ''},${fileTrack.cen[i] ? fileTrack.cen[i].toFixed(0) : ''},${fileTrack.cen[i] ? fileTrack.flat[i].toFixed(3) : ''},${fileTrack.onset[i]},${fileTrack.std[i].toFixed(5)},${fileTrack.skew[i].toFixed(3)},${fileTrack.kurt[i].toFixed(3)},${fileTrack.zcr[i].toFixed(1)},${fileTrack.crest[i].toFixed(2)},${fileTrack.flux[i].toFixed(4)},${Array.from(fileTrack.mf.subarray(i * 13, i * 13 + 13), v => v.toFixed(2)).join(',')}`);
     }
     download(new Blob([rows.join('\n')], { type: 'text/csv' }), (el.fileName.textContent.replace(/\.[^.]+$/, '') || 'djahwasi-pitch') + '-pitch.csv');
   });
@@ -982,12 +1208,12 @@ function makeFeatures() {
     const pts = state.trace;
     if (!pts.length) { setStatus('warn', 'The pitch trace is empty. Start the microphone or play a file first.'); return; }
     const t0 = pts[0].t;
-    const rows = ['time_s,clock_iso,f0_hz,midi,note,cents,clarity,rms_dbfs,level_slow_dbfs,dynamic,spl_db_approx,centroid_hz,flatness,mean,std,skewness,kurtosis_excess,zcr_per_s,peak,crest_db'];
+    const rows = ['time_s,clock_iso,f0_hz,midi,note,cents,clarity,rms_dbfs,level_slow_dbfs,dynamic,spl_db_approx,centroid_hz,flatness,mean,std,skewness,kurtosis_excess,zcr_per_s,peak,crest_db,lufs_momentary,lufs_short'];
     for (const p of pts) {
       let f0 = '', midi = '', note = '', cents = '';
       if (p.hz) { const mm = hzToMidi(p.hz), m = Math.round(mm); f0 = p.hz.toFixed(3); midi = mm.toFixed(3); note = `${noteName(m)}${octaveOf(m)}`; cents = (100 * (mm - m)).toFixed(1); }
       const slow = typeof p.slow === 'number' ? p.slow : dB(p.rms || 0);
-      rows.push(`${((p.t - t0) / 1000).toFixed(3)},${new Date(p.t + clockOffset).toISOString()},${f0},${midi},${note},${cents},${(p.cl || 0).toFixed(3)},${fmtDb(dB(p.rms || 0))},${fmtDb(slow)},${isFinite(slow) ? dynMark(slow) : ''},${state.splOffset !== null && isFinite(slow) ? (slow + state.splOffset).toFixed(1) : ''},${p.cen ? p.cen.toFixed(0) : ''},${p.flat ? p.flat.toFixed(3) : ''},${p.st ? `${p.st.mean.toExponential(3)},${p.st.std.toFixed(5)},${p.st.skewness.toFixed(3)},${p.st.kurtosis.toFixed(3)},${p.st.zcr.toFixed(1)},${p.st.peak.toFixed(4)},${p.st.crest.toFixed(2)}` : ',,,,,,'}`);
+      rows.push(`${((p.t - t0) / 1000).toFixed(3)},${new Date(p.t + clockOffset).toISOString()},${f0},${midi},${note},${cents},${(p.cl || 0).toFixed(3)},${fmtDb(dB(p.rms || 0))},${fmtDb(slow)},${isFinite(slow) ? dynMark(slow) : ''},${state.splOffset !== null && isFinite(slow) ? (slow + state.splOffset).toFixed(1) : ''},${p.cen ? p.cen.toFixed(0) : ''},${p.flat ? p.flat.toFixed(3) : ''},${p.st ? `${p.st.mean.toExponential(3)},${p.st.std.toFixed(5)},${p.st.skewness.toFixed(3)},${p.st.kurtosis.toFixed(3)},${p.st.zcr.toFixed(1)},${p.st.peak.toFixed(4)},${p.st.crest.toFixed(2)}` : ',,,,,,'},${isFinite(p.lufsM) ? p.lufsM.toFixed(1) : ''},${isFinite(p.lufsS) ? p.lufsS.toFixed(1) : ''}`);
     }
     download(new Blob([rows.join('\n')], { type: 'text/csv' }), `djahwasi-pitch-trace-${stamp()}.csv`);
   });
@@ -1042,6 +1268,16 @@ function makeFeatures() {
     for (let i = 0; i < mags.length; i++) { const v = mags[i] > 1e-6 ? 20 * Math.log10(mags[i]) : -120; state.specDb[i] += (v - state.specDb[i]) * 0.5; }
     state.feat = r.rms > state.gate ? F.descriptors(mags, binHz, state.midi !== null ? state.freq : 0) : null;
     state.st = F.stats(buf, actx.sampleRate);
+    state.mfcc = r.rms > state.gate ? F.mfcc(mags, actx.sampleRate) : null;
+    if (kAnalyser && kAnalyser.getFloatTimeDomainData) {
+      kAnalyser.getFloatTimeDomainData(kBuf);
+      const len = Math.min(kBuf.length, Math.round(0.4 * actx.sampleRate)); let ms = 0;
+      for (let i = kBuf.length - len; i < kBuf.length; i++) ms += kBuf[i] * kBuf[i]; ms /= len;
+      state.lufsM = ms > 0 ? -0.691 + 10 * Math.log10(ms) : -Infinity;
+      state.momHist.push({ t: now, p: ms }); while (state.momHist.length && now - state.momHist[0].t > 3000) state.momHist.shift();
+      const avg = state.momHist.reduce((a, h) => a + h.p, 0) / state.momHist.length;
+      state.lufsS = avg > 0 ? -0.691 + 10 * Math.log10(avg) : -Infinity;
+    }
     if (prevMags) {
       const fx = F.flux(mags, prevMags, binHz);
       state.onsets.push({ t: now, f: fx });
@@ -1072,7 +1308,7 @@ function makeFeatures() {
       }
     } else prevMags = new Float32Array(mags.length);
     prevMags.set(mags);
-    state.trace.push({ t: now, hz: state.midi !== null ? state.freq : null, cl: r.clarity, rms: r.rms, slow: state.slowDb, cen: state.feat ? state.feat.centroid : 0, flat: state.feat ? state.feat.flatness : 0, st: state.st });
+    state.trace.push({ t: now, hz: state.midi !== null ? state.freq : null, cl: r.clarity, rms: r.rms, slow: state.slowDb, cen: state.feat ? state.feat.centroid : 0, flat: state.feat ? state.feat.flatness : 0, st: state.st, lufsM: state.lufsM, lufsS: state.lufsS });
     while (state.trace.length && now - state.trace[0].t > TRACE_KEEP_MS) state.trace.shift();
     // silence watchdog for the microphone
     if (state.source === 'mic') {
@@ -1131,6 +1367,7 @@ function makeFeatures() {
     for (const p of state.trace) if (p.rms > ABS_FLOOR && typeof p.slow === 'number' && isFinite(p.slow)) { if (p.slow < lo) lo = p.slow; if (p.slow > hi) hi = p.slow; }
     el.lvlRange.textContent = isFinite(lo) ? `${lo.toFixed(0)} to ${hi.toFixed(0)} dBFS (${(hi - lo).toFixed(0)} dB)` : '—';
     el.lvlSpl.textContent = state.splOffset === null ? 'not calibrated' : (isFinite(slow) ? `${(slow + state.splOffset).toFixed(0)} dB SPL (approx.)` : '—');
+    el.lufsM.textContent = state.running && isFinite(state.lufsM) ? state.lufsM.toFixed(1) : '—'; el.lufsS.textContent = state.running && isFinite(state.lufsS) ? state.lufsS.toFixed(1) : '—';
     // statistics
     const st = state.running ? state.st : null;
     el.stWin.textContent = state.running && actx ? `${WIN} samples · ${(WIN / actx.sampleRate * 1000).toFixed(0)} ms at ${actx.sampleRate} Hz` : '';
@@ -1189,6 +1426,14 @@ function makeFeatures() {
       g.fillRect(i * bw + 3, h - 12 - hh, bw - 6, hh);
       g.fillStyle = C('--ink-dim'); g.fillText(String(i + 1), i * bw + bw / 2, h);
     });
+  }
+  function drawMfcc() {
+    const [g, w, h] = fit(el.mfcc); g.clearRect(0, 0, w, h);
+    g.font = `10px ${C('--mono')}`; g.textAlign = 'center'; g.textBaseline = 'bottom'; g.fillStyle = C('--ink-dim');
+    const m = state.mfcc; if (!m) { g.textBaseline = 'middle'; g.fillText('MFCC 1–12', w / 2, h / 2); return; }
+    const n = 12, bw = w / n, mid = (h - 12) / 2;
+    g.strokeStyle = C('--line'); g.beginPath(); g.moveTo(0, mid + .5); g.lineTo(w, mid + .5); g.stroke();
+    for (let k = 1; k <= n; k++) { const v = Math.max(-1, Math.min(1, m[k] / 25)), hh = v * mid; g.fillStyle = v >= 0 ? C('--accent') : C('--flat'); g.fillRect((k - 1) * bw + 3, hh >= 0 ? mid - hh : mid, bw - 6, Math.abs(hh)); g.fillStyle = C('--ink-dim'); g.fillText(String(k), (k - 1) * bw + bw / 2, h); }
   }
   function drawOnsets(now) {
     const [g, w, h] = fit(el.onsetStrip); g.clearRect(0, 0, w, h);
@@ -1341,12 +1586,12 @@ function makeFeatures() {
 
   function loop(now) {
     if (state.running) analyse(now);
-    paint(); drawTrace(now); drawSpec(); drawHarm(); drawOnsets(now); drawLevel(now);
+    paint(); drawTrace(now); drawSpec(); drawHarm(); drawMfcc(); drawOnsets(now); drawLevel(now);
     if (state.source === 'file') drawFileChart();
     requestAnimationFrame(loop);
   }
   requestAnimationFrame(loop);
-  window.addEventListener('resize', () => { drawFileChart(); });
+  window.addEventListener('resize', () => { drawFileChart(); if (fileTrack) drawTempogram(fileTrack); });
   paint();
 })();
 </script>
