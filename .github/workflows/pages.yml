@@ -1,8 +1,8 @@
-# Publishes the Djahwasi Guitar Tuner (public/tuner) to the root of GitHub Pages and the Pitch Detector (public/pitch) at /pitch/.
+# Publishes the Djahwasi Guitar Tuner (public/tuner) to the root of GitHub Pages and Djahwasi's Performance Tools (public/pitch) at /pitch/.
 # One-time setup: repository Settings → Pages → Source: "GitHub Actions".
-# The site then lives at https://<owner>.github.io/<repo>/ (tuner) and https://<owner>.github.io/<repo>/pitch/ (pitch detector);
+# The site then lives at https://<owner>.github.io/<repo>/ (tuner) and https://<owner>.github.io/<repo>/pitch/ (performance tools);
 # being https, both can use the microphone.
-name: Deploy tuner and pitch detector to GitHub Pages
+name: Deploy tuner and performance tools to GitHub Pages
 
 on:
   push:

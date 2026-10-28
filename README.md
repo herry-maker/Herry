@@ -84,9 +84,9 @@ Detection is gated by a noise floor tracked from unpitched frames (not a fixed l
 
 ---
 
-## Djahwasi Pitch Detector (`/pitch`)
+## Djahwasi's Performance Tools (`/pitch`)
 
-Djahwasi Pitch Detector, a general-purpose pitch detector at `public/pitch/index.html`, served at `/pitch`. Built like the tuner: one self-contained page, relative paths, a manifest and icons beside it, no build step. Where the tuner is organised around guitar strings, this app reports whatever periodic sound it hears, from a bass low B to the top of a piano.
+Djahwasi's Performance Tools, a performance-analysis workbench (it began as a pitch detector, which is why it lives at `/pitch`) at `public/pitch/index.html`, served at `/pitch`. Built like the tuner: one self-contained page, relative paths, a manifest and icons beside it, no build step. Where the tuner is organised around guitar strings, this app reports whatever periodic sound it hears, from a bass low B to the top of a piano.
 
 - **Three sources**: the microphone, an audio file (WAV, MP3, M4A/AAC, OGG, FLAC, or a video's audio track, by button or drag-and-drop), and a **self-test tone** generated inside the page and routed straight into the detector. The self-test separates "the detector is broken" from "the microphone is not delivering sound": if it reads the chosen note, the detector works.
 - **Readout**: note name and octave, cents from equal temperament (A4 adjustable 415 to 466 Hz), frequency, fractional MIDI number, clarity, and a level meter that shows the input level, the tracked noise floor and the gate.
