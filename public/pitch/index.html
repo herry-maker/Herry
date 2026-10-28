@@ -78,6 +78,17 @@ input[type=number]{font:inherit;background:var(--panel-2);color:var(--ink);borde
 .report .kv{grid-template-columns:max-content 1fr}
 .report .verdict{font-size:13px;margin-top:6px}
 #tempogram{height:120px;margin-top:8px}
+#cmpChart{height:200px;margin-top:8px}
+#cmpDev{height:70px;margin-top:6px}
+#cmpTempo{height:60px;margin-top:6px}
+#trend{height:160px;margin-top:8px}
+table.hist{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+table.hist th,table.hist td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+table.hist th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-dim);font-weight:600}
+table.hist td.num{font-family:var(--mono);font-size:12px}
+.tablewrap{overflow-x:auto}
+input[type=text]{font:inherit;background:var(--panel-2);color:var(--ink);border:1px solid var(--line);border-radius:9px;padding:6px 10px;min-height:34px;min-width:160px}
+.hist-empty{font-size:13px;color:var(--ink-dim);padding:8px 0}
 #mfcc{height:70px;margin-top:6px}
 h1 small{font-weight:400;color:var(--ink-dim);font-size:14px;margin-left:8px}
 h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-dim);margin:0 0 10px;font-weight:600}
@@ -271,6 +282,20 @@ a{color:var(--accent)}
     </div>
   </section>
 
+  <section class="card span" aria-label="Reference">
+    <div class="row between">
+      <h2 style="margin:0">Reference <span class="small">teacher recording or MIDI to compare against</span></h2>
+      <div class="row">
+        <button type="button" id="refAudioBtn" class="btn-sm">Load reference audio</button>
+        <button type="button" id="refMidiBtn" class="btn-sm">Load reference MIDI</button>
+        <button type="button" id="refClear" class="btn-sm">Clear</button>
+        <input type="file" id="refAudio" accept="audio/*,video/*,.wav,.mp3,.m4a,.ogg,.flac,.aac,.webm,.mp4" class="sr-only" tabindex="-1">
+        <input type="file" id="refMidi" accept=".mid,.midi,audio/midi,audio/x-midi" class="sr-only" tabindex="-1">
+      </div>
+    </div>
+    <div class="small" id="refInfo" style="margin-top:8px">No reference loaded. With a reference in place, every analysed file or recording is aligned to it and compared for intonation, timing and dynamics.</div>
+  </section>
+
   <section class="card span hide" id="fileCard" aria-label="File analysis">
     <h2>File analysis</h2>
     <div class="row">
@@ -291,6 +316,49 @@ a{color:var(--accent)}
       <canvas id="tempogram" aria-label="Local tempo across the file" role="img"></canvas>
       <div class="report" id="report"></div>
     </div>
+    <div id="cmpWrap" class="hide">
+      <div class="row between" style="margin-top:14px">
+        <h2 style="margin:0">Comparison with reference <span class="small" id="cmpRefName"></span></h2>
+        <button type="button" id="cmpCsv" class="btn-sm">Download comparison CSV</button>
+      </div>
+      <canvas id="cmpChart" aria-label="Reference pitch (grey) and the student's aligned pitch (blue) on the reference timeline" role="img"></canvas>
+      <canvas id="cmpDev" aria-label="Intonation deviation in cents along the reference timeline" role="img"></canvas>
+      <canvas id="cmpTempo" aria-label="Local tempo ratio, student over reference" role="img"></canvas>
+      <div class="report" id="cmpReport"></div>
+    </div>
+    <div class="row" style="margin-top:14px">
+      <label class="f">Label (student · piece)<input type="text" id="sessLabel" placeholder="e.g. Aina · Etude 3"></label>
+      <button type="button" id="saveSess" class="btn-sm" disabled>Save session to history</button>
+      <span class="small" id="saveInfo"></span>
+    </div>
+  </section>
+
+  <section class="card span" aria-label="Session history">
+    <div class="row between">
+      <h2 style="margin:0">Session history <span class="small">stored in this browser only</span></h2>
+      <div class="row">
+        <label class="f">Label<select id="histLabel"><option value="">all</option></select></label>
+        <label class="f">Trend metric<select id="histMetric">
+          <option value="tempo_cv">tempo CV (%)</option>
+          <option value="tempo_mean">tempo mean (BPM)</option>
+          <option value="dyn_range">dynamic range (dB)</option>
+          <option value="lra">loudness range (LU)</option>
+          <option value="lufs">integrated loudness (LUFS)</option>
+          <option value="lat">log-attack time (median)</option>
+          <option value="duty">duty ratio (median)</option>
+          <option value="centroid">spectral centroid (Hz)</option>
+          <option value="int_sd">intonation SD (cents)</option>
+          <option value="int_mad">intonation mean abs. dev. (cents)</option>
+          <option value="int_in25">within ±25 cents (%)</option>
+          <option value="timing_max">timing max |deviation| (s)</option>
+        </select></label>
+        <button type="button" id="histExport" class="btn-sm">Export history (JSON)</button>
+        <button type="button" id="histClear" class="btn-sm">Delete all</button>
+      </div>
+    </div>
+    <canvas id="trend" aria-label="Trend of the selected metric across saved sessions" role="img"></canvas>
+    <div class="tablewrap"><table class="hist" id="histTable"></table></div>
+    <div class="hist-empty hide" id="histEmpty">No saved sessions yet. Analyse a file or recording, give it a label and press "Save session to history".</div>
   </section>
 
   <section class="card" aria-label="Settings">
@@ -337,7 +405,7 @@ a{color:var(--accent)}
       </ul>
     </details>
   </section>
-  <p class="brand-foot span">Djahwasi Pitch Detector · pitch · beat · level · dynamics · timbre · statistics · performance report · trace kept for 7 minutes · recordings up to 7 minutes · <a href="../tuner/">Djahwasi Guitar Tuner</a></p>
+  <p class="brand-foot span">Djahwasi Pitch Detector · pitch · beat · level · dynamics · timbre · statistics · performance report · reference comparison · session history · trace kept for 7 minutes · recordings up to 7 minutes · <a href="../tuner/">Djahwasi Guitar Tuner</a></p>
 </div>
 
 <script>
@@ -613,6 +681,9 @@ function makeFeatures() {
     lvlSlow: $('lvlSlow'), dynMark: $('dynMark'), dynScale: $('dynScale'), dynPos: $('dynPos'), lvlRms: $('lvlRms'), lvlPeak: $('lvlPeak'), lvlRange: $('lvlRange'), lvlSpl: $('lvlSpl'), levelStrip: $('levelStrip'),
     setPP: $('setPP'), setFF: $('setFF'), dynReset: $('dynReset'), ppIn: $('ppIn'), ffIn: $('ffIn'), dynStep: $('dynStep'), splRef: $('splRef'), splSet: $('splSet'), splClear: $('splClear'),
     mfcc: $('mfcc'), lufsM: $('lufsM'), lufsS: $('lufsS'), reportWrap: $('reportWrap'), report: $('report'), snrNote: $('snrNote'), tempogram: $('tempogram'), notesCsv: $('notesCsv'), reportJson: $('reportJson'),
+    refAudioBtn: $('refAudioBtn'), refMidiBtn: $('refMidiBtn'), refClear: $('refClear'), refAudio: $('refAudio'), refMidi: $('refMidi'), refInfo: $('refInfo'),
+    cmpWrap: $('cmpWrap'), cmpRefName: $('cmpRefName'), cmpCsv: $('cmpCsv'), cmpChart: $('cmpChart'), cmpDev: $('cmpDev'), cmpTempo: $('cmpTempo'), cmpReport: $('cmpReport'),
+    sessLabel: $('sessLabel'), saveSess: $('saveSess'), saveInfo: $('saveInfo'), histLabel: $('histLabel'), histMetric: $('histMetric'), histExport: $('histExport'), histClear: $('histClear'), trend: $('trend'), histTable: $('histTable'), histEmpty: $('histEmpty'),
     stWin: $('statWin'), stMean: $('stMean'), stStd: $('stStd'), stSkew: $('stSkew'), stKurt: $('stKurt'), stZcr: $('stZcr'), stRms: $('stRms'), stCrest: $('stCrest'), stWords: $('stWords'),
     centroid: $('centroid'), bright: $('bright'), spread: $('spread'), flat: $('flat'), oddEven: $('oddEven'), tilt: $('tilt'), harm: $('harm'), timbreDesc: $('timbreDesc'), traceLabel: $('traceLabel'), traceCsv: $('traceCsv'), tracePng: $('tracePng'), traceClear: $('traceClear'),
     note: $('note'), noteName: $('noteName'), octave: $('octave'), hz: $('hz'), centsVal: $('centsVal'), midi: $('midi'), clarity: $('clarity'), last: $('last'),
@@ -838,7 +909,7 @@ function makeFeatures() {
     if (state.running) stopAll(true);
     if (!(recBlob && file.name && file.name.startsWith('djahwasi-recording-'))) el.saveRec.classList.add('hide');
     let ctx; try { ctx = ensureCtx(); } catch (e) { fail(e, 'AudioContext'); setStatus('warn', 'Web Audio is not available in this browser.'); return; }
-    el.fileCard.classList.remove('hide'); el.fileName.textContent = file.name; el.play.disabled = true; el.csv.disabled = true; el.stats.textContent = ''; fileTrack = null; el.reportWrap.classList.add('hide');
+    el.fileCard.classList.remove('hide'); el.fileName.textContent = file.name; el.play.disabled = true; el.csv.disabled = true; el.stats.textContent = ''; fileTrack = null; el.reportWrap.classList.add('hide'); el.cmpWrap.classList.add('hide'); el.saveSess.disabled = true; el.saveInfo.textContent = ''; currentComparison = null;
     setStatus('', `Decoding <strong>${escapeHtml(file.name)}</strong>…`);
     try { fileBuf = await decode(ctx, await file.arrayBuffer()); }
     catch (e) { fail(e, 'decodeAudioData'); setStatus('warn', 'That file could not be decoded. Try WAV, MP3, M4A/AAC, OGG or FLAC, or a video with an audio track.'); return; }
@@ -850,6 +921,8 @@ function makeFeatures() {
     analyseOffline(mono, fileBuf.sampleRate).then(track => {
       fileTrack = track; el.progress.classList.add('hide'); el.play.disabled = false; el.csv.disabled = false;
       summarise(track); drawFileChart(); renderReport(track);
+      el.saveSess.disabled = false; currentSource = file.name.startsWith('djahwasi-recording-') ? 'recording' : 'file';
+      if (reference) compareWithReference(track).catch(e => fail(e, 'comparison'));
       setStatus('ok', `Analysed <strong>${escapeHtml(file.name)}</strong>. Press <strong>Play</strong> to hear it with the live readout, or download the pitch track as CSV.`);
     }).catch(e => { fail(e, 'analysis'); el.progress.classList.add('hide'); setStatus('warn', 'Analysis failed. See Diagnostics for details.'); });
   }
@@ -937,8 +1010,10 @@ function makeFeatures() {
   function buildReport(tr) {
     const fps = tr.sr / tr.hop, n = tr.t.length, dur = n / fps;
     // noise floor and SNR from the frame levels
-    const lv = Array.from(tr.rms, r => dB(r)).filter(isFinite);
-    const floorDb = pct(lv, 0.10), loudDb = pct(lv, 0.95), snr = loudDb - floorDb;
+    const lvAll = Array.from(tr.rms, r => dB(r)).filter(isFinite);
+    const floorDb = pct(lvAll, 0.02);
+    const lv = []; for (let i = 0; i < n; i++) { const l = dB(tr.rms[i]); if (isFinite(l) && (voiced(tr, i) || l > floorDb + 12)) lv.push(l); }   // sounding frames only
+    const loudDb = pct(lv.length ? lv : lvAll, 0.95), snr = loudDb - floorDb;
     // tempo variety: local tempo over 6 s windows, 1 s hop
     const win = Math.round(6 * fps), hop = Math.round(1 * fps), tg = [];
     for (let s0 = 0; s0 + win <= n; s0 += hop) { const tp = F.tempo(tr.flux.subarray(s0, s0 + win), fps); tg.push({ t: (s0 + win / 2) / fps, bpm: tp && tp.confidence > 0.1 ? tp.bpm : null, conf: tp ? tp.confidence : 0 }); }
@@ -991,7 +1066,7 @@ function makeFeatures() {
   function renderReport(tr) {
     const r = tr.report; if (!r) { el.reportWrap.classList.add('hide'); return; }
     el.reportWrap.classList.remove('hide');
-    el.snrNote.innerHTML = `noise floor <b>${fmt(r.noise_floor_dbfs, 0)} dBFS</b> (10th percentile of frame level) · loud passages <b>${fmt(r.noise_floor_dbfs + r.snr_db, 0)} dBFS</b> · signal-to-noise <b>${fmt(r.snr_db, 0)} dB</b>. ` +
+    el.snrNote.innerHTML = `noise floor <b>${fmt(r.noise_floor_dbfs, 0)} dBFS</b> (quietest 2% of frames) · loud passages <b>${fmt(r.noise_floor_dbfs + r.snr_db, 0)} dBFS</b> · signal-to-noise <b>${fmt(r.snr_db, 0)} dB</b>. ` +
       (r.snr_db < 15 ? '<span style="color:var(--warn)">Low SNR: soft passages, attack times and spectral measures are unreliable in this recording.</span>' : r.snr_db < 25 ? 'Moderate SNR: treat pianissimo measures and MFCCs with care.' : 'Good SNR for all measures.');
     const T = r.tempo, D = r.dynamics, M = r.timbre, A = r.articulation;
     const trend = !isFinite(T.trend_bpm_per_min) ? '—' : Math.abs(T.trend_bpm_per_min) < 2 ? 'steady' : T.trend_bpm_per_min > 0 ? `accelerando (+${fmt(T.trend_bpm_per_min, 1)} BPM/min)` : `ritardando (${fmt(T.trend_bpm_per_min, 1)} BPM/min)`;
@@ -1007,7 +1082,7 @@ function makeFeatures() {
         <dt>onsets · IOI</dt><dd>${T.onsets} onsets · mean IOI ${fmt(T.ioi_mean_s, 3)} s · IOI CV ${fmt(T.ioi_cv_percent, 0)}%</dd></dl>
         <div class="verdict"><b>${tempoWord}</b></div></div>
       <div class="blk"><h3>2 · Dynamics</h3><dl class="kv">
-        <dt>RMS curve</dt><dd>5th–95th percentile ${fmt(D.rms_p5_dbfs, 0)} to ${fmt(D.rms_p95_dbfs, 0)} dBFS · sd ${fmt(D.rms_sd_db, 1)} dB</dd>
+        <dt>RMS curve</dt><dd>5th–95th percentile ${fmt(D.rms_p5_dbfs, 0)} to ${fmt(D.rms_p95_dbfs, 0)} dBFS · sd ${fmt(D.rms_sd_db, 1)} dB (sounding frames; rests excluded)</dd>
         <dt>dynamic range</dt><dd>${fmt(D.dynamic_range_db, 0)} dB · ${dynMark(D.rms_p5_dbfs)}–${dynMark(D.rms_p95_dbfs)}</dd>
         <dt>EBU R128</dt><dd>integrated ${fmt(D.integrated_lufs, 1)} LUFS · LRA ${fmt(D.lra_lu, 1)} LU</dd>
         <dt>max loudness</dt><dd>momentary ${fmt(D.max_momentary_lufs, 1)} · short-term ${fmt(D.max_short_term_lufs, 1)} LUFS</dd></dl>
@@ -1056,6 +1131,370 @@ function makeFeatures() {
     r.file = el.fileName.textContent; r.generated = new Date().toISOString(); r.app = BRAND; r.a4 = state.a4; r.dynamics_anchors_dbfs = { pp: state.dynPP, ff: state.dynFF };
     download(new Blob([JSON.stringify(r, null, 2)], { type: 'application/json' }), (el.fileName.textContent.replace(/\.[^.]+$/, '') || 'djahwasi') + '-report.json');
   });
+  // ======================= reference comparison =======================
+  let reference = null, currentComparison = null, currentSource = 'file';
+  const APP_VERSION = '1.4.0';
+  // ---- IndexedDB (sessions and the current reference) ----
+  function openDb() {
+    return new Promise((res, rej) => {
+      if (!('indexedDB' in window)) return rej(new Error('IndexedDB unavailable'));
+      const rq = indexedDB.open('djahwasi-pitch', 1);
+      rq.onupgradeneeded = () => { const db = rq.result; if (!db.objectStoreNames.contains('sessions')) db.objectStoreNames.contains('sessions') || db.createObjectStore('sessions', { keyPath: 'id', autoIncrement: true }); if (!db.objectStoreNames.contains('refs')) db.createObjectStore('refs', { keyPath: 'id' }); };
+      rq.onsuccess = () => res(rq.result); rq.onerror = () => rej(rq.error);
+    });
+  }
+  const dbOp = (store, mode, fn) => openDb().then(db => new Promise((res, rej) => { const tx = db.transaction(store, mode); const rq = fn(tx.objectStore(store)); rq.onsuccess = () => res(rq.result); rq.onerror = () => rej(rq.error); }));
+  const dbPut = (store, v) => dbOp(store, 'readwrite', st => st.put(v));
+  const dbGet = (store, k) => dbOp(store, 'readonly', st => st.get(k));
+  const dbAll = store => dbOp(store, 'readonly', st => st.getAll());
+  const dbDel = (store, k) => dbOp(store, 'readwrite', st => st.delete(k));
+  const dbClear = store => dbOp(store, 'readwrite', st => st.clear());
+
+  // ---- resample a pitch track to a fixed rate: median MIDI of voiced frames per bin, NaN when none ----
+  function toGrid(times, midis, levels, rate, duration) {
+    const n = Math.max(1, Math.ceil(duration * rate)), m = new Float32Array(n).fill(NaN), lv = new Float32Array(n).fill(NaN), bins = Array.from({ length: n }, () => []), lb = Array.from({ length: n }, () => []);
+    for (let i = 0; i < times.length; i++) { const b = Math.min(n - 1, Math.floor(times[i] * rate)); if (!isNaN(midis[i])) bins[b].push(midis[i]); if (levels && isFinite(levels[i])) lb[b].push(levels[i]); }
+    for (let b = 0; b < n; b++) { if (bins[b].length) { bins[b].sort((x, y) => x - y); m[b] = bins[b][bins[b].length >> 1]; } if (lb[b].length) { lb[b].sort((x, y) => x - y); lv[b] = lb[b][lb[b].length >> 1]; } }
+    return { midi: m, level: lv, rate, duration };
+  }
+  function trackToSeries(tr) {
+    const times = Array.from(tr.t), midis = new Float32Array(tr.t.length).fill(NaN), levels = new Float32Array(tr.t.length);
+    for (let i = 0; i < tr.t.length; i++) { if (voiced(tr, i)) midis[i] = hzToMidi(tr.hz[i]); levels[i] = dB(tr.rms[i]); }
+    return { times, midis, levels, duration: tr.t.length ? tr.t[tr.t.length - 1] + tr.hop / tr.sr : 0 };
+  }
+  // ---- Standard MIDI File parser: notes with seconds, melody = highest sounding note ----
+  function parseMidi(buf) {
+    const d = new DataView(buf), u8 = new Uint8Array(buf); let p = 0;
+    const str = n => { let s = ''; for (let i = 0; i < n; i++) s += String.fromCharCode(u8[p++]); return s; };
+    const u32 = () => { const v = d.getUint32(p); p += 4; return v; }, u16 = () => { const v = d.getUint16(p); p += 2; return v; };
+    const vlq = () => { let v = 0, b; do { b = u8[p++]; v = (v << 7) | (b & 0x7f); } while (b & 0x80); return v; };
+    if (str(4) !== 'MThd') throw new Error('not a MIDI file');
+    const hlen = u32(), format = u16(), ntracks = u16(), division = u16(); p += hlen - 6;
+    if (division & 0x8000) throw new Error('SMPTE time division is not supported');
+    const events = [];   // { tick, type, ch, a, b, tempo }
+    for (let t = 0; t < ntracks; t++) {
+      if (str(4) !== 'MTrk') throw new Error('bad track header');
+      const len = u32(), end = p + len; let tick = 0, status = 0;
+      while (p < end) {
+        tick += vlq(); let b = u8[p];
+        if (b & 0x80) { status = b; p++; }
+        if (status === 0xff) { const type = u8[p++], l = vlq(); if (type === 0x51) events.push({ tick, type: 'tempo', tempo: (u8[p] << 16) | (u8[p + 1] << 8) | u8[p + 2] }); p += l; }
+        else if (status === 0xf0 || status === 0xf7) { const l = vlq(); p += l; }
+        else {
+          const hi = status & 0xf0, ch = status & 0x0f;
+          if (hi === 0x80 || hi === 0x90 || hi === 0xa0 || hi === 0xb0 || hi === 0xe0) { const a = u8[p++], v = u8[p++]; if (hi === 0x90 && v > 0) events.push({ tick, type: 'on', ch, a, b: v, track: t }); else if (hi === 0x80 || hi === 0x90) events.push({ tick, type: 'off', ch, a, track: t }); }
+          else if (hi === 0xc0 || hi === 0xd0) p++;
+        }
+      }
+      p = end;
+    }
+    events.sort((x, y) => x.tick - y.tick || (x.type === 'tempo' ? -1 : 0));
+    // tempo map → seconds
+    let tempo = 500000, lastTick = 0, lastSec = 0; const secOf = tick => lastSec + (tick - lastTick) * tempo / 1e6 / division;
+    const notes = [], open = new Map();
+    for (const e of events) {
+      const sec = secOf(e.tick);
+      if (e.type === 'tempo') { lastSec = sec; lastTick = e.tick; tempo = e.tempo; continue; }
+      const key = `${e.track}:${e.ch}:${e.a}`;
+      if (e.type === 'on') { if (open.has(key)) { const o = open.get(key); notes.push({ t: o.t, dur: Math.max(0.02, sec - o.t), midi: e.a, vel: o.vel }); } open.set(key, { t: sec, vel: e.b }); if (e.ch === 9) open.delete(key); }
+      else if (open.has(key)) { const o = open.get(key); notes.push({ t: o.t, dur: Math.max(0.02, sec - o.t), midi: e.a, vel: o.vel }); open.delete(key); }
+    }
+    notes.sort((x, y) => x.t - y.t);
+    const duration = notes.length ? Math.max(...notes.map(nn => nn.t + nn.dur)) : 0;
+    return { notes, duration, format, ntracks };
+  }
+  function midiToSeries(mid, rate) {
+    const n = Math.max(1, Math.ceil(mid.duration * rate)), m = new Float32Array(n).fill(NaN), lv = new Float32Array(n).fill(NaN);
+    for (const nt of mid.notes) { const b0 = Math.floor(nt.t * rate), b1 = Math.min(n - 1, Math.ceil((nt.t + nt.dur) * rate) - 1); for (let b = b0; b <= b1; b++) { if (isNaN(m[b]) || nt.midi > m[b]) { m[b] = nt.midi; lv[b] = 20 * Math.log10(Math.max(1, nt.vel) / 127); } } }
+    return { midi: m, level: lv, rate, duration: mid.duration };
+  }
+  async function loadReferenceAudio(file) {
+    let ctx; try { ctx = ensureCtx(); } catch (e) { fail(e, 'AudioContext'); return; }
+    el.refInfo.textContent = `Decoding and analysing reference ${file.name}…`;
+    let ab; try { ab = await decode(ctx, await file.arrayBuffer()); } catch (e) { fail(e, 'reference decode'); el.refInfo.textContent = 'That reference file could not be decoded.'; return; }
+    const n = ab.length, ch = ab.numberOfChannels, mono = new Float32Array(n);
+    for (let c = 0; c < ch; c++) { const dd = ab.getChannelData(c); for (let i = 0; i < n; i++) mono[i] += dd[i] / ch; }
+    el.progress.classList.remove('hide'); el.progress.value = 0;
+    const tr = await analyseOffline(mono, ab.sampleRate); el.progress.classList.add('hide');
+    const ser = trackToSeries(tr), rate = 20, grid = toGrid(ser.times, ser.midis, ser.levels, rate, ser.duration);
+    reference = { id: 'current', name: file.name, kind: 'audio', duration: ser.duration, grid: { midi: grid.midi, level: grid.level, rate }, notes: segmentNotes(grid), report: tr.report, savedAt: new Date().toISOString() };
+    await setReference(reference);
+  }
+  async function loadReferenceMidi(file) {
+    let mid; try { mid = parseMidi(await file.arrayBuffer()); } catch (e) { fail(e, 'MIDI'); el.refInfo.textContent = `That MIDI file could not be read (${e.message}).`; return; }
+    if (!mid.notes.length) { el.refInfo.textContent = 'The MIDI file contains no notes.'; return; }
+    const rate = 20, grid = midiToSeries(mid, rate);
+    reference = { id: 'current', name: file.name, kind: 'midi', duration: mid.duration, grid: { midi: grid.midi, level: grid.level, rate }, notes: mid.notes.map(nn => ({ t: nn.t, dur: nn.dur, midi: nn.midi })), report: null, savedAt: new Date().toISOString() };
+    await setReference(reference);
+  }
+  // notes from a gridded pitch track: runs of the same rounded MIDI number, at least 4 bins (200 ms)
+  function segmentNotes(grid) {
+    const out = []; let start = -1, cur = null;
+    const flush = end => { if (cur !== null && end - start >= 4) out.push({ t: start / grid.rate, dur: (end - start) / grid.rate, midi: cur }); };
+    for (let b = 0; b <= grid.midi.length; b++) {
+      const v = b < grid.midi.length ? grid.midi[b] : NaN, r = isNaN(v) ? null : Math.round(v);
+      if (r !== cur) { flush(b); start = b; cur = r; }
+    }
+    return out.filter(nn => nn.midi !== null);
+  }
+  async function setReference(ref) {
+    reference = ref;
+    try { await dbPut('refs', ref); } catch (e) { fail(e, 'save reference'); }
+    showReference();
+    if (fileTrack && fileTrack.report) compareWithReference(fileTrack).catch(e => fail(e, 'comparison'));
+  }
+  function showReference() {
+    if (!reference) { el.refInfo.textContent = 'No reference loaded. With a reference in place, every analysed file or recording is aligned to it and compared for intonation, timing and dynamics.'; return; }
+    const voicedBins = Array.from(reference.grid.midi).filter(v => !isNaN(v)).length;
+    el.refInfo.innerHTML = `Reference: <strong>${escapeHtml(reference.name)}</strong> · ${reference.kind === 'midi' ? 'MIDI' : 'audio'} · ${mmss(reference.duration * 1000)} · ${reference.notes.length} notes · ${(voicedBins / reference.grid.rate).toFixed(1)} s pitched${reference.kind === 'midi' ? ' · intonation is measured against equal temperament at the chosen A4' : ' · intonation is measured against the teacher\'s own pitch'}. Loaded ${new Date(reference.savedAt).toLocaleString()}.`;
+  }
+  el.refAudioBtn.addEventListener('click', () => el.refAudio.click());
+  el.refMidiBtn.addEventListener('click', () => el.refMidi.click());
+  el.refAudio.addEventListener('change', () => { const f = el.refAudio.files[0]; if (f) loadReferenceAudio(f).catch(e => fail(e, 'reference')); el.refAudio.value = ''; });
+  el.refMidi.addEventListener('change', () => { const f = el.refMidi.files[0]; if (f) loadReferenceMidi(f).catch(e => fail(e, 'reference')); el.refMidi.value = ''; });
+  el.refClear.addEventListener('click', async () => { reference = null; currentComparison = null; el.cmpWrap.classList.add('hide'); try { await dbDel('refs', 'current'); } catch (e) {} showReference(); });
+  dbGet('refs', 'current').then(r => { if (r) { reference = r; showReference(); } }).catch(() => {});
+
+  // ---- DTW in a Worker: aligns the student's pitch grid to the reference grid ----
+  const dtwSrc = `onmessage = e => {
+    const { a, b, bandFrac } = e.data, n = a.length, m = b.length, W = m + 1, INF = 1e30;
+    const band = Math.max(60, Math.round(Math.max(n, m) * bandFrac));
+    const D = new Float32Array((n + 1) * W).fill(INF), S = new Uint8Array((n + 1) * W); D[0] = 0;
+    const cost = (x, y) => { const xv = x === x, yv = y === y; if (xv && yv) { let d = Math.abs(x - y); if (d > 2.5) d = 2.5; return d / 2.5; } return xv !== yv ? 0.7 : 0; };
+    for (let i = 1; i <= n; i++) {
+      const jc = Math.round(i * m / n), j0 = Math.max(1, jc - band), j1 = Math.min(m, jc + band);
+      for (let j = j0; j <= j1; j++) {
+        const c = cost(a[i - 1], b[j - 1]);
+        let best = D[(i - 1) * W + j - 1], s = 0; const u = D[(i - 1) * W + j] + 0.08, l = D[i * W + j - 1] + 0.08;
+        if (u < best) { best = u; s = 1; } if (l < best) { best = l; s = 2; }
+        D[i * W + j] = c + best; S[i * W + j] = s;
+      }
+      if ((i & 255) === 0) postMessage({ progress: i / n });
+    }
+    const pi = [], pj = []; let i = n, j = m;
+    while (i > 0 && j > 0) { pi.push(i - 1); pj.push(j - 1); const s = S[i * W + j]; if (s === 0) { i--; j--; } else if (s === 1) i--; else j--; }
+    pi.reverse(); pj.reverse();
+    postMessage({ done: true, pi: Int32Array.from(pi), pj: Int32Array.from(pj), cost: D[n * W + m] / (n + m) });
+  };`;
+  function runDtw(a, b) {
+    return new Promise((res, rej) => {
+      try {
+        const w = new Worker(URL.createObjectURL(new Blob([dtwSrc], { type: 'text/javascript' })));
+        w.onmessage = e => { if (e.data.progress !== undefined) el.progress.value = e.data.progress; else { w.terminate(); res(e.data); } };
+        w.onerror = e => { w.terminate(); rej(e.message || e); };
+        w.postMessage({ a, b, bandFrac: 0.25 });
+      } catch (e) { rej(e); }
+    });
+  }
+  async function compareWithReference(tr) {
+    if (!reference) return;
+    const ser = trackToSeries(tr);
+    const maxDur = Math.max(ser.duration, reference.duration), rate = Math.min(20, Math.max(5, 2500 / Math.max(1, maxDur)));
+    const stu = toGrid(ser.times, ser.midis, ser.levels, rate, ser.duration);
+    const ref = rate === reference.grid.rate ? reference.grid : regrid(reference.grid, rate);
+    el.progress.classList.remove('hide'); el.progress.value = 0;
+    setStatus('', `Aligning to the reference <strong>${escapeHtml(reference.name)}</strong>…`);
+    let al; try { al = await runDtw(stu.midi, ref.midi); } finally { el.progress.classList.add('hide'); }
+    const m = ref.midi.length, matchMidi = new Float32Array(m).fill(NaN), matchTime = new Float32Array(m).fill(NaN), matchLevel = new Float32Array(m).fill(NaN);
+    const buckets = Array.from({ length: m }, () => []);
+    for (let k = 0; k < al.pj.length; k++) buckets[al.pj[k]].push(al.pi[k]);
+    for (let j = 0; j < m; j++) {
+      const bs = buckets[j]; if (!bs.length) continue;
+      matchTime[j] = bs.reduce((x, y) => x + y, 0) / bs.length / rate;
+      const vs = bs.map(i => stu.midi[i]).filter(v => !isNaN(v)).sort((x, y) => x - y); if (vs.length) matchMidi[j] = vs[vs.length >> 1];
+      const ls = bs.map(i => stu.level[i]).filter(v => !isNaN(v)).sort((x, y) => x - y); if (ls.length) matchLevel[j] = ls[ls.length >> 1];
+    }
+    // intonation
+    const dev = new Float32Array(m).fill(NaN), devs = [];
+    for (let j = 0; j < m; j++) if (!isNaN(ref.midi[j]) && !isNaN(matchMidi[j])) { dev[j] = 100 * (matchMidi[j] - ref.midi[j]); if (Math.abs(dev[j]) <= 100) devs.push(dev[j]); }
+    const hist = new Array(21).fill(0); devs.forEach(v => { hist[Math.max(0, Math.min(20, Math.round(v / 5) + 10))]++; });
+    const refVoiced = Array.from(ref.midi).filter(v => !isNaN(v)).length;
+    const covered = Array.from(dev).filter(v => !isNaN(v)).length;
+    const intonation = { frames: devs.length, coverage: refVoiced ? covered / refVoiced : 0, mean: meanOf(devs), sd: sdOf(devs), mad: meanOf(devs.map(Math.abs)), within10: devs.length ? devs.filter(v => Math.abs(v) <= 10).length / devs.length : NaN, within25: devs.length ? devs.filter(v => Math.abs(v) <= 25).length / devs.length : NaN, hist };
+    // per reference note
+    const notes = reference.notes.map(nn => {
+      const b0 = Math.floor(nn.t * rate), b1 = Math.max(b0, Math.ceil((nn.t + nn.dur) * rate) - 1), ds = [], ts = []; let vo = 0, tot = 0;
+      for (let b = b0; b <= Math.min(m - 1, b1); b++) { tot++; if (!isNaN(dev[b])) { vo++; ds.push(dev[b]); } if (!isNaN(matchTime[b])) ts.push(matchTime[b]); }
+      ds.sort((x, y) => x - y);
+      const med = ds.length ? ds[ds.length >> 1] : NaN, mm = Math.round(nn.midi);
+      return { t: nn.t, dur: nn.dur, midi: nn.midi, note: `${noteName(mm)}${octaveOf(mm)}`, studentT: ts.length ? ts[0] : NaN, cents: med, voicedShare: tot ? vo / tot : 0, status: tot && vo / tot < 0.3 ? 'missed' : Math.abs(med) > 50 ? 'wrong' : 'ok' };
+    });
+    const nMissed = notes.filter(x => x.status === 'missed').length, nWrong = notes.filter(x => x.status === 'wrong').length;
+    // timing: warping curve against a global linear fit; local tempo ratio over 2 s windows
+    const tj = [], tw = []; for (let j = 0; j < m; j++) if (!isNaN(matchTime[j]) && !isNaN(ref.midi[j])) { tj.push(j / rate); tw.push(matchTime[j]); }
+    const slope = slopeOf(tj, tw), inter = meanOf(tw) - slope * meanOf(tj);
+    const resid = new Float32Array(m).fill(NaN); let maxBehind = 0, maxAhead = 0, tBehind = 0, tAhead = 0;
+    for (let j = 0; j < m; j++) if (!isNaN(matchTime[j]) && !isNaN(ref.midi[j])) { resid[j] = matchTime[j] - (slope * j / rate + inter); if (resid[j] > maxBehind) { maxBehind = resid[j]; tBehind = j / rate; } if (resid[j] < maxAhead) { maxAhead = resid[j]; tAhead = j / rate; } }
+    const ratio = new Float32Array(m).fill(NaN), win = Math.round(2 * rate), ratios = [];
+    for (let j = win; j < m; j++) { const a0 = matchTime[j - win], a1 = matchTime[j]; if (!isNaN(a0) && !isNaN(a1) && a1 > a0) { ratio[j - (win >> 1)] = (a1 - a0) / (win / rate); ratios.push(ratio[j - (win >> 1)]); } }
+    const timing = { durationRatio: slope, maxBehind, tBehind, maxAhead, tAhead, ratioMin: ratios.length ? Math.min(...ratios) : NaN, ratioMax: ratios.length ? Math.max(...ratios) : NaN, ratioSd: sdOf(ratios), alignCost: al.cost };
+    // dynamics contour: Pearson correlation of median-normalised levels where both are pitched
+    const xs = [], ys = []; for (let j = 0; j < m; j++) if (!isNaN(ref.level[j]) && !isNaN(matchLevel[j]) && !isNaN(dev[j])) { xs.push(ref.level[j]); ys.push(matchLevel[j]); }
+    let corr = NaN, meanDiff = NaN;
+    if (xs.length > 10) { const mx = meanOf(xs), my = meanOf(ys); let sxy = 0, sxx = 0, syy = 0; for (let i = 0; i < xs.length; i++) { sxy += (xs[i] - mx) * (ys[i] - my); sxx += (xs[i] - mx) ** 2; syy += (ys[i] - my) ** 2; } corr = sxx > 0 && syy > 0 ? sxy / Math.sqrt(sxx * syy) : NaN; meanDiff = my - mx; }
+    const dynamics = { contourCorr: corr, meanLevelDiff: reference.kind === 'audio' ? meanDiff : NaN, refRange: pct(xs, 0.95) - pct(xs, 0.05), stuRange: pct(ys, 0.95) - pct(ys, 0.05) };
+    currentComparison = { refName: reference.name, refKind: reference.kind, rate, ref, stu, matchMidi, matchTime, matchLevel, dev, resid, ratio, intonation, notes, nMissed, nWrong, timing, dynamics };
+    renderComparison(); setStatus('ok', `Compared with <strong>${escapeHtml(reference.name)}</strong>. See the comparison section under the report.`);
+  }
+  function regrid(grid, rate) {
+    const n = Math.max(1, Math.ceil(grid.midi.length / grid.rate * rate)), m = new Float32Array(n).fill(NaN), lv = new Float32Array(n).fill(NaN);
+    for (let b = 0; b < n; b++) { const src = Math.min(grid.midi.length - 1, Math.floor(b / rate * grid.rate)); m[b] = grid.midi[src]; lv[b] = grid.level[src]; }
+    return { midi: m, level: lv, rate };
+  }
+  function renderComparison() {
+    const c = currentComparison; if (!c) { el.cmpWrap.classList.add('hide'); return; }
+    el.cmpWrap.classList.remove('hide'); el.cmpRefName.textContent = `${c.refName} (${c.refKind === 'midi' ? 'MIDI' : 'audio'})`;
+    const I = c.intonation, T = c.timing, D = c.dynamics, pc = v => isFinite(v) ? (100 * v).toFixed(0) + '%' : '—';
+    const intWord = !isFinite(I.sd) ? 'not enough aligned pitched material' : I.mad < 8 ? 'very accurate intonation' : I.mad < 15 ? 'good intonation' : I.mad < 30 ? 'uneven intonation' : 'intonation needs work';
+    const tendency = !isFinite(I.mean) ? '' : I.mean > 5 ? ' · tends sharp' : I.mean < -5 ? ' · tends flat' : ' · centred';
+    const timeWord = !isFinite(T.ratioSd) ? '' : T.ratioSd < 0.08 ? 'even timing relative to the reference' : T.ratioSd < 0.2 ? 'some give and take in tempo' : 'unstable timing relative to the reference';
+    const paceWord = !isFinite(T.durationRatio) ? '' : T.durationRatio > 1.05 ? `overall ${((T.durationRatio - 1) * 100).toFixed(0)}% slower than the reference` : T.durationRatio < 0.95 ? `overall ${((1 - T.durationRatio) * 100).toFixed(0)}% faster than the reference` : 'overall pace matches the reference';
+    const dynWord = (c.refKind === 'midi' && !(D.refRange > 1)) ? 'the MIDI reference has constant velocities, so it carries no dynamic shape to compare' : !isFinite(D.contourCorr) ? '' : D.contourCorr > 0.6 ? 'dynamic shape follows the reference' : D.contourCorr > 0.3 ? 'dynamic shape partly follows the reference' : 'dynamic shape differs from the reference';
+    el.cmpReport.innerHTML = `
+      <div class="blk"><h3>Intonation</h3><dl class="kv">
+        <dt>coverage</dt><dd>${pc(I.coverage)} of the reference's pitched time matched by a pitched student frame</dd>
+        <dt>deviation</dt><dd>mean ${fmt(I.mean, 1)} · sd ${fmt(I.sd, 1)} · mean |dev| ${fmt(I.mad, 1)} cents</dd>
+        <dt>within band</dt><dd>±10 cents ${pc(I.within10)} · ±25 cents ${pc(I.within25)}</dd>
+        <dt>notes</dt><dd>${c.notes.length} reference notes · ${c.nWrong} wrong (> 50 cents) · ${c.nMissed} missed</dd></dl>
+        <div class="verdict"><b>${intWord}${tendency}</b></div></div>
+      <div class="blk"><h3>Timing</h3><dl class="kv">
+        <dt>pace</dt><dd>duration ratio ${fmt(T.durationRatio, 3)} (student ÷ reference)</dd>
+        <dt>local tempo ratio</dt><dd>${fmt(T.ratioMin, 2)} to ${fmt(T.ratioMax, 2)} · sd ${fmt(T.ratioSd, 3)} (above 1 = slower than the reference)</dd>
+        <dt>largest drift</dt><dd>behind by ${fmt(T.maxBehind, 2)} s at ${mmss(T.tBehind * 1000)} · ahead by ${fmt(-T.maxAhead, 2)} s at ${mmss(T.tAhead * 1000)}</dd>
+        <dt>alignment cost</dt><dd>${fmt(T.alignCost, 3)} (lower is a closer match; above 0.4 means the two performances differ a lot)</dd></dl>
+        <div class="verdict"><b>${[paceWord, timeWord].filter(Boolean).join(' · ')}</b></div></div>
+      <div class="blk"><h3>Dynamics</h3><dl class="kv">
+        <dt>contour correlation</dt><dd>${fmt(D.contourCorr, 2)} (1 = same loud-soft shape)</dd>
+        <dt>range</dt><dd>reference ${fmt(D.refRange, 0)} dB · student ${fmt(D.stuRange, 0)} dB (5th–95th percentile)</dd>
+        ${isFinite(D.meanLevelDiff) ? `<dt>mean level</dt><dd>student ${D.meanLevelDiff >= 0 ? '+' : ''}${fmt(D.meanLevelDiff, 1)} dB relative to the reference (same microphone and distance assumed)</dd>` : ''}</dl>
+        <div class="verdict"><b>${dynWord}</b></div></div>
+      <div class="blk"><h3>How to read this</h3><div class="small">The student's recording was aligned to the reference by dynamic time warping on the pitch tracks, so differences in tempo do not count as wrong notes. Intonation compares aligned pitched frames${c.refKind === 'midi' ? ' with equal temperament at the chosen A4' : ' with the reference performer\'s own pitch'}. "Missed" notes have fewer than 30% of their frames pitched in the student's playing; "wrong" notes sit more than 50 cents from the reference. Timing figures describe the warp curve: a rising local ratio means the student is slowing relative to the reference at that point.</div></div>`;
+    drawComparison();
+  }
+  function drawComparison() {
+    const c = currentComparison; if (!c) return;
+    const rate = c.rate, m = c.ref.midi.length, dur = m / rate;
+    { const [g, w, h] = fit(el.cmpChart); g.clearRect(0, 0, w, h);
+      const vals = []; for (let j = 0; j < m; j++) { if (!isNaN(c.ref.midi[j])) vals.push(c.ref.midi[j]); if (!isNaN(c.matchMidi[j])) vals.push(c.matchMidi[j]); }
+      if (!vals.length) return;
+      let lo = Math.min(...vals) - 2, hi = Math.max(...vals) + 2; if (hi - lo < 12) { const mid = (hi + lo) / 2; lo = mid - 6; hi = mid + 6; }
+      const xFor = j => j / m * w, yFor = v => h - (v - lo) / (hi - lo) * (h - 16) - 2;
+      g.font = `10px ${C('--mono')}`; g.textBaseline = 'middle'; g.textAlign = 'left';
+      for (let mm = Math.ceil(lo); mm <= hi; mm++) { if (mm % 12 !== 0 && mm % 12 !== 9 && hi - lo > 24) continue; const y = yFor(mm); g.strokeStyle = C('--line'); g.globalAlpha = mm % 12 === 0 ? 1 : 0.4; g.beginPath(); g.moveTo(0, y + .5); g.lineTo(w, y + .5); g.stroke(); g.globalAlpha = 1; if (mm % 12 === 0 || hi - lo <= 24) { g.fillStyle = C('--ink-dim'); g.fillText(`${noteName(mm)}${octaveOf(mm)}`, 4, y - 6); } }
+      const line = (arr, col, lw) => { g.strokeStyle = col; g.lineWidth = lw; g.beginPath(); let open = false; for (let j = 0; j < m; j++) { const v = arr[j]; if (isNaN(v)) { open = false; continue; } const x = xFor(j), y = yFor(v); if (!open) { g.moveTo(x, y); open = true; } else g.lineTo(x, y); } g.stroke(); };
+      line(c.ref.midi, C('--ink-dim'), 3); line(c.matchMidi, C('--accent'), 1.6);
+      g.textBaseline = 'bottom'; g.textAlign = 'center'; g.fillStyle = C('--ink-dim');
+      const step = dur > 120 ? 30 : dur > 40 ? 10 : 5; for (let t = 0; t <= dur; t += step) g.fillText(mmss(t * 1000), xFor(t * rate), h - 1);
+      g.textAlign = 'right'; g.textBaseline = 'top'; g.fillStyle = C('--ink-dim'); g.fillText('grey: reference · blue: student (aligned)', w - 6, 4);
+    }
+    { const [g, w, h] = fit(el.cmpDev); g.clearRect(0, 0, w, h);
+      const xFor = j => j / m * w, yFor = v => h / 2 - Math.max(-50, Math.min(50, v)) / 50 * (h / 2 - 3);
+      g.fillStyle = 'rgba(163,223,147,.18)'; g.fillRect(0, yFor(10), w, yFor(-10) - yFor(10));
+      g.strokeStyle = C('--line'); [-25, 0, 25].forEach(v => { g.beginPath(); g.moveTo(0, yFor(v) + .5); g.lineTo(w, yFor(v) + .5); g.stroke(); });
+      g.font = `10px ${C('--mono')}`; g.fillStyle = C('--ink-dim'); g.textAlign = 'left'; g.textBaseline = 'middle'; g.fillText('+25', 3, yFor(25)); g.fillText('−25', 3, yFor(-25)); g.textAlign = 'right'; g.textBaseline = 'top'; g.fillText('intonation deviation, cents (sharp up)', w - 6, 2);
+      for (let j = 0; j < m; j++) { const v = c.dev[j]; if (isNaN(v)) continue; g.fillStyle = Math.abs(v) <= 10 ? C('--ok') : v > 0 ? C('--sharp') : C('--flat'); g.fillRect(xFor(j) - 0.75, yFor(v) - 1.5, 1.5, 3); }
+    }
+    { const [g, w, h] = fit(el.cmpTempo); g.clearRect(0, 0, w, h);
+      const xFor = j => j / m * w, yFor = r => h - (Math.log2(Math.max(0.5, Math.min(2, r))) + 1) / 2 * (h - 6) - 3;
+      g.strokeStyle = C('--line'); [0.75, 1, 1.5].forEach(r => { g.globalAlpha = r === 1 ? 1 : 0.5; g.beginPath(); g.moveTo(0, yFor(r) + .5); g.lineTo(w, yFor(r) + .5); g.stroke(); }); g.globalAlpha = 1;
+      g.font = `10px ${C('--mono')}`; g.fillStyle = C('--ink-dim'); g.textAlign = 'left'; g.textBaseline = 'middle'; g.fillText('×1.5 slower', 3, yFor(1.5)); g.fillText('×0.75 faster', 3, yFor(0.75)); g.textAlign = 'right'; g.textBaseline = 'top'; g.fillText('local tempo ratio, student ÷ reference', w - 6, 2);
+      g.strokeStyle = C('--accent'); g.lineWidth = 1.6; g.beginPath(); let open = false;
+      for (let j = 0; j < m; j++) { const r = c.ratio[j]; if (isNaN(r)) { open = false; continue; } const x = xFor(j), y = yFor(r); if (!open) { g.moveTo(x, y); open = true; } else g.lineTo(x, y); } g.stroke();
+    }
+  }
+  el.cmpCsv.addEventListener('click', () => {
+    const c = currentComparison; if (!c) return;
+    const rows = ['ref_time_s,ref_midi,ref_note,student_time_s,student_midi,cents_deviation,local_tempo_ratio,timing_residual_s,ref_level_db,student_level_db'];
+    for (let j = 0; j < c.ref.midi.length; j++) { const r = c.ref.midi[j]; const nm = isNaN(r) ? '' : (() => { const mm = Math.round(r); return `${noteName(mm)}${octaveOf(mm)}`; })(); const f = (v, d) => isNaN(v) ? '' : v.toFixed(d); rows.push(`${(j / c.rate).toFixed(3)},${f(r, 2)},${nm},${f(c.matchTime[j], 3)},${f(c.matchMidi[j], 3)},${f(c.dev[j], 1)},${f(c.ratio[j], 3)},${f(c.resid[j], 3)},${f(c.ref.level[j], 1)},${f(c.matchLevel[j], 1)}`); }
+    rows.push(''); rows.push('note_index,ref_time_s,ref_note,ref_midi,student_time_s,median_cents,voiced_share,status');
+    c.notes.forEach((x, i) => rows.push(`${i + 1},${x.t.toFixed(3)},${x.note},${x.midi.toFixed(2)},${isNaN(x.studentT) ? '' : x.studentT.toFixed(3)},${isNaN(x.cents) ? '' : x.cents.toFixed(1)},${x.voicedShare.toFixed(2)},${x.status}`));
+    download(new Blob([rows.join('\n')], { type: 'text/csv' }), (el.fileName.textContent.replace(/\.[^.]+$/, '') || 'djahwasi') + '-comparison.csv');
+  });
+
+  // ======================= session history =======================
+  const metricOf = (sess, key) => {
+    const r = sess.report || {}, T = r.tempo || {}, D = r.dynamics || {}, A = r.articulation || {}, M = r.timbre || {}, c = sess.comparison || {};
+    switch (key) {
+      case 'tempo_cv': return T.cv_percent; case 'tempo_mean': return T.mean_bpm; case 'dyn_range': return D.dynamic_range_db; case 'lra': return D.lra_lu; case 'lufs': return D.integrated_lufs;
+      case 'lat': return A.lat_median; case 'duty': return A.duty_median; case 'centroid': return M.centroid_median_hz;
+      case 'int_sd': return c.intonation_sd; case 'int_mad': return c.intonation_mad; case 'int_in25': return isFinite(c.within25) ? 100 * c.within25 : null; case 'timing_max': return isFinite(c.timing_max_abs) ? c.timing_max_abs : null;
+    }
+    return null;
+  };
+  async function saveSession() {
+    if (!fileTrack || !fileTrack.report) return;
+    const r = JSON.parse(JSON.stringify(fileTrack.report, (k, v) => typeof v === 'number' && !isFinite(v) ? null : v));
+    delete r.tempo.local; const c = currentComparison;
+    const ser = trackToSeries(fileTrack), grid = toGrid(ser.times, ser.midis, ser.levels, 10, ser.duration);
+    const sess = {
+      at: new Date().toISOString(), name: el.fileName.textContent, label: el.sessLabel.value.trim(), source: currentSource, duration: fileTrack.report.duration_s, app: APP_VERSION, a4: state.a4,
+      report: r, tempoLocal: fileTrack.report.tempo.local.map(x => ({ t: x.t, bpm: x.bpm })), grid: { rate: 10, midi: grid.midi, level: grid.level },
+      comparison: c ? { refName: c.refName, refKind: c.refKind, intonation_mean: c.intonation.mean, intonation_sd: c.intonation.sd, intonation_mad: c.intonation.mad, within10: c.intonation.within10, within25: c.intonation.within25, coverage: c.intonation.coverage, wrong: c.nWrong, missed: c.nMissed, notes: c.notes.length, duration_ratio: c.timing.durationRatio, ratio_sd: c.timing.ratioSd, timing_max_abs: Math.max(c.timing.maxBehind, -c.timing.maxAhead), contour_corr: c.dynamics.contourCorr, align_cost: c.timing.alignCost } : null,
+    };
+    try { const id = await dbPut('sessions', sess); el.saveInfo.textContent = `Saved as session #${id}.`; try { localStorage.setItem('pitch.lastLabel', sess.label); } catch (e) {} await refreshHistory(); }
+    catch (e) { fail(e, 'save session'); el.saveInfo.textContent = 'Could not save (storage unavailable in this browser mode).'; }
+  }
+  el.saveSess.addEventListener('click', saveSession);
+  try { el.sessLabel.value = localStorage.getItem('pitch.lastLabel') || ''; } catch (e) {}
+  let sessions = [];
+  async function refreshHistory() {
+    try { sessions = (await dbAll('sessions')).sort((a, b) => a.at < b.at ? 1 : -1); } catch (e) { sessions = []; }
+    const labels = [...new Set(sessions.map(x => x.label).filter(Boolean))].sort();
+    const cur = el.histLabel.value; el.histLabel.innerHTML = '<option value="">all</option>' + labels.map(l => `<option value="${escapeHtml(l)}">${escapeHtml(l)}</option>`).join(''); if (labels.includes(cur)) el.histLabel.value = cur;
+    renderHistory();
+  }
+  function renderHistory() {
+    const lab = el.histLabel.value, rows = sessions.filter(x => !lab || x.label === lab);
+    el.histEmpty.classList.toggle('hide', rows.length > 0);
+    const f = (v, d) => (v === null || v === undefined || !isFinite(v)) ? '—' : v.toFixed(d);
+    el.histTable.innerHTML = rows.length ? `<thead><tr><th>date</th><th>label</th><th>file</th><th>dur</th><th>tempo</th><th>CV%</th><th>dyn range</th><th>LUFS</th><th>LRA</th><th>LAT</th><th>intonation</th><th>±25c</th><th>pace</th><th></th></tr></thead><tbody>` +
+      rows.map(x => { const T = x.report.tempo, D = x.report.dynamics, A = x.report.articulation, c = x.comparison; const d = new Date(x.at); return `<tr data-id="${x.id}"><td>${d.toLocaleDateString()} ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</td><td>${escapeHtml(x.label || '')}</td><td title="${escapeHtml(x.name)}">${escapeHtml(x.name.length > 22 ? x.name.slice(0, 20) + '…' : x.name)}</td><td class="num">${mmss(x.duration * 1000)}</td><td class="num">${f(T.mean_bpm, 0)}</td><td class="num">${f(T.cv_percent, 1)}</td><td class="num">${f(D.dynamic_range_db, 0)} dB</td><td class="num">${f(D.integrated_lufs, 1)}</td><td class="num">${f(D.lra_lu, 1)}</td><td class="num">${f(A.lat_median, 2)}</td><td class="num">${c ? `${f(c.intonation_mad, 1)}c` : '—'}</td><td class="num">${c && isFinite(c.within25) ? (100 * c.within25).toFixed(0) + '%' : '—'}</td><td class="num">${c ? f(c.duration_ratio, 2) : '—'}</td><td><button type="button" class="btn-sm" data-act="view">View</button> <button type="button" class="btn-sm" data-act="del">Delete</button></td></tr>`; }).join('') + '</tbody>' : '';
+    drawTrend(rows);
+  }
+  el.histTable.addEventListener('click', async e => {
+    const b = e.target.closest('button[data-act]'); if (!b) return;
+    const id = +b.closest('tr').dataset.id, sess = sessions.find(x => x.id === id); if (!sess) return;
+    if (b.dataset.act === 'del') { if (!confirm(`Delete session #${id} (${sess.name})?`)) return; try { await dbDel('sessions', id); } catch (err) { fail(err, 'delete'); } await refreshHistory(); return; }
+    // view: show the saved report in the file card (no audio)
+    if (state.running) stopAll(true);
+    fileBuf = null; fileTrack = null; currentComparison = null; el.cmpWrap.classList.add('hide');
+    el.fileCard.classList.remove('hide'); el.fileName.textContent = `${sess.name} (saved session #${id}${sess.label ? ' · ' + sess.label : ''})`; el.play.disabled = true; el.csv.disabled = true; el.saveSess.disabled = true; el.saveInfo.textContent = '';
+    const rep = JSON.parse(JSON.stringify(sess.report)); rep.tempo.local = (sess.tempoLocal || []).map(x => ({ t: x.t, bpm: x.bpm, conf: 1 }));
+    el.stats.innerHTML = `<span>saved ${new Date(sess.at).toLocaleString()} · ${mmss(sess.duration * 1000)} · app ${sess.app || '?'} · A4 ${sess.a4 || '?'} Hz</span>` + (sess.comparison ? `<span>compared with <b>${escapeHtml(sess.comparison.refName)}</b>: mean |dev| <b>${fmt(sess.comparison.intonation_mad, 1)} c</b> · within ±25 c <b>${isFinite(sess.comparison.within25) ? (100 * sess.comparison.within25).toFixed(0) : '—'}%</b> · pace <b>${fmt(sess.comparison.duration_ratio, 2)}</b> · wrong ${sess.comparison.wrong} · missed ${sess.comparison.missed}</span>` : '');
+    renderReport({ report: rep }); drawSavedGrid(sess);
+    el.fileCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  function drawSavedGrid(sess) {
+    const [g, w, h] = fit(el.fileChart); g.clearRect(0, 0, w, h);
+    const gr = sess.grid; if (!gr) return; const vals = Array.from(gr.midi).filter(v => !isNaN(v)); if (!vals.length) return;
+    let lo = Math.min(...vals) - 2, hi = Math.max(...vals) + 2; if (hi - lo < 12) { const mid = (hi + lo) / 2; lo = mid - 6; hi = mid + 6; }
+    const xFor = j => j / gr.midi.length * w, yFor = v => h - (v - lo) / (hi - lo) * (h - 14) - 2;
+    g.font = `10px ${C('--mono')}`; g.fillStyle = C('--ink-dim'); g.textBaseline = 'middle'; g.textAlign = 'left';
+    for (let mm = Math.ceil(lo); mm <= hi; mm++) if (mm % 12 === 0) { const y = yFor(mm); g.strokeStyle = C('--line'); g.beginPath(); g.moveTo(0, y + .5); g.lineTo(w, y + .5); g.stroke(); g.fillText(`${noteName(mm)}${octaveOf(mm)}`, 4, y - 6); }
+    g.fillStyle = C('--accent'); for (let j = 0; j < gr.midi.length; j++) if (!isNaN(gr.midi[j])) g.fillRect(xFor(j) - 1, yFor(gr.midi[j]) - 1, 2, 2);
+    g.textAlign = 'right'; g.textBaseline = 'top'; g.fillStyle = C('--ink-dim'); g.fillText('saved pitch track (10 Hz)', w - 6, 3);
+  }
+  function drawTrend(rows) {
+    const [g, w, h] = fit(el.trend); g.clearRect(0, 0, w, h);
+    const key = el.histMetric.value, label = el.histMetric.options[el.histMetric.selectedIndex].textContent;
+    const pts = rows.slice().reverse().map(x => ({ at: x.at, v: metricOf(x, key), label: x.label })).filter(p => p.v !== null && p.v !== undefined && isFinite(p.v));
+    g.font = `10px ${C('--mono')}`; g.fillStyle = C('--ink-dim'); g.textAlign = 'left'; g.textBaseline = 'top'; g.fillText(`trend · ${label} · ${pts.length} session${pts.length === 1 ? '' : 's'}`, 4, 3);
+    if (pts.length < 1) { g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('no saved values for this metric yet', w / 2, h / 2); return; }
+    const vs = pts.map(p => p.v); let lo = Math.min(...vs), hi = Math.max(...vs); if (hi - lo < 1e-9) { lo -= 1; hi += 1; } else { const pad = (hi - lo) * 0.15; lo -= pad; hi += pad; }
+    const padL = 44, xFor = i => padL + (pts.length === 1 ? (w - padL) / 2 : i / (pts.length - 1) * (w - padL - 12)), yFor = v => h - 18 - (v - lo) / (hi - lo) * (h - 36);
+    g.strokeStyle = C('--line'); g.textAlign = 'right'; g.textBaseline = 'middle';
+    for (let k = 0; k <= 4; k++) { const v = lo + (hi - lo) * k / 4, y = yFor(v); g.beginPath(); g.moveTo(padL, y + .5); g.lineTo(w, y + .5); g.stroke(); g.fillStyle = C('--ink-dim'); g.fillText(Math.abs(v) >= 100 ? v.toFixed(0) : v.toFixed(1), padL - 4, y); }
+    g.strokeStyle = C('--accent'); g.lineWidth = 2; g.beginPath(); pts.forEach((p, i) => i ? g.lineTo(xFor(i), yFor(p.v)) : g.moveTo(xFor(i), yFor(p.v))); g.stroke();
+    g.fillStyle = C('--accent'); pts.forEach((p, i) => { g.beginPath(); g.arc(xFor(i), yFor(p.v), 3.5, 0, Math.PI * 2); g.fill(); });
+    g.fillStyle = C('--ink-dim'); g.textAlign = 'center'; g.textBaseline = 'bottom';
+    const every = Math.max(1, Math.ceil(pts.length / Math.max(1, Math.floor(w / 90)))); pts.forEach((p, i) => { if (i % every === 0 || i === pts.length - 1) g.fillText(new Date(p.at).toLocaleDateString(), xFor(i), h - 2); });
+  }
+  el.histLabel.addEventListener('change', renderHistory); el.histMetric.addEventListener('change', renderHistory);
+  el.histExport.addEventListener('click', () => { const out = sessions.map(x => ({ ...x, grid: undefined })); download(new Blob([JSON.stringify({ app: BRAND, version: APP_VERSION, exported: new Date().toISOString(), sessions: out }, null, 2)], { type: 'application/json' }), `djahwasi-history-${stamp()}.json`); });
+  el.histClear.addEventListener('click', async () => { if (!sessions.length || !confirm(`Delete all ${sessions.length} saved sessions from this browser? This cannot be undone.`)) return; try { await dbClear('sessions'); } catch (e) { fail(e, 'clear'); } await refreshHistory(); });
+  refreshHistory();
+  window.addEventListener('resize', () => { renderHistory(); if (currentComparison) drawComparison(); });
+
   function voiced(track, i) { return track.hz[i] > 0 && track.cl[i] >= state.clarityMin && track.rms[i] > ABS_FLOOR; }
   function summarise(track) {
     const hz = [];
@@ -1068,7 +1507,8 @@ function makeFeatures() {
   }
   function extraStats(track) {
     const lv = [], cen = [];
-    for (let i = 0; i < track.t.length; i++) { if (track.rms[i] > ABS_FLOOR * 2) { lv.push(dB(track.rms[i])); if (track.cen[i] > 0) cen.push(track.cen[i]); } }
+    const floor = track.report ? track.report.noise_floor_dbfs : -Infinity;
+    for (let i = 0; i < track.t.length; i++) { const l = dB(track.rms[i]); if (track.rms[i] > ABS_FLOOR * 2 && (voiced(track, i) || l > floor + 12)) { lv.push(l); if (track.cen[i] > 0) cen.push(track.cen[i]); } }
     let out = '';
     if (track.tempo && track.tempo.confidence > 0.08 && track.onsets >= 4) out += `<span>tempo <b>${track.tempo.bpm.toFixed(0)} BPM</b> (${track.onsets} onsets)</span>`;
     else out += `<span>tempo <b>—</b> (${track.onsets} onsets)</span>`;
