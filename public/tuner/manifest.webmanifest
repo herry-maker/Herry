@@ -1,6 +1,6 @@
 {
-  "name": "Strobe Tuner",
-  "short_name": "Strobe",
+  "name": "Djahwasi Guitar Tuner",
+  "short_name": "Djahwasi",
   "description": "Strobe-style guitar tuner with microphone pitch detection, alternate tunings and reference tones.",
   "start_url": "/tuner/",
   "scope": "/tuner/",

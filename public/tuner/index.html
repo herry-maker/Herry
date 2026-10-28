@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#150c09">
-<meta name="description" content="Strobe-style guitar tuner: microphone pitch detection, alternate tunings, reference tones.">
+<meta name="description" content="Djahwasi Guitar Tuner: strobe-style tuner with microphone pitch detection, capo, alternate tunings, tone generator and reference tones.">
 <link rel="icon" href="/tuner/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/tuner/icon.svg">
-<title>Strobe Tuner</title>
+<title>Djahwasi Guitar Tuner</title>
 <link rel="manifest" href="/tuner/manifest.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -107,7 +107,7 @@ select{
 .status[data-tone="warn"]{color:var(--flat)}
 
 /* headstock pegs */
-.headstock{
+.headstock,.panel{
   position:relative;border:1px solid var(--line);border-radius:14px;background:
     linear-gradient(180deg, rgba(255,255,255,.03), transparent 40%), var(--panel);
   padding:16px 14px 14px;
@@ -160,12 +160,22 @@ select{
 .seg{display:inline-flex;border:1px solid var(--line);border-radius:5px;overflow:hidden}
 .seg button{background:none;border:0;padding:4px 9px;font:500 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim)}
 .seg button[aria-pressed="true"]{background:var(--panel-2);color:var(--brass)}
+.peg-open{font:400 9px/1 var(--mono);color:var(--brass);opacity:.8;letter-spacing:.08em}
+.tone{display:flex;flex-direction:column;gap:12px}
+.tone-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.tone-hz{font:500 12px/1 var(--mono);color:var(--brass);font-variant-numeric:tabular-nums;min-width:9ch}
+.intervals{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.intervals button{background:var(--panel-2);border:1px solid var(--line);border-radius:6px;padding:7px 4px;display:flex;flex-direction:column;align-items:center;gap:4px}
+.intervals button:hover{border-color:var(--brass-deep)}
+.intervals .iv{font:600 13px/1 var(--body);color:var(--ink)}
+.intervals .ivn{font:400 10px/1 var(--mono);color:var(--ink-dim)}
 kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width:2px;border-radius:3px;padding:2px 4px;color:var(--ink-dim)}
 
 .foot{font:400 12px/1.5 var(--body);color:var(--ink-dim);text-align:center;max-width:52ch;margin:0 auto}
 .foot b{color:var(--ink);font-weight:600}
 
 @media (max-width:560px){
+  .intervals{grid-template-columns:repeat(4,minmax(0,1fr))}
   .pegs{--cols:3}
   .pegs[data-n="4"]{--cols:4}
   .knob{width:50px;height:50px}
@@ -182,7 +192,7 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
 <div class="app">
   <header class="bar">
     <div class="brand">
-      <h1>Strobe</h1>
+      <h1>Djahwasi</h1>
       <span class="tag">guitar tuner</span>
     </div>
     <div class="controls">
@@ -194,8 +204,17 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
           <button id="a4up" type="button" aria-label="Raise A4 by one hertz">+</button>
         </div>
       </div>
+      <div class="field">Capo
+        <div class="stepper" role="group" aria-label="Capo fret">
+          <button id="capoDown" type="button" aria-label="Move capo down one fret">−</button>
+          <output id="capo" for="capoDown capoUp">none</output>
+          <button id="capoUp" type="button" aria-label="Move capo up one fret">+</button>
+        </div>
+      </div>
       <button id="mic" class="mic" type="button" aria-pressed="false"><span class="dot"></span><span id="micLabel">Start listening</span></button>
       <button id="guide" class="guide" type="button" aria-pressed="false">Tune all strings</button>
+      <button id="recBtn" class="guide" type="button">Open a recording</button>
+      <input id="recFile" type="file" accept="audio/*" hidden>
     </div>
   </header>
 
@@ -211,7 +230,7 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
   <p class="status" id="status" role="status">Press <strong>Start listening</strong>, then pluck one string at a time.</p>
 
   <section class="headstock" aria-label="Strings">
-    <span class="headstock-label">Headstock</span>
+    <span class="headstock-label" id="headLabel">Headstock</span>
     <ul class="pegs" id="pegs"></ul>
   </section>
 
@@ -224,6 +243,18 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
       </div>
       <span id="levelMeta">input −∞ dB</span><span id="clarityMeta">clarity —</span><span id="srMeta"></span>
     </div>
+  </section>
+
+  <section class="panel tone" aria-label="Tone generator">
+    <span class="headstock-label">Tone generator</span>
+    <div class="tone-row">
+      <label class="field" for="toneNote">Root <select id="toneNote" aria-label="Root note"></select></label>
+      <span class="tone-hz" id="toneHz">220.00 Hz</span>
+      <button id="tonePluck" class="guide" type="button">Pluck</button>
+      <button id="toneSustain" class="guide" type="button" aria-pressed="false">Sustain</button>
+      <button id="toneStrum" class="guide" type="button">Strum the tuning</button>
+    </div>
+    <div class="intervals" id="intervals" role="group" aria-label="Intervals above the root: each plays the root, then the interval, then both together"></div>
   </section>
 
   <p class="foot">Tap a peg to hear its reference tone and lock it as the target. The disk drifts <b>clockwise when sharp</b> and <b>counter-clockwise when flat</b>. It stands still inside ±3 cents. Pitch is read with a normalized autocorrelation (McLeod) on 4096 samples, so the low E on a bass still registers.</p>
@@ -255,14 +286,17 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
     running: false, freq: 0, cents: 0, midi: null, clarity: 0, level: 0,
     lastValid: 0, needle: 0, phase: 0, hist: [],
     guide: false, done: new Set(), okSince: 0, trace: [], view: 'wave',
+    capo: 0, toneMidi: 57,
   };
   try {
     const t = parseInt(localStorage.getItem('strobe.tuning'), 10);
     if (t >= 0 && t < TUNINGS.length) state.tuningIdx = t;
     const a = parseInt(localStorage.getItem('strobe.a4'), 10);
     if (a >= 415 && a <= 466) state.a4 = a;
+    const c = parseInt(localStorage.getItem('strobe.capo'), 10);
+    if (c >= 0 && c <= 12) state.capo = c;
   } catch (e) {}
-  const save = () => { try { localStorage.setItem('strobe.tuning', state.tuningIdx); localStorage.setItem('strobe.a4', state.a4); } catch (e) {} };
+  const save = () => { try { localStorage.setItem('strobe.tuning', state.tuningIdx); localStorage.setItem('strobe.a4', state.a4); localStorage.setItem('strobe.capo', state.capo); } catch (e) {} };
 
   const $ = id => document.getElementById(id);
   const el = {
@@ -277,6 +311,7 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
 
   // ---------- music math ----------
   const tuning = () => TUNINGS[state.tuningIdx];
+  const targets = () => tuning().notes.map(m => m + state.capo);   // what each string should sound with the capo on
   const midiToHz = m => state.a4 * Math.pow(2, (m - 69) / 12);
   const hzToMidi = f => 69 + 12 * Math.log2(f / state.a4);
   const names = () => tuning().flats ? FLATS : SHARPS;
@@ -298,32 +333,37 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
     el.pegs.innerHTML = '';
     el.pegs.style.setProperty('--n', t.notes.length); el.pegs.dataset.n = t.notes.length;
     const ordinal = ordinalOf;
-    t.notes.forEach((m, i) => {
+    $('headLabel').textContent = state.capo ? `Headstock · capo at fret ${state.capo}` : 'Headstock';
+    targets().forEach((m, i) => {
       const li = document.createElement('li');
       const b = document.createElement('button');
       b.type = 'button'; b.className = 'peg'; b.dataset.i = i;
       b.setAttribute('aria-pressed', state.lock === i ? 'true' : 'false');
-      b.setAttribute('aria-label', `${noteName(m)}${octaveOf(m)}, ${ordinal(t.notes.length - i)} string, ${midiToHz(m).toFixed(2)} hertz. Play reference tone and set as target.`);
+      b.setAttribute('aria-label', `${noteName(m)}${octaveOf(m)}, ${ordinal(t.notes.length - i)} string${state.capo ? ` with capo at fret ${state.capo}` : ''}, ${midiToHz(m).toFixed(2)} hertz. Play reference tone and set as target.`);
       b.innerHTML = `<span class="knob"><span class="n">${noteName(m)}<sup>${octaveOf(m)}</sup></span></span>
         <span class="peg-hz">${midiToHz(m).toFixed(2)}</span>
-        <span class="peg-str">${ordinal(t.notes.length - i)}</span>`;
+        <span class="peg-str">${ordinal(t.notes.length - i)}</span>${state.capo ? `<span class="peg-open">open ${noteName(t.notes[i])}${octaveOf(t.notes[i])}</span>` : ''}`;
       b.addEventListener('click', () => onPeg(i, b));
       li.appendChild(b); el.pegs.appendChild(li);
     });
     refreshPegs();
   }
   function refreshPegs() {
-    const t = tuning();
+    const tg = targets();
     [...el.pegs.querySelectorAll('.peg')].forEach((b, i) => {
       b.classList.toggle('is-locked', state.lock === i);
       b.classList.toggle('is-done', state.done.has(i));
       b.setAttribute('aria-pressed', state.lock === i ? 'true' : 'false');
-      const near = state.midi !== null && t.notes[i] === state.midi;
+      const near = state.midi !== null && tg[i] === state.midi;
       b.classList.toggle('is-near', near && Math.abs(state.cents) > IN_TUNE);
       b.classList.toggle('is-ok', near && Math.abs(state.cents) <= IN_TUNE);
     });
   }
-  function updateA4() { el.a4.value = `${state.a4} Hz`; buildPegs(); save(); }
+  function updateA4() { el.a4.value = `${state.a4} Hz`; buildPegs(); save(); refreshTone(); }
+  function updateCapo() { $('capo').value = state.capo ? `fret ${state.capo}` : 'none'; state.okSince = 0; buildPegs(); save(); lastStatusKey = ''; setStatus(); }
+  $('capoDown').addEventListener('click', () => { state.capo = Math.max(0, state.capo - 1); updateCapo(); });
+  $('capoUp').addEventListener('click',   () => { state.capo = Math.min(12, state.capo + 1); updateCapo(); });
+  $('capo').value = state.capo ? `fret ${state.capo}` : 'none';
   $('a4down').addEventListener('click', () => { state.a4 = Math.max(415, state.a4 - 1); updateA4(); });
   $('a4up').addEventListener('click',   () => { state.a4 = Math.min(466, state.a4 + 1); updateA4(); });
   el.tuning.addEventListener('change', () => { state.tuningIdx = +el.tuning.value; state.lock = null; state.done.clear(); if (state.guide) state.lock = 0; buildPegs(); save(); setStatus(); });
@@ -347,7 +387,7 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
     const g2 = ctx.createGain(); g2.gain.value = 0.25;
     o1.connect(lp); o2.connect(g2); g2.connect(lp);
     out.gain.setValueAtTime(0.0001, now);
-    out.gain.exponentialRampToValueAtTime(0.5, now + 0.012);
+    out.gain.exponentialRampToValueAtTime(0.32, now + 0.012);
     out.gain.exponentialRampToValueAtTime(0.0001, now + 2.4);
     o1.start(now); o2.start(now); o1.stop(now + 2.5); o2.stop(now + 2.5);
   }
@@ -358,7 +398,7 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
     o.connect(g); g.connect(ctx.destination); o.start(now); o.stop(now + 0.3);
   }
   function onPeg(i, btn) {
-    const m = tuning().notes[i];
+    const m = targets()[i];
     pluck(midiToHz(m));
     btn.classList.remove('is-ringing'); void btn.offsetWidth; btn.classList.add('is-ringing');
     state.lock = (state.lock === i && !state.guide) ? null : i;
@@ -403,24 +443,43 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
     } catch (err) {
       const blocked = err && (err.name === 'NotAllowedError' || err.name === 'SecurityError');
       setStatus('warn', blocked
-        ? 'Microphone blocked here. Allow it in the address bar, or open the page in its own browser tab. The pegs still play reference tones.'
+        ? 'Microphone blocked here. Allow it in the address bar, or open the page in its own browser tab. Meanwhile the pegs play reference tones and <strong>Open a recording</strong> analyses an audio file.'
         : 'No microphone found. Plug one in or use the pegs to tune by ear.');
       return;
     }
+    attach(ctx, ctx.createMediaStreamSource(stream), 'Listening · stop');
+  }
+  // the same analysis chain serves the microphone and a decoded recording
+  function attach(ctx, src, label) {
     sampleRate = ctx.sampleRate;
-    const src = ctx.createMediaStreamSource(stream);
     const hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 25;
     analyser = ctx.createAnalyser(); analyser.fftSize = FFT; analyser.smoothingTimeConstant = 0;
     src.connect(hp); hp.connect(analyser);
     state.running = true; state.hist = []; state.trace = [];
     keepAwake();
-    el.mic.setAttribute('aria-pressed', 'true'); el.micLabel.textContent = 'Listening · stop';
+    el.mic.setAttribute('aria-pressed', 'true'); el.micLabel.textContent = label;
     el.srMeta.textContent = `${(sampleRate / 1000).toFixed(1)} kHz · ${FFT} samples`;
-    setStatus();
+    lastStatusKey = ''; setStatus();
   }
+  let recSource = null;
+  async function openRecording(file) {
+    if (state.running) stopMic();
+    const ctx = ensureCtx();
+    let audio;
+    try { audio = await ctx.decodeAudioData(await file.arrayBuffer()); }
+    catch (e) { setStatus('warn', 'That file could not be decoded. Try a WAV, MP3, M4A or OGG recording.'); return; }
+    recSource = ctx.createBufferSource(); recSource.buffer = audio;
+    const g = ctx.createGain(); g.gain.value = 0.7; recSource.connect(g); g.connect(ctx.destination);
+    attach(ctx, recSource, 'Playing recording · stop');
+    recSource.onended = () => { if (recSource) stopMic(); };
+    recSource.start();
+  }
+  $('recBtn').addEventListener('click', () => $('recFile').click());
+  $('recFile').addEventListener('change', () => { const f = $('recFile').files[0]; if (f) openRecording(f); $('recFile').value = ''; });
   function stopMic() {
     state.running = false; state.midi = null; state.freq = 0; state.clarity = 0; state.level = 0;
     if (stream) stream.getTracks().forEach(t => t.stop());
+    if (recSource) { const r = recSource; recSource = null; try { r.stop(); } catch (e) {} }
     stream = null; analyser = null; state.okSince = 0;
     releaseWake();
     el.mic.setAttribute('aria-pressed', 'false'); el.micLabel.textContent = 'Start listening';
@@ -506,7 +565,7 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
         const sorted = [...state.hist].sort((a, b) => a - b);
         const med = sorted[sorted.length >> 1];
         state.freq = med; state.clarity = r.clarity; state.lastValid = now;
-        const target = state.lock !== null ? tuning().notes[state.lock] : Math.round(hzToMidi(med));
+        const target = state.lock !== null ? targets()[state.lock] : Math.round(hzToMidi(med));
         state.midi = target;
         state.cents = 1200 * Math.log2(med / midiToHz(target));
       } else if (now - state.lastValid > 700) {
@@ -518,6 +577,63 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
     }
   }
   const TRACE_MS = 8000;
+
+  // ---------- tone generator ----------
+  const toneSel = $('toneNote');
+  for (let m = 36; m <= 84; m++) { const o = document.createElement('option'); o.value = m; o.textContent = `${SHARPS[m % 12]}${octaveOf(m)}`; toneSel.appendChild(o); }
+  toneSel.value = state.toneMidi;
+  const INTERVALS = [['m2', 1], ['M2', 2], ['m3', 3], ['M3', 4], ['P4', 5], ['TT', 6], ['P5', 7], ['m6', 8], ['M6', 9], ['m7', 10], ['M7', 11], ['8ve', 12]];
+  let sustain = null;
+  const toneHz = () => midiToHz(state.toneMidi);
+  function refreshTone() {
+    $('toneHz').textContent = `${toneHz().toFixed(2)} Hz`;
+    if (sustain) {
+      const now = ensureCtx().currentTime;
+      sustain.o1.frequency.setTargetAtTime(toneHz(), now, 0.02);
+      sustain.o2.frequency.setTargetAtTime(toneHz() * 2, now, 0.02);
+    }
+    [...$('intervals').querySelectorAll('button')].forEach((b, i) => {
+      const m = state.toneMidi + INTERVALS[i][1];
+      b.querySelector('.ivn').textContent = `${SHARPS[m % 12]}${octaveOf(m)}`;
+    });
+  }
+  INTERVALS.forEach(([name, semis]) => {
+    const b = document.createElement('button'); b.type = 'button';
+    b.innerHTML = `<span class="iv">${name}</span><span class="ivn"></span>`;
+    b.title = `${name}: root, then the interval, then both together`;
+    b.addEventListener('click', () => {
+      const root = toneHz(), up = midiToHz(state.toneMidi + semis);
+      pluck(root);
+      setTimeout(() => pluck(up), 520);
+      setTimeout(() => { pluck(root); pluck(up); }, 1040);
+    });
+    $('intervals').appendChild(b);
+  });
+  toneSel.addEventListener('change', () => { state.toneMidi = +toneSel.value; refreshTone(); });
+  $('tonePluck').addEventListener('click', () => pluck(toneHz()));
+  $('toneSustain').addEventListener('click', () => {
+    if (sustain) { stopSustain(); return; }
+    const ctx = ensureCtx(), now = ctx.currentTime;
+    const g = ctx.createGain(); g.gain.setValueAtTime(0.0001, now); g.gain.exponentialRampToValueAtTime(0.22, now + 0.06);
+    const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = Math.min(6000, toneHz() * 5);
+    const o1 = ctx.createOscillator(); o1.type = 'triangle'; o1.frequency.value = toneHz();
+    const o2 = ctx.createOscillator(); o2.type = 'sine'; o2.frequency.value = toneHz() * 2;
+    const g2 = ctx.createGain(); g2.gain.value = 0.2;
+    o1.connect(lp); o2.connect(g2); g2.connect(lp); lp.connect(g); g.connect(ctx.destination);
+    o1.start(); o2.start();
+    sustain = { o1, o2, g };
+    $('toneSustain').setAttribute('aria-pressed', 'true');
+  });
+  function stopSustain() {
+    if (!sustain) return;
+    const ctx = ensureCtx(), now = ctx.currentTime, s = sustain; sustain = null;
+    s.g.gain.cancelScheduledValues(now); s.g.gain.setValueAtTime(Math.max(0.0001, s.g.gain.value), now);
+    s.g.gain.exponentialRampToValueAtTime(0.0001, now + 0.15);
+    s.o1.stop(now + 0.2); s.o2.stop(now + 0.2);
+    $('toneSustain').setAttribute('aria-pressed', 'false');
+  }
+  $('toneStrum').addEventListener('click', () => { targets().forEach((m, i) => setTimeout(() => pluck(midiToHz(m)), i * 380)); });
+  refreshTone();
 
   // ---------- rendering ----------
   const dpr = Math.min(2, window.devicePixelRatio || 1);
@@ -687,7 +803,7 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
   let lastStatusKey = '';
   function setStatus(tone, text) {
     if (text) { el.status.dataset.tone = tone || ''; el.status.innerHTML = text; lastStatusKey = 'msg'; return; }
-    const t = tuning();
+    const t = tuning(), tg = targets();
     let key, html, tn = '';
     const allDone = state.done.size && state.done.size === t.notes.length;
     if (allDone && !state.guide) {
@@ -695,16 +811,16 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line);border-bottom-width
       html = `<strong>All ${t.notes.length} strings in tune.</strong> Play something.`;
     } else if (state.guide && state.lock !== null && state.midi === null) {
       key = 'guide' + state.lock + state.done.size;
-      html = `Guide · ${state.done.size + 1} of ${t.notes.length}: pluck the <strong>${ordinalOf(t.notes.length - state.lock)} string</strong> (${noteName(t.notes[state.lock])}${octaveOf(t.notes[state.lock])}) and hold it in tune.`;
+      html = `Guide · ${state.done.size + 1} of ${t.notes.length}: pluck the <strong>${ordinalOf(t.notes.length - state.lock)} string</strong> (${noteName(tg[state.lock])}${octaveOf(tg[state.lock])}) and hold it in tune.`;
     } else if (!state.running) {
       key = 'idle' + state.lock;
       html = state.lock !== null
-        ? `Target set to <strong>${noteName(t.notes[state.lock])}${octaveOf(t.notes[state.lock])}</strong>. Press <strong>Start listening</strong> and tune to it.`
+        ? `Target set to <strong>${noteName(tg[state.lock])}${octaveOf(tg[state.lock])}</strong>. Press <strong>Start listening</strong> and tune to it.`
         : 'Press <strong>Start listening</strong>, then pluck one string at a time.';
     } else if (state.midi === null) {
       key = 'wait' + state.lock;
       html = state.lock !== null
-        ? `Listening for <strong>${noteName(t.notes[state.lock])}${octaveOf(t.notes[state.lock])}</strong>. Pluck the string and let it ring.`
+        ? `Listening for <strong>${noteName(tg[state.lock])}${octaveOf(tg[state.lock])}</strong>. Pluck the string and let it ring.`
         : 'Listening. Pluck one string and let it ring.';
     } else {
       const ok = Math.abs(state.cents) <= IN_TUNE;

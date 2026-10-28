@@ -57,9 +57,9 @@ Download from [poppler-windows releases](https://github.com/oschwartz10612/poppl
 
 ---
 
-## Guitar Tuner (`/tuner`)
+## Djahwasi Guitar Tuner (`/tuner`)
 
-A strobe-style guitar tuner at `public/tuner/index.html`, served at `/tuner`. The page is self-contained, with a manifest, service worker and icon beside it in `public/tuner/`. No build step, no dependencies beyond the browser.
+Djahwasi Guitar Tuner, a strobe-style tuner at `public/tuner/index.html`, served at `/tuner`. The page is self-contained, with a manifest, service worker and icon beside it in `public/tuner/`. No build step, no dependencies beyond the browser.
 
 - **Pitch detection** in the browser with the Web Audio API and a McLeod normalized autocorrelation on 4096 samples, accurate down to a bass low E (41 Hz).
 - **Strobe disk**: the stripes drift clockwise when sharp, counter-clockwise when flat, and freeze inside ±3 cents. A cents arc and brass pointer sit over the disk.
@@ -69,6 +69,9 @@ A strobe-style guitar tuner at `public/tuner/index.html`, served at `/tuner`. Th
 - **Drift trace**: the strip at the foot toggles between the live waveform and an 8-second history of the pitch error in cents.
 - **Installable**: ships a web manifest and a service worker, so it can be added to a phone's home screen and opened offline.
 - **Keyboard**: space starts or stops listening, 1 to 6 pick a string, Esc clears the target.
+- **Capo**: set the capo fret (0 to 12) and every string target transposes; pegs show the sounding note with the open-string name beneath.
+- **Tone generator**: pick a root note, pluck or sustain it, play any interval above it (root, then interval, then both), or strum the whole tuning.
+- **Open a recording**: analyse an audio file through the same pitch pipeline, for browsers or embeds where the microphone is blocked.
 
 The microphone needs a secure context (`https://` or `localhost`), so run `php artisan serve` and open `http://localhost:8000/tuner`, or open the HTML file directly.
 

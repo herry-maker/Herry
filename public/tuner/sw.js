@@ -1,5 +1,5 @@
-// Strobe Tuner service worker: keeps the app shell available offline.
-const CACHE = 'strobe-tuner-v2';
+// Djahwasi Guitar Tuner service worker: keeps the app shell available offline.
+const CACHE = 'strobe-tuner-v3';
 const SHELL = ['/tuner/', '/tuner/index.html', '/tuner/manifest.webmanifest', '/tuner/icon.svg'];
 
 self.addEventListener('install', event => {
