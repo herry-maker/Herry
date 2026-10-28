@@ -64,6 +64,13 @@ h1 .logo{border-radius:8px;flex:none}
 #levelStrip{height:64px;margin-top:6px}
 input[type=number]{font:inherit;background:var(--panel-2);color:var(--ink);border:1px solid var(--line);border-radius:9px;padding:6px 8px;width:92px;min-height:34px}
 .desc{font-size:13px;color:var(--ink-dim);margin-top:6px;min-height:1.4em}
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media (min-width:640px){ .tiles{grid-template-columns:repeat(4,1fr)} }
+.tile{background:var(--panel-2);border:1px solid var(--line);border-radius:9px;padding:10px 12px}
+.tile .k{font-size:12px;color:var(--ink-dim);text-transform:uppercase;letter-spacing:.06em}
+.tile .v{font-family:var(--mono);font-size:22px;font-weight:600;margin:4px 0 2px;font-variant-numeric:tabular-nums}
+.tile .v small{font-size:12px;font-weight:400;color:var(--ink-dim);margin-left:4px}
+.tile .m{font-size:12px;color:var(--ink-dim);line-height:1.35}
 h1 small{font-weight:400;color:var(--ink-dim);font-size:14px;margin-left:8px}
 h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-dim);margin:0 0 10px;font-weight:600}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
@@ -240,6 +247,20 @@ a{color:var(--accent)}
     </section>
   </div>
 
+  <section class="card span" aria-label="Statistical measures">
+    <div class="row between" style="margin-bottom:10px"><h2 style="margin:0">Statistics <span class="small">of the current 4096-sample window</span></h2><span class="small" id="statWin"></span></div>
+    <div class="tiles">
+      <div class="tile"><div class="k">Mean</div><div class="v" id="stMean">—</div><div class="m">Average sample value: the DC offset or baseline. Audio should sit near 0; a steady offset points to the microphone or interface.</div></div>
+      <div class="tile"><div class="k">Std dev · variance</div><div class="v" id="stStd">—</div><div class="m">Spread of the samples about the mean. Steady sounds (a hum) hold it still; speech, music and traffic make it swing.</div></div>
+      <div class="tile"><div class="k">Skewness</div><div class="v" id="stSkew">—</div><div class="m">Asymmetry of the amplitude distribution. Near 0 for most tones; positive or negative when one polarity carries the peaks.</div></div>
+      <div class="tile"><div class="k">Kurtosis (excess)</div><div class="v" id="stKurt">—</div><div class="m">Peakedness and outliers. 0 is Gaussian noise, −1.5 a pure sine; high values mean sharp bursts, clicks or impulsive noise.</div></div>
+      <div class="tile"><div class="k">Zero-crossing rate</div><div class="v" id="stZcr">—</div><div class="m">Sign changes per second. Low for clean low tones, high for noisy or percussive sounds; about 2 × f0 for a pure tone.</div></div>
+      <div class="tile"><div class="k">RMS amplitude</div><div class="v" id="stRms">—</div><div class="m">Root mean square: the effective level over the window, shown as a fraction of full scale and in dBFS.</div></div>
+      <div class="tile"><div class="k">Peak · crest factor</div><div class="v" id="stCrest">—</div><div class="m">Peak over RMS in dB. A sine gives 3 dB; plucked, struck and spoken sounds give 10 to 20 dB.</div></div>
+      <div class="tile"><div class="k">Reading</div><div class="v" style="font-size:14px;font-family:var(--body);font-weight:500" id="stWords">—</div><div class="m">A plain-word summary of the measures above.</div></div>
+    </div>
+  </section>
+
   <section class="card span hide" id="fileCard" aria-label="File analysis">
     <h2>File analysis</h2>
     <div class="row">
@@ -297,7 +318,7 @@ a{color:var(--accent)}
       </ul>
     </details>
   </section>
-  <p class="brand-foot span">Djahwasi Pitch Detector · pitch · beat · level · dynamics · timbre · trace kept for 7 minutes · recordings up to 7 minutes · <a href="../tuner/">Djahwasi Guitar Tuner</a></p>
+  <p class="brand-foot span">Djahwasi Pitch Detector · pitch · beat · level · dynamics · timbre · statistics · trace kept for 7 minutes · recordings up to 7 minutes · <a href="../tuner/">Djahwasi Guitar Tuner</a></p>
 </div>
 
 <script>
@@ -464,7 +485,28 @@ function makeFeatures() {
     if (best > minLag && best < maxLag) { const a = acf[best - 1], b = acf[best], c = acf[best + 1], den = a - 2 * b + c; if (den < 0) lag = best + 0.5 * (a - c) / den; }
     return { bpm: 60 * fps / lag, confidence: raw[best] };
   }
-  return { descriptors, flux, pickOnsets, tempo };
+  // time-domain statistics of a sample window: mean, variance, standard deviation, skewness, excess kurtosis,
+  // zero-crossing rate (per second), rms, peak and crest factor (dB)
+  function stats(b, sr) {
+    const n = b.length; if (!n) return null;
+    let sum = 0; for (let i = 0; i < n; i++) sum += b[i];
+    const mean = sum / n;
+    let m2 = 0, m3 = 0, m4 = 0, peak = 0, zc = 0, prevSign = 0;
+    for (let i = 0; i < n; i++) {
+      const x = b[i], d = x - mean, d2 = d * d; m2 += d2; m3 += d2 * d; m4 += d2 * d2;
+      const ax = x < 0 ? -x : x; if (ax > peak) peak = ax;
+      const sg = x > 0 ? 1 : x < 0 ? -1 : 0;
+      if (sg !== 0) { if (prevSign !== 0 && sg !== prevSign) zc++; prevSign = sg; }
+    }
+    m2 /= n; m3 /= n; m4 /= n;
+    const variance = m2, std = Math.sqrt(m2);
+    const skewness = std > 0 ? m3 / (std * std * std) : 0;
+    const kurtosis = variance > 0 ? m4 / (variance * variance) - 3 : 0;
+    let sq = 0; for (let i = 0; i < n; i++) sq += b[i] * b[i];
+    const rms = Math.sqrt(sq / n);
+    return { mean, variance, std, skewness, kurtosis, zcr: zc / ((n - 1) / sr), rms, peak, crest: rms > 0 ? 20 * Math.log10(peak / rms) : 0 };
+  }
+  return { descriptors, flux, pickOnsets, tempo, stats };
 }
 
 (() => {
@@ -489,6 +531,7 @@ function makeFeatures() {
     beatLight: $('beatLight'), bpm: $('bpm'), bpmConf: $('bpmConf'), onsetCount: $('onsetCount'), ioi: $('ioi'), onsetStrip: $('onsetStrip'), beatReset: $('beatReset'),
     lvlSlow: $('lvlSlow'), dynMark: $('dynMark'), dynScale: $('dynScale'), dynPos: $('dynPos'), lvlRms: $('lvlRms'), lvlPeak: $('lvlPeak'), lvlRange: $('lvlRange'), lvlSpl: $('lvlSpl'), levelStrip: $('levelStrip'),
     setPP: $('setPP'), setFF: $('setFF'), dynReset: $('dynReset'), ppIn: $('ppIn'), ffIn: $('ffIn'), dynStep: $('dynStep'), splRef: $('splRef'), splSet: $('splSet'), splClear: $('splClear'),
+    stWin: $('statWin'), stMean: $('stMean'), stStd: $('stStd'), stSkew: $('stSkew'), stKurt: $('stKurt'), stZcr: $('stZcr'), stRms: $('stRms'), stCrest: $('stCrest'), stWords: $('stWords'),
     centroid: $('centroid'), bright: $('bright'), spread: $('spread'), flat: $('flat'), oddEven: $('oddEven'), tilt: $('tilt'), harm: $('harm'), timbreDesc: $('timbreDesc'), traceLabel: $('traceLabel'), traceCsv: $('traceCsv'), tracePng: $('tracePng'), traceClear: $('traceClear'),
     note: $('note'), noteName: $('noteName'), octave: $('octave'), hz: $('hz'), centsVal: $('centsVal'), midi: $('midi'), clarity: $('clarity'), last: $('last'),
     cents: $('cents'), needle: $('needle'), levelDb: $('levelDb'), floorDb: $('floorDb'), peakVal: $('peakVal'), levelFill: $('levelFill'), gateMark: $('gateMark'),
@@ -510,7 +553,7 @@ function makeFeatures() {
     // level and dynamics
     slowPow: 0, slowDb: -Infinity, dynPP: -45, dynFF: -15, splOffset: null,
     // timbre
-    feat: null, specDb: null,
+    feat: null, specDb: null, st: null,
   };
   try {
     const s = JSON.parse(localStorage.getItem('pitch.settings') || '{}');
@@ -727,11 +770,14 @@ function makeFeatures() {
         const frames = Math.max(0, Math.floor((mono.length - win) / hop) + 1), binHz = sr / win;
         const t = new Float32Array(frames), hz = new Float32Array(frames), cl = new Float32Array(frames), rms = new Float32Array(frames);
         const cen = new Float32Array(frames), flat = new Float32Array(frames), flux = new Float32Array(frames);
+        const std = new Float32Array(frames), skew = new Float32Array(frames), kurt = new Float32Array(frames), zcr = new Float32Array(frames), crest = new Float32Array(frames);
+        const whole = F.stats(mono, sr);
         let prev = null;
         for (let f = 0; f < frames; f++) {
           const seg = mono.subarray(f * hop, f * hop + win);
           const r = detect(seg, sr, minHz, maxHz, k);
           t[f] = (f * hop + win / 2) / sr; hz[f] = r.hz; cl[f] = r.clarity; rms[f] = r.rms;
+          const st = F.stats(seg, sr); std[f] = st.std; skew[f] = st.skewness; kurt[f] = st.kurtosis; zcr[f] = st.zcr; crest[f] = st.crest;
           const mags = spectrum(seg);
           const d = F.descriptors(mags, binHz, r.hz);
           if (d) { cen[f] = d.centroid; flat[f] = d.flatness; }
@@ -739,7 +785,7 @@ function makeFeatures() {
           prev.set(mags);
           if ((f & 127) === 0) postMessage({ progress: f / frames });
         }
-        postMessage({ done: true, t, hz, cl, rms, cen, flat, flux }, [t.buffer, hz.buffer, cl.buffer, rms.buffer, cen.buffer, flat.buffer, flux.buffer]);
+        postMessage({ done: true, t, hz, cl, rms, cen, flat, flux, std, skew, kurt, zcr, crest, whole }, [t.buffer, hz.buffer, cl.buffer, rms.buffer, cen.buffer, flat.buffer, flux.buffer, std.buffer, skew.buffer, kurt.buffer, zcr.buffer, crest.buffer]);
       };`;
     return new Promise((res, rej) => {
       const run = () => {
@@ -748,19 +794,22 @@ function makeFeatures() {
         const frames = Math.max(0, Math.floor((mono.length - win) / hop) + 1);
         const t = new Float32Array(frames), hz = new Float32Array(frames), cl = new Float32Array(frames), rms = new Float32Array(frames);
         const cen = new Float32Array(frames), flat = new Float32Array(frames), flux = new Float32Array(frames), binHz = sr / win;
+        const std = new Float32Array(frames), skew = new Float32Array(frames), kurt = new Float32Array(frames), zcr = new Float32Array(frames), crest = new Float32Array(frames);
+        const whole = F.stats(mono, sr);
         let f = 0, prev = null;
         const step = () => {
           const end = Math.min(frames, f + 64);
           for (; f < end; f++) {
             const seg = mono.subarray(f * hop, f * hop + win), r = detect(seg, sr, job.minHz, job.maxHz, job.k);
             t[f] = (f * hop + win / 2) / sr; hz[f] = r.hz; cl[f] = r.clarity; rms[f] = r.rms;
+            const st = F.stats(seg, sr); std[f] = st.std; skew[f] = st.skewness; kurt[f] = st.kurtosis; zcr[f] = st.zcr; crest[f] = st.crest;
             const mags = spectrum(seg), d = F.descriptors(mags, binHz, r.hz);
             if (d) { cen[f] = d.centroid; flat[f] = d.flatness; }
             if (prev) flux[f] = F.flux(mags, prev, binHz); else prev = new Float32Array(mags.length);
             prev.set(mags);
           }
           el.progress.value = f / frames;
-          if (f < frames) setTimeout(step, 0); else res(finish({ t, hz, cl, rms, cen, flat, flux }));
+          if (f < frames) setTimeout(step, 0); else res(finish({ t, hz, cl, rms, cen, flat, flux, std, skew, kurt, zcr, crest, whole }));
         };
         step();
       };
@@ -769,7 +818,7 @@ function makeFeatures() {
         const onsetIdx = F.pickOnsets(times, d.flux, 120).filter(i => d.rms[i] > ABS_FLOOR * 2);
         const onset = new Uint8Array(d.t.length); onsetIdx.forEach(i => { onset[i] = 1; });
         const tp = F.tempo(d.flux, fps);
-        return { t: d.t, hz: d.hz, cl: d.cl, rms: d.rms, cen: d.cen, flat: d.flat, flux: d.flux, onset, onsets: onsetIdx.length, tempo: tp, sr, hop };
+        return { t: d.t, hz: d.hz, cl: d.cl, rms: d.rms, cen: d.cen, flat: d.flat, flux: d.flux, std: d.std, skew: d.skew, kurt: d.kurt, zcr: d.zcr, crest: d.crest, whole: d.whole, onset, onsets: onsetIdx.length, tempo: tp, sr, hop };
       };
       if (typeof Worker === 'undefined') return run();
       try {
@@ -799,6 +848,8 @@ function makeFeatures() {
     else out += `<span>tempo <b>—</b> (${track.onsets} onsets)</span>`;
     if (lv.length) { lv.sort((a, b) => a - b); const p5 = lv[Math.floor(lv.length * 0.05)], p95 = lv[Math.floor(lv.length * 0.95)], mx = lv[lv.length - 1]; out += `<span>level <b>${mx.toFixed(0)} dBFS peak-rms</b> · 5–95% <b>${p5.toFixed(0)} to ${p95.toFixed(0)} dBFS</b> (${(p95 - p5).toFixed(0)} dB) · <b>${dynMark(p5)}–${dynMark(p95)}</b></span>`; }
     if (cen.length) { cen.sort((a, b) => a - b); out += `<span>centroid median <b>${cen[cen.length >> 1].toFixed(0)} Hz</b></span>`; }
+    const w = track.whole;
+    if (w) out += `<span style="flex-basis:100%">whole file · mean <b>${w.mean.toExponential(2)}</b> · variance <b>${w.variance.toExponential(3)}</b> · std <b>${w.std.toFixed(4)}</b> · skewness <b>${w.skewness.toFixed(2)}</b> · kurtosis (excess) <b>${w.kurtosis.toFixed(2)}</b> · ZCR <b>${w.zcr.toFixed(0)}/s</b> · RMS <b>${w.rms.toFixed(4)} (${fmtDb(dB(w.rms))} dBFS)</b> · peak <b>${w.peak.toFixed(3)}</b> · crest <b>${w.crest.toFixed(1)} dB</b></span>`;
     return out;
   }
   function playFile(from) {
@@ -821,12 +872,12 @@ function makeFeatures() {
   document.addEventListener('drop', e => { e.preventDefault(); const f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]; if (f) openFile(f); });
   el.csv.addEventListener('click', () => {
     if (!fileTrack) return;
-    const rows = ['time_s,f0_hz,midi,note,cents,clarity,rms_dbfs,dynamic,centroid_hz,flatness,onset'];
+    const rows = ['time_s,f0_hz,midi,note,cents,clarity,rms_dbfs,dynamic,centroid_hz,flatness,onset,std,skewness,kurtosis_excess,zcr_per_s,crest_db'];
     for (let i = 0; i < fileTrack.t.length; i++) {
       const v = voiced(fileTrack, i), f = fileTrack.hz[i], ldb = dB(fileTrack.rms[i]);
       let midi = '', note = '', cents = '';
       if (v) { const mm = hzToMidi(f), m = Math.round(mm); midi = mm.toFixed(3); note = `${noteName(m)}${octaveOf(m)}`; cents = (100 * (mm - m)).toFixed(1); }
-      rows.push(`${fileTrack.t[i].toFixed(4)},${v ? f.toFixed(3) : ''},${midi},${note},${cents},${fileTrack.cl[i].toFixed(3)},${fmtDb(ldb)},${fileTrack.rms[i] > ABS_FLOOR * 2 ? dynMark(ldb) : ''},${fileTrack.cen[i] ? fileTrack.cen[i].toFixed(0) : ''},${fileTrack.cen[i] ? fileTrack.flat[i].toFixed(3) : ''},${fileTrack.onset[i]}`);
+      rows.push(`${fileTrack.t[i].toFixed(4)},${v ? f.toFixed(3) : ''},${midi},${note},${cents},${fileTrack.cl[i].toFixed(3)},${fmtDb(ldb)},${fileTrack.rms[i] > ABS_FLOOR * 2 ? dynMark(ldb) : ''},${fileTrack.cen[i] ? fileTrack.cen[i].toFixed(0) : ''},${fileTrack.cen[i] ? fileTrack.flat[i].toFixed(3) : ''},${fileTrack.onset[i]},${fileTrack.std[i].toFixed(5)},${fileTrack.skew[i].toFixed(3)},${fileTrack.kurt[i].toFixed(3)},${fileTrack.zcr[i].toFixed(1)},${fileTrack.crest[i].toFixed(2)}`);
     }
     download(new Blob([rows.join('\n')], { type: 'text/csv' }), (el.fileName.textContent.replace(/\.[^.]+$/, '') || 'djahwasi-pitch') + '-pitch.csv');
   });
@@ -931,12 +982,12 @@ function makeFeatures() {
     const pts = state.trace;
     if (!pts.length) { setStatus('warn', 'The pitch trace is empty. Start the microphone or play a file first.'); return; }
     const t0 = pts[0].t;
-    const rows = ['time_s,clock_iso,f0_hz,midi,note,cents,clarity,rms_dbfs,level_slow_dbfs,dynamic,spl_db_approx,centroid_hz,flatness'];
+    const rows = ['time_s,clock_iso,f0_hz,midi,note,cents,clarity,rms_dbfs,level_slow_dbfs,dynamic,spl_db_approx,centroid_hz,flatness,mean,std,skewness,kurtosis_excess,zcr_per_s,peak,crest_db'];
     for (const p of pts) {
       let f0 = '', midi = '', note = '', cents = '';
       if (p.hz) { const mm = hzToMidi(p.hz), m = Math.round(mm); f0 = p.hz.toFixed(3); midi = mm.toFixed(3); note = `${noteName(m)}${octaveOf(m)}`; cents = (100 * (mm - m)).toFixed(1); }
       const slow = typeof p.slow === 'number' ? p.slow : dB(p.rms || 0);
-      rows.push(`${((p.t - t0) / 1000).toFixed(3)},${new Date(p.t + clockOffset).toISOString()},${f0},${midi},${note},${cents},${(p.cl || 0).toFixed(3)},${fmtDb(dB(p.rms || 0))},${fmtDb(slow)},${isFinite(slow) ? dynMark(slow) : ''},${state.splOffset !== null && isFinite(slow) ? (slow + state.splOffset).toFixed(1) : ''},${p.cen ? p.cen.toFixed(0) : ''},${p.flat ? p.flat.toFixed(3) : ''}`);
+      rows.push(`${((p.t - t0) / 1000).toFixed(3)},${new Date(p.t + clockOffset).toISOString()},${f0},${midi},${note},${cents},${(p.cl || 0).toFixed(3)},${fmtDb(dB(p.rms || 0))},${fmtDb(slow)},${isFinite(slow) ? dynMark(slow) : ''},${state.splOffset !== null && isFinite(slow) ? (slow + state.splOffset).toFixed(1) : ''},${p.cen ? p.cen.toFixed(0) : ''},${p.flat ? p.flat.toFixed(3) : ''},${p.st ? `${p.st.mean.toExponential(3)},${p.st.std.toFixed(5)},${p.st.skewness.toFixed(3)},${p.st.kurtosis.toFixed(3)},${p.st.zcr.toFixed(1)},${p.st.peak.toFixed(4)},${p.st.crest.toFixed(2)}` : ',,,,,,'}`);
     }
     download(new Blob([rows.join('\n')], { type: 'text/csv' }), `djahwasi-pitch-trace-${stamp()}.csv`);
   });
@@ -990,6 +1041,7 @@ function makeFeatures() {
     if (!state.specDb || state.specDb.length !== mags.length) state.specDb = new Float32Array(mags.length).fill(-100);
     for (let i = 0; i < mags.length; i++) { const v = mags[i] > 1e-6 ? 20 * Math.log10(mags[i]) : -120; state.specDb[i] += (v - state.specDb[i]) * 0.5; }
     state.feat = r.rms > state.gate ? F.descriptors(mags, binHz, state.midi !== null ? state.freq : 0) : null;
+    state.st = F.stats(buf, actx.sampleRate);
     if (prevMags) {
       const fx = F.flux(mags, prevMags, binHz);
       state.onsets.push({ t: now, f: fx });
@@ -1020,7 +1072,7 @@ function makeFeatures() {
       }
     } else prevMags = new Float32Array(mags.length);
     prevMags.set(mags);
-    state.trace.push({ t: now, hz: state.midi !== null ? state.freq : null, cl: r.clarity, rms: r.rms, slow: state.slowDb, cen: state.feat ? state.feat.centroid : 0, flat: state.feat ? state.feat.flatness : 0 });
+    state.trace.push({ t: now, hz: state.midi !== null ? state.freq : null, cl: r.clarity, rms: r.rms, slow: state.slowDb, cen: state.feat ? state.feat.centroid : 0, flat: state.feat ? state.feat.flatness : 0, st: state.st });
     while (state.trace.length && now - state.trace[0].t > TRACE_KEEP_MS) state.trace.shift();
     // silence watchdog for the microphone
     if (state.source === 'mic') {
@@ -1079,6 +1131,32 @@ function makeFeatures() {
     for (const p of state.trace) if (p.rms > ABS_FLOOR && typeof p.slow === 'number' && isFinite(p.slow)) { if (p.slow < lo) lo = p.slow; if (p.slow > hi) hi = p.slow; }
     el.lvlRange.textContent = isFinite(lo) ? `${lo.toFixed(0)} to ${hi.toFixed(0)} dBFS (${(hi - lo).toFixed(0)} dB)` : '—';
     el.lvlSpl.textContent = state.splOffset === null ? 'not calibrated' : (isFinite(slow) ? `${(slow + state.splOffset).toFixed(0)} dB SPL (approx.)` : '—');
+    // statistics
+    const st = state.running ? state.st : null;
+    el.stWin.textContent = state.running && actx ? `${WIN} samples · ${(WIN / actx.sampleRate * 1000).toFixed(0)} ms at ${actx.sampleRate} Hz` : '';
+    if (st) {
+      const sci = v => Math.abs(v) < 1e-4 && v !== 0 ? v.toExponential(2) : v.toFixed(4);
+      el.stMean.textContent = sci(st.mean);
+      el.stStd.innerHTML = `${st.std.toFixed(4)}<small>σ² ${sci(st.variance)}</small>`;
+      el.stSkew.textContent = (st.skewness > 0 ? '+' : '') + st.skewness.toFixed(2);
+      el.stKurt.textContent = (st.kurtosis > 0 ? '+' : '') + st.kurtosis.toFixed(2);
+      el.stZcr.innerHTML = `${st.zcr.toFixed(0)}<small>/s</small>`;
+      el.stRms.innerHTML = `${st.rms.toFixed(4)}<small>${fmtDb(dB(st.rms))} dBFS</small>`;
+      el.stCrest.innerHTML = `${st.peak.toFixed(3)}<small>${st.crest.toFixed(1)} dB</small>`;
+      const w = [];
+      if (st.rms < ABS_FLOOR) w.push('silence');
+      else {
+        w.push(Math.abs(st.mean) > 0.01 ? 'DC offset present' : 'no DC offset');
+        w.push(st.kurtosis < -1 ? 'sine-like, steady' : st.kurtosis < 1 ? 'noise-like or dense texture' : st.kurtosis < 5 ? 'moderately peaky' : 'impulsive: bursts or clicks');
+        if (Math.abs(st.skewness) > 0.5) w.push(`asymmetric (${st.skewness > 0 ? 'positive' : 'negative'} peaks)`);
+        w.push(st.crest < 6 ? 'compressed or sustained' : st.crest < 14 ? 'normal dynamics' : 'high crest: sharp attacks');
+        if (state.midi !== null) w.push(st.zcr > 4 * state.freq ? 'ZCR well above 2·f0: bright or noisy' : 'ZCR consistent with the tone');
+      }
+      el.stWords.textContent = w.join(' · ');
+    } else {
+      ['stMean', 'stStd', 'stSkew', 'stKurt', 'stZcr', 'stRms', 'stCrest'].forEach(k => { el[k].textContent = '—'; });
+      el.stWords.textContent = '—';
+    }
     // timbre
     const f = state.feat;
     if (f) {
