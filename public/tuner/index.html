@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#150c09">
+<meta name="description" content="Strobe-style guitar tuner: microphone pitch detection, alternate tunings, reference tones.">
+<title>Strobe Tuner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one instrument panel. A slim control bar on top, the strobe disk as the hero with the cents
+   arc wrapped over its crown, a 3+3 headstock of brass tuning pegs beneath, and a thin oscilloscope
+   strip at the foot. Single dark world by choice: this is a lit instrument on a dark bench. */
+:root{
+  --bg:#150c09;
+  --panel:#22130e;
+  --panel-2:#2d1a13;
+  --line:#4b2f24;
+  --ink:#f4e9d3;
+  --ink-dim:#b59e82;
+  --brass:#d3a94e;
+  --brass-deep:#8a6626;
+  --ok:#a3df93;
+  --flat:#e6a35f;
+  --sharp:#e46a6f;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+html,body{height:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);
+  background-image:
+    radial-gradient(ellipse 80% 55% at 50% 38%, rgba(211,169,78,.10), transparent 70%),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.012) 0 2px, transparent 2px 7px);
+}
+*{box-sizing:border-box}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:4px}
+.app{
+  min-height:100%;display:flex;flex-direction:column;gap:20px;
+  max-width:720px;margin:0 auto;
+  padding-block:18px 28px;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* control bar */
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;border-bottom:1px solid var(--line);padding-bottom:14px}
+.brand{display:flex;align-items:baseline;gap:10px;margin-right:auto}
+.brand h1{font:italic 600 26px/1 var(--display);font-variation-settings:"opsz" 144;letter-spacing:-.01em;margin:0;color:var(--brass)}
+.brand .tag{font:500 11px/1 var(--mono);text-transform:uppercase;letter-spacing:.18em;color:var(--ink-dim)}
+.controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.field{display:flex;align-items:center;gap:8px;font:500 11px/1 var(--mono);text-transform:uppercase;letter-spacing:.14em;color:var(--ink-dim)}
+select{
+  appearance:none;-webkit-appearance:none;background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23d3a94e' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 10px center;
+  border:1px solid var(--line);border-radius:6px;padding:8px 28px 8px 10px;color:var(--ink);
+  font:500 13px/1 var(--body);letter-spacing:0;text-transform:none;
+}
+.stepper{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:6px;background:var(--panel);overflow:hidden}
+.stepper button{background:none;border:0;width:30px;height:32px;color:var(--brass);font-size:16px;line-height:1}
+.stepper button:hover{background:var(--panel-2)}
+.stepper output{font:500 13px/1 var(--mono);min-width:64px;text-align:center;color:var(--ink);font-variant-numeric:tabular-nums}
+.mic{
+  display:inline-flex;align-items:center;gap:8px;border:1px solid var(--brass-deep);background:linear-gradient(180deg,#3a2616,#2a1810);
+  color:var(--ink);border-radius:6px;padding:8px 14px;font:600 13px/1 var(--body);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 1px 0 rgba(0,0,0,.5);
+}
+.mic .dot{width:8px;height:8px;border-radius:50%;background:var(--ink-dim);box-shadow:0 0 0 2px rgba(0,0,0,.35) inset}
+.mic[aria-pressed="true"] .dot{background:var(--ok);box-shadow:0 0 10px var(--ok)}
+.mic:hover{filter:brightness(1.08)}
+
+/* dial */
+.dial{position:relative;width:min(100%, 440px);aspect-ratio:1;max-width:100%;margin:0 auto;align-self:center}
+.dial canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.readout{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:40%;aspect-ratio:1;border-radius:50%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+  text-align:center;pointer-events:none;
+}
+.note{font:500 clamp(54px, 15vw, 76px)/.9 var(--display);font-variation-settings:"opsz" 144;letter-spacing:-.04em;color:var(--ink);display:flex;align-items:flex-start;justify-content:center}
+.note sup{font:italic 400 .34em/1 var(--display);color:var(--brass);margin-top:.18em;margin-left:.04em}
+.note[data-state="ok"]{color:var(--ok)}
+.cents{font:500 clamp(13px,3.6vw,16px)/1.2 var(--mono);color:var(--ink);font-variant-numeric:tabular-nums}
+.cents[data-state="flat"]{color:var(--flat)}
+.cents[data-state="sharp"]{color:var(--sharp)}
+.cents[data-state="ok"]{color:var(--ok)}
+.hz{font:400 clamp(11px,3vw,12px)/1.2 var(--mono);color:var(--ink-dim);font-variant-numeric:tabular-nums;letter-spacing:.04em}
+
+.status{
+  margin:-6px 0 0;text-align:center;min-height:1.4em;
+  font:500 14px/1.4 var(--body);color:var(--ink-dim);
+}
+.status strong{color:var(--ink);font-weight:600}
+.status[data-tone="ok"] strong{color:var(--ok)}
+.status[data-tone="warn"]{color:var(--flat)}
+
+/* headstock pegs */
+.headstock{
+  position:relative;border:1px solid var(--line);border-radius:14px;background:
+    linear-gradient(180deg, rgba(255,255,255,.03), transparent 40%), var(--panel);
+  padding:16px 14px 14px;
+}
+.headstock::before{
+  content:"";position:absolute;left:14px;right:14px;top:50%;height:1px;background:var(--line);opacity:.7;
+}
+.headstock-label{
+  position:absolute;top:-8px;left:16px;background:var(--bg);padding:0 6px;
+  font:500 10px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim);
+}
+.pegs{--cols:var(--n, 6);display:grid;grid-template-columns:repeat(var(--cols), minmax(0,1fr));gap:10px 8px;position:relative;list-style:none;margin:0;padding:0}
+.peg{
+  display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;
+  background:none;border:0;padding:6px 2px;border-radius:10px;position:relative;
+  transition:transform .15s ease;
+}
+.peg:hover{transform:translateY(-1px)}
+.knob{
+  position:relative;width:54px;height:54px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, #f1d58b, var(--brass) 45%, var(--brass-deep) 100%);
+  box-shadow:0 2px 0 #4b3614, 0 6px 14px rgba(0,0,0,.55), inset 0 -3px 6px rgba(0,0,0,.25);
+  display:grid;place-items:center;
+  transition:box-shadow .2s ease, transform .2s ease;
+}
+.knob::after{
+  content:"";position:absolute;inset:6px;border-radius:50%;border:1px dashed rgba(60,40,10,.45);
+}
+.knob .n{font:600 20px/1 var(--display);color:#2a1a08;letter-spacing:-.02em;position:relative;z-index:1}
+.knob .n sup{font:italic 400 .5em/1 var(--display);margin-left:1px}
+.peg-hz{font:400 11px/1 var(--mono);color:var(--ink-dim);font-variant-numeric:tabular-nums}
+.peg-str{font:500 10px/1 var(--mono);text-transform:uppercase;letter-spacing:.14em;color:var(--ink-dim);opacity:.8}
+.peg.is-near .knob{box-shadow:0 2px 0 #4b3614, 0 6px 14px rgba(0,0,0,.55), 0 0 0 3px var(--bg), 0 0 0 5px var(--brass)}
+.peg.is-ok .knob{box-shadow:0 2px 0 #4b3614, 0 0 22px var(--ok), 0 0 0 3px var(--bg), 0 0 0 5px var(--ok)}
+.peg.is-locked .peg-str{color:var(--brass);opacity:1}
+.peg.is-locked .knob{transform:rotate(-20deg)}
+.peg[aria-pressed="true"] .peg-str::after{content:" · target"}
+.peg.is-ringing .knob{animation:ring .6s ease-out}
+@keyframes ring{0%{transform:scale(1)}30%{transform:scale(1.08)}100%{transform:scale(1)}}
+
+/* scope strip */
+.scope{display:flex;flex-direction:column;gap:6px}
+.scope canvas{width:100%;height:56px;display:block;border-radius:6px;background:var(--panel);border:1px solid var(--line)}
+.scope .meta{display:flex;justify-content:space-between;gap:12px;font:400 11px/1 var(--mono);color:var(--ink-dim);letter-spacing:.06em;font-variant-numeric:tabular-nums}
+
+.foot{font:400 12px/1.5 var(--body);color:var(--ink-dim);text-align:center;max-width:52ch;margin:0 auto}
+.foot b{color:var(--ink);font-weight:600}
+
+@media (max-width:560px){
+  .pegs{--cols:3}
+  .pegs[data-n="4"]{--cols:4}
+  .knob{width:50px;height:50px}
+  .brand h1{font-size:24px}
+}
+@media (prefers-reduced-motion:reduce){
+  .peg,.knob{transition:none}
+  .peg.is-ringing .knob{animation:none}
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <header class="bar">
+    <div class="brand">
+      <h1>Strobe</h1>
+      <span class="tag">guitar tuner</span>
+    </div>
+    <div class="controls">
+      <label class="field" for="tuning">Tuning <select id="tuning" aria-label="Tuning"></select></label>
+      <div class="field">A4
+        <div class="stepper" role="group" aria-label="Reference pitch for A4">
+          <button id="a4down" type="button" aria-label="Lower A4 by one hertz">−</button>
+          <output id="a4" for="a4down a4up">440 Hz</output>
+          <button id="a4up" type="button" aria-label="Raise A4 by one hertz">+</button>
+        </div>
+      </div>
+      <button id="mic" class="mic" type="button" aria-pressed="false"><span class="dot"></span><span id="micLabel">Start listening</span></button>
+    </div>
+  </header>
+
+  <main class="dial" aria-live="off">
+    <canvas id="strobe" aria-hidden="true"></canvas>
+    <div class="readout">
+      <div class="note" id="note" data-state="idle"><span id="noteName">—</span><sup id="octave"></sup></div>
+      <div class="cents" id="cents" data-state="idle"><span id="centsVal">0</span> ¢</div>
+      <div class="hz"><span id="hzVal">—</span> Hz</div>
+    </div>
+  </main>
+
+  <p class="status" id="status" role="status">Press <strong>Start listening</strong>, then pluck one string at a time.</p>
+
+  <section class="headstock" aria-label="Strings">
+    <span class="headstock-label">Headstock</span>
+    <ul class="pegs" id="pegs"></ul>
+  </section>
+
+  <section class="scope" aria-label="Input signal">
+    <canvas id="scope" aria-hidden="true"></canvas>
+    <div class="meta"><span id="levelMeta">input −∞ dB</span><span id="clarityMeta">clarity —</span><span id="srMeta"></span></div>
+  </section>
+
+  <p class="foot">Tap a peg to hear its reference tone and lock it as the target. The disk drifts <b>clockwise when sharp</b> and <b>counter-clockwise when flat</b>. It stands still inside ±3 cents. Pitch is read with a normalized autocorrelation (McLeod) on 4096 samples, so the low E on a bass still registers.</p>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const SHARPS = ['C','C♯','D','D♯','E','F','F♯','G','G♯','A','A♯','B'];
+  const FLATS  = ['C','D♭','D','E♭','E','F','G♭','G','A♭','A','B♭','B'];
+  const TUNINGS = [
+    { name: 'Standard  E A D G B E',      notes: [40,45,50,55,59,64] },
+    { name: 'Drop D  D A D G B E',        notes: [38,45,50,55,59,64] },
+    { name: 'Half-step down  E♭ A♭ D♭ G♭ B♭ E♭', notes: [39,44,49,54,58,63], flats: true },
+    { name: 'DADGAD',                     notes: [38,45,50,55,57,62] },
+    { name: 'Open G  D G D G B D',        notes: [38,43,50,55,59,62] },
+    { name: 'Open D  D A D F♯ A D',       notes: [38,45,50,54,57,62] },
+    { name: 'Bass  E A D G',              notes: [28,33,38,43] },
+    { name: 'Ukulele  G C E A',           notes: [67,60,64,69] },
+  ];
+  const IN_TUNE = 3;           // cents
+  const FFT = 4096;
+  const MIN_HZ = 28, MAX_HZ = 1400;
+
+  // ---------- state ----------
+  const state = {
+    a4: 440, tuningIdx: 0, lock: null,
+    running: false, freq: 0, cents: 0, midi: null, clarity: 0, level: 0,
+    lastValid: 0, needle: 0, phase: 0, hist: [],
+  };
+  try {
+    const t = parseInt(localStorage.getItem('strobe.tuning'), 10);
+    if (t >= 0 && t < TUNINGS.length) state.tuningIdx = t;
+    const a = parseInt(localStorage.getItem('strobe.a4'), 10);
+    if (a >= 415 && a <= 466) state.a4 = a;
+  } catch (e) {}
+  const save = () => { try { localStorage.setItem('strobe.tuning', state.tuningIdx); localStorage.setItem('strobe.a4', state.a4); } catch (e) {} };
+
+  const $ = id => document.getElementById(id);
+  const el = {
+    tuning: $('tuning'), a4: $('a4'), mic: $('mic'), micLabel: $('micLabel'),
+    note: $('note'), noteName: $('noteName'), octave: $('octave'), cents: $('cents'), centsVal: $('centsVal'), hz: $('hzVal'),
+    status: $('status'), pegs: $('pegs'), strobe: $('strobe'), scope: $('scope'),
+    levelMeta: $('levelMeta'), clarityMeta: $('clarityMeta'), srMeta: $('srMeta'),
+  };
+  const css = getComputedStyle(document.documentElement);
+  const C = k => css.getPropertyValue(k).trim();
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---------- music math ----------
+  const tuning = () => TUNINGS[state.tuningIdx];
+  const midiToHz = m => state.a4 * Math.pow(2, (m - 69) / 12);
+  const hzToMidi = f => 69 + 12 * Math.log2(f / state.a4);
+  const names = () => tuning().flats ? FLATS : SHARPS;
+  const noteName = m => names()[((m % 12) + 12) % 12];
+  const octaveOf = m => Math.floor(m / 12) - 1;
+
+  // ---------- UI build ----------
+  TUNINGS.forEach((t, i) => {
+    const o = document.createElement('option');
+    o.value = i; o.textContent = t.name;
+    el.tuning.appendChild(o);
+  });
+  el.tuning.value = state.tuningIdx;
+
+  function buildPegs() {
+    const t = tuning();
+    el.pegs.innerHTML = '';
+    el.pegs.style.setProperty('--n', t.notes.length); el.pegs.dataset.n = t.notes.length;
+    const ordinal = n => n + (n === 1 ? 'st' : n === 2 ? 'nd' : n === 3 ? 'rd' : 'th');
+    t.notes.forEach((m, i) => {
+      const li = document.createElement('li');
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'peg'; b.dataset.i = i;
+      b.setAttribute('aria-pressed', state.lock === i ? 'true' : 'false');
+      b.setAttribute('aria-label', `${noteName(m)}${octaveOf(m)}, ${ordinal(t.notes.length - i)} string, ${midiToHz(m).toFixed(2)} hertz. Play reference tone and set as target.`);
+      b.innerHTML = `<span class="knob"><span class="n">${noteName(m)}<sup>${octaveOf(m)}</sup></span></span>
+        <span class="peg-hz">${midiToHz(m).toFixed(2)}</span>
+        <span class="peg-str">${ordinal(t.notes.length - i)}</span>`;
+      b.addEventListener('click', () => onPeg(i, b));
+      li.appendChild(b); el.pegs.appendChild(li);
+    });
+    refreshPegs();
+  }
+  function refreshPegs() {
+    const t = tuning();
+    [...el.pegs.querySelectorAll('.peg')].forEach((b, i) => {
+      b.classList.toggle('is-locked', state.lock === i);
+      b.setAttribute('aria-pressed', state.lock === i ? 'true' : 'false');
+      const near = state.midi !== null && t.notes[i] === state.midi;
+      b.classList.toggle('is-near', near && Math.abs(state.cents) > IN_TUNE);
+      b.classList.toggle('is-ok', near && Math.abs(state.cents) <= IN_TUNE);
+    });
+  }
+  function updateA4() { el.a4.value = `${state.a4} Hz`; buildPegs(); save(); }
+  $('a4down').addEventListener('click', () => { state.a4 = Math.max(415, state.a4 - 1); updateA4(); });
+  $('a4up').addEventListener('click',   () => { state.a4 = Math.min(466, state.a4 + 1); updateA4(); });
+  el.tuning.addEventListener('change', () => { state.tuningIdx = +el.tuning.value; state.lock = null; buildPegs(); save(); setStatus(); });
+  el.a4.value = `${state.a4} Hz`;
+  buildPegs();
+
+  // ---------- reference tones ----------
+  let actx = null;
+  function ensureCtx() {
+    if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
+    if (actx.state === 'suspended') actx.resume();
+    return actx;
+  }
+  function pluck(hz) {
+    const ctx = ensureCtx();
+    const now = ctx.currentTime;
+    const out = ctx.createGain(); out.gain.value = 0.0001; out.connect(ctx.destination);
+    const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.setValueAtTime(hz * 6, now); lp.frequency.exponentialRampToValueAtTime(hz * 1.5, now + 1.6); lp.connect(out);
+    const o1 = ctx.createOscillator(); o1.type = 'triangle'; o1.frequency.value = hz;
+    const o2 = ctx.createOscillator(); o2.type = 'sine'; o2.frequency.value = hz * 2;
+    const g2 = ctx.createGain(); g2.gain.value = 0.25;
+    o1.connect(lp); o2.connect(g2); g2.connect(lp);
+    out.gain.setValueAtTime(0.0001, now);
+    out.gain.exponentialRampToValueAtTime(0.5, now + 0.012);
+    out.gain.exponentialRampToValueAtTime(0.0001, now + 2.4);
+    o1.start(now); o2.start(now); o1.stop(now + 2.5); o2.stop(now + 2.5);
+  }
+  function onPeg(i, btn) {
+    const m = tuning().notes[i];
+    pluck(midiToHz(m));
+    btn.classList.remove('is-ringing'); void btn.offsetWidth; btn.classList.add('is-ringing');
+    state.lock = state.lock === i ? null : i;
+    refreshPegs(); setStatus();
+  }
+
+  // ---------- microphone ----------
+  let analyser = null, stream = null, buf = new Float32Array(FFT), sampleRate = 48000;
+  async function startMic() {
+    const ctx = ensureCtx();
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      setStatus('warn', 'This browser offers no microphone access. Open the page in Chrome, Safari or Firefox.');
+      return;
+    }
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false } });
+    } catch (err) {
+      const blocked = err && (err.name === 'NotAllowedError' || err.name === 'SecurityError');
+      setStatus('warn', blocked
+        ? 'Microphone blocked here. Allow it in the address bar, or open the page in its own browser tab. The pegs still play reference tones.'
+        : 'No microphone found. Plug one in or use the pegs to tune by ear.');
+      return;
+    }
+    sampleRate = ctx.sampleRate;
+    const src = ctx.createMediaStreamSource(stream);
+    const hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 25;
+    analyser = ctx.createAnalyser(); analyser.fftSize = FFT; analyser.smoothingTimeConstant = 0;
+    src.connect(hp); hp.connect(analyser);
+    state.running = true; state.hist = [];
+    el.mic.setAttribute('aria-pressed', 'true'); el.micLabel.textContent = 'Listening · stop';
+    el.srMeta.textContent = `${(sampleRate / 1000).toFixed(1)} kHz · ${FFT} samples`;
+    setStatus();
+  }
+  function stopMic() {
+    state.running = false; state.midi = null; state.freq = 0; state.clarity = 0; state.level = 0;
+    if (stream) stream.getTracks().forEach(t => t.stop());
+    stream = null; analyser = null;
+    el.mic.setAttribute('aria-pressed', 'false'); el.micLabel.textContent = 'Start listening';
+    el.srMeta.textContent = '';
+    paintReadout(); refreshPegs(); setStatus();
+  }
+  el.mic.addEventListener('click', () => state.running ? stopMic() : startMic());
+
+  // ---------- pitch detection: McLeod normalized square difference ----------
+  function detect(b, sr) {
+    const n = b.length;
+    let sum = 0;
+    for (let i = 0; i < n; i++) sum += b[i] * b[i];
+    const rms = Math.sqrt(sum / n);
+    if (rms < 0.008) return { hz: 0, clarity: 0, rms };
+    const minLag = Math.max(2, Math.floor(sr / MAX_HZ));
+    const maxLag = Math.min(n >> 1, Math.floor(sr / MIN_HZ));
+    const nsdf = new Float32Array(maxLag + 1);
+    for (let tau = minLag; tau <= maxLag; tau++) {
+      let acf = 0, m = 0;
+      for (let i = 0, j = tau; j < n; i++, j++) { const x = b[i], y = b[j]; acf += x * y; m += x * x + y * y; }
+      nsdf[tau] = m > 0 ? (2 * acf) / m : 0;
+    }
+    // key maxima between positive zero crossings
+    const peaks = [];
+    let tau = minLag;
+    while (tau <= maxLag && nsdf[tau] > 0) tau++;          // skip the initial lobe
+    while (tau <= maxLag) {
+      while (tau <= maxLag && nsdf[tau] <= 0) tau++;         // wait for positive
+      let best = -1, bestV = -Infinity;
+      while (tau <= maxLag && nsdf[tau] > 0) { if (nsdf[tau] > bestV) { bestV = nsdf[tau]; best = tau; } tau++; }
+      if (best > 0) peaks.push(best);
+    }
+    if (!peaks.length) return { hz: 0, clarity: 0, rms };
+    let highest = 0;
+    for (const p of peaks) highest = Math.max(highest, nsdf[p]);
+    const thresh = highest * 0.88;
+    let chosen = peaks.find(p => nsdf[p] >= thresh);
+    // parabolic interpolation
+    let t = chosen;
+    if (t > minLag && t < maxLag) {
+      const a = nsdf[t - 1], c0 = nsdf[t], c = nsdf[t + 1];
+      const d = a - 2 * c0 + c;
+      if (d !== 0) t = t + 0.5 * (a - c) / d;
+    }
+    return { hz: sr / t, clarity: nsdf[chosen], rms };
+  }
+
+  // ---------- analysis step ----------
+  let frame = 0;
+  function analyse(now) {
+    if (!analyser) return;
+    analyser.getFloatTimeDomainData(buf);
+    if ((frame++ & 1) === 0) {
+      const r = detect(buf, sampleRate);
+      state.level = r.rms;
+      if (r.hz > 0 && r.clarity > 0.86 && r.hz >= MIN_HZ && r.hz <= MAX_HZ) {
+        state.hist.push(r.hz); if (state.hist.length > 5) state.hist.shift();
+        const sorted = [...state.hist].sort((a, b) => a - b);
+        const med = sorted[sorted.length >> 1];
+        state.freq = med; state.clarity = r.clarity; state.lastValid = now;
+        const target = state.lock !== null ? tuning().notes[state.lock] : Math.round(hzToMidi(med));
+        state.midi = target;
+        state.cents = 1200 * Math.log2(med / midiToHz(target));
+      } else if (now - state.lastValid > 700) {
+        state.hist = []; state.midi = null; state.freq = 0; state.clarity = 0;
+      }
+    }
+  }
+
+  // ---------- rendering ----------
+  const dpr = Math.min(2, window.devicePixelRatio || 1);
+  function fit(canvas) {
+    const r = canvas.getBoundingClientRect();
+    const w = Math.round(r.width * dpr), h = Math.round(r.height * dpr);
+    if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
+    return [r.width, r.height];
+  }
+  const TAU = Math.PI * 2;
+  const BANDS = [40, 24, 12];
+  function drawStrobe(dt) {
+    const [w, h] = fit(el.strobe);
+    const g = el.strobe.getContext('2d');
+    g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    g.clearRect(0, 0, w, h);
+    const cx = w / 2, cy = h / 2, R = Math.min(w, h) / 2 - 2;
+    const live = state.midi !== null;
+    const ok = live && Math.abs(state.cents) <= IN_TUNE;
+    const c = Math.max(-50, Math.min(50, state.cents));
+    state.needle += ((live ? c : 0) - state.needle) * 0.22;
+    if (live && !ok && !reduceMotion) state.phase += c * 0.045 * dt / 1000;   // rad/s proportional to cents
+
+    // bench shadow + disk body
+    g.save();
+    g.shadowColor = 'rgba(0,0,0,.6)'; g.shadowBlur = 24; g.shadowOffsetY = 8;
+    g.fillStyle = C('--panel-2');
+    g.beginPath(); g.arc(cx, cy, R - 34, 0, TAU); g.fill();
+    g.restore();
+
+    // stripe bands
+    const rOuter = R - 40, rInner = Math.min(w, h) * 0.215;
+    const gap = 4, bandW = (rOuter - rInner - gap * (BANDS.length - 1)) / BANDS.length;
+    const stripe = ok ? C('--ok') : (live ? C('--brass') : C('--line'));
+    const alpha = live ? 0.55 + 0.45 * Math.min(1, state.clarity) : 0.9;
+    g.globalAlpha = alpha;
+    BANDS.forEach((N, bi) => {
+      const r1 = rOuter - bi * (bandW + gap), r0 = r1 - bandW;
+      const step = TAU / N;
+      const off = state.phase * (bi % 2 ? -1 : 1) * (1 + bi * 0.5);   // alternate bands counter-rotate, like a real strobe disk's octave rings
+      g.fillStyle = stripe;
+      for (let k = 0; k < N; k += 2) {
+        const a0 = off + k * step, a1 = a0 + step;
+        g.beginPath(); g.arc(cx, cy, r1, a0, a1); g.arc(cx, cy, r0, a1, a0, true); g.closePath(); g.fill();
+      }
+    });
+    g.globalAlpha = 1;
+    if (ok) { g.save(); g.shadowColor = C('--ok'); g.shadowBlur = 30; g.strokeStyle = C('--ok'); g.lineWidth = 2; g.beginPath(); g.arc(cx, cy, rOuter + 3, 0, TAU); g.stroke(); g.restore(); }
+
+    // inner well for the readout
+    g.fillStyle = C('--bg');
+    g.beginPath(); g.arc(cx, cy, rInner - 2, 0, TAU); g.fill();
+    g.strokeStyle = C('--brass-deep'); g.lineWidth = 1;
+    g.beginPath(); g.arc(cx, cy, rInner - 2, 0, TAU); g.stroke();
+
+    // brass rim
+    g.strokeStyle = C('--brass-deep'); g.lineWidth = 2;
+    g.beginPath(); g.arc(cx, cy, rOuter + 7, 0, TAU); g.stroke();
+
+    // cents arc over the crown: -50 at 225deg, +50 at 315deg (canvas angles)
+    const A0 = -Math.PI * 0.75, A1 = -Math.PI * 0.25, rArc = R - 16;
+    const angFor = cents => A0 + (cents + 50) / 100 * (A1 - A0);
+    g.lineCap = 'butt';
+    g.strokeStyle = C('--line'); g.lineWidth = 12;
+    g.beginPath(); g.arc(cx, cy, rArc, A0, A1); g.stroke();
+    g.strokeStyle = 'rgba(163,223,147,.55)'; g.lineWidth = 12;
+    g.beginPath(); g.arc(cx, cy, rArc, angFor(-IN_TUNE), angFor(IN_TUNE)); g.stroke();
+    g.strokeStyle = C('--ink-dim'); g.lineWidth = 1;
+    for (let cc = -50; cc <= 50; cc += 5) {
+      const a = angFor(cc), big = cc % 10 === 0;
+      const ra = rArc + 6, rb = rArc + (big ? 14 : 10);
+      g.beginPath(); g.moveTo(cx + Math.cos(a) * ra, cy + Math.sin(a) * ra); g.lineTo(cx + Math.cos(a) * rb, cy + Math.sin(a) * rb); g.stroke();
+    }
+    g.fillStyle = C('--ink-dim'); g.font = `500 10px ${C('--mono')}`; g.textAlign = 'center'; g.textBaseline = 'middle';
+    [[-50, '−50'], [-25, '−25'], [0, '0'], [25, '+25'], [50, '+50']].forEach(([cc, label]) => {
+      const a = angFor(cc), rl = rArc + 22;
+      g.fillText(label, cx + Math.cos(a) * rl, cy + Math.sin(a) * rl);
+    });
+    g.font = `500 9px ${C('--mono')}`;
+    g.fillText('FLAT', cx + Math.cos(angFor(-56)) * (rArc - 2), cy + Math.sin(angFor(-56)) * (rArc - 2));
+    g.fillText('SHARP', cx + Math.cos(angFor(56)) * (rArc - 2), cy + Math.sin(angFor(56)) * (rArc - 2));
+    // zero mark
+    g.strokeStyle = C('--brass'); g.lineWidth = 2;
+    { const a = angFor(0); g.beginPath(); g.moveTo(cx + Math.cos(a) * (rArc - 9), cy + Math.sin(a) * (rArc - 9)); g.lineTo(cx + Math.cos(a) * (rArc + 9), cy + Math.sin(a) * (rArc + 9)); g.stroke(); }
+    // needle: brass pointer riding the arc
+    if (live || Math.abs(state.needle) > 0.2) {
+      const a = angFor(state.needle);
+      const col = ok ? C('--ok') : state.needle < 0 ? C('--flat') : C('--sharp');
+      g.save(); g.translate(cx + Math.cos(a) * (rArc - 10), cy + Math.sin(a) * (rArc - 10)); g.rotate(a + Math.PI / 2);
+      g.fillStyle = col; g.shadowColor = col; g.shadowBlur = 10;
+      g.beginPath(); g.moveTo(0, -9); g.lineTo(6, 4); g.lineTo(-6, 4); g.closePath(); g.fill();
+      g.restore();
+    }
+  }
+
+  function drawScope() {
+    const [w, h] = fit(el.scope);
+    const g = el.scope.getContext('2d');
+    g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    g.clearRect(0, 0, w, h);
+    g.strokeStyle = C('--line'); g.lineWidth = 1;
+    g.beginPath(); g.moveTo(0, h / 2 + .5); g.lineTo(w, h / 2 + .5); g.stroke();
+    if (!analyser) return;
+    g.strokeStyle = state.midi !== null ? C('--brass') : C('--ink-dim'); g.lineWidth = 1.25;
+    g.beginPath();
+    const step = Math.max(1, Math.floor(buf.length / w));
+    const gain = Math.min(12, 0.35 / Math.max(0.02, state.level));
+    for (let x = 0, i = 0; x < w && i < buf.length; x++, i += step) {
+      const y = h / 2 - buf[i] * gain * (h / 2 - 3);
+      x === 0 ? g.moveTo(x, y) : g.lineTo(x, y);
+    }
+    g.stroke();
+  }
+
+  function paintReadout() {
+    const live = state.midi !== null;
+    if (!live) {
+      el.noteName.textContent = state.running ? '·' : '—'; el.octave.textContent = '';
+      el.note.dataset.state = 'idle'; el.cents.dataset.state = 'idle';
+      el.centsVal.textContent = '0'; el.hz.textContent = '—';
+      el.levelMeta.textContent = `input ${state.level > 0 ? (20 * Math.log10(state.level)).toFixed(0) : '−∞'} dB`;
+      el.clarityMeta.textContent = 'clarity —';
+      return;
+    }
+    const ok = Math.abs(state.cents) <= IN_TUNE;
+    el.noteName.textContent = noteName(state.midi); el.octave.textContent = octaveOf(state.midi);
+    el.note.dataset.state = ok ? 'ok' : 'live';
+    el.cents.dataset.state = ok ? 'ok' : state.cents < 0 ? 'flat' : 'sharp';
+    const cr = Math.round(state.cents);
+    el.centsVal.textContent = (cr > 0 ? '+' : cr < 0 ? '−' : '') + Math.abs(cr);
+    el.hz.textContent = state.freq.toFixed(1);
+    el.levelMeta.textContent = `input ${(20 * Math.log10(state.level)).toFixed(0)} dB`;
+    el.clarityMeta.textContent = `clarity ${(state.clarity * 100).toFixed(0)}%`;
+  }
+
+  let lastStatusKey = '';
+  function setStatus(tone, text) {
+    if (text) { el.status.dataset.tone = tone || ''; el.status.innerHTML = text; lastStatusKey = 'msg'; return; }
+    const t = tuning();
+    let key, html, tn = '';
+    if (!state.running) {
+      key = 'idle' + state.lock;
+      html = state.lock !== null
+        ? `Target set to <strong>${noteName(t.notes[state.lock])}${octaveOf(t.notes[state.lock])}</strong>. Press <strong>Start listening</strong> and tune to it.`
+        : 'Press <strong>Start listening</strong>, then pluck one string at a time.';
+    } else if (state.midi === null) {
+      key = 'wait' + state.lock;
+      html = state.lock !== null
+        ? `Listening for <strong>${noteName(t.notes[state.lock])}${octaveOf(t.notes[state.lock])}</strong>. Pluck the string and let it ring.`
+        : 'Listening. Pluck one string and let it ring.';
+    } else {
+      const ok = Math.abs(state.cents) <= IN_TUNE;
+      const dir = state.cents < 0 ? 'flat · tighten a little' : 'sharp · loosen a little';
+      const nm = `${noteName(state.midi)}${octaveOf(state.midi)}`;
+      const far = Math.abs(state.cents) > 50;
+      key = ok ? 'ok' : (state.cents < 0 ? 'flat' : 'sharp') + (far ? 'far' : '');
+      tn = ok ? 'ok' : '';
+      html = ok ? `<strong>${nm}</strong> in tune.` : far ? `<strong>${nm}</strong> is far off. Check you are on the right string, or tap the peg you mean.` : `<strong>${nm}</strong> is ${dir}.`;
+    }
+    if (key !== lastStatusKey) { lastStatusKey = key; el.status.dataset.tone = tn; el.status.innerHTML = html; }
+  }
+
+  let prev = performance.now();
+  function loop(now) {
+    const dt = Math.min(50, now - prev); prev = now;
+    if (state.running) { analyse(now); paintReadout(); refreshPegs(); setStatus(); }
+    drawStrobe(dt); drawScope();
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+  window.addEventListener('resize', () => { fit(el.strobe); fit(el.scope); });
+})();
+</script>
+</body>
+</html>
