@@ -17,3 +17,13 @@ Route::get('/tuner', function (Request $request) {
 
     return response()->file(public_path('tuner/index.html'));
 });
+
+// Pitch Detector: a general-purpose pitch detector (microphone, audio file or self-test tone) in public/pitch,
+// built the same way as the tuner: a self-contained static page with relative asset paths, reached at /pitch/.
+Route::get('/pitch', function (Request $request) {
+    if (! str_starts_with($request->getRequestUri(), '/pitch/')) {
+        return redirect('/pitch/');
+    }
+
+    return response()->file(public_path('pitch/index.html'));
+});
