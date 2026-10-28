@@ -18,7 +18,7 @@ Route::get('/tuner', function (Request $request) {
     return response()->file(public_path('tuner/index.html'));
 });
 
-// Djahwasi Pitch Detector: a general-purpose pitch detector (microphone, audio file or self-test tone) in public/pitch,
+// Djahwasi's Performance Tools: pitch detector and performance-analysis workbench (microphone, audio file or self-test tone) in public/pitch,
 // built the same way as the tuner: a self-contained static page with relative asset paths, reached at /pitch/.
 Route::get('/pitch', function (Request $request) {
     if (! str_starts_with($request->getRequestUri(), '/pitch/')) {
