@@ -99,6 +99,20 @@ class DemoSeeder extends Seeder
                 'whatsapp_link' => null, 'beginner_friendly' => false, 'status' => 'open'],
         );
 
+        $porter = fn (string $slug) => \App\Models\Porter::where('slug', $slug)->value('id');
+        $tripA->porters()->sync(array_filter([$porter('yayan-cisurupan')]));
+        $tripB->porters()->sync(array_filter([$porter('dede-firmansyah'), $porter('pak-ujang-cibodas')]));
+        $tripC->porters()->sync(array_filter([$porter('lalu-sembalun'), $porter('amaq-senaru')]));
+
+        \App\Models\Permit::firstOrCreate(
+            ['user_id' => $emma->id, 'trail_id' => $gede->id, 'hike_date' => $tripB->departure_at->addDay()->toDateString()],
+            ['trip_id' => $tripB->id, 'party_size' => 1, 'status' => 'planned', 'notes' => 'Organizer said SIMAKSI is handled, confirm before paying.'],
+        );
+        \App\Models\Permit::firstOrCreate(
+            ['user_id' => $budi->id, 'trail_id' => $rinjani->id, 'hike_date' => $tripC->departure_at->toDateString()],
+            ['trip_id' => $tripC->id, 'party_size' => 12, 'status' => 'booked', 'simaksi_code' => 'ERJ-2026-118-0452', 'booked_at' => now()->subDays(3)],
+        );
+
         foreach ([[$tripA, $budi, 'confirmed'], [$tripA, $emma, 'paid'], [$tripB, $emma, 'pending'], [$tripC, $rina, 'confirmed']] as [$trip, $user, $status]) {
             $trip->memberships()->firstOrCreate(['user_id' => $user->id], [
                 'status' => $status,

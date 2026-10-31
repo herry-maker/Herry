@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
@@ -67,6 +68,16 @@ class Trail extends Model
     public function checkIns(): HasMany
     {
         return $this->hasMany(CheckIn::class);
+    }
+
+    public function porters(): BelongsToMany
+    {
+        return $this->belongsToMany(Porter::class)->orderByDesc('is_verified')->orderByDesc('rating_avg');
+    }
+
+    public function permits(): HasMany
+    {
+        return $this->hasMany(Permit::class);
     }
 
     public function description(): string

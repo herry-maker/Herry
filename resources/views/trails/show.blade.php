@@ -18,6 +18,11 @@
 
     <p class="mt-4 text-sm leading-relaxed">{{ $trail->description() }}</p>
 
+    @php $pin = ['lat' => $trail->lat, 'lng' => $trail->lng, 'difficulty' => $trail->difficulty, 'permit' => $trail->requiresPermit()]; @endphp
+    <a href="{{ route('trails.map') }}" class="mt-3 block">
+        <div id="trail-mini-map" class="h-36 rounded-2xl border border-stone-200 overflow-hidden bg-stone-100" data-trail="{{ json_encode($pin) }}"></div>
+    </a>
+
     <section class="mt-4 rounded-2xl bg-white border border-stone-200 p-4">
         <h2 class="display text-base font-bold uppercase tracking-wide">{{ __('Permit') }}</h2>
         <dl class="mt-2 grid grid-cols-2 gap-y-2 text-sm">
@@ -33,6 +38,7 @@
         </div>
         <div class="mt-3 flex flex-wrap gap-2">
             @if ($trail->permit_url)<a href="{{ $trail->permit_url }}" target="_blank" rel="noopener" class="rounded-full bg-forest px-4 py-2 text-xs font-bold text-white">{{ __('Book permit') }} ↗</a>@endif
+            @if ($trail->permit_type !== 'none')<a href="{{ route('permits.create', ['trail' => $trail->id]) }}" class="rounded-full border border-summit px-4 py-2 text-xs font-bold text-summit">📄 {{ __('Plan a permit') }}</a>@endif
             <a href="{{ route('checkins.create', ['trail' => $trail->id]) }}" class="rounded-full bg-canopy px-4 py-2 text-xs font-bold text-white">✓ {{ __('Check in here') }}</a>
             <a href="{{ route('trips.create', ['trail' => $trail->id]) }}" class="rounded-full border border-stone-200 bg-white px-4 py-2 text-xs font-bold">{{ __('Organize a trip here') }}</a>
         </div>
@@ -80,6 +86,16 @@
             </details>
         @endauth
     </section>
+
+    @if ($trail->porters->isNotEmpty())
+        <section class="mt-4">
+            <div class="flex items-baseline justify-between mb-2">
+                <h2 class="display text-base font-bold uppercase tracking-wide">{{ __('Porters & guides') }}</h2>
+                <a href="{{ route('porters.index', ['trail' => $trail->slug]) }}" class="text-xs font-bold text-canopy">{{ __('See all') }}</a>
+            </div>
+            <div class="grid gap-2 sm:grid-cols-2">@foreach ($trail->porters->take(4) as $porter)<x-porter-card :porter="$porter" compact />@endforeach</div>
+        </section>
+    @endif
 
     <section class="mt-4">
         <h2 class="display text-base font-bold uppercase tracking-wide mb-2">{{ __('Upcoming trips') }}</h2>

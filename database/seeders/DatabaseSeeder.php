@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             TrailSeeder::class,
             BadgeSeeder::class,
+            PorterSeeder::class,
             DemoSeeder::class,
         ]);
     }

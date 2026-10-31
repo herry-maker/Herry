@@ -52,6 +52,11 @@ class Trip extends Model
             ->withTimestamps();
     }
 
+    public function porters(): BelongsToMany
+    {
+        return $this->belongsToMany(Porter::class);
+    }
+
     public function scopeUpcoming(Builder $query): Builder
     {
         return $query->whereIn('status', ['open', 'full'])->where('departure_at', '>', now())->orderBy('departure_at');

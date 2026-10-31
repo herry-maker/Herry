@@ -28,6 +28,13 @@
             <h3 class="mt-4 text-xs font-bold uppercase tracking-wider text-stone-500">{{ __('Includes') }}</h3>
             <ul class="mt-1 flex flex-wrap gap-1.5 text-xs">@foreach ($trip->includes as $item)<li class="rounded-full bg-stone-100 px-2.5 py-1">{{ $item }}</li>@endforeach</ul>
         @endif
+        @if ($trip->porters->isNotEmpty())
+            <h3 class="mt-4 text-xs font-bold uppercase tracking-wider text-stone-500">{{ __('Porters & guides') }}</h3>
+            <div class="mt-1 grid gap-2 sm:grid-cols-2">@foreach ($trip->porters as $porter)<x-porter-card :porter="$porter" compact />@endforeach</div>
+        @endif
+        @if ($trip->trail->requiresPermit())
+            <a href="{{ route('permits.create', ['trail' => $trip->trail_id, 'trip' => $trip->id]) }}" class="mt-3 inline-block text-xs font-bold text-summit">📄 {{ __('Plan my :permit for this trip', ['permit' => $trip->trail->permitLabel()]) }} →</a>
+        @endif
     </div>
 
     {{-- Member action panel --}}

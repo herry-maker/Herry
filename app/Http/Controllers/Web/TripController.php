@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Web\StoreTripRequest;
+use App\Models\Porter;
 use App\Models\Trail;
 use App\Models\Trip;
 use Illuminate\Contracts\View\View;
@@ -31,7 +32,7 @@ class TripController extends Controller
 
     public function show(Request $request, Trip $trip): View
     {
-        $trip->load(['trail', 'organizer', 'memberships.user']);
+        $trip->load(['trail', 'organizer', 'memberships.user', 'porters']);
         $membership = $trip->membershipFor($request->user());
         $isOrganizer = $request->user()?->id === $trip->organizer_id;
 
@@ -42,14 +43,21 @@ class TripController extends Controller
     {
         $trails = Trail::orderBy('name')->get(['id', 'name', 'elevation_m']);
         $selected = $request->query('trail');
+        $porters = Porter::with('trails:id')->orderByDesc('is_verified')->orderByDesc('rating_avg')->get()
+            ->map(fn (Porter $p) => [
+                'id' => $p->id, 'name' => $p->name, 'role' => $p->roleLabel(), 'rate' => $p->rate_idr_per_day,
+                'verified' => $p->is_verified, 'trail_ids' => $p->trails->pluck('id')->all(),
+            ]);
 
-        return view('trips.create', compact('trails', 'selected'));
+        return view('trips.create', compact('trails', 'selected', 'porters'));
     }
 
     public function store(StoreTripRequest $request): RedirectResponse
     {
         $data = $request->validated();
         $data['includes'] = array_values(array_filter(array_map('trim', explode("\n", $data['includes'] ?? ''))));
+        $porterIds = $data['porter_ids'] ?? [];
+        unset($data['porter_ids']);
 
         if ($request->hasFile('qris_image')) {
             $data['qris_image_path'] = $request->file('qris_image')->store('qris', 'public');
@@ -57,6 +65,7 @@ class TripController extends Controller
         unset($data['qris_image']);
 
         $trip = $request->user()->organizedTrips()->create($data);
+        $trip->porters()->sync(Porter::forTrail($trip->trail_id)->whereIn('id', $porterIds)->pluck('id'));
         $trip->memberships()->create(['user_id' => $request->user()->id, 'role' => 'leader', 'status' => 'confirmed', 'confirmed_at' => now()]);
 
         return redirect()->route('trips.show', $trip)->with('status', __('Trip published.'));

@@ -29,6 +29,8 @@ class StoreTripRequest extends FormRequest
             'whatsapp_link'     => ['nullable', 'url', 'starts_with:https://chat.whatsapp.com/'],
             'qris_image'        => ['nullable', 'image', 'max:2048'],
             'beginner_friendly' => ['nullable', 'boolean'],
+            'porter_ids'        => ['nullable', 'array', 'max:10'],
+            'porter_ids.*'      => ['integer', 'exists:porters,id'],
         ];
     }
 }

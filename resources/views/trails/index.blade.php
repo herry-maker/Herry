@@ -26,7 +26,13 @@
         </div>
     </form>
 
-    <p class="mt-3 text-xs text-stone-500">{{ __('Showing :count trails', ['count' => $trails->count()]) }}</p>
+    <div class="mt-3 flex items-center justify-between">
+        <p class="text-xs text-stone-500">{{ __('Showing :count trails', ['count' => $trails->count()]) }}</p>
+        <div class="flex gap-2 text-xs font-bold">
+            <a href="{{ route('porters.index') }}" class="rounded-full border border-stone-200 bg-white px-3 py-1.5">🎒 {{ __('Porters & guides') }}</a>
+            <a href="{{ route('trails.map') }}" class="rounded-full border border-stone-200 bg-white px-3 py-1.5">🗺 {{ __('Map') }}</a>
+        </div>
+    </div>
 
     <div class="mt-2 divide-y divide-stone-200 rounded-2xl bg-white border border-stone-200">
         @forelse ($trails as $trail)

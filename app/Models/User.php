@@ -46,6 +46,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(CheckIn::class);
     }
 
+    public function permits(): HasMany
+    {
+        return $this->hasMany(Permit::class);
+    }
+
     public function organizedTrips(): HasMany
     {
         return $this->hasMany(Trip::class, 'organizer_id');

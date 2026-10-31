@@ -3,6 +3,8 @@
 use App\Http\Controllers\Web\CheckInController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\LocaleController;
+use App\Http\Controllers\Web\PermitController;
+use App\Http\Controllers\Web\PorterController;
 use App\Http\Controllers\Web\PostController;
 use App\Http\Controllers\Web\ProfileController;
 use App\Http\Controllers\Web\TrailController;
@@ -16,7 +18,11 @@ Route::get('/', HomeController::class)->name('home');
 Route::get('/locale/{locale}', [LocaleController::class, 'switch'])->name('locale.switch');
 
 Route::get('/trails', [TrailController::class, 'index'])->name('trails.index');
+Route::get('/trails/map', [TrailController::class, 'map'])->name('trails.map');
 Route::get('/trails/{trail}', [TrailController::class, 'show'])->name('trails.show');
+
+Route::get('/porters', [PorterController::class, 'index'])->name('porters.index');
+Route::get('/porters/{porter}', [PorterController::class, 'show'])->name('porters.show');
 
 Route::get('/trips', [TripController::class, 'index'])->name('trips.index');
 Route::get('/trips/{trip}', [TripController::class, 'show'])->name('trips.show')->where('trip', '[0-9]+');
@@ -50,6 +56,12 @@ Route::middleware('auth')->group(function (): void {
     Route::post('/trips/{trip}/proof', [TripMemberController::class, 'uploadProof'])->name('trips.proof');
     Route::post('/trips/{trip}/members/{member}/confirm', [TripMemberController::class, 'confirm'])->name('trips.confirm');
     Route::delete('/trips/{trip}/leave', [TripMemberController::class, 'cancel'])->name('trips.leave');
+
+    Route::get('/permits', [PermitController::class, 'index'])->name('permits.index');
+    Route::get('/permits/new', [PermitController::class, 'create'])->name('permits.create');
+    Route::post('/permits', [PermitController::class, 'store'])->name('permits.store');
+    Route::put('/permits/{permit}', [PermitController::class, 'update'])->name('permits.update');
+    Route::delete('/permits/{permit}', [PermitController::class, 'destroy'])->name('permits.destroy');
 
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');

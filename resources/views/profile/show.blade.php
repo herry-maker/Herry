@@ -14,6 +14,7 @@
             <div class="mt-4 flex flex-wrap justify-center gap-2 text-xs font-bold">
                 <a href="{{ route('profile.edit') }}" class="rounded-full bg-white/15 px-4 py-2">{{ __('Edit profile') }}</a>
                 <a href="{{ route('checkins.create') }}" class="rounded-full bg-summit px-4 py-2">✓ {{ __('Check in') }}</a>
+                <a href="{{ route('permits.index') }}" class="rounded-full bg-white/15 px-4 py-2">📄 {{ __('My permits') }}</a>
                 <form method="post" action="{{ route('logout') }}">@csrf<button class="rounded-full bg-white/15 px-4 py-2">{{ __('Log out') }}</button></form>
             </div>
         @endif
