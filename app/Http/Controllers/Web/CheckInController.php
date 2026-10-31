@@ -66,7 +66,7 @@ class CheckInController extends Controller
         $newBadges = $badges->evaluate($request->user()->fresh());
 
         $message = $reached
-            ? __('Summit logged: :trail, :m m.', ['trail' => $checkIn->trail->name, 'm' => number_format($checkIn->trail->elevation_m)])
+            ? __('Summit logged: :trail, :m m.', ['trail' => $checkIn->trail->name, 'm' => number_format($checkIn->trail->elevation_m, 0, ',', '.')])
             : __('Checked out. Glad you are back.');
 
         if ($newBadges->isNotEmpty()) {
