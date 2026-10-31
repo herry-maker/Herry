@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ isset($title) ? $title.' · ' : '' }}{{ config('app.name') }}</title>
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#0e3b22">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Arda">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
+    <link rel="icon" href="/icons/icon-192.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Nunito:wght@400;600;700&display=swap">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -51,6 +58,13 @@
         </div>
     </div>
 @endif
+
+<div id="net-banner" hidden class="mx-auto w-full max-w-3xl px-4 pt-3">
+    <div class="rounded-xl bg-stone-900 text-white px-4 py-2 text-xs font-semibold flex items-center gap-2">
+        <span>📴</span><span data-offline>{{ __('Offline. Pages you opened still work; check-ins are queued.') }}</span>
+        <span data-pending hidden class="ml-auto rounded-full bg-summit px-2 py-0.5">{{ __('1 check-in queued') }}</span>
+    </div>
+</div>
 
 <main class="mx-auto w-full max-w-3xl flex-1 px-4 pb-24 pt-4">
     {{ $slot }}

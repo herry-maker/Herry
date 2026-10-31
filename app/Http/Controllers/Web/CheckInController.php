@@ -40,10 +40,12 @@ class CheckInController extends Controller
         $data = $request->validate([
             'trail_id'           => ['required', 'exists:trails,id'],
             'trip_id'            => ['nullable', 'exists:trips,id'],
-            'expected_return_at' => ['required', 'date', 'after:now'],
+            'expected_return_at' => ['required', 'date', 'after:checkin_at'],
+            // Sent by the offline queue so a check-in made without signal keeps its real start time.
+            'checkin_at'         => ['nullable', 'date', 'after:-7 days', 'before_or_equal:now'],
         ]);
 
-        $user->checkIns()->create([...$data, 'checkin_at' => now()]);
+        $user->checkIns()->create([...$data, 'checkin_at' => $data['checkin_at'] ?? now()]);
 
         return redirect()->route('home')->with('status', __('Checked in. Stay safe and check out when you are back.'));
     }

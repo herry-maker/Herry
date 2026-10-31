@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
 Route::get('/locale/{locale}', [LocaleController::class, 'switch'])->name('locale.switch');
+Route::view('/offline', 'offline')->name('offline');
 
 Route::get('/trails', [TrailController::class, 'index'])->name('trails.index');
 Route::get('/trails/map', [TrailController::class, 'map'])->name('trails.map');

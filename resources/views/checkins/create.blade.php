@@ -14,7 +14,7 @@
             </form>
         </section>
     @else
-        <form method="post" action="{{ route('checkins.store') }}" class="mt-4 grid gap-4 rounded-2xl bg-white border border-stone-200 p-4 text-sm">
+        <form id="checkin-form" method="post" action="{{ route('checkins.store') }}" class="mt-4 grid gap-4 rounded-2xl bg-white border border-stone-200 p-4 text-sm" data-queued-msg="{{ __('No signal. Your check-in is saved on this phone and will be sent automatically when you are back in coverage.') }}">
             @csrf
             <label>{{ __('Mountain') }}
                 <select name="trail_id" id="ci-trail" required class="mt-1 w-full rounded-lg border border-stone-200 px-3 py-2">

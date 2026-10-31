@@ -248,5 +248,18 @@
     "Permit planned. We will remind you when booking opens on :date.": "Izin direncanakan. Kami ingatkan saat pemesanan dibuka pada :date.",
     "Permit updated: :status": "Izin diperbarui: :status",
     "Permit removed.": "Izin dihapus.",
-    "Plan my :permit for this trip": "Rencanakan :permit saya untuk trip ini"
+    "Plan my :permit for this trip": "Rencanakan :permit saya untuk trip ini",
+    "Weather at basecamp": "Cuaca di basecamp",
+    "Forecast unavailable right now. Check BMKG directly before you leave.": "Prakiraan tidak tersedia saat ini. Cek BMKG langsung sebelum berangkat.",
+    "Heavy rain or thunderstorm forecast. Lightning on exposed ridges is the main killer on Javanese volcanoes; plan to be off the summit before noon or postpone.": "Diprakirakan hujan lebat atau petir. Sambaran petir di punggungan terbuka adalah penyebab kematian utama di gunung-gunung Jawa; rencanakan turun dari puncak sebelum siang atau tunda.",
+    "Forecast for the nearest village to basecamp; summit conditions are colder and wetter. Updated :time.": "Prakiraan untuk desa terdekat dari basecamp; kondisi puncak lebih dingin dan basah. Diperbarui :time.",
+    "Offline": "Offline",
+    "You are offline": "Kamu sedang offline",
+    "No signal at basecamp is normal. Pages you opened earlier still work, and a check-in you submit now is saved on this phone and sent when you are back in coverage.": "Tidak ada sinyal di basecamp itu wajar. Halaman yang pernah dibuka tetap bisa diakses, dan check-in yang kamu kirim sekarang disimpan di ponsel lalu dikirim saat sinyal kembali.",
+    "Emergency": "Darurat",
+    "Police": "Polisi",
+    "Offline. Pages you opened still work; check-ins are queued.": "Offline. Halaman yang pernah dibuka tetap bisa diakses; check-in masuk antrean.",
+    "1 check-in queued": "1 check-in dalam antrean",
+    "No signal. Your check-in is saved on this phone and will be sent automatically when you are back in coverage.": "Tidak ada sinyal. Check-in disimpan di ponsel dan akan terkirim otomatis saat sinyal kembali.",
+    "Install app": "Pasang aplikasi"
 }

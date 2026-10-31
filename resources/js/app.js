@@ -69,3 +69,81 @@ if (mini) {
     tiles(map);
     L.marker([trail.lat, trail.lng], { icon: pin(trail, 18) }).addTo(map);
 }
+
+// ---------------------------------------------------------------------------
+// PWA: service worker, offline banner, queued check-in, install prompt
+// ---------------------------------------------------------------------------
+
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+}
+
+const QUEUE_KEY = 'arda.pendingCheckin';
+const csrf = document.querySelector('meta[name="csrf-token"]')?.content;
+
+function readQueue() {
+    try { return JSON.parse(localStorage.getItem(QUEUE_KEY) || 'null'); } catch { return null; }
+}
+
+function renderNet() {
+    const banner = document.getElementById('net-banner');
+    if (!banner) return;
+    const pending = readQueue();
+    banner.hidden = navigator.onLine && !pending;
+    banner.querySelector('[data-offline]').hidden = navigator.onLine;
+    banner.querySelector('[data-pending]').hidden = !pending;
+}
+
+async function flushQueue() {
+    const pending = readQueue();
+    if (!pending || !navigator.onLine || !csrf) return;
+    try {
+        const body = new URLSearchParams({ ...pending.fields, _token: csrf });
+        const res = await fetch(pending.action, { method: 'POST', body, credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest', Accept: 'application/json' }, redirect: 'follow' });
+        if (res.ok || res.redirected || res.status === 302) {
+            localStorage.removeItem(QUEUE_KEY);
+            renderNet();
+            if (location.pathname === '/check-in') location.reload();
+        } else if (res.status === 422) {
+            localStorage.removeItem(QUEUE_KEY);
+            renderNet();
+        }
+    } catch { /* still offline; try again on next online event */ }
+}
+
+const checkinForm = document.getElementById('checkin-form');
+if (checkinForm) {
+    checkinForm.addEventListener('submit', (e) => {
+        if (navigator.onLine) return;
+        e.preventDefault();
+        const fields = Object.fromEntries(new FormData(checkinForm).entries());
+        delete fields._token;
+        fields.checkin_at = new Date().toISOString();
+        try { localStorage.setItem(QUEUE_KEY, JSON.stringify({ action: checkinForm.action, fields })); } catch {}
+        renderNet();
+        const note = document.createElement('p');
+        note.className = 'rounded-xl bg-canopy-light text-canopy px-4 py-3 text-sm font-semibold';
+        note.textContent = checkinForm.dataset.queuedMsg;
+        checkinForm.replaceWith(note);
+    });
+}
+
+window.addEventListener('online', () => { renderNet(); flushQueue(); });
+window.addEventListener('offline', renderNet);
+renderNet();
+flushQueue();
+
+let installEvent = null;
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    installEvent = e;
+    const btn = document.getElementById('install-app');
+    if (btn) btn.hidden = false;
+});
+document.getElementById('install-app')?.addEventListener('click', async () => {
+    if (!installEvent) return;
+    installEvent.prompt();
+    await installEvent.userChoice;
+    installEvent = null;
+    document.getElementById('install-app').hidden = true;
+});
