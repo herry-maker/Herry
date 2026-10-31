@@ -58,6 +58,13 @@ class CheckInController extends Controller
 
         $checkIn->update(['checkout_at' => now(), 'reached_summit' => $reached]);
 
+        $request->user()->permits()
+            ->where('trail_id', $checkIn->trail_id)
+            ->whereIn('status', ['booked', 'approved'])
+            ->whereDate('hike_date', '>=', $checkIn->checkin_at->toDateString())
+            ->whereDate('hike_date', '<=', now()->toDateString())
+            ->update(['status' => 'used']);
+
         if ($reached) {
             $request->user()->increment('summit_count');
             $request->user()->increment('total_elevation_m', $checkIn->trail->elevation_m);

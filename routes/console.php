@@ -9,3 +9,4 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote');
 
 Schedule::command('checkins:alert-overdue')->everyThirtyMinutes();
+Schedule::command('permits:remind')->dailyAt('07:00');
