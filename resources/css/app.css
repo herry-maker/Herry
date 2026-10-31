@@ -6,6 +6,45 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Barlow Condensed', Impact, ui-sans-serif, sans-serif;
+
+    --color-forest: #0e3b22;
+    --color-canopy: #1c6640;
+    --color-canopy-light: #e6f1ea;
+    --color-summit: #d45c1a;
+    --color-summit-light: #fbe9df;
+    --color-mist: #5f93b5;
+    --color-stone-50: #f4f2ed;
+    --color-stone-100: #e9e6df;
+    --color-stone-200: #d8d2c8;
+    --color-stone-500: #5c5347;
+    --color-stone-900: #1a1612;
 }
+
+@layer base {
+    html { scroll-behavior: smooth; }
+    body { @apply bg-stone-50 text-stone-900 antialiased; }
+    h1, h2, h3 { text-wrap: balance; }
+    [x-cloak] { display: none !important; }
+}
+
+@utility display {
+    font-family: var(--font-display);
+}
+
+@utility tabular {
+    font-variant-numeric: tabular-nums;
+}
+
+@utility hide-scrollbar {
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+}
+
+@utility cover-gede { background: linear-gradient(180deg, #7fb3d6 0%, #5b8fb9 35%, #2e6b40 60%, #1e4a2c 100%); }
+@utility cover-salak { background: linear-gradient(180deg, #a3c5e0 0%, #6291b8 40%, #3a7048 65%, #1e3a20 100%); }
+@utility cover-papandayan { background: linear-gradient(180deg, #d1a877 0%, #9e7352 40%, #5b7242 70%, #2f4020 100%); }
+@utility cover-halimun { background: linear-gradient(180deg, #93bbd3 0%, #5a8aaa 40%, #2b5a39 70%, #1a3020 100%); }
+@utility cover-ciremai { background: linear-gradient(180deg, #b3cae0 0%, #728cb1 35%, #4b6a3a 65%, #283818 100%); }
+@utility cover-prau { background: linear-gradient(180deg, #f3cb84 0%, #c39244 30%, #4b7a49 65%, #283818 100%); }
