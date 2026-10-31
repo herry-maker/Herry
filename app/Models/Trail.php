@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
     'name', 'slug', 'regency', 'province', 'elevation_m', 'length_km', 'difficulty',
     'hours_from_jakarta', 'permit_type', 'permit_url', 'daily_quota',
     'permit_fee_local_idr', 'permit_fee_foreign_idr', 'basarnas_required', 'guide_required',
-    'lat', 'lng', 'description_en', 'description_id', 'cover_path', 'cover_gradient',
+    'lat', 'lng', 'bmkg_adm4', 'description_en', 'description_id', 'cover_path', 'cover_gradient',
 ])]
 class Trail extends Model
 {

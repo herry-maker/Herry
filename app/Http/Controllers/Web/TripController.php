@@ -7,6 +7,7 @@ use App\Http\Requests\Web\StoreTripRequest;
 use App\Models\Porter;
 use App\Models\Trail;
 use App\Models\Trip;
+use App\Services\WeatherService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -30,13 +31,14 @@ class TripController extends Controller
         return view('trips.index', compact('trips', 'filters'));
     }
 
-    public function show(Request $request, Trip $trip): View
+    public function show(Request $request, Trip $trip, WeatherService $weather): View
     {
         $trip->load(['trail', 'organizer', 'memberships.user', 'porters']);
         $membership = $trip->membershipFor($request->user());
         $isOrganizer = $request->user()?->id === $trip->organizer_id;
+        $forecast = $trip->departure_at->lte(now()->addDays(3)) ? $weather->forecast($trip->trail) : null;
 
-        return view('trips.show', compact('trip', 'membership', 'isOrganizer'));
+        return view('trips.show', compact('trip', 'membership', 'isOrganizer', 'forecast'));
     }
 
     public function create(Request $request): View

@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 #[Fillable([
     'trail_id', 'organizer_id', 'title', 'description', 'type', 'departure_at', 'return_at',
     'meeting_point', 'max_participants', 'price_idr', 'includes', 'whatsapp_link',
-    'qris_image_path', 'beginner_friendly', 'status',
+    'qris_image_path', 'beginner_friendly', 'status', 'weather_alert_sent_at',
 ])]
 class Trip extends Model
 {
@@ -27,6 +27,7 @@ class Trip extends Model
             'return_at'         => 'datetime',
             'includes'          => 'array',
             'beginner_friendly' => 'boolean',
+            'weather_alert_sent_at' => 'datetime',
         ];
     }
 

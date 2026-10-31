@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Trail;
+use App\Services\WeatherService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
@@ -51,7 +52,7 @@ class TrailController extends Controller
         return view('trails.map', compact('trails'));
     }
 
-    public function show(Trail $trail): View
+    public function show(Trail $trail, WeatherService $weather): View
     {
         $trail->load([
             'reviews.user',
@@ -60,6 +61,8 @@ class TrailController extends Controller
             'posts' => fn ($q) => $q->with(['user', 'likers:id'])->limit(5),
         ])->loadCount('reviews')->loadAvg('reviews', 'rating');
 
-        return view('trails.show', compact('trail'));
+        $forecast = $weather->forecast($trail);
+
+        return view('trails.show', compact('trail', 'forecast'));
     }
 }

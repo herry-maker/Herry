@@ -10,3 +10,4 @@ Artisan::command('inspire', function () {
 
 Schedule::command('checkins:alert-overdue')->everyThirtyMinutes();
 Schedule::command('permits:remind')->dailyAt('07:00');
+Schedule::command('trips:weather-alert')->everySixHours();

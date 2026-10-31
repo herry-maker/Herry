@@ -23,6 +23,8 @@
         <div id="trail-mini-map" class="h-36 rounded-2xl border border-stone-200 overflow-hidden bg-stone-100" data-trail="{{ json_encode($pin) }}"></div>
     </a>
 
+    @if ($trail->bmkg_adm4)<x-weather-card :forecast="$forecast" class="mt-4" />@endif
+
     <section class="mt-4 rounded-2xl bg-white border border-stone-200 p-4">
         <h2 class="display text-base font-bold uppercase tracking-wide">{{ __('Permit') }}</h2>
         <dl class="mt-2 grid grid-cols-2 gap-y-2 text-sm">

@@ -122,7 +122,24 @@ class TrailSeeder extends Seeder
             ],
         ];
 
+        // BMKG adm4 (kelurahan/desa) codes for each basecamp, from Permendagri 72/2019.
+        $bmkg = [
+            'gunung-gede'       => '32.03.10.2003', // Cibodas, Pacet, Cianjur
+            'gunung-pangrango'  => '32.03.10.2003',
+            'gunung-salak'      => '32.02.17.2004', // Cidahu, Sukabumi
+            'gunung-halimun'    => '32.01.21.2001', // Malasari (Citalahab), Nanggung, Bogor
+            'gunung-papandayan' => '32.05.20.2001', // Cisurupan, Garut
+            'gunung-ciremai'    => '32.08.13.2009', // Linggarjati, Cilimus, Kuningan
+            'gunung-prau'       => '33.07.13.2014', // Patakbanteng, Kejajar, Wonosobo
+            'gunung-puntang'    => '32.04.17.2004', // Campakamulya, Cimaung, Bandung
+            'gunung-sumbing'    => '33.07.07.2018', // Butuh, Kalikajar, Wonosobo
+            'gunung-semeru'     => '35.08.12.2012', // Ranupani, Senduro, Lumajang
+            'gunung-rinjani'    => '52.03.15.2002', // Sembalun Lawang, Lombok Timur
+            'gunung-bromo'      => '35.13.01.2001', // Ngadisari, Sukapura, Probolinggo
+        ];
+
         foreach ($trails as $trail) {
+            $trail['bmkg_adm4'] = $bmkg[$trail['slug']] ?? null;
             Trail::updateOrCreate(['slug' => $trail['slug']], $trail);
         }
     }

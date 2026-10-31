@@ -37,6 +37,10 @@
         @endif
     </div>
 
+    @if ($forecast !== null || ($trip->departure_at->lte(now()->addDays(3)) && $trip->trail->bmkg_adm4))
+        <x-weather-card :forecast="$forecast" :highlight="$trip->departure_at" class="mt-3" />
+    @endif
+
     {{-- Member action panel --}}
     <section class="mt-3 rounded-2xl bg-white border border-stone-200 p-4">
         @guest
