@@ -30,11 +30,33 @@ class TrailController extends Controller
         return view('trails.index', compact('trails', 'filters'));
     }
 
+    public function map(): View
+    {
+        $trails = Trail::withCount('reviews')->orderBy('name')->get()->map(fn (Trail $t) => [
+            'slug'       => $t->slug,
+            'name'       => $t->name,
+            'lat'        => $t->lat,
+            'lng'        => $t->lng,
+            'elevation'  => $t->elevation_m,
+            'regency'    => $t->regency,
+            'province'   => $t->province,
+            'difficulty' => $t->difficulty,
+            'label'      => $t->difficultyLabel(),
+            'hours'      => $t->hours_from_jakarta,
+            'permit'     => $t->requiresPermit(),
+            'url'        => route('trails.show', $t),
+            'gradient'   => $t->cover_gradient,
+        ]);
+
+        return view('trails.map', compact('trails'));
+    }
+
     public function show(Trail $trail): View
     {
         $trail->load([
             'reviews.user',
             'upcomingTrips.organizer',
+            'porters',
             'posts' => fn ($q) => $q->with(['user', 'likers:id'])->limit(5),
         ])->loadCount('reviews')->loadAvg('reviews', 'rating');
 
