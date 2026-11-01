@@ -554,4 +554,85 @@ class AuthTest extends TestCase
 
         $this->assertNotNull($user->fresh()->email_verified_at);
     }
+
+    // -----------------------------------------------------------------------
+    // Token management
+    // -----------------------------------------------------------------------
+
+    public function test_tokens_lists_active_sessions(): void
+    {
+        $user  = User::factory()->create();
+        $user->createToken('device-a');
+        $tokenB = $user->createToken('device-b')->plainTextToken;
+
+        $response = $this->getJson('/api/auth/tokens', ['Authorization' => "Bearer $tokenB"]);
+
+        $response->assertOk()->assertJsonStructure(['tokens']);
+        $this->assertCount(2, $response->json('tokens'));
+    }
+
+    public function test_tokens_marks_current_token(): void
+    {
+        $user  = User::factory()->create();
+        $tokenResult = $user->createToken('my-device');
+        $plain = $tokenResult->plainTextToken;
+
+        $tokens = $this->getJson('/api/auth/tokens', ['Authorization' => "Bearer $plain"])
+            ->assertOk()
+            ->json('tokens');
+
+        $current = collect($tokens)->firstWhere('current', true);
+        $this->assertNotNull($current);
+        $this->assertSame($tokenResult->accessToken->id, $current['id']);
+    }
+
+    public function test_tokens_requires_authentication(): void
+    {
+        $this->getJson('/api/auth/tokens')->assertUnauthorized();
+    }
+
+    public function test_revoke_token_deletes_specific_token(): void
+    {
+        $user    = User::factory()->create();
+        $active  = $user->createToken('active')->plainTextToken;
+        $other   = $user->createToken('other');
+        $otherId = $other->accessToken->id;
+
+        $this->deleteJson("/api/auth/tokens/$otherId", [], ['Authorization' => "Bearer $active"])
+            ->assertOk()
+            ->assertJsonPath('message', 'Token revoked.');
+
+        $this->assertDatabaseMissing('personal_access_tokens', ['id' => $otherId]);
+    }
+
+    public function test_revoke_token_returns_404_for_unknown_id(): void
+    {
+        $user  = User::factory()->create();
+        $token = $user->createToken('test')->plainTextToken;
+
+        $this->deleteJson('/api/auth/tokens/99999', [], ['Authorization' => "Bearer $token"])
+            ->assertNotFound()
+            ->assertJsonPath('message', 'Token not found.');
+    }
+
+    public function test_revoke_token_cannot_access_other_users_tokens(): void
+    {
+        $user1  = User::factory()->create();
+        $user2  = User::factory()->create();
+        $tokenU1 = $user1->createToken('u1-token')->plainTextToken;
+        $tokenU2 = $user2->createToken('u2-token');
+        $u2TokenId = $tokenU2->accessToken->id;
+
+        // user1 tries to revoke user2's token — should get 404, not 403.
+        $this->deleteJson("/api/auth/tokens/$u2TokenId", [], ['Authorization' => "Bearer $tokenU1"])
+            ->assertNotFound();
+
+        // user2's token must still exist.
+        $this->assertDatabaseHas('personal_access_tokens', ['id' => $u2TokenId]);
+    }
+
+    public function test_revoke_token_requires_authentication(): void
+    {
+        $this->deleteJson('/api/auth/tokens/1')->assertUnauthorized();
+    }
 }

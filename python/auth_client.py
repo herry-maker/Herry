@@ -149,6 +149,16 @@ class AuthClient:
         self.token = data.get("token")
         return data
 
+    def list_tokens(self) -> dict[str, Any]:
+        """Return all active access tokens for the authenticated user."""
+        self._require_token()
+        return self._get("/api/auth/tokens")
+
+    def revoke_token(self, token_id: int) -> dict[str, Any]:
+        """Revoke a specific token by its numeric ID."""
+        self._require_token()
+        return self._delete(f"/api/auth/tokens/{token_id}")
+
     def resend_verification(self) -> dict[str, Any]:
         """Resend the email-verification link."""
         self._require_token()
@@ -179,6 +189,10 @@ class AuthClient:
 
     def _put(self, path: str, payload: dict[str, Any]) -> dict[str, Any]:
         response = self._session.put(f"{self.base_url}{path}", json=payload)
+        return self._handle(response)
+
+    def _delete(self, path: str) -> dict[str, Any]:
+        response = self._session.delete(f"{self.base_url}{path}")
         return self._handle(response)
 
     @staticmethod

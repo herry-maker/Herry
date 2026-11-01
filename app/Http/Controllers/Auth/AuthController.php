@@ -38,7 +38,9 @@ class AuthController extends Controller
 
         // Always run Hash::check — even for unknown emails — to prevent timing-based
         // enumeration attacks that reveal whether an address is registered.
-        $hash = $user?->password ?? '$2y$12$invalid.hash.that.never.matches.anything.here';
+        // The fallback must be a syntactically valid bcrypt hash (same cost as
+        // BCRYPT_ROUNDS) so that password_verify performs the full computation.
+        $hash = $user?->password ?? '$2y$12$aq0BJVu6vaQgo1PfoAeypepHHD3jCqOdVUGOiK4FNISXWcAwKRi1K';
 
         if (! $user || ! Hash::check($request->password, $hash)) {
             return response()->json(['message' => 'Invalid credentials.'], 401);
@@ -132,5 +134,32 @@ class AuthController extends Controller
             'token'   => $token,
             'type'    => 'Bearer',
         ]);
+    }
+
+    public function tokens(Request $request): JsonResponse
+    {
+        $current = $request->user()->currentAccessToken()->id;
+
+        $tokens = $request->user()->tokens()->get()->map(fn ($t) => [
+            'id'         => $t->id,
+            'name'       => $t->name,
+            'current'    => $t->id === $current,
+            'last_used'  => $t->last_used_at,
+            'expires_at' => $t->expires_at,
+            'created_at' => $t->created_at,
+        ]);
+
+        return response()->json(['tokens' => $tokens]);
+    }
+
+    public function revokeToken(Request $request, int $tokenId): JsonResponse
+    {
+        $deleted = $request->user()->tokens()->where('id', $tokenId)->delete();
+
+        if (! $deleted) {
+            return response()->json(['message' => 'Token not found.'], 404);
+        }
+
+        return response()->json(['message' => 'Token revoked.']);
     }
 }

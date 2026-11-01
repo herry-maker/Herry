@@ -45,14 +45,16 @@ class AppServiceProvider extends ServiceProvider
 
     private function configureRateLimiting(): void
     {
-        // Login / register: 5 attempts per minute per IP, plus a tighter per-email+IP
-        // bucket to slow credential-stuffing against a single account even when the
-        // attacker rotates IPs. We intentionally avoid a pure per-email limit (no IP
-        // component) to prevent user-enumeration via differential rate-limit responses.
+        // Login / register: 10 attempts per minute per IP, plus a tighter 3-per-minute
+        // bucket keyed on email+IP so that a single account cannot be hammered from
+        // one address more than 3 times a minute, while still allowing a busy shared
+        // IP to log in with different accounts up to 10 times. A pure per-email limit
+        // (no IP component) is intentionally avoided to prevent user-enumeration via
+        // differential rate-limit responses.
         RateLimiter::for('auth', function (Request $request) {
             return [
-                Limit::perMinute(5)->by($request->ip()),
-                Limit::perMinute(10)->by(strtolower((string) $request->input('email')).'|'.$request->ip()),
+                Limit::perMinute(10)->by($request->ip()),
+                Limit::perMinute(3)->by(strtolower((string) $request->input('email')).'|'.$request->ip()),
             ];
         });
 

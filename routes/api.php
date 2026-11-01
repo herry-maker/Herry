@@ -36,6 +36,9 @@ Route::prefix('auth')->middleware(['auth:sanctum', 'throttle:api'])->group(funct
     Route::post('logout-all', [AuthController::class, 'logoutAll']);
     Route::post('refresh',   [AuthController::class, 'refresh']);
 
+    Route::get('tokens',          [AuthController::class, 'tokens']);
+    Route::delete('tokens/{id}',  [AuthController::class, 'revokeToken']);
+
     Route::post('email/verify/{id}/{hash}', [EmailVerificationController::class, 'verify'])
         ->middleware('signed')
         ->name('verification.verify');

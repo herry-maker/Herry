@@ -132,6 +132,44 @@ class TestProtectedEndpoints:
 # Context manager
 # ---------------------------------------------------------------------------
 
+class TestTokenManagement:
+    def test_list_tokens_requires_token(self):
+        client = AuthClient(base_url="http://api")
+        with pytest.raises(RuntimeError, match="Not authenticated"):
+            client.list_tokens()
+
+    def test_list_tokens_returns_data(self):
+        client = AuthClient(base_url="http://api")
+        client.token = "tok"
+        resp = _mock_response(200, {"tokens": [{"id": 1, "current": True}]})
+        with patch.object(client._session, "get", return_value=resp):
+            data = client.list_tokens()
+        assert len(data["tokens"]) == 1
+
+    def test_revoke_token_requires_token(self):
+        client = AuthClient(base_url="http://api")
+        with pytest.raises(RuntimeError, match="Not authenticated"):
+            client.revoke_token(42)
+
+    def test_revoke_token_calls_delete(self):
+        client = AuthClient(base_url="http://api")
+        client.token = "tok"
+        resp = _mock_response(200, {"message": "Token revoked."})
+        with patch.object(client._session, "delete", return_value=resp) as mock_del:
+            data = client.revoke_token(7)
+        mock_del.assert_called_once()
+        assert "Token revoked." in data["message"]
+
+    def test_revoke_token_raises_on_404(self):
+        client = AuthClient(base_url="http://api")
+        client.token = "tok"
+        resp = _mock_response(404, {"message": "Token not found."})
+        with patch.object(client._session, "delete", return_value=resp):
+            with pytest.raises(AuthAPIError) as exc_info:
+                client.revoke_token(9999)
+        assert exc_info.value.status_code == 404
+
+
 class TestContextManager:
     def test_enter_returns_client(self):
         with AuthClient(base_url="http://api") as client:
