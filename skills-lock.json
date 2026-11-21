@@ -7,6 +7,20 @@
       "sourceType": "github",
       "skillPath": "skills/hyperframes/SKILL.md",
       "computedHash": "10efb1144c3ac424135e538fac9fb98c812153c2d017e57e2f4f770994d77550"
+    },
+    "motion-doctrine": {
+      "source": "heygen-com/hyperframes",
+      "commit": "fbbf5ee67e86e41e10536e5088baaf886330a60c",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/motion-doctrine/SKILL.md",
+      "computedHash": "45cce525dc6ed9731e6b8544c023a3c2c8494f3cae453eaf6cc9315f51dee4b7"
+    },
+    "motioncraft": {
+      "source": "ahmdd4vd/MotionCraft",
+      "commit": "8f4871543399c1981c247b734d9a123e6a6feb7a",
+      "sourceType": "github",
+      "skillPath": "skills/motioncraft/SKILL.md",
+      "computedHash": "a0ffc0acdff3c894616561dbaeaccaa707776675365636b835e0cf5276f7e05d"
     }
   }
 }
