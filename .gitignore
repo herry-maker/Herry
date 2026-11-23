@@ -30,3 +30,9 @@ Thumbs.db
 python/__pycache__/
 python/.pytest_cache/
 *.pyc
+
+# Animation toolkits (see animation/README.md)
+/animation/ClaudeAnimationBase/node_modules/
+/animation/ClaudeAnimationBase/out/
+# directing-stickman-videos ships ~500 MB of sample media; reinstall with `npx skills add kaomei/stickman-video-director -y`
+/.agents/skills/directing-stickman-videos/
