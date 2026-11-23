@@ -36,3 +36,29 @@ npx skills add kaomei/stickman-video-director -y
 
 Mode A (Model Engine) produces storyboards and prompts for a video model; Mode B (Code Engine)
 renders narrated, captioned videos locally and needs a text-to-speech provider to be configured.
+
+## 3. animation-studio (the engine actually used for the first film)
+
+The `animation-studio` skill installed in Claude Code draws every frame on a canvas and
+synthesizes the soundtrack in code from one timeline (`score.js`). It needs only Node 22,
+ffmpeg and Chrome/Chromium. No `npm install`.
+
+### `kita-dah-biasa/` — "Kita Dah Biasa" (9:16, 63 s)
+
+An academic satire on system justification (Jost & Banaji, 1994): five lecturers in a faculty
+meeting; one asks when teaching and research will be discussed. Dialogue in Bahasa Melayu,
+recorded with ElevenLabs (nine takes in `assets/vo/`), captions and lip-sync from the takes.
+
+```bash
+cd animation/kita-dah-biasa
+node song.js                      # fits the takes to the script's timecodes, writes out/music.wav + out/voice.json
+node engine/render.js board       # storyboard of every marker  -> out/board.png
+node engine/render.js video 3     # all 1,890 frames            -> out/video.mp4 (about 6 min on 4 cores)
+node engine/render.js mux         # final film                  -> out/kita-dah-biasa.mp4
+node engine/render.js verify      # sound ±20 ms / picture ±1 frame at every sync marker
+node engine/render.js srt         # subtitles                   -> out/kita-dah-biasa.srt
+```
+
+Files: `score.js` (every cue and the dialogue slots), `song.js` (dialogue fitting, music, effects),
+`film.js` (the room, the cast, the camera, the freeze labels, the stamp, the end card).
+Edit the dialogue by replacing a take in `assets/vo/` and its `text` in `score.js`, then rerun.

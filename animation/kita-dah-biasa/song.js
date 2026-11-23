@@ -86,7 +86,7 @@ tune.forEach((n, i) => { if (n) box.addMono(I.musicBox(m(n), { decay: 1.4 }), 46
 // colour comes back: a click, and the vamp again
 fx.addMono(I.tvClick(), ev.resume, 0.7); fx.addMono(I.pop(1.6), ev.resume, 0.25);
 // LULUS
-fx.addMono(I.thwack(), ev.stamp, 1.0); fx.addMono(I.thud(60, 0.5), ev.stamp, 0.8); fx.addMono(I.subBoom(0.6, 80, 40), ev.stamp, 0.4);
+fx.addMono(I.thwack(), ev.stamp, 0.3); fx.addMono(I.thud(60, 0.5), ev.stamp, 0.45); fx.addMono(I.subBoom(0.6, 80, 40), ev.stamp, 0.2); // (kept moderate: AAC overshoots on a stacked hit)
 // the last card: one held, unresolved chord
 for (const n of ['A2', 'E3', 'A3', 'B3', 'C4']) { const { L, R } = I.padNote(m(n), DURATION - ev.endText, { cutoff: 700, attack: 0.25, release: 0.8 }); pad.addStereo(L, R, ev.endText, 0.07); }
 
@@ -103,7 +103,7 @@ const GAIN = { drums: 0.9, bass: 0.7, gpad: 0.8, keys: 0.8, pad: 1, box: 1.2, fx
 const mix = MIX.mixdown(stems, GAIN, { stemDir: process.env.STEMS ? OUT : null });
 MIX.highpass(mix, 30);
 MIX.fadeOut(mix, DURATION - 0.5, DURATION);
-const res = MIX.master(mix, 0.8, undefined, { lufs: process.env.LUFS ? +process.env.LUFS : -14 });
+const res = MIX.master(mix, 0.8, 0.75, { lufs: process.env.LUFS ? +process.env.LUFS : -14 });
 MIX.writeWav(path.join(OUT, 'music.wav'), mix);
 console.log(report.join('\n'));
 console.log(`out/music.wav  ${DURATION.toFixed(1)}s  ${res.lufs.toFixed(1)} LUFS  voice: elevenlabs (${lines.length} lines)`);

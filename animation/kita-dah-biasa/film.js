@@ -79,14 +79,15 @@
     ctx.save(); ctx.globalAlpha = 0.08; ctx.fillStyle = '#FFF2C0'; ctx.fillRect(x, y, w, h); ctx.restore();
   }
   function stamp(ctx, cx, cy, t) {
-    const a = t - ev.stamp, k = ease.inCubic(clamp(a / 0.1));
-    const sc = lerp(2.4, 1, k), rot = -0.2 + 0.06 * k;
-    ctx.save(); ctx.translate(cx, cy); ctx.rotate(rot); ctx.scale(sc, sc); ctx.globalAlpha = lerp(0.3, 0.92, k);
+    // it lands ON the marker (the big pixel change is the first frame), then settles with a small overshoot
+    const a = t - ev.stamp, k = ease.outCubic(clamp(a / 0.08));
+    const sc = lerp(1.18, 1, k), rot = -0.16 + 0.02 * k;
+    ctx.save(); ctx.translate(cx, cy); ctx.rotate(rot); ctx.scale(sc, sc); ctx.globalAlpha = 0.92;
     G.rrect(ctx, -210, -92, 420, 184, 18, { fill: 'rgba(0,0,0,0)', stroke: '#C0392B', lw: 12, seed: 240, amp: 1.2 });
     G.rrect(ctx, -192, -74, 384, 148, 12, { fill: 'rgba(0,0,0,0)', stroke: '#C0392B', lw: 5, seed: 241, amp: 1 });
     G.text(ctx, 'LULUS', 0, 42, { size: 118, fam: 'Bungee', weight: 400, color: '#C0392B', align: 'center', boil: 0.3 });
     ctx.restore();
-    if (k >= 1) for (let i = 0; i < 10; i++) { const r = 14 + G.rnd(i, 7) * 10, ang = G.rnd(i, 8) * Math.PI * 2, d = 240 + G.rnd(i, 9) * 60; G.ellipse(ctx, cx + Math.cos(ang) * d, cy + Math.sin(ang) * d * 0.5, r * 0.5, r * 0.3, { fill: 'rgba(192,57,43,0.55)', lw: 0, seed: 250 + i }); }
+    for (let i = 0; i < 10; i++) { const r = 14 + G.rnd(i, 7) * 10, ang = G.rnd(i, 8) * Math.PI * 2, d = 240 + G.rnd(i, 9) * 60; G.ellipse(ctx, cx + Math.cos(ang) * d, cy + Math.sin(ang) * d * 0.5, r * 0.5, r * 0.3, { fill: 'rgba(192,57,43,0.55)', lw: 0, seed: 250 + i }); }
   }
 
   // ---------- the room, as the camera sees it at time t ----------
