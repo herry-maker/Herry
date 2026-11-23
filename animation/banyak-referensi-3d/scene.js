@@ -192,30 +192,68 @@ function buildFigure(spec) {
       }
     }
   }
-  // eyes: without these any head reads as the back of a head, not a face
-  const eyeMat = mat('#1A1410', 0.3, 0.1);
+  // eyes: a white sclera + a dark pupil (a flat dark dot alone reads as the back of a head, not a face)
+  const scleraMat = mat('#F5F0E8', 0.5, 0);
+  const pupilMat = mat('#1A1410', 0.25, 0.1);
   for (const sx of [-1, 1]) {
-    const eye = new THREE.Mesh(new THREE.SphereGeometry(0.022, 10, 8), eyeMat);
-    eye.position.set(sx * 0.072, 0.025, 0.178); neck.add(eye);
-    const brow = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.012, 0.012), mat(spec.hairColor === '#C9C9C9' ? '#9A9A9A' : spec.hairColor, 0.9));
-    brow.position.set(sx * 0.072, 0.06, 0.18); neck.add(brow);
+    const sclera = new THREE.Mesh(new THREE.SphereGeometry(0.026, 12, 10), scleraMat);
+    sclera.scale.set(1, 0.85, 0.6); sclera.position.set(sx * 0.072, 0.025, 0.176); neck.add(sclera);
+    const pupil = new THREE.Mesh(new THREE.SphereGeometry(0.0125, 10, 8), pupilMat);
+    pupil.position.set(sx * 0.072, 0.023, 0.192); neck.add(pupil);
+    const brow = new THREE.Mesh(new THREE.BoxGeometry(0.052, 0.013, 0.013), mat(spec.hairColor === '#C9C9C9' ? '#9A9A9A' : spec.hairColor, 0.9));
+    brow.position.set(sx * 0.072, 0.062, 0.182); brow.rotation.z = sx * -0.12; neck.add(brow);
   }
-  const nose = new THREE.Mesh(new THREE.ConeGeometry(0.018, 0.045, 8), skin); nose.position.set(0, -0.01, 0.185); nose.rotation.x = Math.PI / 2 + 0.3; neck.add(nose);
+  const nose = new THREE.Mesh(new THREE.ConeGeometry(0.016, 0.04, 8), skin); nose.position.set(0, -0.01, 0.185); nose.rotation.x = Math.PI / 2 + 0.25; neck.add(nose);
   if (spec.glasses) {
-    const ringMat = mat('#2A2A32', 0.4, 0.4);
-    for (const sx of [-1, 1]) { const ring = new THREE.Mesh(new THREE.TorusGeometry(0.058, 0.012, 8, 16), ringMat); ring.position.set(sx * 0.072, 0.025, 0.182); neck.add(ring); }
-    const bridge = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.01, 0.01), ringMat); bridge.position.set(0, 0.025, 0.185); neck.add(bridge);
+    const frameMat = mat('#201C18', 0.35, 0.5);
+    const lensMat = new THREE.MeshStandardMaterial({ color: '#2A3A44', roughness: 0.15, metalness: 0.1, transparent: true, opacity: 0.32 });
+    for (const sx of [-1, 1]) {
+      const ring = new THREE.Mesh(new THREE.TorusGeometry(0.062, 0.014, 10, 18), frameMat);
+      ring.position.set(sx * 0.072, 0.025, 0.188); neck.add(ring);
+      const lens = new THREE.Mesh(new THREE.CircleGeometry(0.058, 18), lensMat);
+      lens.position.set(sx * 0.072, 0.025, 0.189); neck.add(lens);
+      const arm = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.01, 0.01), frameMat);
+      arm.position.set(sx * 0.15, 0.025, 0.14); arm.rotation.y = sx * 0.9; neck.add(arm);
+    }
+    const bridge = new THREE.Mesh(new THREE.BoxGeometry(0.028, 0.012, 0.012), frameMat); bridge.position.set(0, 0.025, 0.19); neck.add(bridge);
   }
-  if (spec.facial === 'mustache') { const m = new THREE.Mesh(new THREE.BoxGeometry(0.11, 0.028, 0.024), mat('#17140F')); m.position.set(0, -0.055, 0.19); neck.add(m); }
+  // the mouth: a fixed upper lip line (always visible) above the hinged jaw, with a dark cavity
+  // behind it so the mouth reads as an opening, not just a block of skin, when it talks
+  const mouthLine = new THREE.Mesh(new THREE.BoxGeometry(0.075, 0.009, 0.012), mat('#5A3A2E', 0.6));
+  mouthLine.position.set(0, -0.05, 0.188); neck.add(mouthLine);
+  const cavity = new THREE.Mesh(new THREE.BoxGeometry(0.066, 0.05, 0.02), mat('#3A1C18', 0.8));
+  cavity.position.set(0, -0.065, 0.178); neck.add(cavity);
+  if (spec.facial === 'mustache') {
+    const mstMat = mat('#15110D', 0.85);
+    for (const sx of [-1, 1]) {
+      const wing = new THREE.Mesh(new THREE.SphereGeometry(0.034, 10, 8), mstMat);
+      wing.scale.set(1.5, 0.55, 0.6); wing.position.set(sx * 0.038, -0.047, 0.192); wing.rotation.z = sx * 0.35; wing.castShadow = true; neck.add(wing);
+    }
+    const bridgeM = new THREE.Mesh(new THREE.SphereGeometry(0.02, 8, 6), mstMat);
+    bridgeM.scale.set(1.3, 0.6, 0.6); bridgeM.position.set(0, -0.045, 0.194); neck.add(bridgeM);
+  }
   if (spec.facial === 'goatee') {
-    const beardMat = mat('#D4D4D4', 0.95);
-    const m = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.024, 0.024), mat('#C9C9C9')); m.position.set(0, -0.055, 0.19); neck.add(m);
-    // a thin beard strip that follows the jaw from ear to ear, under the chin
-    const jawPts = [[-0.14, -0.06, 0.08], [-0.1, -0.12, 0.14], [-0.04, -0.16, 0.175], [0, -0.17, 0.18], [0.04, -0.16, 0.175], [0.1, -0.12, 0.14], [0.14, -0.06, 0.08]];
-    for (const [x, y, z] of jawPts) { const seg = new THREE.Mesh(new THREE.SphereGeometry(0.028, 8, 6), beardMat); seg.position.set(x, y, z); seg.castShadow = true; neck.add(seg); }
+    const beardMat = mat('#D8D8D8', 0.95);
+    const mstMat = mat('#C9C9C9', 0.9);
+    for (const sx of [-1, 1]) {
+      const wing = new THREE.Mesh(new THREE.SphereGeometry(0.03, 10, 8), mstMat);
+      wing.scale.set(1.4, 0.5, 0.55); wing.position.set(sx * 0.034, -0.047, 0.19); wing.rotation.z = sx * 0.3; wing.castShadow = true; neck.add(wing);
+    }
+    // a smooth, dense beard: small overlapping spheres sampled along a jaw curve (ear -> chin -> ear)
+    const bez = (p0, p1, p2, t) => p0.map((v, i) => (1 - t) * (1 - t) * v + 2 * (1 - t) * t * p1[i] + t * t * p2[i]);
+    const earL = [-0.155, -0.03, 0.05], chin = [0, -0.195, 0.182], earR = [0.155, -0.03, 0.05];
+    const ctrlL = [-0.1, -0.14, 0.15], ctrlR = [0.1, -0.14, 0.15];
+    const N = 22;
+    for (let i = 0; i <= N; i++) {
+      const t = i / N;
+      const pt = t < 0.5 ? bez(earL, ctrlL, chin, t * 2) : bez(chin, ctrlR, earR, (t - 0.5) * 2);
+      const seg = new THREE.Mesh(new THREE.SphereGeometry(0.024 + 0.003 * Math.sin(t * Math.PI), 8, 6), beardMat);
+      seg.position.set(pt[0], pt[1] - 0.01, pt[2]); seg.castShadow = true; neck.add(seg);
+    }
   }
-  const jaw = new THREE.Group(); jaw.position.set(0, -0.07, 0.12); neck.add(jaw);
-  const jawMesh = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.045, 0.07), skin); jawMesh.position.y = -0.02; jaw.add(jawMesh);
+  const jaw = new THREE.Group(); jaw.position.set(0, -0.075, 0.1); neck.add(jaw);
+  const jawMesh = new THREE.Mesh(new THREE.SphereGeometry(0.075, 12, 8, 0, Math.PI * 2, 0, Math.PI / 2.2), skin);
+  jawMesh.rotation.x = Math.PI; jawMesh.position.set(0, -0.005, 0.03); jaw.add(jawMesh);
 
   function buildArm(side) {
     const shoulder = new THREE.Group(); shoulder.position.set(side * 0.3, 1.32, 0); root.add(shoulder);

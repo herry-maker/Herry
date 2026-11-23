@@ -9,13 +9,13 @@
 
   // ---------- the cast (all fictional; styles translated from a brief description, not stored photos) ----------
   const CAST = {
-    h: { // Dr. Herry: approachable young lecturer -- dark quiff, square glasses, moustache, black tee
-      skin: '#C68B61', hair: '#17140F', hairStyle: 'quiff', facialHair: 'mustache', glasses: 'square',
-      outfit: 'tee', shirt: '#1C1C1C', bottoms: 'pants', pants: '#2B2B33', build: 'regular', shoes: '#2A2320',
-    },
-    a: { // Prof. Ardipal: senior, composed -- grey hair, goatee, light-blue shirt under a grey jacket
+    h: { // Dr. Herry: senior, composed -- grey hair, goatee, light-blue shirt under a grey jacket
       skin: '#D7B48C', hair: '#C9C9C9', hairStyle: 'short', facialHair: 'trimmed', glasses: 'square', glassesColor: '#3A3A3A',
       outfit: 'suit', robe: '#5B6472', shirt: '#AFCBE0', trim: '#3A4452', bottoms: 'pants', pants: '#4A505C', build: 'regular', shoes: '#2A2320',
+    },
+    a: { // Prof. Ardipal: approachable, younger-looking -- dark quiff, square glasses, moustache, black tee
+      skin: '#C68B61', hair: '#17140F', hairStyle: 'quiff', facialHair: 'mustache', glasses: 'square',
+      outfit: 'tee', shirt: '#1C1C1C', bottoms: 'pants', pants: '#2B2B33', build: 'regular', shoes: '#2A2320',
     },
     v: { // Vidka: the student -- dark plaid hijab, warm red patterned blouse
       skin: '#C98A62', hairStyle: 'hijab', hijab: '#2E2B30', outfit: 'kameez', shirt: '#B23B33', bottoms: 'shalwar', shorts: '#B23B33', build: 'slim',
