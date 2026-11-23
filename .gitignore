@@ -36,3 +36,6 @@ python/.pytest_cache/
 /animation/ClaudeAnimationBase/out/
 # directing-stickman-videos ships ~500 MB of sample media; reinstall with `npx skills add kaomei/stickman-video-director -y`
 /.agents/skills/directing-stickman-videos/
+
+# animation-studio project renders
+/animation/kita-dah-biasa/out/
