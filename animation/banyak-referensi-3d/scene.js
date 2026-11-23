@@ -234,8 +234,10 @@ function buildFigure(spec) {
 }
 
 const CAST = {
-  h: buildFigure({ skin: '#C68B61', hairColor: '#17140F', hair: 'quiff', shirt: '#1C1C1C', pants: '#2B2B33', glasses: true, facial: 'mustache' }),
-  a: buildFigure({ skin: '#D7B48C', hairColor: '#C9C9C9', hair: 'short', shirt: '#AFCBE0', pants: '#4A505C', glasses: true, facial: 'goatee' }),
+  // h = Dr. Herry (the older, grey-haired, bearded look from the reference photo)
+  h: buildFigure({ skin: '#D7B48C', hairColor: '#C9C9C9', hair: 'short', shirt: '#AFCBE0', pants: '#4A505C', glasses: true, facial: 'goatee' }),
+  // a = Prof. Ardipal (the younger, dark-haired, moustached look from the reference photo)
+  a: buildFigure({ skin: '#C68B61', hairColor: '#17140F', hair: 'quiff', shirt: '#1C1C1C', pants: '#2B2B33', glasses: true, facial: 'mustache' }),
   v: buildFigure({ skin: '#C98A62', hairColor: '#2E2B30', hair: 'hijab', hijabPattern: true, hijabLine: '#8A3A3A', shirt: '#C23B35', shirtPattern: true, shirtSpeck: '#F3DEDB', pants: '#8A3A3A' }),
 };
 CAST.h.root.position.set(-1.9, 0, 0.1);
