@@ -35,7 +35,7 @@
     label2: 50.9, // "MAKA, MESTI BETUL?"
     cite: 53.2, // Jost & Banaji (1994)
     resume: 56.2, // colour returns, the chair clicks to the next slide
-    stamp: 61.6, // LULUS
+    stamp: 61.3, // LULUS (over his last word; separated from the end card so each hit measures on its own)
     endText: 61.85, // "Sudah biasa. Tetapi adakah wajar?"
   };
   const S = {
