@@ -1,0 +1,8 @@
+{
+  "name": "banyak-referensi-3d",
+  "private": true,
+  "type": "commonjs",
+  "dependencies": {
+    "three": "^0.169.0"
+  }
+}

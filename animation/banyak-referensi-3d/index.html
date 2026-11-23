@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>film3d</title>
+<style>
+  html,body{margin:0;background:#111;width:1920px;height:1080px;overflow:hidden;}
+  #stage{position:relative;width:1920px;height:1080px;}
+  #gl,#hud{position:absolute;left:0;top:0;width:1920px;height:1080px;}
+  #hud{pointer-events:none;}
+</style>
+</head>
+<body>
+<div id="stage">
+  <canvas id="gl" width="1920" height="1080"></canvas>
+  <canvas id="hud" width="1920" height="1080"></canvas>
+</div>
+<script src="engine/util.js"></script>
+<script src="engine/music.js"></script>
+<script src="score.js"></script>
+<script type="module" src="scene.js"></script>
+</body>
+</html>
