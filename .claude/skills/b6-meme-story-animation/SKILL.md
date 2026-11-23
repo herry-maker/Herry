@@ -43,12 +43,13 @@ three separate results; none substitutes for another.
 
 | Setting | Default |
 |---|---|
-| Ratio | 9:16 works best; 16:9 is a separate native plan, never a crop |
+| Ratio / size / fps | 9:16 works best, native **720×1280 @ 30 fps**; 16:9 is a separate native plan at 1280×720, never a crop |
 | Primary reference | Sample 1 portrait V44 (`assets/b6/reference/eiffel-portrait-v44.mp4`); Sample 2 Hong Kong V90 = secondary binding evidence only |
 | Narration | English, original speed, one accepted track pinned by SHA-256 |
 | Captions | profile `eiffel-v44-portrait-archivo-black-v1`; single line; semantic breaks aligned to the actual recording |
 | Sound | scene/beat sound script, bundled B audio library first, licensed background music by default |
-| Preview | true 30 fps half-resolution draft first, then a 5–20 s native stress segment |
+| Preview | full-timeline 30 fps draft at `--draft-scale 0.5` (360×640) first, then a 5–20 s native stress segment chosen from the plan's shot `start` times |
+| Tools the skill does not ship | TTS (use the host's authenticated ElevenLabs route), still-image generation, audio mixing (FFmpeg); name what is missing before promising a timeline |
 
 ## Production sequence
 

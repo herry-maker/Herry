@@ -10,7 +10,8 @@ kaomei/stickman-video-director (MIT).
 - Default narration: English, **ElevenLabs "The Pharaoh 3 - Energetic, Lively & Cheerful"**. Verify the exact `voice_id` in the authenticated account before synthesis; the scaffold leaves `voice_id` unset on purpose. Never invent an ID.
 - Native named-voice settings with empty extra style direction. No "acting" descriptions for the narrator.
 - One accepted track, exact words, SHA-256 pinned in `project.json`; original speed (rate 1.0). A visual revision never recasts, re-times or time-stretches accepted narration. No paid re-auditions for a picture change.
-- The B6 encoder muxes ONE prepared, full-length, mixed audio track. It is not a Foley generator or mixer; mix voice + SFX + music before encoding. Do not duplicate effects already in the master.
+- The B6 encoder muxes ONE prepared, full-length, mixed audio track. It is not a Foley generator or mixer; mix voice + SFX + music before encoding (FFmpeg is already a host requirement; duck music under speech instead of speeding speech). Do not duplicate effects already in the master.
+- Synthesis route: whatever authenticated ElevenLabs access the host offers (connector or API). The skill ships no TTS command.
 
 ## Portrait caption profile (`eiffel-v44-portrait-archivo-black-v1`, 720 × 1280)
 
@@ -39,7 +40,7 @@ Any other language or user-requested design needs a separately named, implemente
 
 ## Sound (required for every preview and film)
 
-Act as sound director. Save a scene/beat sound script covering the exact text from opening to ending: per-scene bed, action material/distance/sync, emotional job, cue priority, quiet moments and payoff hierarchy, rights manifest. Sound must communicate place, contact, information or emotion, not decorate every cut. First search the bundled B audio library (`assets/b-audio-library`: ~774 SFX/transitions, 31 CC BY 4.0 music tracks, 85 stingers, with evidence and credits). External assets need track-specific license evidence (sync, edit, platform, commercial use, attribution). Never reuse another creator's mixed soundtrack. Listen to the encoded mix: intelligible speech, no masking, no clipping, no copy-pasted cue fatigue; mark unavailable listening as pending, never as passed.
+Act as sound director. Save a scene/beat sound script covering the exact text from opening to ending: per-scene bed, action material/distance/sync, emotional job, cue priority, quiet moments and payoff hierarchy, rights manifest. Sound must communicate place, contact, information or emotion, not decorate every cut. First search the bundled B audio library (`assets/b-audio-library`: ~774 SFX/transitions, 31 CC BY 4.0 music tracks, 85 stingers) with `node scripts/audio-library.mjs recommend --style B6 --beat <beat>` / `search` / `export --ids … --out …`; export writes the evidence and `CREDITS.md` into the project. B6 direction: playful scheming music, brisk prop/money/street/reaction sounds, no whoosh on every camera move. External assets need track-specific license evidence (sync, edit, platform, commercial use, attribution). Never reuse another creator's mixed soundtrack. Listen to the encoded mix: intelligible speech, no masking, no clipping, no copy-pasted cue fatigue; mark unavailable listening as pending, never as passed.
 
 ## Background music
 

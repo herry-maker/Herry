@@ -51,13 +51,13 @@ Default init (no `--example`) creates a `b6-production-v1` project with:
 
 | File | Role |
 |---|---|
-| `project.json` | `style: B6`, `stage: scaffold` (set to `authored` when done), `duration`, `fps`, `voice.path`/`sha256`, `formats`, `inputs`, `quality_target`, `purpose: production` |
+| `project.json` | `version: 2`, `style: B6`, `renderer: b6-production-v1`, `purpose: production`, `stage: needs_authoring` (set to `authored` when done), `duration` (null until authored), `fps: 30`, `voice.path`/`sha256`, `formats`, `inputs`, `quality_target` |
 | `story.json` | `narration` text and beats |
 | `captions.json` | semantic cues aligned to the actual voice recording |
 | `scene.py` | exports `frame(t, context)` (native) and `draft_frame(t, context)` (draft); returns `context.puppet_runtime.RenderResult` |
-| `formats/portrait.json`, `formats/landscape.json` | one native plan per ratio: width/height, `caption` profile, continuous `shots[]` with `composition`, `action`, `camera`, `transition`, `cast_inventory: [{id, role, shot_ids}]` |
+| `formats/portrait.json`, `formats/landscape.json` | one native plan per ratio: portrait **720×1280**, landscape **1280×720**; `caption` profile (landscape also needs `native_layout_reason`); continuous `shots[]` with `start`, `composition`, `action`, `camera`, `transition`; `cast_inventory: [{id, role, shot_ids}]` |
 | `characters.json` + `characters/<id>/<view>/` | cast → per-view `b6-puppet/1` packages (`binding_version: 2`) |
-| `quality-target.json` | copy of `assets/b6/style-standard.json` plus the project-local Sample 1 reference movie (compare-only) |
+| `quality-target.json` + `reference/eiffel-portrait-v44.mp4` | copy of `assets/b6/style-standard.json` and the hash-checked Sample 1 movie, project-local, compare-only (hash-blocked as a layer) |
 | `run.py`, `b6_puppet.py`, `b6_space.py`, `b6_actions.py`, `b6_iteration.py`, `b6_character_preflight.py`, `b6_asset_roles.py`, `caption_renderer.py`, `motion_review.py` | trusted runtime copies; hashes are verified before import, so never edit them |
 | `engine/` | the locked V90 painted engine, fonts and rigs |
 
@@ -88,11 +88,38 @@ node scripts/autopilot.mjs preview /abs/new-story --ratio 9:16 --trusted-code --
 python3 /abs/new-story/run.py plan-iteration /abs/new-story --ratio 9:16 --report outputs/preview-01/report.json
 ```
 
-`run.py` in the project accepts the same subcommands as `autopilot.mjs`
-and works without the installed skill folder. `--trusted-code` means the
+`node scripts/autopilot.mjs <cmd>` (from the installed skill) and
+`python3 /abs/new-story/run.py <cmd>` (from anywhere) are the same
+commands; upstream mixes them freely. Prefer `run.py` once the project
+exists so the project stays reproducible without the skill checkout.
+`--start`/`--seconds` are seconds on the project timeline; pick them from
+the plan's shot `start` values. `--draft-scale 0.5` renders 360×640 for a
+720×1280 plan (0.75 → 540×960); frame count, fps and audio speed are
+unchanged. `--trusted-code` means the
 authored `scene.py` executes as local Python; read it first. Scene code
 must not spawn processes or decode media itself: prepare story media as
 project-local PNGs listed in `project.inputs`.
+
+## Audio library, voice and mixing
+
+```bash
+node scripts/audio-library.mjs recommend --style B6 --beat paper-handoff --limit 3   # beats: opening, reaction, prop-handoff, walk, transition, street, money, applause, ending, ...
+node scripts/audio-library.mjs search "cash register" --kind sfx
+node scripts/audio-library.mjs list --kind music --limit 40
+node scripts/audio-library.mjs export --ids ID1,ID2,ID3 --out /abs/new-story/audio
+```
+
+`export` copies the recordings with license evidence, writes
+`audio-selection.json` and `CREDITS.md`. B6's library direction: playful
+scheming music; brisk prop, money, street and reaction sounds; no whoosh on
+every camera move.
+
+Nothing in the skill synthesizes speech, paints, or mixes. Use whatever
+authenticated ElevenLabs route the host offers (connector or API) for the
+narration, the configured still-image tool or user-supplied rasters for
+art, and FFmpeg (already required by `doctor`) or another local mixer to
+build the ONE full-length master the encoder muxes. Record every tool and
+file hash in the checkpoint.
 
 ## Review and approval
 
