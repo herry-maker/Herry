@@ -33,11 +33,33 @@ three separate results; none substitutes for another.
 | Gates = loudness, file size, ffprobe | 35-subcheck review against Sample 1 playback, then the user's decision; see [acceptance-matrix](references/acceptance-matrix.md) |
 | "You approve the character sheet, then I render" | Agent authors, previews, reviews and repairs; the user decides on the actual preview and the final |
 
-## Prerequisites
+## Prerequisites (run the bundled bootstrap first)
 
-1. Upstream skill installed (sparse clone, `npm ci`, `node scripts/autopilot.mjs doctor --style B6`). Host needs Node 20+, FFmpeg/FFprobe, Python 3.9+ with NumPy, Pillow, OpenCV. The agent fixes the environment; it does not send the user to assemble it.
-2. An authenticated TTS provider for new narration (default voice: ElevenLabs "The Pharaoh 3 - Energetic, Lively & Cheerful"; verify the voice ID, never invent it), and a still-image tool or user-supplied raster art for new characters/worlds. Missing provider access is a stated, pending gap, never a silent downgrade.
-3. Projects live outside the installed skill directory.
+```bash
+bash scripts/check.sh                      # what is present, what is missing; installs nothing
+bash scripts/bootstrap.sh install          # B6-only sparse checkout (~110 MB files, ~200 MB with git objects), npm ci, Python venv, doctor
+bash scripts/bootstrap.sh install --with-audio-library   # adds the 250 MB bundled SFX/music library
+```
+
+The bootstrap installs the upstream runtime into `$B6_UPSTREAM_DIR` (default
+`~/.cache/stickman-video-director`), never into this skill, and prints the
+`B6_PYTHON` export and skill directory to use. Host needs git, Node 20+,
+FFmpeg/FFprobe and Python 3.9+ with the venv module; the script names
+anything missing with an install hint. Upstream pins `numpy==2.0.2`, which
+compiles from source on Python 3.13 (several minutes); the script falls
+back to current wheels if the pins fail. Run the bootstrap on the machine
+that will render: a cloud container forgets it when the session ends.
+
+Services the skill does not ship, and the routes to use:
+
+| Need | Route |
+|---|---|
+| Narration (new or re-recorded) | The host's ElevenLabs connector: list voices, pick "The Pharaoh 3 - Energetic, Lively & Cheerful" by its listed ID, generate, save the file into the project, pin SHA-256. Generation spends the user's credits; one take. |
+| New character views, expressions, world plates | The host's image generation (ElevenLabs creative image tools, or Figma image generation), driven by the still-art brief in [art-direction](references/art-direction.md); or user-supplied rasters. |
+| Audio mix | FFmpeg (already required): build ONE full-length master from voice, SFX and music; duck music under speech. |
+
+Missing provider access is a stated, pending gap, never a silent downgrade.
+Projects live outside the installed upstream directory.
 
 ## Locked defaults (user's explicit choice overrides)
 
@@ -49,7 +71,7 @@ three separate results; none substitutes for another.
 | Captions | profile `eiffel-v44-portrait-archivo-black-v1`; single line; semantic breaks aligned to the actual recording |
 | Sound | scene/beat sound script, bundled B audio library first, licensed background music by default |
 | Preview | full-timeline 30 fps draft at `--draft-scale 0.5` (360×640) first, then a 5–20 s native stress segment chosen from the plan's shot `start` times |
-| Tools the skill does not ship | TTS (use the host's authenticated ElevenLabs route), still-image generation, audio mixing (FFmpeg); name what is missing before promising a timeline |
+| Tools the skill does not ship | TTS via the ElevenLabs connector, still images via ElevenLabs/Figma image generation, mixing via FFmpeg; name what is missing before promising a timeline |
 
 ## Production sequence
 
@@ -90,7 +112,7 @@ of these the current environment lacks before promising a timeline.
 
 | Need | Read |
 |---|---|
-| Install, project files, every command and flag, puppet/actions API sketch | [references/runtime-commands.md](references/runtime-commands.md) |
+| Bootstrap/check scripts, project files, every command and flag, puppet/actions API sketch | [references/runtime-commands.md](references/runtime-commands.md), `scripts/bootstrap.sh`, `scripts/check.sh` |
 | Drawing grammar, era/place brief, light, still-art prompt | [references/art-direction.md](references/art-direction.md) |
 | Voice, caption profile numbers, semantic cue rules, sound and music | [references/captions-and-sound.md](references/captions-and-sound.md) |
 | Step-by-step production and what each stage must output | [references/production-sequence.md](references/production-sequence.md) |

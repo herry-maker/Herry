@@ -11,7 +11,8 @@ kaomei/stickman-video-director (MIT).
 - Native named-voice settings with empty extra style direction. No "acting" descriptions for the narrator.
 - One accepted track, exact words, SHA-256 pinned in `project.json`; original speed (rate 1.0). A visual revision never recasts, re-times or time-stretches accepted narration. No paid re-auditions for a picture change.
 - The B6 encoder muxes ONE prepared, full-length, mixed audio track. It is not a Foley generator or mixer; mix voice + SFX + music before encoding (FFmpeg is already a host requirement; duck music under speech instead of speeding speech). Do not duplicate effects already in the master.
-- Synthesis route: whatever authenticated ElevenLabs access the host offers (connector or API). The skill ships no TTS command.
+- Synthesis route: the host's ElevenLabs connector. List voices first and select "The Pharaoh 3 - Energetic, Lively & Cheerful" by its returned ID; generate one take (credits are spent per call, never retry blindly); poll until complete; save the audio into the project and pin its SHA-256 and measured duration. If no connector or API key is available, the narration is a stated pending gap.
+- Image route for new cast/world art: the host's image generation (ElevenLabs creative image generate/edit tools, or Figma image generation), fed the still-art brief from art-direction.md; otherwise user-supplied rasters. Record provider, prompt and output hashes per asset.
 
 ## Portrait caption profile (`eiffel-v44-portrait-archivo-black-v1`, 720 × 1280)
 

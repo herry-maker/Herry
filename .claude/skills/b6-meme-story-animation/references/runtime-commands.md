@@ -6,30 +6,52 @@ kaomei/stickman-video-director (MIT). Command names and flags are copied
 verbatim from `scripts/autopilot.mjs`; verify against the installed copy,
 because upstream changes often.
 
-## Install the upstream skill (one time)
+## Install the upstream runtime (one time per machine)
 
 B6 is rendered by code shipped inside the upstream skill folder
 `skills/directing-stickman-videos`. Nothing in this skill renders video.
+Use the bundled bootstrap instead of a full clone (the complete upstream
+skill is ~500 MB; B6 needs about a fifth of it):
 
 ```bash
-# Sparse clone: only the skill folder (still ~500 MB because of bundled reference media and the audio library)
-git clone --depth 1 --filter=blob:none --sparse https://github.com/kaomei/stickman-video-director.git stickman-video-director
-git -C stickman-video-director sparse-checkout set skills/directing-stickman-videos
-cd stickman-video-director/skills/directing-stickman-videos
-npm ci                                   # @napi-rs/canvas, sharp; Node >= 20
-node scripts/autopilot.mjs doctor --style B6
+bash scripts/check.sh                                   # report only
+bash scripts/bootstrap.sh install                       # default: ~/.cache/stickman-video-director
+bash scripts/bootstrap.sh install --dir /abs/dir        # custom location (or set B6_UPSTREAM_DIR)
+bash scripts/bootstrap.sh install --with-audio-library  # + assets/b-audio-library (250 MB)
+bash scripts/bootstrap.sh install --update              # move an existing clone to current origin/main
 ```
 
-Host requirements the doctor checks: Node 20+, FFmpeg/FFprobe, Python 3.9+
-with NumPy, Pillow, OpenCV. For Python packages use a project virtualenv and
-the bundled `assets/b6/hong-kong-v90/requirements.txt`; select that
-interpreter with `B6_PYTHON=/path/to/python` or `--python`. `doctor` checks
-local dependencies only, not TTS/image-provider access.
+What it does: sparse partial clone of `scripts/`, `references/`,
+`assets/b6`, `assets/fonts` (cone mode, so `package.json`, `package-lock.json`
+and `SKILL.md` come along); `npm ci` (`@napi-rs/canvas`, `sharp`); a venv at
+`<dir>/.venv-b6` from `assets/b6/hong-kong-v90/requirements.txt`
+(`numpy==2.0.2`, `Pillow==11.3.0`, `opencv-python-headless==4.13.0.92`,
+falling back to current wheels if the pins fail); then
+`node scripts/autopilot.mjs doctor --style B6` with `B6_PYTHON` pointing at
+that venv. It writes `<dir>/b6-bootstrap.json` (upstream commit, python,
+pin status, doctor exit code) and prints the exports to use. Tested
+2026-11-23: all ten doctor checks pass from this trimmed checkout, and
+`init --style B6` scaffolds a project from it.
 
-Install the skill where the agent runtime reads skills (Claude Code:
-`~/.claude/skills/` or a project `.claude/skills/`). Keep production
-projects and their outputs OUTSIDE the installed skill directory; `init`
-refuses paths inside it.
+Doctor checks: Node ≥ 20, ffmpeg, ffprobe, canvas, sharp, bundled fonts,
+Python with NumPy/Pillow/OpenCV, the Archivo Black caption font and the
+complete `assets/b6` pack. It checks local dependencies only, not TTS or
+image-provider access.
+
+Manual equivalent, if you prefer:
+
+```bash
+git clone --depth 1 --filter=blob:none --sparse https://github.com/kaomei/stickman-video-director.git stickman-video-director
+git -C stickman-video-director sparse-checkout set skills/directing-stickman-videos/scripts skills/directing-stickman-videos/references skills/directing-stickman-videos/assets/b6 skills/directing-stickman-videos/assets/fonts
+cd stickman-video-director/skills/directing-stickman-videos && npm ci
+python3 -m venv ../../.venv-b6 && ../../.venv-b6/bin/pip install -r assets/b6/hong-kong-v90/requirements.txt
+B6_PYTHON=../../.venv-b6/bin/python node scripts/autopilot.mjs doctor --style B6
+```
+
+Keep production projects and their outputs OUTSIDE the upstream directory;
+`init` refuses paths inside it. Without `--with-audio-library`,
+`scripts/audio-library.mjs` has no catalog, so source SFX/music elsewhere
+under the rights rules in captions-and-sound.md.
 
 ## Read-only route query
 
@@ -114,12 +136,13 @@ node scripts/audio-library.mjs export --ids ID1,ID2,ID3 --out /abs/new-story/aud
 scheming music; brisk prop, money, street and reaction sounds; no whoosh on
 every camera move.
 
-Nothing in the skill synthesizes speech, paints, or mixes. Use whatever
-authenticated ElevenLabs route the host offers (connector or API) for the
-narration, the configured still-image tool or user-supplied rasters for
-art, and FFmpeg (already required by `doctor`) or another local mixer to
-build the ONE full-length master the encoder muxes. Record every tool and
-file hash in the checkpoint.
+Nothing in the skill synthesizes speech, paints, or mixes. Narration: the
+host's ElevenLabs connector (list voices → "The Pharaoh 3 - Energetic,
+Lively & Cheerful" → generate once → save to the project → pin SHA-256).
+Art: the host's image generation (ElevenLabs creative image tools or Figma
+image generation) with the still-art brief, or user-supplied rasters. Mix:
+FFmpeg (already required by `doctor`), ONE full-length master the encoder
+muxes. Record every tool, provider and file hash in the checkpoint.
 
 ## Review and approval
 
