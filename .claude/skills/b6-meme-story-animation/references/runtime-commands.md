@@ -50,8 +50,11 @@ B6_PYTHON=../../.venv-b6/bin/python node scripts/autopilot.mjs doctor --style B6
 
 Keep production projects and their outputs OUTSIDE the upstream directory;
 `init` refuses paths inside it. Without `--with-audio-library`,
-`scripts/audio-library.mjs` has no catalog, so source SFX/music elsewhere
-under the rights rules in captions-and-sound.md.
+`scripts/audio-library.mjs` fails with "Cannot read audio catalog", and
+because B6 films carry SFX and licensed music by default, the sound gate
+then depends on external licensed sources with evidence; install the
+library for production. `check.sh` reports host tools, upstream files and
+doctor only; it cannot see connectors or credits.
 
 ## Read-only route query
 
@@ -60,8 +63,12 @@ node scripts/autopilot.mjs workflow --style B6 --ratio 9:16 [--project /abs/proj
 ```
 
 Returns absolute paths and argument arrays for production standards,
-acceptance standards and the review-template workflow. Run it before
-production and copy its arguments rather than retyping flags.
+acceptance standards and the review-template workflow (doctor, init,
+validate, preview, review-pack, check-review, approve, render, film review,
+delivery completeness). Its arrays are authoritative for the installed
+version; the examples in this file are illustrative and may differ in
+small ways (for example `validate <dir>/project.json`, or `run.py preview`
+without `--start`). Run it before production and copy its arguments.
 
 ## Initialize a production project
 

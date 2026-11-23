@@ -37,8 +37,8 @@ three separate results; none substitutes for another.
 
 ```bash
 bash scripts/check.sh                      # what is present, what is missing; installs nothing
-bash scripts/bootstrap.sh install          # B6-only sparse checkout (~110 MB files, ~200 MB with git objects), npm ci, Python venv, doctor
-bash scripts/bootstrap.sh install --with-audio-library   # adds the 250 MB bundled SFX/music library
+bash scripts/bootstrap.sh install --with-audio-library   # recommended for production: B6-only checkout + the bundled SFX/music library (~360 MB files)
+bash scripts/bootstrap.sh install                         # renderer only (~110 MB files); then SFX/music must come from licensed external sources with evidence
 ```
 
 The bootstrap installs the upstream runtime into `$B6_UPSTREAM_DIR` (default
@@ -58,6 +58,14 @@ Services the skill does not ship, and the routes to use:
 | New character views, expressions, world plates | The host's image generation (ElevenLabs creative image tools, or Figma image generation), driven by the still-art brief in [art-direction](references/art-direction.md); or user-supplied rasters. |
 | Audio mix | FFmpeg (already required): build ONE full-length master from voice, SFX and music; duck music under speech. |
 
+What the scripts cannot check: connector availability (look for the
+ElevenLabs and image-generation tools in your own tool list, then confirm
+with one voice-listing call), provider credits, and rights for external
+audio. Report those as present/missing yourself. Doctor's
+`gemini_key_present` concerns upstream's optional Gemini route and is
+irrelevant when the connector routes above are used. The installed
+`workflow` query's argument arrays are authoritative for the installed
+upstream version; the command skeleton below is illustrative and may lag.
 Missing provider access is a stated, pending gap, never a silent downgrade.
 Projects live outside the installed upstream directory.
 

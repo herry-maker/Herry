@@ -7,7 +7,8 @@
 #
 # DIR defaults to $B6_UPSTREAM_DIR or ~/.cache/stickman-video-director.
 # install: sparse-clone only scripts/, references/, assets/b6, assets/fonts
-#          (+ assets/b-audio-library with --with-audio-library), run npm ci,
+#          (+ assets/b-audio-library with --with-audio-library, recommended for
+#          production because B6 films carry SFX and licensed music by default), run npm ci,
 #          build a Python venv with NumPy/Pillow/OpenCV, run `doctor --style B6`,
 #          write DIR/b6-bootstrap.json. Never touches an existing clone unless --update.
 # check:   report what is present/missing; installs nothing; exit 1 if anything is missing.
@@ -59,7 +60,7 @@ if [ "$MODE" = "check" ]; then
     ok "upstream skill files ($(git -C "$DIR" rev-parse --short HEAD 2>/dev/null || echo 'unknown commit'))"
     [ -d "$SKILL_DIR/node_modules/sharp" ] && [ -d "$SKILL_DIR/node_modules/@napi-rs/canvas" ] && ok "npm dependencies (sharp, @napi-rs/canvas)" || miss "npm dependencies: run bootstrap.sh install"
     [ -d "$SKILL_DIR/assets/b6/reference" ] && ok "assets/b6 (reference media, engine, fonts)" || miss "assets/b6"
-    [ -d "$SKILL_DIR/assets/b-audio-library/audio" ] && ok "assets/b-audio-library (optional)" || echo "  [absent]  assets/b-audio-library (optional; install --with-audio-library)"
+    [ -d "$SKILL_DIR/assets/b-audio-library/audio" ] && ok "assets/b-audio-library (default SFX/music source)" || echo "  [absent]  assets/b-audio-library: B6 films need SFX and licensed music by default; run  bootstrap.sh install --with-audio-library  or source licensed audio externally with evidence"
     if [ -x "$PY" ] && "$PY" -c 'import sys,numpy,PIL,cv2; assert sys.version_info>=(3,9)' 2>/dev/null; then ok "python venv $VENV with numpy/Pillow/OpenCV"; else miss "python venv with numpy/Pillow/OpenCV: run bootstrap.sh install"; fi
     if [ ${#MISSING[@]} -eq 0 ]; then
       echo "== node scripts/autopilot.mjs doctor --style B6 =="
@@ -147,4 +148,5 @@ fi
 echo "  export B6_PYTHON=$PY"
 echo "  cd $SKILL_DIR"
 echo "  node scripts/autopilot.mjs workflow --style B6 --ratio 9:16"
+echo "Not checked here (scripts cannot see them): the ElevenLabs/image connectors in the agent's tool list, provider credits, and the 'gemini_key_present' field above, which only matters for upstream's optional Gemini route."
 exit "$DOCTOR_RC"
