@@ -360,22 +360,15 @@
     },
     {
      "type": "image",
-     "path": "../../art/laptop-side.png",
-     "x": 400,
-     "y": 344,
-     "w": 170
-    },
-    {
-     "type": "image",
      "path": "../../art/page-a.png",
-     "x": 200,
+     "x": 440,
      "y": 318,
      "w": 100
     },
     {
      "type": "image",
      "path": "../../art/page-b.png",
-     "x": 320,
+     "x": 560,
      "y": 318,
      "w": 100
     },
@@ -518,13 +511,6 @@
     },
     {
      "type": "image",
-     "path": "../../art/laptop-side.png",
-     "x": 400,
-     "y": 344,
-     "w": 170
-    },
-    {
-     "type": "image",
      "path": "../../art/vidka-tidy.png",
      "x": 520,
      "y": 226.66666666666669,
@@ -539,47 +525,47 @@
     },
     {
      "type": "image",
-     "path": "../../art/page-a.png",
-     "x": 200,
+     "path": "../../art/page-b.png",
+     "x": 560,
      "y": 318,
      "w": 100,
      "id": "prop-5",
      "motion": {
       "role": "prop",
-      "reason": "Tangan Vidka menggeser artikel di depannya ke tepi"
+      "reason": "Tangan Vidka langsung menyentuh dan menggeser artikel ke tepi"
      },
      "keys": [
       {
        "t": 0.154,
-       "x": 200,
+       "x": 560,
        "angle": 0
       },
       {
        "t": 1.39,
-       "x": 100,
+       "x": 260,
        "angle": -0.08
       }
      ]
     },
     {
      "type": "image",
-     "path": "../../art/page-b.png",
-     "x": 320,
+     "path": "../../art/page-a.png",
+     "x": 440,
      "y": 318,
      "w": 100,
      "id": "prop-6",
      "motion": {
       "role": "prop",
-      "reason": "Artikel kedua ikut tergeser oleh sapuan tangan"
+      "reason": "Artikel pertama ikut tergeser mengikuti artikel kedua"
      },
      "keys": [
       {
        "t": 0.463,
-       "x": 320
+       "x": 440
       },
       {
        "t": 1.699,
-       "x": 210
+       "x": 150
       }
      ]
     },

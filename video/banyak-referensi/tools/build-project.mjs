@@ -69,17 +69,17 @@ scenes.push({talk: [
     mv(img('page-b', 120, 200, 200), 'prop', 'Artikel di sampingnya bergeser saat ia menghela napas', [{t: .2, x: 120, angle: -.06}, {t: 1.2, x: 160, angle: .02}, {t: 2.4, x: 150, angle: -.03}]),
   ]},
   {dur: 4, layers: [ // medium: Herry arrives, points at the notebook
-    desk(), laptopSide(), img('page-a', 200, 318, 100), img('page-b', 320, 318, 100),
+    desk(), img('page-a', 440, 318, 100), img('page-b', 560, 318, 100), // within vidka-tidy's sweeping hand reach (x545-620), so shot-3's sweep can touch them
     vidka('turn', {to: 1.6}), vidka('listen', {from: 1.6}), herry('listen', 960, {to: .6}), herry('point', 960, {from: .6}),
     img('notebook', 770, 300, 210), hand('catatanmu', 800, 342, 28),
     draw(line([[968, 386], [950, 376], [930, 366]], {color: RED, lineWidth: 5}), 'information', 'Herry mengetuk buku catatan', 0.6, 1.2),
     draw(line([[780, 328], [985, 324], [990, 372], [780, 376], [780, 328]], {color: RED, lineWidth: 3}), 'information', 'Buku catatan dilingkari', 2.0, 3.0),
   ]},
 ], hold: [
-  {dur: 1.5, layers: [ // table: Vidka menggeser tumpukan artikel dan membuka buku (continuity: starts exactly where shot-2 ends)
-    desk(), laptopSide(), vidka('tidy'), herry('listen'),
-    mv(img('page-a', 200, 318, 100), 'prop', 'Tangan Vidka menggeser artikel di depannya ke tepi', [{t: .1, x: 200, angle: 0}, {t: .9, x: 100, angle: -.08}]),
-    mv(img('page-b', 320, 318, 100), 'prop', 'Artikel kedua ikut tergeser oleh sapuan tangan', [{t: .3, x: 320}, {t: 1.1, x: 210}]),
+  {dur: 1.5, layers: [ // table: Vidka menggeser tumpukan artikel dan membuka buku (continuity: starts exactly where shot-2 ends; sheets begin where her sweeping hand reaches, x545-620)
+    desk(), vidka('tidy'), herry('listen'),
+    mv(img('page-b', 560, 318, 100), 'prop', 'Tangan Vidka langsung menyentuh dan menggeser artikel ke tepi', [{t: .1, x: 560, angle: 0}, {t: .9, x: 260, angle: -.08}]),
+    mv(img('page-a', 440, 318, 100), 'prop', 'Artikel pertama ikut tergeser mengikuti artikel kedua', [{t: .3, x: 440}, {t: 1.1, x: 150}]),
     img('notebook', 770, 300, 210), hand('catatanmu', 800, 342, 28),
   ]},
   {dur: 3.5, layers: [ // notebook close-up: the question Vidka wrote earlier
