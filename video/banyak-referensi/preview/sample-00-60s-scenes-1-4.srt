@@ -1,79 +1,87 @@
 1
-00:00:00,300 --> 00:00:03,200
+00:00:00,000 --> 00:00:02,071
 Vidka membuka artikel ketiga pagi ini.
 
 2
-00:00:03,400 --> 00:00:06,600
+00:00:02,715 --> 00:00:04,716
 Semua tentang musik, tak satu pun terasa tepat.
 
 3
-00:00:07,000 --> 00:00:10,400
+00:00:05,708 --> 00:00:07,109
 Vidka: Pak, referensinya banyak sekali.
 
 4
-00:00:10,600 --> 00:00:12,400
+00:00:08,324 --> 00:00:09,679
 Mana yang harus saya pakai?
 
 5
-00:00:12,600 --> 00:00:14,800
+00:00:11,260 --> 00:00:13,153
 Herry: Mulai dari masalahmu, bukan tumpukannya.
 
 6
-00:00:15,300 --> 00:00:17,800
+00:00:14,781 --> 00:00:16,389
 Kata kunci «musik» terlalu luas.
 
 7
-00:00:18,000 --> 00:00:20,800
+00:00:17,468 --> 00:00:19,044
 Herry: Apa yang sebenarnya kamu amati?
 
 8
-00:00:21,200 --> 00:00:23,800
+00:00:20,465 --> 00:00:22,720
 Vidka menghapus «musik» dan mengetik ulang:
 
 9
-00:00:24,000 --> 00:00:26,600
+00:00:23,770 --> 00:00:24,987
 kekompakan tempo, ansambel, siswa SMP.
 
 10
-00:00:27,000 --> 00:00:29,600
+00:00:25,037 --> 00:00:27,751
 Tugasmu: tulis tiga kata kunci khusus.
 
 11
-00:00:30,300 --> 00:00:32,600
+00:00:28,143 --> 00:00:29,646
 Dua artikel lolos saringan.
 
 12
-00:00:32,800 --> 00:00:35,400
+00:00:30,484 --> 00:00:31,785
 Vidka membandingkan bagian pesertanya.
 
 13
-00:00:35,600 --> 00:00:38,400
+00:00:32,797 --> 00:00:34,602
 Herry: Yang pertama memberi konsep.
 
 14
-00:00:38,600 --> 00:00:41,000
+00:00:35,473 --> 00:00:36,585
 Yang kedua memberi konteks siswamu.
 
 15
-00:00:41,400 --> 00:00:44,600
+00:00:37,335 --> 00:00:40,583
 Keduanya dipakai, untuk tujuan yang berbeda.
 
 16
-00:00:45,300 --> 00:00:48,200
+00:00:41,385 --> 00:00:42,601
 Membaca artikel bukan mencatat semuanya.
 
 17
-00:00:48,400 --> 00:00:50,600
+00:00:43,798 --> 00:00:45,651
 Vidka menelusuri bagian metode,
 
 18
-00:00:50,800 --> 00:00:52,800
+00:00:46,542 --> 00:00:48,181
 lalu bagian hasil.
 
 19
-00:00:53,200 --> 00:00:56,200
+00:00:49,000 --> 00:00:52,043
 Satu temuan ditandai, lalu satu pertanyaan:
 
 20
-00:00:56,600 --> 00:00:59,600
+00:00:52,723 --> 00:00:53,819
 temuan ini mendukung pernyataan apa?
+
+21
+00:00:54,709 --> 00:00:56,472
+Dua catatan bacaan, satu pertanyaan penelitian.
+
+22
+00:00:57,461 --> 00:00:59,973
+Vidka mendekatkan keduanya,

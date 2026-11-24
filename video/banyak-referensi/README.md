@@ -15,11 +15,11 @@ Yang sudah dikerjakan di folder ini:
    - `draft-scenes-5-8.mp4`, `draft-scenes-9-12.mp4` — draf adegan 5–12 yang **diatur ulang waktunya** ke 0–60 detik agar bisa dilihat; timeline aslinya tetap `project.json`.
    - tiga *contact sheet* PNG untuk tinjauan cepat.
 
-Tiga catatan yang membuat hasil ini **draf teknis, bukan film jadi**:
+Catatan yang membuat hasil ini **draf teknis, bukan film jadi** (narasi sudah selesai; dua lainnya masih terbuka):
 
 | Komponen | Keadaan sekarang | Yang perlu Anda lakukan |
 |---|---|---|
-| Narasi | `audio/placeholder-silent-180s.wav` **hening**. Waktu subtitel dan shot mengikuti rencana 12 × 15 detik, bukan rekaman nyata. | Rekam `narasi.md` (ElevenLabs/Gemini TTS atau pengisi suara). Skill melarang mempercepat atau memotong suara untuk mengejar gambar: setelah rekaman ada, geser waktu shot/cue mengikuti suara. |
+| Narasi | **Sudah direkam** (2026-11-24): satu take ElevenLabs, suara *Bayu - academic, calm and clear* (`saYZ00LWtwkN6VaX46N9`), model `eleven_multilingual_v2`, 170,3 detik, 2.252 kredit. SHA-256 dipin di `audio/narasi.sha256`; WAV 48 kHz di `audio/narasi.wav` (tidak di-commit, 16 MB; MP3 asli di `audio/take1/`). Waktu cue dan adegan di `audio/timing.json` berasal dari **deteksi jeda + porsi karakter** (`tools/align-cues.mjs`, mode `silence-approximate`), bukan stempel waktu kata. | Untuk sinkron per kata: transkripsi Scribe lewat konektor ElevenLabs (±52 kredit, sekitar 1 sen) lalu `align-cues.mjs --words`. Panggilan itu ditolak oleh pengklasifikasi izin sesi ini dan menunggu izin Anda. |
 | Gambar tokoh dan properti | Digambar lewat kode (`tools/make-art.mjs`, 45 PNG) karena sesi ini tidak punya alat pembuat gambar. Terbaca, tetapi di bawah baseline B1 "Ryan V4". | Ganti berkas di `art/` dengan gambar tangan/model gambar yang **nama dan rasio** sama; `project.json` tidak perlu diubah. |
 | Musik latar | Hanya *room tone* prosedural (`audio/room-tone-180s.wav`) dan SFX prosedural bawaan (`tap`, `paper`, `pop`, `chime`). | Tambahkan satu trek berlisensi lewat field `music: {path, gain ≤ 0.2}`. |
 
@@ -32,16 +32,17 @@ video/banyak-referensi/
 ├── project.json            manifest final (180 s) — dihasilkan, jangan edit langsung
 ├── narasi.md               teks narasi/dialog per adegan untuk direkam
 ├── tools/
-│   ├── build-project.mjs   sumber kebenaran: 12 adegan → project.json (+ --part=N untuk draf 60 s)
+│   ├── build-project.mjs   sumber kebenaran: 12 adegan → project.json (--timing FILE, --part=N, --dump-cues FILE, --out FILE)
+│   ├── align-cues.mjs      waktu cue/adegan dari rekaman: mode --words (tepat) atau jeda (perkiraan)
 │   ├── make-art.mjs        menggambar ulang semua PNG di art/ (deterministik)
 │   └── motion-gaps.mjs     diagnosis gerbang 2,5 detik (mencetak jeda gerak)
 ├── art/                    45 PNG tokoh & properti (gaya garis B1, transparan)
-├── audio/                  placeholder narasi hening + room tone
+├── audio/                  narasi.sha256, timing.json, cues.json, take1/ (MP3 + silences); WAV tidak di-commit
 ├── drafts/part-1..3/       proyek draf 60 s (adegan 1–4, 5–8, 9–12)
 └── preview/                MP4, SRT, contact sheet hasil render
 ```
 
-Folder `output/`, `drafts/*/output/` (cache render) dan `audio/*.wav` (33 MB PCM) tidak di-commit; jalankan `tools/make-audio.sh` sekali setelah clone.
+Folder `output/`, `drafts/*/output/` (cache render) dan `audio/*.wav` tidak di-commit; jalankan `tools/make-audio.sh` sekali setelah clone (membuat room tone dan placeholder, serta `narasi.wav` dari `audio/take1/narasi-take1.mp3`).
 
 ## Cara menjalankan ulang
 
@@ -63,7 +64,7 @@ Dari folder skill upstream (`SKILL` = `~/.cache/stickman-video-director/skills/d
 # 1. buat audio placeholder (sekali), lalu (opsional) gambar ulang aset dan bangun ulang manifest
 $PROJ/tools/make-audio.sh
 SKILL_DIR=$SKILL node $PROJ/tools/make-art.mjs $PROJ/art
-node $PROJ/tools/build-project.mjs && node $PROJ/tools/motion-gaps.mjs $PROJ/project.json
+node $PROJ/tools/build-project.mjs --timing $PROJ/audio/timing.json && node $PROJ/tools/motion-gaps.mjs $PROJ/project.json
 ```
 
 ```bash
@@ -74,14 +75,14 @@ node scripts/autopilot.mjs preview  $PROJ/project.json --seconds 60 --replace
 
 ```bash
 # 3. draf adegan 5–8 dan 9–12
-node $PROJ/tools/build-project.mjs --part=2 && node scripts/autopilot.mjs preview $PROJ/drafts/part-2/project.json --seconds 60 --replace
-node $PROJ/tools/build-project.mjs --part=3 && node scripts/autopilot.mjs preview $PROJ/drafts/part-3/project.json --seconds 60 --replace
+node $PROJ/tools/build-project.mjs --part=2 --timing $PROJ/audio/timing.json && node scripts/autopilot.mjs preview $PROJ/drafts/part-2/project.json --seconds 60 --replace
+node $PROJ/tools/build-project.mjs --part=3 --timing $PROJ/audio/timing.json && node scripts/autopilot.mjs preview $PROJ/drafts/part-3/project.json --seconds 60 --replace
 ```
 
 ## Alur menuju film jadi (sesuai kontrak skill)
 
-1. **Rekam narasi** dari `narasi.md`, satu trek utuh 1× kecepatan. Ganti `voice.path` di `tools/build-project.mjs`.
-2. **Selaraskan**: dapatkan stempel waktu kata (misalnya `scripts/align_captions.py` dengan Whisper, atau stempel dari penyedia TTS), lalu sesuaikan `cues` dan durasi shot di setiap adegan agar mengikuti ucapan nyata. Pembagian 15 detik per adegan adalah rencana; suara yang menentukan.
+1. ~~Rekam narasi~~ Selesai: `audio/take1/narasi-take1.mp3` → `audio/narasi.wav`, SHA dipin.
+2. **Selaraskan**: sekarang memakai `audio/timing.json` (perkiraan dari jeda). Untuk stempel kata: `node tools/align-cues.mjs --cues audio/cues.json --words audio/take1/words.json --duration 170.295 --out audio/timing.json`, lalu `node tools/build-project.mjs --timing audio/timing.json`. Koreografi tiap adegan diskalakan otomatis ke panjang adegan nyata (11,9–17,6 detik).
 3. **Ganti aset** di `art/` bila ingin kualitas gambar tangan; nama berkas dipertahankan.
 4. **Pratinjau 20–60 detik**, tinjau MP4 sebenarnya (bukan contact sheet) dengan suara; isi `output/preview-reference/review-template.json` secara independen.
 5. **Persetujuan Anda** direkam dengan `approve … --visual-review …` lalu `render` menghasilkan film 180 detik penuh beserta SRT/VTT. Langkah ini sengaja **tidak** dijalankan di sini: skill mensyaratkan persetujuan sampel oleh pengguna, bukan oleh agen.

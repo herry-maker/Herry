@@ -13,614 +13,660 @@
     "title": "Kebingungan awal",
     "shot": 1,
     "start": 0,
-    "end": 4
+    "end": 3.87,
+    "scale": 0.969
    },
    {
     "scene": 1,
     "title": "Kebingungan awal",
     "shot": 2,
-    "start": 4,
-    "end": 8
+    "start": 3.87,
+    "end": 7.75,
+    "scale": 0.969
    },
    {
     "scene": 1,
     "title": "Kebingungan awal",
     "shot": 3,
-    "start": 8,
-    "end": 11
+    "start": 7.75,
+    "end": 10.66,
+    "scale": 0.969
    },
    {
     "scene": 1,
     "title": "Kebingungan awal",
     "shot": 4,
-    "start": 11,
-    "end": 15
+    "start": 10.66,
+    "end": 14.53,
+    "scale": 0.969
    },
    {
     "scene": 2,
     "title": "Memperbaiki kata kunci",
     "shot": 1,
-    "start": 15,
-    "end": 19
+    "start": 14.53,
+    "end": 18.09,
+    "scale": 0.891
    },
    {
     "scene": 2,
     "title": "Memperbaiki kata kunci",
     "shot": 2,
-    "start": 19,
-    "end": 24
+    "start": 18.09,
+    "end": 22.55,
+    "scale": 0.891
    },
    {
     "scene": 2,
     "title": "Memperbaiki kata kunci",
     "shot": 3,
-    "start": 24,
-    "end": 30
+    "start": 22.55,
+    "end": 27.89,
+    "scale": 0.891
    },
    {
     "scene": 3,
     "title": "Memilih referensi relevan",
     "shot": 1,
-    "start": 30,
-    "end": 34
+    "start": 27.89,
+    "end": 31.42,
+    "scale": 0.883
    },
    {
     "scene": 3,
     "title": "Memilih referensi relevan",
     "shot": 2,
-    "start": 34,
-    "end": 38
+    "start": 31.42,
+    "end": 34.96,
+    "scale": 0.883
    },
    {
     "scene": 3,
     "title": "Memilih referensi relevan",
     "shot": 3,
-    "start": 38,
-    "end": 45
+    "start": 34.96,
+    "end": 41.13,
+    "scale": 0.883
    },
    {
     "scene": 4,
     "title": "Memeriksa isi sumber",
     "shot": 1,
-    "start": 45,
-    "end": 49
+    "start": 41.13,
+    "end": 44.69,
+    "scale": 0.888
    },
    {
     "scene": 4,
     "title": "Memeriksa isi sumber",
     "shot": 2,
-    "start": 49,
-    "end": 53
+    "start": 44.69,
+    "end": 48.24,
+    "scale": 0.888
    },
    {
     "scene": 4,
     "title": "Memeriksa isi sumber",
     "shot": 3,
-    "start": 53,
-    "end": 60
+    "start": 48.24,
+    "end": 54.46,
+    "scale": 0.888
    },
    {
     "scene": 5,
     "title": "Menghubungkan bacaan dan masalah",
     "shot": 1,
-    "start": 60,
-    "end": 65
+    "start": 54.46,
+    "end": 58.58,
+    "scale": 0.824
    },
    {
     "scene": 5,
     "title": "Menghubungkan bacaan dan masalah",
     "shot": 2,
-    "start": 65,
-    "end": 70
+    "start": 58.58,
+    "end": 62.7,
+    "scale": 0.824
    },
    {
     "scene": 5,
     "title": "Menghubungkan bacaan dan masalah",
     "shot": 3,
-    "start": 70,
-    "end": 75
+    "start": 62.7,
+    "end": 66.82,
+    "scale": 0.824
    },
    {
     "scene": 6,
     "title": "Memperjelas pernyataan masalah",
     "shot": 1,
-    "start": 75,
-    "end": 79
+    "start": 66.82,
+    "end": 70.81,
+    "scale": 0.998
    },
    {
     "scene": 6,
     "title": "Memperjelas pernyataan masalah",
     "shot": 2,
-    "start": 79,
-    "end": 84
+    "start": 70.81,
+    "end": 75.8,
+    "scale": 0.998
    },
    {
     "scene": 6,
     "title": "Memperjelas pernyataan masalah",
     "shot": 3,
-    "start": 84,
-    "end": 90
+    "start": 75.8,
+    "end": 81.78,
+    "scale": 0.998
    },
    {
     "scene": 7,
     "title": "Menyusun pernyataan masalah",
     "shot": 1,
-    "start": 90,
-    "end": 94
+    "start": 81.78,
+    "end": 85.54,
+    "scale": 0.939
    },
    {
     "scene": 7,
     "title": "Menyusun pernyataan masalah",
     "shot": 2,
-    "start": 94,
-    "end": 98
+    "start": 85.54,
+    "end": 89.29,
+    "scale": 0.939
    },
    {
     "scene": 7,
     "title": "Menyusun pernyataan masalah",
     "shot": 3,
-    "start": 98,
-    "end": 101
+    "start": 89.29,
+    "end": 92.11,
+    "scale": 0.939
    },
    {
     "scene": 7,
     "title": "Menyusun pernyataan masalah",
     "shot": 4,
-    "start": 101,
-    "end": 105
+    "start": 92.11,
+    "end": 95.87,
+    "scale": 0.939
    },
    {
     "scene": 8,
     "title": "Merumuskan pertanyaan penelitian",
     "shot": 1,
-    "start": 105,
-    "end": 109
+    "start": 95.87,
+    "end": 99.81,
+    "scale": 0.985
    },
    {
     "scene": 8,
     "title": "Merumuskan pertanyaan penelitian",
     "shot": 2,
-    "start": 109,
-    "end": 112
+    "start": 99.81,
+    "end": 102.76,
+    "scale": 0.985
    },
    {
     "scene": 8,
     "title": "Merumuskan pertanyaan penelitian",
     "shot": 3,
-    "start": 112,
-    "end": 115
+    "start": 102.76,
+    "end": 105.72,
+    "scale": 0.985
    },
    {
     "scene": 8,
     "title": "Merumuskan pertanyaan penelitian",
     "shot": 4,
-    "start": 115,
-    "end": 117
+    "start": 105.72,
+    "end": 107.69,
+    "scale": 0.985
    },
    {
     "scene": 8,
     "title": "Merumuskan pertanyaan penelitian",
     "shot": 5,
-    "start": 117,
-    "end": 120
+    "start": 107.69,
+    "end": 110.65,
+    "scale": 0.985
    },
    {
     "scene": 9,
     "title": "Memilih data yang diperlukan",
     "shot": 1,
-    "start": 120,
-    "end": 124
+    "start": 110.65,
+    "end": 114.1,
+    "scale": 0.864
    },
    {
     "scene": 9,
     "title": "Memilih data yang diperlukan",
     "shot": 2,
-    "start": 124,
-    "end": 128
+    "start": 114.1,
+    "end": 117.56,
+    "scale": 0.864
    },
    {
     "scene": 9,
     "title": "Memilih data yang diperlukan",
     "shot": 3,
-    "start": 128,
-    "end": 132
+    "start": 117.56,
+    "end": 121.02,
+    "scale": 0.864
    },
    {
     "scene": 9,
     "title": "Memilih data yang diperlukan",
     "shot": 4,
-    "start": 132,
-    "end": 135
+    "start": 121.02,
+    "end": 123.61,
+    "scale": 0.864
    },
    {
     "scene": 10,
     "title": "Menghubungkan data dan analisis",
     "shot": 1,
-    "start": 135,
-    "end": 139
+    "start": 123.61,
+    "end": 127.56,
+    "scale": 0.987
    },
    {
     "scene": 10,
     "title": "Menghubungkan data dan analisis",
     "shot": 2,
-    "start": 139,
-    "end": 142
+    "start": 127.56,
+    "end": 130.52,
+    "scale": 0.987
    },
    {
     "scene": 10,
     "title": "Menghubungkan data dan analisis",
     "shot": 3,
-    "start": 142,
-    "end": 146
+    "start": 130.52,
+    "end": 134.47,
+    "scale": 0.987
    },
    {
     "scene": 10,
     "title": "Menghubungkan data dan analisis",
     "shot": 4,
-    "start": 146,
-    "end": 150
+    "start": 134.47,
+    "end": 138.42,
+    "scale": 0.987
    },
    {
     "scene": 11,
     "title": "Pertanyaan berbeda, rancangan berbeda",
     "shot": 1,
-    "start": 150,
-    "end": 154
+    "start": 138.42,
+    "end": 143.12,
+    "scale": 1.175
    },
    {
     "scene": 11,
     "title": "Pertanyaan berbeda, rancangan berbeda",
     "shot": 2,
-    "start": 154,
-    "end": 159
+    "start": 143.12,
+    "end": 148.99,
+    "scale": 1.175
    },
    {
     "scene": 11,
     "title": "Pertanyaan berbeda, rancangan berbeda",
     "shot": 3,
-    "start": 159,
-    "end": 165
+    "start": 148.99,
+    "end": 156.04,
+    "scale": 1.175
    },
    {
     "scene": 12,
     "title": "Hasil belajar dan penutup",
     "shot": 1,
-    "start": 165,
-    "end": 169
+    "start": 156.04,
+    "end": 159.84,
+    "scale": 0.95
    },
    {
     "scene": 12,
     "title": "Hasil belajar dan penutup",
     "shot": 2,
-    "start": 169,
-    "end": 175
+    "start": 159.84,
+    "end": 165.54,
+    "scale": 0.95
    },
    {
     "scene": 12,
     "title": "Hasil belajar dan penutup",
     "shot": 3,
-    "start": 175,
-    "end": 180
+    "start": 165.54,
+    "end": 170.3,
+    "scale": 0.95
    }
   ],
-  "working_note": "voice.path is a SILENT 180 s placeholder so the shot timing of the 12x15 s storyboard can be validated and previewed. Replace it with the real Indonesian narration (see narasi.md), re-align captions to the recording, then re-time shots."
+  "timing": {
+   "mode": "silence-approximate",
+   "note": "APPROXIMATE: cue times derive from detected pauses and character share, not forced alignment. Review against playback; replace with word timestamps when available."
+  },
+  "working_note": "Shots and cues are timed to the recorded narration (see metadata.timing). Scene choreography is scaled per scene from the 15 s plan."
  },
  "voice": {
-  "path": "audio/placeholder-silent-180s.wav",
+  "path": "audio/narasi.wav",
   "lead": 0,
   "tail": 0
  },
  "captions": [
   {
-   "start": 0.3,
-   "end": 3.2,
+   "start": 0,
+   "end": 2.071,
    "text": "Vidka membuka artikel ketiga pagi ini."
   },
   {
-   "start": 3.4,
-   "end": 6.6,
+   "start": 2.715,
+   "end": 4.716,
    "text": "Semua tentang musik, tak satu pun terasa tepat."
   },
   {
-   "start": 7,
-   "end": 10.4,
+   "start": 5.708,
+   "end": 7.109,
    "text": "Vidka: Pak, referensinya banyak sekali."
   },
   {
-   "start": 10.6,
-   "end": 12.4,
+   "start": 8.324,
+   "end": 9.679,
    "text": "Mana yang harus saya pakai?"
   },
   {
-   "start": 12.6,
-   "end": 14.8,
+   "start": 11.26,
+   "end": 13.153,
    "text": "Herry: Mulai dari masalahmu, bukan tumpukannya."
   },
   {
-   "start": 15.3,
-   "end": 17.8,
+   "start": 14.781,
+   "end": 16.389,
    "text": "Kata kunci «musik» terlalu luas."
   },
   {
-   "start": 18,
-   "end": 20.8,
+   "start": 17.468,
+   "end": 19.044,
    "text": "Herry: Apa yang sebenarnya kamu amati?"
   },
   {
-   "start": 21.2,
-   "end": 23.8,
+   "start": 20.465,
+   "end": 22.72,
    "text": "Vidka menghapus «musik» dan mengetik ulang:"
   },
   {
-   "start": 24,
-   "end": 26.6,
+   "start": 23.77,
+   "end": 24.987,
    "text": "kekompakan tempo, ansambel, siswa SMP."
   },
   {
-   "start": 27,
-   "end": 29.6,
+   "start": 25.037,
+   "end": 27.751,
    "text": "Tugasmu: tulis tiga kata kunci khusus."
   },
   {
-   "start": 30.3,
-   "end": 32.6,
+   "start": 28.143,
+   "end": 29.646,
    "text": "Dua artikel lolos saringan."
   },
   {
-   "start": 32.8,
-   "end": 35.4,
+   "start": 30.484,
+   "end": 31.785,
    "text": "Vidka membandingkan bagian pesertanya."
   },
   {
-   "start": 35.6,
-   "end": 38.4,
+   "start": 32.797,
+   "end": 34.602,
    "text": "Herry: Yang pertama memberi konsep."
   },
   {
-   "start": 38.6,
-   "end": 41,
+   "start": 35.473,
+   "end": 36.585,
    "text": "Yang kedua memberi konteks siswamu."
   },
   {
-   "start": 41.4,
-   "end": 44.6,
+   "start": 37.335,
+   "end": 40.583,
    "text": "Keduanya dipakai, untuk tujuan yang berbeda."
   },
   {
-   "start": 45.3,
-   "end": 48.2,
+   "start": 41.385,
+   "end": 42.601,
    "text": "Membaca artikel bukan mencatat semuanya."
   },
   {
-   "start": 48.4,
-   "end": 50.6,
+   "start": 43.798,
+   "end": 45.651,
    "text": "Vidka menelusuri bagian metode,"
   },
   {
-   "start": 50.8,
-   "end": 52.8,
+   "start": 46.542,
+   "end": 48.181,
    "text": "lalu bagian hasil."
   },
   {
-   "start": 53.2,
-   "end": 56.2,
+   "start": 49,
+   "end": 52.043,
    "text": "Satu temuan ditandai, lalu satu pertanyaan:"
   },
   {
-   "start": 56.6,
-   "end": 59.6,
+   "start": 52.723,
+   "end": 53.819,
    "text": "temuan ini mendukung pernyataan apa?"
   },
   {
-   "start": 60.3,
-   "end": 63,
+   "start": 54.709,
+   "end": 56.472,
    "text": "Dua catatan bacaan, satu pertanyaan penelitian."
   },
   {
-   "start": 63.2,
-   "end": 65.4,
+   "start": 57.461,
+   "end": 59.973,
    "text": "Vidka mendekatkan keduanya,"
   },
   {
-   "start": 65.6,
-   "end": 68.2,
+   "start": 60.754,
+   "end": 62.062,
    "text": "menarik garis penghubung,"
   },
   {
-   "start": 68.4,
-   "end": 70.8,
+   "start": 62.681,
+   "end": 63.702,
    "text": "lalu memperbaiki kalimat pertanyaannya."
   },
   {
-   "start": 71,
-   "end": 74.6,
+   "start": 64.47,
+   "end": 66.182,
    "text": "Vidka: Jadi masalah saya bukan «musik», tapi tempo."
   },
   {
-   "start": 75.3,
-   "end": 78.2,
+   "start": 67.066,
+   "end": 69.673,
    "text": "«Siswa kurang kompak» masih terlalu umum."
   },
   {
-   "start": 78.4,
-   "end": 80.6,
+   "start": 70.805,
+   "end": 72.779,
    "text": "Apa yang sebenarnya terjadi?"
   },
   {
-   "start": 80.8,
-   "end": 83.8,
+   "start": 74.409,
+   "end": 75.584,
    "text": "Vidka: Saat tempo naik, dua siswa tertinggal,"
   },
   {
-   "start": 84,
-   "end": 85.8,
+   "start": 77.131,
+   "end": 77.907,
    "text": "dan latihan berhenti."
   },
   {
-   "start": 86.2,
-   "end": 89.6,
+   "start": 78.519,
+   "end": 80.853,
    "text": "Kejadian dan dampaknya kini terlihat jelas."
   },
   {
-   "start": 90.3,
-   "end": 93,
+   "start": 82.032,
+   "end": 83.767,
    "text": "Pernyataan masalah disusun dari tiga unsur."
   },
   {
-   "start": 93.2,
-   "end": 95.6,
+   "start": 85.164,
+   "end": 87.058,
    "text": "Pertama, kejadian yang diamati."
   },
   {
-   "start": 95.8,
-   "end": 98,
+   "start": 87.519,
+   "end": 89.045,
    "text": "Kedua, dampaknya pada latihan."
   },
   {
-   "start": 98.2,
-   "end": 100.8,
+   "start": 89.548,
+   "end": 91.047,
    "text": "Ketiga, hal yang belum dipahami."
   },
   {
-   "start": 101.4,
-   "end": 104.4,
+   "start": 92.662,
+   "end": 94.523,
    "text": "Tiga kalimat ini menjadi dasar pertanyaan."
   },
   {
-   "start": 105.3,
-   "end": 108.2,
+   "start": 96.116,
+   "end": 97.885,
    "text": "Vidka menulis satu pertanyaan yang lengkap."
   },
   {
-   "start": 108.6,
-   "end": 110.8,
+   "start": 98.844,
+   "end": 100.48,
    "text": "Pertanyaan ini menyebut pesertanya,"
   },
   {
-   "start": 111.4,
-   "end": 113.8,
+   "start": 101.603,
+   "end": 103.134,
    "text": "proses yang ingin dipahami,"
   },
   {
-   "start": 114.4,
-   "end": 116.6,
+   "start": 104.049,
+   "end": 105.393,
    "text": "dan konteks tempat proses itu terjadi."
   },
   {
-   "start": 117.2,
-   "end": 119.6,
+   "start": 106.149,
+   "end": 109.36,
    "text": "Satu kalimat, tiga unsur yang jelas."
   },
   {
-   "start": 120.3,
-   "end": 123.4,
+   "start": 110.897,
+   "end": 112.866,
    "text": "Data apa yang menjawab pertanyaan itu?"
   },
   {
-   "start": 123.6,
-   "end": 125.8,
+   "start": 113.739,
+   "end": 115.385,
    "text": "Vidka: Apakah kuesioner saja cukup"
   },
   {
-   "start": 126,
-   "end": 127.8,
+   "start": 116.703,
+   "end": 119.632,
    "text": "menunjukkan apa yang terjadi saat latihan?"
   },
   {
-   "start": 128.4,
-   "end": 131.4,
+   "start": 120.525,
+   "end": 120.933,
    "text": "Pikirkan: data mana yang menjawab pertanyaanmu?"
   },
   {
-   "start": 132.2,
-   "end": 134.6,
+   "start": 121.669,
+   "end": 123.203,
    "text": "Vidka: Pengamatan dulu, kuesioner menyusul."
   },
   {
-   "start": 135.3,
-   "end": 138.6,
+   "start": 123.863,
+   "end": 126.698,
    "text": "Tempo naik; seorang pemain menoleh ke temannya."
   },
   {
-   "start": 139.2,
-   "end": 141.6,
+   "start": 127.713,
+   "end": 131.731,
    "text": "Vidka mencatat waktunya: menit kedua belas."
   },
   {
-   "start": 142.2,
-   "end": 145.4,
+   "start": 132.383,
+   "end": 135.864,
    "text": "Pemain: Saya menoleh karena kehilangan hitungan."
   },
   {
-   "start": 146.2,
-   "end": 149.6,
+   "start": 136.738,
+   "end": 137.76,
    "text": "Keduanya dibandingkan. Itulah analisisnya."
   },
   {
-   "start": 150.3,
-   "end": 153.2,
+   "start": 138.67,
+   "end": 142.66,
    "text": "Pertanyaan berbeda menuntut rancangan berbeda."
   },
   {
-   "start": 154.2,
-   "end": 156.4,
+   "start": 143.52,
+   "end": 145.026,
    "text": "Ardipal: Pertanyaan kedua menguji pengaruh."
   },
   {
-   "start": 156.6,
-   "end": 158.8,
+   "start": 146.556,
+   "end": 147.795,
    "text": "Kamu perlu kelompok pembanding,"
   },
   {
-   "start": 159.2,
-   "end": 161.8,
+   "start": 148.799,
+   "end": 151.096,
    "text": "dan ukuran tempo sebelum serta sesudah latihan."
   },
   {
-   "start": 162.2,
-   "end": 164.6,
+   "start": 152.193,
+   "end": 154.868,
    "text": "Bukan «membuktikan», melainkan menguji perbedaan."
   },
   {
-   "start": 165.3,
-   "end": 167.6,
+   "start": 156.289,
+   "end": 158.295,
    "text": "Dalam satu sesi, Vidka memiliki tiga hal:"
   },
   {
-   "start": 167.8,
-   "end": 169.2,
+   "start": 159.646,
+   "end": 160.096,
    "text": "masalah yang jelas,"
   },
   {
-   "start": 169.4,
-   "end": 171,
+   "start": 160.146,
+   "end": 161.396,
    "text": "pertanyaan yang lengkap,"
   },
   {
-   "start": 171.2,
-   "end": 173.6,
+   "start": 161.818,
+   "end": 163.198,
    "text": "dan alasan memilih datanya."
   },
   {
-   "start": 174,
-   "end": 175.6,
+   "start": 164.12,
+   "end": 165.266,
    "text": "Rancangan penelitiannya siap."
   },
   {
-   "start": 176,
-   "end": 177.8,
+   "start": 165.8,
+   "end": 168.229,
    "text": "Tugas: pilih data untuk pertanyaanmu."
   },
   {
-   "start": 178,
-   "end": 179.6,
+   "start": 169.094,
+   "end": 169.894,
    "text": "Jelaskan alasannya."
   }
  ],
  "shots": [
   {
    "start": 0,
-   "end": 4,
+   "end": 3.875,
    "layers": [
     {
      "type": "image",
@@ -642,25 +688,25 @@
      },
      "keys": [
       {
-       "t": 0.3,
+       "t": 0.291,
        "x": 430,
        "y": 120,
        "angle": -0.05
       },
       {
-       "t": 1.6,
+       "t": 1.55,
        "x": 580,
        "y": 330,
        "angle": 0.04
       },
       {
-       "t": 2.6,
+       "t": 2.519,
        "x": 580,
        "y": 330,
        "angle": 0.04
       },
       {
-       "t": 3.4,
+       "t": 3.294,
        "x": 600,
        "y": 330,
        "angle": 0
@@ -685,13 +731,13 @@
      "w": 660,
      "bold": true,
      "color": "#EC4338",
-     "from": 1.8
+     "from": 1.744
     }
    ]
   },
   {
-   "start": 4,
-   "end": 8,
+   "start": 3.875,
+   "end": 7.75,
    "layers": [
     {
      "type": "image",
@@ -713,7 +759,7 @@
      "x": 520,
      "y": 226.66666666666669,
      "w": 280,
-     "to": 2.2
+     "to": 2.131
     },
     {
      "type": "image",
@@ -721,7 +767,7 @@
      "x": 520,
      "y": 226.66666666666669,
      "w": 280,
-     "from": 2.2
+     "from": 2.131
     },
     {
      "type": "image",
@@ -736,12 +782,12 @@
      },
      "keys": [
       {
-       "t": 0.2,
+       "t": 0.194,
        "x": 260,
        "y": 380
       },
       {
-       "t": 1.4,
+       "t": 1.356,
        "x": 590,
        "y": 345
       }
@@ -760,11 +806,11 @@
      },
      "keys": [
       {
-       "t": 2.4,
+       "t": 2.325,
        "y": 220
       },
       {
-       "t": 3.4,
+       "t": 3.294,
        "y": 330
       }
      ]
@@ -781,8 +827,8 @@
    ]
   },
   {
-   "start": 8,
-   "end": 11,
+   "start": 7.75,
+   "end": 10.656,
    "layers": [
     {
      "type": "image",
@@ -832,11 +878,11 @@
      },
      "keys": [
       {
-       "t": 0.4,
+       "t": 0.387,
        "x": 1200
       },
       {
-       "t": 2.6,
+       "t": 2.519,
        "x": 960
       }
      ]
@@ -844,8 +890,8 @@
    ]
   },
   {
-   "start": 11,
-   "end": 15,
+   "start": 10.656,
+   "end": 14.531,
    "layers": [
     {
      "type": "image",
@@ -904,7 +950,7 @@
      "size": 28,
      "w": 480,
      "color": "#1F3A5F",
-     "from": 1
+     "from": 0.969
     },
     {
      "type": "line",
@@ -931,11 +977,11 @@
      },
      "keys": [
       {
-       "t": 0.3,
+       "t": 0.291,
        "progress": 0
       },
       {
-       "t": 1,
+       "t": 0.969,
        "progress": 1
       }
      ]
@@ -973,11 +1019,11 @@
      },
      "keys": [
       {
-       "t": 1.6,
+       "t": 1.55,
        "progress": 0
       },
       {
-       "t": 2.6,
+       "t": 2.519,
        "progress": 1
       }
      ]
@@ -985,8 +1031,8 @@
    ]
   },
   {
-   "start": 15,
-   "end": 19,
+   "start": 14.531,
+   "end": 18.094,
    "layers": [
     {
      "type": "image",
@@ -1031,11 +1077,11 @@
      },
      "keys": [
       {
-       "t": 0.3,
+       "t": 0.267,
        "y": 215
       },
       {
-       "t": 1.2,
+       "t": 1.069,
        "y": 280
       }
      ]
@@ -1053,11 +1099,11 @@
      },
      "keys": [
       {
-       "t": 1.3,
+       "t": 1.158,
        "y": 215
       },
       {
-       "t": 2.2,
+       "t": 1.96,
        "y": 280
       }
      ]
@@ -1075,11 +1121,11 @@
      },
      "keys": [
       {
-       "t": 2.3,
+       "t": 2.049,
        "y": 215
       },
       {
-       "t": 3.2,
+       "t": 2.851,
        "y": 280
       }
      ]
@@ -1097,8 +1143,8 @@
    ]
   },
   {
-   "start": 19,
-   "end": 24,
+   "start": 18.094,
+   "end": 22.548,
    "layers": [
     {
      "type": "image",
@@ -1115,7 +1161,7 @@
      "size": 60,
      "w": 1070,
      "color": "#1F3A5F",
-     "to": 1.3
+     "to": 1.158
     },
     {
      "type": "line",
@@ -1138,15 +1184,15 @@
      },
      "keys": [
       {
-       "t": 0.2,
+       "t": 0.178,
        "progress": 0
       },
       {
-       "t": 0.8,
+       "t": 0.713,
        "progress": 1
       }
      ],
-     "to": 1.3
+     "to": 1.158
     },
     {
      "type": "text",
@@ -1156,7 +1202,7 @@
      "size": 52,
      "w": 1070,
      "color": "#1F3A5F",
-     "from": 1.4
+     "from": 1.247
     },
     {
      "type": "text",
@@ -1166,7 +1212,7 @@
      "size": 52,
      "w": 670,
      "color": "#1F3A5F",
-     "from": 2.3
+     "from": 2.049
     },
     {
      "type": "text",
@@ -1176,7 +1222,7 @@
      "size": 52,
      "w": 450,
      "color": "#1F3A5F",
-     "from": 3.2
+     "from": 2.851
     },
     {
      "type": "image",
@@ -1191,27 +1237,27 @@
      },
      "keys": [
       {
-       "t": 1.3,
+       "t": 1.158,
        "x": 196
       },
       {
-       "t": 1.5,
+       "t": 1.336,
        "x": 580
       },
       {
-       "t": 2.2,
+       "t": 1.96,
        "x": 580
       },
       {
-       "t": 2.4,
+       "t": 2.138,
        "x": 800
       },
       {
-       "t": 3.1,
+       "t": 2.761,
        "x": 800
       },
       {
-       "t": 3.3,
+       "t": 2.94,
        "x": 1030
       }
      ]
@@ -1224,13 +1270,13 @@
      "size": 44,
      "w": 1110,
      "color": "#6b7280",
-     "from": 3.6
+     "from": 3.207
     }
    ]
   },
   {
-   "start": 24,
-   "end": 30,
+   "start": 22.548,
+   "end": 27.893,
    "layers": [
     {
      "type": "image",
@@ -1287,51 +1333,51 @@
      },
      "keys": [
       {
-       "t": 0.4,
+       "t": 0.356,
        "y": 470
       },
       {
-       "t": 0.85,
+       "t": 0.757,
        "y": 462
       },
       {
-       "t": 1.3,
+       "t": 1.158,
        "y": 470
       },
       {
-       "t": 1.75,
+       "t": 1.559,
        "y": 462
       },
       {
-       "t": 2.2,
+       "t": 1.96,
        "y": 470
       },
       {
-       "t": 2.65,
+       "t": 2.361,
        "y": 462
       },
       {
-       "t": 3.1,
+       "t": 2.761,
        "y": 470
       },
       {
-       "t": 3.55,
+       "t": 3.162,
        "y": 462
       },
       {
-       "t": 4,
+       "t": 3.563,
        "y": 470
       },
       {
-       "t": 4.45,
+       "t": 3.964,
        "y": 462
       },
       {
-       "t": 4.9,
+       "t": 4.365,
        "y": 470
       },
       {
-       "t": 5.35,
+       "t": 4.766,
        "y": 462
       }
      ]
@@ -1339,8 +1385,8 @@
    ]
   },
   {
-   "start": 30,
-   "end": 34,
+   "start": 27.893,
+   "end": 31.424,
    "layers": [
     {
      "type": "image",
@@ -1414,11 +1460,11 @@
      },
      "keys": [
       {
-       "t": 0.3,
+       "t": 0.265,
        "progress": 0
       },
       {
-       "t": 1.2,
+       "t": 1.059,
        "progress": 1
       }
      ]
@@ -1436,11 +1482,11 @@
      },
      "keys": [
       {
-       "t": 0.3,
+       "t": 0.265,
        "x": 230
       },
       {
-       "t": 1.2,
+       "t": 1.059,
        "x": 440
       }
      ]
@@ -1467,11 +1513,11 @@
      },
      "keys": [
       {
-       "t": 2,
+       "t": 1.766,
        "progress": 0
       },
       {
-       "t": 2.9,
+       "t": 2.56,
        "progress": 1
       }
      ]
@@ -1489,11 +1535,11 @@
      },
      "keys": [
       {
-       "t": 2,
+       "t": 1.766,
        "x": 790
       },
       {
-       "t": 2.9,
+       "t": 2.56,
        "x": 1000
       }
      ]
@@ -1501,8 +1547,8 @@
    ]
   },
   {
-   "start": 34,
-   "end": 38,
+   "start": 31.424,
+   "end": 34.955,
    "layers": [
     {
      "type": "image",
@@ -1524,7 +1570,7 @@
      "x": 520,
      "y": 226.66666666666669,
      "w": 280,
-     "to": 3
+     "to": 2.648
     },
     {
      "type": "image",
@@ -1532,7 +1578,7 @@
      "x": 520,
      "y": 226.66666666666669,
      "w": 280,
-     "from": 3
+     "from": 2.648
     },
     {
      "type": "image",
@@ -1580,11 +1626,11 @@
      },
      "keys": [
       {
-       "t": 0.2,
+       "t": 0.177,
        "progress": 0
       },
       {
-       "t": 1,
+       "t": 0.883,
        "progress": 1
       }
      ]
@@ -1614,11 +1660,11 @@
      },
      "keys": [
       {
-       "t": 2,
+       "t": 1.766,
        "progress": 0
       },
       {
-       "t": 2.8,
+       "t": 2.472,
        "progress": 1
       }
      ]
@@ -1632,7 +1678,7 @@
      "w": 480,
      "color": "#1F3A5F",
      "bold": true,
-     "from": 1
+     "from": 0.883
     },
     {
      "type": "text",
@@ -1643,13 +1689,13 @@
      "w": 365,
      "color": "#1F3A5F",
      "bold": true,
-     "from": 2.8
+     "from": 2.472
     }
    ]
   },
   {
-   "start": 38,
-   "end": 45,
+   "start": 34.955,
+   "end": 41.135,
    "layers": [
     {
      "type": "image",
@@ -1678,13 +1724,13 @@
      },
      "keys": [
       {
-       "t": 0.3,
+       "t": 0.265,
        "x": 60,
        "y": 40,
        "angle": -0.2
       },
       {
-       "t": 1.2,
+       "t": 1.059,
        "x": 380,
        "y": 60,
        "angle": 0
@@ -1699,7 +1745,7 @@
      "size": 30,
      "w": 872,
      "bold": true,
-     "from": 1.3
+     "from": 1.148
     },
     {
      "type": "image",
@@ -1714,13 +1760,13 @@
      },
      "keys": [
       {
-       "t": 3,
+       "t": 2.648,
        "x": 1120,
        "y": 40,
        "angle": 0.2
       },
       {
-       "t": 3.9,
+       "t": 3.443,
        "x": 940,
        "y": 60,
        "angle": 0
@@ -1735,7 +1781,7 @@
      "size": 26,
      "w": 318,
      "bold": true,
-     "from": 4
+     "from": 3.531
     },
     {
      "type": "text",
@@ -1745,7 +1791,7 @@
      "size": 26,
      "w": 302,
      "bold": true,
-     "from": 4
+     "from": 3.531
     },
     {
      "type": "line",
@@ -1772,11 +1818,11 @@
      },
      "keys": [
       {
-       "t": 4.6,
+       "t": 4.061,
        "progress": 0
       },
       {
-       "t": 5.2,
+       "t": 4.591,
        "progress": 1
       }
      ]
@@ -1806,11 +1852,11 @@
      },
      "keys": [
       {
-       "t": 5.7,
+       "t": 5.032,
        "progress": 0
       },
       {
-       "t": 6.3,
+       "t": 5.562,
        "progress": 1
       }
      ]
@@ -1823,7 +1869,7 @@
      "size": 30,
      "w": 940,
      "color": "#3E9B5F",
-     "from": 5.2
+     "from": 4.591
     },
     {
      "type": "text",
@@ -1833,13 +1879,13 @@
      "size": 30,
      "w": 380,
      "color": "#3E9B5F",
-     "from": 6.3
+     "from": 5.562
     }
    ]
   },
   {
-   "start": 45,
-   "end": 49,
+   "start": 41.135,
+   "end": 44.688,
    "layers": [
     {
      "type": "image",
@@ -1908,11 +1954,11 @@
      },
      "keys": [
       {
-       "t": 0.4,
+       "t": 0.355,
        "progress": 0
       },
       {
-       "t": 1.6,
+       "t": 1.421,
        "progress": 1
       }
      ]
@@ -1930,22 +1976,22 @@
      },
      "keys": [
       {
-       "t": 0.4,
+       "t": 0.355,
        "x": 420,
        "y": 150
       },
       {
-       "t": 1.6,
+       "t": 1.421,
        "x": 660,
        "y": 150
       },
       {
-       "t": 2.6,
+       "t": 2.309,
        "x": 660,
        "y": 150
       },
       {
-       "t": 3.6,
+       "t": 3.198,
        "x": 420,
        "y": 330
       }
@@ -1954,8 +2000,8 @@
    ]
   },
   {
-   "start": 49,
-   "end": 53,
+   "start": 44.688,
+   "end": 48.241,
    "layers": [
     {
      "type": "image",
@@ -2022,11 +2068,11 @@
      },
      "keys": [
       {
-       "t": 0.2,
+       "t": 0.178,
        "progress": 0
       },
       {
-       "t": 1.2,
+       "t": 1.066,
        "progress": 1
       }
      ]
@@ -2044,22 +2090,22 @@
      },
      "keys": [
       {
-       "t": 0.2,
+       "t": 0.178,
        "x": 420,
        "y": 330
       },
       {
-       "t": 1.2,
+       "t": 1.066,
        "x": 660,
        "y": 330
       },
       {
-       "t": 2.4,
+       "t": 2.132,
        "x": 660,
        "y": 330
       },
       {
-       "t": 3.2,
+       "t": 2.842,
        "x": 760,
        "y": 250
       }
@@ -2073,7 +2119,7 @@
      "size": 26,
      "w": 870,
      "color": "#1F3A5F",
-     "from": 1.3
+     "from": 1.155
     },
     {
      "type": "text",
@@ -2083,7 +2129,7 @@
      "size": 26,
      "w": 870,
      "color": "#1F3A5F",
-     "from": 1.3
+     "from": 1.155
     },
     {
      "type": "text",
@@ -2093,13 +2139,13 @@
      "size": 44,
      "w": 280,
      "bold": true,
-     "from": 1.4
+     "from": 1.244
     }
    ]
   },
   {
-   "start": 53,
-   "end": 60,
+   "start": 48.241,
+   "end": 54.459,
    "layers": [
     {
      "type": "image",
@@ -2116,7 +2162,7 @@
      "size": 48,
      "w": 1010,
      "color": "#1F3A5F",
-     "from": 0.6
+     "from": 0.533
     },
     {
      "type": "text",
@@ -2126,7 +2172,7 @@
      "size": 48,
      "w": 790,
      "color": "#1F3A5F",
-     "from": 1.4
+     "from": 1.244
     },
     {
      "type": "text",
@@ -2136,7 +2182,7 @@
      "size": 48,
      "w": 570,
      "color": "#1F3A5F",
-     "from": 2.2
+     "from": 1.954
     },
     {
      "type": "image",
@@ -2151,55 +2197,55 @@
      },
      "keys": [
       {
-       "t": 0.4,
+       "t": 0.355,
        "x": 250
       },
       {
-       "t": 2.4,
+       "t": 2.132,
        "x": 720
       },
       {
-       "t": 3,
+       "t": 2.665,
        "y": 170,
        "x": 760
       },
       {
-       "t": 3.45,
+       "t": 3.065,
        "y": 162,
        "x": 760
       },
       {
-       "t": 3.9,
+       "t": 3.464,
        "y": 170,
        "x": 760
       },
       {
-       "t": 4.35,
+       "t": 3.864,
        "y": 162,
        "x": 760
       },
       {
-       "t": 4.8,
+       "t": 4.264,
        "y": 170,
        "x": 760
       },
       {
-       "t": 5.25,
+       "t": 4.663,
        "y": 162,
        "x": 760
       },
       {
-       "t": 5.7,
+       "t": 5.063,
        "y": 170,
        "x": 760
       },
       {
-       "t": 6.15,
+       "t": 5.463,
        "y": 162,
        "x": 760
       },
       {
-       "t": 6.6,
+       "t": 5.863,
        "y": 170,
        "x": 760
       }
@@ -2213,13 +2259,13 @@
      "size": 36,
      "w": 400,
      "color": "#6b7280",
-     "from": 3.5
+     "from": 3.109
     }
    ]
   },
   {
-   "start": 60,
-   "end": 65,
+   "start": 54.459,
+   "end": 58.578,
    "layers": [
     {
      "type": "image",
@@ -2268,11 +2314,11 @@
      },
      "keys": [
       {
-       "t": 0.5,
+       "t": 0.412,
        "x": 60
       },
       {
-       "t": 1.8,
+       "t": 1.483,
        "x": 380
       }
      ]
@@ -2285,7 +2331,7 @@
      "size": 30,
      "w": 1190,
      "color": "#1F3A5F",
-     "to": 0.5
+     "to": 0.412
     },
     {
      "type": "image",
@@ -2300,11 +2346,11 @@
      },
      "keys": [
       {
-       "t": 2.2,
+       "t": 1.812,
        "x": 60
       },
       {
-       "t": 3.5,
+       "t": 2.883,
        "x": 380
       }
      ]
@@ -2317,7 +2363,7 @@
      "size": 30,
      "w": 1190,
      "color": "#1F3A5F",
-     "to": 2.2
+     "to": 1.812
     },
     {
      "type": "text",
@@ -2327,7 +2373,7 @@
      "size": 30,
      "w": 870,
      "color": "#1F3A5F",
-     "from": 1.8
+     "from": 1.483
     },
     {
      "type": "text",
@@ -2337,13 +2383,13 @@
      "size": 30,
      "w": 870,
      "color": "#1F3A5F",
-     "from": 3.5
+     "from": 2.883
     }
    ]
   },
   {
-   "start": 65,
-   "end": 70,
+   "start": 58.578,
+   "end": 62.697,
    "layers": [
     {
      "type": "image",
@@ -2369,7 +2415,7 @@
      "size": 42,
      "w": 540,
      "color": "#1F3A5F",
-     "to": 4.3
+     "to": 3.542
     },
     {
      "type": "text",
@@ -2379,7 +2425,7 @@
      "size": 42,
      "w": 540,
      "color": "#1F3A5F",
-     "to": 4.3
+     "to": 3.542
     },
     {
      "type": "image",
@@ -2434,11 +2480,11 @@
      },
      "keys": [
       {
-       "t": 0.3,
+       "t": 0.247,
        "progress": 0
       },
       {
-       "t": 1.2,
+       "t": 0.989,
        "progress": 1
       }
      ]
@@ -2464,11 +2510,11 @@
      },
      "keys": [
       {
-       "t": 1.8,
+       "t": 1.483,
        "progress": 0
       },
       {
-       "t": 2.7,
+       "t": 2.224,
        "progress": 1
       }
      ]
@@ -2502,11 +2548,11 @@
      },
      "keys": [
       {
-       "t": 3.4,
+       "t": 2.801,
        "progress": 0
       },
       {
-       "t": 4.2,
+       "t": 3.46,
        "progress": 1
       }
      ]
@@ -2519,7 +2565,7 @@
      "size": 42,
      "w": 540,
      "color": "#1F3A5F",
-     "from": 4.3
+     "from": 3.542
     },
     {
      "type": "text",
@@ -2529,13 +2575,13 @@
      "size": 40,
      "w": 540,
      "color": "#1F3A5F",
-     "from": 4.3
+     "from": 3.542
     }
    ]
   },
   {
-   "start": 70,
-   "end": 75,
+   "start": 62.697,
+   "end": 66.816,
    "layers": [
     {
      "type": "image",
@@ -2543,7 +2589,7 @@
      "x": 420,
      "y": 60,
      "w": 380,
-     "to": 2.2
+     "to": 1.812
     },
     {
      "type": "image",
@@ -2551,7 +2597,7 @@
      "x": 420,
      "y": 60,
      "w": 380,
-     "from": 2.2
+     "from": 1.812
     },
     {
      "type": "image",
@@ -2566,11 +2612,11 @@
      },
      "keys": [
       {
-       "t": 0.2,
+       "t": 0.165,
        "x": 60
       },
       {
-       "t": 1,
+       "t": 0.824,
        "x": 160
       }
      ]
@@ -2583,7 +2629,7 @@
      "size": 30,
      "w": 1070,
      "color": "#1F3A5F",
-     "from": 1
+     "from": 0.824
     },
     {
      "type": "image",
@@ -2598,23 +2644,23 @@
      },
      "keys": [
       {
-       "t": 2.4,
+       "t": 1.977,
        "y": 300
       },
       {
-       "t": 3.4,
+       "t": 2.801,
        "y": 230
       },
       {
-       "t": 3.8,
+       "t": 3.13,
        "y": 230
       },
       {
-       "t": 4.25,
+       "t": 3.501,
        "y": 222
       },
       {
-       "t": 4.7,
+       "t": 3.872,
        "y": 230
       }
      ]
@@ -2627,7 +2673,7 @@
      "size": 40,
      "w": 370,
      "color": "#6b7280",
-     "to": 2.2
+     "to": 1.812
     },
     {
      "type": "text",
@@ -2638,13 +2684,13 @@
      "w": 370,
      "color": "#3E9B5F",
      "bold": true,
-     "from": 2.2
+     "from": 1.812
     }
    ]
   },
   {
-   "start": 75,
-   "end": 79,
+   "start": 66.816,
+   "end": 70.807,
    "layers": [
     {
      "type": "image",
@@ -2690,11 +2736,11 @@
      },
      "keys": [
       {
-       "t": 0.8,
+       "t": 0.798,
        "progress": 0
       },
       {
-       "t": 1.8,
+       "t": 1.796,
        "progress": 1
       }
      ]
@@ -2707,7 +2753,7 @@
      "size": 30,
      "w": 570,
      "color": "#EC4338",
-     "from": 1.9
+     "from": 1.896
     },
     {
      "type": "image",
@@ -2722,12 +2768,12 @@
      },
      "keys": [
       {
-       "t": 2.4,
+       "t": 2.395,
        "x": 640,
        "y": 150
       },
       {
-       "t": 3.4,
+       "t": 3.392,
        "x": 240,
        "y": 240
       }
@@ -2736,8 +2782,8 @@
    ]
   },
   {
-   "start": 79,
-   "end": 84,
+   "start": 70.807,
+   "end": 75.796,
    "layers": [
     {
      "type": "image",
@@ -2785,7 +2831,7 @@
      "size": 40,
      "w": 1030,
      "color": "#1F3A5F",
-     "from": 0.3
+     "from": 0.299
     },
     {
      "type": "text",
@@ -2795,7 +2841,7 @@
      "size": 40,
      "w": 1030,
      "color": "#1F3A5F",
-     "from": 1.8
+     "from": 1.796
     },
     {
      "type": "text",
@@ -2805,7 +2851,7 @@
      "size": 40,
      "w": 1030,
      "color": "#1F3A5F",
-     "from": 3.3
+     "from": 3.293
     },
     {
      "type": "image",
@@ -2825,32 +2871,32 @@
        "y": 240
       },
       {
-       "t": 0.8,
+       "t": 0.798,
        "x": 520,
        "y": 240
       },
       {
-       "t": 1.7,
+       "t": 1.696,
        "x": 240,
        "y": 310
       },
       {
-       "t": 2.3,
+       "t": 2.295,
        "x": 620,
        "y": 310
       },
       {
-       "t": 3.2,
+       "t": 3.193,
        "x": 240,
        "y": 380
       },
       {
-       "t": 3.8,
+       "t": 3.791,
        "x": 560,
        "y": 380
       },
       {
-       "t": 4.8,
+       "t": 4.789,
        "x": 700,
        "y": 300
       }
@@ -2859,8 +2905,8 @@
    ]
   },
   {
-   "start": 84,
-   "end": 90,
+   "start": 75.796,
+   "end": 81.782,
    "layers": [
     {
      "type": "text",
@@ -2905,11 +2951,11 @@
      },
      "keys": [
       {
-       "t": 2,
+       "t": 1.995,
        "x": 560
       },
       {
-       "t": 3,
+       "t": 2.993,
        "x": 640
       }
      ]
@@ -2938,67 +2984,67 @@
        "angle": 3.562
       },
       {
-       "t": 0.25,
+       "t": 0.249,
        "angle": 2.722
       },
       {
-       "t": 0.5,
+       "t": 0.499,
        "angle": 3.562
       },
       {
-       "t": 0.75,
+       "t": 0.748,
        "angle": 2.722
       },
       {
-       "t": 1,
+       "t": 0.998,
        "angle": 3.562
       },
       {
-       "t": 1.25,
+       "t": 1.247,
        "angle": 2.722
       },
       {
-       "t": 1.5,
+       "t": 1.497,
        "angle": 3.562
       },
       {
-       "t": 1.75,
+       "t": 1.746,
        "angle": 2.722
       },
       {
-       "t": 2,
+       "t": 1.995,
        "angle": 3.562
       },
       {
-       "t": 2.25,
+       "t": 2.245,
        "angle": 2.722
       },
       {
-       "t": 2.5,
+       "t": 2.494,
        "angle": 3.562
       },
       {
-       "t": 2.75,
+       "t": 2.744,
        "angle": 2.722
       },
       {
-       "t": 3,
+       "t": 2.993,
        "angle": 3.562
       },
       {
-       "t": 3.25,
+       "t": 3.243,
        "angle": 2.722
       },
       {
-       "t": 3.5,
+       "t": 3.492,
        "angle": 3.562
       },
       {
-       "t": 3.75,
+       "t": 3.741,
        "angle": 2.722
       },
       {
-       "t": 4,
+       "t": 3.991,
        "angle": 3.562
       }
      ]
@@ -3011,7 +3057,7 @@
      "size": 30,
      "w": 390,
      "color": "#EC4338",
-     "to": 4
+     "to": 3.991
     },
     {
      "type": "text",
@@ -3022,13 +3068,13 @@
      "w": 410,
      "color": "#EC4338",
      "bold": true,
-     "from": 4
+     "from": 3.991
     }
    ]
   },
   {
-   "start": 90,
-   "end": 94,
+   "start": 81.782,
+   "end": 85.538,
    "layers": [
     {
      "type": "text",
@@ -3062,22 +3108,22 @@
      },
      "keys": [
       {
-       "t": 0.2,
+       "t": 0.188,
        "x": 120,
        "y": 106
       },
       {
-       "t": 1.6,
+       "t": 1.502,
        "x": 980,
        "y": 106
       },
       {
-       "t": 2.4,
+       "t": 2.253,
        "x": 1040,
        "y": 106
       },
       {
-       "t": 3.6,
+       "t": 3.38,
        "x": 1040,
        "y": 96
       }
@@ -3086,8 +3132,8 @@
    ]
   },
   {
-   "start": 94,
-   "end": 98,
+   "start": 85.538,
+   "end": 89.293,
    "layers": [
     {
      "type": "text",
@@ -3140,22 +3186,22 @@
      },
      "keys": [
       {
-       "t": 0.2,
+       "t": 0.188,
        "x": 120,
        "y": 242
       },
       {
-       "t": 1.6,
+       "t": 1.502,
        "x": 980,
        "y": 242
       },
       {
-       "t": 2.4,
+       "t": 2.253,
        "x": 1040,
        "y": 242
       },
       {
-       "t": 3.6,
+       "t": 3.38,
        "x": 1040,
        "y": 232
       }
@@ -3164,8 +3210,8 @@
    ]
   },
   {
-   "start": 98,
-   "end": 101,
+   "start": 89.293,
+   "end": 92.11,
    "layers": [
     {
      "type": "text",
@@ -3237,22 +3283,22 @@
      },
      "keys": [
       {
-       "t": 0.2,
+       "t": 0.188,
        "x": 120,
        "y": 378
       },
       {
-       "t": 1.6,
+       "t": 1.502,
        "x": 980,
        "y": 378
       },
       {
-       "t": 2.4,
+       "t": 2.253,
        "x": 1040,
        "y": 378
       },
       {
-       "t": 2.6,
+       "t": 2.441,
        "x": 1040,
        "y": 368
       }
@@ -3261,8 +3307,8 @@
    ]
   },
   {
-   "start": 101,
-   "end": 105,
+   "start": 92.11,
+   "end": 95.866,
    "layers": [
     {
      "type": "text",
@@ -3350,11 +3396,11 @@
      },
      "keys": [
       {
-       "t": 0.3,
+       "t": 0.282,
        "progress": 0
       },
       {
-       "t": 1.8,
+       "t": 1.69,
        "progress": 1
       }
      ]
@@ -3368,7 +3414,7 @@
      "w": 230,
      "color": "#1F3A5F",
      "bold": true,
-     "from": 1.8
+     "from": 1.69
     },
     {
      "type": "text",
@@ -3379,13 +3425,43 @@
      "w": 200,
      "color": "#1F3A5F",
      "bold": true,
-     "from": 1.8
+     "from": 1.69
+    },
+    {
+     "type": "image",
+     "path": "art/pencil.png",
+     "x": 1090,
+     "y": 300,
+     "w": 80,
+     "id": "prop-45",
+     "motion": {
+      "role": "prop",
+      "reason": "Pensil diletakkan di tepi, mengetuk pelan selama jeda baca"
+     },
+     "keys": [
+      {
+       "t": 1.878,
+       "y": 300
+      },
+      {
+       "t": 2.3,
+       "y": 294
+      },
+      {
+       "t": 2.723,
+       "y": 300
+      },
+      {
+       "t": 3.145,
+       "y": 294
+      }
+     ]
     }
    ]
   },
   {
-   "start": 105,
-   "end": 109,
+   "start": 95.866,
+   "end": 99.808,
    "layers": [
     {
      "type": "image",
@@ -3409,7 +3485,7 @@
      "size": 36,
      "w": 790,
      "color": "#1F3A5F",
-     "from": 0.3
+     "from": 0.296
     },
     {
      "type": "text",
@@ -3419,7 +3495,7 @@
      "size": 31,
      "w": 790,
      "color": "#1F3A5F",
-     "from": 1.8
+     "from": 1.774
     },
     {
      "type": "image",
@@ -3427,34 +3503,34 @@
      "x": 470,
      "y": 170,
      "w": 90,
-     "id": "prop-45",
+     "id": "prop-46",
      "motion": {
       "role": "prop",
       "reason": "Pensil menulis dua baris pertanyaan lalu diangkat"
      },
      "keys": [
       {
-       "t": 0.2,
+       "t": 0.197,
        "x": 470,
        "y": 170
       },
       {
-       "t": 1.6,
+       "t": 1.577,
        "x": 940,
        "y": 170
       },
       {
-       "t": 1.8,
+       "t": 1.774,
        "x": 470,
        "y": 230
       },
       {
-       "t": 3.4,
+       "t": 3.35,
        "x": 1000,
        "y": 230
       },
       {
-       "t": 3.9,
+       "t": 3.843,
        "x": 1040,
        "y": 150
       }
@@ -3463,8 +3539,8 @@
    ]
   },
   {
-   "start": 109,
-   "end": 112,
+   "start": 99.808,
+   "end": 102.764,
    "layers": [
     {
      "type": "text",
@@ -3500,18 +3576,18 @@
      "y": 228,
      "w": 430,
      "color": "#F6D34A",
-     "id": "information-46",
+     "id": "information-47",
      "motion": {
       "role": "information",
       "reason": "Sorotan peserta: siswa ansambel SMP"
      },
      "keys": [
       {
-       "t": 0.2,
+       "t": 0.197,
        "progress": 0
       },
       {
-       "t": 1,
+       "t": 0.985,
        "progress": 1
       }
      ]
@@ -3519,8 +3595,8 @@
    ]
   },
   {
-   "start": 112,
-   "end": 115,
+   "start": 102.764,
+   "end": 105.72,
    "layers": [
     {
      "type": "text",
@@ -3556,18 +3632,18 @@
      "y": 308,
      "w": 360,
      "color": "#F6D34A",
-     "id": "information-47",
+     "id": "information-48",
      "motion": {
       "role": "information",
       "reason": "Sorotan proses: menyesuaikan tempo"
      },
      "keys": [
       {
-       "t": 0.2,
+       "t": 0.197,
        "progress": 0
       },
       {
-       "t": 1,
+       "t": 0.985,
        "progress": 1
       }
      ]
@@ -3575,8 +3651,8 @@
    ]
   },
   {
-   "start": 115,
-   "end": 117,
+   "start": 105.72,
+   "end": 107.691,
    "layers": [
     {
      "type": "text",
@@ -3612,18 +3688,18 @@
      "y": 308,
      "w": 420,
      "color": "#F6D34A",
-     "id": "information-48",
+     "id": "information-49",
      "motion": {
       "role": "information",
       "reason": "Sorotan konteks: saat latihan bersama"
      },
      "keys": [
       {
-       "t": 0.2,
+       "t": 0.197,
        "progress": 0
       },
       {
-       "t": 1,
+       "t": 0.985,
        "progress": 1
       }
      ]
@@ -3631,8 +3707,8 @@
    ]
   },
   {
-   "start": 117,
-   "end": 120,
+   "start": 107.691,
+   "end": 110.647,
    "layers": [
     {
      "type": "text",
@@ -3670,18 +3746,18 @@
      ],
      "color": "#3E9B5F",
      "lineWidth": 7,
-     "id": "information-49",
+     "id": "information-50",
      "motion": {
       "role": "information",
       "reason": "Centang: pertanyaan lengkap"
      },
      "keys": [
       {
-       "t": 0.3,
+       "t": 0.296,
        "progress": 0
       },
       {
-       "t": 0.9,
+       "t": 0.887,
        "progress": 1
       }
      ]
@@ -3694,13 +3770,13 @@
      "size": 30,
      "w": 250,
      "color": "#3E9B5F",
-     "from": 0.9
+     "from": 0.887
     }
    ]
   },
   {
-   "start": 120,
-   "end": 124,
+   "start": 110.647,
+   "end": 114.105,
    "layers": [
     {
      "type": "image",
@@ -3715,7 +3791,7 @@
      "x": 760,
      "y": 208,
      "w": 210,
-     "to": 2
+     "to": 1.729
     },
     {
      "type": "image",
@@ -3723,7 +3799,7 @@
      "x": 760,
      "y": 208,
      "w": 210,
-     "from": 2
+     "from": 1.729
     },
     {
      "type": "image",
@@ -3731,26 +3807,26 @@
      "x": 100,
      "y": 150,
      "w": 200,
-     "id": "prop-50",
+     "id": "prop-51",
      "motion": {
       "role": "prop",
       "reason": "Kuesioner dibaca, sedikit dimiringkan"
      },
      "keys": [
       {
-       "t": 0.3,
+       "t": 0.259,
        "angle": -0.04
       },
       {
-       "t": 1,
+       "t": 0.864,
        "angle": 0.04
       },
       {
-       "t": 2,
+       "t": 1.729,
        "angle": -0.03
       },
       {
-       "t": 2.8,
+       "t": 2.42,
        "angle": 0.03
       }
      ]
@@ -3771,18 +3847,18 @@
      "x": 1100,
      "y": 300,
      "w": 200,
-     "id": "prop-51",
+     "id": "prop-52",
      "motion": {
       "role": "prop",
       "reason": "Catatan pengamatan muncul sebagai pilihan kedua"
      },
      "keys": [
       {
-       "t": 2.4,
+       "t": 2.075,
        "x": 1300
       },
       {
-       "t": 3.2,
+       "t": 2.766,
        "x": 1040
       }
      ]
@@ -3796,13 +3872,13 @@
      "w": 270,
      "color": "#1F3A5F",
      "bold": true,
-     "from": 3.2
+     "from": 2.766
     }
    ]
   },
   {
-   "start": 124,
-   "end": 128,
+   "start": 114.105,
+   "end": 117.562,
    "layers": [
     {
      "type": "image",
@@ -3817,7 +3893,7 @@
      "x": 760,
      "y": 208,
      "w": 210,
-     "to": 2.6
+     "to": 2.247
     },
     {
      "type": "image",
@@ -3825,18 +3901,18 @@
      "x": 100,
      "y": 150,
      "w": 200,
-     "id": "prop-52",
+     "id": "prop-53",
      "motion": {
       "role": "prop",
       "reason": "Vidka menurunkan kuesioner"
      },
      "keys": [
       {
-       "t": 0.2,
+       "t": 0.173,
        "y": 150
       },
       {
-       "t": 1.2,
+       "t": 1.037,
        "y": 380
       }
      ]
@@ -3847,18 +3923,18 @@
      "x": 1000,
      "y": 160,
      "w": 190,
-     "id": "prop-53",
+     "id": "prop-54",
      "motion": {
       "role": "prop",
       "reason": "Pintu ruang latihan masuk ke bidang pandang"
      },
      "keys": [
       {
-       "t": 1.6,
+       "t": 1.383,
        "x": 1120
       },
       {
-       "t": 2.6,
+       "t": 2.247,
        "x": 1000
       }
      ]
@@ -3872,13 +3948,13 @@
      "w": 310,
      "color": "#1F3A5F",
      "bold": true,
-     "from": 2.6
+     "from": 2.247
     }
    ]
   },
   {
-   "start": 128,
-   "end": 132,
+   "start": 117.562,
+   "end": 121.02,
    "layers": [
     {
      "type": "image",
@@ -3928,42 +4004,42 @@
      "x": 900,
      "y": 470,
      "w": 90,
-     "id": "prop-54",
+     "id": "prop-55",
      "motion": {
       "role": "prop",
       "reason": "Pensil mengetuk selama jeda berpikir"
      },
      "keys": [
       {
-       "t": 0.4,
+       "t": 0.346,
        "y": 470
       },
       {
-       "t": 0.85,
+       "t": 0.735,
        "y": 462
       },
       {
-       "t": 1.3,
+       "t": 1.124,
        "y": 470
       },
       {
-       "t": 1.75,
+       "t": 1.513,
        "y": 462
       },
       {
-       "t": 2.2,
+       "t": 1.902,
        "y": 470
       },
       {
-       "t": 2.65,
+       "t": 2.291,
        "y": 462
       },
       {
-       "t": 3.1,
+       "t": 2.68,
        "y": 470
       },
       {
-       "t": 3.55,
+       "t": 3.069,
        "y": 462
       }
      ]
@@ -3971,8 +4047,8 @@
    ]
   },
   {
-   "start": 132,
-   "end": 135,
+   "start": 121.02,
+   "end": 123.613,
    "layers": [
     {
      "type": "text",
@@ -3989,18 +4065,18 @@
      "x": 160,
      "y": 300,
      "w": 260,
-     "id": "prop-55",
+     "id": "prop-56",
      "motion": {
       "role": "prop",
       "reason": "Catatan pengamatan ditempatkan sebagai data pertama"
      },
      "keys": [
       {
-       "t": 0.2,
+       "t": 0.173,
        "y": 300
       },
       {
-       "t": 1,
+       "t": 0.864,
        "y": 220
       }
      ]
@@ -4014,7 +4090,7 @@
      "w": 1170,
      "color": "#EC4338",
      "bold": true,
-     "from": 1
+     "from": 0.864
     },
     {
      "type": "image",
@@ -4022,18 +4098,18 @@
      "x": 640,
      "y": 300,
      "w": 200,
-     "id": "prop-56",
+     "id": "prop-57",
      "motion": {
       "role": "prop",
       "reason": "Kuesioner menyusul sebagai data kedua"
      },
      "keys": [
       {
-       "t": 1.2,
+       "t": 1.037,
        "y": 300
       },
       {
-       "t": 2,
+       "t": 1.729,
        "y": 220
       }
      ]
@@ -4047,7 +4123,7 @@
      "w": 690,
      "color": "#EC4338",
      "bold": true,
-     "from": 2
+     "from": 1.729
     },
     {
      "type": "text",
@@ -4057,7 +4133,7 @@
      "size": 28,
      "w": 1100,
      "color": "#6b7280",
-     "from": 1
+     "from": 0.864
     },
     {
      "type": "text",
@@ -4067,13 +4143,13 @@
      "size": 28,
      "w": 620,
      "color": "#6b7280",
-     "from": 2
+     "from": 1.729
     }
    ]
   },
   {
-   "start": 135,
-   "end": 139,
+   "start": 123.613,
+   "end": 127.562,
    "layers": [
     {
      "type": "text",
@@ -4111,7 +4187,7 @@
      "x": 620,
      "y": 170,
      "w": 170,
-     "to": 1.6
+     "to": 1.579
     },
     {
      "type": "image",
@@ -4119,7 +4195,7 @@
      "x": 620,
      "y": 170,
      "w": 170,
-     "from": 1.6
+     "from": 1.579
     },
     {
      "type": "image",
@@ -4134,7 +4210,7 @@
      "x": 969,
      "y": 456,
      "w": 9,
-     "id": "prop-57",
+     "id": "prop-58",
      "motion": {
       "role": "prop",
       "reason": "Lengan metronom berayun menandai tempo latihan"
@@ -4145,63 +4221,63 @@
        "angle": 3.562
       },
       {
-       "t": 0.25,
+       "t": 0.247,
        "angle": 2.722
       },
       {
-       "t": 0.5,
+       "t": 0.494,
        "angle": 3.562
       },
       {
-       "t": 0.75,
+       "t": 0.74,
        "angle": 2.722
       },
       {
-       "t": 1,
+       "t": 0.987,
        "angle": 3.562
       },
       {
-       "t": 1.25,
+       "t": 1.234,
        "angle": 2.722
       },
       {
-       "t": 1.5,
+       "t": 1.481,
        "angle": 3.562
       },
       {
-       "t": 1.75,
+       "t": 1.727,
        "angle": 2.722
       },
       {
-       "t": 2,
+       "t": 1.974,
        "angle": 3.562
       },
       {
-       "t": 2.25,
+       "t": 2.221,
        "angle": 2.722
       },
       {
-       "t": 2.5,
+       "t": 2.468,
        "angle": 3.562
       },
       {
-       "t": 2.75,
+       "t": 2.715,
        "angle": 2.722
       },
       {
-       "t": 3,
+       "t": 2.961,
        "angle": 3.562
       },
       {
-       "t": 3.25,
+       "t": 3.208,
        "angle": 2.722
       },
       {
-       "t": 3.5,
+       "t": 3.455,
        "angle": 3.562
       },
       {
-       "t": 3.75,
+       "t": 3.702,
        "angle": 2.722
       }
      ]
@@ -4223,13 +4299,13 @@
      "size": 30,
      "w": 570,
      "color": "#1F3A5F",
-     "from": 1.6
+     "from": 1.579
     }
    ]
   },
   {
-   "start": 139,
-   "end": 142,
+   "start": 127.562,
+   "end": 130.523,
    "layers": [
     {
      "type": "image",
@@ -4255,7 +4331,7 @@
      "size": 44,
      "w": 850,
      "color": "#1F3A5F",
-     "from": 1
+     "from": 0.987
     },
     {
      "type": "image",
@@ -4263,34 +4339,34 @@
      "x": 400,
      "y": 160,
      "w": 90,
-     "id": "prop-58",
+     "id": "prop-59",
      "motion": {
       "role": "prop",
       "reason": "Vidka mencatat waktu dan kejadian"
      },
      "keys": [
       {
-       "t": 0.2,
+       "t": 0.197,
        "x": 470,
        "y": 160
       },
       {
-       "t": 0.9,
+       "t": 0.888,
        "x": 600,
        "y": 160
       },
       {
-       "t": 1,
+       "t": 0.987,
        "x": 470,
        "y": 230
       },
       {
-       "t": 1.8,
+       "t": 1.777,
        "x": 860,
        "y": 230
       },
       {
-       "t": 2.4,
+       "t": 2.369,
        "x": 900,
        "y": 160
       }
@@ -4308,8 +4384,8 @@
    ]
   },
   {
-   "start": 142,
-   "end": 146,
+   "start": 130.523,
+   "end": 134.471,
    "layers": [
     {
      "type": "image",
@@ -4331,18 +4407,18 @@
      "x": 380,
      "y": 90,
      "w": 520,
-     "id": "information-59",
+     "id": "information-60",
      "motion": {
       "role": "information",
       "reason": "Gelembung penjelasan pemain muncul"
      },
      "keys": [
       {
-       "t": 0.2,
+       "t": 0.197,
        "y": 130
       },
       {
-       "t": 0.8,
+       "t": 0.79,
        "y": 90
       }
      ]
@@ -4355,7 +4431,7 @@
      "size": 34,
      "w": 850,
      "color": "#1F3A5F",
-     "from": 0.8
+     "from": 0.79
     },
     {
      "type": "text",
@@ -4365,7 +4441,7 @@
      "size": 34,
      "w": 850,
      "color": "#1F3A5F",
-     "from": 0.8
+     "from": 0.79
     },
     {
      "type": "image",
@@ -4373,34 +4449,34 @@
      "x": 860,
      "y": 360,
      "w": 80,
-     "id": "prop-60",
+     "id": "prop-61",
      "motion": {
       "role": "prop",
       "reason": "Vidka mencatat jawaban wawancara"
      },
      "keys": [
       {
-       "t": 1.5,
+       "t": 1.481,
        "y": 360
       },
       {
-       "t": 1.95,
+       "t": 1.925,
        "y": 350
       },
       {
-       "t": 2.4,
+       "t": 2.369,
        "y": 360
       },
       {
-       "t": 2.85,
+       "t": 2.813,
        "y": 350
       },
       {
-       "t": 3.3,
+       "t": 3.258,
        "y": 360
       },
       {
-       "t": 3.75,
+       "t": 3.702,
        "y": 350
       }
      ]
@@ -4417,8 +4493,8 @@
    ]
   },
   {
-   "start": 146,
-   "end": 150,
+   "start": 134.471,
+   "end": 138.42,
    "layers": [
     {
      "type": "image",
@@ -4493,18 +4569,18 @@
      ],
      "color": "#EC4338",
      "lineWidth": 5,
-     "id": "information-61",
+     "id": "information-62",
      "motion": {
       "role": "information",
       "reason": "Catatan dan penjelasan dihubungkan"
      },
      "keys": [
       {
-       "t": 0.4,
+       "t": 0.395,
        "progress": 0
       },
       {
-       "t": 1.4,
+       "t": 1.382,
        "progress": 1
       }
      ]
@@ -4518,7 +4594,7 @@
      "w": 750,
      "color": "#1F3A5F",
      "bold": true,
-     "from": 1.5
+     "from": 1.481
     },
     {
      "type": "underline",
@@ -4526,18 +4602,18 @@
      "y": 380,
      "w": 240,
      "color": "#F6D34A",
-     "id": "information-62",
+     "id": "information-63",
      "motion": {
       "role": "information",
       "reason": "Penekanan pada kata analisis"
      },
      "keys": [
       {
-       "t": 2,
+       "t": 1.974,
        "progress": 0
       },
       {
-       "t": 2.6,
+       "t": 2.567,
        "progress": 1
       }
      ]
@@ -4545,8 +4621,8 @@
    ]
   },
   {
-   "start": 150,
-   "end": 154,
+   "start": 138.42,
+   "end": 143.118,
    "layers": [
     {
      "type": "image",
@@ -4579,19 +4655,19 @@
      "x": 120,
      "y": 50,
      "w": 360,
-     "id": "prop-63",
+     "id": "prop-64",
      "motion": {
       "role": "prop",
       "reason": "Vidka membalik ke halaman pertanyaan kedua"
      },
      "keys": [
       {
-       "t": 1,
+       "t": 1.175,
        "x": 120,
        "angle": 0
       },
       {
-       "t": 2,
+       "t": 2.349,
        "x": 560,
        "angle": 0.02
       }
@@ -4605,7 +4681,7 @@
      "size": 34,
      "w": 680,
      "color": "#1F3A5F",
-     "from": 2.1
+     "from": 2.467
     },
     {
      "type": "text",
@@ -4615,7 +4691,7 @@
      "size": 34,
      "w": 680,
      "color": "#1F3A5F",
-     "from": 2.1
+     "from": 2.467
     },
     {
      "type": "text",
@@ -4625,7 +4701,7 @@
      "size": 34,
      "w": 680,
      "color": "#1F3A5F",
-     "from": 2.1
+     "from": 2.467
     },
     {
      "type": "image",
@@ -4640,7 +4716,7 @@
      "x": 1069,
      "y": 456,
      "w": 9,
-     "id": "prop-64",
+     "id": "prop-65",
      "motion": {
       "role": "prop",
       "reason": "Lengan metronom berayun menandai tempo latihan"
@@ -4651,39 +4727,39 @@
        "angle": 3.562
       },
       {
-       "t": 0.4,
+       "t": 0.47,
        "angle": 2.722
       },
       {
-       "t": 0.8,
+       "t": 0.94,
        "angle": 3.562
       },
       {
-       "t": 1.2,
+       "t": 1.41,
        "angle": 2.722
       },
       {
-       "t": 1.6,
+       "t": 1.879,
        "angle": 3.562
       },
       {
-       "t": 2,
+       "t": 2.349,
        "angle": 2.722
       },
       {
-       "t": 2.4,
+       "t": 2.819,
        "angle": 3.562
       },
       {
-       "t": 2.8,
+       "t": 3.289,
        "angle": 2.722
       },
       {
-       "t": 3.2,
+       "t": 3.759,
        "angle": 3.562
       },
       {
-       "t": 3.6,
+       "t": 4.229,
        "angle": 2.722
       }
      ]
@@ -4691,8 +4767,8 @@
    ]
   },
   {
-   "start": 154,
-   "end": 159,
+   "start": 143.118,
+   "end": 148.991,
    "layers": [
     {
      "type": "image",
@@ -4772,18 +4848,18 @@
      ],
      "color": "#EC4338",
      "lineWidth": 4,
-     "id": "information-65",
+     "id": "information-66",
      "motion": {
       "role": "information",
       "reason": "Ardipal menunjuk perubahan pertanyaan"
      },
      "keys": [
       {
-       "t": 0.3,
+       "t": 0.352,
        "progress": 0
       },
       {
-       "t": 1,
+       "t": 1.175,
        "progress": 1
       }
      ]
@@ -4796,7 +4872,7 @@
      "size": 30,
      "w": 870,
      "color": "#1F3A5F",
-     "from": 0.2
+     "from": 0.235
     },
     {
      "type": "text",
@@ -4807,7 +4883,7 @@
      "w": 630,
      "color": "#1F3A5F",
      "bold": true,
-     "from": 1.2
+     "from": 1.41
     },
     {
      "type": "underline",
@@ -4815,18 +4891,18 @@
      "y": 500,
      "w": 230,
      "color": "#F6D34A",
-     "id": "information-66",
+     "id": "information-67",
      "motion": {
       "role": "information",
       "reason": "Penekanan pada pertanyaan yang menguji pengaruh"
      },
      "keys": [
       {
-       "t": 2.4,
+       "t": 2.819,
        "progress": 0
       },
       {
-       "t": 3.2,
+       "t": 3.759,
        "progress": 1
       }
      ]
@@ -4840,13 +4916,13 @@
      "w": 690,
      "color": "#EC4338",
      "bold": true,
-     "from": 3.3
+     "from": 3.876
     }
    ]
   },
   {
-   "start": 159,
-   "end": 165,
+   "start": 148.991,
+   "end": 156.039,
    "layers": [
     {
      "type": "text",
@@ -4883,18 +4959,18 @@
      ],
      "color": "#1F3A5F",
      "lineWidth": 4,
-     "id": "information-67",
+     "id": "information-68",
      "motion": {
       "role": "information",
       "reason": "Kotak kelompok dengan metronom"
      },
      "keys": [
       {
-       "t": 0.3,
+       "t": 0.352,
        "progress": 0
       },
       {
-       "t": 1.2,
+       "t": 1.41,
        "progress": 1
       }
      ]
@@ -4907,7 +4983,7 @@
      "size": 34,
      "w": 1120,
      "color": "#1F3A5F",
-     "from": 1.2
+     "from": 1.41
     },
     {
      "type": "text",
@@ -4917,7 +4993,7 @@
      "size": 34,
      "w": 1120,
      "color": "#1F3A5F",
-     "from": 1.2
+     "from": 1.41
     },
     {
      "type": "line",
@@ -4945,18 +5021,18 @@
      ],
      "color": "#1F3A5F",
      "lineWidth": 4,
-     "id": "information-68",
+     "id": "information-69",
      "motion": {
       "role": "information",
       "reason": "Kotak kelompok pembanding"
      },
      "keys": [
       {
-       "t": 1.4,
+       "t": 1.644,
        "progress": 0
       },
       {
-       "t": 2.3,
+       "t": 2.702,
        "progress": 1
       }
      ]
@@ -4969,7 +5045,7 @@
      "size": 34,
      "w": 520,
      "color": "#1F3A5F",
-     "from": 2.3
+     "from": 2.702
     },
     {
      "type": "text",
@@ -4979,7 +5055,7 @@
      "size": 34,
      "w": 520,
      "color": "#1F3A5F",
-     "from": 2.3
+     "from": 2.702
     },
     {
      "type": "arrow",
@@ -4988,18 +5064,18 @@
      "w": 440,
      "color": "#EC4338",
      "lineWidth": 4,
-     "id": "information-69",
+     "id": "information-70",
      "motion": {
       "role": "information",
       "reason": "Ukur tempo sebelum lalu sesudah (kelompok 1)"
      },
      "keys": [
       {
-       "t": 2.6,
+       "t": 3.054,
        "progress": 0
       },
       {
-       "t": 3.4,
+       "t": 3.994,
        "progress": 1
       }
      ]
@@ -5011,18 +5087,18 @@
      "w": 440,
      "color": "#EC4338",
      "lineWidth": 4,
-     "id": "information-70",
+     "id": "information-71",
      "motion": {
       "role": "information",
       "reason": "Ukur tempo sebelum lalu sesudah (kelompok 2)"
      },
      "keys": [
       {
-       "t": 3.6,
+       "t": 4.229,
        "progress": 0
       },
       {
-       "t": 4.4,
+       "t": 5.168,
        "progress": 1
       }
      ]
@@ -5035,7 +5111,7 @@
      "size": 28,
      "w": 1150,
      "color": "#6b7280",
-     "from": 2.6
+     "from": 3.054
     },
     {
      "type": "text",
@@ -5045,7 +5121,7 @@
      "size": 28,
      "w": 800,
      "color": "#6b7280",
-     "from": 3.4
+     "from": 3.994
     },
     {
      "type": "text",
@@ -5055,7 +5131,7 @@
      "size": 28,
      "w": 550,
      "color": "#6b7280",
-     "from": 3.6
+     "from": 4.229
     },
     {
      "type": "text",
@@ -5065,7 +5141,7 @@
      "size": 28,
      "w": 200,
      "color": "#6b7280",
-     "from": 4.4
+     "from": 5.168
     },
     {
      "type": "text",
@@ -5076,13 +5152,13 @@
      "w": 830,
      "color": "#EC4338",
      "bold": true,
-     "from": 4.5
+     "from": 5.286
     }
    ]
   },
   {
-   "start": 165,
-   "end": 169,
+   "start": 156.039,
+   "end": 159.841,
    "layers": [
     {
      "type": "image",
@@ -5109,7 +5185,7 @@
      "size": 34,
      "w": 1050,
      "color": "#1F3A5F",
-     "from": 0.3
+     "from": 0.285
     },
     {
      "type": "text",
@@ -5119,7 +5195,7 @@
      "size": 34,
      "w": 1050,
      "color": "#1F3A5F",
-     "from": 1.5
+     "from": 1.426
     },
     {
      "type": "text",
@@ -5129,7 +5205,7 @@
      "size": 34,
      "w": 1050,
      "color": "#1F3A5F",
-     "from": 2.7
+     "from": 2.566
     },
     {
      "type": "image",
@@ -5137,39 +5213,39 @@
      "x": 220,
      "y": 110,
      "w": 90,
-     "id": "prop-71",
+     "id": "prop-72",
      "motion": {
       "role": "prop",
       "reason": "Pensil mencentang tiga hasil berurutan"
      },
      "keys": [
       {
-       "t": 0.2,
+       "t": 0.19,
        "x": 220,
        "y": 110
       },
       {
-       "t": 1.2,
+       "t": 1.14,
        "x": 860,
        "y": 110
       },
       {
-       "t": 1.4,
+       "t": 1.331,
        "x": 220,
        "y": 190
       },
       {
-       "t": 2.4,
+       "t": 2.281,
        "x": 900,
        "y": 190
       },
       {
-       "t": 2.6,
+       "t": 2.471,
        "x": 220,
        "y": 270
       },
       {
-       "t": 3.6,
+       "t": 3.421,
        "x": 820,
        "y": 270
       }
@@ -5178,8 +5254,8 @@
    ]
   },
   {
-   "start": 169,
-   "end": 175,
+   "start": 159.841,
+   "end": 165.543,
    "layers": [
     {
      "type": "image",
@@ -5194,7 +5270,7 @@
      "x": 380,
      "y": 226.66666666666669,
      "w": 280,
-     "to": 3.6
+     "to": 3.421
     },
     {
      "type": "image",
@@ -5202,7 +5278,7 @@
      "x": 380,
      "y": 226.66666666666669,
      "w": 280,
-     "from": 3.6
+     "from": 3.421
     },
     {
      "type": "image",
@@ -5224,7 +5300,7 @@
      "x": 300,
      "y": 344,
      "w": 170,
-     "to": 3.2
+     "to": 3.041
     },
     {
      "type": "image",
@@ -5232,18 +5308,18 @@
      "x": 300,
      "y": 414,
      "w": 170,
-     "id": "prop-72",
+     "id": "prop-73",
      "motion": {
       "role": "prop",
       "reason": "Vidka menutup laptop"
      },
      "keys": [
       {
-       "t": 3.2,
+       "t": 3.041,
        "y": 380
       },
       {
-       "t": 3.6,
+       "t": 3.421,
        "y": 414
       }
      ]
@@ -5254,19 +5330,19 @@
      "x": 820,
      "y": 290,
      "w": 100,
-     "id": "prop-73",
+     "id": "prop-74",
      "motion": {
       "role": "prop",
       "reason": "Artikel pertama dirapikan ke tumpukan"
      },
      "keys": [
       {
-       "t": 0.3,
+       "t": 0.285,
        "x": 820,
        "angle": 0.08
       },
       {
-       "t": 1.3,
+       "t": 1.236,
        "x": 640,
        "angle": 0
       }
@@ -5278,19 +5354,19 @@
      "x": 860,
      "y": 320,
      "w": 100,
-     "id": "prop-74",
+     "id": "prop-75",
      "motion": {
       "role": "prop",
       "reason": "Artikel kedua dirapikan ke tumpukan"
      },
      "keys": [
       {
-       "t": 1.5,
+       "t": 1.426,
        "x": 860,
        "angle": -0.06
       },
       {
-       "t": 2.5,
+       "t": 2.376,
        "x": 646,
        "angle": 0
       }
@@ -5302,19 +5378,19 @@
      "x": 700,
      "y": 160,
      "w": 220,
-     "id": "prop-75",
+     "id": "prop-76",
      "motion": {
       "role": "prop",
       "reason": "Buku rancangan diangkat dan diperlihatkan kepada kedua dosen"
      },
      "keys": [
       {
-       "t": 4.4,
+       "t": 4.182,
        "x": 700,
        "y": 330
       },
       {
-       "t": 5.2,
+       "t": 4.942,
        "x": 760,
        "y": 200
       }
@@ -5328,13 +5404,13 @@
      "size": 24,
      "w": 488,
      "color": "#1F3A5F",
-     "from": 5.2
+     "from": 4.942
     }
    ]
   },
   {
-   "start": 175,
-   "end": 180,
+   "start": 165.543,
+   "end": 170.295,
    "layers": [
     {
      "type": "image",
@@ -5384,50 +5460,50 @@
      "x": 920,
      "y": 520,
      "w": 70,
-     "id": "prop-76",
+     "id": "prop-77",
      "motion": {
       "role": "prop",
       "reason": "Jeda tugas: pensil mengetuk pelan"
      },
      "keys": [
       {
-       "t": 0.5,
+       "t": 0.475,
        "y": 520
       },
       {
-       "t": 0.95,
+       "t": 0.903,
        "y": 514
       },
       {
-       "t": 1.4,
+       "t": 1.331,
        "y": 520
       },
       {
-       "t": 1.85,
+       "t": 1.758,
        "y": 514
       },
       {
-       "t": 2.3,
+       "t": 2.186,
        "y": 520
       },
       {
-       "t": 2.75,
+       "t": 2.614,
        "y": 514
       },
       {
-       "t": 3.2,
+       "t": 3.041,
        "y": 520
       },
       {
-       "t": 3.65,
+       "t": 3.469,
        "y": 514
       },
       {
-       "t": 4.1,
+       "t": 3.897,
        "y": 520
       },
       {
-       "t": 4.55,
+       "t": 4.324,
        "y": 514
       }
      ]
@@ -5437,287 +5513,287 @@
  ],
  "sfx": [
   {
-   "time": 0.4,
+   "time": 0.387,
    "kind": "paper",
    "gain": 0.05
   },
   {
-   "time": 4.3,
+   "time": 4.166,
    "kind": "paper",
    "gain": 0.05
   },
   {
-   "time": 6.5,
+   "time": 6.297,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 12.2,
+   "time": 11.819,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 19.3,
+   "time": 18.361,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 20.4,
+   "time": 19.341,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 21.3,
+   "time": 20.143,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 22.2,
+   "time": 20.945,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 24.2,
+   "time": 22.726,
    "kind": "pop",
    "gain": 0.04
   },
   {
-   "time": 30.4,
+   "time": 28.246,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 39.2,
+   "time": 36.015,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 41.9,
+   "time": 38.398,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 42.7,
+   "time": 39.105,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 43.8,
+   "time": 40.076,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 45.5,
+   "time": 41.579,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 49.3,
+   "time": 44.955,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 53.6,
+   "time": 48.774,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 54.4,
+   "time": 49.485,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 55.2,
+   "time": 50.195,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 60.6,
+   "time": 54.953,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 62.3,
+   "time": 56.354,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 68.5,
+   "time": 61.461,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 72.3,
+   "time": 64.592,
    "kind": "chime",
    "gain": 0.05
   },
   {
-   "time": 75.9,
+   "time": 67.714,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 79.3,
+   "time": 71.106,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 80.8,
+   "time": 72.603,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 82.3,
+   "time": 74.099,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 88,
+   "time": 79.787,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 90.3,
+   "time": 82.064,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 94.3,
+   "time": 85.819,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 98.3,
+   "time": 89.575,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 102.8,
+   "time": 93.8,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 105.3,
+   "time": 96.162,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 109.3,
-   "kind": "pop",
-   "gain": 0.04
-  },
-  {
-   "time": 112.3,
+   "time": 100.103,
    "kind": "pop",
    "gain": 0.04
   },
   {
-   "time": 115.3,
+   "time": 103.059,
    "kind": "pop",
    "gain": 0.04
   },
   {
-   "time": 117.4,
+   "time": 106.016,
+   "kind": "pop",
+   "gain": 0.04
+  },
+  {
+   "time": 108.085,
    "kind": "chime",
    "gain": 0.05
   },
   {
-   "time": 120.4,
+   "time": 110.993,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 124.3,
+   "time": 114.364,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 126.2,
+   "time": 116.006,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 132.4,
+   "time": 121.366,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 133.4,
+   "time": 122.23,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 136.6,
-   "kind": "pop",
-   "gain": 0.04
-  },
-  {
-   "time": 139.3,
-   "kind": "tap",
-   "gain": 0.05
-  },
-  {
-   "time": 142.3,
+   "time": 125.192,
    "kind": "pop",
    "gain": 0.04
   },
   {
-   "time": 146.5,
+   "time": 127.858,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 147.6,
+   "time": 130.819,
+   "kind": "pop",
+   "gain": 0.04
+  },
+  {
+   "time": 134.965,
+   "kind": "tap",
+   "gain": 0.05
+  },
+  {
+   "time": 136.051,
    "kind": "chime",
    "gain": 0.05
   },
   {
-   "time": 151.1,
+   "time": 139.712,
    "kind": "paper",
    "gain": 0.05
   },
   {
-   "time": 154.4,
+   "time": 143.588,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 159.3,
+   "time": 149.344,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 160.4,
+   "time": 150.636,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 163.5,
+   "time": 154.277,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 165.3,
+   "time": 156.324,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 169.4,
+   "time": 160.221,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 170.6,
+   "time": 161.361,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 172.4,
+   "time": 163.072,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 175.4,
+   "time": 165.923,
    "kind": "chime",
    "gain": 0.06
   }
@@ -5726,7 +5802,7 @@
   {
    "path": "audio/room-tone-180s.wav",
    "start": 0,
-   "end": 180,
+   "end": 170.295,
    "gain": 0.04,
    "loop": false
   }

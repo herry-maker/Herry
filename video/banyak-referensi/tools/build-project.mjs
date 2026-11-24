@@ -8,8 +8,11 @@ const HERE = path.dirname(new URL(import.meta.url).pathname);
 // --part N (1..3) writes a re-timed 60 s draft of scenes 4N-3..4N into drafts/part-N/project.json,
 // so the whole storyboard can be inspected through the runtime's 60 s preview limit.
 const PART = Number((process.argv.find(a => a.startsWith('--part=')) || '').split('=')[1] || 0);
-const OUT = path.resolve(process.argv.filter(a => !a.startsWith('--'))[2] || (PART ? path.join(HERE, '..', 'drafts', `part-${PART}`, 'project.json') : path.join(HERE, '..', 'project.json')));
+const argv = k => { const i = process.argv.indexOf(k); return i > -1 ? process.argv[i + 1] : (process.argv.find(a => a.startsWith(k + '=')) || '').split('=')[1]; };
+const OUT = path.resolve(argv('--out') || (PART ? path.join(HERE, '..', 'drafts', `part-${PART}`, 'project.json') : path.join(HERE, '..', 'project.json')));
 const ASSET = PART ? '../../' : '';
+const DUMP = argv('--dump-cues');            // write [{scene,text}] and exit (input for tools/align-cues.mjs)
+const TIMING = argv('--timing') ? JSON.parse(fs.readFileSync(argv('--timing'), 'utf8')) : null; // output of align-cues.mjs
 const SCENE = 15;
 const RED = '#EC4338', YELLOW = '#F6D34A', NAVY = '#1F3A5F', GREEN = '#3E9B5F', GRAY = '#6b7280';
 
@@ -267,6 +270,7 @@ scenes.push({title: 'Menyusun pernyataan masalah', shots: [
     ...row(0, S7.k1), ...row(1, S7.k2), ...row(2, S7.k3),
     draw(line([[1190, 90], [1210, 90], [1210, 440], [1190, 440]], {color: NAVY, lineWidth: 4}), 'information', 'Kurung menyatukan tiga kalimat menjadi pernyataan masalah', 0.3, 1.8),
     txt('Pernyataan', 1040, 460, 32, {color: NAVY, bold: true, from: 1.8}), txt('masalah', 1070, 500, 32, {color: NAVY, bold: true, from: 1.8}),
+    tap(img('pencil', 1090, 300, 80), 'Pensil diletakkan di tepi, mengetuk pelan selama jeda baca', 2.0, 3.8, 6),
   ]},
 ], cues: [
   [0.3, 3.0, 'Pernyataan masalah disusun dari tiga unsur.'],
@@ -435,17 +439,30 @@ scenes.push({title: 'Hasil belajar dan penutup', shots: [
 
 // ---------- assemble ----------
 if (scenes.length !== 12) throw new Error(`expected 12 scenes, got ${scenes.length}`);
+if (DUMP) { fs.writeFileSync(DUMP, JSON.stringify(scenes.flatMap((sc, i) => sc.cues.map(c => ({scene: i + 1, text: c[2]}))), null, 1)); console.log(`dumped ${scenes.reduce((n, sc) => n + sc.cues.length, 0)} cues → ${DUMP}`); process.exit(0); }
+if (TIMING && TIMING.cues.length !== scenes.reduce((n, sc) => n + sc.cues.length, 0)) throw new Error('timing file cue count does not match the script');
+// Scale every shot-relative time (keys, from, to) of a layer by f, so choreography keeps its shape when a scene's real length differs from 15 s.
+const scaleLayer = (l, f) => ({...l, ...(l.from !== undefined ? {from: +(l.from * f).toFixed(3)} : {}), ...(l.to !== undefined ? {to: +(l.to * f).toFixed(3)} : {}), ...(l.keys ? {keys: l.keys.map(k => ({...k, t: +(k.t * f).toFixed(3)}))} : {})});
 const shots = [], captions = [], sfx = [], ledger = [];
 const selected = PART ? scenes.slice((PART - 1) * 4, PART * 4) : scenes;
+let cueIndex = PART ? scenes.slice(0, (PART - 1) * 4).reduce((n, sc) => n + sc.cues.length, 0) : 0;
+let partBase = 0;
 selected.forEach((scene, k) => {
   const i = PART ? (PART - 1) * 4 + k : k;
-  const base = k * SCENE;
   const total = scene.shots.reduce((a, s) => a + s.dur, 0);
   if (Math.abs(total - SCENE) > 1e-9) throw new Error(`Scene ${i + 1} "${scene.title}" lasts ${total}s, not ${SCENE}s`);
+  const real = TIMING ? TIMING.scenes[i] : {start: i * SCENE, end: (i + 1) * SCENE};
+  const length = real.end - real.start, f = length / SCENE;
+  const base = PART ? partBase : real.start;      // draft parts stay re-timed to 0
+  partBase += length;
   let t = base;
-  scene.shots.forEach((s, j) => { shots.push({start: +t.toFixed(3), end: +(t + s.dur).toFixed(3), layers: s.layers}); ledger.push({scene: i + 1, title: scene.title, shot: j + 1, start: +t.toFixed(2), end: +(t + s.dur).toFixed(2)}); t += s.dur; });
-  for (const [a, b, text] of scene.cues) { if (b > SCENE) throw new Error(`Cue beyond scene ${i + 1}: ${text}`); captions.push({start: +(base + a).toFixed(3), end: +(base + b).toFixed(3), text}); }
-  for (const [at, kind, gain] of scene.sfx || []) sfx.push({time: +(base + at).toFixed(3), kind, gain});
+  scene.shots.forEach((s, j) => { const dur = s.dur * f; shots.push({start: +t.toFixed(3), end: +(t + dur).toFixed(3), layers: s.layers.map(l => scaleLayer(l, f))}); ledger.push({scene: i + 1, title: scene.title, shot: j + 1, start: +t.toFixed(2), end: +(t + dur).toFixed(2), scale: +f.toFixed(3)}); t += dur; });
+  scene.cues.forEach(([a, b, text]) => {
+    if (b > SCENE) throw new Error(`Cue beyond scene ${i + 1}: ${text}`);
+    const c = TIMING ? TIMING.cues[cueIndex] : null; cueIndex++;
+    captions.push(c ? {start: +(base + (c.start - real.start)).toFixed(3), end: +(base + (c.end - real.start)).toFixed(3), text} : {start: +(base + a).toFixed(3), end: +(base + b).toFixed(3), text});
+  });
+  for (const [at, kind, gain] of scene.sfx || []) sfx.push({time: +(base + at * f).toFixed(3), kind, gain});
 });
 for (let i = 1; i < captions.length; i++) if (captions[i].start < captions[i - 1].end) throw new Error(`Caption overlap at ${captions[i].start}: ${captions[i].text}`);
 for (const c of captions) if (c.text.length > 56) throw new Error(`Caption too long (${c.text.length}): ${c.text}`);
@@ -455,11 +472,12 @@ const project = {
   version: 1, style: 'B1', width: 1280, height: 720, fps: 30,
   metadata: {
     title: 'Banyak Referensi, Mana yang Tepat?', language: 'id', scenes: ledger, ...(PART ? {draft_part: PART, note: 'Re-timed 60 s draft of four scenes for review only; the real timeline is ../../project.json'} : {}),
-    working_note: 'voice.path is a SILENT 180 s placeholder so the shot timing of the 12x15 s storyboard can be validated and previewed. Replace it with the real Indonesian narration (see narasi.md), re-align captions to the recording, then re-time shots.',
+    timing: TIMING ? {mode: TIMING.mode, note: TIMING.note} : 'planned 12 x 15 s, no recording',
+    working_note: TIMING ? 'Shots and cues are timed to the recorded narration (see metadata.timing). Scene choreography is scaled per scene from the 15 s plan.' : 'voice.path is a SILENT 180 s placeholder so the shot timing of the 12x15 s storyboard can be validated and previewed. Replace it with the real Indonesian narration (see narasi.md), re-align captions to the recording, then re-time shots.',
   },
-  voice: {path: `${ASSET}audio/placeholder-silent-180s.wav`, lead: 0, tail: 0},
+  voice: {path: `${ASSET}${TIMING ? TIMING.voice : 'audio/placeholder-silent-180s.wav'}`, lead: 0, tail: 0},
   captions, shots, sfx,
-  ambience: [{path: `${ASSET}audio/room-tone-180s.wav`, start: 0, end: 180, gain: 0.04, loop: false}],
+  ambience: [{path: `${ASSET}audio/room-tone-180s.wav`, start: 0, end: +(shots.at(-1).end).toFixed(3), gain: 0.04, loop: false}],
   reference_review: {author_id: 'claude-code-draft', capability: {mode: 'limited', environment: 'Claude Code cloud container: Node 22, FFmpeg 6.1, @napi-rs/canvas; no image-generation tool, no authorized TTS call', limitations: [
     {capability: 'hand-drawn character and prop artwork', observed: 'No image-generation tool available in this environment; figures and props were drawn procedurally with canvas code (tools/make-art.mjs)', impact: 'Drawing quality is a readable draft, not equivalent to the B1 Ryan V4 baseline; replace or redraw assets before final acceptance'},
     {capability: 'Indonesian narration (TTS)', observed: 'Narration generation is billable and was not authorized in this session; voice.path is a silent 180 s placeholder', impact: 'Captions and shot timing follow the planned 12x15 s storyboard, not actual speech; re-align after recording narasi.md'},
