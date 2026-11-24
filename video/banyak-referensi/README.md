@@ -15,15 +15,15 @@ Yang sudah dikerjakan di folder ini:
    - `draft-scenes-5-8.mp4`, `draft-scenes-9-12.mp4` — draf adegan 5–12 yang **diatur ulang waktunya** ke 0–60 detik agar bisa dilihat; timeline aslinya tetap `project.json`.
    - tiga *contact sheet* PNG untuk tinjauan cepat.
 
-Catatan yang membuat hasil ini **draf teknis, bukan film jadi** (narasi sudah selesai; dua lainnya masih terbuka):
+Catatan yang membuat hasil ini **draf teknis, bukan film jadi** (narasi dan tokoh selesai; musik berlisensi dan persetujuan sampel masih terbuka):
 
 | Komponen | Keadaan sekarang | Yang perlu Anda lakukan |
 |---|---|---|
-| Narasi | **Sudah direkam** (2026-11-24): satu take ElevenLabs, suara *Bayu - academic, calm and clear* (`saYZ00LWtwkN6VaX46N9`), model `eleven_multilingual_v2`, 170,3 detik, 2.252 kredit. SHA-256 dipin di `audio/narasi.sha256`; WAV 48 kHz di `audio/narasi.wav` (tidak di-commit, 16 MB; MP3 asli di `audio/take1/`). Waktu cue dan adegan di `audio/timing.json` berasal dari **deteksi jeda + porsi karakter** (`tools/align-cues.mjs`, mode `silence-approximate`), bukan stempel waktu kata. | Untuk sinkron per kata: transkripsi Scribe lewat konektor ElevenLabs (±52 kredit, sekitar 1 sen) lalu `align-cues.mjs --words`. Panggilan itu ditolak oleh pengklasifikasi izin sesi ini dan menunggu izin Anda. |
-| Gambar tokoh dan properti | Digambar lewat kode (`tools/make-art.mjs`, 45 PNG) karena sesi ini tidak punya alat pembuat gambar. Terbaca, tetapi di bawah baseline B1 "Ryan V4". | Ganti berkas di `art/` dengan gambar tangan/model gambar yang **nama dan rasio** sama; `project.json` tidak perlu diubah. |
+| Narasi | **Sudah direkam dan diselaraskan per kata** (2026-11-24): satu take ElevenLabs, suara *Bayu - academic, calm and clear* (`saYZ00LWtwkN6VaX46N9`), model `eleven_multilingual_v2`, 170,3 detik, 2.252 kredit. SHA-256 dipin di `audio/narasi.sha256`. Stempel waktu kata dari ElevenLabs Scribe (`audio/take1/words.json`, 937 kredit; estimasi alat sebelumnya 52 kredit meleset) dipetakan ke 61 cue dengan penyelarasan global (`tools/align-cues.mjs --words`, 298/300 token cocok). | Selesai. Hanya ulangi bila teks narasi diubah (take baru = keputusan Anda). |
+| Gambar tokoh dan properti | **Tokoh sudah diganti** dengan gambar tangan hasil `gemini-3-pro-image` lewat konektor ElevenLabs: tiga lembar pose (`art-src/`, 3 × 1.218 kredit), dipotong per sel, latar diputihkan menjadi transparan, dan dipaskan ke rasio kanvas asal oleh `tools/import-art.mjs`, sehingga `project.json` tidak berubah. `herry-nod` memakai pose *listen* karena lembar kedua keluar 5×2 tanpa sel *nod*. Properti (laptop, artikel, buku, stabilo, pintu, metronom) masih buatan kode (`tools/make-art.mjs`, kini hanya menggambar properti). | Bila properti juga ingin digambar tangan: satu lembar properti lagi (±1.218 kredit) dan pemetaan nama berkas yang sama. |
 | Musik latar | Hanya *room tone* prosedural (`audio/room-tone-180s.wav`) dan SFX prosedural bawaan (`tap`, `paper`, `pop`, `chime`). | Tambahkan satu trek berlisensi lewat field `music: {path, gain ≤ 0.2}`. |
 
-Keterbatasan ini dideklarasikan jujur di `project.json → reference_review.capability` (mode `limited`), sesuai kontrak skill: hasil ini **tidak** boleh diklaim setara sampel resmi.
+Keterbatasan yang tersisa dideklarasikan di `project.json → reference_review.capability` (mode `limited`), sesuai kontrak skill: hasil ini **tidak** boleh diklaim setara sampel resmi sebelum tinjauan independen dan persetujuan Anda.
 
 ## Struktur folder
 
@@ -34,9 +34,11 @@ video/banyak-referensi/
 ├── tools/
 │   ├── build-project.mjs   sumber kebenaran: 12 adegan → project.json (--timing FILE, --part=N, --dump-cues FILE, --out FILE)
 │   ├── align-cues.mjs      waktu cue/adegan dari rekaman: mode --words (tepat) atau jeda (perkiraan)
-│   ├── make-art.mjs        menggambar ulang semua PNG di art/ (deterministik)
+│   ├── make-art.mjs        menggambar properti di art/ (deterministik; --with-figures untuk tokoh placeholder)
+│   ├── import-art.mjs      lembar pose (grid di latar putih) → PNG transparan dengan rasio kanvas asal
 │   └── motion-gaps.mjs     diagnosis gerbang 2,5 detik (mencetak jeda gerak)
-├── art/                    45 PNG tokoh & properti (gaya garis B1, transparan)
+├── art/                    45 PNG: 21 tokoh hasil generasi (via import-art) + properti buatan kode
+├── art-src/                tiga lembar pose asli dari gemini-3-pro-image (sumber art/)
 ├── audio/                  narasi.sha256, timing.json, cues.json, take1/ (MP3 + silences); WAV tidak di-commit
 ├── drafts/part-1..3/       proyek draf 60 s (adegan 1–4, 5–8, 9–12)
 └── preview/                MP4, SRT, contact sheet hasil render
@@ -82,8 +84,8 @@ node $PROJ/tools/build-project.mjs --part=3 --timing $PROJ/audio/timing.json && 
 ## Alur menuju film jadi (sesuai kontrak skill)
 
 1. ~~Rekam narasi~~ Selesai: `audio/take1/narasi-take1.mp3` → `audio/narasi.wav`, SHA dipin.
-2. **Selaraskan**: sekarang memakai `audio/timing.json` (perkiraan dari jeda). Untuk stempel kata: `node tools/align-cues.mjs --cues audio/cues.json --words audio/take1/words.json --duration 170.295 --out audio/timing.json`, lalu `node tools/build-project.mjs --timing audio/timing.json`. Koreografi tiap adegan diskalakan otomatis ke panjang adegan nyata (11,9–17,6 detik).
-3. **Ganti aset** di `art/` bila ingin kualitas gambar tangan; nama berkas dipertahankan.
+2. ~~Selaraskan~~ Selesai per kata (Scribe). Untuk stempel kata: `node tools/align-cues.mjs --cues audio/cues.json --words audio/take1/words.json --duration 170.295 --out audio/timing.json`, lalu `node tools/build-project.mjs --timing audio/timing.json`. Koreografi tiap adegan diskalakan otomatis ke panjang adegan nyata (11,9–17,6 detik).
+3. ~~Ganti aset tokoh~~ Selesai lewat lembar pose + `import-art.mjs`. Properti opsional.
 4. **Pratinjau 20–60 detik**, tinjau MP4 sebenarnya (bukan contact sheet) dengan suara; isi `output/preview-reference/review-template.json` secara independen.
 5. **Persetujuan Anda** direkam dengan `approve … --visual-review …` lalu `render` menghasilkan film 180 detik penuh beserta SRT/VTT. Langkah ini sengaja **tidak** dijalankan di sini: skill mensyaratkan persetujuan sampel oleh pengguna, bukan oleh agen.
 

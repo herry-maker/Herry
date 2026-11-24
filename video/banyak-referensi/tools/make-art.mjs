@@ -209,7 +209,12 @@ const props = {
   'music-stand': [120, 300, ctx => { rect(ctx, 14, 10, 92, 70, {width: 2.6}); pen(ctx, [[60, 80], [60, 250]], {width: 3}); pen(ctx, [[24, 290], [60, 250], [96, 290]], {width: 2.6}); }],
 };
 
+// Character figures are now imported from generated pose sheets (tools/import-art.mjs, sources in art-src/).
+// The code-drawn figures below are kept as the offline fallback: pass --with-figures to regenerate them.
+const WITH_FIGURES = process.argv.includes('--with-figures');
 for (const [name, [w, h, draw]] of Object.entries(props)) figurePng(name, w, h, draw);
+if (!WITH_FIGURES) { console.log('props only (use --with-figures to redraw the code-drawn placeholder figures)'); }
+else {
 for (const p of ['type', 'sigh', 'turn', 'write', 'aha', 'think', 'tidy', 'listen', 'nod']) figurePng('vidka-' + p, 420, 560, ctx => vidka(ctx, p));
 for (const p of ['read', 'look']) figurePng('vidka-stand-' + p, 300, 560, ctx => vidkaStand(ctx, p));
 for (const p of ['point', 'listen', 'talk', 'nod']) figurePng('herry-' + p, 300, 560, ctx => stand(ctx, {hair: 'short', glasses: true, pose: p}));
@@ -217,4 +222,5 @@ for (const p of ['point', 'listen', 'talk']) figurePng('ardipal-' + p, 300, 560,
 figurePng('player-a', 300, 560, ctx => player(ctx, {hair: 'short'}));
 figurePng('player-b-play', 300, 560, ctx => player(ctx, {hair: 'tufts'}));
 figurePng('player-b-turn', 300, 560, ctx => player(ctx, {hair: 'tufts', turn: true}));
+}
 console.log('wrote', fs.readdirSync(OUT).length, 'files to', OUT);

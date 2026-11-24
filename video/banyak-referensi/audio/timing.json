@@ -1,302 +1,302 @@
 {
- "mode": "silence-approximate",
+ "mode": "words",
  "duration": 170.295,
  "voice": "audio/narasi.wav",
  "scenes": [
   {
    "start": 0,
-   "end": 14.531
+   "end": 14.53
   },
   {
-   "start": 14.531,
-   "end": 27.893
+   "start": 14.53,
+   "end": 30.23
   },
   {
-   "start": 27.893,
-   "end": 41.135
+   "start": 30.23,
+   "end": 43.53
   },
   {
-   "start": 41.135,
-   "end": 54.459
+   "start": 43.53,
+   "end": 57.21
   },
   {
-   "start": 54.459,
-   "end": 66.816
+   "start": 57.21,
+   "end": 70.55
   },
   {
-   "start": 66.816,
-   "end": 81.782
+   "start": 70.55,
+   "end": 84.91
   },
   {
-   "start": 81.782,
-   "end": 95.866
+   "start": 84.91,
+   "end": 98.55
   },
   {
-   "start": 95.866,
-   "end": 110.647
+   "start": 98.55,
+   "end": 113.49
   },
   {
-   "start": 110.647,
-   "end": 123.613
+   "start": 113.49,
+   "end": 125.99
   },
   {
-   "start": 123.613,
-   "end": 138.42
+   "start": 125.99,
+   "end": 140.25
   },
   {
-   "start": 138.42,
-   "end": 156.039
+   "start": 140.25,
+   "end": 156.05
   },
   {
-   "start": 156.039,
+   "start": 156.05,
    "end": 170.295
   }
  ],
  "cues": [
   {
-   "start": 0,
-   "end": 2.071
+   "start": 0.04,
+   "end": 2.04
   },
   {
-   "start": 2.715,
-   "end": 4.716
+   "start": 2.72,
+   "end": 4.82
   },
   {
-   "start": 5.708,
-   "end": 7.109
+   "start": 5.7,
+   "end": 7.18
   },
   {
-   "start": 8.324,
-   "end": 9.679
+   "start": 8.34,
+   "end": 9.66
   },
   {
    "start": 11.26,
-   "end": 13.153
+   "end": 13.26
   },
   {
-   "start": 14.781,
-   "end": 16.389
+   "start": 14.78,
+   "end": 16.42
   },
   {
-   "start": 17.468,
-   "end": 19.044
+   "start": 17.5,
+   "end": 19.08
   },
   {
-   "start": 20.465,
-   "end": 22.72
+   "start": 20.46,
+   "end": 22.76
   },
   {
-   "start": 23.77,
-   "end": 24.987
+   "start": 23.76,
+   "end": 26.26
   },
   {
-   "start": 25.037,
-   "end": 27.751
+   "start": 27.24,
+   "end": 29.64
   },
   {
-   "start": 28.143,
-   "end": 29.646
+   "start": 30.48,
+   "end": 31.84
   },
   {
-   "start": 30.484,
-   "end": 31.785
+   "start": 32.78,
+   "end": 34.66
   },
   {
-   "start": 32.797,
-   "end": 34.602
+   "start": 35.48,
+   "end": 36.7
   },
   {
-   "start": 35.473,
-   "end": 36.585
+   "start": 37.34,
+   "end": 39.06
   },
   {
-   "start": 37.335,
-   "end": 40.583
+   "start": 39.74,
+   "end": 42.66
   },
   {
-   "start": 41.385,
-   "end": 42.601
+   "start": 43.78,
+   "end": 45.7
   },
   {
-   "start": 43.798,
-   "end": 45.651
-  },
-  {
-   "start": 46.542,
-   "end": 48.181
+   "start": 46.52,
+   "end": 48.2
   },
   {
    "start": 49,
-   "end": 52.043
+   "end": 49.94
   },
   {
-   "start": 52.723,
-   "end": 53.819
+   "start": 50.96,
+   "end": 53.88
   },
   {
-   "start": 54.709,
-   "end": 56.472
+   "start": 54.7,
+   "end": 56.5
   },
   {
-   "start": 57.461,
-   "end": 59.973
+   "start": 57.46,
+   "end": 60.02
   },
   {
-   "start": 60.754,
-   "end": 62.062
+   "start": 60.76,
+   "end": 62
   },
   {
-   "start": 62.681,
-   "end": 63.702
+   "start": 62.66,
+   "end": 63.64
   },
   {
-   "start": 64.47,
-   "end": 66.182
+   "start": 64.459,
+   "end": 66.26
   },
   {
-   "start": 67.066,
-   "end": 69.673
+   "start": 67.08,
+   "end": 69.7
   },
   {
-   "start": 70.805,
-   "end": 72.779
+   "start": 70.8,
+   "end": 72.84
   },
   {
-   "start": 74.409,
-   "end": 75.584
+   "start": 74.42,
+   "end": 75.6
   },
   {
-   "start": 77.131,
-   "end": 77.907
+   "start": 77.16,
+   "end": 79.62
   },
   {
-   "start": 78.519,
-   "end": 80.853
+   "start": 79.94,
+   "end": 80.92
   },
   {
-   "start": 82.032,
-   "end": 83.767
+   "start": 82.02,
+   "end": 83.82
   },
   {
-   "start": 85.164,
-   "end": 87.058
+   "start": 85.16,
+   "end": 87.1
   },
   {
-   "start": 87.519,
-   "end": 89.045
+   "start": 87.52,
+   "end": 89.06
   },
   {
-   "start": 89.548,
-   "end": 91.047
+   "start": 89.54,
+   "end": 91.12
   },
   {
-   "start": 92.662,
-   "end": 94.523
+   "start": 92.66,
+   "end": 94.58
   },
   {
-   "start": 96.116,
-   "end": 97.885
+   "start": 96.1,
+   "end": 97.96
   },
   {
-   "start": 98.844,
-   "end": 100.48
+   "start": 98.8,
+   "end": 100.58
   },
   {
-   "start": 101.603,
-   "end": 103.134
+   "start": 101.6,
+   "end": 103.08
   },
   {
-   "start": 104.049,
-   "end": 105.393
+   "start": 104.04,
+   "end": 105.34
   },
   {
-   "start": 106.149,
-   "end": 109.36
+   "start": 106.16,
+   "end": 109.42
   },
   {
-   "start": 110.897,
-   "end": 112.866
+   "start": 110.9,
+   "end": 112.88
   },
   {
-   "start": 113.739,
-   "end": 115.385
+   "start": 113.74,
+   "end": 115.34
   },
   {
-   "start": 116.703,
-   "end": 119.632
+   "start": 116.72,
+   "end": 117.94
   },
   {
-   "start": 120.525,
-   "end": 120.933
+   "start": 117.96,
+   "end": 119.68
   },
   {
-   "start": 121.669,
-   "end": 123.203
+   "start": 120.52,
+   "end": 123.22
   },
   {
-   "start": 123.863,
-   "end": 126.698
+   "start": 123.86,
+   "end": 125.7
   },
   {
-   "start": 127.713,
-   "end": 131.731
+   "start": 126.24,
+   "end": 129.3
   },
   {
-   "start": 132.383,
-   "end": 135.864
+   "start": 130.46,
+   "end": 132.58
   },
   {
-   "start": 136.738,
-   "end": 137.76
+   "start": 134.18,
+   "end": 135.92
   },
   {
-   "start": 138.67,
-   "end": 142.66
+   "start": 136.74,
+   "end": 139.8
+  },
+  {
+   "start": 140.5,
+   "end": 142.7
   },
   {
    "start": 143.52,
-   "end": 145.026
+   "end": 145.1
   },
   {
-   "start": 146.556,
-   "end": 147.795
+   "start": 146.56,
+   "end": 147.88
   },
   {
-   "start": 148.799,
-   "end": 151.096
+   "start": 148.8,
+   "end": 151.18
   },
   {
-   "start": 152.193,
-   "end": 154.868
+   "start": 152.18,
+   "end": 154.94
   },
   {
-   "start": 156.289,
-   "end": 158.295
+   "start": 156.3,
+   "end": 158.36
   },
   {
-   "start": 159.646,
-   "end": 160.096
+   "start": 159.64,
+   "end": 160.44
   },
   {
-   "start": 160.146,
-   "end": 161.396
+   "start": 160.58,
+   "end": 161.44
   },
   {
-   "start": 161.818,
-   "end": 163.198
+   "start": 161.82,
+   "end": 163.26
   },
   {
    "start": 164.12,
-   "end": 165.266
+   "end": 165.38
   },
   {
    "start": 165.8,
-   "end": 168.229
+   "end": 168.26
   },
   {
-   "start": 169.094,
-   "end": 169.894
+   "start": 169.06,
+   "end": 170
   }
  ],
- "note": "APPROXIMATE: cue times derive from detected pauses and character share, not forced alignment. Review against playback; replace with word timestamps when available."
+ "note": "Cue times come from per-word timestamps of the actual recording."
 }

@@ -20,19 +20,27 @@ if (arg('--words')) {
   mode = 'words';
   const raw = JSON.parse(fs.readFileSync(arg('--words'), 'utf8'));
   const words = (raw.words || raw).filter(w => (w.word ?? w.text ?? '').trim() && (w.type === undefined || w.type === 'word')).map(w => ({start: +w.start, end: +w.end, t: norm(w.word ?? w.text)})).filter(w => w.t);
-  let i = 0; timed = [];
-  for (const c of cues) {
-    const toks = norm(c.text).split(' ');
-    const first = i;
-    // consume tokens leniently: a cue token matches when the word matches or starts with it
-    for (const tok of toks) {
-      while (i < words.length && words[i].t !== tok && !words[i].t.startsWith(tok) && !tok.startsWith(words[i].t)) i++;
-      if (i < words.length) i++;
-    }
-    const last = Math.max(first, i - 1);
-    if (first >= words.length) throw new Error(`ran out of words at cue: ${c.text}`);
-    timed.push({start: words[first].start, end: words[Math.min(last, words.length - 1)].end});
+  // Global alignment (Needleman-Wunsch) between all cue tokens and the transcript words, so a
+  // transcription variant ("ke-12" for "kedua belas") costs one gap instead of derailing the match.
+  const toks = []; cues.forEach((c, k) => norm(c.text).split(' ').forEach(t => toks.push({t, k})));
+  const sim = (a, b) => a === b ? 2 : (a.startsWith(b) || b.startsWith(a)) && Math.min(a.length, b.length) >= 3 ? 1 : -1;
+  const n = toks.length, m = words.length, GAP = -1;
+  const S = Array.from({length: n + 1}, () => new Float64Array(m + 1)), B = Array.from({length: n + 1}, () => new Uint8Array(m + 1));
+  for (let i = 1; i <= n; i++) { S[i][0] = i * GAP; B[i][0] = 1; }
+  for (let j = 1; j <= m; j++) { S[0][j] = j * GAP; B[0][j] = 2; }
+  for (let i = 1; i <= n; i++) for (let j = 1; j <= m; j++) {
+    const d = S[i - 1][j - 1] + sim(toks[i - 1].t, words[j - 1].t), u = S[i - 1][j] + GAP, l = S[i][j - 1] + GAP;
+    if (d >= u && d >= l) { S[i][j] = d; B[i][j] = 0; } else if (u >= l) { S[i][j] = u; B[i][j] = 1; } else { S[i][j] = l; B[i][j] = 2; }
   }
+  const match = new Array(n).fill(-1);
+  for (let i = n, j = m; i > 0 || j > 0;) { const b = B[i][j]; if (b === 0) { if (sim(toks[i - 1].t, words[j - 1].t) > 0) match[i - 1] = j - 1; i--; j--; } else if (b === 1) i--; else j--; }
+  timed = cues.map(() => ({start: null, end: null}));
+  toks.forEach((tk, i) => { const j = match[i]; if (j < 0) return; const c = timed[tk.k]; c.start = c.start === null ? words[j].start : Math.min(c.start, words[j].start); c.end = c.end === null ? words[j].end : Math.max(c.end, words[j].end); });
+  const unmatched = timed.map((c, k) => c.start === null ? k : -1).filter(k => k >= 0);
+  if (unmatched.length) throw new Error('cues with no matched words: ' + unmatched.map(k => cues[k].text).join(' | '));
+  for (let k = 1; k < timed.length; k++) if (timed[k].start < timed[k - 1].end + 0.02) timed[k - 1].end = Math.max(timed[k - 1].start + 0.3, timed[k].start - 0.02);
+  const matched = match.filter(j => j >= 0).length;
+  console.error(`matched ${matched}/${n} cue tokens to ${m} words`);
 } else {
   mode = 'silence-approximate';
   const sil = fs.readFileSync(arg('--silences'), 'utf8').trim().split('\n').map(l => l.split(/\s+/)).map(a => [+a[0], +a[1]]);
