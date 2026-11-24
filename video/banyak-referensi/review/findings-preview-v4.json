@@ -1,0 +1,2157 @@
+{
+  "reviewer": {
+    "id": "independent-reviewer-agent-frv9c2e",
+    "kind": "agent",
+    "method": "Fourth pass on the re-encoded sample (sha256 e76fbdf7…, verified equal to evidence.json output_sha256; shot ranges unchanged). Targeted re-check of shot-2: opened its three fresh phase PNGs, built a 10 fps tile sheet, scanned sheet-outline columns at y 345 and y 400 in the phase frames and in single frames of the main file at 7.10, 7.15, 7.20, 7.233, 7.25, 7.267 and 7.30 s, and ran a changed-pixel bounding-box scan over the clip's last second. Re-extracted 2 fps frames from all 14 clips and diffed them against the third-pass frames: only shot-2 changed (YAVG 2.25); shot-1 differs by 0.09 with no pixel above the 24/255 threshold (encoder noise); all other shots 0.00. Re-measured audio (ebur128 I=-20.4 LUFS, LRA 17.7 LU, true peak -2.0 dBFS; decoded-PCM MD5 identical to passes two and three). Entries for unchanged shots and criteria are carried forward from the third pass. Sound measured only, not auditioned by ear."
+  },
+  "full_playback": {
+    "viewed_ranges": [
+      {
+        "start": 0,
+        "end": 60
+      }
+    ],
+    "observations": [
+      {
+        "time": 0.4,
+        "detail": "First word at 0.40 s after the music lead; shot-0 frames identical to the second encode."
+      },
+      {
+        "time": 2.9,
+        "detail": "Vidka's speaking pose in the close-up no longer brings a floating desk edge; only an 80 px rest stroke under her palm remains (x 479-559)."
+      },
+      {
+        "time": 4.8,
+        "detail": "Shot-2 is back to the second-pass staging: two separate opaque sheets at x 204-415 and the laptop at x 405-565, held from 4.37 to 7.233 s."
+      },
+      {
+        "time": 7.3,
+        "detail": "At 7.267 s (last frame of shot-2) the sheets jump 240 px to x 444-595 and the laptop vanishes; shot-3 then starts at 7.278 s from that position. The prop jump across the shot-2/shot-3 cut is back; Vidka's face stays clear and her hand is on the sheets when the sweep starts at 7.45 s."
+      },
+      {
+        "time": 12.9,
+        "detail": "Notebook hold unchanged from the second encode (frames identical): underline 12.2-13.2 s, finger-up reaction at 12.9 s."
+      },
+      {
+        "time": 17.0,
+        "detail": "Laptop shot: pose swap at 17.00 s without a floating desk edge; chair still hops about 40 px."
+      },
+      {
+        "time": 21.0,
+        "detail": "Search-box typing unchanged (frames identical to the second encode)."
+      },
+      {
+        "time": 27.8,
+        "detail": "Task-card hold: Vidka's reaction pose at 27.73 s no longer carries a desk fragment; green check still touches the card border at x 928."
+      },
+      {
+        "time": 30.6,
+        "detail": "Shot-8 differs from the second encode only by the erased asset line; sheet slides along the desk as before."
+      },
+      {
+        "time": 38.3,
+        "detail": "Comparison beat unchanged (frames identical)."
+      },
+      {
+        "time": 44.97,
+        "detail": "'Peserta' hold unchanged, clean exit frame."
+      },
+      {
+        "time": 45.6,
+        "detail": "Shot-11 staging unchanged apart from the erased asset line; Vidka's line is still visibly hers."
+      },
+      {
+        "time": 52.1,
+        "detail": "Article annotation shot unchanged (frames identical)."
+      },
+      {
+        "time": 59.5,
+        "detail": "Decoded audio MD5 identical to the second encode; I=-20.4 LUFS, true peak -2.0 dBFS, fade to -42 dB at 60 s."
+      }
+    ]
+  },
+  "baseline": [
+    {
+      "reference_id": "b1-ryan-v4",
+      "start": 0,
+      "end": 21.3,
+      "observations": [
+        {
+          "time": 0.5,
+          "detail": "'WRITE.' 60 px caps top-left, Ryan at a fully drawn desk in one held pose; yellow underline sweeps under the document icon; caption 'Write.' 24 px grey."
+        },
+        {
+          "time": 3.0,
+          "detail": "'REFRESH.' with the highlight on the fourth icon; Ryan's pose unchanged across WRITE/EDIT/REFRESH, so text and icon changes carry the beat."
+        },
+        {
+          "time": 6.0,
+          "detail": "'JUST POST MORE?' Ryan strains under a wobbling stack with motion lines and sweat drops; whole-body acting in a single drawing, the stack held in his arms."
+        },
+        {
+          "time": 9.0,
+          "detail": "Hand-drawn red underline under 'Same silence.' on the spoken phrase; props never cover the figure."
+        },
+        {
+          "time": 12.0,
+          "detail": "Slumped Ryan on a stool that is present in every frame; the slider dot moves back to START by 13 s and 'BACK TO ZERO.' appears in red."
+        },
+        {
+          "time": 15.0,
+          "detail": "Props only: POST sticky sheets drift along an arrow into a dashed box; REMEMBERED underlined at 18 s with no caption."
+        },
+        {
+          "time": 20.5,
+          "detail": "Ryan writes on numbered sticky cards with a pencil in hand; 'FIX THESE / 3 THINGS.' two sizes; marks sit clear of card edges."
+        },
+        {
+          "time": 4.0,
+          "detail": "Motion: 19 static spans, the longest 1.33 s (3.70-5.03 s); something changes at least every 1.3 s."
+        },
+        {
+          "time": 10.0,
+          "detail": "Audio: I=-20.5 LUFS, true peak -1.6 dBFS, LRA 2.9 LU; 5 s segment means -20.7 to -22.6 dB; continuous narration, no music-only spans."
+        }
+      ]
+    }
+  ],
+  "blocking_issues": [],
+  "shots": {
+    "shot-0": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 0.0,
+            "detail": "No character. Fan of five hand-drawn two-column sheets at x 125-615 on faint-grid paper; 'Banyak artikel...' 46 px script top right. Frames identical to the previous encode by inspection.",
+            "phase": "start"
+          },
+          {
+            "time": 1.1,
+            "detail": "One sheet detaches and slides right to x 600-770 with its rules intact and no see-through overlap.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 18.0,
+          "detail": "Reference opens its 15-18 s beat with props only (POST sheets, arrow, dashed box); the sample's paper fan is the same density of hand-drawn prop with no figure."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 0.6,
+            "detail": "The crowded stack plus one sheet pulled out carries 'too many articles, which one'; red 'bingung memilih' appears at about 1.0 s on the caption word.",
+            "phase": "start"
+          },
+          {
+            "time": 2.1,
+            "detail": "Sheet settles at x 630-795 before the cut into Vidka's reaction.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 16.5,
+          "detail": "Reference drifts a sheet along an arrow for 'publishing more'; the sample's drifting sheet carries 'many articles' the same way."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 1.6,
+            "detail": "Moving sheet keeps outline and orientation; the stack behind it does not shift.",
+            "phase": "mid"
+          },
+          {
+            "time": 2.15,
+            "detail": "The single sheet that left the stack is the same single sheet at Vidka's left in shot-1 (x 130-350).",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 18.0,
+          "detail": "Reference sticky sheets stay intact while one moves; equivalent."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 0.0,
+            "detail": "Stack left 48 %, heading top right, lower right empty until the sheet arrives; caption band clear.",
+            "phase": "start"
+          },
+          {
+            "time": 2.1,
+            "detail": "Three focal points (stack, sheet, two-line heading), nothing cropped.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 18.0,
+          "detail": "Same three-band layout (headline row, prop band, caption) as the reference."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 0.2,
+            "detail": "No caption during the 0.4 s music lead.",
+            "phase": "start"
+          },
+          {
+            "time": 1.1,
+            "detail": "Caption 'Pak, artikel saya banyak, tetapi saya bingung memilih.' one line Noto Sans ~30 px at x 208-1072, y 660; Indonesian natural; 'Banyak artikel...' 46 px black and 'bingung memilih' 44 px red readable.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Reference pairs a large hand-lettered headline with a small one-line caption; same hierarchy."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 0.4,
+            "detail": "Voice begins at 0.40 s after the music lead (0-0.4 s mean -33.3 dB).",
+            "phase": "start"
+          },
+          {
+            "time": 1.3,
+            "detail": "Pull-out and red phrase land 1.0-1.6 s, before 'bingung' is reached; cut at 2.18 s mid-sentence into the reaction shot.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.0,
+          "end": 3.0,
+          "detail": "Reference changes a visual element about every 1 s; two changes in 2.2 s here."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 0.2,
+            "detail": "0-0.4 s music only, mean -33.3 dB, peak -21.7 dB.",
+            "phase": "start"
+          },
+          {
+            "time": 1.2,
+            "detail": "Shot mean -22.3 dB, peak -3.5 dB. Audio stream is byte-identical in level profile to the previous encode (per-shot means unchanged). Not auditioned by ear.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.0,
+          "end": 5.0,
+          "detail": "Reference (re-measured this pass): I=-20.5 LUFS, true peak -1.6 dBFS, LRA 2.9 LU, 5 s segment means -20.7 to -22.6 dB, continuous narration. New encode: I=-20.4 LUFS, true peak -2.0 dBFS, LRA 17.7 LU (the LRA comes from music-only holds at about -35 dB against speech at -20 dB). Shot-0 at -22.3 dB mean matches the reference 0-5 s mean of -22.6 dB."
+        }
+      }
+    },
+    "shot-1": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 2.3,
+            "detail": "Vidka close-up: round head, ponytail, single-line limbs, hand pressed to forehead, downturned mouth; clean 3 px ink; chair with closed outlines.",
+            "phase": "start"
+          },
+          {
+            "time": 3.3,
+            "detail": "Second pose (hand on desk, mouth open, eyebrows up) is drawn at the same scale and line weight; the swap is a clean pose cut.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 12.0,
+          "end": 13.5,
+          "detail": "Reference slumped Ryan at 12 s: same slender limb style and readable sad face; sample drawing is to that standard."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 2.5,
+            "detail": "Distress pose while her line starts; at 2.91 s she switches to a speaking pose (hand forward on a desk edge, mouth open) for 'tetapi saya bingung memilih'.",
+            "phase": "start"
+          },
+          {
+            "time": 3.3,
+            "detail": "Speaking pose held 2.91-3.71 s, then she returns to the hand-on-forehead pose at 3.71 s as the sentence ends; the sheet at left drifts 35 px (x 157 to 167) throughout. Verified again on the third encode (10 fps tiles).",
+            "phase": "mid"
+          },
+          {
+            "time": 4.3,
+            "detail": "Caption switches to Herry's line at 4.34 s; her returned distress pose makes a readable 'waiting for help' beat.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 12.0,
+          "end": 14.5,
+          "detail": "Reference holds Ryan's slumped pose but changes a prop each second; the sample now changes the actor herself twice in 2.2 s, which is closer to 'acting with the whole body' than the reference's held pose. Improvement over the previous encode (frozen for 2.18 s)."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 2.95,
+            "detail": "The 155 px floating desk edge is gone: pixel scan of x 380-470, y 325-360 in the 2.91-3.71 s speaking pose finds only four near-paper pixels at x 394 (luma 195-222), invisible at playback. What remains is an 80 px rest stroke directly under the palm (x 479-559, y 340), about 10 px beyond the fingertips, which reads as the hand resting, not as furniture.",
+            "phase": "mid"
+          },
+          {
+            "time": 3.7,
+            "detail": "At 3.71 s the pose returns to hand-on-forehead with no line left behind; the chair still shifts about 20 px between the two poses (back at x 680-710 vs 725-760), a minor pop.",
+            "phase": "end"
+          },
+          {
+            "time": 2.3,
+            "detail": "Seat, feet and forehead contacts correct in both poses.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 12.0,
+          "end": 13.0,
+          "detail": "Reference Ryan's stool exists in every frame; the sample no longer shows a support that appears only with one pose, so the continuity break is cleared."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 2.3,
+            "detail": "Vidka centred at x 450-710, sheet at x 130-350; right 45 % empty.",
+            "phase": "start"
+          },
+          {
+            "time": 3.3,
+            "detail": "The speaking pose faces left toward the sheet, so the empty right side reads as 'no one there yet' before Herry enters in shot-2.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 12.0,
+          "end": 13.5,
+          "detail": "Reference balances figure-left with slider-right; sample's blank right half is weaker but intentional staging."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 2.5,
+            "detail": "Caption one line x 208-1072, ~30 px, clear of the figure.",
+            "phase": "start"
+          },
+          {
+            "time": 4.35,
+            "detail": "Caption 'Buka lagi catatanmu. Apa yang ingin kamu pahami?' at 4.34 s, one line x 227-1053.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 12.0,
+          "end": 13.0,
+          "detail": "Reference caption 'Yet every new upload' one short centred line; same slot."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 2.2,
+            "detail": "Cut to the close-up at 2.18 s on 'tetapi'.",
+            "phase": "start"
+          },
+          {
+            "time": 2.9,
+            "detail": "Pose changes at 2.91 and 3.71 s split the 2.2 s shot into three beats of 0.7-0.8 s; the sheet drifts continuously.",
+            "phase": "mid"
+          },
+          {
+            "time": 4.35,
+            "detail": "Herry's line starts 4.34 s, cut to the desk at 4.37 s.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 5.0,
+          "end": 7.0,
+          "detail": "Reference cuts on the first word of each new line; sample cuts on the speaker change with the same discipline."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 3.0,
+            "detail": "Shot mean -20.5 dB, peak -4.9 dB (Vidka, Mona). Not auditioned by ear.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.0,
+          "end": 5.0,
+          "detail": "Reference (re-measured this pass): I=-20.5 LUFS, true peak -1.6 dBFS, LRA 2.9 LU, 5 s segment means -20.7 to -22.6 dB, continuous narration. New encode: I=-20.4 LUFS, true peak -2.0 dBFS, LRA 17.7 LU (the LRA comes from music-only holds at about -35 dB against speech at -20 dB). Shot-1 within 2 dB of reference segment means."
+        }
+      }
+    },
+    "shot-2": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 4.4,
+            "detail": "Two article sheets drawn as separate opaque props at x 204-295 and x 324-415 (outline columns at y 345: 205/213 and 287/295, 325/333 and 407/415), no overlap, bottoms on the desk at y 450; laptop restored at x 405-565 in front of Vidka; notebook and Herry as before.",
+            "phase": "start"
+          },
+          {
+            "time": 5.8,
+            "detail": "Layout holds through the pointing beat and the red frame: frames at 7.10, 7.15, 7.20 and 7.233 s still show outline columns 204/295 and 324/415.",
+            "phase": "mid"
+          },
+          {
+            "time": 7.267,
+            "detail": "The last frame of the shot (frame 218, 7.267 s, which is also the ledger's end-phase PNG) already shows the shot-3 staging: sheets overlapping at x 444-595 with see-through rules and no laptop. One frame (33 ms) of the old overlap remains; drawing is correct for 2.87 of 2.90 s.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Reference desk scene draws every object opaque with occlusion; the sample now matches for the whole shot except its final frame."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 4.8,
+            "detail": "Herry is present from the first frame; at 4.80 s he switches from hands-behind-back to pointing at the notebook, and a red pointer stroke draws from the notebook toward his finger 4.84-5.20 s.",
+            "phase": "start"
+          },
+          {
+            "time": 5.5,
+            "detail": "Vidka turns from the sheets at her left to Herry with a smile at about 5.5 s; red frame around 'catatanmu' draws 5.80-6.27 s on the caption word.",
+            "phase": "mid"
+          },
+          {
+            "time": 7.0,
+            "detail": "Static 6.3-7.28 s (1.0 s) while 'Apa yang ingin kamu pahami?' finishes.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 19.5,
+          "end": 21.3,
+          "detail": "Reference 20.5 s: Ryan points up while writing and 'FIX THESE 3 THINGS' is underlined; the sample's point-plus-frame is the same device."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 4.4,
+            "detail": "Herry stands at x 1020-1100 from 4.37 s and only his pose cuts at 4.80 s (feet stay at y 560-575). Notebook, sheets and laptop all sit on the desk line at y 448-450.",
+            "phase": "start"
+          },
+          {
+            "time": 6.5,
+            "detail": "Vidka's hands on the laptop/desk at x 590-640; chair on the floor; the pointer stroke ends at Herry's fingertip (x 985, y 415).",
+            "phase": "mid"
+          },
+          {
+            "time": 7.267,
+            "detail": "On the final frame (7.267 s) the two sheets jump 240 px right to x 444-595 and the laptop vanishes while Vidka and Herry hold their poses; this is the shot-3 staging arriving one frame early (changed-pixel bbox x 204-596, y 330-467 at clip time 2.87 s). The same discontinuity is scored under shot-3, where the cut lands.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 5.0,
+          "end": 6.5,
+          "detail": "Reference keeps props in place until a cut and never moves them without a hand; a one-frame prop pop before the cut is a blemish but the real break is the jump across the cut (see shot-3)."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 5.8,
+            "detail": "Sheets and laptop left of centre (x 204-565), Vidka centre at x 600-760, notebook and Herry right; pointing arm and red frame lead the eye to 'catatanmu'.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Reference fills upper left with WRITE. and icons; sample leaves it blank but has one clear focal prop."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 5.0,
+            "detail": "Caption one line x 227-1053, ~30 px, clear of the desk.",
+            "phase": "start"
+          },
+          {
+            "time": 6.3,
+            "detail": "'catatanmu' blue script 22 px inside the notebook, framed in red; small but legible at 720p.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 19.5,
+          "end": 21.3,
+          "detail": "Reference scene labels 24-40 px; the 22 px notebook label is at the low end but readable."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 4.4,
+            "detail": "Shot starts 0.03 s after Herry's line; events at 4.80, 4.84-5.20, 5.50, 5.80-6.27 s, then 1.0 s rest.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.0,
+          "end": 3.0,
+          "detail": "Reference's longest static span is 1.33 s; the 1.0 s rest here is within that."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 5.8,
+            "detail": "Shot mean -20.5 dB, peak -2.0 dB (highest peak in the sample). Herry (Bayu). Not auditioned by ear.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 5.0,
+          "end": 10.0,
+          "detail": "Reference (re-measured this pass): I=-20.5 LUFS, true peak -1.6 dBFS, LRA 2.9 LU, 5 s segment means -20.7 to -22.6 dB, continuous narration. New encode: I=-20.4 LUFS, true peak -2.0 dBFS, LRA 17.7 LU (the LRA comes from music-only holds at about -35 dB against speech at -20 dB). Peak -2.0 dB vs reference -1.7 dB in 5-10 s."
+        }
+      }
+    },
+    "shot-3": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 7.5,
+            "detail": "Vidka in the sweeping pose with three motion lines behind her arm; Herry hands behind back; same proportions as shot-2.",
+            "phase": "start"
+          },
+          {
+            "time": 8.5,
+            "detail": "While they slide, the two sheets separate (x 355-445 and 480-575 at 8.3 s) and are opaque; they overlap again as see-through outlines when they stop at x 255-425 (9.3 s onward). Minor drawing lapse, same as the second pass.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 5.0,
+          "end": 6.5,
+          "detail": "Reference uses motion lines on the wobbling stack; the sweep lines follow the same convention."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 7.5,
+            "detail": "Vidka's arm is extended toward the sheets and they move with her hand: sheets travel from x 537-680 at 7.45 s to x 405-545 at 9.5 s while her hand (x 555-620) rides on them from about 8.0 s.",
+            "phase": "start"
+          },
+          {
+            "time": 8.8,
+            "detail": "The sweep finishes as Herry's question ends (8.78 s); 'pushing the articles aside to open the notes' is readable without sound.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 19.5,
+          "end": 21.3,
+          "detail": "Reference Ryan acts an instruction with his whole body; the sweep is now a hand-on-prop action rather than props moving at a distance (fixed since the previous encode)."
+        }
+      },
+      "contact_continuity": {
+        "status": "unmet",
+        "observations": [
+          {
+            "time": 7.3,
+            "detail": "Regression against the third encode: shot-2 now ends (through 7.233 s) with the sheets at x 204-415 and a laptop at x 405-565, but shot-3 opens with the sheets at x 444-595 beside Vidka and no laptop. Across the continuity cut on the same desk the two sheets teleport 240 px and the laptop disappears, exactly the prop jump flagged in the second pass; the third encode had removed it by matching shot-2 to shot-3, and the fourth encode restored shot-2 without re-matching shot-3.",
+            "phase": "start"
+          },
+          {
+            "time": 7.6,
+            "detail": "Within the shot the action is correct: her hand is on the right sheet when the sweep starts at 7.45 s and the sheets slide to x 255-425 by 9.3 s with the hand riding on them; Vidka's face is never covered (sheet right edge 595, head at x 640-740).",
+            "phase": "start"
+          },
+          {
+            "time": 9.5,
+            "detail": "Sheets rest on the desk line (bottom y 450) throughout; Herry's feet planted at y 560-575. The sheets end at x 255-425, which is almost where shot-2 had them (x 204-415), so the sweep effectively puts the props back where the previous shot left them.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 5.0,
+          "end": 6.5,
+          "detail": "Reference props stay where a cut leaves them and move only in a hand; shot-3's opening frame contradicts shot-2's closing frame, which the reference never does. Fix: start shot-3 from shot-2's positions (sheets x 204-415, laptop present) and animate from there, or stage shot-2's sheets beside Vidka drawn opaque and non-overlapping as in encode three."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 7.5,
+            "detail": "Vidka's face is visible from the first frame; sheets occupy x 444-595 at her left, notebook and Herry right.",
+            "phase": "start"
+          },
+          {
+            "time": 9.0,
+            "detail": "After the sweep the frame is: sheets left-centre, Vidka centre, notebook, Herry right; stable stage from shot-2.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Reference never occludes Ryan's face with a prop; the sample now keeps the face clear for the whole shot."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 7.8,
+            "detail": "Caption 'Buka lagi catatanmu. Apa yang ingin kamu pahami?' one line to 8.78 s, then cleared.",
+            "phase": "start"
+          },
+          {
+            "time": 9.3,
+            "detail": "No caption 8.78-9.6 s, correct because no one speaks.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 18.0,
+          "end": 18.5,
+          "detail": "Reference drops the caption while the underline completes; same behaviour."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 7.3,
+            "detail": "2.3 s action beat bridging the question and the notebook hold; the sweep runs 7.45-9.3 s with no pop.",
+            "phase": "start"
+          },
+          {
+            "time": 9.5,
+            "detail": "Static 9.3-9.6 s, then cut to the notebook.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 19.0,
+          "end": 21.3,
+          "detail": "Reference gives a 2 s action beat before its hold; equivalent."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 8.0,
+            "detail": "Herry's voice ends 8.78 s; shot mean -34.9 dB, peak -22.7 dB (music only in the second half). Not auditioned by ear.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 5.0,
+          "end": 10.0,
+          "detail": "Reference (re-measured this pass): I=-20.5 LUFS, true peak -1.6 dBFS, LRA 2.9 LU, 5 s segment means -20.7 to -22.6 dB, continuous narration. New encode: I=-20.4 LUFS, true peak -2.0 dBFS, LRA 17.7 LU (the LRA comes from music-only holds at about -35 dB against speech at -20 dB). Music bed about 14 dB under the sample's voice level; the reference has no bed to compare."
+        }
+      }
+    },
+    "shot-4": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 9.6,
+            "detail": "Large spiral notebook x 215-825; red label 'catatan awal Vidka' 22 px; a pencil (no hand) at the top-left corner; small Vidka thinking at right.",
+            "phase": "start"
+          },
+          {
+            "time": 12.3,
+            "detail": "Pencil is removed at about 12.0 s once writing is done; the yellow underline is a soft hand-drawn stroke.",
+            "phase": "mid"
+          },
+          {
+            "time": 14.9,
+            "detail": "Vidka's finger-up smiling pose at the same scale as the thinking pose.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 19.5,
+          "end": 21.3,
+          "detail": "Reference pencil is in Ryan's hand; the sample still writes with a handless pencil but now hides it after use instead of leaving it tapping."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 10.3,
+            "detail": "Pencil writes 'Bagaimana kelompok kami' 9.9-10.8 s and 'menjaga tempo?' 10.9-11.2 s in blue script.",
+            "phase": "start"
+          },
+          {
+            "time": 12.6,
+            "detail": "Yellow underline draws under 'menjaga tempo?' 12.2-13.2 s; Vidka changes from hand-on-chin to finger raised with a smile at 12.9 s, a readable 'got it' reaction to the question.",
+            "phase": "mid"
+          },
+          {
+            "time": 14.5,
+            "detail": "Static 13.3-15.0 s (1.7 s) on the finished note.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 12.0,
+          "end": 13.5,
+          "detail": "Reference hold keeps a story beat going (slider moves, 'BACK TO ZERO' appears); the sample now has writing, underline and a reaction inside the hold, which replaces the previous encode's 3.8 s of pencil bobbing."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 10.3,
+            "detail": "Pencil tip follows the baseline of the lettering while writing; no text appears away from the tip.",
+            "phase": "start"
+          },
+          {
+            "time": 13.0,
+            "detail": "Vidka's seat and feet keep contact across the pose cut; chair position unchanged (x 1055-1140).",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 20.0,
+          "end": 21.3,
+          "detail": "Reference pencil tip rests on the card it writes; same while writing here."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 11.3,
+            "detail": "Question in 40 px blue script in the upper third of the page; underline extends to x 650, past the word end at x 500, but reads as a hand-drawn flourish.",
+            "phase": "mid"
+          },
+          {
+            "time": 14.5,
+            "detail": "Lower 60 % of the page blank; Vidka small at right gives scale.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 18.0,
+          "detail": "Reference holds put the key phrase in 44 px caps with one coloured accent; sample's 40 px script plus yellow underline is equivalent."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 11.0,
+            "detail": "No caption 9.6-15.0 s (no speech); the scene lettering is the only text and is legible.",
+            "phase": "mid"
+          },
+          {
+            "time": 9.7,
+            "detail": "Red label 22 px legible at 720p, small on a phone.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 13.0,
+          "end": 13.5,
+          "detail": "Reference 'BACK TO ZERO' accent is 30 px red; sample's label is secondary and smaller, appropriately."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 11.2,
+            "detail": "Writing done 1.6 s into the 5.4 s hold; underline at 2.6-3.6 s; reaction at 3.3 s; longest static span 1.7 s (13.3-15.0 s).",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 12.0,
+          "end": 14.5,
+          "detail": "Reference's longest static span is 1.33 s; 1.7 s inside a deliberate hold is close."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 12.3,
+            "detail": "Music only: shot mean -35.7 dB, peak -20.7 dB. Not auditioned by ear.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 10.0,
+          "end": 15.0,
+          "detail": "Reference (re-measured this pass): I=-20.5 LUFS, true peak -1.6 dBFS, LRA 2.9 LU, 5 s segment means -20.7 to -22.6 dB, continuous narration. New encode: I=-20.4 LUFS, true peak -2.0 dBFS, LRA 17.7 LU (the LRA comes from music-only holds at about -35 dB against speech at -20 dB). Bed about 15 dB below the sample's voice; the 'SFX below voice' rule holds."
+        }
+      }
+    },
+    "shot-5": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 15.0,
+            "detail": "Hand-drawn laptop x 110-610 with code-drawn search box 'musik' and three result cards that now stay inside the screen bezel (cards at y 205-300 within the screen's y 95-315).",
+            "phase": "start"
+          },
+          {
+            "time": 16.4,
+            "detail": "Cards shuffle vertically inside the screen (one at y 235-295, one at 205-265) at 15.5 and 17.0 s; they never touch the keyboard.",
+            "phase": "mid"
+          },
+          {
+            "time": 17.7,
+            "detail": "Vidka's speaking pose with a short desk edge; Ardipal listening pose; clean line art.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Reference monitor keeps its thumbnails inside the bezel; the sample now does the same (fixed since the previous encode)."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 15.5,
+            "detail": "Ardipal (speaker of 'Apa kata kuncimu?') holds an open-palm, open-mouth asking pose 15.0-17.0 s; Vidka sits with hands on her lap looking at him.",
+            "phase": "start"
+          },
+          {
+            "time": 17.1,
+            "detail": "At 17.00 s, as Vidka's answer '«Musik», Prof.' begins (17.06 s), the poses swap: Vidka turns to the laptop side with mouth open, Ardipal drops to hands behind back.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 5.0,
+          "end": 9.5,
+          "detail": "Reference changes the picture on each new line; the sample now assigns each line to the correct, visibly speaking actor."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 17.05,
+            "detail": "The 120 px floating desk edge at x 710-830 is gone: pixel scan of x 700-765, y 405-435 after the 17.00 s pose swap finds three near-paper pixels (luma 222-224). What remains is a 65 px rest stroke under the palm (x 774-839, y 418) that reads as the hand resting.",
+            "phase": "end"
+          },
+          {
+            "time": 17.05,
+            "detail": "Her chair still moves about 40 px right at the swap (chair back x 905-945 before, x 945-990 after); a minor pop at a pose cut.",
+            "phase": "end"
+          },
+          {
+            "time": 15.0,
+            "detail": "Vidka seated with feet on the floor line; Ardipal's feet on the same line; result cards stay inside the screen bezel (y 205-300 within y 95-315).",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Reference props exist in every frame of a shot; no support now appears or disappears with a pose, so the break is cleared."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 15.0,
+            "detail": "Laptop left 45 %, two figures right; 'terlalu luas' red script x 205-350, y 485 is the focal phrase.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 3.0,
+          "end": 3.5,
+          "detail": "Reference pairs a prop one side with the figure the other; equivalent."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 15.5,
+            "detail": "Caption 'Apa kata kuncimu?' one line centred ~30 px.",
+            "phase": "start"
+          },
+          {
+            "time": 17.4,
+            "detail": "Caption '«Musik», Prof.' with correct guillemets; search-box 'musik' 34 px blue script.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 5.5,
+          "end": 6.5,
+          "detail": "Reference short secondary scene text; 'terlalu luas' plays the same role."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 15.0,
+            "detail": "Cut to the laptop on Ardipal's first word.",
+            "phase": "start"
+          },
+          {
+            "time": 17.8,
+            "detail": "Pose swap at 17.00 s leads her answer by 0.06 s; cut to the full search box at 17.82 s.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 5.0,
+          "end": 6.0,
+          "detail": "Reference cuts on the first word of each line; same here."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 16.0,
+            "detail": "Shot mean -21.3 dB, peak -4.0 dB; 0.31 s pause 16.19-16.50 s between speakers. Not auditioned by ear.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 5.0,
+          "end": 10.0,
+          "detail": "Reference (re-measured this pass): I=-20.5 LUFS, true peak -1.6 dBFS, LRA 2.9 LU, 5 s segment means -20.7 to -22.6 dB, continuous narration. New encode: I=-20.4 LUFS, true peak -2.0 dBFS, LRA 17.7 LU (the LRA comes from music-only holds at about -35 dB against speech at -20 dB). Speaker gap 0.3 s is natural turn-taking; reference has a single narrator."
+        }
+      }
+    },
+    "shot-6": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 17.9,
+            "detail": "No character. Search box x 165-1115, y 160-300 with hand-drawn magnifier; two carets blink at once (in the box and on the empty English line at y 408), unchanged from the previous encode.",
+            "phase": "start"
+          },
+          {
+            "time": 20.9,
+            "detail": "Keywords 'siswa pemula  ansambel  koordinasi tempo' 34 px blue script.",
+            "phase": "mid"
+          },
+          {
+            "time": 24.2,
+            "detail": "English line 'beginner students  ensemble  tempo coordination' grey script.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 18.0,
+          "detail": "Reference text-only beat with lettering and one accent; same kind of prop-and-text shot. The idle second caret remains a small inconsistency."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 18.4,
+            "detail": "'musik' cleared about 18.4 s; 'siswa pemula' typed 18.9-19.4, 'ansambel' 20.0-20.5, 'koordinasi tempo' 21.0-21.5 s in caption order.",
+            "phase": "start"
+          },
+          {
+            "time": 23.0,
+            "detail": "English terms type 22.4-24.4 s while 'Coba juga padanan bahasa Inggris' is spoken.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 18.0,
+          "detail": "Reference moves a sheet as 'publishing more' is said; typing the spoken words is a tighter correspondence."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 19.4,
+            "detail": "Typed text stays inside the box with a caret at its end (last word ends x 945, box edge 1110).",
+            "phase": "start"
+          },
+          {
+            "time": 24.2,
+            "detail": "English terms start 30-50 px off the columns above (523 vs 473, 703 vs 673); minor registration slip.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 16.0,
+          "detail": "Reference arrow and box stay registered; small drift here."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 20.9,
+            "detail": "Box spans 74 % width in the upper third; one focal element per moment.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 18.0,
+          "detail": "Same single-row lettering construction as the reference."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 19.9,
+            "detail": "Caption 'Persempit: siswa pemula, ansambel, dan koordinasi tempo.' one line x 165-1115 (950 px), inside safe margins.",
+            "phase": "mid"
+          },
+          {
+            "time": 23.4,
+            "detail": "'padanan bahasa Inggris:' 20 px grey is the smallest text in the sample; legible at 720p.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 18.0,
+          "detail": "Reference secondary labels about 18-20 px grey; same floor."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 20.0,
+            "detail": "Six typing bursts across 6.6 s with 0.7-1.1 s pauses.",
+            "phase": "mid"
+          },
+          {
+            "time": 24.3,
+            "detail": "Last term completes 0.1 s before the cut.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 18.0,
+          "detail": "Reference changes something every 0.5-1.3 s; matched."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 21.0,
+            "detail": "Shot mean -20.8 dB, peak -5.0 dB; 0.33 s pause 18.36-18.69 s. Not auditioned by ear.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 10.0,
+          "end": 15.0,
+          "detail": "Reference (re-measured this pass): I=-20.5 LUFS, true peak -1.6 dBFS, LRA 2.9 LU, 5 s segment means -20.7 to -22.6 dB, continuous narration. New encode: I=-20.4 LUFS, true peak -2.0 dBFS, LRA 17.7 LU (the LRA comes from music-only holds at about -35 dB against speech at -20 dB). Voice -20.8 dB vs reference -21.6 dB; bed 15+ dB below."
+        }
+      }
+    },
+    "shot-7": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 24.5,
+            "detail": "Task card x 130-930, y 120-362 with red spine and 'Tugas' label; 'Sebutkan dua kata kunci topikmu.' 40 px script; Vidka thinking at right; no pencil in this version.",
+            "phase": "start"
+          },
+          {
+            "time": 26.5,
+            "detail": "Yellow underline under the first line is a soft hand stroke; green check mark drawn with two straight strokes.",
+            "phase": "mid"
+          },
+          {
+            "time": 29.5,
+            "detail": "Vidka's hand-on-desk smiling pose at the same scale.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 19.5,
+          "end": 21.3,
+          "detail": "Reference sticky cards have skewed hand-drawn edges; the sample card is ruler-straight, less hand-drawn, but the marks on it are hand-style."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 25.8,
+            "detail": "Underline draws under 'Sebutkan dua kata kunci' 25.3-26.3 s while Ardipal finishes 'Coba juga padanan bahasa Inggris'.",
+            "phase": "start"
+          },
+          {
+            "time": 27.8,
+            "detail": "Vidka switches from thinking to a smiling hand-on-desk pose at 27.73 s and a green check mark draws beside the card 27.77-28.57 s: a 'task understood' beat.",
+            "phase": "mid"
+          },
+          {
+            "time": 29.5,
+            "detail": "Static 28.6-30.0 s (1.4 s).",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 19.5,
+          "end": 21.3,
+          "detail": "Reference ending hold has Ryan writing on the cards; the sample's hold now has three events (underline, reaction, check) instead of a frozen figure and a tapping pencil."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 27.8,
+            "detail": "The 105 px floating desk edge at x 995-1100 is gone: pixel scan of x 985-1030, y 435-462 after the 27.73 s pose swap finds one dark pixel at x 996 (luma 194), invisible at playback. A 73 px rest stroke stays under the palm (x 1036-1109, y 447), about 15 px beyond the fingertips.",
+            "phase": "mid"
+          },
+          {
+            "time": 28.1,
+            "detail": "The green check mark still starts at x 928-934, y 176-185, on the card's right border (x 928), so its first stroke touches the border; a 1-2 px touch, not a contact contradiction.",
+            "phase": "mid"
+          },
+          {
+            "time": 25.0,
+            "detail": "Seat and feet contact fine in both poses; card and figure do not overlap.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 20.0,
+          "end": 21.3,
+          "detail": "Reference props persist for the whole shot; the sample now does the same, with the check-mark touching the card edge as the only residual blemish."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 26.0,
+            "detail": "Card upper-left 62 % width, Vidka lower-right, check mark at the card's top-right corner as a visual full stop.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 19.5,
+          "end": 21.3,
+          "detail": "Reference splits figure/cards with a headline; sample's split is readable, with more empty lower-left space."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 24.9,
+            "detail": "Caption 'Coba juga padanan bahasa Inggris.' lingers to 25.9 s while Ardipal speaks, then clears.",
+            "phase": "start"
+          },
+          {
+            "time": 28.0,
+            "detail": "Card lettering 40 px two lines, 25 px margin from the spine; 'Tugas' 22 px red.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 19.5,
+          "end": 21.3,
+          "detail": "Reference FIX THESE / 3 THINGS hierarchy; equivalent label/body split."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 25.9,
+            "detail": "Voice ends 25.9 s; events at 25.3-26.3, 27.73, 27.77-28.57 s; longest static span 1.4 s (28.6-30.0 s).",
+            "phase": "start"
+          },
+          {
+            "time": 30.0,
+            "detail": "Cut to scene 3 at 30.00 s on Vidka's first word.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 19.0,
+          "end": 21.3,
+          "detail": "Reference's longest static span 1.33 s; now matched inside the hold."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 27.5,
+            "detail": "Music only after 25.9 s: shot mean -34.7 dB, peak -20.0 dB. Not auditioned by ear.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 21.3,
+          "detail": "Reference (re-measured this pass): I=-20.5 LUFS, true peak -1.6 dBFS, LRA 2.9 LU, 5 s segment means -20.7 to -22.6 dB, continuous narration. New encode: I=-20.4 LUFS, true peak -2.0 dBFS, LRA 17.7 LU (the LRA comes from music-only holds at about -35 dB against speech at -20 dB). Bed about 14 dB under the sample's voice."
+        }
+      }
+    },
+    "shot-8": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 30.0,
+            "detail": "Lettering 'artikel terkenal' black 32 px / 'musisi profesional' grey 30 px top-left; article sheet at x 150-305 standing on the desk; Vidka speaking (mouth open, hand on desk), Herry listening hands behind back.",
+            "phase": "start"
+          },
+          {
+            "time": 32.0,
+            "detail": "Figures consistent with shots 2 and 3 in head size and line weight.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Reference keeps figure proportions across shots; Vidka and Herry are consistent across shots 2, 3, 8."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 30.6,
+            "detail": "Vidka (speaker of s03-l1) is in the open-mouth presenting pose from frame one; the article slides along the desk toward her as she describes it.",
+            "phase": "start"
+          },
+          {
+            "time": 33.0,
+            "detail": "Herry stays a listener until his line begins after the cut (33.8 s).",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Reference Ryan 'presents' the screen by leaning toward it; same staging logic."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 30.5,
+            "detail": "The sheet now slides horizontally at held height: bottom edge on the desk line (y 448-452) throughout, from x 150-305 at 30.0 s to x 345-500 at 31.2 s; it no longer rises through the slab.",
+            "phase": "start"
+          },
+          {
+            "time": 32.5,
+            "detail": "A final 1-2 px settle at 32.43-32.60 s (bbox x 344-500, y 274-367) is invisible at playback speed; no in-shot pose jump, chair fixed at x 670-790.",
+            "phase": "mid"
+          },
+          {
+            "time": 33.0,
+            "detail": "Third encode glance: the seated pose at the desk shows the hand on the real desk line (y 448) with no stray fragment; a single faint pixel at about x 535, y 432 is the only trace of the erased asset line.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 5.0,
+          "end": 9.5,
+          "detail": "Reference never moves a prop through furniture or jumps a pose inside a shot; both earlier faults are fixed here."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 32.0,
+            "detail": "Headline top-left, sheet centre-left on the desk, Vidka centre, Herry right; same stage as scene 1.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Reference reuses the desk stage with a headline upper-left; matched."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 31.0,
+            "detail": "Caption 'Artikel terkenal ini membahas musisi profesional.' one line x 245-1035; headline repeats the key nouns.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Reference WRITE./ONE MORE UPLOAD two-tier lettering; same device, smaller."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 30.0,
+            "detail": "Cut at 30.00 s on the first word; slide completes 31.2 s; static 31.2-33.56 s (2.3 s) while the rest of the sentence is spoken.",
+            "phase": "start"
+          },
+          {
+            "time": 33.5,
+            "detail": "Cut to the two-sheet comparison at 33.56 s, 0.16 s before her line ends.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 5.0,
+          "end": 7.0,
+          "detail": "Reference holds 1-1.3 s between changes; the 2.3 s static tail is longer than anything in the reference but within a talk shot."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 31.5,
+            "detail": "Shot mean -20.6 dB, peak -4.1 dB (Vidka). Not auditioned by ear.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 10.0,
+          "end": 15.0,
+          "detail": "Reference (re-measured this pass): I=-20.5 LUFS, true peak -1.6 dBFS, LRA 2.9 LU, 5 s segment means -20.7 to -22.6 dB, continuous narration. New encode: I=-20.4 LUFS, true peak -2.0 dBFS, LRA 17.7 LU (the LRA comes from music-only holds at about -35 dB against speech at -20 dB). Within 1 dB of reference segment means."
+        }
+      }
+    },
+    "shot-9": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 33.6,
+            "detail": "No character. Two hand-drawn article sheets x 215-490 and 775-1050; yellow and pink sticky notes parked tilted in the top corners.",
+            "phase": "start"
+          },
+          {
+            "time": 36.9,
+            "detail": "Yellow note 'KONSEP' 26 px caps on the left sheet; blue script labels 'Peserta: musisi profesional' / 'Peserta: siswa pemula'.",
+            "phase": "mid"
+          },
+          {
+            "time": 40.0,
+            "detail": "Pink note 'KONTEKS SISWA' on the right sheet; yellow underline under 'konteks pembelajaranmu'.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 18.0,
+          "detail": "Reference POST sticky sheets with rules and fill; same prop family."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 34.8,
+            "detail": "Yellow note lands on the left sheet 34.5-35.0 s on 'menjelaskan konsep'; 'menjelaskan konsep' written under it at 35.5 s.",
+            "phase": "start"
+          },
+          {
+            "time": 38.5,
+            "detail": "Pink note lands about 38.3 s on 'siswa pemula'; 'konteks pembelajaranmu' written and underlined 39.5-40.0 s.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 18.0,
+          "detail": "Reference underlines REMEMBERED on the spoken word; the sample underlines 'konteks pembelajaranmu' on the spoken clause."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 36.9,
+            "detail": "Notes land flat on the sheet corners, opaque with a shadow edge.",
+            "phase": "mid"
+          },
+          {
+            "time": 33.6,
+            "detail": "Pink note hovers parked at x 1105-1240, y 45-185 for 4.7 s before landing; reads as waiting, a mild oddity.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 18.0,
+          "detail": "Reference sheets opaque with shadow; equivalent."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 37.0,
+            "detail": "Two equal columns, labels aligned at y 480, secondary lines at y 538.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 18.0,
+          "detail": "Reference left/right comparison (MORE POSTS vs REMEMBERED); same rhetorical form."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 35.0,
+            "detail": "Captions switch at 33.8, 35.9, 37.8 s, each one line; 'Cari juga penelitian siswa pemula' correctly without a period.",
+            "phase": "mid"
+          },
+          {
+            "time": 40.0,
+            "detail": "Note caps 26 px, script labels 24 px, legible at 720p.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 18.0,
+          "detail": "Reference 'POST' caps about 20 px; comparable."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 36.0,
+            "detail": "Events at 34.5, 35.5, 38.3, 39.5 s; longest unchanged span 2.4 s (36.0-38.3 s).",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 18.0,
+          "detail": "Reference changes every 1-1.3 s; slightly slower here."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 37.0,
+            "detail": "Shot mean -20.2 dB, peak -2.0 dB (Herry); 0.45 s pause 40.03-40.48 s. Not auditioned by ear.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 21.3,
+          "detail": "Reference (re-measured this pass): I=-20.5 LUFS, true peak -1.6 dBFS, LRA 2.9 LU, 5 s segment means -20.7 to -22.6 dB, continuous narration. New encode: I=-20.4 LUFS, true peak -2.0 dBFS, LRA 17.7 LU (the LRA comes from music-only holds at about -35 dB against speech at -20 dB). Within 1 dB of the reference 15-21.3 s mean."
+        }
+      }
+    },
+    "shot-10": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 40.2,
+            "detail": "Two highlighter pens (yellow, 60 px) with cap and chisel tip, now parked left of the labels at x 110-195 and x 675-755.",
+            "phase": "start"
+          },
+          {
+            "time": 43.0,
+            "detail": "Yellow bands with rounded ends under both 'Peserta' labels; red 'Peserta' 34 px with hand underline.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 8.5,
+          "end": 9.5,
+          "detail": "Reference hand-drawn red underline at 9 s; same hand feel."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 41.4,
+            "detail": "Left highlighter sweeps 41.2-41.7 s across 'Peserta: musisi profesional'; right one 42.6-43.1 s; 'Peserta' written in red 43.4-43.7 s and underlined 43.9-44.2 s.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 17.0,
+          "end": 18.5,
+          "detail": "Reference's 'mark the key word' underline; done twice plus a written keyword here."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 40.2,
+            "detail": "Pens start clear of the text: left pen right edge x 195 vs 'Peserta' at x 205; right pen x 755 vs label at x 765; no letters covered (fixed).",
+            "phase": "start"
+          },
+          {
+            "time": 45.1,
+            "detail": "End of shot is clean: changed-pixel scan 44.5-45.18 s finds one pixel at 44.97 s; no sheet drop or label slide at the exit (fixed since the previous encode).",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 17.0,
+          "end": 18.5,
+          "detail": "Reference pen strokes never cover their labels and nothing scrambles on exit; now matched."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 44.0,
+            "detail": "Two sheets, two highlighted labels, red 'Peserta' with underline centred at y 545; the end frame at 44.97 s is the same clean layout.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 18.0,
+          "detail": "Reference keeps elements in lane through its cut; now matched."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 40.8,
+            "detail": "Caption 'agar konteks pembelajaranmu terwakili.' to 41.68 s, then none (music only).",
+            "phase": "start"
+          },
+          {
+            "time": 43.8,
+            "detail": "Red 'Peserta' 34 px; highlighted script labels 24 px remain legible under the yellow band.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 8.5,
+          "end": 9.5,
+          "detail": "Reference grey 26 px with red underline; equivalent."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 42.0,
+            "detail": "Static spans 41.7-42.6 s and 44.2-45.18 s (max 1.0 s) between four marking actions.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 18.0,
+          "detail": "Comparable to the reference's 1-1.3 s rhythm."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 42.5,
+            "detail": "Music only after 41.68 s: shot mean -34.3 dB, peak -19.0 dB; a dip below -35 dB at 42.65-43.59 s (music, not a dropout). Not auditioned by ear.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 21.3,
+          "detail": "Reference (re-measured this pass): I=-20.5 LUFS, true peak -1.6 dBFS, LRA 2.9 LU, 5 s segment means -20.7 to -22.6 dB, continuous narration. New encode: I=-20.4 LUFS, true peak -2.0 dBFS, LRA 17.7 LU (the LRA comes from music-only holds at about -35 dB against speech at -20 dB). Bed about 14 dB below the sample's voice."
+        }
+      }
+    },
+    "shot-11": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 45.2,
+            "detail": "Lettering 'judulnya cocok' 32 px top-left; article at x 150-305 on the desk; Vidka speaking pose (mouth open, hand on desk); Ardipal hands behind back at x 1060-1140.",
+            "phase": "start"
+          },
+          {
+            "time": 46.5,
+            "detail": "Red script 'langsung dikutip?' 30 px appears at 46.3 s.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Figure consistency across shots 5, 8, 11 is maintained."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 45.6,
+            "detail": "Vidka's line 'Judulnya cocok. Langsung saya kutip?' is now staged as hers: she is the only figure with an open mouth and an active hand from 45.18 to 47.78 s while Ardipal listens with hands behind his back.",
+            "phase": "start"
+          },
+          {
+            "time": 47.9,
+            "detail": "At 47.78 s the poses swap (Ardipal open palm and open mouth, Vidka closed smile) 0.24 s before the cut and 0.8 s before his reply starts at 48.6 s; a slightly early hand-over but readable as 'he is about to answer'.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 5.0,
+          "end": 9.5,
+          "detail": "Reference assigns each beat to one unmistakable actor; the sample now does so (fixed since the previous encode)."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 45.6,
+            "detail": "Article slides horizontally along the desk from x 150-305 to x 345-500 (45.2-46.3 s) with its bottom on the desk line; no rise through the slab.",
+            "phase": "start"
+          },
+          {
+            "time": 47.9,
+            "detail": "At the pose swap the chair moves about 25 px (back x 760-790 to 735-750); minor.",
+            "phase": "end"
+          },
+          {
+            "time": 46.5,
+            "detail": "Third encode glance: hand on the real desk line at y 448, no stray fragment; the sheet rests on the desk at x 345-500.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 5.0,
+          "end": 6.5,
+          "detail": "Reference objects are moved by hands along surfaces; the slide along the desk is consistent with that."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 47.0,
+            "detail": "Headline and red question top-left, sheet centre-left, Vidka centre, Ardipal right.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 8.5,
+          "end": 9.5,
+          "detail": "Reference 'More effort. / Same silence.' two-tier text left of the figure; same device."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 46.0,
+            "detail": "Caption 'Judulnya cocok. Langsung saya kutip?' one line x 340-940; red 'langsung dikutip?' echoes it.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 8.5,
+          "end": 9.5,
+          "detail": "Equivalent to the reference's red accent on the key phrase."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 45.2,
+            "detail": "Cut at 45.18 s on her first word; slide 1.1 s; red question at 46.3 s; swap at 47.78 s; cut at 48.02 s.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 5.0,
+          "end": 7.0,
+          "detail": "Reference-like cadence of about one change per second."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 46.5,
+            "detail": "Shot mean -20.6 dB, peak -5.8 dB (Vidka). Not auditioned by ear.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 21.3,
+          "detail": "Reference (re-measured this pass): I=-20.5 LUFS, true peak -1.6 dBFS, LRA 2.9 LU, 5 s segment means -20.7 to -22.6 dB, continuous narration. New encode: I=-20.4 LUFS, true peak -2.0 dBFS, LRA 17.7 LU (the LRA comes from music-only holds at about -35 dB against speech at -20 dB). Within 1 dB of the reference mean."
+        }
+      }
+    },
+    "shot-12": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 48.1,
+            "detail": "No character. Large article x 360-720 with 'Metode' and 'Hasil' red labels; 'Baca metode dan hasilnya.' black script at left; handless highlighter.",
+            "phase": "start"
+          },
+          {
+            "time": 51.3,
+            "detail": "Highlight bands on the Metode line (48.6-49.1 s) and Hasil line (51.2-52.0 s) are soft-edged yellow.",
+            "phase": "mid"
+          },
+          {
+            "time": 54.2,
+            "detail": "Right block 'Kredibel? / jurnal, penulis, tahun' with red underline; highlighter parked at x 760-840.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 8.5,
+          "end": 9.5,
+          "detail": "Reference's hand-drawn underline; same family of mark."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 49.0,
+            "detail": "Highlighter sweeps Metode while 'Baca metode dan hasilnya dulu' is said, moves down 50.6-51.2 s and sweeps Hasil during 'Apakah temuannya mendukung pernyataanmu?'.",
+            "phase": "start"
+          },
+          {
+            "time": 52.3,
+            "detail": "'temuan: latihan bagian pendek' writes at 52.1 s in the left column; 'Kredibel?' 52.7 s, 'jurnal, penulis, tahun' 53.1 s, red underline 53.5-54.2 s on 'Periksa juga kredibilitas sumbernya'.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 17.0,
+          "end": 18.5,
+          "detail": "Reference marks the spoken key word; three spoken items are marked in turn here."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 48.2,
+            "detail": "At the cut the highlighter body lies over the 'e' of the red 'Metode' label (pen x 430-505, label x 405-485) for 0.6 s before the sweep; the scene-3 fix (pens parked left of labels) was not applied to this pen.",
+            "phase": "start"
+          },
+          {
+            "time": 52.8,
+            "detail": "After the Hasil sweep the pen floats up to the right margin and parks; no contact contradiction.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 17.0,
+          "end": 18.5,
+          "detail": "Reference pen strokes do not cover their labels; a 0.6 s overlap is a minor instance, not a break."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 52.3,
+            "detail": "'temuan: latihan bagian pendek' now sits in the clear left column at x 40-300, y 310-370, on blank paper (moved off the printed rules; fixed).",
+            "phase": "mid"
+          },
+          {
+            "time": 53.8,
+            "detail": "Article centre, instruction text left, credibility block right; balanced.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 18.0,
+          "detail": "Reference writes labels only on blank areas; now matched."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 48.3,
+            "detail": "Caption 'Judulnya cocok. Langsung saya kutip?' lingers to 48.52 s, then 'Baca metode dan hasilnya dulu.' 48.6 s, 'Apakah temuannya mendukung pernyataanmu?' 50.4 s, 'Periksa juga kredibilitas sumbernya.' 52.6 s; all one line.",
+            "phase": "start"
+          },
+          {
+            "time": 53.5,
+            "detail": "'Kredibel?' red 30 px, 'jurnal, penulis, tahun' grey 24 px, 'temuan:' red 24 px with blue 26 px script; all readable.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 8.5,
+          "end": 9.5,
+          "detail": "Reference red accents 26-30 px; matched."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 50.5,
+            "detail": "Marks at 48.6, 50.6, 51.2, 52.1, 52.7, 53.1, 53.5 s; longest unchanged span 1.5 s (49.1-50.6 s).",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 18.0,
+          "detail": "Matches the reference's roughly one change per second."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 51.0,
+            "detail": "Shot mean -19.7 dB (loudest shot), peak -4.1 dB (Ardipal, Dito). Not auditioned by ear.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 5.0,
+          "end": 10.0,
+          "detail": "Reference (re-measured this pass): I=-20.5 LUFS, true peak -1.6 dBFS, LRA 2.9 LU, 5 s segment means -20.7 to -22.6 dB, continuous narration. New encode: I=-20.4 LUFS, true peak -2.0 dBFS, LRA 17.7 LU (the LRA comes from music-only holds at about -35 dB against speech at -20 dB). -19.7 dB vs reference -20.7 dB; the sample's speaker spread is -19.7 to -22.3 dB."
+        }
+      }
+    },
+    "shot-13": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 54.7,
+            "detail": "No character. Spiral note 'catatan klaim' x 160-600 with blue script claim; plain card 'temuan artikel' x 797-1142 with a red rule and blue script finding; grey 'contoh ilustratif'; no pencil in this version.",
+            "phase": "start"
+          },
+          {
+            "time": 57.5,
+            "detail": "Red connector x 640-760 at y 208 and 40 px script question 'Mendukung kalimat yang mana?' at y 525; yellow underline under it.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 18.0,
+          "detail": "Reference two-panel comparison with an arrow between; same construction."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 55.4,
+            "detail": "Connector draws left to right 55.0-55.8 s linking claim to finding; the question writes in at 56.1 s.",
+            "phase": "start"
+          },
+          {
+            "time": 57.7,
+            "detail": "Yellow underline draws under the question 57.3-58.0 s; the hold then rests 2.0 s on the finished layout.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 16.5,
+          "detail": "Reference arrow carries 'does not equal'; the connector carries 'which sentence does this support'."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 55.8,
+            "detail": "Connector ends at x 760, 37 px short of the card edge (x 797); stops in the gutter.",
+            "phase": "start"
+          },
+          {
+            "time": 59.5,
+            "detail": "All elements hold position 58.0-60.0 s.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 16.5,
+          "detail": "Reference arrow head stops short of the dashed box too."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 57.5,
+            "detail": "Two-column comparison in the upper half, question lower-left; balanced.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 18.0,
+          "detail": "Same two-panel plus headline construction."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 54.7,
+            "detail": "Card text now starts at x 822 inside the card border at x 797 (25 px margin), matching the spiral note's margin; the border collision of the previous encode is fixed.",
+            "phase": "start"
+          },
+          {
+            "time": 55.5,
+            "detail": "Caption 'Periksa juga kredibilitas sumbernya.' one line to 56.12 s, then none.",
+            "phase": "start"
+          },
+          {
+            "time": 58.0,
+            "detail": "Question 40 px black script; labels 22-24 px red/grey; all readable.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 18.0,
+          "detail": "Reference sticky-sheet text keeps a visible margin; now matched."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 56.1,
+            "detail": "Voice ends 56.12 s; connector and question by 56.3 s; underline 57.3-58.0 s; 2.0 s rest to the preview end.",
+            "phase": "mid"
+          },
+          {
+            "time": 59.8,
+            "detail": "Sample ends at 60.00 s (preview limit).",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 18.0,
+          "end": 21.3,
+          "detail": "Reference's longest static span 1.33 s; a 2.0 s rest inside a deliberate hold."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 55.0,
+            "detail": "Voice to 56.12 s; shot mean -34.8 dB, peak -18.7 dB.",
+            "phase": "start"
+          },
+          {
+            "time": 59.5,
+            "detail": "Fade: 59.0-59.5 s -37.9 dB, 59.5-60.0 s -42.0 dB mean; no hard cut. Not auditioned by ear.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 15.0,
+          "end": 21.3,
+          "detail": "Reference (re-measured this pass): I=-20.5 LUFS, true peak -1.6 dBFS, LRA 2.9 LU, 5 s segment means -20.7 to -22.6 dB, continuous narration. New encode: I=-20.4 LUFS, true peak -2.0 dBFS, LRA 17.7 LU (the LRA comes from music-only holds at about -35 dB against speech at -20 dB). Reference ends on voice without a fade; a 1.5 s music fade is appropriate for a preview cut."
+        }
+      }
+    }
+  }
+}

@@ -76,10 +76,10 @@ scenes.push({talk: [
     draw(line([[780, 328], [985, 324], [990, 372], [780, 376], [780, 328]], {color: RED, lineWidth: 3}), 'information', 'Buku catatan dilingkari', 2.0, 3.0),
   ]},
 ], hold: [
-  {dur: 1.5, layers: [ // table: Vidka menggeser tumpukan artikel dan membuka buku
-    desk(), vidka('tidy'), herry('listen'),
-    mv(img('page-a', 440, 318, 100), 'prop', 'Tangan Vidka menggeser artikel di depannya ke tepi', [{t: .1, x: 440, angle: 0}, {t: .9, x: 250, angle: -.06}]),
-    mv(img('page-b', 500, 326, 100), 'prop', 'Artikel kedua ikut tergeser oleh sapuan tangan', [{t: .3, x: 500}, {t: 1.1, x: 330}]),
+  {dur: 1.5, layers: [ // table: Vidka menggeser tumpukan artikel dan membuka buku (continuity: starts exactly where shot-2 ends)
+    desk(), laptopSide(), vidka('tidy'), herry('listen'),
+    mv(img('page-a', 200, 318, 100), 'prop', 'Tangan Vidka menggeser artikel di depannya ke tepi', [{t: .1, x: 200, angle: 0}, {t: .9, x: 100, angle: -.08}]),
+    mv(img('page-b', 320, 318, 100), 'prop', 'Artikel kedua ikut tergeser oleh sapuan tangan', [{t: .3, x: 320}, {t: 1.1, x: 210}]),
     img('notebook', 770, 300, 210), hand('catatanmu', 800, 342, 28),
   ]},
   {dur: 3.5, layers: [ // notebook close-up: the question Vidka wrote earlier
