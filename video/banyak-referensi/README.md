@@ -19,7 +19,7 @@ Catatan yang membuat hasil ini **draf teknis, bukan film jadi** (narasi dan toko
 
 | Komponen | Keadaan sekarang | Yang perlu Anda lakukan |
 |---|---|---|
-| Narasi dan dialog | **Selesai** (2026-11-24). Narator dan Herry: *Bayu - academic, calm and clear* (`saYZ00LWtwkN6VaX46N9`), satu take 170,3 s, SHA di `audio/narasi.sha256`, stempel kata Scribe di `audio/take1/words.json`. Dialog direkam terpisah: Vidka *Mona - Storyteller* (`zjmMdjff4JG35O3EQJBV`, 5 ujaran), Ardipal *Dito - Indonesian Narrator* (`RPwoahKEr9WZSgNHBLbp`), Pemain *Tio* (`ithxoOWO0z5JT9TblHOB`); berkas di `audio/dialogue/`, 424 kredit. `tools/mix-dialogue.mjs` menyisipkan klip menggantikan potongan dialog pada trek Bayu (dipotong di tengah jeda, level disamakan dengan ucapan narator di potongan itu), menulis `audio/narasi-mix.wav` (165,1 s, SHA di `audio/narasi-mix.sha256`) dan `audio/timing-mix.json`. | Hanya ulangi bila teks atau pemeran diubah. |
+| Narasi dan dialog | **Selesai, versi dialog revisi** (24 Nov 2026). Tidak ada narator: 31 baris dialog dari tabel Anda direkam **per baris** lewat konektor ElevenLabs (Vidka = *Mona*, Herry = *Bayu*, Ardipal = *Dito*; 1.678 kredit). `tools/build-audio.mjs` menyusun `audio/narasi-dialog.wav` (181,0 s): tiap adegan = baris-baris dengan jeda 0,55 s, lalu hening sampai 5 detik jeda terpenuhi dan adegan minimal 15 s. Waktu cue **tepat** karena tiap baris adalah klipnya sendiri; baris berisi dua frasa dipecah pada jeda internal klip. SHA di `audio/narasi-dialog.sha256`. Take narator Bayu yang lama (`audio/take1/`) disimpan sebagai arsip. | Untuk mengganti satu baris: rekam ulang klipnya saja, jalankan `build-audio.mjs`, lalu `build-project.mjs --timing audio/timing-dialog.json`. |
 | Gambar tokoh dan properti | **Tokoh sudah diganti** dengan gambar tangan hasil `gemini-3-pro-image` lewat konektor ElevenLabs: tiga lembar pose (`art-src/`, 3 × 1.218 kredit), dipotong per sel, latar diputihkan menjadi transparan, dan dipaskan ke rasio kanvas asal oleh `tools/import-art.mjs`, sehingga `project.json` tidak berubah. `herry-nod` memakai pose *listen* karena lembar kedua keluar 5×2 tanpa sel *nod*. Properti (laptop, artikel, buku, stabilo, pintu, metronom) masih buatan kode (`tools/make-art.mjs`, kini hanya menggambar properti). | Bila properti juga ingin digambar tangan: satu lembar properti lagi (±1.218 kredit) dan pemetaan nama berkas yang sama. |
 | Musik latar | Hanya *room tone* prosedural (`audio/room-tone-180s.wav`) dan SFX prosedural bawaan (`tap`, `paper`, `pop`, `chime`). | Tambahkan satu trek berlisensi lewat field `music: {path, gain ≤ 0.2}`. |
 
@@ -32,15 +32,17 @@ video/banyak-referensi/
 ├── project.json            manifest final (180 s) — dihasilkan, jangan edit langsung
 ├── narasi.md               teks narasi/dialog per adegan untuk direkam
 ├── tools/
-│   ├── build-project.mjs   sumber kebenaran: 12 adegan → project.json (--timing FILE, --part=N, --dump-cues FILE, --out FILE)
-│   ├── align-cues.mjs      waktu cue/adegan dari rekaman: mode --words (tepat) atau jeda (perkiraan)
-│   ├── mix-dialogue.mjs    sisipkan klip dialog per tokoh ke trek narator, tulis narasi-mix.wav + timing-mix.json
+│   ├── script.mjs          naskah dialog revisi: 31 baris, cue subtitel, teks jeda per adegan
+│   ├── build-audio.mjs     klip per baris → narasi-dialog.wav + timing-dialog.json (talk/hold per adegan)
+│   ├── build-project.mjs   koreografi 12 adegan (talk 10 s + hold 5 s, diskalakan ke rekaman) → project.json
+│   ├── align-cues.mjs      (arsip) penyelarasan cue untuk trek narator tunggal
+│   ├── mix-dialogue.mjs    (arsip) penyisipan klip ke trek narator
 │   ├── make-art.mjs        menggambar properti di art/ (deterministik; --with-figures untuk tokoh placeholder)
 │   ├── import-art.mjs      lembar pose (grid di latar putih) → PNG transparan dengan rasio kanvas asal
 │   └── motion-gaps.mjs     diagnosis gerbang 2,5 detik (mencetak jeda gerak)
 ├── art/                    45 PNG: 21 tokoh hasil generasi (via import-art) + properti buatan kode
 ├── art-src/                tiga lembar pose asli dari gemini-3-pro-image (sumber art/)
-├── audio/                  take1/ (MP3 Bayu + words.json), dialogue/ (7 klip + spec.json), timing*.json, *.sha256; WAV tidak di-commit
+├── audio/                  lines/ (31 klip dialog), timing-dialog.json, *.sha256; take1/ dan dialogue/ = arsip versi narator; WAV tidak di-commit
 ├── drafts/part-1..3/       proyek draf 60 s (adegan 1–4, 5–8, 9–12)
 └── preview/                MP4, SRT, contact sheet hasil render
 ```
@@ -67,7 +69,7 @@ Dari folder skill upstream (`SKILL` = `~/.cache/stickman-video-director/skills/d
 # 1. buat audio placeholder (sekali), lalu (opsional) gambar ulang aset dan bangun ulang manifest
 $PROJ/tools/make-audio.sh
 SKILL_DIR=$SKILL node $PROJ/tools/make-art.mjs $PROJ/art
-node $PROJ/tools/build-project.mjs --timing $PROJ/audio/timing-mix.json && node $PROJ/tools/motion-gaps.mjs $PROJ/project.json
+node $PROJ/tools/build-project.mjs --timing $PROJ/audio/timing-dialog.json && node $PROJ/tools/motion-gaps.mjs $PROJ/project.json
 ```
 
 ```bash
@@ -78,14 +80,14 @@ node scripts/autopilot.mjs preview  $PROJ/project.json --seconds 60 --replace
 
 ```bash
 # 3. draf adegan 5–8 dan 9–12
-node $PROJ/tools/build-project.mjs --part=2 --timing $PROJ/audio/timing-mix.json && node scripts/autopilot.mjs preview $PROJ/drafts/part-2/project.json --seconds 60 --replace
-node $PROJ/tools/build-project.mjs --part=3 --timing $PROJ/audio/timing-mix.json && node scripts/autopilot.mjs preview $PROJ/drafts/part-3/project.json --seconds 60 --replace
+node $PROJ/tools/build-project.mjs --part=2 --timing $PROJ/audio/timing-dialog.json && node scripts/autopilot.mjs preview $PROJ/drafts/part-2/project.json --seconds 60 --replace
+node $PROJ/tools/build-project.mjs --part=3 --timing $PROJ/audio/timing-dialog.json && node scripts/autopilot.mjs preview $PROJ/drafts/part-3/project.json --seconds 60 --replace
 ```
 
 ## Alur menuju film jadi (sesuai kontrak skill)
 
 1. ~~Rekam narasi~~ Selesai: `audio/take1/narasi-take1.mp3` → `audio/narasi.wav`, SHA dipin.
-2. ~~Selaraskan~~ Selesai per kata (Scribe); dialog per tokoh disisipkan oleh `mix-dialogue.mjs`. Untuk membangun ulang: `tools/make-audio.sh` lalu `node tools/mix-dialogue.mjs` lalu `node tools/build-project.mjs --timing audio/timing-mix.json`. Untuk stempel kata: `node tools/align-cues.mjs --cues audio/cues.json --words audio/take1/words.json --duration 170.295 --out audio/timing.json`, lalu `node tools/build-project.mjs --timing audio/timing.json`. Koreografi tiap adegan diskalakan otomatis ke panjang adegan nyata (11,9–17,6 detik).
+2. ~~Selaraskan~~ Tidak diperlukan lagi: `build-audio.mjs` menata klip per baris, jadi waktu cue mengikuti rekaman secara langsung. Membangun ulang: `node tools/build-audio.mjs && node tools/build-project.mjs --timing audio/timing-dialog.json`. Untuk stempel kata: `node tools/align-cues.mjs --cues audio/cues.json --words audio/take1/words.json --duration 170.295 --out audio/timing.json`, lalu `node tools/build-project.mjs --timing audio/timing.json`. Koreografi tiap adegan diskalakan otomatis ke panjang adegan nyata (11,9–17,6 detik).
 3. ~~Ganti aset tokoh~~ Selesai lewat lembar pose + `import-art.mjs`. Properti opsional.
 4. **Pratinjau 20–60 detik**, tinjau MP4 sebenarnya (bukan contact sheet) dengan suara; isi `output/preview-reference/review-template.json` secara independen.
 5. **Persetujuan Anda** direkam dengan `approve … --visual-review …` lalu `render` menghasilkan film 180 detik penuh beserta SRT/VTT. Langkah ini sengaja **tidak** dijalankan di sini: skill mensyaratkan persetujuan sampel oleh pengguna, bukan oleh agen.

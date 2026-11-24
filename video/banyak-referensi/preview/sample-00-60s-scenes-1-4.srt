@@ -1,87 +1,71 @@
 1
-00:00:00,040 --> 00:00:02,040
-Vidka membuka artikel ketiga pagi ini.
+00:00:00,000 --> 00:00:01,494
+Vidka: Pak, artikel saya banyak,
 
 2
-00:00:02,720 --> 00:00:04,820
-Semua tentang musik, tak satu pun terasa tepat.
+00:00:01,554 --> 00:00:03,290
+tetapi saya bingung memilih.
 
 3
-00:00:05,360 --> 00:00:07,415
-Vidka: Pak, referensinya banyak sekali.
+00:00:03,940 --> 00:00:05,250
+Herry: Buka lagi catatanmu.
 
 4
-00:00:07,475 --> 00:00:09,260
-Mana yang harus saya pakai?
+00:00:05,310 --> 00:00:06,778
+Apa yang ingin kamu pahami?
 
 5
-00:00:10,240 --> 00:00:12,240
-Herry: Mulai dari masalahmu, bukan tumpukannya.
+00:00:15,000 --> 00:00:16,107
+Ardipal: Apa kata kuncimu?
 
 6
-00:00:13,760 --> 00:00:15,400
-Kata kunci «musik» terlalu luas.
+00:00:16,757 --> 00:00:17,911
+Vidka: «Musik», Prof.
 
 7
-00:00:16,480 --> 00:00:18,060
-Herry: Apa yang sebenarnya kamu amati?
+00:00:18,561 --> 00:00:20,611
+Ardipal: Persempit: siswa pemula, ansambel,
 
 8
-00:00:19,440 --> 00:00:21,740
-Vidka menghapus «musik» dan mengetik ulang:
+00:00:20,671 --> 00:00:22,024
+dan koordinasi tempo.
 
 9
-00:00:22,740 --> 00:00:25,240
-kekompakan tempo, ansambel, siswa SMP.
+00:00:22,084 --> 00:00:24,003
+Coba juga padanan bahasa Inggris.
 
 10
-00:00:26,220 --> 00:00:28,620
-Tugasmu: tulis tiga kata kunci khusus.
+00:00:30,000 --> 00:00:31,258
+Vidka: Artikel terkenal ini
 
 11
-00:00:29,460 --> 00:00:30,820
-Dua artikel lolos saringan.
+00:00:31,318 --> 00:00:33,151
+membahas musisi profesional.
 
 12
-00:00:31,760 --> 00:00:33,640
-Vidka membandingkan bagian pesertanya.
+00:00:33,801 --> 00:00:35,871
+Herry: Bisa membantu menjelaskan konsep.
 
 13
-00:00:34,460 --> 00:00:35,680
-Herry: Yang pertama memberi konsep.
+00:00:35,931 --> 00:00:37,719
+Cari juga penelitian siswa pemula
 
 14
-00:00:36,320 --> 00:00:38,040
-Yang kedua memberi konteks siswamu.
+00:00:37,779 --> 00:00:40,083
+agar konteks pembelajaranmu terwakili.
 
 15
-00:00:38,720 --> 00:00:41,640
-Keduanya dipakai, untuk tujuan yang berbeda.
+00:00:45,183 --> 00:00:47,651
+Vidka: Judulnya cocok. Langsung saya kutip?
 
 16
-00:00:42,760 --> 00:00:44,680
-Membaca artikel bukan mencatat semuanya.
+00:00:48,301 --> 00:00:50,046
+Ardipal: Baca metode dan hasilnya dulu.
 
 17
-00:00:45,500 --> 00:00:47,180
-Vidka menelusuri bagian metode,
+00:00:50,106 --> 00:00:52,228
+Apakah temuannya mendukung pernyataanmu?
 
 18
-00:00:47,980 --> 00:00:48,920
-lalu bagian hasil.
-
-19
-00:00:49,940 --> 00:00:52,860
-Satu temuan ditandai, lalu satu pertanyaan:
-
-20
-00:00:53,680 --> 00:00:55,480
-temuan ini mendukung pernyataan apa?
-
-21
-00:00:56,440 --> 00:00:59,000
-Dua catatan bacaan, satu pertanyaan penelitian.
-
-22
-00:00:59,740 --> 00:01:00,000
-Vidka mendekatkan keduanya,
+00:00:52,288 --> 00:00:54,223
+Periksa juga kredibilitas sumbernya.

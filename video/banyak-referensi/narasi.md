@@ -1,53 +1,39 @@
-# Narasi dan dialog — "Banyak Referensi, Mana yang Tepat?"
+# Naskah dialog revisi — "Banyak Referensi, Mana yang Tepat?"
 
-Bahasa: Indonesia. Durasi rencana: 12 adegan × 15 detik = 3:00.
-Tiga suara: **Narator**, **Vidka** (mahasiswa), **Herry** dan **Ardipal** (dosen), **Pemain** (satu kalimat di adegan 10).
+Sumber kebenaran: `tools/script.mjs` (tabel revisi Anda, 24 Nov 2026). Tiga suara ElevenLabs, direkam per baris lewat konektor: **Vidka** = Mona - Storyteller (`zjmMdjff4JG35O3EQJBV`), **Herry** = Bayu - academic, calm and clear (`saYZ00LWtwkN6VaX46N9`), **Ardipal** = Dito - Indonesian Narrator (`RPwoahKEr9WZSgNHBLbp`). Tidak ada narator. Setiap adegan diakhiri jeda 5 detik (teks atau tugas di layar), dan adegan tidak pernah lebih pendek dari 15 detik.
 
-Teks di bawah ini sama persis dengan subtitel di `project.json` (61 cue). Rekamlah teks ini apa adanya, pada kecepatan bicara wajar (sekitar 2–2,5 kata per detik). Setiap adegan dirancang untuk sekitar 30–35 kata agar muat dalam 15 detik, termasuk jeda.
-
-Aturan skill B1: rekaman tidak boleh dipercepat atau diperlambat agar pas dengan gambar. Setelah direkam, **gambar yang menyesuaikan suara**, bukan sebaliknya (lihat README, langkah 2).
-
-| Adegan | Waktu rencana | Pembicara | Teks |
+| Adegan | Pembicara | Teks yang direkam | Jeda 5 detik di layar |
 |---|---|---|---|
-| 1 | 00:00–00:15 | Narator | Vidka membuka artikel ketiga pagi ini. Semua tentang musik, tak satu pun terasa tepat. |
-| 1 | | Vidka | Pak, referensinya banyak sekali. Mana yang harus saya pakai? |
-| 1 | | Herry | Mulai dari masalahmu, bukan tumpukannya. |
-| 2 | 00:15–00:30 | Narator | Kata kunci «musik» terlalu luas. |
-| 2 | | Herry | Apa yang sebenarnya kamu amati? |
-| 2 | | Narator | Vidka menghapus «musik» dan mengetik ulang: kekompakan tempo, ansambel, siswa SMP. |
-| 2 | | Narator | Tugasmu: tulis tiga kata kunci khusus. *(jeda belajar, kursor berhenti 5 detik)* |
-| 3 | 00:30–00:45 | Narator | Dua artikel lolos saringan. Vidka membandingkan bagian pesertanya. |
-| 3 | | Herry | Yang pertama memberi konsep. Yang kedua memberi konteks siswamu. |
-| 3 | | Narator | Keduanya dipakai, untuk tujuan yang berbeda. |
-| 4 | 00:45–01:00 | Narator | Membaca artikel bukan mencatat semuanya. Vidka menelusuri bagian metode, lalu bagian hasil. |
-| 4 | | Narator | Satu temuan ditandai, lalu satu pertanyaan: temuan ini mendukung pernyataan apa? |
-| 5 | 01:00–01:15 | Narator | Dua catatan bacaan, satu pertanyaan penelitian. Vidka mendekatkan keduanya, menarik garis penghubung, lalu memperbaiki kalimat pertanyaannya. |
-| 5 | | Vidka | Jadi masalah saya bukan «musik», tapi tempo. |
-| 6 | 01:15–01:30 | Narator | «Siswa kurang kompak» masih terlalu umum. Apa yang sebenarnya terjadi? |
-| 6 | | Vidka | Saat tempo naik, dua siswa tertinggal, dan latihan berhenti. |
-| 6 | | Narator | Kejadian dan dampaknya kini terlihat jelas. |
-| 7 | 01:30–01:45 | Narator | Pernyataan masalah disusun dari tiga unsur. Pertama, kejadian yang diamati. Kedua, dampaknya pada latihan. Ketiga, hal yang belum dipahami. |
-| 7 | | Narator | Tiga kalimat ini menjadi dasar pertanyaan. *(tahan gambar 4 detik)* |
-| 8 | 01:45–02:00 | Narator | Vidka menulis satu pertanyaan yang lengkap. Pertanyaan ini menyebut pesertanya, proses yang ingin dipahami, dan konteks tempat proses itu terjadi. |
-| 8 | | Narator | Satu kalimat, tiga unsur yang jelas. |
-| 9 | 02:00–02:15 | Narator | Data apa yang menjawab pertanyaan itu? |
-| 9 | | Vidka | Apakah kuesioner saja cukup menunjukkan apa yang terjadi saat latihan? |
-| 9 | | Narator | Pikirkan: data mana yang menjawab pertanyaanmu? *(jeda belajar 4 detik)* |
-| 9 | | Vidka | Pengamatan dulu, kuesioner menyusul. |
-| 10 | 02:15–02:30 | Narator | Tempo naik; seorang pemain menoleh ke temannya. Vidka mencatat waktunya: menit kedua belas. |
-| 10 | | Pemain | Saya menoleh karena kehilangan hitungan. |
-| 10 | | Narator | Keduanya dibandingkan. Itulah analisisnya. |
-| 11 | 02:30–02:45 | Narator | Pertanyaan berbeda menuntut rancangan berbeda. |
-| 11 | | Ardipal | Pertanyaan kedua menguji pengaruh. Kamu perlu kelompok pembanding, dan ukuran tempo sebelum serta sesudah latihan. |
-| 11 | | Narator | Bukan «membuktikan», melainkan menguji perbedaan. |
-| 12 | 02:45–03:00 | Narator | Dalam satu sesi, Vidka memiliki tiga hal: masalah yang jelas, pertanyaan yang lengkap, dan alasan memilih datanya. Rancangan penelitiannya siap. |
-| 12 | | Narator | Tugas: pilih data untuk pertanyaanmu. Jelaskan alasannya. *(kartu tugas ditahan 5 detik)* |
+| 1. Kebingungan awal | Vidka | Pak, artikel saya banyak, tetapi saya bingung memilih. |  |
+|  | Herry | Buka lagi catatanmu. Apa yang ingin kamu pahami? | Bagaimana kelompok kami menjaga tempo? |
+| 2. Memperbaiki pencarian | Ardipal | Apa kata kuncimu? |  |
+|  | Vidka | Musik, Prof. |  |
+|  | Ardipal | Persempit: siswa pemula, ansambel, dan koordinasi tempo. Coba juga padanan bahasa Inggris. | **Tugas:** Sebutkan dua kata kunci topikmu. |
+| 3. Menentukan kegunaan referensi | Vidka | Artikel terkenal ini membahas musisi profesional. |  |
+|  | Herry | Bisa membantu menjelaskan konsep. Cari juga penelitian siswa pemula agar konteks pembelajaranmu terwakili. | Peserta |
+| 4. Memeriksa dukungan sumber | Vidka | Judulnya cocok. Langsung saya kutip? |  |
+|  | Ardipal | Baca metode dan hasilnya dulu. Apakah temuannya mendukung pernyataanmu? Periksa juga kredibilitas sumbernya. | Mendukung kalimat yang mana? |
+| 5. Menghubungkan bacaan | Vidka | Bacaan ini membahas mendengar teman; yang lain, isyarat gerak. |  |
+|  | Herry | Apa yang ingin kamu telusuri? |  |
+|  | Vidka | Bagaimana kelompok kami menggunakan keduanya. | Contoh bacaan ilustratif. |
+| 6. Mengubah keluhan menjadi masalah | Vidka | Siswa kurang kompak. Cukup, Pak? |  |
+|  | Herry | Apa yang terjadi dan dampaknya? |  |
+|  | Vidka | Tempo meningkat, beberapa siswa tertinggal, dan latihan berhenti. | **Tugas:** Sebutkan satu dampak masalahmu. |
+| 7. Menyusun pernyataan masalah | Ardipal | Apa yang belum jelas? |  |
+|  | Vidka | Bagaimana siswa mengikuti tempo teman. |  |
+|  | Ardipal | Hubungkan dengan bukti awal dan bacaan. Jelaskan mengapa penting dipahami. | Belum jelas bagaimana siswa mengikuti tempo teman saat latihan. |
+| 8. Merumuskan pertanyaan penelitian | Vidka | Bagaimana siswa pemula menggunakan isyarat bunyi dan gerak untuk menjaga tempo dalam ansambel? |  |
+|  | Herry | Jelas: siapa, proses apa, dan dalam konteks apa. | Bagaimana siswa pemula menggunakan isyarat bunyi dan gerak untuk menjaga tempo dalam ansambel? |
+| 9. Memilih data yang diperlukan | Vidka | Saya gunakan kuesioner saja? |  |
+|  | Ardipal | Apakah itu menunjukkan tindakan saat latihan? |  |
+|  | Vidka | Belum cukup. Saya perlu mengamati, lalu menanyakan alasannya. | **Tugas:** Data apa yang diperlukan untuk pertanyaanmu? |
+| 10. Menjelaskan alasan metodologi | Herry | Studi kasus kualitatif dapat sesuai untuk memahami kelompok ini. |  |
+|  | Vidka | Saya membandingkan pengamatan dengan wawancara? |  |
+|  | Herry | Ya, untuk menelaah pola penggunaan isyarat. | Simulasi |
+| 11. Menyesuaikan rancangan dengan pertanyaan | Vidka | Kalau menguji apakah latihan metronom meningkatkan kestabilan tempo? |  |
+|  | Ardipal | Pertanyaannya berubah. Perlu ukuran tempo, perbandingan yang sesuai, dan perhatian pada faktor lain. | Pertanyaan menentukan rancangan. |
+| 12. Menunjukkan hasil belajar | Vidka | Sekarang bacaan, masalah, pertanyaan, dan cara penelitian saya saling terhubung. |  |
+|  | Herry | Siapkan persetujuan sebelum mengumpulkan data. |  |
+|  | Ardipal | Dan jelaskan alasan setiap pilihanmu. | **Tugas:** Tulis pertanyaanmu. Pilih data dan jelaskan alasannya. |
 
-## Teks di layar (bukan subtitel)
-
-Teks tulisan tangan yang muncul di buku, artikel, dan kartu sudah ada di `project.json` (lapisan `text`). Yang terpenting:
-
-- Pertanyaan penelitian (adegan 8): *Bagaimana siswa ansambel SMP menyesuaikan tempo saat latihan bersama?*
-- Tiga unsur pernyataan masalah (adegan 7): **Kejadian** — Saat tempo meningkat, beberapa siswa tertinggal. **Dampak** — Latihan sering terhenti di tengah lagu. **Belum dipahami** — Bagaimana siswa menyesuaikan diri saat tempo berubah.
-- Pertanyaan pembanding (adegan 11): *Apakah latihan metronom meningkatkan kestabilan tempo?* diberi label **menguji pengaruh**, bukan "membuktikan lebih efektif", sesuai kritik Anda.
-- Kartu tugas (adegan 2, 9, 12) ditulis dalam satu kalimat perintah yang besar, tanpa kartu lain di layar.
+Subtitel memakai frasa dari `cues` di `tools/script.mjs`, satu baris, dengan nama pembicara pada frasa pertama tiap baris dialog. Untuk merekam ulang satu baris: ganti berkas `audio/lines/<id>.mp3`, lalu jalankan `node tools/build-audio.mjs` dan `node tools/build-project.mjs --timing audio/timing-dialog.json`.
