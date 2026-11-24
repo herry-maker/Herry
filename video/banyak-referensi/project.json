@@ -770,23 +770,16 @@
     },
     {
      "type": "image",
-     "path": "art/laptop-side.png",
-     "x": 400,
-     "y": 344,
-     "w": 170
-    },
-    {
-     "type": "image",
      "path": "art/page-a.png",
-     "x": 200,
+     "x": 440,
      "y": 318,
      "w": 100
     },
     {
      "type": "image",
      "path": "art/page-b.png",
-     "x": 320,
-     "y": 318,
+     "x": 500,
+     "y": 326,
      "w": 100
     },
     {
@@ -928,13 +921,6 @@
     },
     {
      "type": "image",
-     "path": "art/laptop-side.png",
-     "x": 400,
-     "y": 344,
-     "w": 170
-    },
-    {
-     "type": "image",
      "path": "art/vidka-tidy.png",
      "x": 520,
      "y": 226.66666666666669,
@@ -950,7 +936,7 @@
     {
      "type": "image",
      "path": "art/page-a.png",
-     "x": 540,
+     "x": 440,
      "y": 318,
      "w": 100,
      "id": "prop-5",
@@ -961,12 +947,12 @@
      "keys": [
       {
        "t": 0.154,
-       "x": 540,
+       "x": 440,
        "angle": 0
       },
       {
        "t": 1.39,
-       "x": 400,
+       "x": 250,
        "angle": -0.06
       }
      ]
@@ -974,8 +960,8 @@
     {
      "type": "image",
      "path": "art/page-b.png",
-     "x": 580,
-     "y": 324,
+     "x": 500,
+     "y": 326,
      "w": 100,
      "id": "prop-6",
      "motion": {
@@ -985,11 +971,11 @@
      "keys": [
       {
        "t": 0.463,
-       "x": 580
+       "x": 500
       },
       {
        "t": 1.699,
-       "x": 450
+       "x": 330
       }
      ]
     },
