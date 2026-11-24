@@ -225,7 +225,7 @@ sfx: [[0.3, 'tap', .05, 'talk'], [2.9, 'tap', .05, 'talk'], [4.7, 'tap', .04, 't
 // 7. Menyusun pernyataan masalah (A: apa yang belum jelas? | V: bagaimana siswa mengikuti tempo teman | A: hubungkan bukti awal & bacaan; mengapa penting)
 const row = (i, lab, text, from) => [txt(lab, 120, 84 + i * 120, 28, {color: RED, bold: true, ...(from !== undefined ? {from} : {})}), hand(text, 120, 118 + i * 120, 40, {w: 1040, ...(from !== undefined ? {from} : {})})];
 scenes.push({talk: [
-  {dur: 3, layers: [desk(), vidka('listen', {to: 1.3}), vidka('think', {from: 1.3}), ardipal('talk', 1000), mv(img('notebook', 700, 380, 220), 'prop', 'Ardipal mendorong buku ke arah Vidka melintasi meja', [{t: .2, x: 960}, {t: 1.8, x: 800}, {t: 2.6, x: 804}])]},
+  {dur: 3, layers: [desk(), vidka('listen', {to: 1.3}), vidka('think', {from: 1.3}), ardipal('talk', 1000), mv(img('notebook', 700, 300, 220), 'prop', 'Ardipal mendorong buku ke arah Vidka melintasi meja', [{t: .2, x: 920}, {t: 1.8, x: 800}, {t: 2.6, x: 804}])]},
   {dur: 7, layers: [
     ...row(0, 'BELUM JELAS', 'Bagaimana siswa mengikuti tempo teman.'), {...write(120, 900, 104, 0.2, 1.4), to: 2.0},
     ...row(1, 'BUKTI AWAL', 'Tempo naik, siswa tertinggal, latihan berhenti.', 2.0), {...mv(img('pencil', 120, 224, 90), 'prop', 'Pensil menulis bukti awal', [{t: 2.0, x: 120}, {t: 3.4, x: 940}, {t: 3.8, x: 960, y: 200}]), from: 2.0, to: 4.2},
