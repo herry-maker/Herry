@@ -360,16 +360,23 @@
     },
     {
      "type": "image",
+     "path": "../../art/laptop-side.png",
+     "x": 400,
+     "y": 344,
+     "w": 170
+    },
+    {
+     "type": "image",
      "path": "../../art/page-a.png",
-     "x": 440,
+     "x": 200,
      "y": 318,
      "w": 100
     },
     {
      "type": "image",
      "path": "../../art/page-b.png",
-     "x": 500,
-     "y": 326,
+     "x": 320,
+     "y": 318,
      "w": 100
     },
     {

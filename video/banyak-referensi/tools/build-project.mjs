@@ -69,7 +69,7 @@ scenes.push({talk: [
     mv(img('page-b', 120, 200, 200), 'prop', 'Artikel di sampingnya bergeser saat ia menghela napas', [{t: .2, x: 120, angle: -.06}, {t: 1.2, x: 160, angle: .02}, {t: 2.4, x: 150, angle: -.03}]),
   ]},
   {dur: 4, layers: [ // medium: Herry arrives, points at the notebook
-    desk(), img('page-a', 440, 318, 100), img('page-b', 500, 326, 100),
+    desk(), laptopSide(), img('page-a', 200, 318, 100), img('page-b', 320, 318, 100),
     vidka('turn', {to: 1.6}), vidka('listen', {from: 1.6}), herry('listen', 960, {to: .6}), herry('point', 960, {from: .6}),
     img('notebook', 770, 300, 210), hand('catatanmu', 800, 342, 28),
     draw(line([[968, 386], [950, 376], [930, 366]], {color: RED, lineWidth: 5}), 'information', 'Herry mengetuk buku catatan', 0.6, 1.2),
