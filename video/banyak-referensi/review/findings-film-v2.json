@@ -1,0 +1,3395 @@
+{
+  "reviewer": {
+    "id": "independent-reviewer-agent-rev2body-v2",
+    "kind": "agent",
+    "method": "Re-review of the six shots fixed since the first pass (shot-14, shot-16, shot-17, shot-22, shot-25, shot-28): read updated project.json layer/keyframe data for each; read all 3 refreshed start/mid/end evidence PNGs per shot; extracted continuous-clip frames at 10-20fps (and, for shot-17, stepped the master film.mp4 at 30fps across the exact shot-17/shot-18 cut) with ffmpeg to confirm motion ranges and pinpoint a residual single-frame defect; cropped and zoomed regions of interest (notebook/ring band, Ardipal's face, questionnaire icon) with PIL for pixel-level confirmation. Shots 0-13 carried forward unreviewed per the coordinator's confirmation that they are byte-identical to the previously-confirmed 14/14 baseline (output_sha256 of the new evidence.json/film.mp4 differs only because of the 6 changed shots). Shots 15,18-21,23-24,26-27,29-41 carried forward from findings-film.json unreviewed per the coordinator's confirmation that their frames are unchanged. Sound was not re-measured for the 6 re-reviewed shots since no audio was touched; prior measurements stand."
+  },
+  "full_playback": {
+    "viewed_ranges": [
+      {
+        "start": 0,
+        "end": 182.6
+      }
+    ],
+    "observations": [
+      {
+        "time": 10.0,
+        "detail": "Shot-4 (confirmed baseline) establishes the floating 'writing pencil' + character-seated-apart convention that recurs legitimately through the body (e.g. shots 16-25, 32, 36, 38); confirms this is an accepted stylistic device, not a contact fault, when it reappears later."
+      },
+      {
+        "time": 58.0,
+        "detail": "Shot-13 end ('Mendukung kalimat yang mana?' with a claim card and an article-finding card) hands off cleanly at 60.183s into shot-14's reading-card exercise; same notebook/card visual language carries the scene-4-to-scene-5 cut without a jarring reset."
+      },
+      {
+        "time": 61.0,
+        "detail": "Shot-14: red header 'pertanyaan sementara' is fused with the notebook's spiral-ring band for the whole shot, the first instance of a recurring ring-overlap typography fault in the body (recurs in shots 16, 17 and, for body text, shot-25)."
+      },
+      {
+        "time": 91.5,
+        "detail": "Shot-22: the notebook prop annotated 'Ardipal mendorong buku ke arah Vidka' only wiggles ~60px and never travels toward Vidka; the described push is not perceptible on screen."
+      },
+      {
+        "time": 105.5,
+        "detail": "Shot-25: the first line of the handwritten research question is written directly across the spiral rings, the most severe instance of the ring-overlap fault since it affects two lines of body copy rather than a short header."
+      },
+      {
+        "time": 121.0,
+        "detail": "Shot-28: the questionnaire prop annotated 'diangkat dan dibaca' (lifted and read) only moves ~20px/0.03rad across the full 2.0s hold; the shot reads as a static image with Vidka holding her own separate paper rather than the questionnaire being lifted."
+      },
+      {
+        "time": 139.6,
+        "detail": "Shot-33: player-b's turn to a startled pose is a hard pose-swap rather than an eased turn, but lands cleanly on the beat ('menoleh' label, clock updates to 12:04) and is unambiguous on a single frame."
+      },
+      {
+        "time": 153.0,
+        "detail": "Shot-36: the card-swap from 'memahami proses' to 'menguji pengaruh' is a clean, well-composed single pivot with no overlap between the two cards."
+      },
+      {
+        "time": 173.5,
+        "detail": "Shot-40: the laptop-close sequence (open to closed) is correctly staged and resolves cleanly by the end of the shot, with the closed laptop sitting flush on the desk and no leftover open-laptop artwork -- initially looked like a possible double-prop fault from the start/mid crops but is confirmed resolved on frame-level inspection."
+      },
+      {
+        "time": 182.0,
+        "detail": "Final shot-41 hold closes the film with the same task-card/checkmark convention used at shots 21 and 31, giving a consistent, satisfying close; whole-film integrated loudness measures -20.3 LUFS with true peak -1.6 dBFS, no clipping detected across the full 182.6s runtime."
+      },
+      {
+        "time": 75.17,
+        "detail": "Re-review: a single ~33ms frame right at the shot-17/shot-18 cut still shows the 'pertanyaan sementara' header fused with the notebook's spiral rings -- the one surviving trace of the original ring-overlap fault, now reduced from a multi-second, whole-shot problem to a sub-frame flash not perceptible at normal playback speed."
+      },
+      {
+        "time": 90.4,
+        "detail": "Re-review: shot-22's notebook push is now a real, visible ~120px transit toward Vidka, but its new starting position (x=920) causes the top-right spiral ring to overlap Ardipal's chin/beard for roughly the first 0.5s of the shot -- a new contact fault introduced by the fix, distinct from the original 'imperceptible push' finding."
+      }
+    ]
+  },
+  "baseline": [
+    {
+      "reference_id": "b1-ryan-v4",
+      "start": 0.5,
+      "end": 9.0,
+      "observations": [
+        {
+          "time": 0.5,
+          "detail": "Ref-0.5 ('Write.') shows a single stick figure at a desk with a monitor, mug and plant, each object fully opaque with no overlapping outlines, and a bold hand-lettered headline plus one grey supporting line -- the craft bar this project's B1 contract is measured against."
+        },
+        {
+          "time": 3.0,
+          "detail": "Ref-3 ('Refresh.') reuses the same desk illustration with only the icon state changed, demonstrating disciplined asset reuse across beats, the same discipline seen in this project's repeated desk/notebook/pencil assets."
+        },
+        {
+          "time": 9.0,
+          "detail": "Ref-9 ('But here's what hurts.') shows a single, unmistakable physical action (a stack of videos being pushed and toppling) with motion lines on every unit -- a higher bar for legible single-prop motion than this project's shot-22/shot-28 sub-pixel wiggles meet."
+        }
+      ]
+    }
+  ],
+  "blocking_issues": [],
+  "shots": {
+    "shot-0": "CARRIED_FORWARD_PASS",
+    "shot-1": "CARRIED_FORWARD_PASS",
+    "shot-2": "CARRIED_FORWARD_PASS",
+    "shot-3": "CARRIED_FORWARD_PASS",
+    "shot-4": "CARRIED_FORWARD_PASS",
+    "shot-5": "CARRIED_FORWARD_PASS",
+    "shot-6": "CARRIED_FORWARD_PASS",
+    "shot-7": "CARRIED_FORWARD_PASS",
+    "shot-8": "CARRIED_FORWARD_PASS",
+    "shot-9": "CARRIED_FORWARD_PASS",
+    "shot-10": "CARRIED_FORWARD_PASS",
+    "shot-11": "CARRIED_FORWARD_PASS",
+    "shot-12": "CARRIED_FORWARD_PASS",
+    "shot-13": "CARRIED_FORWARD_PASS",
+    "shot-14": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 60.283,
+            "detail": "No character on screen this shot (card/notebook insert only); art unchanged from last pass and still matches established style.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches ref-0.5/ref-3's clean single-weight line art for inanimate graphic elements."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 60.483,
+            "detail": "Card 'Bacaan 1: mendengar teman' slides from x=60 to x=380 (t=0.36-1.44s), 'Bacaan 2' follows after it settles (t=1.98s) -- unchanged, correctly timed, as in the previous pass.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 3.0,
+          "end": 9.0,
+          "detail": "Comparable to ref-9's single prominent action per beat."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 60.383,
+            "detail": "Both reading cards stay fully opaque and separated from the notebook and each other throughout.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Props stay fully separated the way ref-0.5's desk objects never intersect."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 61.183,
+            "detail": "Layout unchanged: two cards left, notebook right, clear margins; moving the header to y=100 does not crowd anything else in the frame.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Layout keeps generous margins like ref-0.5."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 60.283,
+            "detail": "FIXED: the red header 'pertanyaan sementara' now sits at y=100, fully above the notebook's top edge (notebook y=140), with clear white space between the lettering and the first spiral ring. No overlap at start.",
+            "phase": "start"
+          },
+          {
+            "time": 61.983,
+            "detail": "Header remains clean at mid phase; the ring band sits well below the last letter's descender.",
+            "phase": "mid"
+          },
+          {
+            "time": 63.583,
+            "detail": "Header remains clean at end phase; confirmed no recurrence of the ring-overlap fault anywhere in this shot.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Now matches ref-0.5/ref-3's standard of keeping every hand-lettered label clear of adjacent line art. This was the shot-14 finding from the prior review; it is resolved."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 60.383,
+            "detail": "3.6s runtime unchanged, still gives each card a clear slide-and-settle beat.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 3.0,
+          "end": 9.0,
+          "detail": "Pace matches ref-9's unhurried single-beat-per-second rhythm."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 60.683,
+            "detail": "Narration unchanged; mix level consistent with body average, no new audio issue from the visual fix.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Loudness band matches the reference film's narration-forward mix."
+        }
+      }
+    },
+    "shot-15": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 63.986000000000004,
+            "detail": "Vidka (vidka-think) and Herry (herry-talk) line art are consistent with their designs in confirmed scenes 1-4: same round head, side ponytail, same glasses/collar linework for Herry.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Character silhouettes match ref-0.5's single clean figure with no stray linework."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 64.686,
+            "detail": "Notebook prop-35 nudges toward Vidka (description 'buku penelitian didorong ke depan Vidka') over the 1.8s shot while Herry's talk pose reads as mid-sentence; consistent with dialogue 'Apa yang ingin kamu telusuri?' context.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 12.0,
+          "detail": "Small, legible single-purpose gesture similar to ref-9's single pushed stack."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 64.086,
+            "detail": "Notebook rests flat on top of the desk slab's drawn edge for all three phases; no part of the notebook or chair legs passes through the slab line.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Desk/prop relationship is clean, matching ref-0.5's desk where no object clips the table edge."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 64.786,
+            "detail": "Desk spans the lower third, two characters placed on the rule-of-thirds points left/right of the notebook, caption band clear beneath.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Open, uncluttered two-shot composition as in ref-0.5."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 65.286,
+            "detail": "No on-screen text layer this shot besides the bottom caption 'Apa yang ingin kamu telusuri?', single line, fully legible against the paper background.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Caption styling matches ref-0.5/ref-3's bottom caption line."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 63.886,
+            "detail": "1.8s two-shot functions as a quick beat between the two notebook-insert shots either side of it; duration is short but the dialogue line finishes within it.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 12.0,
+          "detail": "Comparable brief-beat pacing to ref-9/ref-12 transition shots."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 64.786,
+            "detail": "Herry's line reads clearly over the shot; measured mix level consistent with the -22dB/-2dB peak band found elsewhere in the body (see shot-17 volumedetect sample).",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches reference narration-led loudness."
+        }
+      }
+    },
+    "shot-16": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 65.687,
+            "detail": "No character this shot; pencil prop art unchanged and consistent with established style.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Pencil icon style matches ref-20.5's hand-drawn pencil at the desk."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 67.587,
+            "detail": "Handwritten line 'Bagaimana kelompok kami menggunakan keduanya?' still appears progressively as the pencil travels across it, unchanged and correctly timed.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Single clear writing action, as in ref-0.5's single cursor-drag edit."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 65.787,
+            "detail": "Floating 'writing' pencil convention unchanged and still consistent with the accepted baseline usage (shot-4).",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Consistent with the baseline's own treatment of this convention."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 68.587,
+            "detail": "Two red diagonal 'info' tick lines still point cleanly from the reading cards to the new question without crossing any text block.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Clean annotation lines like ref-20.5's underline accents."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 65.687,
+            "detail": "FIXED: the red header 'pertanyaan sementara' now sits at y=100, clearly above the notebook's spiral rings, legible at the start phase.",
+            "phase": "start"
+          },
+          {
+            "time": 67.587,
+            "detail": "Still clean at mid phase, pencil icon visible below it with no interference.",
+            "phase": "mid"
+          },
+          {
+            "time": 69.087,
+            "detail": "Still clean at end phase; new blue question text and header are both fully legible with no ring overlap anywhere in the shot.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Now matches ref-0.5/ref-3's standard; resolves the shot-16 finding from the prior review."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 65.787,
+            "detail": "3.6s pacing unchanged, still a reasonable built-up beat.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 3.0,
+          "end": 9.0,
+          "detail": "Comparable build-up pace to ref-9."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 66.587,
+            "detail": "Caption/narration unchanged and clear; mix level consistent with body average.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches reference loudness band."
+        }
+      }
+    },
+    "shot-17": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 69.28999999999999,
+            "detail": "No character this shot; all line art unchanged and consistent with established asset style.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Consistent line weight with ref-0.5."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 72.19,
+            "detail": "Yellow underline still appears beneath 'menggunakan keduanya?' as the grey annotation 'Contoh bacaan ilustratif.' fades in, unchanged from the prior pass.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 18.0,
+          "end": 21.3,
+          "detail": "Sequenced single-purpose highlight, similar to ref-18's single underline reveal."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 69.39,
+            "detail": "Yellow underline sits directly under the text baseline without crossing into the notebook's border or the reading cards.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 18.0,
+          "end": 21.3,
+          "detail": "Matches ref-18's precise underline placement under 'REMEMBERED'."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 69.69,
+            "detail": "Grey annotation still placed in the otherwise-empty top-left quadrant, not competing with the notebook or cards on the right.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Good use of negative space, as in ref-0.5."
+        }
+      },
+      "typography_captions": {
+        "status": "unmet",
+        "observations": [
+          {
+            "time": 69.28999999999999,
+            "detail": "Header 'pertanyaan sementara' is now clean at the start phase: fully above the spiral rings with clear white space, confirming the fix applies for the bulk of the shot.",
+            "phase": "start"
+          },
+          {
+            "time": 72.16,
+            "detail": "Still clean at the mid phase (t=2.97s into the shot): header reads clearly above the rings.",
+            "phase": "mid"
+          },
+          {
+            "time": 74.94,
+            "detail": "Still clean when sampled at t=5.75s via the continuous clip and again via a direct extraction from the master film.mp4 at the equivalent absolute time (~74.94s).",
+            "phase": "end"
+          },
+          {
+            "time": 75.16,
+            "detail": "RESIDUAL DEFECT: the official end-phase evidence frame (shot-17-end.png, captured at t=5.967s, i.e. absolute 75.157s) shows the header has dropped back down so its baseline sits across the ring band again, fused with the loop glyphs exactly as before the fix. Frame-stepping the master film.mp4 at 30fps around the shot-17/shot-18 cut (75.10-75.37s) shows this recurrence appears for only a single frame (~33ms, at approximately t=75.17s) immediately before the hard cut to shot-18, and the frame immediately before it (~75.13s) is clean. At normal playback speed a single frame is not perceptible to a viewer, but it is present in the mandated start/mid/end evidence capture and is a literal (if much-reduced) recurrence of the original fault, likely a leftover keyframe or transition artifact firing right at the shot boundary rather than a problem with the y=100 fix itself.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Ref-0.5/ref-3 never leave a label unreadable at any sampled frame, including the shot's last one; here the official end-frame sample still shows one instance of the fault, even though it is reduced from a multi-second, whole-shot overlap (previous finding) to a single sub-frame flash at the exact cut point."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 69.19,
+            "detail": "6.0s hold pacing unchanged, still appropriate for the two-line illustrative aside plus underline reveal.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 12.0,
+          "detail": "Comparable unhurried pacing to ref-9/ref-12."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 70.19,
+            "detail": "Caption/narration unchanged and clear; mix level consistent with body average.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches reference loudness band; measured, not auditioned by ear."
+        }
+      }
+    },
+    "shot-18": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 75.283,
+            "detail": "vidka-write pose (seated, pencil in hand) is consistent with her established proportions and ponytail design.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches ref-0.5's single consistent character design."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 76.183,
+            "detail": "Pencil prop-42 ends 'at the end of the sentence' as the caption/dialogue '«Siswa kurang kompak.» Cukup, Pak?' plays, giving a believable pause-to-ask beat.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Single clear acting beat as in ref-0.5/ref-20.5."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 75.38300000000001,
+            "detail": "Notebook sits on its own easel-like stand to the left with no overlap with Vidka's chair or desk-less background; consistent with the established 'floating pencil writes while character gestures separately' convention already used in confirmed shot-4.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Consistent, previously-accepted convention."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 76.183,
+            "detail": "Notebook occupies left two-thirds, Vidka right third; red question text sits inside the notebook's writable area, clear of the spiral band (text y=150, well below the ring zone).",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Comfortable spacing as in ref-0.5."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 75.283,
+            "detail": "'Siswa kurang kompak' (blue) and 'cukup?' (red) both sit below the spiral rings with clear margin, fully legible.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Correct clearance compared with the ring-overlap fault seen in shots 14/16/17/25."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 75.183,
+            "detail": "2.5s is enough for the pencil-stop beat and the two short captions to register before cutting.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 3.0,
+          "end": 9.0,
+          "detail": "Comparable brief-beat timing to ref-9."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 76.183,
+            "detail": "Dialogue '«Siswa kurang kompak.» Cukup, Pak?' is clear; level consistent with body average (-22dB mean / -2dB peak measured nearby).",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches reference band."
+        }
+      }
+    },
+    "shot-19": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 77.786,
+            "detail": "Same vidka-write asset reused correctly, no model drift from shot-18.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Consistent character asset reuse as in ref-0.5."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 78.186,
+            "detail": "Red strike-through line is drawn across 'Siswa kurang kompak' in sync with the caption 'Apa yang terjadi dan dampaknya?', correctly showing Ardipal's (off-screen) prompt to revise the claim.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 18.0,
+          "end": 21.3,
+          "detail": "Single decisive mark, similar to ref-18's red strike mark."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 77.786,
+            "detail": "Strike-through line stays within the text's bounding box, doesn't bleed into the spiral rings or notebook border.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 18.0,
+          "end": 21.3,
+          "detail": "Matches the clean strike-mark placement in ref-18."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 78.686,
+            "detail": "New red annotation 'apa yang terjadi? dampaknya?' appears in the blank lower-left of the notebook page, leaving the struck-through line undisturbed above it.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Good vertical layering of old vs new text, consistent with ref-0.5's uncluttered layout."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 77.786,
+            "detail": "Both the struck text and the new annotation sit well clear of the spiral rings (first line starts ~y=196, below the ring band).",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "No overlap fault here, unlike shots 14/16/17/25."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 77.686,
+            "detail": "2.0s shot is brief but sufficient for a single strike-through beat matched to a short line of dialogue.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 3.0,
+          "end": 9.0,
+          "detail": "Comparable to ref-9's quick single-beat cut."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 78.686,
+            "detail": "Caption 'Apa yang terjadi dan dampaknya?' reads clearly; mix level in line with body average.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches reference band."
+        }
+      }
+    },
+    "shot-20": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 79.788,
+            "detail": "vidka-write pose held consistently across the 5.5s shot without any mid-shot model change.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Stable single character design as in ref-0.5."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 80.688,
+            "detail": "Pencil writes 'tempo meningkat' then 'beberapa siswa tertinggal' then 'latihan berhenti' in sequence, each line timed to its clause in 'Tempo meningkat, beberapa siswa tertinggal, dan latihan berhenti.'",
+            "phase": "mid"
+          },
+          {
+            "time": 84.488,
+            "detail": "Labels 'kejadian' (grey) and 'dampak' (red) are added last, correctly classifying the three just-written lines.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 12.0,
+          "detail": "Sequenced multi-line build-up similar in restraint to ref-9's single escalating action."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 81.688,
+            "detail": "All three new lines sit below the strike-through zone with no overlap between old (greyed) and new (blue) text blocks.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Clean text layering, consistent with ref-0.5."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 82.688,
+            "detail": "Three short lines plus two small labels fit comfortably in the notebook's writable area without crowding the right margin where the pencil sits.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Balanced composition as in ref-0.5/ref-20.5."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 79.788,
+            "detail": "Greyed-out 'Siswa kurang kompak' heading stays below the spiral rings throughout; no ring-overlap repeat here.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Correct clearance, unlike the shot-14/16/17/25 fault."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 79.688,
+            "detail": "5.5s comfortably covers three sequential clauses of dialogue plus two label reveals without feeling rushed.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 12.0,
+          "detail": "Matches the unhurried multi-beat pacing of ref-9/ref-12."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 81.688,
+            "detail": "Three-clause narration line is clear and evenly paced with the on-screen writing; level consistent with body average.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches reference band."
+        }
+      }
+    },
+    "shot-21": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 85.294,
+            "detail": "Vidka's thinking pose (vidka-think) swaps cleanly to a nodding pose (vidka-nod) once the green check mark appears; both assets match her established design.",
+            "phase": "start"
+          },
+          {
+            "time": 89.694,
+            "detail": "vidka-nod pose at end of shot shows consistent proportions with no stray linework.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Clean single-character held pose as in ref-0.5."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 85.394,
+            "detail": "Yellow underline draws under 'Sebutkan satu dampak' right after the task card appears, directing attention to the key clause.",
+            "phase": "start"
+          },
+          {
+            "time": 89.694,
+            "detail": "Green checkmark appears beside the card exactly as Vidka's pose switches from thinking to nodding, correctly signalling she has answered the task.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 18.0,
+          "end": 21.3,
+          "detail": "Single clear completion beat, as in ref-18's underline + resolution."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 85.694,
+            "detail": "Task card and character never overlap; card occupies left two-thirds, Vidka seated on a chair at far right with clear gap.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Clean separation as in ref-0.5."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 86.194,
+            "detail": "Card's red accent bar, 'Tugas' label and body text are all left-aligned with consistent margins; character sits in the remaining third.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Good two-thirds/one-third split matching ref-0.5's desk/character composition."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 85.294,
+            "detail": "'Tugas' label and task text are fully inside the card's border with no bleed; bottom caption is a separate single line below.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Clean text containment as in ref-20.5's numbered sticky notes."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 85.194,
+            "detail": "5.0s hold matches the ~5s end-of-scene task-card convention noted in the brief, giving the viewer time to read and see the resolution checkmark.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 12.0,
+          "detail": "Matches the deliberate hold pacing of ref-9/ref-12."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 87.694,
+            "detail": "No dialogue this shot (task-card hold); measured mean -22.4dB / peak -2.0dB for the window, consistent with music-only holds elsewhere in the body.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Consistent, measured loudness; not auditioned by ear."
+        }
+      }
+    },
+    "shot-22": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 90.394,
+            "detail": "Ardipal and Vidka designs unchanged and still consistent with their other appearances (shots 29, 37, 40).",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches the simple single-weight design in ref-0.5."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 90.394,
+            "detail": "FIXED: the notebook (prop-47) now travels from x=920 to x=800 between t=0.179-1.607s -- a visible ~120px transit across roughly half the gap between Ardipal and Vidka -- then settles at x=804, coming to rest directly beside Vidka's chair. Confirmed via 20fps continuous-clip extraction: the book is clearly in motion across this window and the push now reads as an actual push toward Vidka, not an in-place wiggle.",
+            "phase": "start"
+          },
+          {
+            "time": 91.994,
+            "detail": "By mid/end phase the book sits at rest beside Vidka with a visible gap to her arm, correctly landing the 'book pushed toward Vidka' beat from the dialogue context.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 12.0,
+          "detail": "Now reads as a single clear prop action comparable to ref-9's one unmistakable motion, resolving the shot-22 finding from the prior review."
+        }
+      },
+      "contact_continuity": {
+        "status": "unmet",
+        "observations": [
+          {
+            "time": 90.194,
+            "detail": "NEW ISSUE: at the shot's start (t=0 to ~0.5s, before/just after the first keyframe at t=0.179s puts the notebook at x=920), the notebook's top-right spiral ring visually overlaps Ardipal's chin/jaw/beard -- a ring loop sits directly across his jawline and the bottom of his beard is interrupted by the book's edge. Confirmed at 20fps across frames at t=0, 0.15, 0.3 and 0.45s, all showing the same overlap.",
+            "phase": "start"
+          },
+          {
+            "time": 90.794,
+            "detail": "The overlap clears by approximately t=0.6s as the book's leftward transit (toward x=800) pulls its right edge away from Ardipal's face; frames from t=0.6s onward show clean separation.",
+            "phase": "mid"
+          },
+          {
+            "time": 91.994,
+            "detail": "Final resting position (x=800-804) is cleanly separated from Vidka's arm/torso, confirming the new overlap is confined to the notebook's starting position near Ardipal, not the destination near Vidka that the coordinator asked about.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Ref-0.5 never lets a desk prop clip a character's face; here the notebook's new starting x=920 is close enough to Ardipal (centred near x=1000-1100) that its top-right ring crosses his chin for roughly the first half-second of the shot -- a new, different contact fault introduced by moving the start position closer to him to make the push legible."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 91.194,
+            "detail": "Three figures and the notebook are still spaced with even gaps apart from the brief Ardipal overlap noted above; no other composition issue.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Balanced three-figure composition similar to ref-0.5's single-figure clarity scaled up."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 90.694,
+            "detail": "No on-screen text this shot besides the single bottom caption 'Apa yang belum jelas?', unchanged and fully legible.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Clean single caption as in ref-0.5."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 90.194,
+            "detail": "2.7s unchanged, still appropriate for a short transitional dialogue beat.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 3.0,
+          "end": 9.0,
+          "detail": "Comparable to ref-9's brief cut pacing."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 91.194,
+            "detail": "Dialogue unchanged and clear; mix level consistent with body average.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches reference band."
+        }
+      }
+    },
+    "shot-23": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 92.972,
+            "detail": "No character this shot; pencil assets (prop-48/49/50) consistent with established style.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Consistent pencil/notebook art as elsewhere."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 93.072,
+            "detail": "'BELUM JELAS' line writes first, then 'BUKTI AWAL' at t≈2.2s, then 'BACAAN' at t≈4.5s, each pencil appearing beside its own line only -- correctly sequenced to match the three clauses of narration ('Apa yang belum jelas?' / 'Hubungkan dengan bukti awal dan bacaan.').",
+            "phase": "mid"
+          },
+          {
+            "time": 98.672,
+            "detail": "Red annotation 'mengapa penting dipahami?' and its underline appear only after all three rows are written, correctly capping the sequence.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 18.0,
+          "detail": "Multi-step build matching the deliberate, one-beat-at-a-time pacing of ref-9/ref-18."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 94.872,
+            "detail": "Each pencil prop sits directly beside its own line of text with no cross-over between the three rows.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Clean per-row separation, as in ref-0.5."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 95.872,
+            "detail": "Three labelled rows stack vertically with consistent spacing and left margin, leaving the lower third clear for the underline annotation.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Tidy vertical list layout similar to ref-20.5's numbered notes."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 93.072,
+            "detail": "All three row labels and their text sit comfortably below any ring/border art (this shot uses plain text on blank paper, no notebook-ring overlap).",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "No overlap fault, unlike shots 14/16/17/25."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 92.872,
+            "detail": "6.25s is proportionate to the three sequential narration clauses plus the closing question, not rushed.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 18.0,
+          "detail": "Matches the unhurried pacing seen across ref-9 to ref-18."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 95.872,
+            "detail": "Narration across the three clauses is clear and evenly leveled; mean -22.2dB / peak -2.0dB measured for this window.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Measured via loudness, consistent with reference mix; not auditioned by ear."
+        }
+      }
+    },
+    "shot-24": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 99.222,
+            "detail": "No character this shot; only text and a drawn bracket.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "N/A to character art; consistent plain-paper treatment as in ref-0.5."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 101.122,
+            "detail": "A hand-drawn bracket appears to the right of the two-line statement, then an underline draws under 'mengikuti tempo teman saat latihan.' as the grey annotation 'dari bukti awal dan bacaan' fades in -- correctly tying the problem statement back to its evidence.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 18.0,
+          "end": 21.3,
+          "detail": "Single clear emphasis beat, as in ref-18's underline reveal."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 101.122,
+            "detail": "Bracket and underline both sit outside/below the text block, no overlap with the lettering.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 18.0,
+          "end": 21.3,
+          "detail": "Matches ref-18's precise placement."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 99.622,
+            "detail": "'PERNYATAAN MASALAH' label, two-line statement, bracket and grey annotation are arranged with clear hierarchy and generous margins.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Clean hierarchy as in ref-0.5."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 99.222,
+            "detail": "All text is on blank paper with no competing line art; fully legible throughout.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "No overlap fault here."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 99.122,
+            "detail": "6.1s hold matches the 'key sentence' scene-ending convention described in the brief.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 12.0,
+          "detail": "Matches the deliberate hold pacing of ref-9/ref-12."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 102.122,
+            "detail": "Narration 'Jelaskan mengapa penting dipahami.' is clear; mix level consistent with body average.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches reference band."
+        }
+      }
+    },
+    "shot-25": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 105.294,
+            "detail": "vidka-write pose at far left unchanged and consistent with her established design.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Consistent character asset."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 106.694,
+            "detail": "Pencil still writes the three-line research question progressively in sync with the narration, then lifts at the end -- unchanged beat, now simply relocated 40px lower on the page.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 18.0,
+          "detail": "Single sustained writing beat, matching ref-9/ref-18's restrained pacing."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 105.394,
+            "detail": "Floating writing-pencil convention unchanged and still consistent with shots 16/18/20/23 and the accepted baseline (shot-4).",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Consistent, previously-accepted convention."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 108.194,
+            "detail": "Three-line question now starts at y=200 instead of y=160, still fits comfortably within the notebook's writable area with even line spacing (200/252/304) and a clear bottom margin before the page edge.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Balanced layout as in ref-0.5."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 105.394,
+            "detail": "FIXED: at start phase the first pencil stroke/line sits at y=200, now well clear of the spiral rings (rings end roughly y=170-180 for this notebook scale); no ring overlap visible.",
+            "phase": "start"
+          },
+          {
+            "time": 106.694,
+            "detail": "Confirmed clean at mid phase: first two lines ('Bagaimana siswa pemula menggunakan' / 'isyarat bunyi dan gerak untuk menjaga') both sit fully below the ring band with a visible gap.",
+            "phase": "mid"
+          },
+          {
+            "time": 109.394,
+            "detail": "Confirmed clean at end phase: all three lines, including the third ('tempo dalam ansambel?'), are fully legible with no ring interference anywhere in the shot.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Now matches ref-0.5/ref-3's standard of keeping body copy clear of adjacent line art; resolves the shot-25 finding from the prior review, and is in fact the cleanest of the three ring-adjacent shots checked this round."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 105.194,
+            "detail": "5.75s unchanged, still proportionate for writing out a three-line research question matched to the narration's pace.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 12.0,
+          "detail": "Matches ref-9/ref-12's unhurried single-beat pacing."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 107.694,
+            "detail": "Narration unchanged and clear across the three clauses; mix level consistent with body average.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches reference band."
+        }
+      }
+    },
+    "shot-26": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 111.04299999999999,
+            "detail": "No character this shot; text-only breakdown of the question.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Plain-paper treatment matches ref-0.5."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 111.143,
+            "detail": "'SIAPA' label and its underline (under 'siswa pemula') appear first, then 'PROSES APA' with its underline at t≈2.3s, then 'KONTEKS APA' with its underline at t≈4.0s -- a clean one-at-a-time breakdown of the research question into its three components.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 18.0,
+          "detail": "Sequenced, single-concept-per-beat structure matching ref-9/ref-18."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 113.243,
+            "detail": "Each yellow underline sits precisely beneath its own phrase with no overlap between the three annotations.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 18.0,
+          "end": 21.3,
+          "detail": "Matches ref-18's precise underline placement."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 111.443,
+            "detail": "Three-line question stays at the top, with the three labels cascading down the left margin as they appear -- no crowding even with three simultaneous underlines by the end.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Clean vertical rhythm, consistent with ref-0.5/ref-20.5."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 111.04299999999999,
+            "detail": "All text and underlines sit on blank paper; fully legible throughout, no ring or border overlap.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "No overlap fault here."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 110.943,
+            "detail": "4.7s gives each of the three labels roughly 1.5s before the next appears, matching the spoken 'Jelas: siapa, proses apa, dan dalam konteks apa.'",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 12.0,
+          "detail": "Matches ref-9/ref-12's measured pacing."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 112.943,
+            "detail": "Narration is clear and evenly timed with each underline reveal; level consistent with body average.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches reference band."
+        }
+      }
+    },
+    "shot-27": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 115.746,
+            "detail": "No character this shot.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "N/A; consistent plain-paper treatment."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 116.646,
+            "detail": "A green checkmark draws in beside the question with the label 'lengkap' (complete), correctly resolving the three-part breakdown from shot-26.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 18.0,
+          "end": 21.3,
+          "detail": "Single resolution beat, as in ref-18's resolved state."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 116.646,
+            "detail": "Checkmark and 'lengkap' label sit clear of the question text and the remaining yellow underline.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 18.0,
+          "end": 21.3,
+          "detail": "Matches ref-18's clean placement."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 117.646,
+            "detail": "Checkmark placed in the empty right-hand two-thirds of the frame, leaving the three-line question undisturbed on the left.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Good use of negative space as in ref-0.5."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 115.746,
+            "detail": "All text fully legible on blank paper.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "No overlap fault."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 115.646,
+            "detail": "5.0s hold matches the scene-ending convention noted in the brief.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 12.0,
+          "detail": "Matches ref-9/ref-12's hold pacing."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 118.146,
+            "detail": "No new dialogue (continuation of prior line); mix is steady at body-average level.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches reference band; measured, not auditioned."
+        }
+      }
+    },
+    "shot-28": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 120.746,
+            "detail": "Vidka (vidka-stand-read) and Ardipal (ardipal-listen) poses unchanged, still on-model.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Consistent character identity across new poses, as in ref-0.5."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 120.846,
+            "detail": "FIXED: the questionnaire (prop-60) now keyframes y=170/angle=-0.15 at t=0.202s, then y=90/angle=+0.08 at t=1.01s (a visible rise and tilt the other way), then settles to y=110/angle=-0.05 at t=1.817s. 10fps continuous-clip extraction confirms a clearly visible raise-and-settle: the icon is noticeably smaller/higher in the frame at the midpoint (t~0.9s) than at the start or the final resting frame, with an unmistakable tilt change in between.",
+            "phase": "start"
+          },
+          {
+            "time": 121.646,
+            "detail": "At the midpoint the icon reads as genuinely lifted and tilted, a believable 'picked up and glanced at' gesture rather than the earlier sub-pixel wiggle.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 12.0,
+          "detail": "Now a single clear, legible action comparable to ref-9's one unmistakable physical motion, resolving the shot-28 finding from the prior review."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 120.946,
+            "detail": "Vidka's own held card and Ardipal remain on-model and well separated; the questionnaire icon's new larger motion range does not bring it into contact with either character.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Clean character/prop separation as in ref-0.5."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 121.646,
+            "detail": "Questionnaire icon (left), Vidka (centre), Ardipal (right) remain evenly spaced; the icon's larger vertical travel stays within the open left third of the frame and never crowds the characters.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Balanced three-element layout as in ref-0.5."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 120.746,
+            "detail": "'Kuesioner' label remains fully legible, placed on blank paper beneath the icon's resting position.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "No overlap fault."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 120.646,
+            "detail": "2.0s duration unchanged; the larger motion range now reads clearly within the same short beat without feeling rushed.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 3.0,
+          "end": 9.0,
+          "detail": "Comparable brief-cut pacing to ref-9."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 121.646,
+            "detail": "Dialogue unchanged and clear; mix level consistent with body average.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches reference band."
+        }
+      }
+    },
+    "shot-29": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 122.765,
+            "detail": "vidka-stand-look and ardipal-talk poses are consistent with their established designs; Vidka now holds a folded questionnaire in hand, a believable follow-on prop state from shot-28.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Consistent character/prop continuity."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 123.86500000000001,
+            "detail": "Door prop-61 ('Pintu ruang latihan masuk ke bidang pandang') slides in from the right while the label 'RUANG LATIHAN' fades in above it, clearly establishing the new location named in the dialogue.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 12.0,
+          "detail": "Clear single establishing action, as in ref-9's single toppling stack."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 123.86500000000001,
+            "detail": "Door motion stays fully within the right edge of frame and never overlaps the two characters.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Clean spatial separation as in ref-0.5."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 123.165,
+            "detail": "Questionnaire icon (now smaller/lowered, prop-62), two characters, and the new door are spaced across the frame without crowding.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Balanced four-element composition."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 124.165,
+            "detail": "'RUANG LATIHAN' label is fully legible against blank paper above the door, no overlap with the door's drawn panel lines.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Clean label placement, unlike the ring-overlap fault in other shots."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 122.665,
+            "detail": "2.5s is appropriate for a short location-establishing beat.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 3.0,
+          "end": 9.0,
+          "detail": "Comparable to ref-9's quick cut pacing."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 123.665,
+            "detail": "Dialogue clear; level consistent with body average.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches reference band."
+        }
+      }
+    },
+    "shot-30": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 125.28999999999999,
+            "detail": "No character this shot; notebook and questionnaire icons reused consistently from earlier shots.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Consistent prop art."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 126.19,
+            "detail": "Notebook (labelled '1', 'mengamati tindakan saat latihan') is placed first, then the questionnaire ('2', 'menanyakan alasannya') is placed beside it with a connecting red arrow -- correctly dramatizing 'Saya perlu mengamati, lalu menanyakan alasannya.' as two sequential steps.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 18.0,
+          "detail": "Clear two-step build, matching the restrained single-action-per-beat pacing of ref-9/ref-18."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 127.19,
+            "detail": "Notebook and questionnaire icons sit side by side with a clear gap bridged only by the thin red arrow; no overlap between the two props.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Clean separation as in ref-0.5."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 125.69,
+            "detail": "'Belum cukup.' sits top-left, the two numbered steps centre-stage with even spacing, consistent margins.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Tidy, legible layout matching ref-20.5's numbered cards."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 125.28999999999999,
+            "detail": "All labels sit on blank paper, fully legible, no ring or border interference.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "No overlap fault."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 125.19,
+            "detail": "5.55s comfortably covers the two-step reveal plus the preceding 'Belum cukup.' statement.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 12.0,
+          "detail": "Matches ref-9/ref-12's measured pacing."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 128.19,
+            "detail": "Narration across 'Belum cukup. Saya perlu mengamati, lalu menanyakan alasannya.' is clear and well-timed to the two icon reveals.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches reference band; measured via loudness."
+        }
+      }
+    },
+    "shot-31": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 130.843,
+            "detail": "Task-card convention and Vidka's think/nod poses are identical in design to shot-21, correctly reused for a parallel task beat.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Consistent character/prop reuse."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 130.94299999999998,
+            "detail": "Yellow underline draws under 'Data apa yang diperlukan' early in the shot, then the green checkmark appears alongside Vidka's pose switching from thinking to nodding near the end -- same successful completion beat as shot-21.",
+            "phase": "start"
+          },
+          {
+            "time": 135.243,
+            "detail": "Pose switch to vidka-nod is correctly timed with the checkmark's appearance.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 18.0,
+          "end": 21.3,
+          "detail": "Matches ref-18's clear resolution beat."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 131.243,
+            "detail": "Card and character remain fully separated, as in shot-21.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Clean separation as in ref-0.5."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 131.743,
+            "detail": "Same two-thirds/one-third split as shot-21, consistent and balanced.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches ref-0.5's composition."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 130.843,
+            "detail": "Task text fully contained within the card border, legible throughout.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Clean containment, consistent with ref-20.5."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 130.743,
+            "detail": "5.0s hold matches the established end-of-scene task-card convention.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 12.0,
+          "detail": "Matches ref-9/ref-12's deliberate hold pacing."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 133.243,
+            "detail": "No dialogue (task-card hold); measured mean -22.3dB / peak -1.9dB, consistent with other holds in the body.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Measured via loudness, consistent with reference mix."
+        }
+      }
+    },
+    "shot-32": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 135.843,
+            "detail": "Herry (herry-talk) reappears here consistent with his design in shots 15/40.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Consistent character identity across scenes."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 136.743,
+            "detail": "Two pencils (prop-68/69) write 'Studi kasus kualitatif' then 'memahami kelompok ini' in sequence, matching the two clauses of 'Studi kasus kualitatif dapat sesuai untuk memahami kelompok ini.'",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 18.0,
+          "detail": "Sequenced single-concept writing, matching ref-9/ref-18's restrained pacing."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 137.243,
+            "detail": "Writing-pencil convention consistent with the accepted baseline usage (shot-4); no new fault.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Consistent, previously-accepted convention."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 136.243,
+            "detail": "Grey label 'rencana penelitian' sits above the notebook, clear of the rings; Herry stands in the right third with a comfortable gap.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Balanced composition as in ref-0.5."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 135.843,
+            "detail": "'rencana penelitian' label sits above the notebook's top edge, not overlapping the rings (unlike the shot-14/16/17/25 fault, here the label is placed outside the notebook art entirely).",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Correct clearance -- a useful counter-example showing the header-overlap fault elsewhere was avoidable."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 135.743,
+            "detail": "3.0s is proportionate to the single sentence being written.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 3.0,
+          "end": 9.0,
+          "detail": "Comparable to ref-9's brief single-beat pacing."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 137.243,
+            "detail": "Dialogue clear; level consistent with body average.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches reference band."
+        }
+      }
+    },
+    "shot-33": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 138.869,
+            "detail": "Two guitarist characters (player-a, player-b) are newly introduced with simple, consistent linework matching the house style; metronome and music stands are clean code-drawn props.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "New simulation characters match ref-0.5's single clean line weight."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 139.869,
+            "detail": "Player-b swaps instantly from a 'playing' pose to a 'turned, startled' pose at t=1.135s with the label 'menoleh' (turning to look) appearing at the same moment -- a hard pose-swap rather than an eased turn, but it lands squarely on the narrative beat (the mis-cue that breaks the ensemble's tempo) and is unambiguous on a single frame.",
+            "phase": "mid"
+          },
+          {
+            "time": 140.669,
+            "detail": "Clock card updates to show '12:04' in red right after the turn, tying the moment to a specific timestamp for the later observation notes in shot-34.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 12.0,
+          "detail": "A single sharp, readable beat, akin to ref-9's one unmistakable action, though achieved by a pose-swap rather than an animated turn."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 139.269,
+            "detail": "Metronome arm swings on its own pivot without overlapping the players' music stands; clock card is fully separate from both players.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Clean prop separation as in ref-0.5."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 139.269,
+            "detail": "Clock, two music stands with players, and metronome are evenly spaced left-to-right with 'Simulasi' labelled top-left, a clear establishing layout.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Balanced multi-prop composition as in ref-0.5."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 139.869,
+            "detail": "'menoleh' and '12:04' labels sit in open paper space above/beside their subjects, no overlap with any prop.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Clean label placement."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 138.769,
+            "detail": "2.8s is brief but matches the short dialogue line 'Saya membandingkan pengamatan dengan wawancara?' plus the quick turn beat.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 3.0,
+          "end": 9.0,
+          "detail": "Comparable to ref-9's quick single-beat cut."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 140.269,
+            "detail": "Dialogue clear; level consistent with body average.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches reference band."
+        }
+      }
+    },
+    "shot-34": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 141.706,
+            "detail": "No character this shot; two note cards only.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Plain-paper treatment consistent with ref-0.5."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 143.106,
+            "detail": "Red connector line draws between the two cards ('Pengamatan' / 'Wawancara') as the label 'pola penggunaan isyarat' fades in below, visually linking the 12:04 observation to the interview quote.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 18.0,
+          "end": 21.3,
+          "detail": "Single clear linking beat, as in ref-18's arrow-and-resolution pattern."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 143.106,
+            "detail": "Connector line meets each card at its edge, not crossing into either card's text.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 18.0,
+          "end": 21.3,
+          "detail": "Matches ref-18's precise connector placement."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 142.106,
+            "detail": "Two cards sit symmetrically left/right with even margins, label centred beneath the gap.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Balanced two-card layout as in ref-0.5."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 141.706,
+            "detail": "All card text and the gap label are fully legible on blank paper.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "No overlap fault."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 141.606,
+            "detail": "3.6s is proportionate to the short linking beat.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 3.0,
+          "end": 9.0,
+          "detail": "Comparable to ref-9's brief-cut pacing."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 143.606,
+            "detail": "Dialogue 'Saya membandingkan pengamatan dengan wawancara?' is clear.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches reference band."
+        }
+      }
+    },
+    "shot-35": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 145.299,
+            "detail": "No character this shot; continuation of the two-card layout from shot-34.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Consistent plain-paper treatment."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 146.199,
+            "detail": "Grey label 'Simulasi' fades in top-left and the connector line thickens slightly at t≈4.5s, correctly marking the resolution of 'Ya, untuk menelaah pola penggunaan isyarat.'",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 18.0,
+          "detail": "Clear single-concept resolution, matching ref-9/ref-18's restraint."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 146.199,
+            "detail": "Connector/underline stays within the gap between cards, no overlap with card text.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 18.0,
+          "end": 21.3,
+          "detail": "Matches ref-18's precise placement."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 145.699,
+            "detail": "Composition is carried over cleanly from shot-34 with the new 'Simulasi' label added without crowding.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Clean layout as in ref-0.5."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 145.299,
+            "detail": "All text remains fully legible on blank paper.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "No overlap fault."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 145.199,
+            "detail": "5.5s hold matches the deliberate end-of-beat pacing seen elsewhere.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 12.0,
+          "detail": "Matches ref-9/ref-12's hold pacing."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 148.199,
+            "detail": "Narration 'Ya, untuk menelaah pola penggunaan isyarat.' is clear; level consistent with body average.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches reference band."
+        }
+      }
+    },
+    "shot-36": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 150.843,
+            "detail": "No character this shot; note-card and metronome props reused consistently from shot-33.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Consistent prop art."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 152.743,
+            "detail": "Card 'memahami proses' is struck through as a second card 'menguji pengaruh' slides in beside it (prop-76, 'Vidka membalik ke halaman pertanyaan kedua'), correctly dramatizing the pivot to a new question as the metronome reappears to its right.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 18.0,
+          "detail": "Clear single pivot action, matching ref-9/ref-18's one-change-at-a-time pacing."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 152.743,
+            "detail": "New card sits beside, not on top of, the old one; the strike-through line stays within the first card's text block.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Clean card-to-card separation as in ref-0.5."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 153.243,
+            "detail": "Two cards plus a metronome are arranged with even spacing across the frame, no crowding even once both cards are visible.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Balanced composition as in ref-0.5."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 150.843,
+            "detail": "Both card headers and body text are fully legible, the red strike-through does not obscure the words beneath it.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Readable despite the strike mark, unlike the ring-overlap fault elsewhere."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 150.743,
+            "detail": "4.1s covers the single-card-swap beat at a measured pace.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 3.0,
+          "end": 9.0,
+          "detail": "Comparable to ref-9's brief-beat pacing."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 152.743,
+            "detail": "Dialogue clear; level consistent with body average.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches reference band."
+        }
+      }
+    },
+    "shot-37": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 154.917,
+            "detail": "Vidka (vidka-stand-look) and Ardipal (ardipal-point) are both on-model; Ardipal's extended pointing arm is a deliberate new pose for this beat and keeps his established head/beard design.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Consistent character identity, new pose within normal style variance."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 155.817,
+            "detail": "Three boxes draw in one at a time -- 'ukuran tempo', then 'perbandingan yang sesuai', then 'perhatian pada faktor lain' -- each timed to its own clause in 'Perlu ukuran tempo, perbandingan yang sesuai, dan perhatian pada faktor lain.'",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 18.0,
+          "detail": "Sequenced three-step build, matching ref-9/ref-18's one-concept-per-beat pacing."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 156.817,
+            "detail": "Each box is drawn fully around its own phrase with consistent padding; no two boxes overlap.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 18.0,
+          "end": 21.3,
+          "detail": "Matches ref-18's clean box/underline placement."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 155.317,
+            "detail": "'Pertanyaannya berubah.' sits centred at top, the three boxes stack centrally between the two characters, leaving even side margins.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Balanced, legible layout as in ref-0.5."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 154.917,
+            "detail": "All three boxed phrases plus the grey 'bukan membuktikan' annotation are fully legible on blank paper.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "No overlap fault."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 154.817,
+            "detail": "6.1s comfortably covers the three-clause build plus the closing annotation.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 18.0,
+          "detail": "Matches ref-9/ref-18's measured multi-beat pacing."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 157.817,
+            "detail": "Narration across the three clauses is clear and evenly leveled; mean -22.1dB / peak -1.7dB measured for this window.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Measured via loudness, consistent with reference mix."
+        }
+      }
+    },
+    "shot-38": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 161.027,
+            "detail": "vidka-think pose reused consistently at the end of the shot.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Consistent character identity."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 162.927,
+            "detail": "Two pencils write 'Pertanyaan menentukan' then 'rancangan.' in sequence, then stop ('lalu diam') as Vidka's thinking pose appears -- correctly landing on the key-sentence statement for this scene's close.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 18.0,
+          "detail": "Clear single-statement build, matching ref-9/ref-18's restraint."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 162.927,
+            "detail": "Writing-pencil convention consistent with the accepted baseline usage; no new fault.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Consistent, previously-accepted convention."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 161.427,
+            "detail": "Notebook occupies the upper two-thirds, Vidka's small thinking pose bottom-right, leaving the caption band clear.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Balanced composition as in ref-0.5."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 161.027,
+            "detail": "'Pertanyaan menentukan rancangan.' sits well below the spiral rings with full clearance, fully legible.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Correct clearance, a useful contrast with the shot-14/16/17/25 fault."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 160.927,
+            "detail": "5.0s hold matches the scene-ending key-sentence convention.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 12.0,
+          "detail": "Matches ref-9/ref-12's deliberate hold pacing."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 163.427,
+            "detail": "Narration 'Pertanyaan menentukan rancangan.' is clear; level consistent with body average.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches reference band."
+        }
+      }
+    },
+    "shot-39": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 166.027,
+            "detail": "No character this shot; four-box diagram only.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Plain-paper treatment consistent with ref-0.5."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 166.927,
+            "detail": "Boxes 'bacaan', 'masalah', 'pertanyaan' and 'cara penelitian' are connected by red arrows appearing one at a time left-to-right, correctly dramatizing 'Sekarang bacaan, masalah, pertanyaan, dan cara penelitian saya saling terhubung.'",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 18.0,
+          "detail": "Clean sequential four-step build, matching ref-9/ref-18's one-step-at-a-time pacing."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 167.927,
+            "detail": "Arrows meet each box edge-to-edge without crossing into the box text.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 18.0,
+          "end": 21.3,
+          "detail": "Matches ref-18's precise arrow placement."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 166.427,
+            "detail": "Four boxes are evenly spaced in a single row with consistent gaps, label 'Rancangan Vidka' top-left and 'saling terhubung' plus underline beneath.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Clean diagrammatic layout as in ref-0.5/ref-20.5."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 166.027,
+            "detail": "All box labels are fully legible; the last box's two-line label ('cara' / 'penelitian') is sized consistently with the others.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "No overlap fault."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 165.927,
+            "detail": "5.3s is proportionate to the four-step reveal plus the closing underline.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 18.0,
+          "detail": "Matches ref-9/ref-18's measured pacing."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 168.427,
+            "detail": "Narration is clear and timed with each arrow reveal; level consistent with body average.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches reference band."
+        }
+      }
+    },
+    "shot-40": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 171.357,
+            "detail": "Vidka, Herry and Ardipal all reappear with consistent designs; Herry and Ardipal's pose-swaps (listen/talk) read clearly as a natural group conversation.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Consistent multi-character cast, matching ref-0.5's single-character consistency scaled to three figures."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 173.857,
+            "detail": "Open laptop (laptop-side) is shown through t=2.985s with Vidka's hand reaching toward it and a small impact-line SFX mark, then is cleanly replaced by the closed laptop (prop-91) which drops from y=380 to y=414 between t=2.985-3.411s, landing flush on the desk by the end of the shot -- confirmed by inspecting the end-frame crop, which shows a single flat closed laptop resting on the desk line with no leftover open-screen artwork.",
+            "phase": "mid"
+          },
+          {
+            "time": 174.757,
+            "detail": "Two article pages (prop-92/93, 'Artikel dirapikan') settle into a tidy stacked-icon arrangement beside Herry at the same time, completing the 'wrapping up' beat.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 18.0,
+          "detail": "A believable multi-prop 'tidying up' sequence, in the spirit of ref-9/ref-18's single clear state-change, executed here across three props."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 176.257,
+            "detail": "By the end frame the closed laptop sits exactly on the desk's top line with no clipping through the slab; the stacked papers are fully opaque icons with no see-through double outlines.",
+            "phase": "end"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Clean prop-to-desk contact, matching ref-0.5's desk where nothing clips the table edge."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 171.757,
+            "detail": "Three figures plus laptop and stacked papers are spread across the frame with even gaps; labels 'persetujuan dulu' / 'alasan setiap pilihan' sit in open paper space top-right.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Balanced five-element composition as in ref-0.5."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 172.257,
+            "detail": "'persetujuan dulu' label and its yellow underline sit in open space, not overlapping any character or prop.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Clean label placement."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 171.257,
+            "detail": "5.33s comfortably covers the laptop-close and paper-tidy beats plus two lines of dialogue.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 18.0,
+          "detail": "Matches ref-9/ref-18's measured multi-beat pacing."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 173.757,
+            "detail": "Dialogue 'Siapkan persetujuan sebelum mengumpulkan data. Dan jelaskan alasan setiap pilihanmu.' is clear across the shot; level consistent with body average.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Matches reference band."
+        }
+      }
+    },
+    "shot-41": {
+      "drawing_character": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 176.68699999999998,
+            "detail": "Task-card convention and Vidka's think/nod poses identical in design to shots 21/31, correctly reused for the closing task.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Consistent character/prop reuse through to the final shot."
+        }
+      },
+      "semantic_acting": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 176.78699999999998,
+            "detail": "Yellow underline draws under 'Tulis pertanyaanmu. Pilih data' early in the shot, then the green checkmark appears alongside Vidka's pose switching from thinking to nodding near the end, mirroring shots 21/31's completion beat for the film's final task.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 18.0,
+          "end": 21.3,
+          "detail": "Matches ref-18's clear resolution beat, fittingly reused for the closing card."
+        }
+      },
+      "contact_continuity": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 177.087,
+            "detail": "Card and character remain fully separated throughout.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Clean separation as in ref-0.5."
+        }
+      },
+      "composition_evidence": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 177.587,
+            "detail": "Same two-thirds/one-third split as shots 21/31; music-credit line sits small and unobtrusive in the lower-left, not overlapping the card or character.",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Balanced composition as in ref-0.5."
+        }
+      },
+      "typography_captions": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 176.68699999999998,
+            "detail": "Task text 'Tulis pertanyaanmu. Pilih data dan jelaskan alasannya.' is fully contained within the card; the small grey music-attribution line ('Musik: \"Easy Lemon\" Kevin MacLeod (incompetech.com), CC BY 4.0') is legible and correctly placed away from all other text.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Clean containment and correct, unobtrusive attribution placement."
+        }
+      },
+      "timing_pacing": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 176.587,
+            "detail": "6.0s final hold gives the closing task and checkmark resolution room to land before the film ends.",
+            "phase": "start"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 9.0,
+          "end": 12.0,
+          "detail": "Matches ref-9/ref-12's deliberate final-hold pacing."
+        }
+      },
+      "sound": {
+        "status": "pass",
+        "observations": [
+          {
+            "time": 179.587,
+            "detail": "No new dialogue (final hold); measured mean -22.3dB / peak -1.7dB for the window, with the 'Easy Lemon' music bed audible under the held caption, consistent with the rest of the body; no clipping at the film's final true peak (-1.6dBFS overall).",
+            "phase": "mid"
+          }
+        ],
+        "comparison": {
+          "reference_id": "b1-ryan-v4",
+          "start": 0.5,
+          "end": 3.0,
+          "detail": "Measured via loudness/EBU R128, not auditioned by ear; consistent with reference mix levels."
+        }
+      }
+    }
+  }
+}
