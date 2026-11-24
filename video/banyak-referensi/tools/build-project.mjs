@@ -51,7 +51,9 @@ const label = (text, x, y, size = 30) => txt(text, x, y, size, {color: GRAY});
 const taskCard = (title, l1, l2) => [
   img('card', 120, 110, 820), txt(title, 150, 130, 32, {color: RED, bold: true}),
   txt(l1, 150, 182, 50, {bold: true, w: 760}), ...(l2 ? [txt(l2, 150, 254, 50, {bold: true, w: 760})] : []),
-  img('vidka-think', 980, 290, 220), restTap(900, 470),
+  img('vidka-think', 980, 290, 220, {to: 3.0}), img('vidka-nod', 980, 290, 220, {from: 3.0}),
+  draw(underline(150, 240, 520, {color: YELLOW}), 'information', 'Baris tugas digarisbawahi saat dibaca', 0.4, 1.6),
+  draw(line([[930, 180], [956, 212], [1010, 150]], {color: GREEN, lineWidth: 7}), 'information', 'Centang: Vidka menangkap tugasnya', 3.0, 3.8),
 ];
 
 const scenes = [];
@@ -63,27 +65,29 @@ scenes.push({talk: [
     txt('Banyak artikel...', 620, 90, 66, {bold: true, w: 640}), txt('bingung memilih', 620, 190, 66, {bold: true, color: RED, w: 640, from: 1.2}),
   ]},
   {dur: 3, layers: [ // close-up on Vidka's confusion
-    img('vidka-sigh', 380, 50, 400), mv(img('page-b', 120, 200, 200), 'prop', 'Artikel lain masih tergeletak, Vidka menghela napas', [{t: .2, x: 120, angle: -.06}, {t: 1.2, x: 160, angle: .02}, {t: 2.4, x: 150, angle: -.03}]),
+    img('vidka-sigh', 380, 50, 400, {to: 1.0}), img('vidka-turn', 380, 50, 400, {from: 1.0, to: 2.1}), img('vidka-sigh', 380, 50, 400, {from: 2.1}),
+    mv(img('page-b', 120, 200, 200), 'prop', 'Artikel di sampingnya bergeser saat ia menghela napas', [{t: .2, x: 120, angle: -.06}, {t: 1.2, x: 160, angle: .02}, {t: 2.4, x: 150, angle: -.03}]),
   ]},
   {dur: 4, layers: [ // medium: Herry arrives, points at the notebook
-    desk(), laptopSide(), img('page-a', 250, 345, 100), img('page-b', 300, 360, 90),
-    vidka('turn', {to: 1.6}), vidka('listen', {from: 1.6}),
-    slideX(herry('point'), 'actor', 'Herry mendekat sambil menunjuk buku catatan', 0.2, 1.4, 1180, 960),
-    img('notebook', 770, 330, 210), hand('catatanmu', 800, 372, 28),
-    draw(line([[780, 358], [985, 354], [990, 402], [780, 406], [780, 358]], {color: RED, lineWidth: 3}), 'information', 'Buku catatan dilingkari', 2.0, 3.0),
+    desk(), laptopSide(), img('page-a', 200, 318, 100), img('page-b', 320, 318, 100),
+    vidka('turn', {to: 1.6}), vidka('listen', {from: 1.6}), herry('listen', 960, {to: .6}), herry('point', 960, {from: .6}),
+    img('notebook', 770, 300, 210), hand('catatanmu', 800, 342, 28),
+    draw(line([[968, 386], [950, 376], [930, 366]], {color: RED, lineWidth: 5}), 'information', 'Herry mengetuk buku catatan', 0.6, 1.2),
+    draw(line([[780, 328], [985, 324], [990, 372], [780, 376], [780, 328]], {color: RED, lineWidth: 3}), 'information', 'Buku catatan dilingkari', 2.0, 3.0),
   ]},
 ], hold: [
   {dur: 1.5, layers: [ // table: Vidka menggeser tumpukan artikel dan membuka buku
     desk(), laptopSide(), vidka('tidy'), herry('listen'),
-    mv(img('page-a', 250, 345, 100), 'prop', 'Vidka menggeser tumpukan artikel ke tepi', [{t: .1, x: 250, angle: 0}, {t: .9, x: 150, angle: -.08}]),
-    mv(img('page-b', 300, 360, 90), 'prop', 'Artikel kedua ikut digeser', [{t: .3, x: 300}, {t: 1.1, x: 190}]),
-    mv(img('notebook', 770, 330, 210), 'prop', 'Buku catatan ditarik mendekat', [{t: .5, x: 790}, {t: 1.4, x: 730}]),
+    mv(img('page-a', 540, 318, 100), 'prop', 'Tangan Vidka menggeser artikel di depannya ke tepi', [{t: .1, x: 540, angle: 0}, {t: .9, x: 400, angle: -.06}]),
+    mv(img('page-b', 580, 324, 100), 'prop', 'Artikel kedua ikut tergeser oleh sapuan tangan', [{t: .3, x: 580}, {t: 1.1, x: 450}]),
+    img('notebook', 770, 300, 210), hand('catatanmu', 800, 342, 28),
   ]},
   {dur: 3.5, layers: [ // notebook close-up: the question Vidka wrote earlier
     txt('catatan awal Vidka', 200, 36, 30, {color: RED}), img('notebook', 160, 70, 720),
     hand('Bagaimana kelompok kami', 230, 170, 50, {from: .2}), hand('menjaga tempo?', 230, 250, 50, {from: .8}),
-    mv(img('pencil', 230, 150, 90), 'prop', 'Vidka menunjuk tulisannya lalu pensil beristirahat', [{t: .1, x: 230, y: 150}, {t: .8, x: 700, y: 150}, {t: 1.1, x: 760, y: 300}, ...tapKeys(1.4, 3.3, 300, 6).map(k => ({...k, x: 760}))]),
-    img('vidka-think', 960, 290, 220),
+    {...write(230, 700, 150, 0.1, 0.8, 'Pensil menelusuri pertanyaan yang pernah ditulis'), to: 1.4},
+    draw(underline(230, 300, 420, {color: YELLOW}), 'information', 'Pertanyaan awal digarisbawahi', 1.6, 2.4),
+    img('vidka-think', 960, 290, 220, {to: 2.2}), img('vidka-aha', 960, 290, 220, {from: 2.2}),
   ]},
 ], sfx: [[0.3, 'paper', .05, 'talk'], [3.2, 'paper', .04, 'talk'], [8.3, 'tap', .05, 'talk'], [0.4, 'paper', .04, 'hold']]});
 
@@ -91,8 +95,8 @@ scenes.push({talk: [
 scenes.push({talk: [
   {dur: 3, layers: [
     img('laptop-front', 80, 60, 560), img('search-box', 160, 140, 420), hand('musik', 190, 146, 52),
-    vidka('listen', {x: 700, w: 300}), ardipal('talk', 1040, {w: 190}),
-    ...[0, 1, 2].map(i => slideY(img('page-plain', 200 + i * 120, 215, 60), 'information', 'Hasil pencarian yang terlalu banyak', 0.3 + i * .8, 1.0 + i * .8, 215, 280)),
+    vidka('listen', {x: 700, w: 300, to: 2.1}), vidka('turn', {x: 700, w: 300, from: 2.1}), ardipal('talk', 1040, {w: 190, to: 2.1}), ardipal('listen', 1040, {w: 190, from: 2.1}),
+    ...[0, 1, 2].map(i => slideY(img('page-plain', 210 + i * 110, 200, 50), 'information', 'Hasil pencarian menumpuk di layar', 0.3 + i * .7, 0.9 + i * .7, 200, 236)),
     txt('terlalu luas', 200, 462, 40, {color: RED, bold: true}),
   ]},
   {dur: 7, layers: [ // screen close-up: narrow the keywords, then English equivalents
@@ -111,8 +115,8 @@ sfx: [[0.4, 'tap', .04, 'talk'], [3.3, 'tap', .05, 'talk'], [4.3, 'tap', .04, 't
 const pagePair = () => [img('page-a', 200, 50, 300), img('page-b', 760, 50, 300), hand('Peserta: musisi profesional', 200, 462, 32), hand('Peserta: siswa pemula', 760, 462, 32)];
 scenes.push({talk: [
   {dur: 3.5, layers: [
-    desk(), vidka('listen', {to: 1.0}), vidka('turn', {from: 1.0}), herry('listen', 1000),
-    mv(img('page-a', 330, 240, 170), 'prop', 'Vidka mengangkat artikel terkenal itu', [{t: .2, y: 340, angle: .06}, {t: 1.0, y: 240, angle: 0}, {t: 2.6, y: 246, angle: .01}]),
+    desk(), vidka('turn'), herry('listen', 1000, {to: 2.2}), herry('nod', 1000, {from: 2.2}),
+    mv(img('page-a', 330, 240, 170), 'prop', 'Vidka menyodorkan artikel terkenal itu ke depan', [{t: .2, x: 140, angle: -.06}, {t: 1.0, x: 330, angle: 0}, {t: 2.6, x: 338, angle: .01}]),
     txt('artikel terkenal', 120, 90, 44, {bold: true}), txt('musisi profesional', 120, 150, 44, {color: GRAY}),
   ]},
   {dur: 6.5, layers: [
@@ -128,9 +132,9 @@ scenes.push({talk: [
   {dur: 5, layers: [ // highlight the participant lines on both articles
     ...pagePair(), img('sticky-yellow', 380, 60, 130), txt('KONSEP', 398, 100, 30, {bold: true}), img('sticky-pink', 940, 60, 130), txt('KONTEKS', 948, 88, 30, {bold: true}), txt('SISWA', 966, 124, 30, {bold: true}),
     draw(line([[198, 482], [560, 482]], {color: YELLOW, lineWidth: 30, alpha: .55}), 'information', 'Sorot bagian peserta artikel pertama', 0.3, 1.3),
-    slideX(img('highlighter', 200, 430, 90), 'prop', 'Stabilo menyapu baris peserta', 0.3, 1.3, 200, 520),
+    slideX(img('highlighter', 110, 430, 90), 'prop', 'Stabilo menyapu baris peserta dari kiri', 0.3, 1.3, 110, 520),
     draw(line([[758, 482], [1060, 482]], {color: YELLOW, lineWidth: 30, alpha: .55}), 'information', 'Sorot bagian peserta artikel kedua', 2.3, 3.3),
-    slideX(img('highlighter', 760, 430, 90), 'prop', 'Stabilo pindah ke artikel kedua', 2.3, 3.3, 760, 1020),
+    slideX(img('highlighter', 670, 430, 90), 'prop', 'Stabilo pindah ke artikel kedua', 2.3, 3.3, 670, 1020),
     txt('Peserta', 590, 530, 40, {color: RED, bold: true, from: 3.4}), draw(underline(590, 575, 150, {color: RED}), 'information', 'Label peserta digarisbawahi', 3.6, 4.2),
   ]},
 ], sfx: [[0.4, 'paper', .05, 'talk'], [4.8, 'pop', .05, 'talk'], [7.6, 'pop', .05, 'talk'], [0.4, 'paper', .04, 'hold'], [2.4, 'paper', .04, 'hold']]});
@@ -138,8 +142,8 @@ scenes.push({talk: [
 // 4. Memeriksa dukungan sumber (V: judul cocok, langsung kutip? | A: baca metode dan hasil; mendukung? kredibilitas)
 scenes.push({talk: [
   {dur: 3, layers: [
-    desk(), vidka('turn'), ardipal('talk', 1000),
-    mv(img('page-plain', 330, 240, 170), 'prop', 'Vidka menunjukkan judul artikel yang cocok', [{t: .2, y: 340, angle: .05}, {t: 1.0, y: 240, angle: 0}, {t: 2.4, y: 246, angle: -.01}]),
+    desk(), vidka('turn', {to: 2.8}), vidka('listen', {from: 2.8}), ardipal('listen', 1000, {to: 2.8}), ardipal('talk', 1000, {from: 2.8}),
+    mv(img('page-plain', 330, 240, 170), 'prop', 'Vidka menyodorkan artikel yang judulnya cocok', [{t: .2, x: 140, angle: -.05}, {t: 1.0, x: 330, angle: 0}, {t: 2.4, x: 338, angle: -.01}]),
     txt('judulnya cocok', 120, 80, 48, {bold: true}), txt('langsung dikutip?', 120, 145, 48, {color: RED, bold: true, from: 1.2}),
   ]},
   {dur: 7, layers: [ // page close-up: method, result, finding, credibility
@@ -148,7 +152,7 @@ scenes.push({talk: [
     draw(line([[400, 380], [690, 380]], {color: YELLOW, lineWidth: 26, alpha: .55}), 'information', 'Stabilo menandai satu temuan di hasil', 3.2, 4.2),
     hand('Metode', 400, 150, 34, {bold: true, color: RED}), hand('Hasil', 400, 330, 34, {bold: true, color: RED}),
     mv(img('highlighter', 420, 150, 90), 'prop', 'Stabilo menelusuri metode lalu hasil', [{t: .3, x: 420, y: 150}, {t: 1.4, x: 660, y: 150}, {t: 2.4, x: 660, y: 150}, {t: 3.2, x: 420, y: 330}, {t: 4.2, x: 660, y: 330}, {t: 5.6, x: 760, y: 250}]),
-    hand('temuan: latihan bagian pendek', 380, 420, 32, {from: 4.3, bold: true}),
+    txt('temuan:', 40, 300, 34, {bold: true, color: RED, w: 280, from: 4.3}), hand('latihan bagian pendek', 40, 345, 34, {w: 280, from: 4.3}),
     txt('Baca metode', 40, 110, 42, {bold: true, w: 280}), txt('dan hasilnya.', 40, 165, 42, {bold: true, w: 280}),
     txt('Kredibel?', 790, 110, 40, {bold: true, color: RED, w: 440, from: 5.0}), txt('jurnal, penulis, tahun', 790, 165, 32, {color: GRAY, w: 440, from: 5.4}),
     draw(underline(790, 210, 300, {color: RED}), 'information', 'Pertanyaan kredibilitas digarisbawahi', 5.8, 6.6),
@@ -156,9 +160,10 @@ scenes.push({talk: [
 ], hold: [
   {dur: 5, layers: [ // finding matched against the claim note
     txt('catatan klaim', 150, 56, 30, {color: RED}), img('notebook', 120, 90, 520), hand('Siswa pemula butuh', 160, 170, 36), hand('latihan bagian pendek.', 160, 220, 36),
-    txt('temuan artikel', 790, 56, 30, {color: RED}), img('note-card', 760, 120, 420), label('contoh ilustratif', 790, 380, 30), hand('latihan bagian pendek', 790, 180, 32), hand('membuat lebih kompak', 790, 223, 32),
+    txt('temuan artikel', 790, 56, 30, {color: RED}), img('note-card', 760, 120, 420), label('contoh ilustratif', 820, 380, 30), hand('latihan bagian pendek', 820, 180, 32), hand('membuat lebih kompak', 820, 223, 32),
     draw(line([[640, 210], [760, 210]], {color: RED, lineWidth: 5}), 'information', 'Temuan dicocokkan dengan klaim', 0.4, 1.2),
-    txt('Mendukung kalimat yang mana?', 120, 500, 50, {bold: true, w: 1100, from: 1.3}), restTap(1080, 440),
+    txt('Mendukung kalimat yang mana?', 120, 500, 50, {bold: true, w: 1100, from: 1.3}),
+    draw(underline(120, 560, 560, {color: YELLOW}), 'information', 'Pertanyaan kunci digarisbawahi', 2.4, 3.4),
   ]},
 ], sfx: [[0.4, 'paper', .05, 'talk'], [3.4, 'paper', .04, 'talk'], [6.3, 'paper', .04, 'talk'], [0.5, 'tap', .05, 'hold'], [1.4, 'pop', .05, 'hold']]});
 
@@ -189,7 +194,9 @@ scenes.push({talk: [
   {dur: 5, layers: [
     img('notebook', 700, 140, 480), hand('pertanyaan sementara', 730, 180, 30, {color: RED}), hand('Bagaimana kelompok kami', 730, 230, 36), hand('menggunakan keduanya?', 730, 282, 36), ...cards(380),
     line([[680, 200], [740, 250]], {color: RED, lineWidth: 4}), line([[680, 400], [740, 300]], {color: RED, lineWidth: 4}),
-    label('Contoh bacaan ilustratif.', 40, 40, 26), restTap(1100, 330),
+    label('Contoh bacaan ilustratif.', 40, 40, 30),
+    draw(underline(730, 330, 330, {color: YELLOW}), 'information', 'Pertanyaan sementara digarisbawahi', 1.0, 1.8),
+    draw(line([[680, 200], [740, 250]], {color: RED, lineWidth: 6}), 'information', 'Garis penghubung ditebalkan ulang', 3.0, 3.6),
   ]},
 ], sfx: [[0.5, 'paper', .04, 'talk'], [2.3, 'paper', .04, 'talk'], [6.4, 'tap', .05, 'talk'], [9.0, 'pop', .04, 'talk']]});
 
@@ -230,7 +237,8 @@ scenes.push({talk: [
     txt('PERNYATAAN MASALAH', 120, 90, 28, {color: RED, bold: true}),
     hand('Belum jelas bagaimana siswa', 120, 150, 54, {w: 1040}), hand('mengikuti tempo teman saat latihan.', 120, 230, 54, {w: 1040}),
     draw(line([[1190, 140], [1210, 140], [1210, 310], [1190, 310]], {color: NAVY, lineWidth: 4}), 'information', 'Kurung menandai pernyataan masalah', 0.3, 1.3),
-    txt('dari bukti awal dan bacaan', 120, 340, 32, {color: GRAY, from: 1.4}), restTap(1080, 420),
+    txt('dari bukti awal dan bacaan', 120, 340, 32, {color: GRAY, from: 1.4}),
+    draw(underline(120, 300, 760, {color: YELLOW}), 'information', 'Kalimat pernyataan masalah digarisbawahi', 2.6, 3.6),
   ]},
 ], sfx: [[0.3, 'paper', .04, 'talk'], [3.2, 'tap', .05, 'talk'], [5.0, 'tap', .05, 'talk'], [7.2, 'tap', .05, 'talk'], [0.4, 'pop', .05, 'hold']]});
 
@@ -250,7 +258,7 @@ scenes.push({talk: [
     txt('KONTEKS APA', 120, 80, 28, {color: RED, bold: true, from: 3.0}), {...draw(underline(120, 342, 470, {color: YELLOW}), 'information', 'Sorotan konteks: tempo dalam ansambel', 3.2, 4.0), from: 3.0},
   ]},
 ], hold: [
-  {dur: 5, layers: [...bigQ(), draw(line([[1040, 150], [1066, 182], [1120, 120]], {color: GREEN, lineWidth: 7}), 'information', 'Centang: pertanyaan lengkap', 0.3, 0.9), txt('lengkap', 1020, 200, 30, {color: GREEN, from: .9}), restTap(1100, 420)]},
+  {dur: 5, layers: [...bigQ(), draw(line([[1040, 150], [1066, 182], [1120, 120]], {color: GREEN, lineWidth: 7}), 'information', 'Centang: pertanyaan lengkap', 0.3, 0.9), txt('lengkap', 1020, 200, 30, {color: GREEN, from: .9}), draw(underline(120, 342, 470, {color: YELLOW}), 'information', 'Pertanyaan utuh ditegaskan sekali', 2.2, 3.2)]},
 ], sfx: [[0.3, 'tap', .05, 'talk'], [5.7, 'pop', .04, 'talk'], [7.2, 'pop', .04, 'talk'], [8.7, 'pop', .04, 'talk'], [0.4, 'chime', .05, 'hold']]});
 
 // 9. Memilih data yang diperlukan (V: kuesioner saja? | A: menunjukkan tindakan saat latihan? | V: belum cukup; mengamati, lalu menanyakan alasannya)
@@ -297,7 +305,7 @@ scenes.push({talk: [
     txt('pola penggunaan isyarat', 420, 440, 40, {color: NAVY, bold: true, from: 1.5}), draw(underline(420, 490, 440, {color: YELLOW}), 'information', 'Penekanan pada pola isyarat', 2.2, 3.0),
   ]},
 ], hold: [
-  {dur: 5, layers: [...pair(), line([[540, 270], [740, 270]], {color: RED, lineWidth: 5}), txt('pola penggunaan isyarat', 420, 440, 40, {color: NAVY, bold: true}), label('Simulasi', 40, 30, 26), restTap(1100, 480)]},
+  {dur: 5, layers: [...pair(), line([[540, 270], [740, 270]], {color: RED, lineWidth: 5}), txt('pola penggunaan isyarat', 420, 440, 40, {color: NAVY, bold: true}), label('Simulasi', 40, 30, 30), draw(underline(420, 490, 440, {color: YELLOW}), 'information', 'Pola isyarat digarisbawahi', 1.0, 1.8), draw(line([[540, 270], [740, 270]], {color: RED, lineWidth: 7}), 'information', 'Penghubung pengamatan–wawancara ditebalkan', 3.0, 3.6)]},
 ], sfx: [[0.3, 'tap', .05, 'talk'], [4.4, 'pop', .04, 'talk'], [6.6, 'tap', .05, 'talk'], [7.7, 'chime', .05, 'talk']]});
 
 // 11. Menyesuaikan rancangan dengan pertanyaan (V: kalau menguji metronom? | A: pertanyaannya berubah: ukuran tempo, perbandingan, faktor lain)

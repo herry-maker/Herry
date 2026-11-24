@@ -261,7 +261,7 @@
      "x": 100,
      "y": 150,
      "w": 200,
-     "id": "prop-57",
+     "id": "prop-60",
      "motion": {
       "role": "prop",
       "reason": "Kuesioner diangkat dan dibaca"
@@ -320,7 +320,7 @@
      "x": 1000,
      "y": 160,
      "w": 190,
-     "id": "prop-58",
+     "id": "prop-61",
      "motion": {
       "role": "prop",
       "reason": "Pintu ruang latihan masuk ke bidang pandang"
@@ -353,7 +353,7 @@
      "x": 100,
      "y": 150,
      "w": 200,
-     "id": "prop-59",
+     "id": "prop-62",
      "motion": {
       "role": "prop",
       "reason": "Kuesioner diturunkan"
@@ -391,7 +391,7 @@
      "x": 160,
      "y": 300,
      "w": 260,
-     "id": "prop-60",
+     "id": "prop-63",
      "motion": {
       "role": "prop",
       "reason": "Buku pengamatan ditempatkan pertama"
@@ -434,7 +434,7 @@
      "x": 640,
      "y": 300,
      "w": 200,
-     "id": "prop-61",
+     "id": "prop-64",
      "motion": {
       "role": "prop",
       "reason": "Kuesioner diletakkan di samping buku pengamatan"
@@ -480,7 +480,7 @@
      "w": 200,
      "color": "#EC4338",
      "lineWidth": 4,
-     "id": "information-62",
+     "id": "information-65",
      "motion": {
       "role": "information",
       "reason": "Urutan: mengamati lalu menanyakan"
@@ -542,63 +542,70 @@
      "path": "../../art/vidka-think.png",
      "x": 980,
      "y": 290,
-     "w": 220
+     "w": 220,
+     "to": 3
     },
     {
      "type": "image",
-     "path": "../../art/pencil.png",
-     "x": 900,
-     "y": 470,
-     "w": 80,
-     "id": "prop-63",
+     "path": "../../art/vidka-nod.png",
+     "x": 980,
+     "y": 290,
+     "w": 220,
+     "from": 3
+    },
+    {
+     "type": "underline",
+     "x": 150,
+     "y": 240,
+     "w": 520,
+     "color": "#F6D34A",
+     "id": "information-66",
      "motion": {
-      "role": "prop",
-      "reason": "Jeda: pensil mengetuk pelan sementara penonton membaca"
+      "role": "information",
+      "reason": "Baris tugas digarisbawahi saat dibaca"
      },
      "keys": [
       {
-       "t": 0.3,
-       "y": 470
+       "t": 0.4,
+       "progress": 0
       },
       {
-       "t": 0.75,
-       "y": 464
-      },
-      {
-       "t": 1.2,
-       "y": 470
-      },
-      {
-       "t": 1.65,
-       "y": 464
-      },
-      {
-       "t": 2.1,
-       "y": 470
-      },
-      {
-       "t": 2.55,
-       "y": 464
-      },
+       "t": 1.6,
+       "progress": 1
+      }
+     ]
+    },
+    {
+     "type": "line",
+     "points": [
+      [
+       930,
+       180
+      ],
+      [
+       956,
+       212
+      ],
+      [
+       1010,
+       150
+      ]
+     ],
+     "color": "#3E9B5F",
+     "lineWidth": 7,
+     "id": "information-67",
+     "motion": {
+      "role": "information",
+      "reason": "Centang: Vidka menangkap tugasnya"
+     },
+     "keys": [
       {
        "t": 3,
-       "y": 470
+       "progress": 0
       },
       {
-       "t": 3.45,
-       "y": 464
-      },
-      {
-       "t": 3.9,
-       "y": 470
-      },
-      {
-       "t": 4.35,
-       "y": 464
-      },
-      {
-       "t": 4.8,
-       "y": 470
+       "t": 3.8,
+       "progress": 1
       }
      ]
     }
@@ -650,7 +657,7 @@
      "x": 240,
      "y": 130,
      "w": 90,
-     "id": "prop-64",
+     "id": "prop-68",
      "motion": {
       "role": "prop",
       "reason": "Pensil Vidka menulis"
@@ -680,7 +687,7 @@
      "x": 240,
      "y": 210,
      "w": 90,
-     "id": "prop-65",
+     "id": "prop-69",
      "motion": {
       "role": "prop",
       "reason": "Pensil menulis tujuan"
@@ -773,7 +780,7 @@
      "x": 969,
      "y": 456,
      "w": 9,
-     "id": "prop-66",
+     "id": "prop-70",
      "motion": {
       "role": "prop",
       "reason": "Lengan metronom berayun menandai tempo"
@@ -845,7 +852,7 @@
      "x": 60,
      "y": 420,
      "w": 200,
-     "id": "prop-67",
+     "id": "prop-71",
      "motion": {
       "role": "prop",
       "reason": "Vidka mencatat waktunya"
@@ -961,7 +968,7 @@
      ],
      "color": "#EC4338",
      "lineWidth": 5,
-     "id": "information-68",
+     "id": "information-72",
      "motion": {
       "role": "information",
       "reason": "Pengamatan dibandingkan dengan wawancara"
@@ -994,7 +1001,7 @@
      "y": 490,
      "w": 440,
      "color": "#F6D34A",
-     "id": "information-69",
+     "id": "information-73",
      "motion": {
       "role": "information",
       "reason": "Penekanan pada pola isyarat"
@@ -1114,65 +1121,59 @@
      "text": "Simulasi",
      "x": 40,
      "y": 30,
-     "size": 26,
+     "size": 30,
      "w": 1230,
      "color": "#6b7280"
     },
     {
-     "type": "image",
-     "path": "../../art/pencil.png",
-     "x": 1100,
-     "y": 480,
-     "w": 80,
-     "id": "prop-70",
+     "type": "underline",
+     "x": 420,
+     "y": 490,
+     "w": 440,
+     "color": "#F6D34A",
+     "id": "information-74",
      "motion": {
-      "role": "prop",
-      "reason": "Jeda: pensil mengetuk pelan sementara penonton membaca"
+      "role": "information",
+      "reason": "Pola isyarat digarisbawahi"
      },
      "keys": [
       {
-       "t": 0.333,
-       "y": 480
+       "t": 1.109,
+       "progress": 0
       },
       {
-       "t": 0.832,
-       "y": 474
-      },
-      {
-       "t": 1.331,
-       "y": 480
-      },
-      {
-       "t": 1.83,
-       "y": 474
-      },
-      {
-       "t": 2.328,
-       "y": 480
-      },
-      {
-       "t": 2.827,
-       "y": 474
-      },
+       "t": 1.996,
+       "progress": 1
+      }
+     ]
+    },
+    {
+     "type": "line",
+     "points": [
+      [
+       540,
+       270
+      ],
+      [
+       740,
+       270
+      ]
+     ],
+     "color": "#EC4338",
+     "lineWidth": 7,
+     "id": "information-75",
+     "motion": {
+      "role": "information",
+      "reason": "Penghubung pengamatan–wawancara ditebalkan"
+     },
+     "keys": [
       {
        "t": 3.326,
-       "y": 480
+       "progress": 0
       },
       {
-       "t": 3.825,
-       "y": 474
-      },
-      {
-       "t": 4.324,
-       "y": 480
-      },
-      {
-       "t": 4.823,
-       "y": 474
-      },
-      {
-       "t": 5.322,
-       "y": 480
+       "t": 3.992,
+       "progress": 1
       }
      ]
     }
@@ -1222,7 +1223,7 @@
      "x": 120,
      "y": 80,
      "w": 380,
-     "id": "prop-71",
+     "id": "prop-76",
      "motion": {
       "role": "prop",
       "reason": "Vidka membalik ke halaman pertanyaan kedua"
@@ -1283,7 +1284,7 @@
      "x": 1069,
      "y": 456,
      "w": 9,
-     "id": "prop-72",
+     "id": "prop-77",
      "motion": {
       "role": "prop",
       "reason": "Lengan metronom berayun menandai tempo"
@@ -1386,7 +1387,7 @@
      ],
      "color": "#1F3A5F",
      "lineWidth": 4,
-     "id": "information-73",
+     "id": "information-78",
      "motion": {
       "role": "information",
       "reason": "Kotak: ukuran tempo"
@@ -1438,7 +1439,7 @@
      ],
      "color": "#1F3A5F",
      "lineWidth": 4,
-     "id": "information-74",
+     "id": "information-79",
      "motion": {
       "role": "information",
       "reason": "Kotak: perbandingan yang sesuai"
@@ -1490,7 +1491,7 @@
      ],
      "color": "#1F3A5F",
      "lineWidth": 4,
-     "id": "information-75",
+     "id": "information-80",
      "motion": {
       "role": "information",
       "reason": "Kotak: perhatian pada faktor lain"
@@ -1565,7 +1566,7 @@
      "x": 240,
      "y": 150,
      "w": 90,
-     "id": "prop-76",
+     "id": "prop-81",
      "motion": {
       "role": "prop",
       "reason": "Pensil Vidka menulis"
@@ -1595,7 +1596,7 @@
      "x": 240,
      "y": 230,
      "w": 90,
-     "id": "prop-77",
+     "id": "prop-82",
      "motion": {
       "role": "prop",
       "reason": "Pensil menulis kata terakhir lalu diam"
@@ -1685,7 +1686,7 @@
      ],
      "color": "#1F3A5F",
      "lineWidth": 4,
-     "id": "information-78",
+     "id": "information-83",
      "motion": {
       "role": "information",
       "reason": "Kotak bacaan"
@@ -1718,7 +1719,7 @@
      "w": 50,
      "color": "#EC4338",
      "lineWidth": 4,
-     "id": "information-79",
+     "id": "information-84",
      "motion": {
       "role": "information",
       "reason": "Panah 1"
@@ -1760,7 +1761,7 @@
      ],
      "color": "#1F3A5F",
      "lineWidth": 4,
-     "id": "information-80",
+     "id": "information-85",
      "motion": {
       "role": "information",
       "reason": "Kotak masalah"
@@ -1793,7 +1794,7 @@
      "w": 50,
      "color": "#EC4338",
      "lineWidth": 4,
-     "id": "information-81",
+     "id": "information-86",
      "motion": {
       "role": "information",
       "reason": "Panah 2"
@@ -1835,7 +1836,7 @@
      ],
      "color": "#1F3A5F",
      "lineWidth": 4,
-     "id": "information-82",
+     "id": "information-87",
      "motion": {
       "role": "information",
       "reason": "Kotak pertanyaan"
@@ -1868,7 +1869,7 @@
      "w": 50,
      "color": "#EC4338",
      "lineWidth": 4,
-     "id": "information-83",
+     "id": "information-88",
      "motion": {
       "role": "information",
       "reason": "Panah 3"
@@ -1910,7 +1911,7 @@
      ],
      "color": "#1F3A5F",
      "lineWidth": 4,
-     "id": "information-84",
+     "id": "information-89",
      "motion": {
       "role": "information",
       "reason": "Kotak cara"
@@ -1962,7 +1963,7 @@
      "y": 410,
      "w": 330,
      "color": "#F6D34A",
-     "id": "information-85",
+     "id": "information-90",
      "motion": {
       "role": "information",
       "reason": "Penekanan keterhubungan"
@@ -2053,7 +2054,7 @@
      "x": 300,
      "y": 414,
      "w": 170,
-     "id": "prop-86",
+     "id": "prop-91",
      "motion": {
       "role": "prop",
       "reason": "Vidka menutup laptop"
@@ -2075,7 +2076,7 @@
      "x": 820,
      "y": 290,
      "w": 100,
-     "id": "prop-87",
+     "id": "prop-92",
      "motion": {
       "role": "prop",
       "reason": "Artikel pertama dirapikan"
@@ -2099,7 +2100,7 @@
      "x": 860,
      "y": 320,
      "w": 100,
-     "id": "prop-88",
+     "id": "prop-93",
      "motion": {
       "role": "prop",
       "reason": "Artikel kedua dirapikan"
@@ -2144,7 +2145,7 @@
      "y": 190,
      "w": 240,
      "color": "#F6D34A",
-     "id": "information-89",
+     "id": "information-94",
      "motion": {
       "role": "information",
       "reason": "Penekanan pada alasan pilihan"
@@ -2206,63 +2207,70 @@
      "path": "../../art/vidka-think.png",
      "x": 980,
      "y": 290,
-     "w": 220
+     "w": 220,
+     "to": 3.6
     },
     {
      "type": "image",
-     "path": "../../art/pencil.png",
-     "x": 900,
-     "y": 470,
-     "w": 80,
-     "id": "prop-90",
+     "path": "../../art/vidka-nod.png",
+     "x": 980,
+     "y": 290,
+     "w": 220,
+     "from": 3.6
+    },
+    {
+     "type": "underline",
+     "x": 150,
+     "y": 240,
+     "w": 520,
+     "color": "#F6D34A",
+     "id": "information-95",
      "motion": {
-      "role": "prop",
-      "reason": "Jeda: pensil mengetuk pelan sementara penonton membaca"
+      "role": "information",
+      "reason": "Baris tugas digarisbawahi saat dibaca"
      },
      "keys": [
       {
-       "t": 0.36,
-       "y": 470
+       "t": 0.48,
+       "progress": 0
       },
       {
-       "t": 0.9,
-       "y": 464
-      },
-      {
-       "t": 1.44,
-       "y": 470
-      },
-      {
-       "t": 1.98,
-       "y": 464
-      },
-      {
-       "t": 2.52,
-       "y": 470
-      },
-      {
-       "t": 3.06,
-       "y": 464
-      },
+       "t": 1.92,
+       "progress": 1
+      }
+     ]
+    },
+    {
+     "type": "line",
+     "points": [
+      [
+       930,
+       180
+      ],
+      [
+       956,
+       212
+      ],
+      [
+       1010,
+       150
+      ]
+     ],
+     "color": "#3E9B5F",
+     "lineWidth": 7,
+     "id": "information-96",
+     "motion": {
+      "role": "information",
+      "reason": "Centang: Vidka menangkap tugasnya"
+     },
+     "keys": [
       {
        "t": 3.6,
-       "y": 470
+       "progress": 0
       },
       {
-       "t": 4.14,
-       "y": 464
-      },
-      {
-       "t": 4.68,
-       "y": 470
-      },
-      {
-       "t": 5.22,
-       "y": 464
-      },
-      {
-       "t": 5.76,
-       "y": 470
+       "t": 4.56,
+       "progress": 1
       }
      ]
     },

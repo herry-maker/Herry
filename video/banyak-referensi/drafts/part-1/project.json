@@ -296,7 +296,25 @@
      "path": "../../art/vidka-sigh.png",
      "x": 380,
      "y": 50,
-     "w": 400
+     "w": 400,
+     "to": 0.728
+    },
+    {
+     "type": "image",
+     "path": "../../art/vidka-turn.png",
+     "x": 380,
+     "y": 50,
+     "w": 400,
+     "from": 0.728,
+     "to": 1.528
+    },
+    {
+     "type": "image",
+     "path": "../../art/vidka-sigh.png",
+     "x": 380,
+     "y": 50,
+     "w": 400,
+     "from": 1.528
     },
     {
      "type": "image",
@@ -307,7 +325,7 @@
      "id": "prop-2",
      "motion": {
       "role": "prop",
-      "reason": "Artikel lain masih tergeletak, Vidka menghela napas"
+      "reason": "Artikel di sampingnya bergeser saat ia menghela napas"
      },
      "keys": [
       {
@@ -350,16 +368,16 @@
     {
      "type": "image",
      "path": "../../art/page-a.png",
-     "x": 250,
-     "y": 345,
+     "x": 200,
+     "y": 318,
      "w": 100
     },
     {
      "type": "image",
      "path": "../../art/page-b.png",
-     "x": 300,
-     "y": 360,
-     "w": 90
+     "x": 320,
+     "y": 318,
+     "w": 100
     },
     {
      "type": "image",
@@ -379,38 +397,32 @@
     },
     {
      "type": "image",
+     "path": "../../art/herry-listen.png",
+     "x": 960,
+     "y": 226.66666666666669,
+     "w": 200,
+     "to": 0.437
+    },
+    {
+     "type": "image",
      "path": "../../art/herry-point.png",
      "x": 960,
      "y": 226.66666666666669,
      "w": 200,
-     "id": "actor-3",
-     "motion": {
-      "role": "actor",
-      "reason": "Herry mendekat sambil menunjuk buku catatan"
-     },
-     "keys": [
-      {
-       "t": 0.146,
-       "x": 1180
-      },
-      {
-       "t": 1.019,
-       "x": 960
-      }
-     ]
+     "from": 0.437
     },
     {
      "type": "image",
      "path": "../../art/notebook.png",
      "x": 770,
-     "y": 330,
+     "y": 300,
      "w": 210
     },
     {
      "type": "text",
      "text": "catatanmu",
      "x": 800,
-     "y": 372,
+     "y": 342,
      "size": 28,
      "w": 470,
      "color": "#1F3A5F"
@@ -419,24 +431,58 @@
      "type": "line",
      "points": [
       [
+       968,
+       386
+      ],
+      [
+       950,
+       376
+      ],
+      [
+       930,
+       366
+      ]
+     ],
+     "color": "#EC4338",
+     "lineWidth": 5,
+     "id": "information-3",
+     "motion": {
+      "role": "information",
+      "reason": "Herry mengetuk buku catatan"
+     },
+     "keys": [
+      {
+       "t": 0.437,
+       "progress": 0
+      },
+      {
+       "t": 0.873,
+       "progress": 1
+      }
+     ]
+    },
+    {
+     "type": "line",
+     "points": [
+      [
        780,
-       358
+       328
       ],
       [
        985,
-       354
+       324
       ],
       [
        990,
-       402
+       372
       ],
       [
        780,
-       406
+       376
       ],
       [
        780,
-       358
+       328
       ]
      ],
      "color": "#EC4338",
@@ -494,46 +540,46 @@
     {
      "type": "image",
      "path": "../../art/page-a.png",
-     "x": 250,
-     "y": 345,
+     "x": 540,
+     "y": 318,
      "w": 100,
      "id": "prop-5",
      "motion": {
       "role": "prop",
-      "reason": "Vidka menggeser tumpukan artikel ke tepi"
+      "reason": "Tangan Vidka menggeser artikel di depannya ke tepi"
      },
      "keys": [
       {
        "t": 0.154,
-       "x": 250,
+       "x": 540,
        "angle": 0
       },
       {
        "t": 1.39,
-       "x": 150,
-       "angle": -0.08
+       "x": 400,
+       "angle": -0.06
       }
      ]
     },
     {
      "type": "image",
      "path": "../../art/page-b.png",
-     "x": 300,
-     "y": 360,
-     "w": 90,
+     "x": 580,
+     "y": 324,
+     "w": 100,
      "id": "prop-6",
      "motion": {
       "role": "prop",
-      "reason": "Artikel kedua ikut digeser"
+      "reason": "Artikel kedua ikut tergeser oleh sapuan tangan"
      },
      "keys": [
       {
        "t": 0.463,
-       "x": 300
+       "x": 580
       },
       {
        "t": 1.699,
-       "x": 190
+       "x": 450
       }
      ]
     },
@@ -541,23 +587,17 @@
      "type": "image",
      "path": "../../art/notebook.png",
      "x": 770,
-     "y": 330,
-     "w": 210,
-     "id": "prop-7",
-     "motion": {
-      "role": "prop",
-      "reason": "Buku catatan ditarik mendekat"
-     },
-     "keys": [
-      {
-       "t": 0.772,
-       "x": 790
-      },
-      {
-       "t": 2.162,
-       "x": 730
-      }
-     ]
+     "y": 300,
+     "w": 210
+    },
+    {
+     "type": "text",
+     "text": "catatanmu",
+     "x": 800,
+     "y": 342,
+     "size": 28,
+     "w": 470,
+     "color": "#1F3A5F"
     }
    ]
   },
@@ -607,10 +647,10 @@
      "x": 230,
      "y": 150,
      "w": 90,
-     "id": "prop-8",
+     "id": "prop-7",
      "motion": {
       "role": "prop",
-      "reason": "Vidka menunjuk tulisannya lalu pensil beristirahat"
+      "reason": "Pensil menelusuri pertanyaan yang pernah ditulis"
      },
      "keys": [
       {
@@ -624,34 +664,32 @@
        "y": 150
       },
       {
-       "t": 1.699,
-       "x": 760,
-       "y": 300
+       "t": 1.853,
+       "x": 730,
+       "y": 110
+      }
+     ],
+     "to": 2.162
+    },
+    {
+     "type": "underline",
+     "x": 230,
+     "y": 300,
+     "w": 420,
+     "color": "#F6D34A",
+     "id": "information-8",
+     "motion": {
+      "role": "information",
+      "reason": "Pertanyaan awal digarisbawahi"
+     },
+     "keys": [
+      {
+       "t": 2.471,
+       "progress": 0
       },
       {
-       "t": 2.162,
-       "y": 300,
-       "x": 760
-      },
-      {
-       "t": 2.857,
-       "y": 294,
-       "x": 760
-      },
-      {
-       "t": 3.552,
-       "y": 300,
-       "x": 760
-      },
-      {
-       "t": 4.247,
-       "y": 294,
-       "x": 760
-      },
-      {
-       "t": 4.942,
-       "y": 300,
-       "x": 760
+       "t": 3.707,
+       "progress": 1
       }
      ]
     },
@@ -660,7 +698,16 @@
      "path": "../../art/vidka-think.png",
      "x": 960,
      "y": 290,
-     "w": 220
+     "w": 220,
+     "to": 3.398
+    },
+    {
+     "type": "image",
+     "path": "../../art/vidka-aha.png",
+     "x": 960,
+     "y": 290,
+     "w": 220,
+     "from": 3.398
     }
    ]
   },
@@ -696,34 +743,52 @@
      "path": "../../art/vidka-listen.png",
      "x": 700,
      "y": 200,
-     "w": 300
+     "w": 300,
+     "to": 1.975
+    },
+    {
+     "type": "image",
+     "path": "../../art/vidka-turn.png",
+     "x": 700,
+     "y": 200,
+     "w": 300,
+     "from": 1.975
     },
     {
      "type": "image",
      "path": "../../art/ardipal-talk.png",
      "x": 1040,
      "y": 245.33333333333331,
-     "w": 190
+     "w": 190,
+     "to": 1.975
+    },
+    {
+     "type": "image",
+     "path": "../../art/ardipal-listen.png",
+     "x": 1040,
+     "y": 245.33333333333331,
+     "w": 190,
+     "from": 1.975
     },
     {
      "type": "image",
      "path": "../../art/page-plain.png",
-     "x": 200,
-     "y": 215,
-     "w": 60,
+     "x": 210,
+     "y": 200,
+     "w": 50,
      "id": "information-9",
      "motion": {
       "role": "information",
-      "reason": "Hasil pencarian yang terlalu banyak"
+      "reason": "Hasil pencarian menumpuk di layar"
      },
      "keys": [
       {
        "t": 0.282,
-       "y": 215
+       "y": 200
       },
       {
-       "t": 0.94,
-       "y": 280
+       "t": 0.846,
+       "y": 236
       }
      ]
     },
@@ -731,43 +796,43 @@
      "type": "image",
      "path": "../../art/page-plain.png",
      "x": 320,
-     "y": 215,
-     "w": 60,
+     "y": 200,
+     "w": 50,
      "id": "information-10",
      "motion": {
       "role": "information",
-      "reason": "Hasil pencarian yang terlalu banyak"
+      "reason": "Hasil pencarian menumpuk di layar"
      },
      "keys": [
       {
-       "t": 1.034,
-       "y": 215
+       "t": 0.94,
+       "y": 200
       },
       {
-       "t": 1.693,
-       "y": 280
+       "t": 1.504,
+       "y": 236
       }
      ]
     },
     {
      "type": "image",
      "path": "../../art/page-plain.png",
-     "x": 440,
-     "y": 215,
-     "w": 60,
+     "x": 430,
+     "y": 200,
+     "w": 50,
      "id": "information-11",
      "motion": {
       "role": "information",
-      "reason": "Hasil pencarian yang terlalu banyak"
+      "reason": "Hasil pencarian menumpuk di layar"
      },
      "keys": [
       {
-       "t": 1.787,
-       "y": 215
+       "t": 1.599,
+       "y": 200
       },
       {
-       "t": 2.445,
-       "y": 280
+       "t": 2.163,
+       "y": 236
       }
      ]
     },
@@ -1034,63 +1099,70 @@
      "path": "../../art/vidka-think.png",
      "x": 980,
      "y": 290,
-     "w": 220
+     "w": 220,
+     "to": 3.358
     },
     {
      "type": "image",
-     "path": "../../art/pencil.png",
-     "x": 900,
-     "y": 470,
-     "w": 80,
-     "id": "prop-15",
+     "path": "../../art/vidka-nod.png",
+     "x": 980,
+     "y": 290,
+     "w": 220,
+     "from": 3.358
+    },
+    {
+     "type": "underline",
+     "x": 150,
+     "y": 240,
+     "w": 520,
+     "color": "#F6D34A",
+     "id": "information-15",
      "motion": {
-      "role": "prop",
-      "reason": "Jeda: pensil mengetuk pelan sementara penonton membaca"
+      "role": "information",
+      "reason": "Baris tugas digarisbawahi saat dibaca"
      },
      "keys": [
       {
-       "t": 0.336,
-       "y": 470
+       "t": 0.448,
+       "progress": 0
       },
       {
-       "t": 0.84,
-       "y": 464
-      },
-      {
-       "t": 1.343,
-       "y": 470
-      },
-      {
-       "t": 1.847,
-       "y": 464
-      },
-      {
-       "t": 2.351,
-       "y": 470
-      },
-      {
-       "t": 2.854,
-       "y": 464
-      },
+       "t": 1.791,
+       "progress": 1
+      }
+     ]
+    },
+    {
+     "type": "line",
+     "points": [
+      [
+       930,
+       180
+      ],
+      [
+       956,
+       212
+      ],
+      [
+       1010,
+       150
+      ]
+     ],
+     "color": "#3E9B5F",
+     "lineWidth": 7,
+     "id": "information-16",
+     "motion": {
+      "role": "information",
+      "reason": "Centang: Vidka menangkap tugasnya"
+     },
+     "keys": [
       {
        "t": 3.358,
-       "y": 470
+       "progress": 0
       },
       {
-       "t": 3.862,
-       "y": 464
-      },
-      {
-       "t": 4.366,
-       "y": 470
-      },
-      {
-       "t": 4.869,
-       "y": 464
-      },
-      {
-       "t": 5.373,
-       "y": 470
+       "t": 4.254,
+       "progress": 1
       }
      ]
     }
@@ -1109,26 +1181,26 @@
     },
     {
      "type": "image",
-     "path": "../../art/vidka-listen.png",
-     "x": 520,
-     "y": 226.66666666666669,
-     "w": 280,
-     "to": 1.018
-    },
-    {
-     "type": "image",
      "path": "../../art/vidka-turn.png",
      "x": 520,
      "y": 226.66666666666669,
-     "w": 280,
-     "from": 1.018
+     "w": 280
     },
     {
      "type": "image",
      "path": "../../art/herry-listen.png",
      "x": 1000,
      "y": 226.66666666666669,
-     "w": 200
+     "w": 200,
+     "to": 2.24
+    },
+    {
+     "type": "image",
+     "path": "../../art/herry-nod.png",
+     "x": 1000,
+     "y": 226.66666666666669,
+     "w": 200,
+     "from": 2.24
     },
     {
      "type": "image",
@@ -1136,25 +1208,25 @@
      "x": 330,
      "y": 240,
      "w": 170,
-     "id": "prop-16",
+     "id": "prop-17",
      "motion": {
       "role": "prop",
-      "reason": "Vidka mengangkat artikel terkenal itu"
+      "reason": "Vidka menyodorkan artikel terkenal itu ke depan"
      },
      "keys": [
       {
        "t": 0.204,
-       "y": 340,
-       "angle": 0.06
+       "x": 140,
+       "angle": -0.06
       },
       {
        "t": 1.018,
-       "y": 240,
+       "x": 330,
        "angle": 0
       },
       {
        "t": 2.648,
-       "y": 246,
+       "x": 338,
        "angle": 0.01
       }
      ]
@@ -1221,7 +1293,7 @@
      "x": 60,
      "y": 40,
      "w": 130,
-     "id": "prop-17",
+     "id": "prop-18",
      "motion": {
       "role": "prop",
       "reason": "Catatan KONSEP ditempelkan pada artikel pertama"
@@ -1257,7 +1329,7 @@
      "x": 1120,
      "y": 40,
      "w": 130,
-     "id": "prop-18",
+     "id": "prop-19",
      "motion": {
       "role": "prop",
       "reason": "Catatan KONTEKS SISWA ditempelkan pada artikel kedua"
@@ -1323,7 +1395,7 @@
      "y": 562,
      "w": 320,
      "color": "#F6D34A",
-     "id": "information-19",
+     "id": "information-20",
      "motion": {
       "role": "information",
       "reason": "Penekanan pada konteks pembelajaran"
@@ -1433,7 +1505,7 @@
      "color": "#F6D34A",
      "lineWidth": 30,
      "alpha": 0.55,
-     "id": "information-20",
+     "id": "information-21",
      "motion": {
       "role": "information",
       "reason": "Sorot bagian peserta artikel pertama"
@@ -1452,18 +1524,18 @@
     {
      "type": "image",
      "path": "../../art/highlighter.png",
-     "x": 200,
+     "x": 110,
      "y": 430,
      "w": 90,
-     "id": "prop-21",
+     "id": "prop-22",
      "motion": {
       "role": "prop",
-      "reason": "Stabilo menyapu baris peserta"
+      "reason": "Stabilo menyapu baris peserta dari kiri"
      },
      "keys": [
       {
        "t": 0.3,
-       "x": 200
+       "x": 110
       },
       {
        "t": 1.3,
@@ -1486,7 +1558,7 @@
      "color": "#F6D34A",
      "lineWidth": 30,
      "alpha": 0.55,
-     "id": "information-22",
+     "id": "information-23",
      "motion": {
       "role": "information",
       "reason": "Sorot bagian peserta artikel kedua"
@@ -1505,10 +1577,10 @@
     {
      "type": "image",
      "path": "../../art/highlighter.png",
-     "x": 760,
+     "x": 670,
      "y": 430,
      "w": 90,
-     "id": "prop-23",
+     "id": "prop-24",
      "motion": {
       "role": "prop",
       "reason": "Stabilo pindah ke artikel kedua"
@@ -1516,7 +1588,7 @@
      "keys": [
       {
        "t": 2.3,
-       "x": 760
+       "x": 670
       },
       {
        "t": 3.3,
@@ -1541,7 +1613,7 @@
      "y": 575,
      "w": 150,
      "color": "#EC4338",
-     "id": "information-24",
+     "id": "information-25",
      "motion": {
       "role": "information",
       "reason": "Label peserta digarisbawahi"
@@ -1575,14 +1647,32 @@
      "path": "../../art/vidka-turn.png",
      "x": 520,
      "y": 226.66666666666669,
-     "w": 280
+     "w": 280,
+     "to": 2.643
+    },
+    {
+     "type": "image",
+     "path": "../../art/vidka-listen.png",
+     "x": 520,
+     "y": 226.66666666666669,
+     "w": 280,
+     "from": 2.643
+    },
+    {
+     "type": "image",
+     "path": "../../art/ardipal-listen.png",
+     "x": 1000,
+     "y": 226.66666666666669,
+     "w": 200,
+     "to": 2.643
     },
     {
      "type": "image",
      "path": "../../art/ardipal-talk.png",
      "x": 1000,
      "y": 226.66666666666669,
-     "w": 200
+     "w": 200,
+     "from": 2.643
     },
     {
      "type": "image",
@@ -1590,25 +1680,25 @@
      "x": 330,
      "y": 240,
      "w": 170,
-     "id": "prop-25",
+     "id": "prop-26",
      "motion": {
       "role": "prop",
-      "reason": "Vidka menunjukkan judul artikel yang cocok"
+      "reason": "Vidka menyodorkan artikel yang judulnya cocok"
      },
      "keys": [
       {
        "t": 0.189,
-       "y": 340,
-       "angle": 0.05
+       "x": 140,
+       "angle": -0.05
       },
       {
        "t": 0.944,
-       "y": 240,
+       "x": 330,
        "angle": 0
       },
       {
        "t": 2.266,
-       "y": 246,
+       "x": 338,
        "angle": -0.01
       }
      ]
@@ -1661,7 +1751,7 @@
      "color": "#F6D34A",
      "lineWidth": 26,
      "alpha": 0.55,
-     "id": "information-26",
+     "id": "information-27",
      "motion": {
       "role": "information",
       "reason": "Stabilo menyorot bagian metode"
@@ -1692,7 +1782,7 @@
      "color": "#F6D34A",
      "lineWidth": 26,
      "alpha": 0.55,
-     "id": "information-27",
+     "id": "information-28",
      "motion": {
       "role": "information",
       "reason": "Stabilo menandai satu temuan di hasil"
@@ -1734,7 +1824,7 @@
      "x": 420,
      "y": 150,
      "w": 90,
-     "id": "prop-28",
+     "id": "prop-29",
      "motion": {
       "role": "prop",
       "reason": "Stabilo menelusuri metode lalu hasil"
@@ -1774,14 +1864,24 @@
     },
     {
      "type": "text",
-     "text": "temuan: latihan bagian pendek",
-     "x": 380,
-     "y": 420,
-     "size": 32,
-     "w": 890,
+     "text": "temuan:",
+     "x": 40,
+     "y": 300,
+     "size": 34,
+     "w": 280,
+     "bold": true,
+     "color": "#EC4338",
+     "from": 4.059
+    },
+    {
+     "type": "text",
+     "text": "latihan bagian pendek",
+     "x": 40,
+     "y": 345,
+     "size": 34,
+     "w": 280,
      "color": "#1F3A5F",
-     "from": 4.059,
-     "bold": true
+     "from": 4.059
     },
     {
      "type": "text",
@@ -1828,7 +1928,7 @@
      "y": 210,
      "w": 300,
      "color": "#EC4338",
-     "id": "information-29",
+     "id": "information-30",
      "motion": {
       "role": "information",
       "reason": "Pertanyaan kredibilitas digarisbawahi"
@@ -1903,28 +2003,28 @@
     {
      "type": "text",
      "text": "contoh ilustratif",
-     "x": 790,
+     "x": 820,
      "y": 380,
      "size": 30,
-     "w": 480,
+     "w": 450,
      "color": "#6b7280"
     },
     {
      "type": "text",
      "text": "latihan bagian pendek",
-     "x": 790,
+     "x": 820,
      "y": 180,
      "size": 32,
-     "w": 480,
+     "w": 450,
      "color": "#1F3A5F"
     },
     {
      "type": "text",
      "text": "membuat lebih kompak",
-     "x": 790,
+     "x": 820,
      "y": 223,
      "size": 32,
-     "w": 480,
+     "w": 450,
      "color": "#1F3A5F"
     },
     {
@@ -1941,7 +2041,7 @@
      ],
      "color": "#EC4338",
      "lineWidth": 5,
-     "id": "information-30",
+     "id": "information-31",
      "motion": {
       "role": "information",
       "reason": "Temuan dicocokkan dengan klaim"
@@ -1968,60 +2068,24 @@
      "from": 1.446
     },
     {
-     "type": "image",
-     "path": "../../art/pencil.png",
-     "x": 1080,
-     "y": 440,
-     "w": 80,
-     "id": "prop-31",
+     "type": "underline",
+     "x": 120,
+     "y": 560,
+     "w": 560,
+     "color": "#F6D34A",
+     "id": "information-32",
      "motion": {
-      "role": "prop",
-      "reason": "Jeda: pensil mengetuk pelan sementara penonton membaca"
+      "role": "information",
+      "reason": "Pertanyaan kunci digarisbawahi"
      },
      "keys": [
       {
-       "t": 0.334,
-       "y": 440
+       "t": 2.669,
+       "progress": 0
       },
       {
-       "t": 0.834,
-       "y": 434
-      },
-      {
-       "t": 1.334,
-       "y": 440
-      },
-      {
-       "t": 1.835,
-       "y": 434
-      },
-      {
-       "t": 2.335,
-       "y": 440
-      },
-      {
-       "t": 2.836,
-       "y": 434
-      },
-      {
-       "t": 3.336,
-       "y": 440
-      },
-      {
-       "t": 3.836,
-       "y": 434
-      },
-      {
-       "t": 4.337,
-       "y": 440
-      },
-      {
-       "t": 4.837,
-       "y": 434
-      },
-      {
-       "t": 5.338,
-       "y": 440
+       "t": 3.781,
+       "progress": 1
       }
      ]
     }

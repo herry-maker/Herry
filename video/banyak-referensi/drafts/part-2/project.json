@@ -253,7 +253,7 @@
      "x": 60,
      "y": 120,
      "w": 300,
-     "id": "prop-32",
+     "id": "prop-33",
      "motion": {
       "role": "prop",
       "reason": "Catatan bacaan pertama digeser mendekat"
@@ -315,7 +315,7 @@
      "x": 60,
      "y": 330,
      "w": 300,
-     "id": "prop-33",
+     "id": "prop-34",
      "motion": {
       "role": "prop",
       "reason": "Catatan bacaan kedua digeser mendekat"
@@ -404,7 +404,7 @@
      "x": 300,
      "y": 330,
      "w": 200,
-     "id": "prop-34",
+     "id": "prop-35",
      "motion": {
       "role": "prop",
       "reason": "Buku penelitian didorong ke depan Vidka"
@@ -522,7 +522,7 @@
      "x": 730,
      "y": 210,
      "w": 90,
-     "id": "prop-35",
+     "id": "prop-36",
      "motion": {
       "role": "prop",
       "reason": "Pensil Vidka menulis"
@@ -552,7 +552,7 @@
      "x": 730,
      "y": 262,
      "w": 90,
-     "id": "prop-36",
+     "id": "prop-37",
      "motion": {
       "role": "prop",
       "reason": "Pensil menulis baris kedua"
@@ -587,7 +587,7 @@
      ],
      "color": "#EC4338",
      "lineWidth": 4,
-     "id": "information-37",
+     "id": "information-38",
      "motion": {
       "role": "information",
       "reason": "Garis penghubung bacaan 1"
@@ -617,7 +617,7 @@
      ],
      "color": "#EC4338",
      "lineWidth": 4,
-     "id": "information-38",
+     "id": "information-39",
      "motion": {
       "role": "information",
       "reason": "Garis penghubung bacaan 2"
@@ -758,65 +758,59 @@
      "text": "Contoh bacaan ilustratif.",
      "x": 40,
      "y": 40,
-     "size": 26,
+     "size": 30,
      "w": 1230,
      "color": "#6b7280"
     },
     {
-     "type": "image",
-     "path": "../../art/pencil.png",
-     "x": 1100,
+     "type": "underline",
+     "x": 730,
      "y": 330,
-     "w": 80,
-     "id": "prop-39",
+     "w": 330,
+     "color": "#F6D34A",
+     "id": "information-40",
      "motion": {
-      "role": "prop",
-      "reason": "Jeda: pensil mengetuk pelan sementara penonton membaca"
+      "role": "information",
+      "reason": "Pertanyaan sementara digarisbawahi"
      },
      "keys": [
       {
-       "t": 0.36,
-       "y": 330
+       "t": 1.199,
+       "progress": 0
       },
       {
-       "t": 0.899,
-       "y": 324
-      },
-      {
-       "t": 1.438,
-       "y": 330
-      },
-      {
-       "t": 1.978,
-       "y": 324
-      },
-      {
-       "t": 2.517,
-       "y": 330
-      },
-      {
-       "t": 3.056,
-       "y": 324
-      },
+       "t": 2.157,
+       "progress": 1
+      }
+     ]
+    },
+    {
+     "type": "line",
+     "points": [
+      [
+       680,
+       200
+      ],
+      [
+       740,
+       250
+      ]
+     ],
+     "color": "#EC4338",
+     "lineWidth": 6,
+     "id": "information-41",
+     "motion": {
+      "role": "information",
+      "reason": "Garis penghubung ditebalkan ulang"
+     },
+     "keys": [
       {
        "t": 3.596,
-       "y": 330
+       "progress": 0
       },
       {
-       "t": 4.135,
-       "y": 324
-      },
-      {
-       "t": 4.675,
-       "y": 330
-      },
-      {
-       "t": 5.214,
-       "y": 324
-      },
-      {
-       "t": 5.753,
-       "y": 330
+       "t": 4.315,
+       "progress": 1
       }
      ]
     }
@@ -865,7 +859,7 @@
      "x": 640,
      "y": 150,
      "w": 100,
-     "id": "prop-40",
+     "id": "prop-42",
      "motion": {
       "role": "prop",
       "reason": "Pensil Vidka berhenti di ujung kalimat"
@@ -941,7 +935,7 @@
      ],
      "color": "#EC4338",
      "lineWidth": 6,
-     "id": "information-41",
+     "id": "information-43",
      "motion": {
       "role": "information",
       "reason": "Penilaian umum dicoret"
@@ -1057,7 +1051,7 @@
      "x": 240,
      "y": 230,
      "w": 100,
-     "id": "prop-42",
+     "id": "prop-44",
      "motion": {
       "role": "prop",
       "reason": "Pensil menulis kejadian lalu dampak"
@@ -1146,63 +1140,70 @@
      "path": "../../art/vidka-think.png",
      "x": 980,
      "y": 290,
-     "w": 220
+     "w": 220,
+     "to": 3
     },
     {
      "type": "image",
-     "path": "../../art/pencil.png",
-     "x": 900,
-     "y": 470,
-     "w": 80,
-     "id": "prop-43",
+     "path": "../../art/vidka-nod.png",
+     "x": 980,
+     "y": 290,
+     "w": 220,
+     "from": 3
+    },
+    {
+     "type": "underline",
+     "x": 150,
+     "y": 240,
+     "w": 520,
+     "color": "#F6D34A",
+     "id": "information-45",
      "motion": {
-      "role": "prop",
-      "reason": "Jeda: pensil mengetuk pelan sementara penonton membaca"
+      "role": "information",
+      "reason": "Baris tugas digarisbawahi saat dibaca"
      },
      "keys": [
       {
-       "t": 0.3,
-       "y": 470
+       "t": 0.4,
+       "progress": 0
       },
       {
-       "t": 0.75,
-       "y": 464
-      },
-      {
-       "t": 1.2,
-       "y": 470
-      },
-      {
-       "t": 1.65,
-       "y": 464
-      },
-      {
-       "t": 2.1,
-       "y": 470
-      },
-      {
-       "t": 2.55,
-       "y": 464
-      },
+       "t": 1.6,
+       "progress": 1
+      }
+     ]
+    },
+    {
+     "type": "line",
+     "points": [
+      [
+       930,
+       180
+      ],
+      [
+       956,
+       212
+      ],
+      [
+       1010,
+       150
+      ]
+     ],
+     "color": "#3E9B5F",
+     "lineWidth": 7,
+     "id": "information-46",
+     "motion": {
+      "role": "information",
+      "reason": "Centang: Vidka menangkap tugasnya"
+     },
+     "keys": [
       {
        "t": 3,
-       "y": 470
+       "progress": 0
       },
       {
-       "t": 3.45,
-       "y": 464
-      },
-      {
-       "t": 3.9,
-       "y": 470
-      },
-      {
-       "t": 4.35,
-       "y": 464
-      },
-      {
-       "t": 4.8,
-       "y": 470
+       "t": 3.8,
+       "progress": 1
       }
      ]
     }
@@ -1248,7 +1249,7 @@
      "x": 700,
      "y": 330,
      "w": 220,
-     "id": "prop-44",
+     "id": "prop-47",
      "motion": {
       "role": "prop",
       "reason": "Ardipal mendorong buku ke arah Vidka"
@@ -1299,7 +1300,7 @@
      "x": 120,
      "y": 104,
      "w": 90,
-     "id": "prop-45",
+     "id": "prop-48",
      "motion": {
       "role": "prop",
       "reason": "Pensil Vidka menulis"
@@ -1350,7 +1351,7 @@
      "x": 120,
      "y": 224,
      "w": 90,
-     "id": "prop-46",
+     "id": "prop-49",
      "motion": {
       "role": "prop",
       "reason": "Pensil menulis bukti awal"
@@ -1400,7 +1401,7 @@
      "x": 120,
      "y": 344,
      "w": 90,
-     "id": "prop-47",
+     "id": "prop-50",
      "motion": {
       "role": "prop",
       "reason": "Pensil menulis bacaan"
@@ -1438,7 +1439,7 @@
      "y": 512,
      "w": 420,
      "color": "#EC4338",
-     "id": "information-48",
+     "id": "information-51",
      "motion": {
       "role": "information",
       "reason": "Alasan pentingnya digarisbawahi"
@@ -1510,7 +1511,7 @@
      ],
      "color": "#1F3A5F",
      "lineWidth": 4,
-     "id": "information-49",
+     "id": "information-52",
      "motion": {
       "role": "information",
       "reason": "Kurung menandai pernyataan masalah"
@@ -1537,60 +1538,24 @@
      "from": 1.7
     },
     {
-     "type": "image",
-     "path": "../../art/pencil.png",
-     "x": 1080,
-     "y": 420,
-     "w": 80,
-     "id": "prop-50",
+     "type": "underline",
+     "x": 120,
+     "y": 300,
+     "w": 760,
+     "color": "#F6D34A",
+     "id": "information-53",
      "motion": {
-      "role": "prop",
-      "reason": "Jeda: pensil mengetuk pelan sementara penonton membaca"
+      "role": "information",
+      "reason": "Kalimat pernyataan masalah digarisbawahi"
      },
      "keys": [
       {
-       "t": 0.364,
-       "y": 420
+       "t": 3.157,
+       "progress": 0
       },
       {
-       "t": 0.911,
-       "y": 414
-      },
-      {
-       "t": 1.457,
-       "y": 420
-      },
-      {
-       "t": 2.004,
-       "y": 414
-      },
-      {
-       "t": 2.55,
-       "y": 420
-      },
-      {
-       "t": 3.097,
-       "y": 414
-      },
-      {
-       "t": 3.643,
-       "y": 420
-      },
-      {
-       "t": 4.19,
-       "y": 414
-      },
-      {
-       "t": 4.736,
-       "y": 420
-      },
-      {
-       "t": 5.283,
-       "y": 414
-      },
-      {
-       "t": 5.829,
-       "y": 420
+       "t": 4.372,
+       "progress": 1
       }
      ]
     }
@@ -1650,7 +1615,7 @@
      "x": 470,
      "y": 140,
      "w": 90,
-     "id": "prop-51",
+     "id": "prop-54",
      "motion": {
       "role": "prop",
       "reason": "Pensil menulis tiga baris pertanyaan lalu diangkat"
@@ -1743,7 +1708,7 @@
      "y": 180,
      "w": 300,
      "color": "#F6D34A",
-     "id": "information-52",
+     "id": "information-55",
      "motion": {
       "role": "information",
       "reason": "Sorotan peserta: siswa pemula"
@@ -1778,7 +1743,7 @@
      "y": 262,
      "w": 760,
      "color": "#F6D34A",
-     "id": "information-53",
+     "id": "information-56",
      "motion": {
       "role": "information",
       "reason": "Sorotan proses: menggunakan isyarat bunyi dan gerak untuk menjaga"
@@ -1813,7 +1778,7 @@
      "y": 342,
      "w": 470,
      "color": "#F6D34A",
-     "id": "information-54",
+     "id": "information-57",
      "motion": {
       "role": "information",
       "reason": "Sorotan konteks: tempo dalam ansambel"
@@ -1881,7 +1846,7 @@
      ],
      "color": "#3E9B5F",
      "lineWidth": 7,
-     "id": "information-55",
+     "id": "information-58",
      "motion": {
       "role": "information",
       "reason": "Centang: pertanyaan lengkap"
@@ -1908,60 +1873,24 @@
      "from": 0.9
     },
     {
-     "type": "image",
-     "path": "../../art/pencil.png",
-     "x": 1100,
-     "y": 420,
-     "w": 80,
-     "id": "prop-56",
+     "type": "underline",
+     "x": 120,
+     "y": 342,
+     "w": 470,
+     "color": "#F6D34A",
+     "id": "information-59",
      "motion": {
-      "role": "prop",
-      "reason": "Jeda: pensil mengetuk pelan sementara penonton membaca"
+      "role": "information",
+      "reason": "Pertanyaan utuh ditegaskan sekali"
      },
      "keys": [
       {
-       "t": 0.3,
-       "y": 420
+       "t": 2.2,
+       "progress": 0
       },
       {
-       "t": 0.75,
-       "y": 414
-      },
-      {
-       "t": 1.2,
-       "y": 420
-      },
-      {
-       "t": 1.65,
-       "y": 414
-      },
-      {
-       "t": 2.1,
-       "y": 420
-      },
-      {
-       "t": 2.55,
-       "y": 414
-      },
-      {
-       "t": 3,
-       "y": 420
-      },
-      {
-       "t": 3.45,
-       "y": 414
-      },
-      {
-       "t": 3.9,
-       "y": 420
-      },
-      {
-       "t": 4.35,
-       "y": 414
-      },
-      {
-       "t": 4.8,
-       "y": 420
+       "t": 3.2,
+       "progress": 1
       }
      ]
     }
