@@ -1,62 +1,65 @@
 {
  "mode": "dialogue-clips",
- "duration": 180.995,
+ "duration": 182.587,
  "voice": "audio/narasi-dialog.wav",
  "hold_seconds": 5,
  "gap_seconds": 0.55,
+ "lead": 0.4,
+ "tail": 1,
+ "target_lufs": -20,
  "scenes": [
   {
    "start": 0,
    "end": 15,
-   "talk_end": 6.878,
-   "hold": 8.122,
+   "talk_end": 7.278,
+   "hold": 7.722,
    "lines": [
     {
      "id": "s01-l1",
      "role": "Vidka",
-     "start": 0,
-     "end": 3.39,
-     "gain_db": 1.6,
+     "start": 0.4,
+     "end": 3.79,
+     "gain_db": 5.21,
      "cue_split": "chars"
     },
     {
      "id": "s01-l2",
      "role": "Herry",
-     "start": 3.94,
-     "end": 6.878,
-     "gain_db": 5.3,
-     "cue_split": "pauses"
+     "start": 4.34,
+     "end": 7.278,
+     "gain_db": 10.12,
+     "cue_split": "chars"
     }
    ]
   },
   {
    "start": 15,
    "end": 30,
-   "talk_end": 24.103,
-   "hold": 5.897,
+   "talk_end": 24.403,
+   "hold": 5.597,
    "lines": [
     {
      "id": "s02-l1",
      "role": "Ardipal",
      "start": 15,
      "end": 16.207,
-     "gain_db": -6.7,
+     "gain_db": -2.99,
      "cue_split": "single"
     },
     {
      "id": "s02-l2",
      "role": "Vidka",
-     "start": 16.757,
-     "end": 18.011,
-     "gain_db": 0.5,
+     "start": 17.057,
+     "end": 18.311,
+     "gain_db": 3.36,
      "cue_split": "single"
     },
     {
      "id": "s02-l3",
      "role": "Ardipal",
-     "start": 18.561,
-     "end": 24.103,
-     "gain_db": -8.5,
+     "start": 18.861,
+     "end": 24.403,
+     "gain_db": -4.67,
      "cue_split": "pauses"
     }
    ]
@@ -72,7 +75,7 @@
      "role": "Vidka",
      "start": 30,
      "end": 33.251,
-     "gain_db": -3.7,
+     "gain_db": -0.06,
      "cue_split": "chars"
     },
     {
@@ -80,7 +83,7 @@
      "role": "Herry",
      "start": 33.801,
      "end": 40.183,
-     "gain_db": 7.6,
+     "gain_db": 12.88,
      "cue_split": "pauses"
     }
    ]
@@ -88,23 +91,23 @@
   {
    "start": 45.183,
    "end": 60.183,
-   "talk_end": 54.323,
-   "hold": 5.86,
+   "talk_end": 54.623,
+   "hold": 5.56,
    "lines": [
     {
      "id": "s04-l1",
      "role": "Vidka",
      "start": 45.183,
      "end": 47.751,
-     "gain_db": -0.6,
+     "gain_db": 3.39,
      "cue_split": "single"
     },
     {
      "id": "s04-l2",
      "role": "Ardipal",
-     "start": 48.301,
-     "end": 54.323,
-     "gain_db": -8.2,
+     "start": 48.601,
+     "end": 54.623,
+     "gain_db": -3.49,
      "cue_split": "pauses"
     }
    ]
@@ -112,239 +115,239 @@
   {
    "start": 60.183,
    "end": 75.183,
-   "talk_end": 68.89,
-   "hold": 6.293,
+   "talk_end": 69.19,
+   "hold": 5.993,
    "lines": [
     {
      "id": "s05-l1",
      "role": "Vidka",
      "start": 60.183,
      "end": 63.846,
-     "gain_db": -1.6,
-     "cue_split": "pauses"
+     "gain_db": 3.4,
+     "cue_split": "chars"
     },
     {
      "id": "s05-l2",
      "role": "Herry",
      "start": 64.396,
      "end": 65.832,
-     "gain_db": 5.4,
+     "gain_db": 10.85,
      "cue_split": "single"
     },
     {
      "id": "s05-l3",
      "role": "Vidka",
-     "start": 66.382,
-     "end": 68.89,
-     "gain_db": 0,
+     "start": 66.682,
+     "end": 69.19,
+     "gain_db": 4.34,
      "cue_split": "chars"
     }
    ]
   },
   {
    "start": 75.183,
-   "end": 90.183,
-   "talk_end": 84.594,
-   "hold": 5.589,
+   "end": 90.194,
+   "talk_end": 85.194,
+   "hold": 5,
    "lines": [
     {
      "id": "s06-l1",
      "role": "Vidka",
      "start": 75.183,
      "end": 77.319,
-     "gain_db": 0.2,
+     "gain_db": 3.51,
      "cue_split": "single"
     },
     {
      "id": "s06-l2",
      "role": "Herry",
-     "start": 77.869,
-     "end": 79.493,
-     "gain_db": 3.4,
+     "start": 78.169,
+     "end": 79.793,
+     "gain_db": 7.63,
      "cue_split": "single"
     },
     {
      "id": "s06-l3",
      "role": "Vidka",
-     "start": 80.043,
-     "end": 84.594,
-     "gain_db": -3.4,
+     "start": 80.643,
+     "end": 85.194,
+     "gain_db": 1.29,
      "cue_split": "pauses"
     }
    ]
   },
   {
-   "start": 90.183,
-   "end": 105.183,
-   "talk_end": 98.81,
-   "hold": 6.372,
+   "start": 90.194,
+   "end": 105.194,
+   "talk_end": 99.122,
+   "hold": 6.072,
    "lines": [
     {
      "id": "s07-l1",
      "role": "Ardipal",
-     "start": 90.183,
-     "end": 91.356,
-     "gain_db": -8.8,
+     "start": 90.194,
+     "end": 91.368,
+     "gain_db": -4.92,
      "cue_split": "single"
     },
     {
      "id": "s07-l2",
      "role": "Vidka",
-     "start": 91.906,
-     "end": 93.955,
-     "gain_db": -2.4,
+     "start": 92.218,
+     "end": 94.267,
+     "gain_db": 1.47,
      "cue_split": "single"
     },
     {
      "id": "s07-l3",
      "role": "Ardipal",
-     "start": 94.505,
-     "end": 98.81,
-     "gain_db": -8.7,
+     "start": 94.817,
+     "end": 99.122,
+     "gain_db": -3.63,
      "cue_split": "pauses"
     }
    ]
   },
   {
-   "start": 105.183,
-   "end": 120.334,
-   "talk_end": 115.334,
+   "start": 105.194,
+   "end": 120.646,
+   "talk_end": 115.646,
    "hold": 5,
    "lines": [
     {
      "id": "s08-l1",
      "role": "Vidka",
-     "start": 105.183,
-     "end": 110.942,
-     "gain_db": -3.2,
+     "start": 105.194,
+     "end": 110.953,
+     "gain_db": 1.7,
      "cue_split": "chars"
     },
     {
      "id": "s08-l2",
      "role": "Herry",
-     "start": 111.492,
-     "end": 115.334,
-     "gain_db": 8.9,
+     "start": 111.803,
+     "end": 115.646,
+     "gain_db": 13.77,
      "cue_split": "pauses"
     }
    ]
   },
   {
-   "start": 120.334,
-   "end": 135.334,
-   "talk_end": 129.832,
-   "hold": 5.503,
+   "start": 120.646,
+   "end": 135.743,
+   "talk_end": 130.743,
+   "hold": 5,
    "lines": [
     {
      "id": "s09-l1",
      "role": "Vidka",
-     "start": 120.334,
-     "end": 121.913,
-     "gain_db": -0.4,
+     "start": 120.646,
+     "end": 122.225,
+     "gain_db": 3.19,
      "cue_split": "single"
     },
     {
      "id": "s09-l2",
      "role": "Ardipal",
-     "start": 122.463,
-     "end": 124.87,
-     "gain_db": -7.7,
+     "start": 123.075,
+     "end": 125.481,
+     "gain_db": -3.29,
      "cue_split": "chars"
     },
     {
      "id": "s09-l3",
      "role": "Vidka",
-     "start": 125.42,
-     "end": 129.832,
-     "gain_db": 0.7,
-     "cue_split": "pauses"
+     "start": 126.331,
+     "end": 130.743,
+     "gain_db": 4.82,
+     "cue_split": "chars"
     }
    ]
   },
   {
-   "start": 135.334,
-   "end": 150.334,
-   "talk_end": 144.491,
-   "hold": 5.844,
+   "start": 135.743,
+   "end": 150.743,
+   "talk_end": 145.199,
+   "hold": 5.544,
    "lines": [
     {
      "id": "s10-l1",
      "role": "Herry",
-     "start": 135.334,
-     "end": 138.424,
-     "gain_db": 3.3,
+     "start": 135.743,
+     "end": 138.833,
+     "gain_db": 8.25,
      "cue_split": "chars"
     },
     {
      "id": "s10-l2",
      "role": "Vidka",
-     "start": 138.974,
-     "end": 141.668,
-     "gain_db": -0.6,
+     "start": 139.383,
+     "end": 142.076,
+     "gain_db": 3.91,
      "cue_split": "chars"
     },
     {
      "id": "s10-l3",
      "role": "Herry",
-     "start": 142.218,
-     "end": 144.491,
-     "gain_db": 6.9,
+     "start": 142.926,
+     "end": 145.199,
+     "gain_db": 11.84,
      "cue_split": "single"
     }
    ]
   },
   {
-   "start": 150.334,
-   "end": 165.334,
-   "talk_end": 160.219,
-   "hold": 5.116,
+   "start": 150.743,
+   "end": 165.927,
+   "talk_end": 160.927,
+   "hold": 5,
    "lines": [
     {
      "id": "s11-l1",
      "role": "Vidka",
-     "start": 150.334,
-     "end": 154.235,
-     "gain_db": -2.7,
+     "start": 150.743,
+     "end": 154.644,
+     "gain_db": 2.07,
      "cue_split": "chars"
     },
     {
      "id": "s11-l2",
      "role": "Ardipal",
-     "start": 154.785,
-     "end": 160.219,
-     "gain_db": -8.4,
+     "start": 155.494,
+     "end": 160.927,
+     "gain_db": -3.82,
      "cue_split": "pauses"
     }
    ]
   },
   {
-   "start": 165.334,
-   "end": 180.995,
-   "talk_end": 175.994,
-   "hold": 5,
+   "start": 165.927,
+   "end": 182.587,
+   "talk_end": 176.587,
+   "hold": 6,
    "lines": [
     {
      "id": "s12-l1",
      "role": "Vidka",
-     "start": 165.334,
-     "end": 170.304,
-     "gain_db": 1,
+     "start": 165.927,
+     "end": 170.897,
+     "gain_db": 4.93,
      "cue_split": "chars"
     },
     {
      "id": "s12-l2",
      "role": "Herry",
-     "start": 170.854,
-     "end": 173.305,
-     "gain_db": 7.8,
+     "start": 171.447,
+     "end": 173.898,
+     "gain_db": 12.43,
      "cue_split": "chars"
     },
     {
      "id": "s12-l3",
      "role": "Ardipal",
-     "start": 173.855,
-     "end": 175.994,
-     "gain_db": -5.8,
+     "start": 174.448,
+     "end": 176.587,
+     "gain_db": -1.91,
      "cue_split": "single"
     }
    ]
@@ -352,408 +355,324 @@
  ],
  "cues": [
   {
-   "start": 0,
-   "end": 1.494,
-   "text": "Vidka: Pak, artikel saya banyak,",
+   "start": 0.4,
+   "end": 4.26,
+   "text": "Pak, artikel saya banyak, tetapi saya bingung memilih.",
    "scene": 1,
    "line": "s01-l1"
   },
   {
-   "start": 1.554,
-   "end": 3.29,
-   "text": "tetapi saya bingung memilih.",
-   "scene": 1,
-   "line": "s01-l1"
-  },
-  {
-   "start": 3.94,
-   "end": 5.25,
-   "text": "Herry: Buka lagi catatanmu.",
-   "scene": 1,
-   "line": "s01-l2"
-  },
-  {
-   "start": 5.31,
-   "end": 6.778,
-   "text": "Apa yang ingin kamu pahami?",
+   "start": 4.34,
+   "end": 8.778,
+   "text": "Buka lagi catatanmu. Apa yang ingin kamu pahami?",
    "scene": 1,
    "line": "s01-l2"
   },
   {
    "start": 15,
-   "end": 16.107,
-   "text": "Ardipal: Apa kata kuncimu?",
+   "end": 16.977,
+   "text": "Apa kata kuncimu?",
    "scene": 2,
    "line": "s02-l1"
   },
   {
-   "start": 16.757,
-   "end": 17.911,
-   "text": "Vidka: «Musik», Prof.",
+   "start": 17.057,
+   "end": 18.781,
+   "text": "«Musik», Prof.",
    "scene": 2,
    "line": "s02-l2"
   },
   {
-   "start": 18.561,
-   "end": 20.611,
-   "text": "Ardipal: Persempit: siswa pemula, ansambel,",
+   "start": 18.861,
+   "end": 22.306,
+   "text": "Persempit: siswa pemula, ansambel, dan koordinasi tempo.",
    "scene": 2,
    "line": "s02-l3"
   },
   {
-   "start": 20.671,
-   "end": 22.024,
-   "text": "dan koordinasi tempo.",
-   "scene": 2,
-   "line": "s02-l3"
-  },
-  {
-   "start": 22.084,
-   "end": 24.003,
+   "start": 22.386,
+   "end": 25.903,
    "text": "Coba juga padanan bahasa Inggris.",
    "scene": 2,
    "line": "s02-l3"
   },
   {
    "start": 30,
-   "end": 31.258,
-   "text": "Vidka: Artikel terkenal ini",
-   "scene": 3,
-   "line": "s03-l1"
-  },
-  {
-   "start": 31.318,
-   "end": 33.151,
-   "text": "membahas musisi profesional.",
+   "end": 33.721,
+   "text": "Artikel terkenal ini membahas musisi profesional.",
    "scene": 3,
    "line": "s03-l1"
   },
   {
    "start": 33.801,
-   "end": 35.871,
-   "text": "Herry: Bisa membantu menjelaskan konsep.",
+   "end": 35.852,
+   "text": "Bisa membantu menjelaskan konsep.",
    "scene": 3,
    "line": "s03-l2"
   },
   {
-   "start": 35.931,
-   "end": 37.719,
+   "start": 35.932,
+   "end": 37.699,
    "text": "Cari juga penelitian siswa pemula",
    "scene": 3,
    "line": "s03-l2"
   },
   {
    "start": 37.779,
-   "end": 40.083,
+   "end": 41.683,
    "text": "agar konteks pembelajaranmu terwakili.",
    "scene": 3,
    "line": "s03-l2"
   },
   {
    "start": 45.183,
-   "end": 47.651,
-   "text": "Vidka: Judulnya cocok. Langsung saya kutip?",
+   "end": 48.521,
+   "text": "Judulnya cocok. Langsung saya kutip?",
    "scene": 4,
    "line": "s04-l1"
   },
   {
-   "start": 48.301,
-   "end": 50.046,
-   "text": "Ardipal: Baca metode dan hasilnya dulu.",
+   "start": 48.601,
+   "end": 50.327,
+   "text": "Baca metode dan hasilnya dulu.",
    "scene": 4,
    "line": "s04-l2"
   },
   {
-   "start": 50.106,
-   "end": 52.228,
+   "start": 50.407,
+   "end": 52.516,
    "text": "Apakah temuannya mendukung pernyataanmu?",
    "scene": 4,
    "line": "s04-l2"
   },
   {
-   "start": 52.288,
-   "end": 54.223,
+   "start": 52.596,
+   "end": 56.123,
    "text": "Periksa juga kredibilitas sumbernya.",
    "scene": 4,
    "line": "s04-l2"
   },
   {
    "start": 60.183,
-   "end": 62.093,
-   "text": "Vidka: Bacaan ini membahas mendengar teman;",
+   "end": 62.2,
+   "text": "Bacaan ini membahas mendengar teman;",
    "scene": 5,
    "line": "s05-l1"
   },
   {
-   "start": 62.153,
-   "end": 63.746,
+   "start": 62.28,
+   "end": 64.316,
    "text": "yang lain, isyarat gerak.",
    "scene": 5,
    "line": "s05-l1"
   },
   {
    "start": 64.396,
-   "end": 65.732,
-   "text": "Herry: Apa yang ingin kamu telusuri?",
+   "end": 66.602,
+   "text": "Apa yang ingin kamu telusuri?",
    "scene": 5,
    "line": "s05-l2"
   },
   {
-   "start": 66.382,
-   "end": 67.58,
-   "text": "Vidka: Bagaimana kelompok kami",
-   "scene": 5,
-   "line": "s05-l3"
-  },
-  {
-   "start": 67.64,
-   "end": 68.79,
-   "text": "menggunakan keduanya.",
+   "start": 66.682,
+   "end": 70.69,
+   "text": "Bagaimana kelompok kami menggunakan keduanya.",
    "scene": 5,
    "line": "s05-l3"
   },
   {
    "start": 75.183,
-   "end": 77.219,
-   "text": "Vidka: «Siswa kurang kompak.» Cukup, Pak?",
+   "end": 78.089,
+   "text": "«Siswa kurang kompak.» Cukup, Pak?",
    "scene": 6,
    "line": "s06-l1"
   },
   {
-   "start": 77.869,
-   "end": 79.393,
-   "text": "Herry: Apa yang terjadi dan dampaknya?",
+   "start": 78.169,
+   "end": 80.563,
+   "text": "Apa yang terjadi dan dampaknya?",
    "scene": 6,
    "line": "s06-l2"
   },
   {
-   "start": 80.043,
-   "end": 81.201,
-   "text": "Vidka: Tempo meningkat,",
+   "start": 80.643,
+   "end": 83.521,
+   "text": "Tempo meningkat, beberapa siswa tertinggal,",
    "scene": 6,
    "line": "s06-l3"
   },
   {
-   "start": 81.261,
-   "end": 82.941,
-   "text": "beberapa siswa tertinggal,",
-   "scene": 6,
-   "line": "s06-l3"
-  },
-  {
-   "start": 83.001,
-   "end": 84.494,
+   "start": 83.601,
+   "end": 86.694,
    "text": "dan latihan berhenti.",
    "scene": 6,
    "line": "s06-l3"
   },
   {
-   "start": 90.183,
-   "end": 91.256,
-   "text": "Ardipal: Apa yang belum jelas?",
+   "start": 90.194,
+   "end": 92.138,
+   "text": "Apa yang belum jelas?",
    "scene": 7,
    "line": "s07-l1"
   },
   {
-   "start": 91.906,
-   "end": 93.855,
-   "text": "Vidka: Bagaimana siswa mengikuti tempo teman.",
+   "start": 92.218,
+   "end": 94.737,
+   "text": "Bagaimana siswa mengikuti tempo teman.",
    "scene": 7,
    "line": "s07-l2"
   },
   {
-   "start": 94.505,
-   "end": 96.709,
-   "text": "Ardipal: Hubungkan dengan bukti awal dan bacaan.",
+   "start": 94.817,
+   "end": 97.008,
+   "text": "Hubungkan dengan bukti awal dan bacaan.",
    "scene": 7,
    "line": "s07-l3"
   },
   {
-   "start": 96.769,
-   "end": 98.71,
+   "start": 97.088,
+   "end": 100.622,
    "text": "Jelaskan mengapa penting dipahami.",
    "scene": 7,
    "line": "s07-l3"
   },
   {
-   "start": 105.183,
-   "end": 106.492,
-   "text": "Vidka: Bagaimana siswa pemula",
+   "start": 105.194,
+   "end": 108.613,
+   "text": "Bagaimana siswa pemula menggunakan isyarat bunyi dan gerak",
    "scene": 8,
    "line": "s08-l1"
   },
   {
-   "start": 106.552,
-   "end": 108.622,
-   "text": "menggunakan isyarat bunyi dan gerak",
-   "scene": 8,
-   "line": "s08-l1"
-  },
-  {
-   "start": 108.682,
-   "end": 110.842,
+   "start": 108.693,
+   "end": 111.723,
    "text": "untuk menjaga tempo dalam ansambel?",
    "scene": 8,
    "line": "s08-l1"
   },
   {
-   "start": 111.492,
-   "end": 113.17,
-   "text": "Herry: Jelas: siapa, proses apa,",
+   "start": 111.803,
+   "end": 117.146,
+   "text": "Jelas: siapa, proses apa, dan dalam konteks apa.",
    "scene": 8,
    "line": "s08-l2"
   },
   {
-   "start": 113.23,
-   "end": 115.234,
-   "text": "dan dalam konteks apa.",
-   "scene": 8,
-   "line": "s08-l2"
-  },
-  {
-   "start": 120.334,
-   "end": 121.813,
-   "text": "Vidka: Saya gunakan kuesioner saja?",
+   "start": 120.646,
+   "end": 122.995,
+   "text": "Saya gunakan kuesioner saja?",
    "scene": 9,
    "line": "s09-l1"
   },
   {
-   "start": 122.463,
-   "end": 123.557,
-   "text": "Ardipal: Apakah itu menunjukkan",
+   "start": 123.075,
+   "end": 126.251,
+   "text": "Apakah itu menunjukkan tindakan saat latihan?",
    "scene": 9,
    "line": "s09-l2"
   },
   {
-   "start": 123.617,
-   "end": 124.77,
-   "text": "tindakan saat latihan?",
-   "scene": 9,
-   "line": "s09-l2"
-  },
-  {
-   "start": 125.42,
-   "end": 126.429,
-   "text": "Vidka: Belum cukup.",
+   "start": 126.331,
+   "end": 128.659,
+   "text": "Belum cukup. Saya perlu mengamati,",
    "scene": 9,
    "line": "s09-l3"
   },
   {
-   "start": 126.489,
-   "end": 127.768,
-   "text": "Saya perlu mengamati,",
-   "scene": 9,
-   "line": "s09-l3"
-  },
-  {
-   "start": 127.828,
-   "end": 129.732,
+   "start": 128.739,
+   "end": 132.243,
    "text": "lalu menanyakan alasannya.",
    "scene": 9,
    "line": "s09-l3"
   },
   {
-   "start": 135.334,
-   "end": 136.932,
-   "text": "Herry: Studi kasus kualitatif dapat sesuai",
+   "start": 135.743,
+   "end": 137.321,
+   "text": "Studi kasus kualitatif dapat sesuai",
    "scene": 10,
    "line": "s10-l1"
   },
   {
-   "start": 136.992,
-   "end": 138.324,
+   "start": 137.401,
+   "end": 139.303,
    "text": "untuk memahami kelompok ini.",
    "scene": 10,
    "line": "s10-l1"
   },
   {
-   "start": 138.974,
-   "end": 140.542,
-   "text": "Vidka: Saya membandingkan pengamatan",
+   "start": 139.383,
+   "end": 142.846,
+   "text": "Saya membandingkan pengamatan dengan wawancara?",
    "scene": 10,
    "line": "s10-l2"
   },
   {
-   "start": 140.602,
-   "end": 141.568,
-   "text": "dengan wawancara?",
-   "scene": 10,
-   "line": "s10-l2"
-  },
-  {
-   "start": 142.218,
-   "end": 144.391,
-   "text": "Herry: Ya, untuk menelaah pola penggunaan isyarat.",
+   "start": 142.926,
+   "end": 146.699,
+   "text": "Ya, untuk menelaah pola penggunaan isyarat.",
    "scene": 10,
    "line": "s10-l3"
   },
   {
-   "start": 150.334,
-   "end": 152.37,
-   "text": "Vidka: Kalau menguji apakah latihan metronom",
+   "start": 150.743,
+   "end": 152.759,
+   "text": "Kalau menguji apakah latihan metronom",
    "scene": 11,
    "line": "s11-l1"
   },
   {
-   "start": 152.43,
-   "end": 154.135,
+   "start": 152.839,
+   "end": 155.414,
    "text": "meningkatkan kestabilan tempo?",
    "scene": 11,
    "line": "s11-l1"
   },
   {
-   "start": 154.785,
-   "end": 155.818,
-   "text": "Ardipal: Pertanyaannya berubah.",
+   "start": 155.494,
+   "end": 156.51,
+   "text": "Pertanyaannya berubah.",
    "scene": 11,
    "line": "s11-l2"
   },
   {
-   "start": 155.878,
-   "end": 158.361,
+   "start": 156.59,
+   "end": 159.049,
    "text": "Perlu ukuran tempo, perbandingan yang sesuai,",
    "scene": 11,
    "line": "s11-l2"
   },
   {
-   "start": 158.421,
-   "end": 160.119,
+   "start": 159.129,
+   "end": 162.427,
    "text": "dan perhatian pada faktor lain.",
    "scene": 11,
    "line": "s11-l2"
   },
   {
-   "start": 165.334,
-   "end": 167.557,
-   "text": "Vidka: Sekarang bacaan, masalah, pertanyaan,",
+   "start": 165.927,
+   "end": 168.13,
+   "text": "Sekarang bacaan, masalah, pertanyaan,",
    "scene": 12,
    "line": "s12-l1"
   },
   {
-   "start": 167.617,
-   "end": 170.204,
+   "start": 168.21,
+   "end": 171.367,
    "text": "dan cara penelitian saya saling terhubung.",
    "scene": 12,
    "line": "s12-l1"
   },
   {
-   "start": 170.854,
-   "end": 171.791,
-   "text": "Herry: Siapkan persetujuan",
+   "start": 171.447,
+   "end": 174.368,
+   "text": "Siapkan persetujuan sebelum mengumpulkan data.",
    "scene": 12,
    "line": "s12-l2"
   },
   {
-   "start": 171.851,
-   "end": 173.205,
-   "text": "sebelum mengumpulkan data.",
-   "scene": 12,
-   "line": "s12-l2"
-  },
-  {
-   "start": 173.855,
-   "end": 175.894,
-   "text": "Ardipal: Dan jelaskan alasan setiap pilihanmu.",
+   "start": 174.448,
+   "end": 178.087,
+   "text": "Dan jelaskan alasan setiap pilihanmu.",
    "scene": 12,
    "line": "s12-l3"
   }

@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "purpose": "project_selected_audio",
+  "catalog_sha256": "83e5eae2452b5010e8b62eceeacefddfd28aba5fc85f976f788ddb9d3497fdf6",
+  "assets": [
+    {
+      "id": "bgm-easy-lemon",
+      "title": "Easy Lemon",
+      "kind": "music",
+      "category": "warm",
+      "tags": [
+        "warm",
+        "relaxed",
+        "voiceover-friendly"
+      ],
+      "recommended_use_zh": "轻松解释、温和叙述、少抢对白的背景",
+      "author": "Kevin MacLeod",
+      "source_id": "bgm-easy-lemon",
+      "source_url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1200076",
+      "path": "audio/music/bgm-easy-lemon.mp3",
+      "sha256": "2486b8ecfe4575f9ab31613a2c03c2ee45e6e5280301d05b4dd7237c9e1c2531",
+      "original_sha256": "2486b8ecfe4575f9ab31613a2c03c2ee45e6e5280301d05b4dd7237c9e1c2531",
+      "original_filename": "Easy Lemon.mp3",
+      "bytes": 5057420,
+      "duration": 126.380425,
+      "sample_rate": 44100,
+      "channels": 2,
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "evidence_paths": [
+          "licenses/CC-BY-4.0.txt",
+          "evidence/bgm-easy-lemon/official-record.json",
+          "evidence/bgm-easy-lemon/acquisition.json"
+        ],
+        "attribution_required": true,
+        "attribution": "\"Easy Lemon\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\nSource: https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1200076\nLibrary copy: original MP3 unchanged. In a finished video, disclose actual edits/synchronization.",
+        "commercial_use": true,
+        "redistribution": true,
+        "modifications_allowed": true
+      },
+      "modifications": [],
+      "verified_at": "2026-11-14",
+      "qa": {
+        "decode": "pass"
+      },
+      "official_metadata": {
+        "length": "00:02:06",
+        "bpm": "82",
+        "instruments": "Guitar, Bass, Drum Kit, Celesta, Marimba",
+        "feel": "Bright, Calming, Relaxed",
+        "uploaded": "2012-07-03"
+      },
+      "roles": [
+        "information-bed",
+        "warm-bed"
+      ],
+      "style_hints": [
+        "B1",
+        "B2",
+        "B3",
+        "B5",
+        "B9"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "bgm-easy-lemon",
+      "title": "Easy Lemon",
+      "author": "Kevin MacLeod",
+      "source_url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1200076",
+      "download_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Easy%20Lemon.mp3",
+      "license_id": "CC-BY-4.0",
+      "evidence_paths": [
+        "licenses/CC-BY-4.0.txt",
+        "evidence/bgm-easy-lemon/official-record.json",
+        "evidence/bgm-easy-lemon/acquisition.json"
+      ]
+    }
+  ],
+  "evidence_files": [
+    {
+      "path": "licenses/CC-BY-4.0.txt",
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+    },
+    {
+      "path": "evidence/bgm-easy-lemon/official-record.json",
+      "sha256": "628f1127bc124e3f14cbaf8fdef727d60d216d4c080861b52aa45aed8739594f"
+    },
+    {
+      "path": "evidence/bgm-easy-lemon/acquisition.json",
+      "sha256": "5620235e5964bd1859b9b76ececcd97b03584641005afc1be0ee8d85e508a527"
+    }
+  ],
+  "required_credits_path": "CREDITS.md",
+  "files": [
+    {
+      "path": "audio/music/bgm-easy-lemon.mp3",
+      "sha256": "2486b8ecfe4575f9ab31613a2c03c2ee45e6e5280301d05b4dd7237c9e1c2531",
+      "bytes": 5057420,
+      "role": "audio"
+    },
+    {
+      "path": "licenses/CC-BY-4.0.txt",
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+      "bytes": 18657,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/bgm-easy-lemon/official-record.json",
+      "sha256": "628f1127bc124e3f14cbaf8fdef727d60d216d4c080861b52aa45aed8739594f",
+      "bytes": 749,
+      "role": "license_evidence"
+    },
+    {
+      "path": "evidence/bgm-easy-lemon/acquisition.json",
+      "sha256": "5620235e5964bd1859b9b76ececcd97b03584641005afc1be0ee8d85e508a527",
+      "bytes": 1090,
+      "role": "license_evidence"
+    },
+    {
+      "path": "CREDITS.md",
+      "sha256": "0b7b574e6609de5da4026e3ec71c2e4793907831cb82ab123ba8da91a3da0b7c",
+      "bytes": 643,
+      "role": "credits"
+    }
+  ]
+}

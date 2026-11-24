@@ -13,7 +13,8 @@ import {SCENES, LINES, HOLD, GAP, SCENE_MIN} from './script.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > -1 ? process.argv[i + 1] : d; };
 const CLIPS = arg('--clips', 'audio/lines'), OUT_AUDIO = arg('--out-audio', 'audio/narasi-dialog.wav'), OUT_TIMING = arg('--out-timing', 'audio/timing-dialog.json');
-const TARGET_DB = -24; // mean speech level for every voice
+const TARGET_LUFS = -20; // integrated loudness of each line (speech only); peaks limited to -2 dBTP
+const LEAD = 0.4, TAIL = 1.0; // silence before the first word and after the last hold
 const ff = args => execFileSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-nostats', ...args], {encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe']});
 const ffInfo = args => { const r = spawnSync('ffmpeg', ['-hide_banner', '-nostats', ...args], {encoding: 'utf8'}); return String(r.stderr || '') + String(r.stdout || ''); };
 const duration = f => +execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f], {encoding: 'utf8'}).trim();
@@ -33,10 +34,15 @@ for (const l of LINES) {
   if (sil.length && sil[0][0] < 0.03) s0 = sil[0][1];
   if (sil.length && sil.at(-1)[1] > dur - 0.03) s1 = sil.at(-1)[0];
   const t0 = Math.max(0, s0 - 0.08), t1 = Math.min(dur, s1 + 0.16);
-  const volM = ffInfo(['-i', wav, '-af', `atrim=${s0}:${s1},volumedetect`, '-f', 'null', '-']).match(/mean_volume: (-?[\d.]+) dB/);
-  const gain = volM ? Math.max(-12, Math.min(12, TARGET_DB - +volM[1])) : 0;
+  // two-pass EBU R128 normalisation of the speech itself: every voice lands at TARGET_LUFS with a -2 dBTP ceiling
+  const cut = path.join(tmp, l.id + '-cut.wav');
+  ff(['-y', '-i', wav, '-af', `atrim=${t0}:${t1},asetpts=PTS-STARTPTS`, '-ar', '48000', '-ac', '1', cut]);
+  const meas = ffInfo(['-i', cut, '-af', `loudnorm=I=${TARGET_LUFS}:TP=-2:LRA=9:print_format=json`, '-f', 'null', '-']).match(/\{[\s\S]*\}/);
+  const m = meas ? JSON.parse(meas[0]) : null;
+  const ln = m ? `loudnorm=I=${TARGET_LUFS}:TP=-2:LRA=9:measured_I=${m.input_i}:measured_TP=${m.input_tp}:measured_LRA=${m.input_lra}:measured_thresh=${m.input_thresh}:offset=${m.target_offset}:linear=true` : `loudnorm=I=${TARGET_LUFS}:TP=-2:LRA=9`;
+  const gain = m ? +(TARGET_LUFS - +m.input_i).toFixed(2) : 0;
   const out = path.join(tmp, l.id + '-ready.wav');
-  ff(['-y', '-i', wav, '-af', `atrim=${t0}:${t1},asetpts=PTS-STARTPTS,volume=${gain.toFixed(2)}dB,afade=t=in:d=0.02,afade=t=out:st=${Math.max(0, t1 - t0 - 0.06).toFixed(3)}:d=0.06`, '-ar', '48000', '-ac', '1', out]);
+  ff(['-y', '-i', cut, '-af', `${ln},aresample=48000,afade=t=in:d=0.02,afade=t=out:st=${Math.max(0, t1 - t0 - 0.06).toFixed(3)}:d=0.06`, '-ar', '48000', '-ac', '1', out]);
   // internal pauses of the trimmed clip (for multi-cue lines)
   const det2 = ffInfo(['-i', out, '-af', 'silencedetect=noise=-38dB:d=0.16', '-f', 'null', '-']);
   const pauses = [...det2.matchAll(/silence_start: ([\d.]+)[\s\S]*?silence_end: ([\d.]+)/g)].map(m => [+m[1], +m[2]]).filter(([a, b]) => a > 0.25 && b < duration(out) - 0.25);
@@ -50,9 +56,10 @@ const clip = f => { inputs.push('-i', f); parts.push(`[${n++}:a]`); };
 const scenes = [], cues = [], lineLedger = [];
 SCENES.forEach((sc, i) => {
   const start = T; let t = T; const lines = [];
+  if (i === 0) { silence(LEAD); t += LEAD; }
   sc.lines.forEach((l, j) => {
     const id = LINES.find(x => x.scene === i + 1 && x.index === j).id, p = prepared[id];
-    if (j > 0) { silence(GAP); t += GAP; }
+    if (j > 0) { const prev = sc.lines[j - 1].tts.trim(); const gap = prev.endsWith('?') ? GAP + 0.3 : prev.endsWith('.') ? GAP : GAP - 0.1; silence(gap); t += gap; }
     clip(p.file);
     const lineStart = t, lineEnd = t + p.dur;
     // cue boundaries
@@ -71,12 +78,16 @@ SCENES.forEach((sc, i) => {
       });
     }
     const edges = [0.0, ...bounds, p.dur - 0.10];
-    l.cues.forEach((text, c) => cues.push({start: +(lineStart + edges[c] + (c ? 0.03 : 0)).toFixed(3), end: +(lineStart + edges[c + 1] - (c < k - 1 ? 0.03 : 0)).toFixed(3), text, scene: i + 1, line: id}));
+    // merge short neighbouring cues of the same line while the result stays within one caption line
+    // captions carry the spoken words only: the three voices and the on-screen cast identify the speaker, and the name prefix cost reading speed
+    let lineCues = l.cues.map((text, c) => ({start: lineStart + edges[c] + (c ? 0.03 : 0), end: lineStart + edges[c + 1] - (c < k - 1 ? 0.03 : 0), text: text.replace(/^(Vidka|Herry|Ardipal|Pemain): /, '')}));
+    for (let c = 0; c + 1 < lineCues.length;) { const merged = lineCues[c].text + ' ' + lineCues[c + 1].text; if (merged.length <= 58) { lineCues.splice(c, 2, {start: lineCues[c].start, end: lineCues[c + 1].end, text: merged}); } else c++; }
+    lineCues.forEach(c => cues.push({start: +c.start.toFixed(3), end: +c.end.toFixed(3), text: c.text, scene: i + 1, line: id}));
     lines.push({id, role: l.role, start: +lineStart.toFixed(3), end: +lineEnd.toFixed(3), gain_db: p.gain, cue_split: splitMode});
     lineLedger.push(lines.at(-1));
     t = lineEnd;
   });
-  const speechEnd = t, end = Math.max(start + SCENE_MIN, speechEnd + HOLD);
+  const speechEnd = t, end = Math.max(start + SCENE_MIN, speechEnd + HOLD) + (i === SCENES.length - 1 ? TAIL : 0);
   silence(end - speechEnd);
   scenes.push({start: +start.toFixed(3), end: +end.toFixed(3), talk_end: +speechEnd.toFixed(3), hold: +(end - speechEnd).toFixed(3), lines});
   T = end;
@@ -85,8 +96,15 @@ filt = `${parts.join('')}concat=n=${parts.length}:v=0:a=1[out]`;
 ff(['-y', ...inputs, '-filter_complex', filt, '-map', '[out]', '-ar', '48000', '-ac', '1', '-c:a', 'pcm_s16le', OUT_AUDIO]);
 const total = Math.floor(duration(OUT_AUDIO) * 1000) / 1000;
 scenes.at(-1).end = total;
+// reading time: let each cue stay up to 1.2 s into the following pause (1.6 s into a scene hold), never into the next cue
+for (let i = 0; i < cues.length; i++) {
+  const next = i + 1 < cues.length ? cues[i + 1].start - 0.08 : total - 0.3;
+  const sceneEnd = scenes[cues[i].scene - 1].end - 0.25;
+  const sameScene = i + 1 < cues.length && cues[i + 1].scene === cues[i].scene;
+  cues[i].end = +Math.min(next, sameScene ? cues[i].end + 1.2 : Math.min(cues[i].end + 1.6, sceneEnd)).toFixed(3);
+}
 for (let i = 1; i < cues.length; i++) if (cues[i].start < cues[i - 1].end + 0.02) cues[i - 1].end = +Math.max(cues[i - 1].start + 0.3, cues[i].start - 0.02).toFixed(3);
-fs.writeFileSync(OUT_TIMING, JSON.stringify({mode: 'dialogue-clips', duration: total, voice: path.relative(path.resolve('.'), path.resolve(OUT_AUDIO)).replace(/\\/g, '/'), hold_seconds: HOLD, gap_seconds: GAP, scenes, cues,
+fs.writeFileSync(OUT_TIMING, JSON.stringify({mode: 'dialogue-clips', duration: total, voice: path.relative(path.resolve('.'), path.resolve(OUT_AUDIO)).replace(/\\/g, '/'), hold_seconds: HOLD, gap_seconds: GAP, lead: LEAD, tail: TAIL, target_lufs: TARGET_LUFS, scenes, cues,
   note: 'Each line is its own recording placed on the timeline; cue times come from clip boundaries (and the clips\' internal pauses for multi-cue lines), so they are exact to the recordings.'}, null, 1));
 fs.rmSync(tmp, {recursive: true, force: true});
 console.log(`${OUT_AUDIO}: ${total.toFixed(2)}s, ${cues.length} cues → ${OUT_TIMING}`);

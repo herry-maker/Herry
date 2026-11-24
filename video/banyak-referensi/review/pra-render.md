@@ -48,3 +48,18 @@ Tanggal: 24 Nov 2026. Objek: `project.json` (41 shot, 58 cue, 181,0 s), `audio/n
 2. Pasang musik dari pustaka upstream (P0-3): gratis, perlu unduhan 250 MB sekali.
 3. Opsional berbayar: lembar properti (P1-11).
 4. Anda mendengarkan sampel 60 s baru; bila diterima, saya isi `output/preview-reference/review-template.json` sebagai tinjauan independen, lalu `approve --visual-review` dan `render` 181 s, disusul `accept-visual` atas film penuh.
+
+## Tindak lanjut (24 Nov 2026, setelah tinjauan)
+
+Semua butir P0 dan P1 dikerjakan:
+- P0-1 audio: tiap klip dinormalisasi dua tahap (`loudnorm`, target −20 LUFS, true-peak −2 dBTP, gain linear); sampel 60 s terukur I = −20,4 LUFS, puncak −2,0 dBFS, tidak ada clipping.
+- P0-2 subtitel: awalan nama pembicara dihapus (suara sudah berbeda), frasa pendek digabung (≤ 58 karakter), cue diperpanjang ke dalam jeda; median 13,2 karakter/detik, p90 18,4, hanya 2 cue di atas 20 (keduanya kalimat yang memang diucapkan cepat).
+- P0-3 musik: "Easy Lemon" (CC BY 4.0) dari pustaka upstream, gain 0,09, kredit di layar dan di `audio/music/CREDITS.md`.
+- P0-4 visual: artikel tidak lagi menutupi Vidka (adegan 3, 4); "cukup?" dipindah; garis sorot proses/konteks pada baris yang benar (adegan 8); halaman pertanyaan adegan 11 memakai kartu kosong; label di atas buku; pensil lama disembunyikan.
+- P1-5/6 ritme: jeda antarbaris 0,45/0,55/0,85 s menurut tanda baca; adegan 1 mendapat beat aksi (menggeser artikel, membuka buku) sebelum teks jeda.
+- P1-8 teks kecil: label sekunder dinaikkan ke ≥ 30 unit; label "Vidka" dihapus.
+- P1-9 kehadiran tokoh: Vidka hadir pada jeda adegan 1 dan 11; jeda bertugas sudah memuatnya.
+- P1-10 label "contoh ilustratif" ditambahkan di adegan 4.
+- P1-11 properti: lembar properti dibuat dan diimpor (1.218 kredit).
+- P1-12 lead 0,4 s dan tail 1,0 s ditambahkan; durasi film 182,6 s.
+- P1-7 prosodi antarbaris tidak dapat diperbaiki pada rute ini (dicatat sebagai keterbatasan).

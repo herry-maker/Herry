@@ -15,35 +15,44 @@
     "phase": "talk",
     "shot": 1,
     "start": 0,
-    "end": 2.06,
-    "scale": 0.688
+    "end": 2.18,
+    "scale": 0.728
    },
    {
     "scene": 1,
     "title": "Kebingungan awal",
     "phase": "talk",
     "shot": 2,
-    "start": 2.06,
-    "end": 4.13,
-    "scale": 0.688
+    "start": 2.18,
+    "end": 4.37,
+    "scale": 0.728
    },
    {
     "scene": 1,
     "title": "Kebingungan awal",
     "phase": "talk",
     "shot": 3,
-    "start": 4.13,
-    "end": 6.88,
-    "scale": 0.688
+    "start": 4.37,
+    "end": 7.28,
+    "scale": 0.728
    },
    {
     "scene": 1,
     "title": "Kebingungan awal",
     "phase": "hold",
     "shot": 1,
-    "start": 6.88,
+    "start": 7.28,
+    "end": 9.59,
+    "scale": 1.544
+   },
+   {
+    "scene": 1,
+    "title": "Kebingungan awal",
+    "phase": "hold",
+    "shot": 2,
+    "start": 9.59,
     "end": 15,
-    "scale": 1.624
+    "scale": 1.544
    },
    {
     "scene": 2,
@@ -51,26 +60,26 @@
     "phase": "talk",
     "shot": 1,
     "start": 15,
-    "end": 17.73,
-    "scale": 0.91
+    "end": 17.82,
+    "scale": 0.94
    },
    {
     "scene": 2,
     "title": "Memperbaiki pencarian",
     "phase": "talk",
     "shot": 2,
-    "start": 17.73,
-    "end": 24.1,
-    "scale": 0.91
+    "start": 17.82,
+    "end": 24.4,
+    "scale": 0.94
    },
    {
     "scene": 2,
     "title": "Memperbaiki pencarian",
     "phase": "hold",
     "shot": 1,
-    "start": 24.1,
+    "start": 24.4,
     "end": 30,
-    "scale": 1.179
+    "scale": 1.119
    },
    {
     "scene": 3,
@@ -105,26 +114,26 @@
     "phase": "talk",
     "shot": 1,
     "start": 45.18,
-    "end": 47.92,
-    "scale": 0.914
+    "end": 48.02,
+    "scale": 0.944
    },
    {
     "scene": 4,
     "title": "Memeriksa dukungan sumber",
     "phase": "talk",
     "shot": 2,
-    "start": 47.92,
-    "end": 54.32,
-    "scale": 0.914
+    "start": 48.02,
+    "end": 54.62,
+    "scale": 0.944
    },
    {
     "scene": 4,
     "title": "Memeriksa dukungan sumber",
     "phase": "hold",
     "shot": 1,
-    "start": 54.32,
+    "start": 54.62,
     "end": 60.18,
-    "scale": 1.172
+    "scale": 1.112
    },
    {
     "scene": 5,
@@ -132,35 +141,35 @@
     "phase": "talk",
     "shot": 1,
     "start": 60.18,
-    "end": 63.67,
-    "scale": 0.871
+    "end": 63.79,
+    "scale": 0.901
    },
    {
     "scene": 5,
     "title": "Menghubungkan bacaan",
     "phase": "talk",
     "shot": 2,
-    "start": 63.67,
-    "end": 65.41,
-    "scale": 0.871
+    "start": 63.79,
+    "end": 65.59,
+    "scale": 0.901
    },
    {
     "scene": 5,
     "title": "Menghubungkan bacaan",
     "phase": "talk",
     "shot": 3,
-    "start": 65.41,
-    "end": 68.89,
-    "scale": 0.871
+    "start": 65.59,
+    "end": 69.19,
+    "scale": 0.901
    },
    {
     "scene": 5,
     "title": "Menghubungkan bacaan",
     "phase": "hold",
     "shot": 1,
-    "start": 68.89,
+    "start": 69.19,
     "end": 75.18,
-    "scale": 1.259
+    "scale": 1.199
    },
    {
     "scene": 6,
@@ -168,88 +177,88 @@
     "phase": "talk",
     "shot": 1,
     "start": 75.18,
-    "end": 77.54,
-    "scale": 0.941
+    "end": 77.69,
+    "scale": 1.001
    },
    {
     "scene": 6,
     "title": "Mengubah keluhan menjadi masalah",
     "phase": "talk",
     "shot": 2,
-    "start": 77.54,
-    "end": 79.42,
-    "scale": 0.941
+    "start": 77.69,
+    "end": 79.69,
+    "scale": 1.001
    },
    {
     "scene": 6,
     "title": "Mengubah keluhan menjadi masalah",
     "phase": "talk",
     "shot": 3,
-    "start": 79.42,
-    "end": 84.59,
-    "scale": 0.941
+    "start": 79.69,
+    "end": 85.19,
+    "scale": 1.001
    },
    {
     "scene": 6,
     "title": "Mengubah keluhan menjadi masalah",
     "phase": "hold",
     "shot": 1,
-    "start": 84.59,
-    "end": 90.18,
-    "scale": 1.118
+    "start": 85.19,
+    "end": 90.19,
+    "scale": 1
    },
    {
     "scene": 7,
     "title": "Menyusun pernyataan masalah",
     "phase": "talk",
     "shot": 1,
-    "start": 90.18,
-    "end": 92.77,
-    "scale": 0.863
+    "start": 90.19,
+    "end": 92.87,
+    "scale": 0.893
    },
    {
     "scene": 7,
     "title": "Menyusun pernyataan masalah",
     "phase": "talk",
     "shot": 2,
-    "start": 92.77,
-    "end": 98.81,
-    "scale": 0.863
+    "start": 92.87,
+    "end": 99.12,
+    "scale": 0.893
    },
    {
     "scene": 7,
     "title": "Menyusun pernyataan masalah",
     "phase": "hold",
     "shot": 1,
-    "start": 98.81,
-    "end": 105.18,
-    "scale": 1.275
+    "start": 99.12,
+    "end": 105.19,
+    "scale": 1.214
    },
    {
     "scene": 8,
     "title": "Merumuskan pertanyaan penelitian",
     "phase": "talk",
     "shot": 1,
-    "start": 105.18,
-    "end": 110.77,
-    "scale": 1.015
+    "start": 105.19,
+    "end": 110.94,
+    "scale": 1.045
    },
    {
     "scene": 8,
     "title": "Merumuskan pertanyaan penelitian",
     "phase": "talk",
     "shot": 2,
-    "start": 110.77,
-    "end": 115.33,
-    "scale": 1.015
+    "start": 110.94,
+    "end": 115.65,
+    "scale": 1.045
    },
    {
     "scene": 8,
     "title": "Merumuskan pertanyaan penelitian",
     "phase": "hold",
     "shot": 1,
-    "start": 115.33,
-    "end": 120.33,
+    "start": 115.65,
+    "end": 120.65,
     "scale": 1
    },
    {
@@ -257,126 +266,126 @@
     "title": "Memilih data yang diperlukan",
     "phase": "talk",
     "shot": 1,
-    "start": 120.33,
-    "end": 122.23,
-    "scale": 0.95
+    "start": 120.65,
+    "end": 122.67,
+    "scale": 1.01
    },
    {
     "scene": 9,
     "title": "Memilih data yang diperlukan",
     "phase": "talk",
     "shot": 2,
-    "start": 122.23,
-    "end": 124.61,
-    "scale": 0.95
+    "start": 122.67,
+    "end": 125.19,
+    "scale": 1.01
    },
    {
     "scene": 9,
     "title": "Memilih data yang diperlukan",
     "phase": "talk",
     "shot": 3,
-    "start": 124.61,
-    "end": 129.83,
-    "scale": 0.95
+    "start": 125.19,
+    "end": 130.74,
+    "scale": 1.01
    },
    {
     "scene": 9,
     "title": "Memilih data yang diperlukan",
     "phase": "hold",
     "shot": 1,
-    "start": 129.83,
-    "end": 135.33,
-    "scale": 1.1
-   },
-   {
-    "scene": 10,
-    "title": "Menjelaskan alasan metodologi",
-    "phase": "talk",
-    "shot": 1,
-    "start": 135.33,
-    "end": 138.26,
-    "scale": 0.916
-   },
-   {
-    "scene": 10,
-    "title": "Menjelaskan alasan metodologi",
-    "phase": "talk",
-    "shot": 2,
-    "start": 138.26,
-    "end": 141.01,
-    "scale": 0.916
-   },
-   {
-    "scene": 10,
-    "title": "Menjelaskan alasan metodologi",
-    "phase": "talk",
-    "shot": 3,
-    "start": 141.01,
-    "end": 144.49,
-    "scale": 0.916
-   },
-   {
-    "scene": 10,
-    "title": "Menjelaskan alasan metodologi",
-    "phase": "hold",
-    "shot": 1,
-    "start": 144.49,
-    "end": 150.33,
-    "scale": 1.169
-   },
-   {
-    "scene": 11,
-    "title": "Menyesuaikan rancangan dengan pertanyaan",
-    "phase": "talk",
-    "shot": 1,
-    "start": 150.33,
-    "end": 154.29,
-    "scale": 0.988
-   },
-   {
-    "scene": 11,
-    "title": "Menyesuaikan rancangan dengan pertanyaan",
-    "phase": "talk",
-    "shot": 2,
-    "start": 154.29,
-    "end": 160.22,
-    "scale": 0.988
-   },
-   {
-    "scene": 11,
-    "title": "Menyesuaikan rancangan dengan pertanyaan",
-    "phase": "hold",
-    "shot": 1,
-    "start": 160.22,
-    "end": 165.33,
-    "scale": 1.023
-   },
-   {
-    "scene": 12,
-    "title": "Menunjukkan hasil belajar",
-    "phase": "talk",
-    "shot": 1,
-    "start": 165.33,
-    "end": 170.66,
-    "scale": 1.066
-   },
-   {
-    "scene": 12,
-    "title": "Menunjukkan hasil belajar",
-    "phase": "talk",
-    "shot": 2,
-    "start": 170.66,
-    "end": 175.99,
-    "scale": 1.066
-   },
-   {
-    "scene": 12,
-    "title": "Menunjukkan hasil belajar",
-    "phase": "hold",
-    "shot": 1,
-    "start": 175.99,
-    "end": 181,
+    "start": 130.74,
+    "end": 135.74,
     "scale": 1
+   },
+   {
+    "scene": 10,
+    "title": "Menjelaskan alasan metodologi",
+    "phase": "talk",
+    "shot": 1,
+    "start": 135.74,
+    "end": 138.77,
+    "scale": 0.946
+   },
+   {
+    "scene": 10,
+    "title": "Menjelaskan alasan metodologi",
+    "phase": "talk",
+    "shot": 2,
+    "start": 138.77,
+    "end": 141.61,
+    "scale": 0.946
+   },
+   {
+    "scene": 10,
+    "title": "Menjelaskan alasan metodologi",
+    "phase": "talk",
+    "shot": 3,
+    "start": 141.61,
+    "end": 145.2,
+    "scale": 0.946
+   },
+   {
+    "scene": 10,
+    "title": "Menjelaskan alasan metodologi",
+    "phase": "hold",
+    "shot": 1,
+    "start": 145.2,
+    "end": 150.74,
+    "scale": 1.109
+   },
+   {
+    "scene": 11,
+    "title": "Menyesuaikan rancangan dengan pertanyaan",
+    "phase": "talk",
+    "shot": 1,
+    "start": 150.74,
+    "end": 154.82,
+    "scale": 1.018
+   },
+   {
+    "scene": 11,
+    "title": "Menyesuaikan rancangan dengan pertanyaan",
+    "phase": "talk",
+    "shot": 2,
+    "start": 154.82,
+    "end": 160.93,
+    "scale": 1.018
+   },
+   {
+    "scene": 11,
+    "title": "Menyesuaikan rancangan dengan pertanyaan",
+    "phase": "hold",
+    "shot": 1,
+    "start": 160.93,
+    "end": 165.93,
+    "scale": 1
+   },
+   {
+    "scene": 12,
+    "title": "Menunjukkan hasil belajar",
+    "phase": "talk",
+    "shot": 1,
+    "start": 165.93,
+    "end": 171.26,
+    "scale": 1.066
+   },
+   {
+    "scene": 12,
+    "title": "Menunjukkan hasil belajar",
+    "phase": "talk",
+    "shot": 2,
+    "start": 171.26,
+    "end": 176.59,
+    "scale": 1.066
+   },
+   {
+    "scene": 12,
+    "title": "Menunjukkan hasil belajar",
+    "phase": "hold",
+    "shot": 1,
+    "start": 176.59,
+    "end": 182.59,
+    "scale": 1.2
    }
   ],
   "timing": {
@@ -392,300 +401,240 @@
  },
  "captions": [
   {
-   "start": 0,
-   "end": 1.494,
-   "text": "Vidka: Pak, artikel saya banyak,"
+   "start": 0.4,
+   "end": 4.26,
+   "text": "Pak, artikel saya banyak, tetapi saya bingung memilih."
   },
   {
-   "start": 1.554,
-   "end": 3.29,
-   "text": "tetapi saya bingung memilih."
-  },
-  {
-   "start": 3.94,
-   "end": 5.25,
-   "text": "Herry: Buka lagi catatanmu."
-  },
-  {
-   "start": 5.31,
-   "end": 6.778,
-   "text": "Apa yang ingin kamu pahami?"
+   "start": 4.34,
+   "end": 8.778,
+   "text": "Buka lagi catatanmu. Apa yang ingin kamu pahami?"
   },
   {
    "start": 15,
-   "end": 16.107,
-   "text": "Ardipal: Apa kata kuncimu?"
+   "end": 16.977,
+   "text": "Apa kata kuncimu?"
   },
   {
-   "start": 16.757,
-   "end": 17.911,
-   "text": "Vidka: «Musik», Prof."
+   "start": 17.057,
+   "end": 18.781,
+   "text": "«Musik», Prof."
   },
   {
-   "start": 18.561,
-   "end": 20.611,
-   "text": "Ardipal: Persempit: siswa pemula, ansambel,"
+   "start": 18.861,
+   "end": 22.306,
+   "text": "Persempit: siswa pemula, ansambel, dan koordinasi tempo."
   },
   {
-   "start": 20.671,
-   "end": 22.024,
-   "text": "dan koordinasi tempo."
-  },
-  {
-   "start": 22.084,
-   "end": 24.003,
+   "start": 22.386,
+   "end": 25.903,
    "text": "Coba juga padanan bahasa Inggris."
   },
   {
    "start": 30,
-   "end": 31.258,
-   "text": "Vidka: Artikel terkenal ini"
-  },
-  {
-   "start": 31.318,
-   "end": 33.151,
-   "text": "membahas musisi profesional."
+   "end": 33.721,
+   "text": "Artikel terkenal ini membahas musisi profesional."
   },
   {
    "start": 33.801,
-   "end": 35.871,
-   "text": "Herry: Bisa membantu menjelaskan konsep."
+   "end": 35.852,
+   "text": "Bisa membantu menjelaskan konsep."
   },
   {
-   "start": 35.931,
-   "end": 37.719,
+   "start": 35.932,
+   "end": 37.699,
    "text": "Cari juga penelitian siswa pemula"
   },
   {
    "start": 37.779,
-   "end": 40.083,
+   "end": 41.683,
    "text": "agar konteks pembelajaranmu terwakili."
   },
   {
    "start": 45.183,
-   "end": 47.651,
-   "text": "Vidka: Judulnya cocok. Langsung saya kutip?"
+   "end": 48.521,
+   "text": "Judulnya cocok. Langsung saya kutip?"
   },
   {
-   "start": 48.301,
-   "end": 50.046,
-   "text": "Ardipal: Baca metode dan hasilnya dulu."
+   "start": 48.601,
+   "end": 50.327,
+   "text": "Baca metode dan hasilnya dulu."
   },
   {
-   "start": 50.106,
-   "end": 52.228,
+   "start": 50.407,
+   "end": 52.516,
    "text": "Apakah temuannya mendukung pernyataanmu?"
   },
   {
-   "start": 52.288,
-   "end": 54.223,
+   "start": 52.596,
+   "end": 56.123,
    "text": "Periksa juga kredibilitas sumbernya."
   },
   {
    "start": 60.183,
-   "end": 62.093,
-   "text": "Vidka: Bacaan ini membahas mendengar teman;"
+   "end": 62.2,
+   "text": "Bacaan ini membahas mendengar teman;"
   },
   {
-   "start": 62.153,
-   "end": 63.746,
+   "start": 62.28,
+   "end": 64.316,
    "text": "yang lain, isyarat gerak."
   },
   {
    "start": 64.396,
-   "end": 65.732,
-   "text": "Herry: Apa yang ingin kamu telusuri?"
+   "end": 66.602,
+   "text": "Apa yang ingin kamu telusuri?"
   },
   {
-   "start": 66.382,
-   "end": 67.58,
-   "text": "Vidka: Bagaimana kelompok kami"
-  },
-  {
-   "start": 67.64,
-   "end": 68.79,
-   "text": "menggunakan keduanya."
+   "start": 66.682,
+   "end": 70.69,
+   "text": "Bagaimana kelompok kami menggunakan keduanya."
   },
   {
    "start": 75.183,
-   "end": 77.219,
-   "text": "Vidka: «Siswa kurang kompak.» Cukup, Pak?"
+   "end": 78.089,
+   "text": "«Siswa kurang kompak.» Cukup, Pak?"
   },
   {
-   "start": 77.869,
-   "end": 79.393,
-   "text": "Herry: Apa yang terjadi dan dampaknya?"
+   "start": 78.169,
+   "end": 80.563,
+   "text": "Apa yang terjadi dan dampaknya?"
   },
   {
-   "start": 80.043,
-   "end": 81.201,
-   "text": "Vidka: Tempo meningkat,"
+   "start": 80.643,
+   "end": 83.521,
+   "text": "Tempo meningkat, beberapa siswa tertinggal,"
   },
   {
-   "start": 81.261,
-   "end": 82.941,
-   "text": "beberapa siswa tertinggal,"
-  },
-  {
-   "start": 83.001,
-   "end": 84.494,
+   "start": 83.601,
+   "end": 86.694,
    "text": "dan latihan berhenti."
   },
   {
-   "start": 90.183,
-   "end": 91.256,
-   "text": "Ardipal: Apa yang belum jelas?"
+   "start": 90.194,
+   "end": 92.138,
+   "text": "Apa yang belum jelas?"
   },
   {
-   "start": 91.906,
-   "end": 93.855,
-   "text": "Vidka: Bagaimana siswa mengikuti tempo teman."
+   "start": 92.218,
+   "end": 94.737,
+   "text": "Bagaimana siswa mengikuti tempo teman."
   },
   {
-   "start": 94.505,
-   "end": 96.709,
-   "text": "Ardipal: Hubungkan dengan bukti awal dan bacaan."
+   "start": 94.817,
+   "end": 97.008,
+   "text": "Hubungkan dengan bukti awal dan bacaan."
   },
   {
-   "start": 96.769,
-   "end": 98.71,
+   "start": 97.088,
+   "end": 100.622,
    "text": "Jelaskan mengapa penting dipahami."
   },
   {
-   "start": 105.183,
-   "end": 106.492,
-   "text": "Vidka: Bagaimana siswa pemula"
+   "start": 105.194,
+   "end": 108.613,
+   "text": "Bagaimana siswa pemula menggunakan isyarat bunyi dan gerak"
   },
   {
-   "start": 106.552,
-   "end": 108.622,
-   "text": "menggunakan isyarat bunyi dan gerak"
-  },
-  {
-   "start": 108.682,
-   "end": 110.842,
+   "start": 108.693,
+   "end": 111.723,
    "text": "untuk menjaga tempo dalam ansambel?"
   },
   {
-   "start": 111.492,
-   "end": 113.17,
-   "text": "Herry: Jelas: siapa, proses apa,"
+   "start": 111.803,
+   "end": 117.146,
+   "text": "Jelas: siapa, proses apa, dan dalam konteks apa."
   },
   {
-   "start": 113.23,
-   "end": 115.234,
-   "text": "dan dalam konteks apa."
+   "start": 120.646,
+   "end": 122.995,
+   "text": "Saya gunakan kuesioner saja?"
   },
   {
-   "start": 120.334,
-   "end": 121.813,
-   "text": "Vidka: Saya gunakan kuesioner saja?"
+   "start": 123.075,
+   "end": 126.251,
+   "text": "Apakah itu menunjukkan tindakan saat latihan?"
   },
   {
-   "start": 122.463,
-   "end": 123.557,
-   "text": "Ardipal: Apakah itu menunjukkan"
+   "start": 126.331,
+   "end": 128.659,
+   "text": "Belum cukup. Saya perlu mengamati,"
   },
   {
-   "start": 123.617,
-   "end": 124.77,
-   "text": "tindakan saat latihan?"
-  },
-  {
-   "start": 125.42,
-   "end": 126.429,
-   "text": "Vidka: Belum cukup."
-  },
-  {
-   "start": 126.489,
-   "end": 127.768,
-   "text": "Saya perlu mengamati,"
-  },
-  {
-   "start": 127.828,
-   "end": 129.732,
+   "start": 128.739,
+   "end": 132.243,
    "text": "lalu menanyakan alasannya."
   },
   {
-   "start": 135.334,
-   "end": 136.932,
-   "text": "Herry: Studi kasus kualitatif dapat sesuai"
+   "start": 135.743,
+   "end": 137.321,
+   "text": "Studi kasus kualitatif dapat sesuai"
   },
   {
-   "start": 136.992,
-   "end": 138.324,
+   "start": 137.401,
+   "end": 139.303,
    "text": "untuk memahami kelompok ini."
   },
   {
-   "start": 138.974,
-   "end": 140.542,
-   "text": "Vidka: Saya membandingkan pengamatan"
+   "start": 139.383,
+   "end": 142.846,
+   "text": "Saya membandingkan pengamatan dengan wawancara?"
   },
   {
-   "start": 140.602,
-   "end": 141.568,
-   "text": "dengan wawancara?"
+   "start": 142.926,
+   "end": 146.699,
+   "text": "Ya, untuk menelaah pola penggunaan isyarat."
   },
   {
-   "start": 142.218,
-   "end": 144.391,
-   "text": "Herry: Ya, untuk menelaah pola penggunaan isyarat."
+   "start": 150.743,
+   "end": 152.759,
+   "text": "Kalau menguji apakah latihan metronom"
   },
   {
-   "start": 150.334,
-   "end": 152.37,
-   "text": "Vidka: Kalau menguji apakah latihan metronom"
-  },
-  {
-   "start": 152.43,
-   "end": 154.135,
+   "start": 152.839,
+   "end": 155.414,
    "text": "meningkatkan kestabilan tempo?"
   },
   {
-   "start": 154.785,
-   "end": 155.818,
-   "text": "Ardipal: Pertanyaannya berubah."
+   "start": 155.494,
+   "end": 156.51,
+   "text": "Pertanyaannya berubah."
   },
   {
-   "start": 155.878,
-   "end": 158.361,
+   "start": 156.59,
+   "end": 159.049,
    "text": "Perlu ukuran tempo, perbandingan yang sesuai,"
   },
   {
-   "start": 158.421,
-   "end": 160.119,
+   "start": 159.129,
+   "end": 162.427,
    "text": "dan perhatian pada faktor lain."
   },
   {
-   "start": 165.334,
-   "end": 167.557,
-   "text": "Vidka: Sekarang bacaan, masalah, pertanyaan,"
+   "start": 165.927,
+   "end": 168.13,
+   "text": "Sekarang bacaan, masalah, pertanyaan,"
   },
   {
-   "start": 167.617,
-   "end": 170.204,
+   "start": 168.21,
+   "end": 171.367,
    "text": "dan cara penelitian saya saling terhubung."
   },
   {
-   "start": 170.854,
-   "end": 171.791,
-   "text": "Herry: Siapkan persetujuan"
+   "start": 171.447,
+   "end": 174.368,
+   "text": "Siapkan persetujuan sebelum mengumpulkan data."
   },
   {
-   "start": 171.851,
-   "end": 173.205,
-   "text": "sebelum mengumpulkan data."
-  },
-  {
-   "start": 173.855,
-   "end": 175.894,
-   "text": "Ardipal: Dan jelaskan alasan setiap pilihanmu."
+   "start": 174.448,
+   "end": 178.087,
+   "text": "Dan jelaskan alasan setiap pilihanmu."
   }
  ],
  "shots": [
   {
    "start": 0,
-   "end": 2.063,
+   "end": 2.183,
    "layers": [
     {
      "type": "image",
@@ -707,19 +656,19 @@
      },
      "keys": [
       {
-       "t": 0.138,
+       "t": 0.146,
        "x": 430,
        "y": 120,
        "angle": -0.05
       },
       {
-       "t": 0.963,
+       "t": 1.019,
        "x": 600,
        "y": 320,
        "angle": 0.04
       },
       {
-       "t": 1.513,
+       "t": 1.601,
        "x": 620,
        "y": 320,
        "angle": 0
@@ -744,13 +693,13 @@
      "w": 640,
      "bold": true,
      "color": "#EC4338",
-     "from": 0.825
+     "from": 0.873
     }
    ]
   },
   {
-   "start": 2.063,
-   "end": 4.127,
+   "start": 2.183,
+   "end": 4.367,
    "layers": [
     {
      "type": "image",
@@ -772,36 +721,27 @@
      },
      "keys": [
       {
-       "t": 0.138,
+       "t": 0.146,
        "x": 120,
        "angle": -0.06
       },
       {
-       "t": 0.825,
+       "t": 0.873,
        "x": 160,
        "angle": 0.02
       },
       {
-       "t": 1.651,
+       "t": 1.747,
        "x": 150,
        "angle": -0.03
       }
      ]
-    },
-    {
-     "type": "text",
-     "text": "Vidka",
-     "x": 860,
-     "y": 120,
-     "size": 40,
-     "w": 410,
-     "color": "#6b7280"
     }
    ]
   },
   {
-   "start": 4.127,
-   "end": 6.878,
+   "start": 4.367,
+   "end": 7.278,
    "layers": [
     {
      "type": "image",
@@ -837,7 +777,7 @@
      "x": 520,
      "y": 226.66666666666669,
      "w": 280,
-     "to": 1.1
+     "to": 1.164
     },
     {
      "type": "image",
@@ -845,7 +785,7 @@
      "x": 520,
      "y": 226.66666666666669,
      "w": 280,
-     "from": 1.1
+     "from": 1.164
     },
     {
      "type": "image",
@@ -860,11 +800,11 @@
      },
      "keys": [
       {
-       "t": 0.138,
+       "t": 0.146,
        "x": 1180
       },
       {
-       "t": 0.963,
+       "t": 1.019,
        "x": 960
       }
      ]
@@ -918,11 +858,11 @@
      },
      "keys": [
       {
-       "t": 1.376,
+       "t": 1.456,
        "progress": 0
       },
       {
-       "t": 2.063,
+       "t": 2.183,
        "progress": 1
       }
      ]
@@ -930,7 +870,109 @@
    ]
   },
   {
-   "start": 6.878,
+   "start": 7.278,
+   "end": 9.595,
+   "layers": [
+    {
+     "type": "image",
+     "path": "art/desk.png",
+     "x": 100,
+     "y": 416,
+     "w": 760
+    },
+    {
+     "type": "image",
+     "path": "art/laptop-side.png",
+     "x": 400,
+     "y": 344,
+     "w": 170
+    },
+    {
+     "type": "image",
+     "path": "art/vidka-tidy.png",
+     "x": 520,
+     "y": 226.66666666666669,
+     "w": 280
+    },
+    {
+     "type": "image",
+     "path": "art/herry-listen.png",
+     "x": 960,
+     "y": 226.66666666666669,
+     "w": 200
+    },
+    {
+     "type": "image",
+     "path": "art/page-a.png",
+     "x": 250,
+     "y": 345,
+     "w": 100,
+     "id": "prop-5",
+     "motion": {
+      "role": "prop",
+      "reason": "Vidka menggeser tumpukan artikel ke tepi"
+     },
+     "keys": [
+      {
+       "t": 0.154,
+       "x": 250,
+       "angle": 0
+      },
+      {
+       "t": 1.39,
+       "x": 150,
+       "angle": -0.08
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "path": "art/page-b.png",
+     "x": 300,
+     "y": 360,
+     "w": 90,
+     "id": "prop-6",
+     "motion": {
+      "role": "prop",
+      "reason": "Artikel kedua ikut digeser"
+     },
+     "keys": [
+      {
+       "t": 0.463,
+       "x": 300
+      },
+      {
+       "t": 1.699,
+       "x": 190
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "path": "art/notebook.png",
+     "x": 770,
+     "y": 330,
+     "w": 210,
+     "id": "prop-7",
+     "motion": {
+      "role": "prop",
+      "reason": "Buku catatan ditarik mendekat"
+     },
+     "keys": [
+      {
+       "t": 0.772,
+       "x": 790
+      },
+      {
+       "t": 2.162,
+       "x": 730
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "start": 9.595,
    "end": 15,
    "layers": [
     {
@@ -938,7 +980,7 @@
      "text": "catatan awal Vidka",
      "x": 200,
      "y": 36,
-     "size": 28,
+     "size": 30,
      "w": 1070,
      "color": "#EC4338"
     },
@@ -957,7 +999,7 @@
      "size": 50,
      "w": 1040,
      "color": "#1F3A5F",
-     "from": 0.325
+     "from": 0.309
     },
     {
      "type": "text",
@@ -967,7 +1009,7 @@
      "size": 50,
      "w": 1040,
      "color": "#1F3A5F",
-     "from": 1.624
+     "from": 1.236
     },
     {
      "type": "image",
@@ -975,69 +1017,66 @@
      "x": 230,
      "y": 150,
      "w": 90,
-     "id": "prop-5",
+     "id": "prop-8",
      "motion": {
       "role": "prop",
       "reason": "Vidka menunjuk tulisannya lalu pensil beristirahat"
      },
      "keys": [
       {
-       "t": 0.325,
+       "t": 0.154,
        "x": 230,
        "y": 150
       },
       {
-       "t": 1.624,
+       "t": 1.236,
        "x": 700,
        "y": 150
       },
       {
-       "t": 2.274,
+       "t": 1.699,
        "x": 760,
        "y": 300
       },
       {
-       "t": 2.924,
+       "t": 2.162,
        "y": 300,
        "x": 760
       },
       {
-       "t": 3.655,
+       "t": 2.857,
        "y": 294,
        "x": 760
       },
       {
-       "t": 4.386,
+       "t": 3.552,
        "y": 300,
        "x": 760
       },
       {
-       "t": 5.117,
+       "t": 4.247,
        "y": 294,
        "x": 760
       },
       {
-       "t": 5.848,
-       "y": 300,
-       "x": 760
-      },
-      {
-       "t": 6.579,
-       "y": 294,
-       "x": 760
-      },
-      {
-       "t": 7.31,
+       "t": 4.942,
        "y": 300,
        "x": 760
       }
      ]
+    },
+    {
+     "type": "image",
+     "path": "art/vidka-think.png",
+     "x": 960,
+     "y": 290,
+     "w": 220
     }
    ]
   },
   {
    "start": 15,
-   "end": 17.731,
+   "end": 17.821,
    "layers": [
     {
      "type": "image",
@@ -1082,18 +1121,18 @@
      "x": 200,
      "y": 215,
      "w": 60,
-     "id": "information-6",
+     "id": "information-9",
      "motion": {
       "role": "information",
       "reason": "Hasil pencarian yang terlalu banyak"
      },
      "keys": [
       {
-       "t": 0.273,
+       "t": 0.282,
        "y": 215
       },
       {
-       "t": 0.91,
+       "t": 0.94,
        "y": 280
       }
      ]
@@ -1104,18 +1143,18 @@
      "x": 320,
      "y": 215,
      "w": 60,
-     "id": "information-7",
+     "id": "information-10",
      "motion": {
       "role": "information",
       "reason": "Hasil pencarian yang terlalu banyak"
      },
      "keys": [
       {
-       "t": 1.001,
+       "t": 1.034,
        "y": 215
       },
       {
-       "t": 1.639,
+       "t": 1.693,
        "y": 280
       }
      ]
@@ -1126,18 +1165,18 @@
      "x": 440,
      "y": 215,
      "w": 60,
-     "id": "information-8",
+     "id": "information-11",
      "motion": {
       "role": "information",
       "reason": "Hasil pencarian yang terlalu banyak"
      },
      "keys": [
       {
-       "t": 1.73,
+       "t": 1.787,
        "y": 215
       },
       {
-       "t": 2.367,
+       "t": 2.445,
        "y": 280
       }
      ]
@@ -1155,8 +1194,8 @@
    ]
   },
   {
-   "start": 17.731,
-   "end": 24.103,
+   "start": 17.821,
+   "end": 24.403,
    "layers": [
     {
      "type": "image",
@@ -1173,7 +1212,7 @@
      "size": 56,
      "w": 1070,
      "color": "#1F3A5F",
-     "to": 1.001
+     "to": 1.034
     },
     {
      "type": "line",
@@ -1189,22 +1228,22 @@
      ],
      "color": "#EC4338",
      "lineWidth": 6,
-     "id": "information-9",
+     "id": "information-12",
      "motion": {
       "role": "information",
       "reason": "Kata musik dicoret"
      },
      "keys": [
       {
-       "t": 0.182,
+       "t": 0.188,
        "progress": 0
       },
       {
-       "t": 0.728,
+       "t": 0.752,
        "progress": 1
       }
      ],
-     "to": 1.001
+     "to": 1.034
     },
     {
      "type": "text",
@@ -1214,7 +1253,7 @@
      "size": 48,
      "w": 1070,
      "color": "#1F3A5F",
-     "from": 1.092
+     "from": 1.128
     },
     {
      "type": "text",
@@ -1224,7 +1263,7 @@
      "size": 48,
      "w": 800,
      "color": "#1F3A5F",
-     "from": 2.003
+     "from": 2.069
     },
     {
      "type": "text",
@@ -1234,7 +1273,7 @@
      "size": 48,
      "w": 600,
      "color": "#1F3A5F",
-     "from": 2.913
+     "from": 3.009
     },
     {
      "type": "image",
@@ -1242,34 +1281,34 @@
      "x": 196,
      "y": 178,
      "w": 10,
-     "id": "information-10",
+     "id": "information-13",
      "motion": {
       "role": "information",
       "reason": "Kursor maju mengikuti kata kunci"
      },
      "keys": [
       {
-       "t": 1.001,
+       "t": 1.034,
        "x": 196
       },
       {
-       "t": 1.183,
+       "t": 1.222,
        "x": 450
       },
       {
-       "t": 1.912,
+       "t": 1.975,
        "x": 450
       },
       {
-       "t": 2.094,
+       "t": 2.163,
        "x": 650
       },
       {
-       "t": 2.822,
+       "t": 2.915,
        "x": 650
       },
       {
-       "t": 3.004,
+       "t": 3.103,
        "x": 985
       }
      ]
@@ -1278,8 +1317,8 @@
      "type": "text",
      "text": "padanan bahasa Inggris:",
      "x": 200,
-     "y": 340,
-     "size": 28,
+     "y": 336,
+     "size": 30,
      "w": 1070,
      "color": "#6b7280"
     },
@@ -1291,7 +1330,7 @@
      "size": 40,
      "w": 1070,
      "color": "#6b7280",
-     "from": 4.005
+     "from": 4.137
     },
     {
      "type": "text",
@@ -1301,7 +1340,7 @@
      "size": 40,
      "w": 750,
      "color": "#6b7280",
-     "from": 4.552
+     "from": 4.701
     },
     {
      "type": "text",
@@ -1311,7 +1350,7 @@
      "size": 40,
      "w": 570,
      "color": "#6b7280",
-     "from": 5.098
+     "from": 5.266
     },
     {
      "type": "image",
@@ -1319,42 +1358,42 @@
      "x": 196,
      "y": 386,
      "w": 10,
-     "id": "information-11",
+     "id": "information-14",
      "motion": {
       "role": "information",
       "reason": "Kursor berpindah ke padanan Inggris"
      },
      "keys": [
       {
-       "t": 3.914,
+       "t": 4.043,
        "x": 196
       },
       {
-       "t": 4.096,
+       "t": 4.231,
        "x": 500
       },
       {
-       "t": 4.46,
+       "t": 4.607,
        "x": 500
       },
       {
-       "t": 4.643,
+       "t": 4.796,
        "x": 680
       },
       {
-       "t": 5.007,
+       "t": 5.172,
        "x": 680
       },
       {
-       "t": 5.189,
+       "t": 5.36,
        "x": 1030
       },
       {
-       "t": 5.826,
+       "t": 6.018,
        "x": 1030
       },
       {
-       "t": 6.19,
+       "t": 6.394,
        "x": 1040
       }
      ]
@@ -1362,7 +1401,7 @@
    ]
   },
   {
-   "start": 24.103,
+   "start": 24.403,
    "end": 30,
    "layers": [
     {
@@ -1413,54 +1452,54 @@
      "x": 900,
      "y": 470,
      "w": 80,
-     "id": "prop-12",
+     "id": "prop-15",
      "motion": {
       "role": "prop",
       "reason": "Jeda: pensil mengetuk pelan sementara penonton membaca"
      },
      "keys": [
       {
-       "t": 0.354,
+       "t": 0.336,
        "y": 470
       },
       {
-       "t": 0.885,
+       "t": 0.84,
        "y": 464
       },
       {
-       "t": 1.415,
+       "t": 1.343,
        "y": 470
       },
       {
-       "t": 1.946,
+       "t": 1.847,
        "y": 464
       },
       {
-       "t": 2.477,
+       "t": 2.351,
        "y": 470
       },
       {
-       "t": 3.007,
+       "t": 2.854,
        "y": 464
       },
       {
-       "t": 3.538,
+       "t": 3.358,
        "y": 470
       },
       {
-       "t": 4.069,
+       "t": 3.862,
        "y": 464
       },
       {
-       "t": 4.6,
+       "t": 4.366,
        "y": 470
       },
       {
-       "t": 5.13,
+       "t": 4.869,
        "y": 464
       },
       {
-       "t": 5.661,
+       "t": 5.373,
        "y": 470
       }
      ]
@@ -1504,10 +1543,10 @@
     {
      "type": "image",
      "path": "art/page-a.png",
-     "x": 560,
-     "y": 230,
+     "x": 330,
+     "y": 240,
      "w": 170,
-     "id": "prop-13",
+     "id": "prop-16",
      "motion": {
       "role": "prop",
       "reason": "Vidka mengangkat artikel terkenal itu"
@@ -1515,17 +1554,17 @@
      "keys": [
       {
        "t": 0.204,
-       "y": 330,
+       "y": 340,
        "angle": 0.06
       },
       {
        "t": 1.018,
-       "y": 230,
+       "y": 240,
        "angle": 0
       },
       {
        "t": 2.648,
-       "y": 236,
+       "y": 246,
        "angle": 0.01
       }
      ]
@@ -1533,19 +1572,19 @@
     {
      "type": "text",
      "text": "artikel terkenal",
-     "x": 180,
-     "y": 120,
+     "x": 120,
+     "y": 90,
      "size": 44,
-     "w": 1090,
+     "w": 1150,
      "bold": true
     },
     {
      "type": "text",
      "text": "musisi profesional",
-     "x": 180,
-     "y": 180,
+     "x": 120,
+     "y": 150,
      "size": 44,
-     "w": 1090,
+     "w": 1150,
      "color": "#6b7280"
     }
    ]
@@ -1558,50 +1597,32 @@
      "type": "image",
      "path": "art/page-a.png",
      "x": 200,
-     "y": 80,
+     "y": 50,
      "w": 300
     },
     {
      "type": "image",
      "path": "art/page-b.png",
      "x": 760,
-     "y": 80,
+     "y": 50,
      "w": 300
     },
     {
      "type": "text",
-     "text": "Peserta:",
-     "x": 230,
-     "y": 320,
-     "size": 30,
-     "w": 1040,
+     "text": "Peserta: musisi profesional",
+     "x": 200,
+     "y": 462,
+     "size": 32,
+     "w": 1070,
      "color": "#1F3A5F"
     },
     {
      "type": "text",
-     "text": "musisi profesional",
-     "x": 230,
-     "y": 356,
-     "size": 30,
-     "w": 1040,
-     "color": "#1F3A5F"
-    },
-    {
-     "type": "text",
-     "text": "Peserta:",
-     "x": 790,
-     "y": 320,
-     "size": 30,
-     "w": 480,
-     "color": "#1F3A5F"
-    },
-    {
-     "type": "text",
-     "text": "siswa pemula",
-     "x": 790,
-     "y": 356,
-     "size": 30,
-     "w": 480,
+     "text": "Peserta: siswa pemula",
+     "x": 760,
+     "y": 462,
+     "size": 32,
+     "w": 510,
      "color": "#1F3A5F"
     },
     {
@@ -1610,7 +1631,7 @@
      "x": 60,
      "y": 40,
      "w": 130,
-     "id": "prop-14",
+     "id": "prop-17",
      "motion": {
       "role": "prop",
       "reason": "Catatan KONSEP ditempelkan pada artikel pertama"
@@ -1646,7 +1667,7 @@
      "x": 1120,
      "y": 40,
      "w": 130,
-     "id": "prop-15",
+     "id": "prop-18",
      "motion": {
       "role": "prop",
       "reason": "Catatan KONTEKS SISWA ditempelkan pada artikel kedua"
@@ -1669,20 +1690,20 @@
     {
      "type": "text",
      "text": "KONTEKS",
-     "x": 952,
-     "y": 92,
-     "size": 26,
-     "w": 318,
+     "x": 948,
+     "y": 88,
+     "size": 30,
+     "w": 322,
      "bold": true,
      "from": 4.277
     },
     {
      "type": "text",
      "text": "SISWA",
-     "x": 968,
+     "x": 966,
      "y": 124,
-     "size": 26,
-     "w": 302,
+     "size": 30,
+     "w": 304,
      "bold": true,
      "from": 4.277
     },
@@ -1690,29 +1711,29 @@
      "type": "text",
      "text": "menjelaskan konsep",
      "x": 200,
-     "y": 500,
+     "y": 520,
      "size": 32,
      "w": 1070,
-     "color": "#1F3A5F",
+     "color": "#6b7280",
      "from": 1.426
     },
     {
      "type": "text",
      "text": "konteks pembelajaranmu",
      "x": 760,
-     "y": 500,
+     "y": 520,
      "size": 32,
      "w": 510,
-     "color": "#1F3A5F",
+     "color": "#6b7280",
      "from": 4.277
     },
     {
      "type": "underline",
      "x": 760,
-     "y": 540,
+     "y": 562,
      "w": 320,
      "color": "#F6D34A",
-     "id": "information-16",
+     "id": "information-19",
      "motion": {
       "role": "information",
       "reason": "Penekanan pada konteks pembelajaran"
@@ -1738,50 +1759,32 @@
      "type": "image",
      "path": "art/page-a.png",
      "x": 200,
-     "y": 80,
+     "y": 50,
      "w": 300
     },
     {
      "type": "image",
      "path": "art/page-b.png",
      "x": 760,
-     "y": 80,
+     "y": 50,
      "w": 300
     },
     {
      "type": "text",
-     "text": "Peserta:",
-     "x": 230,
-     "y": 320,
-     "size": 30,
-     "w": 1040,
+     "text": "Peserta: musisi profesional",
+     "x": 200,
+     "y": 462,
+     "size": 32,
+     "w": 1070,
      "color": "#1F3A5F"
     },
     {
      "type": "text",
-     "text": "musisi profesional",
-     "x": 230,
-     "y": 356,
-     "size": 30,
-     "w": 1040,
-     "color": "#1F3A5F"
-    },
-    {
-     "type": "text",
-     "text": "Peserta:",
-     "x": 790,
-     "y": 320,
-     "size": 30,
-     "w": 480,
-     "color": "#1F3A5F"
-    },
-    {
-     "type": "text",
-     "text": "siswa pemula",
-     "x": 790,
-     "y": 356,
-     "size": 30,
-     "w": 480,
+     "text": "Peserta: siswa pemula",
+     "x": 760,
+     "y": 462,
+     "size": 32,
+     "w": 510,
      "color": "#1F3A5F"
     },
     {
@@ -1810,37 +1813,37 @@
     {
      "type": "text",
      "text": "KONTEKS",
-     "x": 952,
-     "y": 92,
-     "size": 26,
-     "w": 318,
+     "x": 948,
+     "y": 88,
+     "size": 30,
+     "w": 322,
      "bold": true
     },
     {
      "type": "text",
      "text": "SISWA",
-     "x": 968,
+     "x": 966,
      "y": 124,
-     "size": 26,
-     "w": 302,
+     "size": 30,
+     "w": 304,
      "bold": true
     },
     {
      "type": "line",
      "points": [
       [
-       228,
-       374
+       198,
+       482
       ],
       [
-       478,
-       374
+       560,
+       482
       ]
      ],
      "color": "#F6D34A",
-     "lineWidth": 26,
+     "lineWidth": 30,
      "alpha": 0.55,
-     "id": "information-17",
+     "id": "information-20",
      "motion": {
       "role": "information",
       "reason": "Sorot bagian peserta artikel pertama"
@@ -1859,10 +1862,10 @@
     {
      "type": "image",
      "path": "art/highlighter.png",
-     "x": 230,
-     "y": 320,
+     "x": 200,
+     "y": 430,
      "w": 90,
-     "id": "prop-18",
+     "id": "prop-21",
      "motion": {
       "role": "prop",
       "reason": "Stabilo menyapu baris peserta"
@@ -1870,11 +1873,11 @@
      "keys": [
       {
        "t": 0.3,
-       "x": 230
+       "x": 200
       },
       {
        "t": 1.3,
-       "x": 440
+       "x": 520
       }
      ]
     },
@@ -1882,18 +1885,18 @@
      "type": "line",
      "points": [
       [
-       788,
-       374
+       758,
+       482
       ],
       [
-       1000,
-       374
+       1060,
+       482
       ]
      ],
      "color": "#F6D34A",
-     "lineWidth": 26,
+     "lineWidth": 30,
      "alpha": 0.55,
-     "id": "information-19",
+     "id": "information-22",
      "motion": {
       "role": "information",
       "reason": "Sorot bagian peserta artikel kedua"
@@ -1912,10 +1915,10 @@
     {
      "type": "image",
      "path": "art/highlighter.png",
-     "x": 790,
-     "y": 320,
+     "x": 760,
+     "y": 430,
      "w": 90,
-     "id": "prop-20",
+     "id": "prop-23",
      "motion": {
       "role": "prop",
       "reason": "Stabilo pindah ke artikel kedua"
@@ -1923,32 +1926,32 @@
      "keys": [
       {
        "t": 2.3,
-       "x": 790
+       "x": 760
       },
       {
        "t": 3.3,
-       "x": 980
+       "x": 1020
       }
      ]
     },
     {
      "type": "text",
      "text": "Peserta",
-     "x": 560,
-     "y": 520,
+     "x": 590,
+     "y": 530,
      "size": 40,
-     "w": 710,
+     "w": 680,
      "color": "#EC4338",
      "bold": true,
      "from": 3.4
     },
     {
      "type": "underline",
-     "x": 560,
-     "y": 565,
+     "x": 590,
+     "y": 575,
      "w": 150,
      "color": "#EC4338",
-     "id": "information-21",
+     "id": "information-24",
      "motion": {
       "role": "information",
       "reason": "Label peserta digarisbawahi"
@@ -1968,7 +1971,7 @@
   },
   {
    "start": 45.183,
-   "end": 47.925,
+   "end": 48.015,
    "layers": [
     {
      "type": "image",
@@ -1994,28 +1997,28 @@
     {
      "type": "image",
      "path": "art/page-plain.png",
-     "x": 560,
-     "y": 230,
+     "x": 330,
+     "y": 240,
      "w": 170,
-     "id": "prop-22",
+     "id": "prop-25",
      "motion": {
       "role": "prop",
       "reason": "Vidka menunjukkan judul artikel yang cocok"
      },
      "keys": [
       {
-       "t": 0.183,
-       "y": 330,
+       "t": 0.189,
+       "y": 340,
        "angle": 0.05
       },
       {
-       "t": 0.914,
-       "y": 230,
+       "t": 0.944,
+       "y": 240,
        "angle": 0
       },
       {
-       "t": 2.194,
-       "y": 236,
+       "t": 2.266,
+       "y": 246,
        "angle": -0.01
       }
      ]
@@ -2023,28 +2026,28 @@
     {
      "type": "text",
      "text": "judulnya cocok",
-     "x": 160,
-     "y": 110,
+     "x": 120,
+     "y": 80,
      "size": 48,
-     "w": 1110,
+     "w": 1150,
      "bold": true
     },
     {
      "type": "text",
      "text": "langsung dikutip?",
-     "x": 160,
-     "y": 175,
+     "x": 120,
+     "y": 145,
      "size": 48,
-     "w": 1110,
+     "w": 1150,
      "color": "#EC4338",
      "bold": true,
-     "from": 1.097
+     "from": 1.133
     }
    ]
   },
   {
-   "start": 47.925,
-   "end": 54.323,
+   "start": 48.015,
+   "end": 54.623,
    "layers": [
     {
      "type": "image",
@@ -2054,13 +2057,75 @@
      "w": 400
     },
     {
+     "type": "line",
+     "points": [
+      [
+       400,
+       200
+      ],
+      [
+       690,
+       200
+      ]
+     ],
+     "color": "#F6D34A",
+     "lineWidth": 26,
+     "alpha": 0.55,
+     "id": "information-26",
+     "motion": {
+      "role": "information",
+      "reason": "Stabilo menyorot bagian metode"
+     },
+     "keys": [
+      {
+       "t": 0.283,
+       "progress": 0
+      },
+      {
+       "t": 1.322,
+       "progress": 1
+      }
+     ]
+    },
+    {
+     "type": "line",
+     "points": [
+      [
+       400,
+       380
+      ],
+      [
+       690,
+       380
+      ]
+     ],
+     "color": "#F6D34A",
+     "lineWidth": 26,
+     "alpha": 0.55,
+     "id": "information-27",
+     "motion": {
+      "role": "information",
+      "reason": "Stabilo menandai satu temuan di hasil"
+     },
+     "keys": [
+      {
+       "t": 3.021,
+       "progress": 0
+      },
+      {
+       "t": 3.965,
+       "progress": 1
+      }
+     ]
+    },
+    {
      "type": "text",
      "text": "Metode",
      "x": 400,
      "y": 150,
-     "size": 30,
+     "size": 34,
      "w": 870,
-     "color": "#1F3A5F",
+     "color": "#EC4338",
      "bold": true
     },
     {
@@ -2068,41 +2133,10 @@
      "text": "Hasil",
      "x": 400,
      "y": 330,
-     "size": 30,
+     "size": 34,
      "w": 870,
-     "color": "#1F3A5F",
+     "color": "#EC4338",
      "bold": true
-    },
-    {
-     "type": "line",
-     "points": [
-      [
-       400,
-       200
-      ],
-      [
-       690,
-       200
-      ]
-     ],
-     "color": "#F6D34A",
-     "lineWidth": 26,
-     "alpha": 0.55,
-     "id": "information-23",
-     "motion": {
-      "role": "information",
-      "reason": "Stabilo menyorot bagian metode"
-     },
-     "keys": [
-      {
-       "t": 0.274,
-       "progress": 0
-      },
-      {
-       "t": 1.28,
-       "progress": 1
-      }
-     ]
     },
     {
      "type": "image",
@@ -2110,94 +2144,54 @@
      "x": 420,
      "y": 150,
      "w": 90,
-     "id": "prop-24",
+     "id": "prop-28",
      "motion": {
       "role": "prop",
       "reason": "Stabilo menelusuri metode lalu hasil"
      },
      "keys": [
       {
-       "t": 0.274,
+       "t": 0.283,
        "x": 420,
        "y": 150
       },
       {
-       "t": 1.28,
+       "t": 1.322,
        "x": 660,
        "y": 150
       },
       {
-       "t": 2.194,
+       "t": 2.266,
        "x": 660,
        "y": 150
       },
       {
-       "t": 2.925,
+       "t": 3.021,
        "x": 420,
        "y": 330
       },
       {
-       "t": 3.839,
+       "t": 3.965,
        "x": 660,
        "y": 330
       },
       {
-       "t": 5.118,
+       "t": 5.286,
        "x": 760,
        "y": 250
       }
      ]
     },
     {
-     "type": "line",
-     "points": [
-      [
-       400,
-       380
-      ],
-      [
-       690,
-       380
-      ]
-     ],
-     "color": "#F6D34A",
-     "lineWidth": 26,
-     "alpha": 0.55,
-     "id": "information-25",
-     "motion": {
-      "role": "information",
-      "reason": "Stabilo menandai satu temuan di hasil"
-     },
-     "keys": [
-      {
-       "t": 2.925,
-       "progress": 0
-      },
-      {
-       "t": 3.839,
-       "progress": 1
-      }
-     ]
-    },
-    {
      "type": "text",
-     "text": "temuan:",
-     "x": 400,
-     "y": 362,
-     "size": 24,
-     "w": 870,
+     "text": "temuan: latihan bagian pendek",
+     "x": 380,
+     "y": 420,
+     "size": 32,
+     "w": 890,
      "color": "#1F3A5F",
-     "from": 3.93
-    },
-    {
-     "type": "text",
-     "text": "latihan bagian pendek",
-     "x": 400,
-     "y": 390,
-     "size": 26,
-     "w": 870,
-     "color": "#1F3A5F",
-     "from": 3.93
+     "from": 4.059,
+     "bold": true
     },
     {
      "type": "text",
@@ -2226,7 +2220,7 @@
      "w": 440,
      "bold": true,
      "color": "#EC4338",
-     "from": 4.57
+     "from": 4.72
     },
     {
      "type": "text",
@@ -2236,7 +2230,7 @@
      "size": 32,
      "w": 440,
      "color": "#6b7280",
-     "from": 4.936
+     "from": 5.098
     },
     {
      "type": "underline",
@@ -2244,18 +2238,18 @@
      "y": 210,
      "w": 300,
      "color": "#EC4338",
-     "id": "information-26",
+     "id": "information-29",
      "motion": {
       "role": "information",
       "reason": "Pertanyaan kredibilitas digarisbawahi"
      },
      "keys": [
       {
-       "t": 5.301,
+       "t": 5.475,
        "progress": 0
       },
       {
-       "t": 6.032,
+       "t": 6.23,
        "progress": 1
       }
      ]
@@ -2263,15 +2257,15 @@
    ]
   },
   {
-   "start": 54.323,
+   "start": 54.623,
    "end": 60.183,
    "layers": [
     {
      "type": "text",
      "text": "catatan klaim",
      "x": 150,
-     "y": 60,
-     "size": 26,
+     "y": 56,
+     "size": 30,
      "w": 1120,
      "color": "#EC4338"
     },
@@ -2304,8 +2298,8 @@
      "type": "text",
      "text": "temuan artikel",
      "x": 790,
-     "y": 60,
-     "size": 26,
+     "y": 56,
+     "size": 30,
      "w": 480,
      "color": "#EC4338"
     },
@@ -2315,6 +2309,15 @@
      "x": 760,
      "y": 120,
      "w": 420
+    },
+    {
+     "type": "text",
+     "text": "contoh ilustratif",
+     "x": 790,
+     "y": 380,
+     "size": 30,
+     "w": 480,
+     "color": "#6b7280"
     },
     {
      "type": "text",
@@ -2348,18 +2351,18 @@
      ],
      "color": "#EC4338",
      "lineWidth": 5,
-     "id": "information-27",
+     "id": "information-30",
      "motion": {
       "role": "information",
       "reason": "Temuan dicocokkan dengan klaim"
      },
      "keys": [
       {
-       "t": 0.469,
+       "t": 0.445,
        "progress": 0
       },
       {
-       "t": 1.406,
+       "t": 1.334,
        "progress": 1
       }
      ]
@@ -2372,7 +2375,7 @@
      "size": 50,
      "w": 1100,
      "bold": true,
-     "from": 1.524
+     "from": 1.446
     },
     {
      "type": "image",
@@ -2380,54 +2383,54 @@
      "x": 1080,
      "y": 440,
      "w": 80,
-     "id": "prop-28",
+     "id": "prop-31",
      "motion": {
       "role": "prop",
       "reason": "Jeda: pensil mengetuk pelan sementara penonton membaca"
      },
      "keys": [
       {
-       "t": 0.352,
+       "t": 0.334,
        "y": 440
       },
       {
-       "t": 0.879,
+       "t": 0.834,
        "y": 434
       },
       {
-       "t": 1.406,
+       "t": 1.334,
        "y": 440
       },
       {
-       "t": 1.934,
+       "t": 1.835,
        "y": 434
       },
       {
-       "t": 2.461,
+       "t": 2.335,
        "y": 440
       },
       {
-       "t": 2.989,
+       "t": 2.836,
        "y": 434
       },
       {
-       "t": 3.516,
+       "t": 3.336,
        "y": 440
       },
       {
-       "t": 4.043,
+       "t": 3.836,
        "y": 434
       },
       {
-       "t": 4.571,
+       "t": 4.337,
        "y": 440
       },
       {
-       "t": 5.098,
+       "t": 4.837,
        "y": 434
       },
       {
-       "t": 5.626,
+       "t": 5.338,
        "y": 440
       }
      ]
@@ -2436,7 +2439,7 @@
   },
   {
    "start": 60.183,
-   "end": 63.666,
+   "end": 63.786,
    "layers": [
     {
      "type": "image",
@@ -2460,18 +2463,18 @@
      "x": 60,
      "y": 120,
      "w": 300,
-     "id": "prop-29",
+     "id": "prop-32",
      "motion": {
       "role": "prop",
       "reason": "Catatan bacaan pertama digeser mendekat"
      },
      "keys": [
       {
-       "t": 0.348,
+       "t": 0.36,
        "x": 60
       },
       {
-       "t": 1.393,
+       "t": 1.441,
        "x": 380
       }
      ]
@@ -2480,11 +2483,11 @@
      "type": "text",
      "text": "Bacaan 1:",
      "x": 80,
-     "y": 128,
-     "size": 26,
+     "y": 126,
+     "size": 30,
      "w": 1190,
      "color": "#EC4338",
-     "to": 0.348
+     "to": 0.36
     },
     {
      "type": "text",
@@ -2494,17 +2497,17 @@
      "size": 32,
      "w": 1190,
      "color": "#1F3A5F",
-     "to": 0.348
+     "to": 0.36
     },
     {
      "type": "text",
      "text": "Bacaan 1:",
      "x": 400,
-     "y": 128,
-     "size": 26,
+     "y": 126,
+     "size": 30,
      "w": 870,
      "color": "#EC4338",
-     "from": 1.393
+     "from": 1.441
     },
     {
      "type": "text",
@@ -2514,7 +2517,7 @@
      "size": 32,
      "w": 870,
      "color": "#1F3A5F",
-     "from": 1.393
+     "from": 1.441
     },
     {
      "type": "image",
@@ -2522,18 +2525,18 @@
      "x": 60,
      "y": 330,
      "w": 300,
-     "id": "prop-30",
+     "id": "prop-33",
      "motion": {
       "role": "prop",
       "reason": "Catatan bacaan kedua digeser mendekat"
      },
      "keys": [
       {
-       "t": 1.916,
+       "t": 1.982,
        "x": 60
       },
       {
-       "t": 2.96,
+       "t": 3.062,
        "x": 380
       }
      ]
@@ -2542,11 +2545,11 @@
      "type": "text",
      "text": "Bacaan 2:",
      "x": 80,
-     "y": 338,
-     "size": 26,
+     "y": 336,
+     "size": 30,
      "w": 1190,
      "color": "#EC4338",
-     "to": 1.916
+     "to": 1.982
     },
     {
      "type": "text",
@@ -2556,17 +2559,17 @@
      "size": 32,
      "w": 1190,
      "color": "#1F3A5F",
-     "to": 1.916
+     "to": 1.982
     },
     {
      "type": "text",
      "text": "Bacaan 2:",
      "x": 400,
-     "y": 338,
-     "size": 26,
+     "y": 336,
+     "size": 30,
      "w": 870,
      "color": "#EC4338",
-     "from": 2.96
+     "from": 3.062
     },
     {
      "type": "text",
@@ -2576,13 +2579,13 @@
      "size": 32,
      "w": 870,
      "color": "#1F3A5F",
-     "from": 2.96
+     "from": 3.062
     }
    ]
   },
   {
-   "start": 63.666,
-   "end": 65.407,
+   "start": 63.786,
+   "end": 65.587,
    "layers": [
     {
      "type": "image",
@@ -2611,22 +2614,22 @@
      "x": 300,
      "y": 330,
      "w": 200,
-     "id": "prop-31",
+     "id": "prop-34",
      "motion": {
       "role": "prop",
       "reason": "Buku penelitian didorong ke depan Vidka"
      },
      "keys": [
       {
-       "t": 0.174,
+       "t": 0.18,
        "x": 300
       },
       {
-       "t": 0.871,
+       "t": 0.901,
        "x": 340
       },
       {
-       "t": 1.567,
+       "t": 1.621,
        "x": 344
       }
      ]
@@ -2634,8 +2637,8 @@
    ]
   },
   {
-   "start": 65.407,
-   "end": 68.89,
+   "start": 65.587,
+   "end": 69.19,
    "layers": [
     {
      "type": "image",
@@ -2664,8 +2667,8 @@
      "type": "text",
      "text": "Bacaan 1:",
      "x": 400,
-     "y": 128,
-     "size": 26,
+     "y": 126,
+     "size": 30,
      "w": 870,
      "color": "#EC4338"
     },
@@ -2689,8 +2692,8 @@
      "type": "text",
      "text": "Bacaan 2:",
      "x": 400,
-     "y": 338,
-     "size": 26,
+     "y": 336,
+     "size": 30,
      "w": 870,
      "color": "#EC4338"
     },
@@ -2711,7 +2714,7 @@
      "size": 36,
      "w": 540,
      "color": "#1F3A5F",
-     "from": 0.348
+     "from": 0.36
     },
     {
      "type": "text",
@@ -2721,7 +2724,7 @@
      "size": 36,
      "w": 540,
      "color": "#1F3A5F",
-     "from": 1.393
+     "from": 1.441
     },
     {
      "type": "image",
@@ -2729,28 +2732,29 @@
      "x": 730,
      "y": 210,
      "w": 90,
-     "id": "prop-32",
+     "id": "prop-35",
      "motion": {
       "role": "prop",
       "reason": "Pensil Vidka menulis"
      },
      "keys": [
       {
-       "t": 0.261,
+       "t": 0.27,
        "x": 730,
        "y": 210
       },
       {
-       "t": 1.306,
+       "t": 1.351,
        "x": 1120,
        "y": 210
       },
       {
-       "t": 1.654,
+       "t": 1.711,
        "x": 1150,
        "y": 170
       }
-     ]
+     ],
+     "to": 1.441
     },
     {
      "type": "image",
@@ -2758,22 +2762,22 @@
      "x": 730,
      "y": 262,
      "w": 90,
-     "id": "prop-33",
+     "id": "prop-36",
      "motion": {
       "role": "prop",
       "reason": "Pensil menulis baris kedua"
      },
      "keys": [
       {
-       "t": 1.393,
+       "t": 1.441,
        "x": 730
       },
       {
-       "t": 2.438,
+       "t": 2.522,
        "x": 1080
       },
       {
-       "t": 2.873,
+       "t": 2.972,
        "x": 1110,
        "y": 220
       }
@@ -2793,18 +2797,18 @@
      ],
      "color": "#EC4338",
      "lineWidth": 4,
-     "id": "information-34",
+     "id": "information-37",
      "motion": {
       "role": "information",
       "reason": "Garis penghubung bacaan 1"
      },
      "keys": [
       {
-       "t": 2.525,
+       "t": 2.612,
        "progress": 0
       },
       {
-       "t": 3.047,
+       "t": 3.152,
        "progress": 1
       }
      ]
@@ -2823,18 +2827,18 @@
      ],
      "color": "#EC4338",
      "lineWidth": 4,
-     "id": "information-35",
+     "id": "information-38",
      "motion": {
       "role": "information",
       "reason": "Garis penghubung bacaan 2"
      },
      "keys": [
       {
-       "t": 2.96,
+       "t": 3.062,
        "progress": 0
       },
       {
-       "t": 3.396,
+       "t": 3.513,
        "progress": 1
       }
      ]
@@ -2842,7 +2846,7 @@
    ]
   },
   {
-   "start": 68.89,
+   "start": 69.19,
    "end": 75.183,
    "layers": [
     {
@@ -2890,8 +2894,8 @@
      "type": "text",
      "text": "Bacaan 1:",
      "x": 400,
-     "y": 128,
-     "size": 26,
+     "y": 126,
+     "size": 30,
      "w": 870,
      "color": "#EC4338"
     },
@@ -2915,8 +2919,8 @@
      "type": "text",
      "text": "Bacaan 2:",
      "x": 400,
-     "y": 338,
-     "size": 26,
+     "y": 336,
+     "size": 30,
      "w": 870,
      "color": "#EC4338"
     },
@@ -2974,54 +2978,54 @@
      "x": 1100,
      "y": 330,
      "w": 80,
-     "id": "prop-36",
+     "id": "prop-39",
      "motion": {
       "role": "prop",
       "reason": "Jeda: pensil mengetuk pelan sementara penonton membaca"
      },
      "keys": [
       {
-       "t": 0.378,
+       "t": 0.36,
        "y": 330
       },
       {
-       "t": 0.944,
+       "t": 0.899,
        "y": 324
       },
       {
-       "t": 1.51,
+       "t": 1.438,
        "y": 330
       },
       {
-       "t": 2.077,
+       "t": 1.978,
        "y": 324
       },
       {
-       "t": 2.643,
+       "t": 2.517,
        "y": 330
       },
       {
-       "t": 3.209,
+       "t": 3.056,
        "y": 324
       },
       {
-       "t": 3.776,
+       "t": 3.596,
        "y": 330
       },
       {
-       "t": 4.342,
+       "t": 4.135,
        "y": 324
       },
       {
-       "t": 4.909,
+       "t": 4.675,
        "y": 330
       },
       {
-       "t": 5.475,
+       "t": 5.214,
        "y": 324
       },
       {
-       "t": 6.041,
+       "t": 5.753,
        "y": 330
       }
      ]
@@ -3030,7 +3034,7 @@
   },
   {
    "start": 75.183,
-   "end": 77.536,
+   "end": 77.686,
    "layers": [
     {
      "type": "image",
@@ -3058,12 +3062,12 @@
     {
      "type": "text",
      "text": "cukup?",
-     "x": 700,
-     "y": 170,
-     "size": 36,
-     "w": 570,
+     "x": 240,
+     "y": 240,
+     "size": 40,
+     "w": 1030,
      "color": "#EC4338",
-     "from": 1.129
+     "from": 1.201
     },
     {
      "type": "image",
@@ -3071,24 +3075,24 @@
      "x": 640,
      "y": 150,
      "w": 100,
-     "id": "prop-37",
+     "id": "prop-40",
      "motion": {
       "role": "prop",
       "reason": "Pensil Vidka berhenti di ujung kalimat"
      },
      "keys": [
       {
-       "t": 0.188,
+       "t": 0.2,
        "x": 640,
        "y": 150
       },
       {
-       "t": 0.941,
+       "t": 1.001,
        "x": 660,
        "y": 140
       },
       {
-       "t": 2.07,
+       "t": 2.202,
        "x": 650,
        "y": 150
       }
@@ -3097,8 +3101,8 @@
    ]
   },
   {
-   "start": 77.536,
-   "end": 79.418,
+   "start": 77.686,
+   "end": 79.688,
    "layers": [
     {
      "type": "image",
@@ -3131,7 +3135,7 @@
      "size": 34,
      "w": 1030,
      "color": "#EC4338",
-     "from": 0.282
+     "from": 0.3
     },
     {
      "type": "line",
@@ -3147,18 +3151,18 @@
      ],
      "color": "#EC4338",
      "lineWidth": 6,
-     "id": "information-38",
+     "id": "information-41",
      "motion": {
       "role": "information",
       "reason": "Penilaian umum dicoret"
      },
      "keys": [
       {
-       "t": 0.376,
+       "t": 0.4,
        "progress": 0
       },
       {
-       "t": 1.318,
+       "t": 1.402,
        "progress": 1
       }
      ]
@@ -3166,8 +3170,8 @@
    ]
   },
   {
-   "start": 79.418,
-   "end": 84.594,
+   "start": 79.688,
+   "end": 85.194,
    "layers": [
     {
      "type": "image",
@@ -3215,7 +3219,7 @@
      "size": 40,
      "w": 1030,
      "color": "#1F3A5F",
-     "from": 0.282
+     "from": 0.3
     },
     {
      "type": "text",
@@ -3225,7 +3229,7 @@
      "size": 40,
      "w": 1030,
      "color": "#1F3A5F",
-     "from": 1.788
+     "from": 1.902
     },
     {
      "type": "text",
@@ -3235,27 +3239,27 @@
      "size": 40,
      "w": 1030,
      "color": "#1F3A5F",
-     "from": 3.388
+     "from": 3.604
     },
     {
      "type": "text",
      "text": "kejadian",
      "x": 640,
-     "y": 258,
-     "size": 26,
+     "y": 256,
+     "size": 30,
      "w": 630,
      "color": "#6b7280",
-     "from": 0.282
+     "from": 0.3
     },
     {
      "type": "text",
      "text": "dampak",
      "x": 700,
-     "y": 398,
-     "size": 26,
+     "y": 396,
+     "size": 30,
      "w": 570,
      "color": "#EC4338",
-     "from": 3.388
+     "from": 3.604
     },
     {
      "type": "image",
@@ -3263,44 +3267,44 @@
      "x": 240,
      "y": 230,
      "w": 100,
-     "id": "prop-39",
+     "id": "prop-42",
      "motion": {
       "role": "prop",
       "reason": "Pensil menulis kejadian lalu dampak"
      },
      "keys": [
       {
-       "t": 0.188,
+       "t": 0.2,
        "x": 240,
        "y": 230
       },
       {
-       "t": 0.941,
+       "t": 1.001,
        "x": 540,
        "y": 230
       },
       {
-       "t": 1.694,
+       "t": 1.802,
        "x": 240,
        "y": 300
       },
       {
-       "t": 2.635,
+       "t": 2.803,
        "x": 700,
        "y": 300
       },
       {
-       "t": 3.294,
+       "t": 3.504,
        "x": 240,
        "y": 370
       },
       {
-       "t": 4.047,
+       "t": 4.305,
        "x": 560,
        "y": 370
       },
       {
-       "t": 4.894,
+       "t": 5.206,
        "x": 620,
        "y": 330
       }
@@ -3309,8 +3313,8 @@
    ]
   },
   {
-   "start": 84.594,
-   "end": 90.183,
+   "start": 85.194,
+   "end": 90.194,
    "layers": [
     {
      "type": "image",
@@ -3360,54 +3364,54 @@
      "x": 900,
      "y": 470,
      "w": 80,
-     "id": "prop-40",
+     "id": "prop-43",
      "motion": {
       "role": "prop",
       "reason": "Jeda: pensil mengetuk pelan sementara penonton membaca"
      },
      "keys": [
       {
-       "t": 0.335,
+       "t": 0.3,
        "y": 470
       },
       {
-       "t": 0.838,
+       "t": 0.75,
        "y": 464
       },
       {
-       "t": 1.341,
+       "t": 1.2,
        "y": 470
       },
       {
-       "t": 1.844,
+       "t": 1.65,
        "y": 464
       },
       {
-       "t": 2.347,
+       "t": 2.1,
        "y": 470
       },
       {
-       "t": 2.85,
+       "t": 2.55,
        "y": 464
       },
       {
-       "t": 3.353,
+       "t": 3,
        "y": 470
       },
       {
-       "t": 3.856,
+       "t": 3.45,
        "y": 464
       },
       {
-       "t": 4.359,
+       "t": 3.9,
        "y": 470
       },
       {
-       "t": 4.862,
+       "t": 4.35,
        "y": 464
       },
       {
-       "t": 5.365,
+       "t": 4.8,
        "y": 470
       }
      ]
@@ -3415,8 +3419,8 @@
    ]
   },
   {
-   "start": 90.183,
-   "end": 92.771,
+   "start": 90.194,
+   "end": 92.872,
    "layers": [
     {
      "type": "image",
@@ -3431,7 +3435,7 @@
      "x": 520,
      "y": 226.66666666666669,
      "w": 280,
-     "to": 1.122
+     "to": 1.161
     },
     {
      "type": "image",
@@ -3439,7 +3443,7 @@
      "x": 520,
      "y": 226.66666666666669,
      "w": 280,
-     "from": 1.122
+     "from": 1.161
     },
     {
      "type": "image",
@@ -3454,22 +3458,22 @@
      "x": 700,
      "y": 330,
      "w": 220,
-     "id": "prop-41",
+     "id": "prop-44",
      "motion": {
       "role": "prop",
       "reason": "Ardipal mendorong buku ke arah Vidka"
      },
      "keys": [
       {
-       "t": 0.259,
+       "t": 0.268,
        "x": 760
       },
       {
-       "t": 1.035,
+       "t": 1.071,
        "x": 700
       },
       {
-       "t": 2.243,
+       "t": 2.321,
        "x": 704
       }
      ]
@@ -3477,8 +3481,8 @@
    ]
   },
   {
-   "start": 92.771,
-   "end": 98.81,
+   "start": 92.872,
+   "end": 99.122,
    "layers": [
     {
      "type": "text",
@@ -3505,28 +3509,29 @@
      "x": 120,
      "y": 104,
      "w": 90,
-     "id": "prop-42",
+     "id": "prop-45",
      "motion": {
       "role": "prop",
       "reason": "Pensil Vidka menulis"
      },
      "keys": [
       {
-       "t": 0.173,
+       "t": 0.179,
        "x": 120,
        "y": 104
       },
       {
-       "t": 1.208,
+       "t": 1.25,
        "x": 900,
        "y": 104
       },
       {
-       "t": 1.553,
+       "t": 1.607,
        "x": 930,
        "y": 64
       }
-     ]
+     ],
+     "to": 1.786
     },
     {
      "type": "text",
@@ -3537,7 +3542,7 @@
      "w": 1150,
      "color": "#EC4338",
      "bold": true,
-     "from": 1.725
+     "from": 1.786
     },
     {
      "type": "text",
@@ -3547,7 +3552,7 @@
      "size": 40,
      "w": 1040,
      "color": "#1F3A5F",
-     "from": 1.725
+     "from": 1.786
     },
     {
      "type": "image",
@@ -3555,26 +3560,28 @@
      "x": 120,
      "y": 224,
      "w": 90,
-     "id": "prop-43",
+     "id": "prop-46",
      "motion": {
       "role": "prop",
       "reason": "Pensil menulis bukti awal"
      },
      "keys": [
       {
-       "t": 1.725,
+       "t": 1.786,
        "x": 120
       },
       {
-       "t": 2.933,
+       "t": 3.036,
        "x": 940
       },
       {
-       "t": 3.278,
+       "t": 3.393,
        "x": 960,
        "y": 200
       }
-     ]
+     ],
+     "from": 1.786,
+     "to": 3.75
     },
     {
      "type": "text",
@@ -3585,7 +3592,7 @@
      "w": 1150,
      "color": "#EC4338",
      "bold": true,
-     "from": 3.623
+     "from": 3.75
     },
     {
      "type": "text",
@@ -3595,7 +3602,7 @@
      "size": 40,
      "w": 1040,
      "color": "#1F3A5F",
-     "from": 3.623
+     "from": 3.75
     },
     {
      "type": "image",
@@ -3603,26 +3610,27 @@
      "x": 120,
      "y": 344,
      "w": 90,
-     "id": "prop-44",
+     "id": "prop-47",
      "motion": {
       "role": "prop",
       "reason": "Pensil menulis bacaan"
      },
      "keys": [
       {
-       "t": 3.623,
+       "t": 3.75,
        "x": 120
       },
       {
-       "t": 4.659,
+       "t": 4.821,
        "x": 800
       },
       {
-       "t": 5.004,
+       "t": 5.178,
        "x": 820,
        "y": 320
       }
-     ]
+     ],
+     "from": 3.75
     },
     {
      "type": "text",
@@ -3632,7 +3640,7 @@
      "size": 34,
      "w": 1150,
      "color": "#EC4338",
-     "from": 5.176
+     "from": 5.357
     },
     {
      "type": "underline",
@@ -3640,18 +3648,18 @@
      "y": 512,
      "w": 420,
      "color": "#EC4338",
-     "id": "information-45",
+     "id": "information-48",
      "motion": {
       "role": "information",
       "reason": "Alasan pentingnya digarisbawahi"
      },
      "keys": [
       {
-       "t": 5.349,
+       "t": 5.535,
        "progress": 0
       },
       {
-       "t": 5.953,
+       "t": 6.16,
        "progress": 1
       }
      ]
@@ -3659,8 +3667,8 @@
    ]
   },
   {
-   "start": 98.81,
-   "end": 105.183,
+   "start": 99.122,
+   "end": 105.194,
    "layers": [
     {
      "type": "text",
@@ -3712,18 +3720,18 @@
      ],
      "color": "#1F3A5F",
      "lineWidth": 4,
-     "id": "information-46",
+     "id": "information-49",
      "motion": {
       "role": "information",
       "reason": "Kurung menandai pernyataan masalah"
      },
      "keys": [
       {
-       "t": 0.382,
+       "t": 0.364,
        "progress": 0
       },
       {
-       "t": 1.657,
+       "t": 1.579,
        "progress": 1
       }
      ]
@@ -3736,7 +3744,7 @@
      "size": 32,
      "w": 1150,
      "color": "#6b7280",
-     "from": 1.784
+     "from": 1.7
     },
     {
      "type": "image",
@@ -3744,54 +3752,54 @@
      "x": 1080,
      "y": 420,
      "w": 80,
-     "id": "prop-47",
+     "id": "prop-50",
      "motion": {
       "role": "prop",
       "reason": "Jeda: pensil mengetuk pelan sementara penonton membaca"
      },
      "keys": [
       {
-       "t": 0.382,
+       "t": 0.364,
        "y": 420
       },
       {
-       "t": 0.956,
+       "t": 0.911,
        "y": 414
       },
       {
-       "t": 1.53,
+       "t": 1.457,
        "y": 420
       },
       {
-       "t": 2.103,
+       "t": 2.004,
        "y": 414
       },
       {
-       "t": 2.677,
+       "t": 2.55,
        "y": 420
       },
       {
-       "t": 3.25,
+       "t": 3.097,
        "y": 414
       },
       {
-       "t": 3.824,
+       "t": 3.643,
        "y": 420
       },
       {
-       "t": 4.397,
+       "t": 4.19,
        "y": 414
       },
       {
-       "t": 4.971,
+       "t": 4.736,
        "y": 420
       },
       {
-       "t": 5.545,
+       "t": 5.283,
        "y": 414
       },
       {
-       "t": 6.118,
+       "t": 5.829,
        "y": 420
       }
      ]
@@ -3799,8 +3807,8 @@
    ]
   },
   {
-   "start": 105.183,
-   "end": 110.766,
+   "start": 105.194,
+   "end": 110.943,
    "layers": [
     {
      "type": "image",
@@ -3824,7 +3832,7 @@
      "size": 32,
      "w": 790,
      "color": "#1F3A5F",
-     "from": 0.305
+     "from": 0.314
     },
     {
      "type": "text",
@@ -3834,7 +3842,7 @@
      "size": 32,
      "w": 790,
      "color": "#1F3A5F",
-     "from": 1.929
+     "from": 1.986
     },
     {
      "type": "text",
@@ -3844,7 +3852,7 @@
      "size": 32,
      "w": 790,
      "color": "#1F3A5F",
-     "from": 3.553
+     "from": 3.658
     },
     {
      "type": "image",
@@ -3852,44 +3860,44 @@
      "x": 470,
      "y": 140,
      "w": 90,
-     "id": "prop-48",
+     "id": "prop-51",
      "motion": {
       "role": "prop",
       "reason": "Pensil menulis tiga baris pertanyaan lalu diangkat"
      },
      "keys": [
       {
-       "t": 0.203,
+       "t": 0.209,
        "x": 470,
        "y": 140
       },
       {
-       "t": 1.827,
+       "t": 1.881,
        "x": 1000,
        "y": 140
       },
       {
-       "t": 1.929,
+       "t": 1.986,
        "x": 470,
        "y": 192
       },
       {
-       "t": 3.451,
+       "t": 3.554,
        "x": 1010,
        "y": 192
       },
       {
-       "t": 3.553,
+       "t": 3.658,
        "x": 470,
        "y": 244
       },
       {
-       "t": 4.669,
+       "t": 4.808,
        "x": 860,
        "y": 244
       },
       {
-       "t": 5.279,
+       "t": 5.435,
        "x": 900,
        "y": 170
       }
@@ -3898,8 +3906,8 @@
    ]
   },
   {
-   "start": 110.766,
-   "end": 115.334,
+   "start": 110.943,
+   "end": 115.646,
    "layers": [
     {
      "type": "text",
@@ -3937,7 +3945,7 @@
      "w": 1150,
      "color": "#EC4338",
      "bold": true,
-     "to": 1.523
+     "to": 1.568
     },
     {
      "type": "underline",
@@ -3945,21 +3953,22 @@
      "y": 180,
      "w": 300,
      "color": "#F6D34A",
-     "id": "information-49",
+     "id": "information-52",
      "motion": {
       "role": "information",
       "reason": "Sorotan peserta: siswa pemula"
      },
      "keys": [
       {
-       "t": 0.203,
+       "t": 0.209,
        "progress": 0
       },
       {
-       "t": 1.015,
+       "t": 1.045,
        "progress": 1
       }
-     ]
+     ],
+     "to": 1.568
     },
     {
      "type": "text",
@@ -3970,32 +3979,32 @@
      "w": 1150,
      "color": "#EC4338",
      "bold": true,
-     "from": 1.523,
-     "to": 3.045
+     "from": 1.568,
+     "to": 3.136
     },
     {
      "type": "underline",
      "x": 120,
-     "y": 340,
-     "w": 560,
+     "y": 262,
+     "w": 760,
      "color": "#F6D34A",
-     "id": "information-50",
+     "id": "information-53",
      "motion": {
       "role": "information",
       "reason": "Sorotan proses: menggunakan isyarat bunyi dan gerak untuk menjaga"
      },
      "keys": [
       {
-       "t": 1.726,
+       "t": 1.777,
        "progress": 0
       },
       {
-       "t": 2.538,
+       "t": 2.613,
        "progress": 1
       }
      ],
-     "from": 1.523,
-     "to": 3.045
+     "from": 1.568,
+     "to": 3.136
     },
     {
      "type": "text",
@@ -4006,36 +4015,36 @@
      "w": 1150,
      "color": "#EC4338",
      "bold": true,
-     "from": 3.045
+     "from": 3.136
     },
     {
      "type": "underline",
      "x": 120,
-     "y": 420,
-     "w": 520,
+     "y": 342,
+     "w": 470,
      "color": "#F6D34A",
-     "id": "information-51",
+     "id": "information-54",
      "motion": {
       "role": "information",
       "reason": "Sorotan konteks: tempo dalam ansambel"
      },
      "keys": [
       {
-       "t": 3.248,
+       "t": 3.345,
        "progress": 0
       },
       {
-       "t": 4.06,
+       "t": 4.181,
        "progress": 1
       }
      ],
-     "from": 3.045
+     "from": 3.136
     }
    ]
   },
   {
-   "start": 115.334,
-   "end": 120.334,
+   "start": 115.646,
+   "end": 120.646,
    "layers": [
     {
      "type": "text",
@@ -4082,7 +4091,7 @@
      ],
      "color": "#3E9B5F",
      "lineWidth": 7,
-     "id": "information-52",
+     "id": "information-55",
      "motion": {
       "role": "information",
       "reason": "Centang: pertanyaan lengkap"
@@ -4114,7 +4123,7 @@
      "x": 1100,
      "y": 420,
      "w": 80,
-     "id": "prop-53",
+     "id": "prop-56",
      "motion": {
       "role": "prop",
       "reason": "Jeda: pensil mengetuk pelan sementara penonton membaca"
@@ -4169,8 +4178,8 @@
    ]
   },
   {
-   "start": 120.334,
-   "end": 122.234,
+   "start": 120.646,
+   "end": 122.665,
    "layers": [
     {
      "type": "image",
@@ -4192,24 +4201,24 @@
      "x": 100,
      "y": 150,
      "w": 200,
-     "id": "prop-54",
+     "id": "prop-57",
      "motion": {
       "role": "prop",
       "reason": "Kuesioner diangkat dan dibaca"
      },
      "keys": [
       {
-       "t": 0.19,
+       "t": 0.202,
        "angle": -0.04,
        "y": 170
       },
       {
-       "t": 0.95,
+       "t": 1.01,
        "angle": 0.03,
        "y": 150
       },
       {
-       "t": 1.71,
+       "t": 1.817,
        "angle": -0.02,
        "y": 152
       }
@@ -4228,8 +4237,8 @@
    ]
   },
   {
-   "start": 122.234,
-   "end": 124.608,
+   "start": 122.665,
+   "end": 125.19,
    "layers": [
     {
      "type": "image",
@@ -4251,18 +4260,18 @@
      "x": 1000,
      "y": 160,
      "w": 190,
-     "id": "prop-55",
+     "id": "prop-58",
      "motion": {
       "role": "prop",
       "reason": "Pintu ruang latihan masuk ke bidang pandang"
      },
      "keys": [
       {
-       "t": 0.285,
+       "t": 0.303,
        "x": 1120
       },
       {
-       "t": 1.235,
+       "t": 1.313,
        "x": 1000
       }
      ]
@@ -4276,7 +4285,7 @@
      "w": 310,
      "color": "#1F3A5F",
      "bold": true,
-     "from": 1.235
+     "from": 1.313
     },
     {
      "type": "image",
@@ -4284,18 +4293,18 @@
      "x": 100,
      "y": 150,
      "w": 200,
-     "id": "prop-56",
+     "id": "prop-59",
      "motion": {
       "role": "prop",
       "reason": "Kuesioner diturunkan"
      },
      "keys": [
       {
-       "t": 1.14,
+       "t": 1.212,
        "y": 150
       },
       {
-       "t": 2.09,
+       "t": 2.221,
        "y": 380
       }
      ]
@@ -4303,8 +4312,8 @@
    ]
   },
   {
-   "start": 124.608,
-   "end": 129.832,
+   "start": 125.19,
+   "end": 130.743,
    "layers": [
     {
      "type": "text",
@@ -4322,18 +4331,18 @@
      "x": 160,
      "y": 300,
      "w": 260,
-     "id": "prop-57",
+     "id": "prop-60",
      "motion": {
       "role": "prop",
       "reason": "Buku pengamatan ditempatkan pertama"
      },
      "keys": [
       {
-       "t": 0.38,
+       "t": 0.404,
        "y": 300
       },
       {
-       "t": 1.33,
+       "t": 1.414,
        "y": 200
       }
      ]
@@ -4347,17 +4356,17 @@
      "w": 1170,
      "color": "#EC4338",
      "bold": true,
-     "from": 1.33
+     "from": 1.414
     },
     {
      "type": "text",
      "text": "mengamati tindakan saat latihan",
      "x": 170,
      "y": 400,
-     "size": 28,
+     "size": 30,
      "w": 1100,
      "color": "#6b7280",
-     "from": 1.33
+     "from": 1.414
     },
     {
      "type": "image",
@@ -4365,19 +4374,19 @@
      "x": 640,
      "y": 300,
      "w": 200,
-     "id": "prop-58",
+     "id": "prop-61",
      "motion": {
       "role": "prop",
       "reason": "Kuesioner diletakkan di samping buku pengamatan"
      },
      "keys": [
       {
-       "t": 2.28,
+       "t": 2.423,
        "x": 900,
        "y": 300
       },
       {
-       "t": 3.229,
+       "t": 3.433,
        "x": 640,
        "y": 200
       }
@@ -4392,17 +4401,17 @@
      "w": 690,
      "color": "#EC4338",
      "bold": true,
-     "from": 3.229
+     "from": 3.433
     },
     {
      "type": "text",
      "text": "menanyakan alasannya",
      "x": 650,
      "y": 480,
-     "size": 28,
+     "size": 30,
      "w": 620,
      "color": "#6b7280",
-     "from": 3.229
+     "from": 3.433
     },
     {
      "type": "arrow",
@@ -4411,18 +4420,18 @@
      "w": 200,
      "color": "#EC4338",
      "lineWidth": 4,
-     "id": "information-59",
+     "id": "information-62",
      "motion": {
       "role": "information",
       "reason": "Urutan: mengamati lalu menanyakan"
      },
      "keys": [
       {
-       "t": 3.609,
+       "t": 3.837,
        "progress": 0
       },
       {
-       "t": 4.369,
+       "t": 4.645,
        "progress": 1
       }
      ]
@@ -4430,8 +4439,8 @@
    ]
   },
   {
-   "start": 129.832,
-   "end": 135.334,
+   "start": 130.743,
+   "end": 135.743,
    "layers": [
     {
      "type": "image",
@@ -4481,54 +4490,54 @@
      "x": 900,
      "y": 470,
      "w": 80,
-     "id": "prop-60",
+     "id": "prop-63",
      "motion": {
       "role": "prop",
       "reason": "Jeda: pensil mengetuk pelan sementara penonton membaca"
      },
      "keys": [
       {
-       "t": 0.33,
+       "t": 0.3,
        "y": 470
       },
       {
-       "t": 0.825,
+       "t": 0.75,
        "y": 464
       },
       {
-       "t": 1.32,
+       "t": 1.2,
        "y": 470
       },
       {
-       "t": 1.816,
+       "t": 1.65,
        "y": 464
       },
       {
-       "t": 2.311,
+       "t": 2.1,
        "y": 470
       },
       {
-       "t": 2.806,
+       "t": 2.55,
        "y": 464
       },
       {
-       "t": 3.301,
+       "t": 3,
        "y": 470
       },
       {
-       "t": 3.796,
+       "t": 3.45,
        "y": 464
       },
       {
-       "t": 4.292,
+       "t": 3.9,
        "y": 470
       },
       {
-       "t": 4.787,
+       "t": 4.35,
        "y": 464
       },
       {
-       "t": 5.282,
+       "t": 4.8,
        "y": 470
       }
      ]
@@ -4536,9 +4545,18 @@
    ]
   },
   {
-   "start": 135.334,
-   "end": 138.264,
+   "start": 135.743,
+   "end": 138.769,
    "layers": [
+    {
+     "type": "text",
+     "text": "rencana penelitian",
+     "x": 220,
+     "y": 24,
+     "size": 30,
+     "w": 1050,
+     "color": "#EC4338"
+    },
     {
      "type": "image",
      "path": "art/notebook.png",
@@ -4548,22 +4566,13 @@
     },
     {
      "type": "text",
-     "text": "rencana penelitian",
-     "x": 220,
-     "y": 90,
-     "size": 28,
-     "w": 1050,
-     "color": "#EC4338"
-    },
-    {
-     "type": "text",
      "text": "Studi kasus kualitatif",
      "x": 240,
      "y": 150,
      "size": 48,
      "w": 1030,
      "color": "#1F3A5F",
-     "from": 0.275
+     "from": 0.284
     },
     {
      "type": "text",
@@ -4573,7 +4582,7 @@
      "size": 40,
      "w": 1030,
      "color": "#1F3A5F",
-     "from": 1.465
+     "from": 1.513
     },
     {
      "type": "image",
@@ -4581,28 +4590,29 @@
      "x": 240,
      "y": 130,
      "w": 90,
-     "id": "prop-61",
+     "id": "prop-64",
      "motion": {
       "role": "prop",
       "reason": "Pensil Vidka menulis"
      },
      "keys": [
       {
-       "t": 0.183,
+       "t": 0.189,
        "x": 240,
        "y": 130
       },
       {
-       "t": 1.282,
+       "t": 1.324,
        "x": 800,
        "y": 130
       },
       {
-       "t": 1.648,
+       "t": 1.702,
        "x": 830,
        "y": 90
       }
-     ]
+     ],
+     "to": 1.513
     },
     {
      "type": "image",
@@ -4610,22 +4620,22 @@
      "x": 240,
      "y": 210,
      "w": 90,
-     "id": "prop-62",
+     "id": "prop-65",
      "motion": {
       "role": "prop",
       "reason": "Pensil menulis tujuan"
      },
      "keys": [
       {
-       "t": 1.465,
+       "t": 1.513,
        "x": 240
       },
       {
-       "t": 2.381,
+       "t": 2.459,
        "x": 760
       },
       {
-       "t": 2.747,
+       "t": 2.837,
        "x": 790,
        "y": 180
       }
@@ -4641,8 +4651,8 @@
    ]
   },
   {
-   "start": 138.264,
-   "end": 141.011,
+   "start": 138.769,
+   "end": 141.606,
    "layers": [
     {
      "type": "text",
@@ -4680,7 +4690,7 @@
      "x": 620,
      "y": 170,
      "w": 170,
-     "to": 1.099
+     "to": 1.135
     },
     {
      "type": "image",
@@ -4688,7 +4698,7 @@
      "x": 620,
      "y": 170,
      "w": 170,
-     "from": 1.099
+     "from": 1.135
     },
     {
      "type": "image",
@@ -4703,7 +4713,7 @@
      "x": 969,
      "y": 456,
      "w": 9,
-     "id": "prop-63",
+     "id": "prop-66",
      "motion": {
       "role": "prop",
       "reason": "Lengan metronom berayun menandai tempo"
@@ -4714,47 +4724,47 @@
        "angle": 3.562
       },
       {
-       "t": 0.229,
+       "t": 0.236,
        "angle": 2.722
       },
       {
-       "t": 0.458,
+       "t": 0.473,
        "angle": 3.562
       },
       {
-       "t": 0.687,
+       "t": 0.709,
        "angle": 2.722
       },
       {
-       "t": 0.916,
+       "t": 0.946,
        "angle": 3.562
       },
       {
-       "t": 1.145,
+       "t": 1.182,
        "angle": 2.722
       },
       {
-       "t": 1.374,
+       "t": 1.418,
        "angle": 3.562
       },
       {
-       "t": 1.602,
+       "t": 1.655,
        "angle": 2.722
       },
       {
-       "t": 1.831,
+       "t": 1.891,
        "angle": 3.562
       },
       {
-       "t": 2.06,
+       "t": 2.128,
        "angle": 2.722
       },
       {
-       "t": 2.289,
+       "t": 2.364,
        "angle": 3.562
       },
       {
-       "t": 2.518,
+       "t": 2.6,
        "angle": 2.722
       }
      ]
@@ -4767,7 +4777,7 @@
      "size": 30,
      "w": 570,
      "color": "#1F3A5F",
-     "from": 1.099
+     "from": 1.135
     },
     {
      "type": "image",
@@ -4775,19 +4785,19 @@
      "x": 60,
      "y": 420,
      "w": 200,
-     "id": "prop-64",
+     "id": "prop-67",
      "motion": {
       "role": "prop",
       "reason": "Vidka mencatat waktunya"
      },
      "keys": [
       {
-       "t": 1.19,
+       "t": 1.229,
        "x": 60,
        "y": 460
       },
       {
-       "t": 1.831,
+       "t": 1.891,
        "x": 60,
        "y": 420
       }
@@ -4797,17 +4807,17 @@
      "type": "text",
      "text": "12:04",
      "x": 120,
-     "y": 440,
-     "size": 28,
+     "y": 436,
+     "size": 30,
      "w": 1150,
      "color": "#EC4338",
-     "from": 1.831
+     "from": 1.891
     }
    ]
   },
   {
-   "start": 141.011,
-   "end": 144.491,
+   "start": 141.606,
+   "end": 145.199,
    "layers": [
     {
      "type": "image",
@@ -4820,8 +4830,8 @@
      "type": "text",
      "text": "Pengamatan",
      "x": 130,
-     "y": 160,
-     "size": 26,
+     "y": 158,
+     "size": 30,
      "w": 1140,
      "color": "#EC4338"
     },
@@ -4854,8 +4864,8 @@
      "type": "text",
      "text": "Wawancara",
      "x": 770,
-     "y": 160,
-     "size": 26,
+     "y": 158,
+     "size": 30,
      "w": 500,
      "color": "#EC4338"
     },
@@ -4891,18 +4901,18 @@
      ],
      "color": "#EC4338",
      "lineWidth": 5,
-     "id": "information-65",
+     "id": "information-68",
      "motion": {
       "role": "information",
       "reason": "Pengamatan dibandingkan dengan wawancara"
      },
      "keys": [
       {
-       "t": 0.366,
+       "t": 0.378,
        "progress": 0
       },
       {
-       "t": 1.282,
+       "t": 1.324,
        "progress": 1
       }
      ]
@@ -4916,7 +4926,7 @@
      "w": 850,
      "color": "#1F3A5F",
      "bold": true,
-     "from": 1.374
+     "from": 1.418
     },
     {
      "type": "underline",
@@ -4924,18 +4934,18 @@
      "y": 490,
      "w": 440,
      "color": "#F6D34A",
-     "id": "information-66",
+     "id": "information-69",
      "motion": {
       "role": "information",
       "reason": "Penekanan pada pola isyarat"
      },
      "keys": [
       {
-       "t": 2.015,
+       "t": 2.08,
        "progress": 0
       },
       {
-       "t": 2.747,
+       "t": 2.837,
        "progress": 1
       }
      ]
@@ -4943,8 +4953,8 @@
    ]
   },
   {
-   "start": 144.491,
-   "end": 150.334,
+   "start": 145.199,
+   "end": 150.743,
    "layers": [
     {
      "type": "image",
@@ -4957,8 +4967,8 @@
      "type": "text",
      "text": "Pengamatan",
      "x": 130,
-     "y": 160,
-     "size": 26,
+     "y": 158,
+     "size": 30,
      "w": 1140,
      "color": "#EC4338"
     },
@@ -4991,8 +5001,8 @@
      "type": "text",
      "text": "Wawancara",
      "x": 770,
-     "y": 160,
-     "size": 26,
+     "y": 158,
+     "size": 30,
      "w": 500,
      "color": "#EC4338"
     },
@@ -5054,54 +5064,54 @@
      "x": 1100,
      "y": 480,
      "w": 80,
-     "id": "prop-67",
+     "id": "prop-70",
      "motion": {
       "role": "prop",
       "reason": "Jeda: pensil mengetuk pelan sementara penonton membaca"
      },
      "keys": [
       {
-       "t": 0.351,
+       "t": 0.333,
        "y": 480
       },
       {
-       "t": 0.876,
+       "t": 0.832,
        "y": 474
       },
       {
-       "t": 1.402,
+       "t": 1.331,
        "y": 480
       },
       {
-       "t": 1.928,
+       "t": 1.83,
        "y": 474
       },
       {
-       "t": 2.454,
+       "t": 2.328,
        "y": 480
       },
       {
-       "t": 2.98,
+       "t": 2.827,
        "y": 474
       },
       {
-       "t": 3.506,
+       "t": 3.326,
        "y": 480
       },
       {
-       "t": 4.032,
+       "t": 3.825,
        "y": 474
       },
       {
-       "t": 4.558,
+       "t": 4.324,
        "y": 480
       },
       {
-       "t": 5.083,
+       "t": 4.823,
        "y": 474
       },
       {
-       "t": 5.609,
+       "t": 5.322,
        "y": 480
       }
      ]
@@ -5109,31 +5119,31 @@
    ]
   },
   {
-   "start": 150.334,
-   "end": 154.288,
+   "start": 150.743,
+   "end": 154.817,
    "layers": [
     {
      "type": "image",
-     "path": "art/page-plain.png",
+     "path": "art/note-card.png",
      "x": 120,
-     "y": 50,
-     "w": 360
+     "y": 80,
+     "w": 380
     },
     {
      "type": "text",
      "text": "memahami proses",
      "x": 150,
-     "y": 110,
+     "y": 100,
      "size": 34,
      "w": 1120,
-     "color": "#1F3A5F"
+     "color": "#EC4338"
     },
     {
      "type": "text",
      "text": "Bagaimana siswa pemula",
      "x": 150,
      "y": 160,
-     "size": 26,
+     "size": 32,
      "w": 1120,
      "color": "#1F3A5F"
     },
@@ -5141,30 +5151,30 @@
      "type": "text",
      "text": "menjaga tempo?",
      "x": 150,
-     "y": 192,
-     "size": 26,
+     "y": 200,
+     "size": 32,
      "w": 1120,
      "color": "#1F3A5F"
     },
     {
      "type": "image",
-     "path": "art/page-plain.png",
+     "path": "art/note-card.png",
      "x": 120,
-     "y": 50,
-     "w": 360,
-     "id": "prop-68",
+     "y": 80,
+     "w": 380,
+     "id": "prop-71",
      "motion": {
       "role": "prop",
       "reason": "Vidka membalik ke halaman pertanyaan kedua"
      },
      "keys": [
       {
-       "t": 0.791,
+       "t": 0.815,
        "x": 120,
        "angle": 0
       },
       {
-       "t": 1.779,
+       "t": 1.833,
        "x": 560,
        "angle": 0.02
       }
@@ -5174,31 +5184,31 @@
      "type": "text",
      "text": "menguji pengaruh",
      "x": 590,
-     "y": 110,
+     "y": 100,
      "size": 34,
      "w": 680,
-     "color": "#1F3A5F",
-     "from": 1.878
+     "color": "#EC4338",
+     "from": 1.935
     },
     {
      "type": "text",
      "text": "Apakah latihan metronom",
      "x": 590,
      "y": 160,
-     "size": 26,
+     "size": 32,
      "w": 680,
      "color": "#1F3A5F",
-     "from": 1.878
+     "from": 1.935
     },
     {
      "type": "text",
      "text": "meningkatkan kestabilan tempo?",
      "x": 590,
-     "y": 192,
-     "size": 26,
+     "y": 200,
+     "size": 30,
      "w": 680,
      "color": "#1F3A5F",
-     "from": 1.878
+     "from": 1.935
     },
     {
      "type": "image",
@@ -5213,7 +5223,7 @@
      "x": 1069,
      "y": 456,
      "w": 9,
-     "id": "prop-69",
+     "id": "prop-72",
      "motion": {
       "role": "prop",
       "reason": "Lengan metronom berayun menandai tempo"
@@ -5224,39 +5234,39 @@
        "angle": 3.562
       },
       {
-       "t": 0.395,
+       "t": 0.407,
        "angle": 2.722
       },
       {
-       "t": 0.791,
+       "t": 0.815,
        "angle": 3.562
       },
       {
-       "t": 1.186,
+       "t": 1.222,
        "angle": 2.722
       },
       {
-       "t": 1.582,
+       "t": 1.629,
        "angle": 3.562
       },
       {
-       "t": 1.977,
+       "t": 2.037,
        "angle": 2.722
       },
       {
-       "t": 2.372,
+       "t": 2.444,
        "angle": 3.562
       },
       {
-       "t": 2.768,
+       "t": 2.852,
        "angle": 2.722
       },
       {
-       "t": 3.163,
+       "t": 3.259,
        "angle": 3.562
       },
       {
-       "t": 3.559,
+       "t": 3.666,
        "angle": 2.722
       }
      ]
@@ -5264,8 +5274,8 @@
    ]
   },
   {
-   "start": 154.288,
-   "end": 160.219,
+   "start": 154.817,
+   "end": 160.927,
    "layers": [
     {
      "type": "image",
@@ -5316,18 +5326,18 @@
      ],
      "color": "#1F3A5F",
      "lineWidth": 4,
-     "id": "information-70",
+     "id": "information-73",
      "motion": {
       "role": "information",
       "reason": "Kotak: ukuran tempo"
      },
      "keys": [
       {
-       "t": 0.791,
+       "t": 0.815,
        "progress": 0
       },
       {
-       "t": 1.582,
+       "t": 1.629,
        "progress": 1
       }
      ]
@@ -5340,7 +5350,7 @@
      "size": 36,
      "w": 870,
      "color": "#1F3A5F",
-     "from": 1.582
+     "from": 1.629
     },
     {
      "type": "line",
@@ -5368,18 +5378,18 @@
      ],
      "color": "#1F3A5F",
      "lineWidth": 4,
-     "id": "information-71",
+     "id": "information-74",
      "motion": {
       "role": "information",
       "reason": "Kotak: perbandingan yang sesuai"
      },
      "keys": [
       {
-       "t": 2.372,
+       "t": 2.444,
        "progress": 0
       },
       {
-       "t": 3.163,
+       "t": 3.259,
        "progress": 1
       }
      ]
@@ -5392,7 +5402,7 @@
      "size": 36,
      "w": 870,
      "color": "#1F3A5F",
-     "from": 3.163
+     "from": 3.259
     },
     {
      "type": "line",
@@ -5420,18 +5430,18 @@
      ],
      "color": "#1F3A5F",
      "lineWidth": 4,
-     "id": "information-72",
+     "id": "information-75",
      "motion": {
       "role": "information",
       "reason": "Kotak: perhatian pada faktor lain"
      },
      "keys": [
       {
-       "t": 3.954,
+       "t": 4.074,
        "progress": 0
       },
       {
-       "t": 4.745,
+       "t": 4.888,
        "progress": 1
       }
      ]
@@ -5444,7 +5454,7 @@
      "size": 36,
      "w": 870,
      "color": "#1F3A5F",
-     "from": 4.745
+     "from": 4.888
     },
     {
      "type": "text",
@@ -5454,13 +5464,13 @@
      "size": 30,
      "w": 890,
      "color": "#6b7280",
-     "from": 4.942
+     "from": 5.092
     }
    ]
   },
   {
-   "start": 160.219,
-   "end": 165.334,
+   "start": 160.927,
+   "end": 165.927,
    "layers": [
     {
      "type": "image",
@@ -5477,7 +5487,7 @@
      "size": 54,
      "w": 1030,
      "color": "#1F3A5F",
-     "from": 0.307
+     "from": 0.3
     },
     {
      "type": "text",
@@ -5487,7 +5497,7 @@
      "size": 54,
      "w": 1030,
      "color": "#1F3A5F",
-     "from": 1.637
+     "from": 1.6
     },
     {
      "type": "image",
@@ -5495,28 +5505,29 @@
      "x": 240,
      "y": 150,
      "w": 90,
-     "id": "prop-73",
+     "id": "prop-76",
      "motion": {
       "role": "prop",
       "reason": "Pensil Vidka menulis"
      },
      "keys": [
       {
-       "t": 0.205,
+       "t": 0.2,
        "x": 240,
        "y": 150
       },
       {
-       "t": 1.535,
+       "t": 1.5,
        "x": 920,
        "y": 150
       },
       {
-       "t": 1.944,
+       "t": 1.9,
        "x": 950,
        "y": 110
       }
-     ]
+     ],
+     "to": 1.6
     },
     {
      "type": "image",
@@ -5524,52 +5535,59 @@
      "x": 240,
      "y": 230,
      "w": 90,
-     "id": "prop-74",
+     "id": "prop-77",
      "motion": {
       "role": "prop",
       "reason": "Pensil menulis kata terakhir lalu diam"
      },
      "keys": [
       {
-       "t": 1.637,
+       "t": 1.6,
        "x": 240
       },
       {
-       "t": 2.455,
+       "t": 2.4,
        "x": 540
       },
       {
-       "t": 3.069,
+       "t": 3,
        "y": 230,
        "x": 580
       },
       {
-       "t": 3.529,
+       "t": 3.45,
        "y": 224,
        "x": 580
       },
       {
-       "t": 3.99,
+       "t": 3.9,
        "y": 230,
        "x": 580
       },
       {
-       "t": 4.45,
+       "t": 4.35,
        "y": 224,
        "x": 580
       },
       {
-       "t": 4.91,
+       "t": 4.8,
        "y": 230,
        "x": 580
       }
      ]
+    },
+    {
+     "type": "image",
+     "path": "art/vidka-think.png",
+     "x": 980,
+     "y": 290,
+     "w": 220
     }
    ]
   },
   {
-   "start": 165.334,
-   "end": 170.664,
+   "start": 165.927,
+   "end": 171.257,
    "layers": [
     {
      "type": "text",
@@ -5607,7 +5625,7 @@
      ],
      "color": "#1F3A5F",
      "lineWidth": 4,
-     "id": "information-75",
+     "id": "information-78",
      "motion": {
       "role": "information",
       "reason": "Kotak bacaan"
@@ -5640,7 +5658,7 @@
      "w": 50,
      "color": "#EC4338",
      "lineWidth": 4,
-     "id": "information-76",
+     "id": "information-79",
      "motion": {
       "role": "information",
       "reason": "Panah 1"
@@ -5682,7 +5700,7 @@
      ],
      "color": "#1F3A5F",
      "lineWidth": 4,
-     "id": "information-77",
+     "id": "information-80",
      "motion": {
       "role": "information",
       "reason": "Kotak masalah"
@@ -5715,7 +5733,7 @@
      "w": 50,
      "color": "#EC4338",
      "lineWidth": 4,
-     "id": "information-78",
+     "id": "information-81",
      "motion": {
       "role": "information",
       "reason": "Panah 2"
@@ -5757,7 +5775,7 @@
      ],
      "color": "#1F3A5F",
      "lineWidth": 4,
-     "id": "information-79",
+     "id": "information-82",
      "motion": {
       "role": "information",
       "reason": "Kotak pertanyaan"
@@ -5790,7 +5808,7 @@
      "w": 50,
      "color": "#EC4338",
      "lineWidth": 4,
-     "id": "information-80",
+     "id": "information-83",
      "motion": {
       "role": "information",
       "reason": "Panah 3"
@@ -5832,7 +5850,7 @@
      ],
      "color": "#1F3A5F",
      "lineWidth": 4,
-     "id": "information-81",
+     "id": "information-84",
      "motion": {
       "role": "information",
       "reason": "Kotak cara"
@@ -5862,8 +5880,8 @@
      "type": "text",
      "text": "penelitian",
      "x": 1006,
-     "y": 258,
-     "size": 26,
+     "y": 256,
+     "size": 30,
      "w": 264,
      "color": "#1F3A5F",
      "from": 4.051
@@ -5884,7 +5902,7 @@
      "y": 410,
      "w": 330,
      "color": "#F6D34A",
-     "id": "information-82",
+     "id": "information-85",
      "motion": {
       "role": "information",
       "reason": "Penekanan keterhubungan"
@@ -5903,8 +5921,8 @@
    ]
   },
   {
-   "start": 170.664,
-   "end": 175.994,
+   "start": 171.257,
+   "end": 176.587,
    "layers": [
     {
      "type": "image",
@@ -5975,7 +5993,7 @@
      "x": 300,
      "y": 414,
      "w": 170,
-     "id": "prop-83",
+     "id": "prop-86",
      "motion": {
       "role": "prop",
       "reason": "Vidka menutup laptop"
@@ -5997,7 +6015,7 @@
      "x": 820,
      "y": 290,
      "w": 100,
-     "id": "prop-84",
+     "id": "prop-87",
      "motion": {
       "role": "prop",
       "reason": "Artikel pertama dirapikan"
@@ -6021,7 +6039,7 @@
      "x": 860,
      "y": 320,
      "w": 100,
-     "id": "prop-85",
+     "id": "prop-88",
      "motion": {
       "role": "prop",
       "reason": "Artikel kedua dirapikan"
@@ -6066,7 +6084,7 @@
      "y": 190,
      "w": 240,
      "color": "#F6D34A",
-     "id": "information-86",
+     "id": "information-89",
      "motion": {
       "role": "information",
       "reason": "Penekanan pada alasan pilihan"
@@ -6085,8 +6103,8 @@
    ]
   },
   {
-   "start": 175.994,
-   "end": 180.995,
+   "start": 176.587,
+   "end": 182.587,
    "layers": [
     {
      "type": "image",
@@ -6136,109 +6154,118 @@
      "x": 900,
      "y": 470,
      "w": 80,
-     "id": "prop-87",
+     "id": "prop-90",
      "motion": {
       "role": "prop",
       "reason": "Jeda: pensil mengetuk pelan sementara penonton membaca"
      },
      "keys": [
       {
-       "t": 0.3,
+       "t": 0.36,
        "y": 470
       },
       {
-       "t": 0.75,
+       "t": 0.9,
        "y": 464
       },
       {
-       "t": 1.2,
+       "t": 1.44,
        "y": 470
       },
       {
-       "t": 1.65,
+       "t": 1.98,
        "y": 464
       },
       {
-       "t": 2.1,
+       "t": 2.52,
        "y": 470
       },
       {
-       "t": 2.551,
+       "t": 3.06,
        "y": 464
       },
       {
-       "t": 3.001,
+       "t": 3.6,
        "y": 470
       },
       {
-       "t": 3.451,
+       "t": 4.14,
        "y": 464
       },
       {
-       "t": 3.901,
+       "t": 4.68,
        "y": 470
       },
       {
-       "t": 4.351,
+       "t": 5.22,
        "y": 464
       },
       {
-       "t": 4.801,
+       "t": 5.76,
        "y": 470
       }
      ]
+    },
+    {
+     "type": "text",
+     "text": "Musik: \"Easy Lemon\" Kevin MacLeod (incompetech.com), CC BY 4.0",
+     "x": 120,
+     "y": 560,
+     "size": 24,
+     "w": 1150,
+     "color": "#6b7280"
     }
    ]
   }
  ],
  "sfx": [
   {
-   "time": 0.206,
+   "time": 0.218,
    "kind": "paper",
    "gain": 0.05
   },
   {
-   "time": 2.201,
+   "time": 2.329,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 5.709,
+   "time": 6.041,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 7.528,
+   "time": 7.896,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 15.364,
+   "time": 15.376,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 18.004,
+   "time": 18.103,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 18.914,
+   "time": 19.043,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 19.825,
+   "time": 19.984,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 21.827,
+   "time": 22.052,
    "kind": "pop",
    "gain": 0.04
   },
   {
-   "time": 24.457,
+   "time": 24.739,
    "kind": "pop",
    "gain": 0.05
   },
@@ -6268,231 +6295,235 @@
    "gain": 0.04
   },
   {
-   "time": 45.549,
+   "time": 45.561,
    "kind": "paper",
    "gain": 0.05
   },
   {
-   "time": 48.291,
+   "time": 48.393,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 50.941,
+   "time": 51.13,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 54.909,
+   "time": 55.179,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 55.964,
+   "time": 56.18,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 60.618,
+   "time": 60.633,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 62.186,
+   "time": 62.255,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 65.755,
+   "time": 65.947,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 68.019,
+   "time": 68.289,
    "kind": "pop",
    "gain": 0.04
   },
   {
-   "time": 75.465,
+   "time": 75.483,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 77.912,
+   "time": 78.086,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 79.606,
+   "time": 79.888,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 81.112,
+   "time": 81.49,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 82.712,
+   "time": 83.192,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 84.929,
+   "time": 85.494,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 90.442,
+   "time": 90.462,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 92.944,
+   "time": 93.051,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 94.496,
+   "time": 94.658,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 96.394,
+   "time": 96.622,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 99.32,
+   "time": 99.608,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 105.488,
+   "time": 105.508,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 110.969,
-   "kind": "pop",
-   "gain": 0.04
-  },
-  {
-   "time": 112.492,
+   "time": 111.152,
    "kind": "pop",
    "gain": 0.04
   },
   {
-   "time": 114.014,
+   "time": 112.719,
    "kind": "pop",
    "gain": 0.04
   },
   {
-   "time": 115.734,
+   "time": 114.287,
+   "kind": "pop",
+   "gain": 0.04
+  },
+  {
+   "time": 116.046,
    "kind": "chime",
    "gain": 0.05
   },
   {
-   "time": 120.619,
+   "time": 120.949,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 122.614,
+   "time": 123.069,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 125.653,
+   "time": 126.3,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 127.742,
+   "time": 128.522,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 130.162,
+   "time": 131.043,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 135.609,
+   "time": 136.027,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 139.363,
+   "time": 139.904,
    "kind": "pop",
    "gain": 0.04
   },
   {
-   "time": 141.378,
+   "time": 141.984,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 142.385,
+   "time": 143.024,
    "kind": "chime",
    "gain": 0.05
   },
   {
-   "time": 151.224,
+   "time": 151.66,
    "kind": "paper",
    "gain": 0.05
   },
   {
-   "time": 155.178,
+   "time": 155.733,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 156.759,
+   "time": 157.363,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 158.341,
+   "time": 158.992,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 160.526,
+   "time": 161.227,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 165.76,
+   "time": 166.353,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 171.09,
+   "time": 171.683,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 172.156,
+   "time": 172.749,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 173.755,
+   "time": 174.348,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 176.394,
+   "time": 177.067,
    "kind": "chime",
    "gain": 0.06
   }
  ],
+ "music": {
+  "path": "audio/music/audio/music/bgm-easy-lemon.mp3",
+  "gain": 0.09
+ },
  "ambience": [
   {
    "path": "audio/room-tone-180s.wav",
    "start": 0,
-   "end": 180.995,
+   "end": 182.587,
    "gain": 0.04,
    "loop": true
   }
@@ -6504,14 +6535,9 @@
    "environment": "Claude Code cloud container: Node 22, FFmpeg 6.1, @napi-rs/canvas; ElevenLabs connector for speech and images",
    "limitations": [
     {
-     "capability": "hand-drawn prop artwork",
-     "observed": "Characters come from generated pose sheets; props (laptop, pages, notebook, door, metronome) are still drawn procedurally by tools/make-art.mjs",
-     "impact": "Prop drawing quality is below the B1 Ryan V4 baseline until a prop sheet is generated or supplied"
-    },
-    {
-     "capability": "licensed background music",
-     "observed": "No licensed track available offline; only a procedural room-tone bed and procedural SFX are mixed",
-     "impact": "Completeness gate for sample-directed music is not met until a licensed track is added"
+     "capability": "hand-drawn artwork",
+     "observed": "Characters and most props come from generated pose/prop sheets (gemini-3-pro-image) cropped by tools/import-art.mjs; the desk, search box, sticky notes, task card and cursor remain procedural",
+     "impact": "Drawing is consistent line art but not the B1 Ryan V4 hand-inked baseline; review the encoded frames rather than assuming equivalence"
     }
    ]
   }

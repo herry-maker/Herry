@@ -51,8 +51,10 @@ for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
   const img = ctx.getImageData(0, 0, W, outH), px = img.data;
   for (let i = 0; i < px.length; i += 4) {
     const l = 0.299 * px[i] + 0.587 * px[i + 1] + 0.114 * px[i + 2];
-    const a = l > 185 ? 0 : Math.max(0, Math.min(255, Math.round((235 - l) / 235 * 255 * 1.15)));   // white and light-gray grid lines → 0, ink → 255
+    const sat = Math.max(px[i], px[i + 1], px[i + 2]) - Math.min(px[i], px[i + 1], px[i + 2]);
     if (px[i + 3] === 0) continue;
+    if (sat > 28) { px[i + 3] = 255; continue; }                                                     // coloured fills (pencil, marker, beige) stay as drawn
+    const a = l > 185 ? 0 : Math.max(0, Math.min(255, Math.round((235 - l) / 235 * 255 * 1.15)));   // white and light-gray grid lines → 0, ink → 255
     px[i] = px[i + 1] = px[i + 2] = l < 120 ? 25 : Math.round(px[i] * 0.6); px[i + 3] = a;
   }
   ctx.putImageData(img, 0, 0);
