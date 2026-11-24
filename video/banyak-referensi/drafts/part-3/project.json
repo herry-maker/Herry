@@ -1,0 +1,2099 @@
+{
+ "version": 1,
+ "style": "B1",
+ "width": 1280,
+ "height": 720,
+ "fps": 30,
+ "metadata": {
+  "title": "Banyak Referensi, Mana yang Tepat?",
+  "language": "id",
+  "scenes": [
+   {
+    "scene": 9,
+    "title": "Memilih data yang diperlukan",
+    "shot": 1,
+    "start": 0,
+    "end": 4
+   },
+   {
+    "scene": 9,
+    "title": "Memilih data yang diperlukan",
+    "shot": 2,
+    "start": 4,
+    "end": 8
+   },
+   {
+    "scene": 9,
+    "title": "Memilih data yang diperlukan",
+    "shot": 3,
+    "start": 8,
+    "end": 12
+   },
+   {
+    "scene": 9,
+    "title": "Memilih data yang diperlukan",
+    "shot": 4,
+    "start": 12,
+    "end": 15
+   },
+   {
+    "scene": 10,
+    "title": "Menghubungkan data dan analisis",
+    "shot": 1,
+    "start": 15,
+    "end": 19
+   },
+   {
+    "scene": 10,
+    "title": "Menghubungkan data dan analisis",
+    "shot": 2,
+    "start": 19,
+    "end": 22
+   },
+   {
+    "scene": 10,
+    "title": "Menghubungkan data dan analisis",
+    "shot": 3,
+    "start": 22,
+    "end": 26
+   },
+   {
+    "scene": 10,
+    "title": "Menghubungkan data dan analisis",
+    "shot": 4,
+    "start": 26,
+    "end": 30
+   },
+   {
+    "scene": 11,
+    "title": "Pertanyaan berbeda, rancangan berbeda",
+    "shot": 1,
+    "start": 30,
+    "end": 34
+   },
+   {
+    "scene": 11,
+    "title": "Pertanyaan berbeda, rancangan berbeda",
+    "shot": 2,
+    "start": 34,
+    "end": 39
+   },
+   {
+    "scene": 11,
+    "title": "Pertanyaan berbeda, rancangan berbeda",
+    "shot": 3,
+    "start": 39,
+    "end": 45
+   },
+   {
+    "scene": 12,
+    "title": "Hasil belajar dan penutup",
+    "shot": 1,
+    "start": 45,
+    "end": 49
+   },
+   {
+    "scene": 12,
+    "title": "Hasil belajar dan penutup",
+    "shot": 2,
+    "start": 49,
+    "end": 55
+   },
+   {
+    "scene": 12,
+    "title": "Hasil belajar dan penutup",
+    "shot": 3,
+    "start": 55,
+    "end": 60
+   }
+  ],
+  "draft_part": 3,
+  "note": "Re-timed 60 s draft of four scenes for review only; the real timeline is ../../project.json",
+  "working_note": "voice.path is a SILENT 180 s placeholder so the shot timing of the 12x15 s storyboard can be validated and previewed. Replace it with the real Indonesian narration (see narasi.md), re-align captions to the recording, then re-time shots."
+ },
+ "voice": {
+  "path": "../../audio/placeholder-silent-180s.wav",
+  "lead": 0,
+  "tail": 0
+ },
+ "captions": [
+  {
+   "start": 0.3,
+   "end": 3.4,
+   "text": "Data apa yang menjawab pertanyaan itu?"
+  },
+  {
+   "start": 3.6,
+   "end": 5.8,
+   "text": "Vidka: Apakah kuesioner saja cukup"
+  },
+  {
+   "start": 6,
+   "end": 7.8,
+   "text": "menunjukkan apa yang terjadi saat latihan?"
+  },
+  {
+   "start": 8.4,
+   "end": 11.4,
+   "text": "Pikirkan: data mana yang menjawab pertanyaanmu?"
+  },
+  {
+   "start": 12.2,
+   "end": 14.6,
+   "text": "Vidka: Pengamatan dulu, kuesioner menyusul."
+  },
+  {
+   "start": 15.3,
+   "end": 18.6,
+   "text": "Tempo naik; seorang pemain menoleh ke temannya."
+  },
+  {
+   "start": 19.2,
+   "end": 21.6,
+   "text": "Vidka mencatat waktunya: menit kedua belas."
+  },
+  {
+   "start": 22.2,
+   "end": 25.4,
+   "text": "Pemain: Saya menoleh karena kehilangan hitungan."
+  },
+  {
+   "start": 26.2,
+   "end": 29.6,
+   "text": "Keduanya dibandingkan. Itulah analisisnya."
+  },
+  {
+   "start": 30.3,
+   "end": 33.2,
+   "text": "Pertanyaan berbeda menuntut rancangan berbeda."
+  },
+  {
+   "start": 34.2,
+   "end": 36.4,
+   "text": "Ardipal: Pertanyaan kedua menguji pengaruh."
+  },
+  {
+   "start": 36.6,
+   "end": 38.8,
+   "text": "Kamu perlu kelompok pembanding,"
+  },
+  {
+   "start": 39.2,
+   "end": 41.8,
+   "text": "dan ukuran tempo sebelum serta sesudah latihan."
+  },
+  {
+   "start": 42.2,
+   "end": 44.6,
+   "text": "Bukan «membuktikan», melainkan menguji perbedaan."
+  },
+  {
+   "start": 45.3,
+   "end": 47.6,
+   "text": "Dalam satu sesi, Vidka memiliki tiga hal:"
+  },
+  {
+   "start": 47.8,
+   "end": 49.2,
+   "text": "masalah yang jelas,"
+  },
+  {
+   "start": 49.4,
+   "end": 51,
+   "text": "pertanyaan yang lengkap,"
+  },
+  {
+   "start": 51.2,
+   "end": 53.6,
+   "text": "dan alasan memilih datanya."
+  },
+  {
+   "start": 54,
+   "end": 55.6,
+   "text": "Rancangan penelitiannya siap."
+  },
+  {
+   "start": 56,
+   "end": 57.8,
+   "text": "Tugas: pilih data untuk pertanyaanmu."
+  },
+  {
+   "start": 58,
+   "end": 59.6,
+   "text": "Jelaskan alasannya."
+  }
+ ],
+ "shots": [
+  {
+   "start": 0,
+   "end": 4,
+   "layers": [
+    {
+     "type": "image",
+     "path": "../../art/vidka-stand-read.png",
+     "x": 380,
+     "y": 208,
+     "w": 210
+    },
+    {
+     "type": "image",
+     "path": "../../art/herry-listen.png",
+     "x": 760,
+     "y": 208,
+     "w": 210,
+     "to": 2
+    },
+    {
+     "type": "image",
+     "path": "../../art/herry-nod.png",
+     "x": 760,
+     "y": 208,
+     "w": 210,
+     "from": 2
+    },
+    {
+     "type": "image",
+     "path": "../../art/questionnaire.png",
+     "x": 100,
+     "y": 150,
+     "w": 200,
+     "id": "prop-50",
+     "motion": {
+      "role": "prop",
+      "reason": "Kuesioner dibaca, sedikit dimiringkan"
+     },
+     "keys": [
+      {
+       "t": 0.3,
+       "angle": -0.04
+      },
+      {
+       "t": 1,
+       "angle": 0.04
+      },
+      {
+       "t": 2,
+       "angle": -0.03
+      },
+      {
+       "t": 2.8,
+       "angle": 0.03
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Kuesioner",
+     "x": 110,
+     "y": 430,
+     "size": 34,
+     "w": 1160,
+     "color": "#1F3A5F",
+     "bold": true
+    },
+    {
+     "type": "image",
+     "path": "../../art/notebook.png",
+     "x": 1100,
+     "y": 300,
+     "w": 200,
+     "id": "prop-51",
+     "motion": {
+      "role": "prop",
+      "reason": "Catatan pengamatan muncul sebagai pilihan kedua"
+     },
+     "keys": [
+      {
+       "t": 2.4,
+       "x": 1300
+      },
+      {
+       "t": 3.2,
+       "x": 1040
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Catatan pengamatan",
+     "x": 1000,
+     "y": 460,
+     "size": 32,
+     "w": 270,
+     "color": "#1F3A5F",
+     "bold": true,
+     "from": 3.2
+    }
+   ]
+  },
+  {
+   "start": 4,
+   "end": 8,
+   "layers": [
+    {
+     "type": "image",
+     "path": "../../art/vidka-stand-look.png",
+     "x": 380,
+     "y": 208,
+     "w": 210
+    },
+    {
+     "type": "image",
+     "path": "../../art/herry-listen.png",
+     "x": 760,
+     "y": 208,
+     "w": 210,
+     "to": 2.6
+    },
+    {
+     "type": "image",
+     "path": "../../art/questionnaire.png",
+     "x": 100,
+     "y": 150,
+     "w": 200,
+     "id": "prop-52",
+     "motion": {
+      "role": "prop",
+      "reason": "Vidka menurunkan kuesioner"
+     },
+     "keys": [
+      {
+       "t": 0.2,
+       "y": 150
+      },
+      {
+       "t": 1.2,
+       "y": 380
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "path": "../../art/door.png",
+     "x": 1000,
+     "y": 160,
+     "w": 190,
+     "id": "prop-53",
+     "motion": {
+      "role": "prop",
+      "reason": "Pintu ruang latihan masuk ke bidang pandang"
+     },
+     "keys": [
+      {
+       "t": 1.6,
+       "x": 1120
+      },
+      {
+       "t": 2.6,
+       "x": 1000
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "RUANG LATIHAN",
+     "x": 960,
+     "y": 110,
+     "size": 30,
+     "w": 310,
+     "color": "#1F3A5F",
+     "bold": true,
+     "from": 2.6
+    }
+   ]
+  },
+  {
+   "start": 8,
+   "end": 12,
+   "layers": [
+    {
+     "type": "image",
+     "path": "../../art/card.png",
+     "x": 120,
+     "y": 110,
+     "w": 800
+    },
+    {
+     "type": "text",
+     "text": "Pikirkan",
+     "x": 150,
+     "y": 130,
+     "size": 30,
+     "w": 1120,
+     "color": "#EC4338",
+     "bold": true
+    },
+    {
+     "type": "text",
+     "text": "Data mana yang menjawab",
+     "x": 150,
+     "y": 180,
+     "size": 50,
+     "w": 740,
+     "bold": true
+    },
+    {
+     "type": "text",
+     "text": "pertanyaanmu?",
+     "x": 150,
+     "y": 252,
+     "size": 50,
+     "w": 740,
+     "bold": true
+    },
+    {
+     "type": "image",
+     "path": "../../art/vidka-think.png",
+     "x": 960,
+     "y": 290,
+     "w": 220
+    },
+    {
+     "type": "image",
+     "path": "../../art/pencil.png",
+     "x": 900,
+     "y": 470,
+     "w": 90,
+     "id": "prop-54",
+     "motion": {
+      "role": "prop",
+      "reason": "Pensil mengetuk selama jeda berpikir"
+     },
+     "keys": [
+      {
+       "t": 0.4,
+       "y": 470
+      },
+      {
+       "t": 0.85,
+       "y": 462
+      },
+      {
+       "t": 1.3,
+       "y": 470
+      },
+      {
+       "t": 1.75,
+       "y": 462
+      },
+      {
+       "t": 2.2,
+       "y": 470
+      },
+      {
+       "t": 2.65,
+       "y": 462
+      },
+      {
+       "t": 3.1,
+       "y": 470
+      },
+      {
+       "t": 3.55,
+       "y": 462
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "start": 12,
+   "end": 15,
+   "layers": [
+    {
+     "type": "text",
+     "text": "Pengamatan dulu, kuesioner menyusul.",
+     "x": 120,
+     "y": 80,
+     "size": 48,
+     "w": 1040,
+     "bold": true
+    },
+    {
+     "type": "image",
+     "path": "../../art/notebook.png",
+     "x": 160,
+     "y": 300,
+     "w": 260,
+     "id": "prop-55",
+     "motion": {
+      "role": "prop",
+      "reason": "Catatan pengamatan ditempatkan sebagai data pertama"
+     },
+     "keys": [
+      {
+       "t": 0.2,
+       "y": 300
+      },
+      {
+       "t": 1,
+       "y": 220
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "1",
+     "x": 100,
+     "y": 230,
+     "size": 60,
+     "w": 1170,
+     "color": "#EC4338",
+     "bold": true,
+     "from": 1
+    },
+    {
+     "type": "image",
+     "path": "../../art/questionnaire.png",
+     "x": 640,
+     "y": 300,
+     "w": 200,
+     "id": "prop-56",
+     "motion": {
+      "role": "prop",
+      "reason": "Kuesioner menyusul sebagai data kedua"
+     },
+     "keys": [
+      {
+       "t": 1.2,
+       "y": 300
+      },
+      {
+       "t": 2,
+       "y": 220
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "2",
+     "x": 580,
+     "y": 230,
+     "size": 60,
+     "w": 690,
+     "color": "#EC4338",
+     "bold": true,
+     "from": 2
+    },
+    {
+     "type": "text",
+     "text": "tindakan saat latihan",
+     "x": 170,
+     "y": 440,
+     "size": 28,
+     "w": 1100,
+     "color": "#6b7280",
+     "from": 1
+    },
+    {
+     "type": "text",
+     "text": "pendapat setelah latihan",
+     "x": 650,
+     "y": 440,
+     "size": 28,
+     "w": 620,
+     "color": "#6b7280",
+     "from": 2
+    }
+   ]
+  },
+  {
+   "start": 15,
+   "end": 19,
+   "layers": [
+    {
+     "type": "text",
+     "text": "Simulasi",
+     "x": 40,
+     "y": 30,
+     "size": 26,
+     "w": 1230,
+     "color": "#6b7280"
+    },
+    {
+     "type": "image",
+     "path": "../../art/music-stand.png",
+     "x": 300,
+     "y": 330,
+     "w": 70
+    },
+    {
+     "type": "image",
+     "path": "../../art/music-stand.png",
+     "x": 560,
+     "y": 330,
+     "w": 70
+    },
+    {
+     "type": "image",
+     "path": "../../art/player-a.png",
+     "x": 360,
+     "y": 170,
+     "w": 170
+    },
+    {
+     "type": "image",
+     "path": "../../art/player-b-play.png",
+     "x": 620,
+     "y": 170,
+     "w": 170,
+     "to": 1.6
+    },
+    {
+     "type": "image",
+     "path": "../../art/player-b-turn.png",
+     "x": 620,
+     "y": 170,
+     "w": 170,
+     "from": 1.6
+    },
+    {
+     "type": "image",
+     "path": "../../art/metronome-body.png",
+     "x": 900,
+     "y": 300,
+     "w": 130
+    },
+    {
+     "type": "image",
+     "path": "../../art/metronome-arm.png",
+     "x": 969,
+     "y": 456,
+     "w": 9,
+     "id": "prop-57",
+     "motion": {
+      "role": "prop",
+      "reason": "Lengan metronom berayun menandai tempo latihan"
+     },
+     "keys": [
+      {
+       "t": 0,
+       "angle": 3.562
+      },
+      {
+       "t": 0.25,
+       "angle": 2.722
+      },
+      {
+       "t": 0.5,
+       "angle": 3.562
+      },
+      {
+       "t": 0.75,
+       "angle": 2.722
+      },
+      {
+       "t": 1,
+       "angle": 3.562
+      },
+      {
+       "t": 1.25,
+       "angle": 2.722
+      },
+      {
+       "t": 1.5,
+       "angle": 3.562
+      },
+      {
+       "t": 1.75,
+       "angle": 2.722
+      },
+      {
+       "t": 2,
+       "angle": 3.562
+      },
+      {
+       "t": 2.25,
+       "angle": 2.722
+      },
+      {
+       "t": 2.5,
+       "angle": 3.562
+      },
+      {
+       "t": 2.75,
+       "angle": 2.722
+      },
+      {
+       "t": 3,
+       "angle": 3.562
+      },
+      {
+       "t": 3.25,
+       "angle": 2.722
+      },
+      {
+       "t": 3.5,
+       "angle": 3.562
+      },
+      {
+       "t": 3.75,
+       "angle": 2.722
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "tempo naik",
+     "x": 880,
+     "y": 220,
+     "size": 30,
+     "w": 390,
+     "color": "#EC4338"
+    },
+    {
+     "type": "text",
+     "text": "menoleh",
+     "x": 700,
+     "y": 120,
+     "size": 30,
+     "w": 570,
+     "color": "#1F3A5F",
+     "from": 1.6
+    }
+   ]
+  },
+  {
+   "start": 19,
+   "end": 22,
+   "layers": [
+    {
+     "type": "image",
+     "path": "../../art/clock-note.png",
+     "x": 240,
+     "y": 110,
+     "w": 640
+    },
+    {
+     "type": "text",
+     "text": "12:04",
+     "x": 420,
+     "y": 180,
+     "size": 48,
+     "w": 850,
+     "color": "#EC4338"
+    },
+    {
+     "type": "text",
+     "text": "P2 menoleh ke P1",
+     "x": 420,
+     "y": 250,
+     "size": 44,
+     "w": 850,
+     "color": "#1F3A5F",
+     "from": 1
+    },
+    {
+     "type": "image",
+     "path": "../../art/pencil.png",
+     "x": 400,
+     "y": 160,
+     "w": 90,
+     "id": "prop-58",
+     "motion": {
+      "role": "prop",
+      "reason": "Vidka mencatat waktu dan kejadian"
+     },
+     "keys": [
+      {
+       "t": 0.2,
+       "x": 470,
+       "y": 160
+      },
+      {
+       "t": 0.9,
+       "x": 600,
+       "y": 160
+      },
+      {
+       "t": 1,
+       "x": 470,
+       "y": 230
+      },
+      {
+       "t": 1.8,
+       "x": 860,
+       "y": 230
+      },
+      {
+       "t": 2.4,
+       "x": 900,
+       "y": 160
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "catatan pengamatan",
+     "x": 260,
+     "y": 520,
+     "size": 28,
+     "w": 1010,
+     "color": "#6b7280"
+    }
+   ]
+  },
+  {
+   "start": 22,
+   "end": 26,
+   "layers": [
+    {
+     "type": "image",
+     "path": "../../art/player-b-play.png",
+     "x": 160,
+     "y": 208,
+     "w": 190
+    },
+    {
+     "type": "image",
+     "path": "../../art/vidka-stand-read.png",
+     "x": 920,
+     "y": 208,
+     "w": 210
+    },
+    {
+     "type": "image",
+     "path": "../../art/bubble.png",
+     "x": 380,
+     "y": 90,
+     "w": 520,
+     "id": "information-59",
+     "motion": {
+      "role": "information",
+      "reason": "Gelembung penjelasan pemain muncul"
+     },
+     "keys": [
+      {
+       "t": 0.2,
+       "y": 130
+      },
+      {
+       "t": 0.8,
+       "y": 90
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Saya menoleh karena",
+     "x": 420,
+     "y": 112,
+     "size": 34,
+     "w": 850,
+     "color": "#1F3A5F",
+     "from": 0.8
+    },
+    {
+     "type": "text",
+     "text": "kehilangan hitungan.",
+     "x": 420,
+     "y": 156,
+     "size": 34,
+     "w": 850,
+     "color": "#1F3A5F",
+     "from": 0.8
+    },
+    {
+     "type": "image",
+     "path": "../../art/pencil.png",
+     "x": 860,
+     "y": 360,
+     "w": 80,
+     "id": "prop-60",
+     "motion": {
+      "role": "prop",
+      "reason": "Vidka mencatat jawaban wawancara"
+     },
+     "keys": [
+      {
+       "t": 1.5,
+       "y": 360
+      },
+      {
+       "t": 1.95,
+       "y": 350
+      },
+      {
+       "t": 2.4,
+       "y": 360
+      },
+      {
+       "t": 2.85,
+       "y": 350
+      },
+      {
+       "t": 3.3,
+       "y": 360
+      },
+      {
+       "t": 3.75,
+       "y": 350
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "wawancara",
+     "x": 160,
+     "y": 540,
+     "size": 28,
+     "w": 1110,
+     "color": "#6b7280"
+    }
+   ]
+  },
+  {
+   "start": 26,
+   "end": 30,
+   "layers": [
+    {
+     "type": "image",
+     "path": "../../art/note-card.png",
+     "x": 100,
+     "y": 150,
+     "w": 440
+    },
+    {
+     "type": "text",
+     "text": "Pengamatan",
+     "x": 130,
+     "y": 160,
+     "size": 26,
+     "w": 1140,
+     "color": "#EC4338"
+    },
+    {
+     "type": "text",
+     "text": "12:04, P2 menoleh",
+     "x": 130,
+     "y": 215,
+     "size": 34,
+     "w": 1140,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "text",
+     "text": "ke P1",
+     "x": 130,
+     "y": 260,
+     "size": 34,
+     "w": 1140,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "image",
+     "path": "../../art/note-card.png",
+     "x": 740,
+     "y": 150,
+     "w": 440
+    },
+    {
+     "type": "text",
+     "text": "Wawancara",
+     "x": 770,
+     "y": 160,
+     "size": 26,
+     "w": 500,
+     "color": "#EC4338"
+    },
+    {
+     "type": "text",
+     "text": "\"kehilangan hitungan\"",
+     "x": 770,
+     "y": 215,
+     "size": 34,
+     "w": 500,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "line",
+     "points": [
+      [
+       540,
+       270
+      ],
+      [
+       740,
+       270
+      ]
+     ],
+     "color": "#EC4338",
+     "lineWidth": 5,
+     "id": "information-61",
+     "motion": {
+      "role": "information",
+      "reason": "Catatan dan penjelasan dihubungkan"
+     },
+     "keys": [
+      {
+       "t": 0.4,
+       "progress": 0
+      },
+      {
+       "t": 1.4,
+       "progress": 1
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "= analisis",
+     "x": 520,
+     "y": 330,
+     "size": 40,
+     "w": 750,
+     "color": "#1F3A5F",
+     "bold": true,
+     "from": 1.5
+    },
+    {
+     "type": "underline",
+     "x": 520,
+     "y": 380,
+     "w": 240,
+     "color": "#F6D34A",
+     "id": "information-62",
+     "motion": {
+      "role": "information",
+      "reason": "Penekanan pada kata analisis"
+     },
+     "keys": [
+      {
+       "t": 2,
+       "progress": 0
+      },
+      {
+       "t": 2.6,
+       "progress": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "start": 30,
+   "end": 34,
+   "layers": [
+    {
+     "type": "image",
+     "path": "../../art/page-plain.png",
+     "x": 120,
+     "y": 50,
+     "w": 360
+    },
+    {
+     "type": "text",
+     "text": "Bagaimana siswa",
+     "x": 150,
+     "y": 110,
+     "size": 34,
+     "w": 1120,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "text",
+     "text": "menyesuaikan tempo?",
+     "x": 150,
+     "y": 150,
+     "size": 34,
+     "w": 1120,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "image",
+     "path": "../../art/page-plain.png",
+     "x": 120,
+     "y": 50,
+     "w": 360,
+     "id": "prop-63",
+     "motion": {
+      "role": "prop",
+      "reason": "Vidka membalik ke halaman pertanyaan kedua"
+     },
+     "keys": [
+      {
+       "t": 1,
+       "x": 120,
+       "angle": 0
+      },
+      {
+       "t": 2,
+       "x": 560,
+       "angle": 0.02
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Apakah latihan metronom",
+     "x": 590,
+     "y": 110,
+     "size": 34,
+     "w": 680,
+     "color": "#1F3A5F",
+     "from": 2.1
+    },
+    {
+     "type": "text",
+     "text": "meningkatkan kestabilan",
+     "x": 590,
+     "y": 150,
+     "size": 34,
+     "w": 680,
+     "color": "#1F3A5F",
+     "from": 2.1
+    },
+    {
+     "type": "text",
+     "text": "tempo?",
+     "x": 590,
+     "y": 190,
+     "size": 34,
+     "w": 680,
+     "color": "#1F3A5F",
+     "from": 2.1
+    },
+    {
+     "type": "image",
+     "path": "../../art/metronome-body.png",
+     "x": 1000,
+     "y": 300,
+     "w": 130
+    },
+    {
+     "type": "image",
+     "path": "../../art/metronome-arm.png",
+     "x": 1069,
+     "y": 456,
+     "w": 9,
+     "id": "prop-64",
+     "motion": {
+      "role": "prop",
+      "reason": "Lengan metronom berayun menandai tempo latihan"
+     },
+     "keys": [
+      {
+       "t": 0,
+       "angle": 3.562
+      },
+      {
+       "t": 0.4,
+       "angle": 2.722
+      },
+      {
+       "t": 0.8,
+       "angle": 3.562
+      },
+      {
+       "t": 1.2,
+       "angle": 2.722
+      },
+      {
+       "t": 1.6,
+       "angle": 3.562
+      },
+      {
+       "t": 2,
+       "angle": 2.722
+      },
+      {
+       "t": 2.4,
+       "angle": 3.562
+      },
+      {
+       "t": 2.8,
+       "angle": 2.722
+      },
+      {
+       "t": 3.2,
+       "angle": 3.562
+      },
+      {
+       "t": 3.6,
+       "angle": 2.722
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "start": 34,
+   "end": 39,
+   "layers": [
+    {
+     "type": "image",
+     "path": "../../art/vidka-stand-look.png",
+     "x": 140,
+     "y": 208,
+     "w": 210
+    },
+    {
+     "type": "image",
+     "path": "../../art/ardipal-point.png",
+     "x": 960,
+     "y": 226.66666666666669,
+     "w": 200
+    },
+    {
+     "type": "image",
+     "path": "../../art/page-plain.png",
+     "x": 420,
+     "y": 180,
+     "w": 200
+    },
+    {
+     "type": "text",
+     "text": "memahami",
+     "x": 440,
+     "y": 262,
+     "size": 28,
+     "w": 830,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "text",
+     "text": "proses",
+     "x": 440,
+     "y": 294,
+     "size": 28,
+     "w": 830,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "image",
+     "path": "../../art/page-plain.png",
+     "x": 660,
+     "y": 180,
+     "w": 200
+    },
+    {
+     "type": "text",
+     "text": "menguji",
+     "x": 680,
+     "y": 262,
+     "size": 28,
+     "w": 590,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "text",
+     "text": "pengaruh",
+     "x": 680,
+     "y": 294,
+     "size": 28,
+     "w": 590,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "line",
+     "points": [
+      [
+       975,
+       386
+      ],
+      [
+       870,
+       330
+      ]
+     ],
+     "color": "#EC4338",
+     "lineWidth": 4,
+     "id": "information-65",
+     "motion": {
+      "role": "information",
+      "reason": "Ardipal menunjuk perubahan pertanyaan"
+     },
+     "keys": [
+      {
+       "t": 0.3,
+       "progress": 0
+      },
+      {
+       "t": 1,
+       "progress": 1
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "memahami proses",
+     "x": 400,
+     "y": 460,
+     "size": 30,
+     "w": 870,
+     "color": "#1F3A5F",
+     "from": 0.2
+    },
+    {
+     "type": "text",
+     "text": "menguji pengaruh",
+     "x": 640,
+     "y": 460,
+     "size": 30,
+     "w": 630,
+     "color": "#1F3A5F",
+     "bold": true,
+     "from": 1.2
+    },
+    {
+     "type": "underline",
+     "x": 640,
+     "y": 500,
+     "w": 230,
+     "color": "#F6D34A",
+     "id": "information-66",
+     "motion": {
+      "role": "information",
+      "reason": "Penekanan pada pertanyaan yang menguji pengaruh"
+     },
+     "keys": [
+      {
+       "t": 2.4,
+       "progress": 0
+      },
+      {
+       "t": 3.2,
+       "progress": 1
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "bukan",
+     "x": 580,
+     "y": 440,
+     "size": 32,
+     "w": 690,
+     "color": "#EC4338",
+     "bold": true,
+     "from": 3.3
+    }
+   ]
+  },
+  {
+   "start": 39,
+   "end": 45,
+   "layers": [
+    {
+     "type": "text",
+     "text": "Menguji pengaruh = perbandingan",
+     "x": 120,
+     "y": 60,
+     "size": 48,
+     "w": 1040,
+     "bold": true
+    },
+    {
+     "type": "line",
+     "points": [
+      [
+       120,
+       180
+      ],
+      [
+       560,
+       180
+      ],
+      [
+       560,
+       320
+      ],
+      [
+       120,
+       320
+      ],
+      [
+       120,
+       180
+      ]
+     ],
+     "color": "#1F3A5F",
+     "lineWidth": 4,
+     "id": "information-67",
+     "motion": {
+      "role": "information",
+      "reason": "Kotak kelompok dengan metronom"
+     },
+     "keys": [
+      {
+       "t": 0.3,
+       "progress": 0
+      },
+      {
+       "t": 1.2,
+       "progress": 1
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Kelompok",
+     "x": 150,
+     "y": 200,
+     "size": 34,
+     "w": 1120,
+     "color": "#1F3A5F",
+     "from": 1.2
+    },
+    {
+     "type": "text",
+     "text": "dengan metronom",
+     "x": 150,
+     "y": 246,
+     "size": 34,
+     "w": 1120,
+     "color": "#1F3A5F",
+     "from": 1.2
+    },
+    {
+     "type": "line",
+     "points": [
+      [
+       720,
+       180
+      ],
+      [
+       1160,
+       180
+      ],
+      [
+       1160,
+       320
+      ],
+      [
+       720,
+       320
+      ],
+      [
+       720,
+       180
+      ]
+     ],
+     "color": "#1F3A5F",
+     "lineWidth": 4,
+     "id": "information-68",
+     "motion": {
+      "role": "information",
+      "reason": "Kotak kelompok pembanding"
+     },
+     "keys": [
+      {
+       "t": 1.4,
+       "progress": 0
+      },
+      {
+       "t": 2.3,
+       "progress": 1
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Kelompok",
+     "x": 750,
+     "y": 200,
+     "size": 34,
+     "w": 520,
+     "color": "#1F3A5F",
+     "from": 2.3
+    },
+    {
+     "type": "text",
+     "text": "tanpa metronom",
+     "x": 750,
+     "y": 246,
+     "size": 34,
+     "w": 520,
+     "color": "#1F3A5F",
+     "from": 2.3
+    },
+    {
+     "type": "arrow",
+     "x": 120,
+     "y": 420,
+     "w": 440,
+     "color": "#EC4338",
+     "lineWidth": 4,
+     "id": "information-69",
+     "motion": {
+      "role": "information",
+      "reason": "Ukur tempo sebelum lalu sesudah (kelompok 1)"
+     },
+     "keys": [
+      {
+       "t": 2.6,
+       "progress": 0
+      },
+      {
+       "t": 3.4,
+       "progress": 1
+      }
+     ]
+    },
+    {
+     "type": "arrow",
+     "x": 720,
+     "y": 420,
+     "w": 440,
+     "color": "#EC4338",
+     "lineWidth": 4,
+     "id": "information-70",
+     "motion": {
+      "role": "information",
+      "reason": "Ukur tempo sebelum lalu sesudah (kelompok 2)"
+     },
+     "keys": [
+      {
+       "t": 3.6,
+       "progress": 0
+      },
+      {
+       "t": 4.4,
+       "progress": 1
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "sebelum",
+     "x": 120,
+     "y": 430,
+     "size": 28,
+     "w": 1150,
+     "color": "#6b7280",
+     "from": 2.6
+    },
+    {
+     "type": "text",
+     "text": "sesudah",
+     "x": 470,
+     "y": 430,
+     "size": 28,
+     "w": 800,
+     "color": "#6b7280",
+     "from": 3.4
+    },
+    {
+     "type": "text",
+     "text": "sebelum",
+     "x": 720,
+     "y": 430,
+     "size": 28,
+     "w": 550,
+     "color": "#6b7280",
+     "from": 3.6
+    },
+    {
+     "type": "text",
+     "text": "sesudah",
+     "x": 1070,
+     "y": 430,
+     "size": 28,
+     "w": 200,
+     "color": "#6b7280",
+     "from": 4.4
+    },
+    {
+     "type": "text",
+     "text": "ukur kestabilan tempo",
+     "x": 440,
+     "y": 500,
+     "size": 34,
+     "w": 830,
+     "color": "#EC4338",
+     "bold": true,
+     "from": 4.5
+    }
+   ]
+  },
+  {
+   "start": 45,
+   "end": 49,
+   "layers": [
+    {
+     "type": "image",
+     "path": "../../art/notebook.png",
+     "x": 180,
+     "y": 40,
+     "w": 760
+    },
+    {
+     "type": "text",
+     "text": "Rancangan Vidka",
+     "x": 220,
+     "y": 70,
+     "size": 30,
+     "w": 1050,
+     "color": "#EC4338",
+     "bold": true
+    },
+    {
+     "type": "text",
+     "text": "1. Masalah: tempo naik, siswa tertinggal",
+     "x": 220,
+     "y": 130,
+     "size": 34,
+     "w": 1050,
+     "color": "#1F3A5F",
+     "from": 0.3
+    },
+    {
+     "type": "text",
+     "text": "2. Pertanyaan: bagaimana siswa menyesuaikan?",
+     "x": 220,
+     "y": 210,
+     "size": 34,
+     "w": 1050,
+     "color": "#1F3A5F",
+     "from": 1.5
+    },
+    {
+     "type": "text",
+     "text": "3. Data: pengamatan, lalu wawancara",
+     "x": 220,
+     "y": 290,
+     "size": 34,
+     "w": 1050,
+     "color": "#1F3A5F",
+     "from": 2.7
+    },
+    {
+     "type": "image",
+     "path": "../../art/pencil.png",
+     "x": 220,
+     "y": 110,
+     "w": 90,
+     "id": "prop-71",
+     "motion": {
+      "role": "prop",
+      "reason": "Pensil mencentang tiga hasil berurutan"
+     },
+     "keys": [
+      {
+       "t": 0.2,
+       "x": 220,
+       "y": 110
+      },
+      {
+       "t": 1.2,
+       "x": 860,
+       "y": 110
+      },
+      {
+       "t": 1.4,
+       "x": 220,
+       "y": 190
+      },
+      {
+       "t": 2.4,
+       "x": 900,
+       "y": 190
+      },
+      {
+       "t": 2.6,
+       "x": 220,
+       "y": 270
+      },
+      {
+       "t": 3.6,
+       "x": 820,
+       "y": 270
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "start": 49,
+   "end": 55,
+   "layers": [
+    {
+     "type": "image",
+     "path": "../../art/desk.png",
+     "x": 100,
+     "y": 416,
+     "w": 760
+    },
+    {
+     "type": "image",
+     "path": "../../art/vidka-tidy.png",
+     "x": 380,
+     "y": 226.66666666666669,
+     "w": 280,
+     "to": 3.6
+    },
+    {
+     "type": "image",
+     "path": "../../art/vidka-listen.png",
+     "x": 380,
+     "y": 226.66666666666669,
+     "w": 280,
+     "from": 3.6
+    },
+    {
+     "type": "image",
+     "path": "../../art/herry-listen.png",
+     "x": 930,
+     "y": 264,
+     "w": 180
+    },
+    {
+     "type": "image",
+     "path": "../../art/ardipal-listen.png",
+     "x": 1090,
+     "y": 264,
+     "w": 180
+    },
+    {
+     "type": "image",
+     "path": "../../art/laptop-side.png",
+     "x": 300,
+     "y": 344,
+     "w": 170,
+     "to": 3.2
+    },
+    {
+     "type": "image",
+     "path": "../../art/laptop-closed.png",
+     "x": 300,
+     "y": 414,
+     "w": 170,
+     "id": "prop-72",
+     "motion": {
+      "role": "prop",
+      "reason": "Vidka menutup laptop"
+     },
+     "keys": [
+      {
+       "t": 3.2,
+       "y": 380
+      },
+      {
+       "t": 3.6,
+       "y": 414
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "path": "../../art/page-a.png",
+     "x": 820,
+     "y": 290,
+     "w": 100,
+     "id": "prop-73",
+     "motion": {
+      "role": "prop",
+      "reason": "Artikel pertama dirapikan ke tumpukan"
+     },
+     "keys": [
+      {
+       "t": 0.3,
+       "x": 820,
+       "angle": 0.08
+      },
+      {
+       "t": 1.3,
+       "x": 640,
+       "angle": 0
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "path": "../../art/page-b.png",
+     "x": 860,
+     "y": 320,
+     "w": 100,
+     "id": "prop-74",
+     "motion": {
+      "role": "prop",
+      "reason": "Artikel kedua dirapikan ke tumpukan"
+     },
+     "keys": [
+      {
+       "t": 1.5,
+       "x": 860,
+       "angle": -0.06
+      },
+      {
+       "t": 2.5,
+       "x": 646,
+       "angle": 0
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "path": "../../art/notebook.png",
+     "x": 700,
+     "y": 160,
+     "w": 220,
+     "id": "prop-75",
+     "motion": {
+      "role": "prop",
+      "reason": "Buku rancangan diangkat dan diperlihatkan kepada kedua dosen"
+     },
+     "keys": [
+      {
+       "t": 4.4,
+       "x": 700,
+       "y": 330
+      },
+      {
+       "t": 5.2,
+       "x": 760,
+       "y": 200
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "masalah, pertanyaan, data",
+     "x": 782,
+     "y": 240,
+     "size": 24,
+     "w": 488,
+     "color": "#1F3A5F",
+     "from": 5.2
+    }
+   ]
+  },
+  {
+   "start": 55,
+   "end": 60,
+   "layers": [
+    {
+     "type": "image",
+     "path": "../../art/card.png",
+     "x": 140,
+     "y": 110,
+     "w": 1000
+    },
+    {
+     "type": "text",
+     "text": "Tugas",
+     "x": 170,
+     "y": 130,
+     "size": 36,
+     "w": 1100,
+     "color": "#EC4338",
+     "bold": true
+    },
+    {
+     "type": "text",
+     "text": "Pilih data untuk pertanyaanmu.",
+     "x": 170,
+     "y": 190,
+     "size": 52,
+     "w": 940,
+     "bold": true
+    },
+    {
+     "type": "text",
+     "text": "Jelaskan alasannya.",
+     "x": 170,
+     "y": 268,
+     "size": 52,
+     "w": 940,
+     "bold": true
+    },
+    {
+     "type": "image",
+     "path": "../../art/vidka-think.png",
+     "x": 980,
+     "y": 420,
+     "w": 160
+    },
+    {
+     "type": "image",
+     "path": "../../art/pencil.png",
+     "x": 920,
+     "y": 520,
+     "w": 70,
+     "id": "prop-76",
+     "motion": {
+      "role": "prop",
+      "reason": "Jeda tugas: pensil mengetuk pelan"
+     },
+     "keys": [
+      {
+       "t": 0.5,
+       "y": 520
+      },
+      {
+       "t": 0.95,
+       "y": 514
+      },
+      {
+       "t": 1.4,
+       "y": 520
+      },
+      {
+       "t": 1.85,
+       "y": 514
+      },
+      {
+       "t": 2.3,
+       "y": 520
+      },
+      {
+       "t": 2.75,
+       "y": 514
+      },
+      {
+       "t": 3.2,
+       "y": 520
+      },
+      {
+       "t": 3.65,
+       "y": 514
+      },
+      {
+       "t": 4.1,
+       "y": 520
+      },
+      {
+       "t": 4.55,
+       "y": 514
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "sfx": [
+  {
+   "time": 0.4,
+   "kind": "paper",
+   "gain": 0.04
+  },
+  {
+   "time": 4.3,
+   "kind": "paper",
+   "gain": 0.04
+  },
+  {
+   "time": 6.2,
+   "kind": "tap",
+   "gain": 0.04
+  },
+  {
+   "time": 12.4,
+   "kind": "pop",
+   "gain": 0.05
+  },
+  {
+   "time": 13.4,
+   "kind": "pop",
+   "gain": 0.05
+  },
+  {
+   "time": 16.6,
+   "kind": "pop",
+   "gain": 0.04
+  },
+  {
+   "time": 19.3,
+   "kind": "tap",
+   "gain": 0.05
+  },
+  {
+   "time": 22.3,
+   "kind": "pop",
+   "gain": 0.04
+  },
+  {
+   "time": 26.5,
+   "kind": "tap",
+   "gain": 0.05
+  },
+  {
+   "time": 27.6,
+   "kind": "chime",
+   "gain": 0.05
+  },
+  {
+   "time": 31.1,
+   "kind": "paper",
+   "gain": 0.05
+  },
+  {
+   "time": 34.4,
+   "kind": "tap",
+   "gain": 0.04
+  },
+  {
+   "time": 39.3,
+   "kind": "tap",
+   "gain": 0.04
+  },
+  {
+   "time": 40.4,
+   "kind": "tap",
+   "gain": 0.04
+  },
+  {
+   "time": 43.5,
+   "kind": "pop",
+   "gain": 0.05
+  },
+  {
+   "time": 45.3,
+   "kind": "tap",
+   "gain": 0.05
+  },
+  {
+   "time": 49.4,
+   "kind": "paper",
+   "gain": 0.04
+  },
+  {
+   "time": 50.6,
+   "kind": "paper",
+   "gain": 0.04
+  },
+  {
+   "time": 52.4,
+   "kind": "tap",
+   "gain": 0.05
+  },
+  {
+   "time": 55.4,
+   "kind": "chime",
+   "gain": 0.06
+  }
+ ],
+ "ambience": [
+  {
+   "path": "../../audio/room-tone-180s.wav",
+   "start": 0,
+   "end": 180,
+   "gain": 0.04,
+   "loop": false
+  }
+ ],
+ "reference_review": {
+  "author_id": "claude-code-draft",
+  "capability": {
+   "mode": "limited",
+   "environment": "Claude Code cloud container: Node 22, FFmpeg 6.1, @napi-rs/canvas; no image-generation tool, no authorized TTS call",
+   "limitations": [
+    {
+     "capability": "hand-drawn character and prop artwork",
+     "observed": "No image-generation tool available in this environment; figures and props were drawn procedurally with canvas code (tools/make-art.mjs)",
+     "impact": "Drawing quality is a readable draft, not equivalent to the B1 Ryan V4 baseline; replace or redraw assets before final acceptance"
+    },
+    {
+     "capability": "Indonesian narration (TTS)",
+     "observed": "Narration generation is billable and was not authorized in this session; voice.path is a silent 180 s placeholder",
+     "impact": "Captions and shot timing follow the planned 12x15 s storyboard, not actual speech; re-align after recording narasi.md"
+    },
+    {
+     "capability": "licensed background music",
+     "observed": "No licensed track was available offline; only a procedural room-tone bed and procedural SFX are mixed",
+     "impact": "Completeness gate for sample-directed music is not met until a licensed track is added"
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,1836 @@
+{
+ "version": 1,
+ "style": "B1",
+ "width": 1280,
+ "height": 720,
+ "fps": 30,
+ "metadata": {
+  "title": "Banyak Referensi, Mana yang Tepat?",
+  "language": "id",
+  "scenes": [
+   {
+    "scene": 5,
+    "title": "Menghubungkan bacaan dan masalah",
+    "shot": 1,
+    "start": 0,
+    "end": 5
+   },
+   {
+    "scene": 5,
+    "title": "Menghubungkan bacaan dan masalah",
+    "shot": 2,
+    "start": 5,
+    "end": 10
+   },
+   {
+    "scene": 5,
+    "title": "Menghubungkan bacaan dan masalah",
+    "shot": 3,
+    "start": 10,
+    "end": 15
+   },
+   {
+    "scene": 6,
+    "title": "Memperjelas pernyataan masalah",
+    "shot": 1,
+    "start": 15,
+    "end": 19
+   },
+   {
+    "scene": 6,
+    "title": "Memperjelas pernyataan masalah",
+    "shot": 2,
+    "start": 19,
+    "end": 24
+   },
+   {
+    "scene": 6,
+    "title": "Memperjelas pernyataan masalah",
+    "shot": 3,
+    "start": 24,
+    "end": 30
+   },
+   {
+    "scene": 7,
+    "title": "Menyusun pernyataan masalah",
+    "shot": 1,
+    "start": 30,
+    "end": 34
+   },
+   {
+    "scene": 7,
+    "title": "Menyusun pernyataan masalah",
+    "shot": 2,
+    "start": 34,
+    "end": 38
+   },
+   {
+    "scene": 7,
+    "title": "Menyusun pernyataan masalah",
+    "shot": 3,
+    "start": 38,
+    "end": 41
+   },
+   {
+    "scene": 7,
+    "title": "Menyusun pernyataan masalah",
+    "shot": 4,
+    "start": 41,
+    "end": 45
+   },
+   {
+    "scene": 8,
+    "title": "Merumuskan pertanyaan penelitian",
+    "shot": 1,
+    "start": 45,
+    "end": 49
+   },
+   {
+    "scene": 8,
+    "title": "Merumuskan pertanyaan penelitian",
+    "shot": 2,
+    "start": 49,
+    "end": 52
+   },
+   {
+    "scene": 8,
+    "title": "Merumuskan pertanyaan penelitian",
+    "shot": 3,
+    "start": 52,
+    "end": 55
+   },
+   {
+    "scene": 8,
+    "title": "Merumuskan pertanyaan penelitian",
+    "shot": 4,
+    "start": 55,
+    "end": 57
+   },
+   {
+    "scene": 8,
+    "title": "Merumuskan pertanyaan penelitian",
+    "shot": 5,
+    "start": 57,
+    "end": 60
+   }
+  ],
+  "draft_part": 2,
+  "note": "Re-timed 60 s draft of four scenes for review only; the real timeline is ../../project.json",
+  "working_note": "voice.path is a SILENT 180 s placeholder so the shot timing of the 12x15 s storyboard can be validated and previewed. Replace it with the real Indonesian narration (see narasi.md), re-align captions to the recording, then re-time shots."
+ },
+ "voice": {
+  "path": "../../audio/placeholder-silent-180s.wav",
+  "lead": 0,
+  "tail": 0
+ },
+ "captions": [
+  {
+   "start": 0.3,
+   "end": 3,
+   "text": "Dua catatan bacaan, satu pertanyaan penelitian."
+  },
+  {
+   "start": 3.2,
+   "end": 5.4,
+   "text": "Vidka mendekatkan keduanya,"
+  },
+  {
+   "start": 5.6,
+   "end": 8.2,
+   "text": "menarik garis penghubung,"
+  },
+  {
+   "start": 8.4,
+   "end": 10.8,
+   "text": "lalu memperbaiki kalimat pertanyaannya."
+  },
+  {
+   "start": 11,
+   "end": 14.6,
+   "text": "Vidka: Jadi masalah saya bukan «musik», tapi tempo."
+  },
+  {
+   "start": 15.3,
+   "end": 18.2,
+   "text": "«Siswa kurang kompak» masih terlalu umum."
+  },
+  {
+   "start": 18.4,
+   "end": 20.6,
+   "text": "Apa yang sebenarnya terjadi?"
+  },
+  {
+   "start": 20.8,
+   "end": 23.8,
+   "text": "Vidka: Saat tempo naik, dua siswa tertinggal,"
+  },
+  {
+   "start": 24,
+   "end": 25.8,
+   "text": "dan latihan berhenti."
+  },
+  {
+   "start": 26.2,
+   "end": 29.6,
+   "text": "Kejadian dan dampaknya kini terlihat jelas."
+  },
+  {
+   "start": 30.3,
+   "end": 33,
+   "text": "Pernyataan masalah disusun dari tiga unsur."
+  },
+  {
+   "start": 33.2,
+   "end": 35.6,
+   "text": "Pertama, kejadian yang diamati."
+  },
+  {
+   "start": 35.8,
+   "end": 38,
+   "text": "Kedua, dampaknya pada latihan."
+  },
+  {
+   "start": 38.2,
+   "end": 40.8,
+   "text": "Ketiga, hal yang belum dipahami."
+  },
+  {
+   "start": 41.4,
+   "end": 44.4,
+   "text": "Tiga kalimat ini menjadi dasar pertanyaan."
+  },
+  {
+   "start": 45.3,
+   "end": 48.2,
+   "text": "Vidka menulis satu pertanyaan yang lengkap."
+  },
+  {
+   "start": 48.6,
+   "end": 50.8,
+   "text": "Pertanyaan ini menyebut pesertanya,"
+  },
+  {
+   "start": 51.4,
+   "end": 53.8,
+   "text": "proses yang ingin dipahami,"
+  },
+  {
+   "start": 54.4,
+   "end": 56.6,
+   "text": "dan konteks tempat proses itu terjadi."
+  },
+  {
+   "start": 57.2,
+   "end": 59.6,
+   "text": "Satu kalimat, tiga unsur yang jelas."
+  }
+ ],
+ "shots": [
+  {
+   "start": 0,
+   "end": 5,
+   "layers": [
+    {
+     "type": "image",
+     "path": "../../art/notebook.png",
+     "x": 700,
+     "y": 140,
+     "w": 480
+    },
+    {
+     "type": "text",
+     "text": "Pertanyaan penelitian",
+     "x": 730,
+     "y": 180,
+     "size": 30,
+     "w": 540,
+     "color": "#EC4338"
+    },
+    {
+     "type": "text",
+     "text": "Mengapa siswa",
+     "x": 730,
+     "y": 228,
+     "size": 42,
+     "w": 540,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "text",
+     "text": "tidak kompak?",
+     "x": 730,
+     "y": 282,
+     "size": 42,
+     "w": 540,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "image",
+     "path": "../../art/note-card.png",
+     "x": 60,
+     "y": 120,
+     "w": 300,
+     "id": "prop-29",
+     "motion": {
+      "role": "prop",
+      "reason": "Catatan konsep digeser mendekati pertanyaan"
+     },
+     "keys": [
+      {
+       "t": 0.5,
+       "x": 60
+      },
+      {
+       "t": 1.8,
+       "x": 380
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Konsep: tempo & sinkronisasi",
+     "x": 80,
+     "y": 128,
+     "size": 30,
+     "w": 1190,
+     "color": "#1F3A5F",
+     "to": 0.5
+    },
+    {
+     "type": "image",
+     "path": "../../art/note-card.png",
+     "x": 60,
+     "y": 330,
+     "w": 300,
+     "id": "prop-30",
+     "motion": {
+      "role": "prop",
+      "reason": "Catatan konteks digeser mendekati pertanyaan"
+     },
+     "keys": [
+      {
+       "t": 2.2,
+       "x": 60
+      },
+      {
+       "t": 3.5,
+       "x": 380
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Konteks: siswa SMP",
+     "x": 80,
+     "y": 338,
+     "size": 30,
+     "w": 1190,
+     "color": "#1F3A5F",
+     "to": 2.2
+    },
+    {
+     "type": "text",
+     "text": "Konsep: tempo & sinkronisasi",
+     "x": 400,
+     "y": 128,
+     "size": 30,
+     "w": 870,
+     "color": "#1F3A5F",
+     "from": 1.8
+    },
+    {
+     "type": "text",
+     "text": "Konteks: siswa SMP",
+     "x": 400,
+     "y": 338,
+     "size": 30,
+     "w": 870,
+     "color": "#1F3A5F",
+     "from": 3.5
+    }
+   ]
+  },
+  {
+   "start": 5,
+   "end": 10,
+   "layers": [
+    {
+     "type": "image",
+     "path": "../../art/notebook.png",
+     "x": 700,
+     "y": 140,
+     "w": 480
+    },
+    {
+     "type": "text",
+     "text": "Pertanyaan penelitian",
+     "x": 730,
+     "y": 180,
+     "size": 30,
+     "w": 540,
+     "color": "#EC4338"
+    },
+    {
+     "type": "text",
+     "text": "Mengapa siswa",
+     "x": 730,
+     "y": 228,
+     "size": 42,
+     "w": 540,
+     "color": "#1F3A5F",
+     "to": 4.3
+    },
+    {
+     "type": "text",
+     "text": "tidak kompak?",
+     "x": 730,
+     "y": 282,
+     "size": 42,
+     "w": 540,
+     "color": "#1F3A5F",
+     "to": 4.3
+    },
+    {
+     "type": "image",
+     "path": "../../art/note-card.png",
+     "x": 380,
+     "y": 120,
+     "w": 300
+    },
+    {
+     "type": "text",
+     "text": "Konsep: tempo & sinkronisasi",
+     "x": 400,
+     "y": 128,
+     "size": 30,
+     "w": 870,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "image",
+     "path": "../../art/note-card.png",
+     "x": 380,
+     "y": 330,
+     "w": 300
+    },
+    {
+     "type": "text",
+     "text": "Konteks: siswa SMP",
+     "x": 400,
+     "y": 338,
+     "size": 30,
+     "w": 870,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "line",
+     "points": [
+      [
+       680,
+       200
+      ],
+      [
+       740,
+       240
+      ]
+     ],
+     "color": "#EC4338",
+     "lineWidth": 4,
+     "id": "information-31",
+     "motion": {
+      "role": "information",
+      "reason": "Garis penghubung konsep ke pertanyaan"
+     },
+     "keys": [
+      {
+       "t": 0.3,
+       "progress": 0
+      },
+      {
+       "t": 1.2,
+       "progress": 1
+      }
+     ]
+    },
+    {
+     "type": "line",
+     "points": [
+      [
+       680,
+       400
+      ],
+      [
+       740,
+       300
+      ]
+     ],
+     "color": "#EC4338",
+     "lineWidth": 4,
+     "id": "information-32",
+     "motion": {
+      "role": "information",
+      "reason": "Garis penghubung konteks ke pertanyaan"
+     },
+     "keys": [
+      {
+       "t": 1.8,
+       "progress": 0
+      },
+      {
+       "t": 2.7,
+       "progress": 1
+      }
+     ]
+    },
+    {
+     "type": "line",
+     "points": [
+      [
+       725,
+       255
+      ],
+      [
+       990,
+       250
+      ],
+      [
+       725,
+       302
+      ],
+      [
+       980,
+       300
+      ]
+     ],
+     "color": "#EC4338",
+     "lineWidth": 5,
+     "id": "information-33",
+     "motion": {
+      "role": "information",
+      "reason": "Vidka mencoret kalimat lama"
+     },
+     "keys": [
+      {
+       "t": 3.4,
+       "progress": 0
+      },
+      {
+       "t": 4.2,
+       "progress": 1
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Bagaimana siswa",
+     "x": 730,
+     "y": 228,
+     "size": 42,
+     "w": 540,
+     "color": "#1F3A5F",
+     "from": 4.3
+    },
+    {
+     "type": "text",
+     "text": "menjaga tempo bersama?",
+     "x": 730,
+     "y": 282,
+     "size": 40,
+     "w": 540,
+     "color": "#1F3A5F",
+     "from": 4.3
+    }
+   ]
+  },
+  {
+   "start": 10,
+   "end": 15,
+   "layers": [
+    {
+     "type": "image",
+     "path": "../../art/vidka-sigh.png",
+     "x": 420,
+     "y": 60,
+     "w": 380,
+     "to": 2.2
+    },
+    {
+     "type": "image",
+     "path": "../../art/vidka-aha.png",
+     "x": 420,
+     "y": 60,
+     "w": 380,
+     "from": 2.2
+    },
+    {
+     "type": "image",
+     "path": "../../art/notebook.png",
+     "x": 60,
+     "y": 330,
+     "w": 300,
+     "id": "prop-34",
+     "motion": {
+      "role": "prop",
+      "reason": "Catatan yang sudah diperbaiki digeser ke depan Vidka"
+     },
+     "keys": [
+      {
+       "t": 0.2,
+       "x": 60
+      },
+      {
+       "t": 1,
+       "x": 160
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "tempo bersama",
+     "x": 200,
+     "y": 380,
+     "size": 30,
+     "w": 1070,
+     "color": "#1F3A5F",
+     "from": 1
+    },
+    {
+     "type": "image",
+     "path": "../../art/pencil.png",
+     "x": 300,
+     "y": 300,
+     "w": 90,
+     "id": "prop-35",
+     "motion": {
+      "role": "prop",
+      "reason": "Vidka mengangkat pensil begitu paham"
+     },
+     "keys": [
+      {
+       "t": 2.4,
+       "y": 300
+      },
+      {
+       "t": 3.4,
+       "y": 230
+      },
+      {
+       "t": 3.8,
+       "y": 230
+      },
+      {
+       "t": 4.25,
+       "y": 222
+      },
+      {
+       "t": 4.7,
+       "y": 230
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "bingung",
+     "x": 900,
+     "y": 140,
+     "size": 40,
+     "w": 370,
+     "color": "#6b7280",
+     "to": 2.2
+    },
+    {
+     "type": "text",
+     "text": "paham",
+     "x": 900,
+     "y": 140,
+     "size": 48,
+     "w": 370,
+     "color": "#3E9B5F",
+     "bold": true,
+     "from": 2.2
+    }
+   ]
+  },
+  {
+   "start": 15,
+   "end": 19,
+   "layers": [
+    {
+     "type": "image",
+     "path": "../../art/notebook.png",
+     "x": 160,
+     "y": 70,
+     "w": 680
+    },
+    {
+     "type": "image",
+     "path": "../../art/vidka-write.png",
+     "x": 820,
+     "y": 100,
+     "w": 420
+    },
+    {
+     "type": "text",
+     "text": "Siswa kurang kompak",
+     "x": 240,
+     "y": 170,
+     "size": 46,
+     "w": 1030,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "line",
+     "points": [
+      [
+       232,
+       200
+      ],
+      [
+       680,
+       196
+      ]
+     ],
+     "color": "#EC4338",
+     "lineWidth": 6,
+     "id": "information-36",
+     "motion": {
+      "role": "information",
+      "reason": "Kalimat umum dicoret"
+     },
+     "keys": [
+      {
+       "t": 0.8,
+       "progress": 0
+      },
+      {
+       "t": 1.8,
+       "progress": 1
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "terlalu umum",
+     "x": 700,
+     "y": 160,
+     "size": 30,
+     "w": 570,
+     "color": "#EC4338",
+     "from": 1.9
+    },
+    {
+     "type": "image",
+     "path": "../../art/pencil.png",
+     "x": 640,
+     "y": 150,
+     "w": 100,
+     "id": "prop-37",
+     "motion": {
+      "role": "prop",
+      "reason": "Pensil turun ke baris berikutnya"
+     },
+     "keys": [
+      {
+       "t": 2.4,
+       "x": 640,
+       "y": 150
+      },
+      {
+       "t": 3.4,
+       "x": 240,
+       "y": 240
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "start": 19,
+   "end": 24,
+   "layers": [
+    {
+     "type": "image",
+     "path": "../../art/notebook.png",
+     "x": 160,
+     "y": 70,
+     "w": 680
+    },
+    {
+     "type": "image",
+     "path": "../../art/vidka-write.png",
+     "x": 820,
+     "y": 100,
+     "w": 420
+    },
+    {
+     "type": "text",
+     "text": "Siswa kurang kompak",
+     "x": 240,
+     "y": 170,
+     "size": 46,
+     "w": 1030,
+     "color": "#6b7280"
+    },
+    {
+     "type": "line",
+     "points": [
+      [
+       232,
+       200
+      ],
+      [
+       680,
+       196
+      ]
+     ],
+     "color": "#EC4338",
+     "lineWidth": 6
+    },
+    {
+     "type": "text",
+     "text": "tempo meningkat",
+     "x": 240,
+     "y": 260,
+     "size": 40,
+     "w": 1030,
+     "color": "#1F3A5F",
+     "from": 0.3
+    },
+    {
+     "type": "text",
+     "text": "lalu dua siswa tertinggal",
+     "x": 240,
+     "y": 330,
+     "size": 40,
+     "w": 1030,
+     "color": "#1F3A5F",
+     "from": 1.8
+    },
+    {
+     "type": "text",
+     "text": "dan latihan berhenti",
+     "x": 240,
+     "y": 400,
+     "size": 40,
+     "w": 1030,
+     "color": "#1F3A5F",
+     "from": 3.3
+    },
+    {
+     "type": "image",
+     "path": "../../art/pencil.png",
+     "x": 240,
+     "y": 240,
+     "w": 100,
+     "id": "prop-38",
+     "motion": {
+      "role": "prop",
+      "reason": "Pensil menulis tiga frasa berurutan"
+     },
+     "keys": [
+      {
+       "t": 0.2,
+       "x": 240,
+       "y": 240
+      },
+      {
+       "t": 0.8,
+       "x": 520,
+       "y": 240
+      },
+      {
+       "t": 1.7,
+       "x": 240,
+       "y": 310
+      },
+      {
+       "t": 2.3,
+       "x": 620,
+       "y": 310
+      },
+      {
+       "t": 3.2,
+       "x": 240,
+       "y": 380
+      },
+      {
+       "t": 3.8,
+       "x": 560,
+       "y": 380
+      },
+      {
+       "t": 4.8,
+       "x": 700,
+       "y": 300
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "start": 24,
+   "end": 30,
+   "layers": [
+    {
+     "type": "text",
+     "text": "Simulasi",
+     "x": 40,
+     "y": 30,
+     "size": 26,
+     "w": 1230,
+     "color": "#6b7280"
+    },
+    {
+     "type": "image",
+     "path": "../../art/music-stand.png",
+     "x": 250,
+     "y": 330,
+     "w": 70
+    },
+    {
+     "type": "image",
+     "path": "../../art/music-stand.png",
+     "x": 520,
+     "y": 330,
+     "w": 70
+    },
+    {
+     "type": "image",
+     "path": "../../art/player-a.png",
+     "x": 300,
+     "y": 170,
+     "w": 170
+    },
+    {
+     "type": "image",
+     "path": "../../art/player-b-play.png",
+     "x": 560,
+     "y": 170,
+     "w": 170,
+     "id": "actor-39",
+     "motion": {
+      "role": "actor",
+      "reason": "Pemain kedua tertinggal: mundur dari posisinya"
+     },
+     "keys": [
+      {
+       "t": 2,
+       "x": 560
+      },
+      {
+       "t": 3,
+       "x": 640
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "path": "../../art/metronome-body.png",
+     "x": 900,
+     "y": 300,
+     "w": 130
+    },
+    {
+     "type": "image",
+     "path": "../../art/metronome-arm.png",
+     "x": 969,
+     "y": 456,
+     "w": 9,
+     "id": "prop-40",
+     "motion": {
+      "role": "prop",
+      "reason": "Lengan metronom berayun menandai tempo latihan"
+     },
+     "keys": [
+      {
+       "t": 0,
+       "angle": 3.562
+      },
+      {
+       "t": 0.25,
+       "angle": 2.722
+      },
+      {
+       "t": 0.5,
+       "angle": 3.562
+      },
+      {
+       "t": 0.75,
+       "angle": 2.722
+      },
+      {
+       "t": 1,
+       "angle": 3.562
+      },
+      {
+       "t": 1.25,
+       "angle": 2.722
+      },
+      {
+       "t": 1.5,
+       "angle": 3.562
+      },
+      {
+       "t": 1.75,
+       "angle": 2.722
+      },
+      {
+       "t": 2,
+       "angle": 3.562
+      },
+      {
+       "t": 2.25,
+       "angle": 2.722
+      },
+      {
+       "t": 2.5,
+       "angle": 3.562
+      },
+      {
+       "t": 2.75,
+       "angle": 2.722
+      },
+      {
+       "t": 3,
+       "angle": 3.562
+      },
+      {
+       "t": 3.25,
+       "angle": 2.722
+      },
+      {
+       "t": 3.5,
+       "angle": 3.562
+      },
+      {
+       "t": 3.75,
+       "angle": 2.722
+      },
+      {
+       "t": 4,
+       "angle": 3.562
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "tempo naik",
+     "x": 880,
+     "y": 220,
+     "size": 30,
+     "w": 390,
+     "color": "#EC4338",
+     "to": 4
+    },
+    {
+     "type": "text",
+     "text": "latihan berhenti",
+     "x": 860,
+     "y": 220,
+     "size": 34,
+     "w": 410,
+     "color": "#EC4338",
+     "bold": true,
+     "from": 4
+    }
+   ]
+  },
+  {
+   "start": 30,
+   "end": 34,
+   "layers": [
+    {
+     "type": "text",
+     "text": "KEJADIAN",
+     "x": 120,
+     "y": 84,
+     "size": 30,
+     "w": 1150,
+     "color": "#EC4338",
+     "bold": true
+    },
+    {
+     "type": "text",
+     "text": "Saat tempo meningkat, beberapa siswa tertinggal.",
+     "x": 120,
+     "y": 120,
+     "size": 46,
+     "w": 1040,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "image",
+     "path": "../../art/pencil.png",
+     "x": 120,
+     "y": 106,
+     "w": 90,
+     "id": "prop-41",
+     "motion": {
+      "role": "prop",
+      "reason": "Pensil menulis kalimat 1 lalu berhenti di tepi halaman"
+     },
+     "keys": [
+      {
+       "t": 0.2,
+       "x": 120,
+       "y": 106
+      },
+      {
+       "t": 1.6,
+       "x": 980,
+       "y": 106
+      },
+      {
+       "t": 2.4,
+       "x": 1040,
+       "y": 106
+      },
+      {
+       "t": 3.6,
+       "x": 1040,
+       "y": 96
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "start": 34,
+   "end": 38,
+   "layers": [
+    {
+     "type": "text",
+     "text": "KEJADIAN",
+     "x": 120,
+     "y": 84,
+     "size": 30,
+     "w": 1150,
+     "color": "#EC4338",
+     "bold": true
+    },
+    {
+     "type": "text",
+     "text": "Saat tempo meningkat, beberapa siswa tertinggal.",
+     "x": 120,
+     "y": 120,
+     "size": 46,
+     "w": 1040,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "text",
+     "text": "DAMPAK",
+     "x": 120,
+     "y": 220,
+     "size": 30,
+     "w": 1150,
+     "color": "#EC4338",
+     "bold": true
+    },
+    {
+     "type": "text",
+     "text": "Latihan sering terhenti di tengah lagu.",
+     "x": 120,
+     "y": 256,
+     "size": 46,
+     "w": 1040,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "image",
+     "path": "../../art/pencil.png",
+     "x": 120,
+     "y": 242,
+     "w": 90,
+     "id": "prop-42",
+     "motion": {
+      "role": "prop",
+      "reason": "Pensil menulis kalimat 2 lalu berhenti di tepi halaman"
+     },
+     "keys": [
+      {
+       "t": 0.2,
+       "x": 120,
+       "y": 242
+      },
+      {
+       "t": 1.6,
+       "x": 980,
+       "y": 242
+      },
+      {
+       "t": 2.4,
+       "x": 1040,
+       "y": 242
+      },
+      {
+       "t": 3.6,
+       "x": 1040,
+       "y": 232
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "start": 38,
+   "end": 41,
+   "layers": [
+    {
+     "type": "text",
+     "text": "KEJADIAN",
+     "x": 120,
+     "y": 84,
+     "size": 30,
+     "w": 1150,
+     "color": "#EC4338",
+     "bold": true
+    },
+    {
+     "type": "text",
+     "text": "Saat tempo meningkat, beberapa siswa tertinggal.",
+     "x": 120,
+     "y": 120,
+     "size": 46,
+     "w": 1040,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "text",
+     "text": "DAMPAK",
+     "x": 120,
+     "y": 220,
+     "size": 30,
+     "w": 1150,
+     "color": "#EC4338",
+     "bold": true
+    },
+    {
+     "type": "text",
+     "text": "Latihan sering terhenti di tengah lagu.",
+     "x": 120,
+     "y": 256,
+     "size": 46,
+     "w": 1040,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "text",
+     "text": "BELUM DIPAHAMI",
+     "x": 120,
+     "y": 356,
+     "size": 30,
+     "w": 1150,
+     "color": "#EC4338",
+     "bold": true
+    },
+    {
+     "type": "text",
+     "text": "Bagaimana siswa menyesuaikan diri saat tempo berubah.",
+     "x": 120,
+     "y": 392,
+     "size": 46,
+     "w": 1040,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "image",
+     "path": "../../art/pencil.png",
+     "x": 120,
+     "y": 378,
+     "w": 90,
+     "id": "prop-43",
+     "motion": {
+      "role": "prop",
+      "reason": "Pensil menulis kalimat 3 lalu berhenti di tepi halaman"
+     },
+     "keys": [
+      {
+       "t": 0.2,
+       "x": 120,
+       "y": 378
+      },
+      {
+       "t": 1.6,
+       "x": 980,
+       "y": 378
+      },
+      {
+       "t": 2.4,
+       "x": 1040,
+       "y": 378
+      },
+      {
+       "t": 2.6,
+       "x": 1040,
+       "y": 368
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "start": 41,
+   "end": 45,
+   "layers": [
+    {
+     "type": "text",
+     "text": "KEJADIAN",
+     "x": 120,
+     "y": 84,
+     "size": 30,
+     "w": 1150,
+     "color": "#EC4338",
+     "bold": true
+    },
+    {
+     "type": "text",
+     "text": "Saat tempo meningkat, beberapa siswa tertinggal.",
+     "x": 120,
+     "y": 120,
+     "size": 46,
+     "w": 1040,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "text",
+     "text": "DAMPAK",
+     "x": 120,
+     "y": 220,
+     "size": 30,
+     "w": 1150,
+     "color": "#EC4338",
+     "bold": true
+    },
+    {
+     "type": "text",
+     "text": "Latihan sering terhenti di tengah lagu.",
+     "x": 120,
+     "y": 256,
+     "size": 46,
+     "w": 1040,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "text",
+     "text": "BELUM DIPAHAMI",
+     "x": 120,
+     "y": 356,
+     "size": 30,
+     "w": 1150,
+     "color": "#EC4338",
+     "bold": true
+    },
+    {
+     "type": "text",
+     "text": "Bagaimana siswa menyesuaikan diri saat tempo berubah.",
+     "x": 120,
+     "y": 392,
+     "size": 46,
+     "w": 1040,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "line",
+     "points": [
+      [
+       1190,
+       90
+      ],
+      [
+       1210,
+       90
+      ],
+      [
+       1210,
+       440
+      ],
+      [
+       1190,
+       440
+      ]
+     ],
+     "color": "#1F3A5F",
+     "lineWidth": 4,
+     "id": "information-44",
+     "motion": {
+      "role": "information",
+      "reason": "Kurung menyatukan tiga kalimat menjadi pernyataan masalah"
+     },
+     "keys": [
+      {
+       "t": 0.3,
+       "progress": 0
+      },
+      {
+       "t": 1.8,
+       "progress": 1
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Pernyataan",
+     "x": 1040,
+     "y": 460,
+     "size": 32,
+     "w": 230,
+     "color": "#1F3A5F",
+     "bold": true,
+     "from": 1.8
+    },
+    {
+     "type": "text",
+     "text": "masalah",
+     "x": 1070,
+     "y": 500,
+     "size": 32,
+     "w": 200,
+     "color": "#1F3A5F",
+     "bold": true,
+     "from": 1.8
+    }
+   ]
+  },
+  {
+   "start": 45,
+   "end": 49,
+   "layers": [
+    {
+     "type": "image",
+     "path": "../../art/vidka-write.png",
+     "x": 20,
+     "y": 150,
+     "w": 400
+    },
+    {
+     "type": "image",
+     "path": "../../art/notebook.png",
+     "x": 440,
+     "y": 130,
+     "w": 600
+    },
+    {
+     "type": "text",
+     "text": "Bagaimana siswa ansambel SMP",
+     "x": 480,
+     "y": 190,
+     "size": 36,
+     "w": 790,
+     "color": "#1F3A5F",
+     "from": 0.3
+    },
+    {
+     "type": "text",
+     "text": "menyesuaikan tempo saat latihan bersama?",
+     "x": 480,
+     "y": 250,
+     "size": 31,
+     "w": 790,
+     "color": "#1F3A5F",
+     "from": 1.8
+    },
+    {
+     "type": "image",
+     "path": "../../art/pencil.png",
+     "x": 470,
+     "y": 170,
+     "w": 90,
+     "id": "prop-45",
+     "motion": {
+      "role": "prop",
+      "reason": "Pensil menulis dua baris pertanyaan lalu diangkat"
+     },
+     "keys": [
+      {
+       "t": 0.2,
+       "x": 470,
+       "y": 170
+      },
+      {
+       "t": 1.6,
+       "x": 940,
+       "y": 170
+      },
+      {
+       "t": 1.8,
+       "x": 470,
+       "y": 230
+      },
+      {
+       "t": 3.4,
+       "x": 1000,
+       "y": 230
+      },
+      {
+       "t": 3.9,
+       "x": 1040,
+       "y": 150
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "start": 49,
+   "end": 52,
+   "layers": [
+    {
+     "type": "text",
+     "text": "Bagaimana siswa ansambel SMP",
+     "x": 120,
+     "y": 160,
+     "size": 50,
+     "w": 1150,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "text",
+     "text": "menyesuaikan tempo saat latihan bersama?",
+     "x": 120,
+     "y": 240,
+     "size": 50,
+     "w": 1150,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "text",
+     "text": "PESERTA",
+     "x": 120,
+     "y": 100,
+     "size": 28,
+     "w": 1150,
+     "color": "#EC4338",
+     "bold": true
+    },
+    {
+     "type": "underline",
+     "x": 330,
+     "y": 228,
+     "w": 430,
+     "color": "#F6D34A",
+     "id": "information-46",
+     "motion": {
+      "role": "information",
+      "reason": "Sorotan peserta: siswa ansambel SMP"
+     },
+     "keys": [
+      {
+       "t": 0.2,
+       "progress": 0
+      },
+      {
+       "t": 1,
+       "progress": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "start": 52,
+   "end": 55,
+   "layers": [
+    {
+     "type": "text",
+     "text": "Bagaimana siswa ansambel SMP",
+     "x": 120,
+     "y": 160,
+     "size": 50,
+     "w": 1150,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "text",
+     "text": "menyesuaikan tempo saat latihan bersama?",
+     "x": 120,
+     "y": 240,
+     "size": 50,
+     "w": 1150,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "text",
+     "text": "PROSES",
+     "x": 120,
+     "y": 100,
+     "size": 28,
+     "w": 1150,
+     "color": "#EC4338",
+     "bold": true
+    },
+    {
+     "type": "underline",
+     "x": 120,
+     "y": 308,
+     "w": 360,
+     "color": "#F6D34A",
+     "id": "information-47",
+     "motion": {
+      "role": "information",
+      "reason": "Sorotan proses: menyesuaikan tempo"
+     },
+     "keys": [
+      {
+       "t": 0.2,
+       "progress": 0
+      },
+      {
+       "t": 1,
+       "progress": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "start": 55,
+   "end": 57,
+   "layers": [
+    {
+     "type": "text",
+     "text": "Bagaimana siswa ansambel SMP",
+     "x": 120,
+     "y": 160,
+     "size": 50,
+     "w": 1150,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "text",
+     "text": "menyesuaikan tempo saat latihan bersama?",
+     "x": 120,
+     "y": 240,
+     "size": 50,
+     "w": 1150,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "text",
+     "text": "KONTEKS",
+     "x": 120,
+     "y": 100,
+     "size": 28,
+     "w": 1150,
+     "color": "#EC4338",
+     "bold": true
+    },
+    {
+     "type": "underline",
+     "x": 500,
+     "y": 308,
+     "w": 420,
+     "color": "#F6D34A",
+     "id": "information-48",
+     "motion": {
+      "role": "information",
+      "reason": "Sorotan konteks: saat latihan bersama"
+     },
+     "keys": [
+      {
+       "t": 0.2,
+       "progress": 0
+      },
+      {
+       "t": 1,
+       "progress": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "start": 57,
+   "end": 60,
+   "layers": [
+    {
+     "type": "text",
+     "text": "Bagaimana siswa ansambel SMP",
+     "x": 120,
+     "y": 160,
+     "size": 50,
+     "w": 1150,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "text",
+     "text": "menyesuaikan tempo saat latihan bersama?",
+     "x": 120,
+     "y": 240,
+     "size": 50,
+     "w": 1150,
+     "color": "#1F3A5F"
+    },
+    {
+     "type": "line",
+     "points": [
+      [
+       1040,
+       200
+      ],
+      [
+       1066,
+       232
+      ],
+      [
+       1120,
+       170
+      ]
+     ],
+     "color": "#3E9B5F",
+     "lineWidth": 7,
+     "id": "information-49",
+     "motion": {
+      "role": "information",
+      "reason": "Centang: pertanyaan lengkap"
+     },
+     "keys": [
+      {
+       "t": 0.3,
+       "progress": 0
+      },
+      {
+       "t": 0.9,
+       "progress": 1
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "lengkap",
+     "x": 1020,
+     "y": 250,
+     "size": 30,
+     "w": 250,
+     "color": "#3E9B5F",
+     "from": 0.9
+    }
+   ]
+  }
+ ],
+ "sfx": [
+  {
+   "time": 0.6,
+   "kind": "paper",
+   "gain": 0.04
+  },
+  {
+   "time": 2.3,
+   "kind": "paper",
+   "gain": 0.04
+  },
+  {
+   "time": 8.5,
+   "kind": "tap",
+   "gain": 0.05
+  },
+  {
+   "time": 12.3,
+   "kind": "chime",
+   "gain": 0.05
+  },
+  {
+   "time": 15.9,
+   "kind": "tap",
+   "gain": 0.05
+  },
+  {
+   "time": 19.3,
+   "kind": "tap",
+   "gain": 0.04
+  },
+  {
+   "time": 20.8,
+   "kind": "tap",
+   "gain": 0.04
+  },
+  {
+   "time": 22.3,
+   "kind": "tap",
+   "gain": 0.04
+  },
+  {
+   "time": 28,
+   "kind": "pop",
+   "gain": 0.05
+  },
+  {
+   "time": 30.3,
+   "kind": "tap",
+   "gain": 0.05
+  },
+  {
+   "time": 34.3,
+   "kind": "tap",
+   "gain": 0.05
+  },
+  {
+   "time": 38.3,
+   "kind": "tap",
+   "gain": 0.05
+  },
+  {
+   "time": 42.8,
+   "kind": "pop",
+   "gain": 0.05
+  },
+  {
+   "time": 45.3,
+   "kind": "tap",
+   "gain": 0.05
+  },
+  {
+   "time": 49.3,
+   "kind": "pop",
+   "gain": 0.04
+  },
+  {
+   "time": 52.3,
+   "kind": "pop",
+   "gain": 0.04
+  },
+  {
+   "time": 55.3,
+   "kind": "pop",
+   "gain": 0.04
+  },
+  {
+   "time": 57.4,
+   "kind": "chime",
+   "gain": 0.05
+  }
+ ],
+ "ambience": [
+  {
+   "path": "../../audio/room-tone-180s.wav",
+   "start": 0,
+   "end": 180,
+   "gain": 0.04,
+   "loop": false
+  }
+ ],
+ "reference_review": {
+  "author_id": "claude-code-draft",
+  "capability": {
+   "mode": "limited",
+   "environment": "Claude Code cloud container: Node 22, FFmpeg 6.1, @napi-rs/canvas; no image-generation tool, no authorized TTS call",
+   "limitations": [
+    {
+     "capability": "hand-drawn character and prop artwork",
+     "observed": "No image-generation tool available in this environment; figures and props were drawn procedurally with canvas code (tools/make-art.mjs)",
+     "impact": "Drawing quality is a readable draft, not equivalent to the B1 Ryan V4 baseline; replace or redraw assets before final acceptance"
+    },
+    {
+     "capability": "Indonesian narration (TTS)",
+     "observed": "Narration generation is billable and was not authorized in this session; voice.path is a silent 180 s placeholder",
+     "impact": "Captions and shot timing follow the planned 12x15 s storyboard, not actual speech; re-align after recording narasi.md"
+    },
+    {
+     "capability": "licensed background music",
+     "observed": "No licensed track was available offline; only a procedural room-tone bed and procedural SFX are mixed",
+     "impact": "Completeness gate for sample-directed music is not met until a licensed track is added"
+    }
+   ]
+  }
+ }
+}
