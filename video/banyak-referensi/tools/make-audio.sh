@@ -8,4 +8,5 @@ cd "$(dirname "$0")/../audio"
 ffmpeg -loglevel error -y -f lavfi -i anullsrc=r=48000:cl=mono -t 180 -c:a pcm_s16le placeholder-silent-180s.wav
 ffmpeg -loglevel error -y -f lavfi -i "anoisesrc=color=brown:amplitude=0.08:seed=42:r=48000:d=180" -af "lowpass=f=900,highpass=f=60,volume=0.6" -c:a pcm_s16le room-tone-180s.wav
 if [ -f take1/narasi-take1.mp3 ]; then ffmpeg -loglevel error -y -i take1/narasi-take1.mp3 -ar 48000 -ac 1 -c:a pcm_s16le narasi.wav; sha256sum -c --quiet narasi.sha256 && echo "narasi.wav matches the pinned SHA"; fi
+if [ -f narasi.wav ] && [ -f dialogue/spec.json ]; then (cd .. && node tools/mix-dialogue.mjs --master audio/narasi.wav --timing audio/timing.json --cues audio/cues.json --spec audio/dialogue/spec.json --out-audio audio/narasi-mix.wav --out-timing audio/timing-mix.json); fi
 ls -la

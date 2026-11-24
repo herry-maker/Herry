@@ -1,0 +1,9 @@
+[
+ {"role": "Vidka", "voice": "Mona - Storyteller zjmMdjff4JG35O3EQJBV", "file": "audio/dialogue/vidka-1.mp3", "cues": [2, 3]},
+ {"role": "Vidka", "voice": "Mona - Storyteller zjmMdjff4JG35O3EQJBV", "file": "audio/dialogue/vidka-2.mp3", "cues": [24]},
+ {"role": "Vidka", "voice": "Mona - Storyteller zjmMdjff4JG35O3EQJBV", "file": "audio/dialogue/vidka-3.mp3", "cues": [27, 28]},
+ {"role": "Vidka", "voice": "Mona - Storyteller zjmMdjff4JG35O3EQJBV", "file": "audio/dialogue/vidka-4.mp3", "cues": [41, 42]},
+ {"role": "Vidka", "voice": "Mona - Storyteller zjmMdjff4JG35O3EQJBV", "file": "audio/dialogue/vidka-5.mp3", "cues": [44]},
+ {"role": "Pemain", "voice": "Tio ithxoOWO0z5JT9TblHOB", "file": "audio/dialogue/pemain-1.mp3", "cues": [47]},
+ {"role": "Ardipal", "voice": "Dito - Indonesian Narrator RPwoahKEr9WZSgNHBLbp", "file": "audio/dialogue/ardipal-1.mp3", "cues": [50, 51, 52]}
+]

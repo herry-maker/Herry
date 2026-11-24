@@ -477,7 +477,7 @@ const project = {
   },
   voice: {path: `${ASSET}${TIMING ? TIMING.voice : 'audio/placeholder-silent-180s.wav'}`, lead: 0, tail: 0},
   captions, shots, sfx,
-  ambience: [{path: `${ASSET}audio/room-tone-180s.wav`, start: 0, end: +(shots.at(-1).end).toFixed(3), gain: 0.04, loop: false}],
+  ambience: [{path: `${ASSET}audio/room-tone-180s.wav`, start: 0, end: TIMING ? TIMING.duration : 180, gain: 0.04, loop: false}],
   reference_review: {author_id: 'claude-code-draft', capability: {mode: 'limited', environment: 'Claude Code cloud container: Node 22, FFmpeg 6.1, @napi-rs/canvas; no image-generation tool, no authorized TTS call', limitations: [
     {capability: 'hand-drawn character and prop artwork', observed: 'No image-generation tool available in this environment; figures and props were drawn procedurally with canvas code (tools/make-art.mjs)', impact: 'Drawing quality is a readable draft, not equivalent to the B1 Ryan V4 baseline; replace or redraw assets before final acceptance'},
     {capability: 'Indonesian narration (TTS)', observed: 'Narration generation is billable and was not authorized in this session; voice.path is a silent 180 s placeholder', impact: 'Captions and shot timing follow the planned 12x15 s storyboard, not actual speech; re-align after recording narasi.md'},

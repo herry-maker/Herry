@@ -13,346 +13,346 @@
     "title": "Kebingungan awal",
     "shot": 1,
     "start": 0,
-    "end": 3.87,
-    "scale": 0.969
+    "end": 3.6,
+    "scale": 0.901
    },
    {
     "scene": 1,
     "title": "Kebingungan awal",
     "shot": 2,
-    "start": 3.87,
-    "end": 7.75,
-    "scale": 0.969
+    "start": 3.6,
+    "end": 7.21,
+    "scale": 0.901
    },
    {
     "scene": 1,
     "title": "Kebingungan awal",
     "shot": 3,
-    "start": 7.75,
-    "end": 10.66,
-    "scale": 0.969
+    "start": 7.21,
+    "end": 9.91,
+    "scale": 0.901
    },
    {
     "scene": 1,
     "title": "Kebingungan awal",
     "shot": 4,
-    "start": 10.66,
-    "end": 14.53,
-    "scale": 0.969
+    "start": 9.91,
+    "end": 13.51,
+    "scale": 0.901
    },
    {
     "scene": 2,
     "title": "Memperbaiki kata kunci",
     "shot": 1,
-    "start": 14.53,
-    "end": 18.72,
+    "start": 13.51,
+    "end": 17.7,
     "scale": 1.047
    },
    {
     "scene": 2,
     "title": "Memperbaiki kata kunci",
     "shot": 2,
-    "start": 18.72,
-    "end": 23.95,
+    "start": 17.7,
+    "end": 22.93,
     "scale": 1.047
    },
    {
     "scene": 2,
     "title": "Memperbaiki kata kunci",
     "shot": 3,
-    "start": 23.95,
-    "end": 30.23,
+    "start": 22.93,
+    "end": 29.21,
     "scale": 1.047
    },
    {
     "scene": 3,
     "title": "Memilih referensi relevan",
     "shot": 1,
-    "start": 30.23,
-    "end": 33.78,
+    "start": 29.21,
+    "end": 32.76,
     "scale": 0.887
    },
    {
     "scene": 3,
     "title": "Memilih referensi relevan",
     "shot": 2,
-    "start": 33.78,
-    "end": 37.32,
+    "start": 32.76,
+    "end": 36.3,
     "scale": 0.887
    },
    {
     "scene": 3,
     "title": "Memilih referensi relevan",
     "shot": 3,
-    "start": 37.32,
-    "end": 43.53,
+    "start": 36.3,
+    "end": 42.51,
     "scale": 0.887
    },
    {
     "scene": 4,
     "title": "Memeriksa isi sumber",
     "shot": 1,
-    "start": 43.53,
-    "end": 47.18,
+    "start": 42.51,
+    "end": 46.16,
     "scale": 0.912
    },
    {
     "scene": 4,
     "title": "Memeriksa isi sumber",
     "shot": 2,
-    "start": 47.18,
-    "end": 50.83,
+    "start": 46.16,
+    "end": 49.81,
     "scale": 0.912
    },
    {
     "scene": 4,
     "title": "Memeriksa isi sumber",
     "shot": 3,
-    "start": 50.83,
-    "end": 57.21,
+    "start": 49.81,
+    "end": 56.19,
     "scale": 0.912
    },
    {
     "scene": 5,
     "title": "Menghubungkan bacaan dan masalah",
     "shot": 1,
-    "start": 57.21,
-    "end": 61.66,
-    "scale": 0.889
+    "start": 56.19,
+    "end": 60.31,
+    "scale": 0.824
    },
    {
     "scene": 5,
     "title": "Menghubungkan bacaan dan masalah",
     "shot": 2,
-    "start": 61.66,
-    "end": 66.1,
-    "scale": 0.889
+    "start": 60.31,
+    "end": 64.43,
+    "scale": 0.824
    },
    {
     "scene": 5,
     "title": "Menghubungkan bacaan dan masalah",
     "shot": 3,
-    "start": 66.1,
-    "end": 70.55,
-    "scale": 0.889
+    "start": 64.43,
+    "end": 68.55,
+    "scale": 0.824
    },
    {
     "scene": 6,
     "title": "Memperjelas pernyataan masalah",
     "shot": 1,
-    "start": 70.55,
-    "end": 74.38,
-    "scale": 0.957
+    "start": 68.55,
+    "end": 72.04,
+    "scale": 0.872
    },
    {
     "scene": 6,
     "title": "Memperjelas pernyataan masalah",
     "shot": 2,
-    "start": 74.38,
-    "end": 79.17,
-    "scale": 0.957
+    "start": 72.04,
+    "end": 76.4,
+    "scale": 0.872
    },
    {
     "scene": 6,
     "title": "Memperjelas pernyataan masalah",
     "shot": 3,
-    "start": 79.17,
-    "end": 84.91,
-    "scale": 0.957
+    "start": 76.4,
+    "end": 81.63,
+    "scale": 0.872
    },
    {
     "scene": 7,
     "title": "Menyusun pernyataan masalah",
     "shot": 1,
-    "start": 84.91,
-    "end": 88.55,
+    "start": 81.63,
+    "end": 85.27,
     "scale": 0.909
    },
    {
     "scene": 7,
     "title": "Menyusun pernyataan masalah",
     "shot": 2,
-    "start": 88.55,
-    "end": 92.18,
+    "start": 85.27,
+    "end": 88.9,
     "scale": 0.909
    },
    {
     "scene": 7,
     "title": "Menyusun pernyataan masalah",
     "shot": 3,
-    "start": 92.18,
-    "end": 94.91,
+    "start": 88.9,
+    "end": 91.63,
     "scale": 0.909
    },
    {
     "scene": 7,
     "title": "Menyusun pernyataan masalah",
     "shot": 4,
-    "start": 94.91,
-    "end": 98.55,
+    "start": 91.63,
+    "end": 95.27,
     "scale": 0.909
    },
    {
     "scene": 8,
     "title": "Merumuskan pertanyaan penelitian",
     "shot": 1,
-    "start": 98.55,
-    "end": 102.53,
+    "start": 95.27,
+    "end": 99.25,
     "scale": 0.996
    },
    {
     "scene": 8,
     "title": "Merumuskan pertanyaan penelitian",
     "shot": 2,
-    "start": 102.53,
-    "end": 105.52,
+    "start": 99.25,
+    "end": 102.24,
     "scale": 0.996
    },
    {
     "scene": 8,
     "title": "Merumuskan pertanyaan penelitian",
     "shot": 3,
-    "start": 105.52,
-    "end": 108.51,
+    "start": 102.24,
+    "end": 105.23,
     "scale": 0.996
    },
    {
     "scene": 8,
     "title": "Merumuskan pertanyaan penelitian",
     "shot": 4,
-    "start": 108.51,
-    "end": 110.5,
+    "start": 105.23,
+    "end": 107.22,
     "scale": 0.996
    },
    {
     "scene": 8,
     "title": "Merumuskan pertanyaan penelitian",
     "shot": 5,
-    "start": 110.5,
-    "end": 113.49,
+    "start": 107.22,
+    "end": 110.21,
     "scale": 0.996
    },
    {
     "scene": 9,
     "title": "Memilih data yang diperlukan",
     "shot": 1,
-    "start": 113.49,
-    "end": 116.82,
-    "scale": 0.833
+    "start": 110.21,
+    "end": 113.76,
+    "scale": 0.889
    },
    {
     "scene": 9,
     "title": "Memilih data yang diperlukan",
     "shot": 2,
-    "start": 116.82,
-    "end": 120.16,
-    "scale": 0.833
+    "start": 113.76,
+    "end": 117.32,
+    "scale": 0.889
    },
    {
     "scene": 9,
     "title": "Memilih data yang diperlukan",
     "shot": 3,
-    "start": 120.16,
-    "end": 123.49,
-    "scale": 0.833
+    "start": 117.32,
+    "end": 120.88,
+    "scale": 0.889
    },
    {
     "scene": 9,
     "title": "Memilih data yang diperlukan",
     "shot": 4,
-    "start": 123.49,
-    "end": 125.99,
-    "scale": 0.833
+    "start": 120.88,
+    "end": 123.55,
+    "scale": 0.889
    },
    {
     "scene": 10,
     "title": "Menghubungkan data dan analisis",
     "shot": 1,
-    "start": 125.99,
-    "end": 129.79,
-    "scale": 0.951
+    "start": 123.55,
+    "end": 127.16,
+    "scale": 0.904
    },
    {
     "scene": 10,
     "title": "Menghubungkan data dan analisis",
     "shot": 2,
-    "start": 129.79,
-    "end": 132.64,
-    "scale": 0.951
+    "start": 127.16,
+    "end": 129.88,
+    "scale": 0.904
    },
    {
     "scene": 10,
     "title": "Menghubungkan data dan analisis",
     "shot": 3,
-    "start": 132.64,
-    "end": 136.45,
-    "scale": 0.951
+    "start": 129.88,
+    "end": 133.49,
+    "scale": 0.904
    },
    {
     "scene": 10,
     "title": "Menghubungkan data dan analisis",
     "shot": 4,
-    "start": 136.45,
-    "end": 140.25,
-    "scale": 0.951
+    "start": 133.49,
+    "end": 137.11,
+    "scale": 0.904
    },
    {
     "scene": 11,
     "title": "Pertanyaan berbeda, rancangan berbeda",
     "shot": 1,
-    "start": 140.25,
-    "end": 144.46,
-    "scale": 1.053
+    "start": 137.11,
+    "end": 140.75,
+    "scale": 0.909
    },
    {
     "scene": 11,
     "title": "Pertanyaan berbeda, rancangan berbeda",
     "shot": 2,
-    "start": 144.46,
-    "end": 149.73,
-    "scale": 1.053
+    "start": 140.75,
+    "end": 145.29,
+    "scale": 0.909
    },
    {
     "scene": 11,
     "title": "Pertanyaan berbeda, rancangan berbeda",
     "shot": 3,
-    "start": 149.73,
-    "end": 156.05,
-    "scale": 1.053
+    "start": 145.29,
+    "end": 150.75,
+    "scale": 0.909
    },
    {
     "scene": 12,
     "title": "Hasil belajar dan penutup",
     "shot": 1,
-    "start": 156.05,
-    "end": 159.85,
+    "start": 150.75,
+    "end": 154.55,
     "scale": 0.95
    },
    {
     "scene": 12,
     "title": "Hasil belajar dan penutup",
     "shot": 2,
-    "start": 159.85,
-    "end": 165.55,
+    "start": 154.55,
+    "end": 160.24,
     "scale": 0.95
    },
    {
     "scene": 12,
     "title": "Hasil belajar dan penutup",
     "shot": 3,
-    "start": 165.55,
-    "end": 170.29,
+    "start": 160.24,
+    "end": 164.99,
     "scale": 0.95
    }
   ],
   "timing": {
-   "mode": "words",
-   "note": "Cue times come from per-word timestamps of the actual recording."
+   "mode": "words+dialogue-insert",
+   "note": "Narrator cue times are word-aligned (Scribe) and shifted by the inserted role clips; dialogue cue times are placed inside each clip by character share."
   },
   "working_note": "Shots and cues are timed to the recorded narration (see metadata.timing). Scene choreography is scaled per scene from the 15 s plan."
  },
  "voice": {
-  "path": "audio/narasi.wav",
+  "path": "audio/narasi-mix.wav",
   "lead": 0,
   "tail": 0
  },
@@ -368,305 +368,305 @@
    "text": "Semua tentang musik, tak satu pun terasa tepat."
   },
   {
-   "start": 5.7,
-   "end": 7.18,
+   "start": 5.36,
+   "end": 7.415,
    "text": "Vidka: Pak, referensinya banyak sekali."
   },
   {
-   "start": 8.34,
-   "end": 9.66,
+   "start": 7.475,
+   "end": 9.26,
    "text": "Mana yang harus saya pakai?"
   },
   {
-   "start": 11.26,
-   "end": 13.26,
+   "start": 10.24,
+   "end": 12.24,
    "text": "Herry: Mulai dari masalahmu, bukan tumpukannya."
   },
   {
-   "start": 14.78,
-   "end": 16.42,
+   "start": 13.76,
+   "end": 15.4,
    "text": "Kata kunci «musik» terlalu luas."
   },
   {
-   "start": 17.5,
-   "end": 19.08,
+   "start": 16.48,
+   "end": 18.06,
    "text": "Herry: Apa yang sebenarnya kamu amati?"
   },
   {
-   "start": 20.46,
-   "end": 22.76,
+   "start": 19.44,
+   "end": 21.74,
    "text": "Vidka menghapus «musik» dan mengetik ulang:"
   },
   {
-   "start": 23.76,
-   "end": 26.26,
+   "start": 22.74,
+   "end": 25.24,
    "text": "kekompakan tempo, ansambel, siswa SMP."
   },
   {
-   "start": 27.24,
-   "end": 29.64,
+   "start": 26.22,
+   "end": 28.62,
    "text": "Tugasmu: tulis tiga kata kunci khusus."
   },
   {
-   "start": 30.48,
-   "end": 31.84,
+   "start": 29.46,
+   "end": 30.82,
    "text": "Dua artikel lolos saringan."
   },
   {
-   "start": 32.78,
-   "end": 34.66,
+   "start": 31.76,
+   "end": 33.64,
    "text": "Vidka membandingkan bagian pesertanya."
   },
   {
-   "start": 35.48,
-   "end": 36.7,
+   "start": 34.46,
+   "end": 35.68,
    "text": "Herry: Yang pertama memberi konsep."
   },
   {
-   "start": 37.34,
-   "end": 39.06,
+   "start": 36.32,
+   "end": 38.04,
    "text": "Yang kedua memberi konteks siswamu."
   },
   {
-   "start": 39.74,
-   "end": 42.66,
+   "start": 38.72,
+   "end": 41.64,
    "text": "Keduanya dipakai, untuk tujuan yang berbeda."
   },
   {
-   "start": 43.78,
-   "end": 45.7,
+   "start": 42.76,
+   "end": 44.68,
    "text": "Membaca artikel bukan mencatat semuanya."
   },
   {
-   "start": 46.52,
-   "end": 48.2,
+   "start": 45.5,
+   "end": 47.18,
    "text": "Vidka menelusuri bagian metode,"
   },
   {
-   "start": 49,
-   "end": 49.94,
+   "start": 47.98,
+   "end": 48.92,
    "text": "lalu bagian hasil."
   },
   {
-   "start": 50.96,
-   "end": 53.88,
+   "start": 49.94,
+   "end": 52.86,
    "text": "Satu temuan ditandai, lalu satu pertanyaan:"
   },
   {
-   "start": 54.7,
-   "end": 56.5,
+   "start": 53.68,
+   "end": 55.48,
    "text": "temuan ini mendukung pernyataan apa?"
   },
   {
-   "start": 57.46,
-   "end": 60.02,
+   "start": 56.44,
+   "end": 59,
    "text": "Dua catatan bacaan, satu pertanyaan penelitian."
   },
   {
-   "start": 60.76,
-   "end": 62,
+   "start": 59.74,
+   "end": 60.98,
    "text": "Vidka mendekatkan keduanya,"
   },
   {
-   "start": 62.66,
-   "end": 63.64,
+   "start": 61.64,
+   "end": 62.62,
    "text": "menarik garis penghubung,"
   },
   {
-   "start": 64.459,
-   "end": 66.26,
+   "start": 63.439,
+   "end": 65.24,
    "text": "lalu memperbaiki kalimat pertanyaannya."
   },
   {
-   "start": 67.08,
-   "end": 69.7,
+   "start": 65.75,
+   "end": 68.07,
    "text": "Vidka: Jadi masalah saya bukan «musik», tapi tempo."
   },
   {
-   "start": 70.8,
-   "end": 72.84,
+   "start": 68.8,
+   "end": 70.84,
    "text": "«Siswa kurang kompak» masih terlalu umum."
   },
   {
-   "start": 74.42,
-   "end": 75.6,
+   "start": 72.42,
+   "end": 73.6,
    "text": "Apa yang sebenarnya terjadi?"
   },
   {
-   "start": 77.16,
-   "end": 79.62,
+   "start": 74.48,
+   "end": 76.693,
    "text": "Vidka: Saat tempo naik, dua siswa tertinggal,"
   },
   {
-   "start": 79.94,
-   "end": 80.92,
+   "start": 76.753,
+   "end": 78.008,
    "text": "dan latihan berhenti."
   },
   {
-   "start": 82.02,
-   "end": 83.82,
+   "start": 78.738,
+   "end": 80.538,
    "text": "Kejadian dan dampaknya kini terlihat jelas."
   },
   {
-   "start": 85.16,
-   "end": 87.1,
+   "start": 81.878,
+   "end": 83.818,
    "text": "Pernyataan masalah disusun dari tiga unsur."
   },
   {
-   "start": 87.52,
-   "end": 89.06,
+   "start": 84.238,
+   "end": 85.778,
    "text": "Pertama, kejadian yang diamati."
   },
   {
-   "start": 89.54,
-   "end": 91.12,
+   "start": 86.258,
+   "end": 87.838,
    "text": "Kedua, dampaknya pada latihan."
   },
   {
-   "start": 92.66,
-   "end": 94.58,
+   "start": 89.378,
+   "end": 91.298,
    "text": "Ketiga, hal yang belum dipahami."
   },
   {
-   "start": 96.1,
-   "end": 97.96,
+   "start": 92.818,
+   "end": 94.678,
    "text": "Tiga kalimat ini menjadi dasar pertanyaan."
   },
   {
-   "start": 98.8,
-   "end": 100.58,
+   "start": 95.518,
+   "end": 97.298,
    "text": "Vidka menulis satu pertanyaan yang lengkap."
   },
   {
-   "start": 101.6,
-   "end": 103.08,
+   "start": 98.318,
+   "end": 99.798,
    "text": "Pertanyaan ini menyebut pesertanya,"
   },
   {
-   "start": 104.04,
-   "end": 105.34,
+   "start": 100.758,
+   "end": 102.058,
    "text": "proses yang ingin dipahami,"
   },
   {
-   "start": 106.16,
-   "end": 109.42,
+   "start": 102.878,
+   "end": 106.138,
    "text": "dan konteks tempat proses itu terjadi."
   },
   {
-   "start": 110.9,
-   "end": 112.88,
+   "start": 107.618,
+   "end": 109.598,
    "text": "Satu kalimat, tiga unsur yang jelas."
   },
   {
-   "start": 113.74,
-   "end": 115.34,
+   "start": 110.458,
+   "end": 112.058,
    "text": "Data apa yang menjawab pertanyaan itu?"
   },
   {
-   "start": 116.72,
-   "end": 117.94,
+   "start": 112.848,
+   "end": 114.496,
    "text": "Vidka: Apakah kuesioner saja cukup"
   },
   {
-   "start": 117.96,
-   "end": 119.68,
+   "start": 114.556,
+   "end": 117.212,
    "text": "menunjukkan apa yang terjadi saat latihan?"
   },
   {
-   "start": 120.52,
-   "end": 123.22,
+   "start": 117.812,
+   "end": 120.512,
    "text": "Pikirkan: data mana yang menjawab pertanyaanmu?"
   },
   {
-   "start": 123.86,
-   "end": 125.7,
+   "start": 120.932,
+   "end": 123.346,
    "text": "Vidka: Pengamatan dulu, kuesioner menyusul."
   },
   {
-   "start": 126.24,
-   "end": 129.3,
+   "start": 123.796,
+   "end": 126.856,
    "text": "Tempo naik; seorang pemain menoleh ke temannya."
   },
   {
-   "start": 130.46,
-   "end": 132.58,
+   "start": 128.016,
+   "end": 130.136,
    "text": "Vidka mencatat waktunya: menit kedua belas."
   },
   {
-   "start": 134.18,
-   "end": 135.92,
+   "start": 131.036,
+   "end": 133.01,
    "text": "Pemain: Saya menoleh karena kehilangan hitungan."
   },
   {
-   "start": 136.74,
-   "end": 139.8,
+   "start": 133.6,
+   "end": 136.66,
    "text": "Keduanya dibandingkan. Itulah analisisnya."
   },
   {
-   "start": 140.5,
-   "end": 142.7,
+   "start": 137.36,
+   "end": 139.56,
    "text": "Pertanyaan berbeda menuntut rancangan berbeda."
   },
   {
-   "start": 143.52,
-   "end": 145.1,
+   "start": 140.07,
+   "end": 141.87,
    "text": "Ardipal: Pertanyaan kedua menguji pengaruh."
   },
   {
-   "start": 146.56,
-   "end": 147.88,
+   "start": 141.93,
+   "end": 143.567,
    "text": "Kamu perlu kelompok pembanding,"
   },
   {
-   "start": 148.8,
-   "end": 151.18,
+   "start": 143.627,
+   "end": 146.199,
    "text": "dan ukuran tempo sebelum serta sesudah latihan."
   },
   {
-   "start": 152.18,
-   "end": 154.94,
+   "start": 146.879,
+   "end": 149.639,
    "text": "Bukan «membuktikan», melainkan menguji perbedaan."
   },
   {
-   "start": 156.3,
-   "end": 158.36,
+   "start": 150.999,
+   "end": 153.059,
    "text": "Dalam satu sesi, Vidka memiliki tiga hal:"
   },
   {
-   "start": 159.64,
-   "end": 160.44,
+   "start": 154.339,
+   "end": 155.139,
    "text": "masalah yang jelas,"
   },
   {
-   "start": 160.58,
-   "end": 161.44,
+   "start": 155.279,
+   "end": 156.139,
    "text": "pertanyaan yang lengkap,"
   },
   {
-   "start": 161.82,
-   "end": 163.26,
+   "start": 156.519,
+   "end": 157.959,
    "text": "dan alasan memilih datanya."
   },
   {
-   "start": 164.12,
-   "end": 165.38,
+   "start": 158.819,
+   "end": 160.079,
    "text": "Rancangan penelitiannya siap."
   },
   {
-   "start": 165.8,
-   "end": 168.26,
+   "start": 160.499,
+   "end": 162.959,
    "text": "Tugas: pilih data untuk pertanyaanmu."
   },
   {
-   "start": 169.06,
-   "end": 170,
+   "start": 163.759,
+   "end": 164.699,
    "text": "Jelaskan alasannya."
   }
  ],
  "shots": [
   {
    "start": 0,
-   "end": 3.875,
+   "end": 3.603,
    "layers": [
     {
      "type": "image",
@@ -688,25 +688,25 @@
      },
      "keys": [
       {
-       "t": 0.291,
+       "t": 0.27,
        "x": 430,
        "y": 120,
        "angle": -0.05
       },
       {
-       "t": 1.55,
+       "t": 1.441,
        "x": 580,
        "y": 330,
        "angle": 0.04
       },
       {
-       "t": 2.519,
+       "t": 2.342,
        "x": 580,
        "y": 330,
        "angle": 0.04
       },
       {
-       "t": 3.293,
+       "t": 3.062,
        "x": 600,
        "y": 330,
        "angle": 0
@@ -731,13 +731,13 @@
      "w": 660,
      "bold": true,
      "color": "#EC4338",
-     "from": 1.744
+     "from": 1.621
     }
    ]
   },
   {
-   "start": 3.875,
-   "end": 7.749,
+   "start": 3.603,
+   "end": 7.205,
    "layers": [
     {
      "type": "image",
@@ -759,7 +759,7 @@
      "x": 520,
      "y": 226.66666666666669,
      "w": 280,
-     "to": 2.131
+     "to": 1.981
     },
     {
      "type": "image",
@@ -767,7 +767,7 @@
      "x": 520,
      "y": 226.66666666666669,
      "w": 280,
-     "from": 2.131
+     "from": 1.981
     },
     {
      "type": "image",
@@ -782,12 +782,12 @@
      },
      "keys": [
       {
-       "t": 0.194,
+       "t": 0.18,
        "x": 260,
        "y": 380
       },
       {
-       "t": 1.356,
+       "t": 1.261,
        "x": 590,
        "y": 345
       }
@@ -806,11 +806,11 @@
      },
      "keys": [
       {
-       "t": 2.325,
+       "t": 2.162,
        "y": 220
       },
       {
-       "t": 3.293,
+       "t": 3.062,
        "y": 330
       }
      ]
@@ -827,8 +827,8 @@
    ]
   },
   {
-   "start": 7.749,
-   "end": 10.655,
+   "start": 7.205,
+   "end": 9.907,
    "layers": [
     {
      "type": "image",
@@ -878,11 +878,11 @@
      },
      "keys": [
       {
-       "t": 0.387,
+       "t": 0.36,
        "x": 1200
       },
       {
-       "t": 2.519,
+       "t": 2.342,
        "x": 960
       }
      ]
@@ -890,8 +890,8 @@
    ]
   },
   {
-   "start": 10.655,
-   "end": 14.53,
+   "start": 9.907,
+   "end": 13.51,
    "layers": [
     {
      "type": "image",
@@ -950,7 +950,7 @@
      "size": 28,
      "w": 480,
      "color": "#1F3A5F",
-     "from": 0.969
+     "from": 0.901
     },
     {
      "type": "line",
@@ -977,11 +977,11 @@
      },
      "keys": [
       {
-       "t": 0.291,
+       "t": 0.27,
        "progress": 0
       },
       {
-       "t": 0.969,
+       "t": 0.901,
        "progress": 1
       }
      ]
@@ -1019,11 +1019,11 @@
      },
      "keys": [
       {
-       "t": 1.55,
+       "t": 1.441,
        "progress": 0
       },
       {
-       "t": 2.519,
+       "t": 2.342,
        "progress": 1
       }
      ]
@@ -1031,8 +1031,8 @@
    ]
   },
   {
-   "start": 14.53,
-   "end": 18.717,
+   "start": 13.51,
+   "end": 17.697,
    "layers": [
     {
      "type": "image",
@@ -1143,8 +1143,8 @@
    ]
   },
   {
-   "start": 18.717,
-   "end": 23.95,
+   "start": 17.697,
+   "end": 22.93,
    "layers": [
     {
      "type": "image",
@@ -1275,8 +1275,8 @@
    ]
   },
   {
-   "start": 23.95,
-   "end": 30.23,
+   "start": 22.93,
+   "end": 29.21,
    "layers": [
     {
      "type": "image",
@@ -1385,8 +1385,8 @@
    ]
   },
   {
-   "start": 30.23,
-   "end": 33.777,
+   "start": 29.21,
+   "end": 32.757,
    "layers": [
     {
      "type": "image",
@@ -1547,8 +1547,8 @@
    ]
   },
   {
-   "start": 33.777,
-   "end": 37.323,
+   "start": 32.757,
+   "end": 36.303,
    "layers": [
     {
      "type": "image",
@@ -1694,8 +1694,8 @@
    ]
   },
   {
-   "start": 37.323,
-   "end": 43.53,
+   "start": 36.303,
+   "end": 42.51,
    "layers": [
     {
      "type": "image",
@@ -1884,8 +1884,8 @@
    ]
   },
   {
-   "start": 43.53,
-   "end": 47.178,
+   "start": 42.51,
+   "end": 46.158,
    "layers": [
     {
      "type": "image",
@@ -2000,8 +2000,8 @@
    ]
   },
   {
-   "start": 47.178,
-   "end": 50.826,
+   "start": 46.158,
+   "end": 49.806,
    "layers": [
     {
      "type": "image",
@@ -2144,8 +2144,8 @@
    ]
   },
   {
-   "start": 50.826,
-   "end": 57.21,
+   "start": 49.806,
+   "end": 56.19,
    "layers": [
     {
      "type": "image",
@@ -2264,8 +2264,8 @@
    ]
   },
   {
-   "start": 57.21,
-   "end": 61.657,
+   "start": 56.19,
+   "end": 60.31,
    "layers": [
     {
      "type": "image",
@@ -2314,11 +2314,11 @@
      },
      "keys": [
       {
-       "t": 0.445,
+       "t": 0.412,
        "x": 60
       },
       {
-       "t": 1.601,
+       "t": 1.483,
        "x": 380
       }
      ]
@@ -2331,7 +2331,7 @@
      "size": 30,
      "w": 1190,
      "color": "#1F3A5F",
-     "to": 0.445
+     "to": 0.412
     },
     {
      "type": "image",
@@ -2346,11 +2346,11 @@
      },
      "keys": [
       {
-       "t": 1.957,
+       "t": 1.813,
        "x": 60
       },
       {
-       "t": 3.113,
+       "t": 2.884,
        "x": 380
       }
      ]
@@ -2363,7 +2363,7 @@
      "size": 30,
      "w": 1190,
      "color": "#1F3A5F",
-     "to": 1.957
+     "to": 1.813
     },
     {
      "type": "text",
@@ -2373,7 +2373,7 @@
      "size": 30,
      "w": 870,
      "color": "#1F3A5F",
-     "from": 1.601
+     "from": 1.483
     },
     {
      "type": "text",
@@ -2383,13 +2383,13 @@
      "size": 30,
      "w": 870,
      "color": "#1F3A5F",
-     "from": 3.113
+     "from": 2.884
     }
    ]
   },
   {
-   "start": 61.657,
-   "end": 66.103,
+   "start": 60.31,
+   "end": 64.43,
    "layers": [
     {
      "type": "image",
@@ -2415,7 +2415,7 @@
      "size": 42,
      "w": 540,
      "color": "#1F3A5F",
-     "to": 3.824
+     "to": 3.543
     },
     {
      "type": "text",
@@ -2425,7 +2425,7 @@
      "size": 42,
      "w": 540,
      "color": "#1F3A5F",
-     "to": 3.824
+     "to": 3.543
     },
     {
      "type": "image",
@@ -2480,11 +2480,11 @@
      },
      "keys": [
       {
-       "t": 0.267,
+       "t": 0.247,
        "progress": 0
       },
       {
-       "t": 1.067,
+       "t": 0.989,
        "progress": 1
       }
      ]
@@ -2510,11 +2510,11 @@
      },
      "keys": [
       {
-       "t": 1.601,
+       "t": 1.483,
        "progress": 0
       },
       {
-       "t": 2.401,
+       "t": 2.225,
        "progress": 1
       }
      ]
@@ -2548,11 +2548,11 @@
      },
      "keys": [
       {
-       "t": 3.024,
+       "t": 2.802,
        "progress": 0
       },
       {
-       "t": 3.735,
+       "t": 3.461,
        "progress": 1
       }
      ]
@@ -2565,7 +2565,7 @@
      "size": 42,
      "w": 540,
      "color": "#1F3A5F",
-     "from": 3.824
+     "from": 3.543
     },
     {
      "type": "text",
@@ -2575,13 +2575,13 @@
      "size": 40,
      "w": 540,
      "color": "#1F3A5F",
-     "from": 3.824
+     "from": 3.543
     }
    ]
   },
   {
-   "start": 66.103,
-   "end": 70.55,
+   "start": 64.43,
+   "end": 68.55,
    "layers": [
     {
      "type": "image",
@@ -2589,7 +2589,7 @@
      "x": 420,
      "y": 60,
      "w": 380,
-     "to": 1.957
+     "to": 1.813
     },
     {
      "type": "image",
@@ -2597,7 +2597,7 @@
      "x": 420,
      "y": 60,
      "w": 380,
-     "from": 1.957
+     "from": 1.813
     },
     {
      "type": "image",
@@ -2612,11 +2612,11 @@
      },
      "keys": [
       {
-       "t": 0.178,
+       "t": 0.165,
        "x": 60
       },
       {
-       "t": 0.889,
+       "t": 0.824,
        "x": 160
       }
      ]
@@ -2629,7 +2629,7 @@
      "size": 30,
      "w": 1070,
      "color": "#1F3A5F",
-     "from": 0.889
+     "from": 0.824
     },
     {
      "type": "image",
@@ -2644,23 +2644,23 @@
      },
      "keys": [
       {
-       "t": 2.134,
+       "t": 1.978,
        "y": 300
       },
       {
-       "t": 3.024,
+       "t": 2.802,
        "y": 230
       },
       {
-       "t": 3.379,
+       "t": 3.131,
        "y": 230
       },
       {
-       "t": 3.78,
+       "t": 3.502,
        "y": 222
       },
       {
-       "t": 4.18,
+       "t": 3.873,
        "y": 230
       }
      ]
@@ -2673,7 +2673,7 @@
      "size": 40,
      "w": 370,
      "color": "#6b7280",
-     "to": 1.957
+     "to": 1.813
     },
     {
      "type": "text",
@@ -2684,13 +2684,13 @@
      "w": 370,
      "color": "#3E9B5F",
      "bold": true,
-     "from": 1.957
+     "from": 1.813
     }
    ]
   },
   {
-   "start": 70.55,
-   "end": 74.379,
+   "start": 68.55,
+   "end": 72.037,
    "layers": [
     {
      "type": "image",
@@ -2736,11 +2736,11 @@
      },
      "keys": [
       {
-       "t": 0.766,
+       "t": 0.697,
        "progress": 0
       },
       {
-       "t": 1.723,
+       "t": 1.569,
        "progress": 1
       }
      ]
@@ -2753,7 +2753,7 @@
      "size": 30,
      "w": 570,
      "color": "#EC4338",
-     "from": 1.819
+     "from": 1.657
     },
     {
      "type": "image",
@@ -2768,12 +2768,12 @@
      },
      "keys": [
       {
-       "t": 2.298,
+       "t": 2.092,
        "x": 640,
        "y": 150
       },
       {
-       "t": 3.255,
+       "t": 2.964,
        "x": 240,
        "y": 240
       }
@@ -2782,8 +2782,8 @@
    ]
   },
   {
-   "start": 74.379,
-   "end": 79.166,
+   "start": 72.037,
+   "end": 76.397,
    "layers": [
     {
      "type": "image",
@@ -2831,7 +2831,7 @@
      "size": 40,
      "w": 1030,
      "color": "#1F3A5F",
-     "from": 0.287
+     "from": 0.262
     },
     {
      "type": "text",
@@ -2841,7 +2841,7 @@
      "size": 40,
      "w": 1030,
      "color": "#1F3A5F",
-     "from": 1.723
+     "from": 1.569
     },
     {
      "type": "text",
@@ -2851,7 +2851,7 @@
      "size": 40,
      "w": 1030,
      "color": "#1F3A5F",
-     "from": 3.159
+     "from": 2.877
     },
     {
      "type": "image",
@@ -2866,37 +2866,37 @@
      },
      "keys": [
       {
-       "t": 0.191,
+       "t": 0.174,
        "x": 240,
        "y": 240
       },
       {
-       "t": 0.766,
+       "t": 0.697,
        "x": 520,
        "y": 240
       },
       {
-       "t": 1.627,
+       "t": 1.482,
        "x": 240,
        "y": 310
       },
       {
-       "t": 2.202,
+       "t": 2.005,
        "x": 620,
        "y": 310
       },
       {
-       "t": 3.063,
+       "t": 2.79,
        "x": 240,
        "y": 380
       },
       {
-       "t": 3.638,
+       "t": 3.313,
        "x": 560,
        "y": 380
       },
       {
-       "t": 4.595,
+       "t": 4.185,
        "x": 700,
        "y": 300
       }
@@ -2905,8 +2905,8 @@
    ]
   },
   {
-   "start": 79.166,
-   "end": 84.91,
+   "start": 76.397,
+   "end": 81.628,
    "layers": [
     {
      "type": "text",
@@ -2951,11 +2951,11 @@
      },
      "keys": [
       {
-       "t": 1.915,
+       "t": 1.744,
        "x": 560
       },
       {
-       "t": 2.872,
+       "t": 2.616,
        "x": 640
       }
      ]
@@ -2984,67 +2984,67 @@
        "angle": 3.562
       },
       {
-       "t": 0.239,
+       "t": 0.218,
        "angle": 2.722
       },
       {
-       "t": 0.479,
+       "t": 0.436,
        "angle": 3.562
       },
       {
-       "t": 0.718,
+       "t": 0.654,
        "angle": 2.722
       },
       {
-       "t": 0.957,
+       "t": 0.872,
        "angle": 3.562
       },
       {
-       "t": 1.197,
+       "t": 1.09,
        "angle": 2.722
       },
       {
-       "t": 1.436,
+       "t": 1.308,
        "angle": 3.562
       },
       {
-       "t": 1.675,
+       "t": 1.526,
        "angle": 2.722
       },
       {
-       "t": 1.915,
+       "t": 1.744,
        "angle": 3.562
       },
       {
-       "t": 2.154,
+       "t": 1.962,
        "angle": 2.722
       },
       {
-       "t": 2.393,
+       "t": 2.18,
        "angle": 3.562
       },
       {
-       "t": 2.633,
+       "t": 2.398,
        "angle": 2.722
       },
       {
-       "t": 2.872,
+       "t": 2.616,
        "angle": 3.562
       },
       {
-       "t": 3.111,
+       "t": 2.834,
        "angle": 2.722
       },
       {
-       "t": 3.351,
+       "t": 3.052,
        "angle": 3.562
       },
       {
-       "t": 3.59,
+       "t": 3.27,
        "angle": 2.722
       },
       {
-       "t": 3.829,
+       "t": 3.487,
        "angle": 3.562
       }
      ]
@@ -3057,7 +3057,7 @@
      "size": 30,
      "w": 390,
      "color": "#EC4338",
-     "to": 3.829
+     "to": 3.487
     },
     {
      "type": "text",
@@ -3068,13 +3068,13 @@
      "w": 410,
      "color": "#EC4338",
      "bold": true,
-     "from": 3.829
+     "from": 3.487
     }
    ]
   },
   {
-   "start": 84.91,
-   "end": 88.547,
+   "start": 81.628,
+   "end": 85.265,
    "layers": [
     {
      "type": "text",
@@ -3132,8 +3132,8 @@
    ]
   },
   {
-   "start": 88.547,
-   "end": 92.185,
+   "start": 85.265,
+   "end": 88.903,
    "layers": [
     {
      "type": "text",
@@ -3210,8 +3210,8 @@
    ]
   },
   {
-   "start": 92.185,
-   "end": 94.913,
+   "start": 88.903,
+   "end": 91.631,
    "layers": [
     {
      "type": "text",
@@ -3307,8 +3307,8 @@
    ]
   },
   {
-   "start": 94.913,
-   "end": 98.55,
+   "start": 91.631,
+   "end": 95.268,
    "layers": [
     {
      "type": "text",
@@ -3460,8 +3460,8 @@
    ]
   },
   {
-   "start": 98.55,
-   "end": 102.534,
+   "start": 95.268,
+   "end": 99.252,
    "layers": [
     {
      "type": "image",
@@ -3539,8 +3539,8 @@
    ]
   },
   {
-   "start": 102.534,
-   "end": 105.522,
+   "start": 99.252,
+   "end": 102.24,
    "layers": [
     {
      "type": "text",
@@ -3595,8 +3595,8 @@
    ]
   },
   {
-   "start": 105.522,
-   "end": 108.51,
+   "start": 102.24,
+   "end": 105.228,
    "layers": [
     {
      "type": "text",
@@ -3651,8 +3651,8 @@
    ]
   },
   {
-   "start": 108.51,
-   "end": 110.502,
+   "start": 105.228,
+   "end": 107.22,
    "layers": [
     {
      "type": "text",
@@ -3707,8 +3707,8 @@
    ]
   },
   {
-   "start": 110.502,
-   "end": 113.49,
+   "start": 107.22,
+   "end": 110.208,
    "layers": [
     {
      "type": "text",
@@ -3775,8 +3775,8 @@
    ]
   },
   {
-   "start": 113.49,
-   "end": 116.823,
+   "start": 110.208,
+   "end": 113.765,
    "layers": [
     {
      "type": "image",
@@ -3791,7 +3791,7 @@
      "x": 760,
      "y": 208,
      "w": 210,
-     "to": 1.667
+     "to": 1.778
     },
     {
      "type": "image",
@@ -3799,7 +3799,7 @@
      "x": 760,
      "y": 208,
      "w": 210,
-     "from": 1.667
+     "from": 1.778
     },
     {
      "type": "image",
@@ -3814,19 +3814,19 @@
      },
      "keys": [
       {
-       "t": 0.25,
+       "t": 0.267,
        "angle": -0.04
       },
       {
-       "t": 0.833,
+       "t": 0.889,
        "angle": 0.04
       },
       {
-       "t": 1.667,
+       "t": 1.778,
        "angle": -0.03
       },
       {
-       "t": 2.333,
+       "t": 2.49,
        "angle": 0.03
       }
      ]
@@ -3854,11 +3854,11 @@
      },
      "keys": [
       {
-       "t": 2,
+       "t": 2.134,
        "x": 1300
       },
       {
-       "t": 2.667,
+       "t": 2.845,
        "x": 1040
       }
      ]
@@ -3872,13 +3872,13 @@
      "w": 270,
      "color": "#1F3A5F",
      "bold": true,
-     "from": 2.667
+     "from": 2.845
     }
    ]
   },
   {
-   "start": 116.823,
-   "end": 120.157,
+   "start": 113.765,
+   "end": 117.322,
    "layers": [
     {
      "type": "image",
@@ -3893,7 +3893,7 @@
      "x": 760,
      "y": 208,
      "w": 210,
-     "to": 2.167
+     "to": 2.312
     },
     {
      "type": "image",
@@ -3908,11 +3908,11 @@
      },
      "keys": [
       {
-       "t": 0.167,
+       "t": 0.178,
        "y": 150
       },
       {
-       "t": 1,
+       "t": 1.067,
        "y": 380
       }
      ]
@@ -3930,11 +3930,11 @@
      },
      "keys": [
       {
-       "t": 1.333,
+       "t": 1.423,
        "x": 1120
       },
       {
-       "t": 2.167,
+       "t": 2.312,
        "x": 1000
       }
      ]
@@ -3948,13 +3948,13 @@
      "w": 310,
      "color": "#1F3A5F",
      "bold": true,
-     "from": 2.167
+     "from": 2.312
     }
    ]
   },
   {
-   "start": 120.157,
-   "end": 123.49,
+   "start": 117.322,
+   "end": 120.878,
    "layers": [
     {
      "type": "image",
@@ -4011,35 +4011,35 @@
      },
      "keys": [
       {
-       "t": 0.333,
+       "t": 0.356,
        "y": 470
       },
       {
-       "t": 0.708,
+       "t": 0.756,
        "y": 462
       },
       {
-       "t": 1.083,
+       "t": 1.156,
        "y": 470
       },
       {
-       "t": 1.458,
+       "t": 1.556,
        "y": 462
       },
       {
-       "t": 1.833,
+       "t": 1.956,
        "y": 470
       },
       {
-       "t": 2.208,
+       "t": 2.356,
        "y": 462
       },
       {
-       "t": 2.583,
+       "t": 2.757,
        "y": 470
       },
       {
-       "t": 2.958,
+       "t": 3.157,
        "y": 462
       }
      ]
@@ -4047,8 +4047,8 @@
    ]
   },
   {
-   "start": 123.49,
-   "end": 125.99,
+   "start": 120.878,
+   "end": 123.546,
    "layers": [
     {
      "type": "text",
@@ -4072,11 +4072,11 @@
      },
      "keys": [
       {
-       "t": 0.167,
+       "t": 0.178,
        "y": 300
       },
       {
-       "t": 0.833,
+       "t": 0.889,
        "y": 220
       }
      ]
@@ -4090,7 +4090,7 @@
      "w": 1170,
      "color": "#EC4338",
      "bold": true,
-     "from": 0.833
+     "from": 0.889
     },
     {
      "type": "image",
@@ -4105,11 +4105,11 @@
      },
      "keys": [
       {
-       "t": 1,
+       "t": 1.067,
        "y": 300
       },
       {
-       "t": 1.667,
+       "t": 1.778,
        "y": 220
       }
      ]
@@ -4123,7 +4123,7 @@
      "w": 690,
      "color": "#EC4338",
      "bold": true,
-     "from": 1.667
+     "from": 1.778
     },
     {
      "type": "text",
@@ -4133,7 +4133,7 @@
      "size": 28,
      "w": 1100,
      "color": "#6b7280",
-     "from": 0.833
+     "from": 0.889
     },
     {
      "type": "text",
@@ -4143,13 +4143,13 @@
      "size": 28,
      "w": 620,
      "color": "#6b7280",
-     "from": 1.667
+     "from": 1.778
     }
    ]
   },
   {
-   "start": 125.99,
-   "end": 129.793,
+   "start": 123.546,
+   "end": 127.163,
    "layers": [
     {
      "type": "text",
@@ -4187,7 +4187,7 @@
      "x": 620,
      "y": 170,
      "w": 170,
-     "to": 1.521
+     "to": 1.447
     },
     {
      "type": "image",
@@ -4195,7 +4195,7 @@
      "x": 620,
      "y": 170,
      "w": 170,
-     "from": 1.521
+     "from": 1.447
     },
     {
      "type": "image",
@@ -4221,63 +4221,63 @@
        "angle": 3.562
       },
       {
-       "t": 0.238,
+       "t": 0.226,
        "angle": 2.722
       },
       {
-       "t": 0.475,
+       "t": 0.452,
        "angle": 3.562
       },
       {
-       "t": 0.713,
+       "t": 0.678,
        "angle": 2.722
       },
       {
-       "t": 0.951,
+       "t": 0.904,
        "angle": 3.562
       },
       {
-       "t": 1.188,
+       "t": 1.13,
        "angle": 2.722
       },
       {
-       "t": 1.426,
+       "t": 1.356,
        "angle": 3.562
       },
       {
-       "t": 1.664,
+       "t": 1.582,
        "angle": 2.722
       },
       {
-       "t": 1.901,
+       "t": 1.809,
        "angle": 3.562
       },
       {
-       "t": 2.139,
+       "t": 2.035,
        "angle": 2.722
       },
       {
-       "t": 2.377,
+       "t": 2.261,
        "angle": 3.562
       },
       {
-       "t": 2.614,
+       "t": 2.487,
        "angle": 2.722
       },
       {
-       "t": 2.852,
+       "t": 2.713,
        "angle": 3.562
       },
       {
-       "t": 3.09,
+       "t": 2.939,
        "angle": 2.722
       },
       {
-       "t": 3.327,
+       "t": 3.165,
        "angle": 3.562
       },
       {
-       "t": 3.565,
+       "t": 3.391,
        "angle": 2.722
       }
      ]
@@ -4299,13 +4299,13 @@
      "size": 30,
      "w": 570,
      "color": "#1F3A5F",
-     "from": 1.521
+     "from": 1.447
     }
    ]
   },
   {
-   "start": 129.793,
-   "end": 132.645,
+   "start": 127.163,
+   "end": 129.876,
    "layers": [
     {
      "type": "image",
@@ -4331,7 +4331,7 @@
      "size": 44,
      "w": 850,
      "color": "#1F3A5F",
-     "from": 0.951
+     "from": 0.904
     },
     {
      "type": "image",
@@ -4346,27 +4346,27 @@
      },
      "keys": [
       {
-       "t": 0.19,
+       "t": 0.181,
        "x": 470,
        "y": 160
       },
       {
-       "t": 0.856,
+       "t": 0.814,
        "x": 600,
        "y": 160
       },
       {
-       "t": 0.951,
+       "t": 0.904,
        "x": 470,
        "y": 230
       },
       {
-       "t": 1.711,
+       "t": 1.628,
        "x": 860,
        "y": 230
       },
       {
-       "t": 2.282,
+       "t": 2.17,
        "x": 900,
        "y": 160
       }
@@ -4384,8 +4384,8 @@
    ]
   },
   {
-   "start": 132.645,
-   "end": 136.447,
+   "start": 129.876,
+   "end": 133.493,
    "layers": [
     {
      "type": "image",
@@ -4414,11 +4414,11 @@
      },
      "keys": [
       {
-       "t": 0.19,
+       "t": 0.181,
        "y": 130
       },
       {
-       "t": 0.761,
+       "t": 0.723,
        "y": 90
       }
      ]
@@ -4431,7 +4431,7 @@
      "size": 34,
      "w": 850,
      "color": "#1F3A5F",
-     "from": 0.761
+     "from": 0.723
     },
     {
      "type": "text",
@@ -4441,7 +4441,7 @@
      "size": 34,
      "w": 850,
      "color": "#1F3A5F",
-     "from": 0.761
+     "from": 0.723
     },
     {
      "type": "image",
@@ -4456,27 +4456,27 @@
      },
      "keys": [
       {
-       "t": 1.426,
+       "t": 1.356,
        "y": 360
       },
       {
-       "t": 1.854,
+       "t": 1.763,
        "y": 350
       },
       {
-       "t": 2.282,
+       "t": 2.17,
        "y": 360
       },
       {
-       "t": 2.709,
+       "t": 2.577,
        "y": 350
       },
       {
-       "t": 3.137,
+       "t": 2.984,
        "y": 360
       },
       {
-       "t": 3.565,
+       "t": 3.391,
        "y": 350
       }
      ]
@@ -4493,8 +4493,8 @@
    ]
   },
   {
-   "start": 136.447,
-   "end": 140.25,
+   "start": 133.493,
+   "end": 137.11,
    "layers": [
     {
      "type": "image",
@@ -4576,11 +4576,11 @@
      },
      "keys": [
       {
-       "t": 0.38,
+       "t": 0.362,
        "progress": 0
       },
       {
-       "t": 1.331,
+       "t": 1.266,
        "progress": 1
       }
      ]
@@ -4594,7 +4594,7 @@
      "w": 750,
      "color": "#1F3A5F",
      "bold": true,
-     "from": 1.426
+     "from": 1.356
     },
     {
      "type": "underline",
@@ -4609,11 +4609,11 @@
      },
      "keys": [
       {
-       "t": 1.901,
+       "t": 1.809,
        "progress": 0
       },
       {
-       "t": 2.472,
+       "t": 2.351,
        "progress": 1
       }
      ]
@@ -4621,8 +4621,8 @@
    ]
   },
   {
-   "start": 140.25,
-   "end": 144.463,
+   "start": 137.11,
+   "end": 140.747,
    "layers": [
     {
      "type": "image",
@@ -4662,12 +4662,12 @@
      },
      "keys": [
       {
-       "t": 1.053,
+       "t": 0.909,
        "x": 120,
        "angle": 0
       },
       {
-       "t": 2.107,
+       "t": 1.819,
        "x": 560,
        "angle": 0.02
       }
@@ -4681,7 +4681,7 @@
      "size": 34,
      "w": 680,
      "color": "#1F3A5F",
-     "from": 2.212
+     "from": 1.909
     },
     {
      "type": "text",
@@ -4691,7 +4691,7 @@
      "size": 34,
      "w": 680,
      "color": "#1F3A5F",
-     "from": 2.212
+     "from": 1.909
     },
     {
      "type": "text",
@@ -4701,7 +4701,7 @@
      "size": 34,
      "w": 680,
      "color": "#1F3A5F",
-     "from": 2.212
+     "from": 1.909
     },
     {
      "type": "image",
@@ -4727,39 +4727,39 @@
        "angle": 3.562
       },
       {
-       "t": 0.421,
+       "t": 0.364,
        "angle": 2.722
       },
       {
-       "t": 0.843,
+       "t": 0.727,
        "angle": 3.562
       },
       {
-       "t": 1.264,
+       "t": 1.091,
        "angle": 2.722
       },
       {
-       "t": 1.685,
+       "t": 1.455,
        "angle": 3.562
       },
       {
-       "t": 2.107,
+       "t": 1.819,
        "angle": 2.722
       },
       {
-       "t": 2.528,
+       "t": 2.182,
        "angle": 3.562
       },
       {
-       "t": 2.949,
+       "t": 2.546,
        "angle": 2.722
       },
       {
-       "t": 3.371,
+       "t": 2.91,
        "angle": 3.562
       },
       {
-       "t": 3.792,
+       "t": 3.273,
        "angle": 2.722
       }
      ]
@@ -4767,8 +4767,8 @@
    ]
   },
   {
-   "start": 144.463,
-   "end": 149.73,
+   "start": 140.747,
+   "end": 145.293,
    "layers": [
     {
      "type": "image",
@@ -4855,11 +4855,11 @@
      },
      "keys": [
       {
-       "t": 0.316,
+       "t": 0.273,
        "progress": 0
       },
       {
-       "t": 1.053,
+       "t": 0.909,
        "progress": 1
       }
      ]
@@ -4872,7 +4872,7 @@
      "size": 30,
      "w": 870,
      "color": "#1F3A5F",
-     "from": 0.211
+     "from": 0.182
     },
     {
      "type": "text",
@@ -4883,7 +4883,7 @@
      "w": 630,
      "color": "#1F3A5F",
      "bold": true,
-     "from": 1.264
+     "from": 1.091
     },
     {
      "type": "underline",
@@ -4898,11 +4898,11 @@
      },
      "keys": [
       {
-       "t": 2.528,
+       "t": 2.182,
        "progress": 0
       },
       {
-       "t": 3.371,
+       "t": 2.91,
        "progress": 1
       }
      ]
@@ -4916,13 +4916,13 @@
      "w": 690,
      "color": "#EC4338",
      "bold": true,
-     "from": 3.476
+     "from": 3.001
     }
    ]
   },
   {
-   "start": 149.73,
-   "end": 156.05,
+   "start": 145.293,
+   "end": 150.749,
    "layers": [
     {
      "type": "text",
@@ -4966,11 +4966,11 @@
      },
      "keys": [
       {
-       "t": 0.316,
+       "t": 0.273,
        "progress": 0
       },
       {
-       "t": 1.264,
+       "t": 1.091,
        "progress": 1
       }
      ]
@@ -4983,7 +4983,7 @@
      "size": 34,
      "w": 1120,
      "color": "#1F3A5F",
-     "from": 1.264
+     "from": 1.091
     },
     {
      "type": "text",
@@ -4993,7 +4993,7 @@
      "size": 34,
      "w": 1120,
      "color": "#1F3A5F",
-     "from": 1.264
+     "from": 1.091
     },
     {
      "type": "line",
@@ -5028,11 +5028,11 @@
      },
      "keys": [
       {
-       "t": 1.475,
+       "t": 1.273,
        "progress": 0
       },
       {
-       "t": 2.423,
+       "t": 2.091,
        "progress": 1
       }
      ]
@@ -5045,7 +5045,7 @@
      "size": 34,
      "w": 520,
      "color": "#1F3A5F",
-     "from": 2.423
+     "from": 2.091
     },
     {
      "type": "text",
@@ -5055,7 +5055,7 @@
      "size": 34,
      "w": 520,
      "color": "#1F3A5F",
-     "from": 2.423
+     "from": 2.091
     },
     {
      "type": "arrow",
@@ -5071,11 +5071,11 @@
      },
      "keys": [
       {
-       "t": 2.739,
+       "t": 2.364,
        "progress": 0
       },
       {
-       "t": 3.581,
+       "t": 3.092,
        "progress": 1
       }
      ]
@@ -5094,11 +5094,11 @@
      },
      "keys": [
       {
-       "t": 3.792,
+       "t": 3.273,
        "progress": 0
       },
       {
-       "t": 4.635,
+       "t": 4.001,
        "progress": 1
       }
      ]
@@ -5111,7 +5111,7 @@
      "size": 28,
      "w": 1150,
      "color": "#6b7280",
-     "from": 2.739
+     "from": 2.364
     },
     {
      "type": "text",
@@ -5121,7 +5121,7 @@
      "size": 28,
      "w": 800,
      "color": "#6b7280",
-     "from": 3.581
+     "from": 3.092
     },
     {
      "type": "text",
@@ -5131,7 +5131,7 @@
      "size": 28,
      "w": 550,
      "color": "#6b7280",
-     "from": 3.792
+     "from": 3.273
     },
     {
      "type": "text",
@@ -5141,7 +5141,7 @@
      "size": 28,
      "w": 200,
      "color": "#6b7280",
-     "from": 4.635
+     "from": 4.001
     },
     {
      "type": "text",
@@ -5152,13 +5152,13 @@
      "w": 830,
      "color": "#EC4338",
      "bold": true,
-     "from": 4.74
+     "from": 4.092
     }
    ]
   },
   {
-   "start": 156.05,
-   "end": 159.849,
+   "start": 150.749,
+   "end": 154.547,
    "layers": [
     {
      "type": "image",
@@ -5230,7 +5230,7 @@
        "y": 110
       },
       {
-       "t": 1.33,
+       "t": 1.329,
        "x": 220,
        "y": 190
       },
@@ -5254,8 +5254,8 @@
    ]
   },
   {
-   "start": 159.849,
-   "end": 165.547,
+   "start": 154.547,
+   "end": 160.245,
    "layers": [
     {
      "type": "image",
@@ -5342,7 +5342,7 @@
        "angle": 0.08
       },
       {
-       "t": 1.235,
+       "t": 1.234,
        "x": 640,
        "angle": 0
       }
@@ -5385,7 +5385,7 @@
      },
      "keys": [
       {
-       "t": 4.179,
+       "t": 4.178,
        "x": 700,
        "y": 330
       },
@@ -5409,8 +5409,8 @@
    ]
   },
   {
-   "start": 165.547,
-   "end": 170.295,
+   "start": 160.245,
+   "end": 164.993,
    "layers": [
     {
      "type": "image",
@@ -5475,7 +5475,7 @@
        "y": 514
       },
       {
-       "t": 1.33,
+       "t": 1.329,
        "y": 520
       },
       {
@@ -5487,7 +5487,7 @@
        "y": 520
       },
       {
-       "t": 2.612,
+       "t": 2.611,
        "y": 514
       },
       {
@@ -5499,7 +5499,7 @@
        "y": 514
       },
       {
-       "t": 3.894,
+       "t": 3.893,
        "y": 520
       },
       {
@@ -5513,287 +5513,287 @@
  ],
  "sfx": [
   {
-   "time": 0.387,
+   "time": 0.36,
    "kind": "paper",
    "gain": 0.05
   },
   {
-   "time": 4.165,
+   "time": 3.873,
    "kind": "paper",
    "gain": 0.05
   },
   {
-   "time": 6.296,
+   "time": 5.854,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 11.818,
+   "time": 10.988,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 19.031,
+   "time": 18.011,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 20.182,
+   "time": 19.162,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 21.124,
+   "time": 20.104,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 22.066,
+   "time": 21.046,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 24.159,
+   "time": 23.139,
    "kind": "pop",
    "gain": 0.04
   },
   {
-   "time": 30.585,
+   "time": 29.565,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 38.387,
+   "time": 37.367,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 40.781,
+   "time": 39.761,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 41.491,
+   "time": 40.471,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 42.466,
+   "time": 41.446,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 43.986,
+   "time": 42.966,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 47.452,
+   "time": 46.432,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 51.373,
+   "time": 50.353,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 52.103,
+   "time": 51.083,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 52.832,
+   "time": 51.812,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 57.744,
+   "time": 56.684,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 59.255,
+   "time": 58.085,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 64.769,
+   "time": 63.194,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 68.149,
+   "time": 66.325,
    "kind": "chime",
    "gain": 0.05
   },
   {
-   "time": 71.412,
+   "time": 69.335,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 74.667,
+   "time": 72.299,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 76.103,
+   "time": 73.607,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 77.539,
+   "time": 74.915,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 82.995,
+   "time": 79.884,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 85.183,
+   "time": 81.901,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 88.82,
+   "time": 85.538,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 92.457,
+   "time": 89.175,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 96.549,
+   "time": 93.267,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 98.849,
+   "time": 95.567,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 102.833,
-   "kind": "pop",
-   "gain": 0.04
-  },
-  {
-   "time": 105.821,
+   "time": 99.551,
    "kind": "pop",
    "gain": 0.04
   },
   {
-   "time": 108.809,
+   "time": 102.539,
    "kind": "pop",
    "gain": 0.04
   },
   {
-   "time": 110.9,
+   "time": 105.527,
+   "kind": "pop",
+   "gain": 0.04
+  },
+  {
+   "time": 107.618,
    "kind": "chime",
    "gain": 0.05
   },
   {
-   "time": 113.823,
+   "time": 110.564,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 117.073,
+   "time": 114.032,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 118.657,
+   "time": 115.721,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 123.823,
+   "time": 121.234,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 124.657,
+   "time": 122.123,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 127.511,
-   "kind": "pop",
-   "gain": 0.04
-  },
-  {
-   "time": 130.078,
-   "kind": "tap",
-   "gain": 0.05
-  },
-  {
-   "time": 132.93,
+   "time": 124.993,
    "kind": "pop",
    "gain": 0.04
   },
   {
-   "time": 136.923,
+   "time": 127.434,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 137.968,
+   "time": 130.147,
+   "kind": "pop",
+   "gain": 0.04
+  },
+  {
+   "time": 133.945,
+   "kind": "tap",
+   "gain": 0.05
+  },
+  {
+   "time": 134.94,
    "kind": "chime",
    "gain": 0.05
   },
   {
-   "time": 141.409,
+   "time": 138.11,
    "kind": "paper",
    "gain": 0.05
   },
   {
-   "time": 144.885,
+   "time": 141.111,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 150.046,
+   "time": 145.566,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 151.205,
+   "time": 146.566,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 154.47,
+   "time": 149.385,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 156.335,
+   "time": 151.034,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 160.229,
+   "time": 154.927,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 161.368,
+   "time": 156.067,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 163.078,
+   "time": 157.776,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 165.927,
+   "time": 160.625,
    "kind": "chime",
    "gain": 0.06
   }
@@ -5802,7 +5802,7 @@
   {
    "path": "audio/room-tone-180s.wav",
    "start": 0,
-   "end": 170.295,
+   "end": 164.993,
    "gain": 0.04,
    "loop": false
   }

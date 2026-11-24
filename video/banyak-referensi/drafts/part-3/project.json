@@ -13,124 +13,124 @@
     "title": "Memilih data yang diperlukan",
     "shot": 1,
     "start": 0,
-    "end": 3.33,
-    "scale": 0.833
+    "end": 3.56,
+    "scale": 0.889
    },
    {
     "scene": 9,
     "title": "Memilih data yang diperlukan",
     "shot": 2,
-    "start": 3.33,
-    "end": 6.67,
-    "scale": 0.833
+    "start": 3.56,
+    "end": 7.11,
+    "scale": 0.889
    },
    {
     "scene": 9,
     "title": "Memilih data yang diperlukan",
     "shot": 3,
-    "start": 6.67,
-    "end": 10,
-    "scale": 0.833
+    "start": 7.11,
+    "end": 10.67,
+    "scale": 0.889
    },
    {
     "scene": 9,
     "title": "Memilih data yang diperlukan",
     "shot": 4,
-    "start": 10,
-    "end": 12.5,
-    "scale": 0.833
+    "start": 10.67,
+    "end": 13.34,
+    "scale": 0.889
    },
    {
     "scene": 10,
     "title": "Menghubungkan data dan analisis",
     "shot": 1,
-    "start": 12.5,
-    "end": 16.3,
-    "scale": 0.951
+    "start": 13.34,
+    "end": 16.96,
+    "scale": 0.904
    },
    {
     "scene": 10,
     "title": "Menghubungkan data dan analisis",
     "shot": 2,
-    "start": 16.3,
-    "end": 19.15,
-    "scale": 0.951
+    "start": 16.96,
+    "end": 19.67,
+    "scale": 0.904
    },
    {
     "scene": 10,
     "title": "Menghubungkan data dan analisis",
     "shot": 3,
-    "start": 19.15,
-    "end": 22.96,
-    "scale": 0.951
+    "start": 19.67,
+    "end": 23.28,
+    "scale": 0.904
    },
    {
     "scene": 10,
     "title": "Menghubungkan data dan analisis",
     "shot": 4,
-    "start": 22.96,
-    "end": 26.76,
-    "scale": 0.951
+    "start": 23.28,
+    "end": 26.9,
+    "scale": 0.904
    },
    {
     "scene": 11,
     "title": "Pertanyaan berbeda, rancangan berbeda",
     "shot": 1,
-    "start": 26.76,
-    "end": 30.97,
-    "scale": 1.053
+    "start": 26.9,
+    "end": 30.54,
+    "scale": 0.909
    },
    {
     "scene": 11,
     "title": "Pertanyaan berbeda, rancangan berbeda",
     "shot": 2,
-    "start": 30.97,
-    "end": 36.24,
-    "scale": 1.053
+    "start": 30.54,
+    "end": 35.09,
+    "scale": 0.909
    },
    {
     "scene": 11,
     "title": "Pertanyaan berbeda, rancangan berbeda",
     "shot": 3,
-    "start": 36.24,
-    "end": 42.56,
-    "scale": 1.053
+    "start": 35.09,
+    "end": 40.54,
+    "scale": 0.909
    },
    {
     "scene": 12,
     "title": "Hasil belajar dan penutup",
     "shot": 1,
-    "start": 42.56,
-    "end": 46.36,
+    "start": 40.54,
+    "end": 44.34,
     "scale": 0.95
    },
    {
     "scene": 12,
     "title": "Hasil belajar dan penutup",
     "shot": 2,
-    "start": 46.36,
-    "end": 52.06,
+    "start": 44.34,
+    "end": 50.04,
     "scale": 0.95
    },
    {
     "scene": 12,
     "title": "Hasil belajar dan penutup",
     "shot": 3,
-    "start": 52.06,
-    "end": 56.8,
+    "start": 50.04,
+    "end": 54.78,
     "scale": 0.95
    }
   ],
   "draft_part": 3,
   "note": "Re-timed 60 s draft of four scenes for review only; the real timeline is ../../project.json",
   "timing": {
-   "mode": "words",
-   "note": "Cue times come from per-word timestamps of the actual recording."
+   "mode": "words+dialogue-insert",
+   "note": "Narrator cue times are word-aligned (Scribe) and shifted by the inserted role clips; dialogue cue times are placed inside each clip by character share."
   },
   "working_note": "Shots and cues are timed to the recorded narration (see metadata.timing). Scene choreography is scaled per scene from the 15 s plan."
  },
  "voice": {
-  "path": "../../audio/narasi.wav",
+  "path": "../../audio/narasi-mix.wav",
   "lead": 0,
   "tail": 0
  },
@@ -141,110 +141,110 @@
    "text": "Data apa yang menjawab pertanyaan itu?"
   },
   {
-   "start": 3.23,
-   "end": 4.45,
+   "start": 2.64,
+   "end": 4.288,
    "text": "Vidka: Apakah kuesioner saja cukup"
   },
   {
-   "start": 4.47,
-   "end": 6.19,
+   "start": 4.348,
+   "end": 7.004,
    "text": "menunjukkan apa yang terjadi saat latihan?"
   },
   {
-   "start": 7.03,
-   "end": 9.73,
+   "start": 7.604,
+   "end": 10.304,
    "text": "Pikirkan: data mana yang menjawab pertanyaanmu?"
   },
   {
-   "start": 10.37,
-   "end": 12.21,
+   "start": 10.724,
+   "end": 13.138,
    "text": "Vidka: Pengamatan dulu, kuesioner menyusul."
   },
   {
-   "start": 12.75,
-   "end": 15.81,
+   "start": 13.588,
+   "end": 16.648,
    "text": "Tempo naik; seorang pemain menoleh ke temannya."
   },
   {
-   "start": 16.97,
-   "end": 19.09,
+   "start": 17.808,
+   "end": 19.928,
    "text": "Vidka mencatat waktunya: menit kedua belas."
   },
   {
-   "start": 20.69,
-   "end": 22.43,
+   "start": 20.828,
+   "end": 22.802,
    "text": "Pemain: Saya menoleh karena kehilangan hitungan."
   },
   {
-   "start": 23.25,
-   "end": 26.31,
+   "start": 23.392,
+   "end": 26.452,
    "text": "Keduanya dibandingkan. Itulah analisisnya."
   },
   {
-   "start": 27.01,
-   "end": 29.21,
+   "start": 27.152,
+   "end": 29.352,
    "text": "Pertanyaan berbeda menuntut rancangan berbeda."
   },
   {
-   "start": 30.03,
-   "end": 31.61,
+   "start": 29.862,
+   "end": 31.662,
    "text": "Ardipal: Pertanyaan kedua menguji pengaruh."
   },
   {
-   "start": 33.07,
-   "end": 34.39,
+   "start": 31.722,
+   "end": 33.359,
    "text": "Kamu perlu kelompok pembanding,"
   },
   {
-   "start": 35.31,
-   "end": 37.69,
+   "start": 33.419,
+   "end": 35.991,
    "text": "dan ukuran tempo sebelum serta sesudah latihan."
   },
   {
-   "start": 38.69,
-   "end": 41.45,
+   "start": 36.671,
+   "end": 39.431,
    "text": "Bukan «membuktikan», melainkan menguji perbedaan."
   },
   {
-   "start": 42.81,
-   "end": 44.87,
+   "start": 40.791,
+   "end": 42.851,
    "text": "Dalam satu sesi, Vidka memiliki tiga hal:"
   },
   {
-   "start": 46.15,
-   "end": 46.95,
+   "start": 44.131,
+   "end": 44.931,
    "text": "masalah yang jelas,"
   },
   {
-   "start": 47.09,
-   "end": 47.95,
+   "start": 45.071,
+   "end": 45.931,
    "text": "pertanyaan yang lengkap,"
   },
   {
-   "start": 48.33,
-   "end": 49.77,
+   "start": 46.311,
+   "end": 47.751,
    "text": "dan alasan memilih datanya."
   },
   {
-   "start": 50.63,
-   "end": 51.89,
+   "start": 48.611,
+   "end": 49.871,
    "text": "Rancangan penelitiannya siap."
   },
   {
-   "start": 52.31,
-   "end": 54.77,
+   "start": 50.291,
+   "end": 52.751,
    "text": "Tugas: pilih data untuk pertanyaanmu."
   },
   {
-   "start": 55.57,
-   "end": 56.51,
+   "start": 53.551,
+   "end": 54.491,
    "text": "Jelaskan alasannya."
   }
  ],
  "shots": [
   {
    "start": 0,
-   "end": 3.333,
+   "end": 3.557,
    "layers": [
     {
      "type": "image",
@@ -259,7 +259,7 @@
      "x": 760,
      "y": 208,
      "w": 210,
-     "to": 1.667
+     "to": 1.778
     },
     {
      "type": "image",
@@ -267,7 +267,7 @@
      "x": 760,
      "y": 208,
      "w": 210,
-     "from": 1.667
+     "from": 1.778
     },
     {
      "type": "image",
@@ -282,19 +282,19 @@
      },
      "keys": [
       {
-       "t": 0.25,
+       "t": 0.267,
        "angle": -0.04
       },
       {
-       "t": 0.833,
+       "t": 0.889,
        "angle": 0.04
       },
       {
-       "t": 1.667,
+       "t": 1.778,
        "angle": -0.03
       },
       {
-       "t": 2.333,
+       "t": 2.49,
        "angle": 0.03
       }
      ]
@@ -322,11 +322,11 @@
      },
      "keys": [
       {
-       "t": 2,
+       "t": 2.134,
        "x": 1300
       },
       {
-       "t": 2.667,
+       "t": 2.845,
        "x": 1040
       }
      ]
@@ -340,13 +340,13 @@
      "w": 270,
      "color": "#1F3A5F",
      "bold": true,
-     "from": 2.667
+     "from": 2.845
     }
    ]
   },
   {
-   "start": 3.333,
-   "end": 6.667,
+   "start": 3.557,
+   "end": 7.114,
    "layers": [
     {
      "type": "image",
@@ -361,7 +361,7 @@
      "x": 760,
      "y": 208,
      "w": 210,
-     "to": 2.167
+     "to": 2.312
     },
     {
      "type": "image",
@@ -376,11 +376,11 @@
      },
      "keys": [
       {
-       "t": 0.167,
+       "t": 0.178,
        "y": 150
       },
       {
-       "t": 1,
+       "t": 1.067,
        "y": 380
       }
      ]
@@ -398,11 +398,11 @@
      },
      "keys": [
       {
-       "t": 1.333,
+       "t": 1.423,
        "x": 1120
       },
       {
-       "t": 2.167,
+       "t": 2.312,
        "x": 1000
       }
      ]
@@ -416,13 +416,13 @@
      "w": 310,
      "color": "#1F3A5F",
      "bold": true,
-     "from": 2.167
+     "from": 2.312
     }
    ]
   },
   {
-   "start": 6.667,
-   "end": 10,
+   "start": 7.114,
+   "end": 10.67,
    "layers": [
     {
      "type": "image",
@@ -479,35 +479,35 @@
      },
      "keys": [
       {
-       "t": 0.333,
+       "t": 0.356,
        "y": 470
       },
       {
-       "t": 0.708,
+       "t": 0.756,
        "y": 462
       },
       {
-       "t": 1.083,
+       "t": 1.156,
        "y": 470
       },
       {
-       "t": 1.458,
+       "t": 1.556,
        "y": 462
       },
       {
-       "t": 1.833,
+       "t": 1.956,
        "y": 470
       },
       {
-       "t": 2.208,
+       "t": 2.356,
        "y": 462
       },
       {
-       "t": 2.583,
+       "t": 2.757,
        "y": 470
       },
       {
-       "t": 2.958,
+       "t": 3.157,
        "y": 462
       }
      ]
@@ -515,8 +515,8 @@
    ]
   },
   {
-   "start": 10,
-   "end": 12.5,
+   "start": 10.67,
+   "end": 13.338,
    "layers": [
     {
      "type": "text",
@@ -540,11 +540,11 @@
      },
      "keys": [
       {
-       "t": 0.167,
+       "t": 0.178,
        "y": 300
       },
       {
-       "t": 0.833,
+       "t": 0.889,
        "y": 220
       }
      ]
@@ -558,7 +558,7 @@
      "w": 1170,
      "color": "#EC4338",
      "bold": true,
-     "from": 0.833
+     "from": 0.889
     },
     {
      "type": "image",
@@ -573,11 +573,11 @@
      },
      "keys": [
       {
-       "t": 1,
+       "t": 1.067,
        "y": 300
       },
       {
-       "t": 1.667,
+       "t": 1.778,
        "y": 220
       }
      ]
@@ -591,7 +591,7 @@
      "w": 690,
      "color": "#EC4338",
      "bold": true,
-     "from": 1.667
+     "from": 1.778
     },
     {
      "type": "text",
@@ -601,7 +601,7 @@
      "size": 28,
      "w": 1100,
      "color": "#6b7280",
-     "from": 0.833
+     "from": 0.889
     },
     {
      "type": "text",
@@ -611,13 +611,13 @@
      "size": 28,
      "w": 620,
      "color": "#6b7280",
-     "from": 1.667
+     "from": 1.778
     }
    ]
   },
   {
-   "start": 12.5,
-   "end": 16.303,
+   "start": 13.338,
+   "end": 16.955,
    "layers": [
     {
      "type": "text",
@@ -655,7 +655,7 @@
      "x": 620,
      "y": 170,
      "w": 170,
-     "to": 1.521
+     "to": 1.447
     },
     {
      "type": "image",
@@ -663,7 +663,7 @@
      "x": 620,
      "y": 170,
      "w": 170,
-     "from": 1.521
+     "from": 1.447
     },
     {
      "type": "image",
@@ -689,63 +689,63 @@
        "angle": 3.562
       },
       {
-       "t": 0.238,
+       "t": 0.226,
        "angle": 2.722
       },
       {
-       "t": 0.475,
+       "t": 0.452,
        "angle": 3.562
       },
       {
-       "t": 0.713,
+       "t": 0.678,
        "angle": 2.722
       },
       {
-       "t": 0.951,
+       "t": 0.904,
        "angle": 3.562
       },
       {
-       "t": 1.188,
+       "t": 1.13,
        "angle": 2.722
       },
       {
-       "t": 1.426,
+       "t": 1.356,
        "angle": 3.562
       },
       {
-       "t": 1.664,
+       "t": 1.582,
        "angle": 2.722
       },
       {
-       "t": 1.901,
+       "t": 1.809,
        "angle": 3.562
       },
       {
-       "t": 2.139,
+       "t": 2.035,
        "angle": 2.722
       },
       {
-       "t": 2.377,
+       "t": 2.261,
        "angle": 3.562
       },
       {
-       "t": 2.614,
+       "t": 2.487,
        "angle": 2.722
       },
       {
-       "t": 2.852,
+       "t": 2.713,
        "angle": 3.562
       },
       {
-       "t": 3.09,
+       "t": 2.939,
        "angle": 2.722
       },
       {
-       "t": 3.327,
+       "t": 3.165,
        "angle": 3.562
       },
       {
-       "t": 3.565,
+       "t": 3.391,
        "angle": 2.722
       }
      ]
@@ -767,13 +767,13 @@
      "size": 30,
      "w": 570,
      "color": "#1F3A5F",
-     "from": 1.521
+     "from": 1.447
     }
    ]
   },
   {
-   "start": 16.303,
-   "end": 19.155,
+   "start": 16.955,
+   "end": 19.668,
    "layers": [
     {
      "type": "image",
@@ -799,7 +799,7 @@
      "size": 44,
      "w": 850,
      "color": "#1F3A5F",
-     "from": 0.951
+     "from": 0.904
     },
     {
      "type": "image",
@@ -814,27 +814,27 @@
      },
      "keys": [
       {
-       "t": 0.19,
+       "t": 0.181,
        "x": 470,
        "y": 160
       },
       {
-       "t": 0.856,
+       "t": 0.814,
        "x": 600,
        "y": 160
       },
       {
-       "t": 0.951,
+       "t": 0.904,
        "x": 470,
        "y": 230
       },
       {
-       "t": 1.711,
+       "t": 1.628,
        "x": 860,
        "y": 230
       },
       {
-       "t": 2.282,
+       "t": 2.17,
        "x": 900,
        "y": 160
       }
@@ -852,8 +852,8 @@
    ]
   },
   {
-   "start": 19.155,
-   "end": 22.957,
+   "start": 19.668,
+   "end": 23.285,
    "layers": [
     {
      "type": "image",
@@ -882,11 +882,11 @@
      },
      "keys": [
       {
-       "t": 0.19,
+       "t": 0.181,
        "y": 130
       },
       {
-       "t": 0.761,
+       "t": 0.723,
        "y": 90
       }
      ]
@@ -899,7 +899,7 @@
      "size": 34,
      "w": 850,
      "color": "#1F3A5F",
-     "from": 0.761
+     "from": 0.723
     },
     {
      "type": "text",
@@ -909,7 +909,7 @@
      "size": 34,
      "w": 850,
      "color": "#1F3A5F",
-     "from": 0.761
+     "from": 0.723
     },
     {
      "type": "image",
@@ -924,27 +924,27 @@
      },
      "keys": [
       {
-       "t": 1.426,
+       "t": 1.356,
        "y": 360
       },
       {
-       "t": 1.854,
+       "t": 1.763,
        "y": 350
       },
       {
-       "t": 2.282,
+       "t": 2.17,
        "y": 360
       },
       {
-       "t": 2.709,
+       "t": 2.577,
        "y": 350
       },
       {
-       "t": 3.137,
+       "t": 2.984,
        "y": 360
       },
       {
-       "t": 3.565,
+       "t": 3.391,
        "y": 350
       }
      ]
@@ -961,8 +961,8 @@
    ]
   },
   {
-   "start": 22.957,
-   "end": 26.76,
+   "start": 23.285,
+   "end": 26.902,
    "layers": [
     {
      "type": "image",
@@ -1044,11 +1044,11 @@
      },
      "keys": [
       {
-       "t": 0.38,
+       "t": 0.362,
        "progress": 0
       },
       {
-       "t": 1.331,
+       "t": 1.266,
        "progress": 1
       }
      ]
@@ -1062,7 +1062,7 @@
      "w": 750,
      "color": "#1F3A5F",
      "bold": true,
-     "from": 1.426
+     "from": 1.356
     },
     {
      "type": "underline",
@@ -1077,11 +1077,11 @@
      },
      "keys": [
       {
-       "t": 1.901,
+       "t": 1.809,
        "progress": 0
       },
       {
-       "t": 2.472,
+       "t": 2.351,
        "progress": 1
       }
      ]
@@ -1089,8 +1089,8 @@
    ]
   },
   {
-   "start": 26.76,
-   "end": 30.973,
+   "start": 26.902,
+   "end": 30.539,
    "layers": [
     {
      "type": "image",
@@ -1130,12 +1130,12 @@
      },
      "keys": [
       {
-       "t": 1.053,
+       "t": 0.909,
        "x": 120,
        "angle": 0
       },
       {
-       "t": 2.107,
+       "t": 1.819,
        "x": 560,
        "angle": 0.02
       }
@@ -1149,7 +1149,7 @@
      "size": 34,
      "w": 680,
      "color": "#1F3A5F",
-     "from": 2.212
+     "from": 1.909
     },
     {
      "type": "text",
@@ -1159,7 +1159,7 @@
      "size": 34,
      "w": 680,
      "color": "#1F3A5F",
-     "from": 2.212
+     "from": 1.909
     },
     {
      "type": "text",
@@ -1169,7 +1169,7 @@
      "size": 34,
      "w": 680,
      "color": "#1F3A5F",
-     "from": 2.212
+     "from": 1.909
     },
     {
      "type": "image",
@@ -1195,39 +1195,39 @@
        "angle": 3.562
       },
       {
-       "t": 0.421,
+       "t": 0.364,
        "angle": 2.722
       },
       {
-       "t": 0.843,
+       "t": 0.727,
        "angle": 3.562
       },
       {
-       "t": 1.264,
+       "t": 1.091,
        "angle": 2.722
       },
       {
-       "t": 1.685,
+       "t": 1.455,
        "angle": 3.562
       },
       {
-       "t": 2.107,
+       "t": 1.819,
        "angle": 2.722
       },
       {
-       "t": 2.528,
+       "t": 2.182,
        "angle": 3.562
       },
       {
-       "t": 2.949,
+       "t": 2.546,
        "angle": 2.722
       },
       {
-       "t": 3.371,
+       "t": 2.91,
        "angle": 3.562
       },
       {
-       "t": 3.792,
+       "t": 3.273,
        "angle": 2.722
       }
      ]
@@ -1235,8 +1235,8 @@
    ]
   },
   {
-   "start": 30.973,
-   "end": 36.24,
+   "start": 30.539,
+   "end": 35.085,
    "layers": [
     {
      "type": "image",
@@ -1323,11 +1323,11 @@
      },
      "keys": [
       {
-       "t": 0.316,
+       "t": 0.273,
        "progress": 0
       },
       {
-       "t": 1.053,
+       "t": 0.909,
        "progress": 1
       }
      ]
@@ -1340,7 +1340,7 @@
      "size": 30,
      "w": 870,
      "color": "#1F3A5F",
-     "from": 0.211
+     "from": 0.182
     },
     {
      "type": "text",
@@ -1351,7 +1351,7 @@
      "w": 630,
      "color": "#1F3A5F",
      "bold": true,
-     "from": 1.264
+     "from": 1.091
     },
     {
      "type": "underline",
@@ -1366,11 +1366,11 @@
      },
      "keys": [
       {
-       "t": 2.528,
+       "t": 2.182,
        "progress": 0
       },
       {
-       "t": 3.371,
+       "t": 2.91,
        "progress": 1
       }
      ]
@@ -1384,13 +1384,13 @@
      "w": 690,
      "color": "#EC4338",
      "bold": true,
-     "from": 3.476
+     "from": 3.001
     }
    ]
   },
   {
-   "start": 36.24,
-   "end": 42.56,
+   "start": 35.085,
+   "end": 40.541,
    "layers": [
     {
      "type": "text",
@@ -1434,11 +1434,11 @@
      },
      "keys": [
       {
-       "t": 0.316,
+       "t": 0.273,
        "progress": 0
       },
       {
-       "t": 1.264,
+       "t": 1.091,
        "progress": 1
       }
      ]
@@ -1451,7 +1451,7 @@
      "size": 34,
      "w": 1120,
      "color": "#1F3A5F",
-     "from": 1.264
+     "from": 1.091
     },
     {
      "type": "text",
@@ -1461,7 +1461,7 @@
      "size": 34,
      "w": 1120,
      "color": "#1F3A5F",
-     "from": 1.264
+     "from": 1.091
     },
     {
      "type": "line",
@@ -1496,11 +1496,11 @@
      },
      "keys": [
       {
-       "t": 1.475,
+       "t": 1.273,
        "progress": 0
       },
       {
-       "t": 2.423,
+       "t": 2.091,
        "progress": 1
       }
      ]
@@ -1513,7 +1513,7 @@
      "size": 34,
      "w": 520,
      "color": "#1F3A5F",
-     "from": 2.423
+     "from": 2.091
     },
     {
      "type": "text",
@@ -1523,7 +1523,7 @@
      "size": 34,
      "w": 520,
      "color": "#1F3A5F",
-     "from": 2.423
+     "from": 2.091
     },
     {
      "type": "arrow",
@@ -1539,11 +1539,11 @@
      },
      "keys": [
       {
-       "t": 2.739,
+       "t": 2.364,
        "progress": 0
       },
       {
-       "t": 3.581,
+       "t": 3.092,
        "progress": 1
       }
      ]
@@ -1562,11 +1562,11 @@
      },
      "keys": [
       {
-       "t": 3.792,
+       "t": 3.273,
        "progress": 0
       },
       {
-       "t": 4.635,
+       "t": 4.001,
        "progress": 1
       }
      ]
@@ -1579,7 +1579,7 @@
      "size": 28,
      "w": 1150,
      "color": "#6b7280",
-     "from": 2.739
+     "from": 2.364
     },
     {
      "type": "text",
@@ -1589,7 +1589,7 @@
      "size": 28,
      "w": 800,
      "color": "#6b7280",
-     "from": 3.581
+     "from": 3.092
     },
     {
      "type": "text",
@@ -1599,7 +1599,7 @@
      "size": 28,
      "w": 550,
      "color": "#6b7280",
-     "from": 3.792
+     "from": 3.273
     },
     {
      "type": "text",
@@ -1609,7 +1609,7 @@
      "size": 28,
      "w": 200,
      "color": "#6b7280",
-     "from": 4.635
+     "from": 4.001
     },
     {
      "type": "text",
@@ -1620,13 +1620,13 @@
      "w": 830,
      "color": "#EC4338",
      "bold": true,
-     "from": 4.74
+     "from": 4.092
     }
    ]
   },
   {
-   "start": 42.56,
-   "end": 46.359,
+   "start": 40.541,
+   "end": 44.339,
    "layers": [
     {
      "type": "image",
@@ -1698,7 +1698,7 @@
        "y": 110
       },
       {
-       "t": 1.33,
+       "t": 1.329,
        "x": 220,
        "y": 190
       },
@@ -1722,8 +1722,8 @@
    ]
   },
   {
-   "start": 46.359,
-   "end": 52.057,
+   "start": 44.339,
+   "end": 50.037,
    "layers": [
     {
      "type": "image",
@@ -1810,7 +1810,7 @@
        "angle": 0.08
       },
       {
-       "t": 1.235,
+       "t": 1.234,
        "x": 640,
        "angle": 0
       }
@@ -1853,7 +1853,7 @@
      },
      "keys": [
       {
-       "t": 4.179,
+       "t": 4.178,
        "x": 700,
        "y": 330
       },
@@ -1877,8 +1877,8 @@
    ]
   },
   {
-   "start": 52.057,
-   "end": 56.805,
+   "start": 50.037,
+   "end": 54.785,
    "layers": [
     {
      "type": "image",
@@ -1943,7 +1943,7 @@
        "y": 514
       },
       {
-       "t": 1.33,
+       "t": 1.329,
        "y": 520
       },
       {
@@ -1955,7 +1955,7 @@
        "y": 520
       },
       {
-       "t": 2.612,
+       "t": 2.611,
        "y": 514
       },
       {
@@ -1967,7 +1967,7 @@
        "y": 514
       },
       {
-       "t": 3.894,
+       "t": 3.893,
        "y": 520
       },
       {
@@ -1981,102 +1981,102 @@
  ],
  "sfx": [
   {
-   "time": 0.333,
+   "time": 0.356,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 3.583,
+   "time": 3.824,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 5.167,
+   "time": 5.513,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 10.333,
+   "time": 11.026,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 11.167,
+   "time": 11.915,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 14.021,
-   "kind": "pop",
-   "gain": 0.04
-  },
-  {
-   "time": 16.588,
-   "kind": "tap",
-   "gain": 0.05
-  },
-  {
-   "time": 19.44,
+   "time": 14.785,
    "kind": "pop",
    "gain": 0.04
   },
   {
-   "time": 23.433,
+   "time": 17.226,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 24.478,
+   "time": 19.939,
+   "kind": "pop",
+   "gain": 0.04
+  },
+  {
+   "time": 23.737,
+   "kind": "tap",
+   "gain": 0.05
+  },
+  {
+   "time": 24.732,
    "kind": "chime",
    "gain": 0.05
   },
   {
-   "time": 27.919,
+   "time": 27.902,
    "kind": "paper",
    "gain": 0.05
   },
   {
-   "time": 31.395,
+   "time": 30.903,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 36.556,
+   "time": 35.358,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 37.715,
+   "time": 36.358,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 40.98,
+   "time": 39.177,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 42.845,
+   "time": 40.826,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 46.739,
+   "time": 44.719,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 47.878,
+   "time": 45.859,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 49.588,
+   "time": 47.568,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 52.437,
+   "time": 50.417,
    "kind": "chime",
    "gain": 0.06
   }
@@ -2085,7 +2085,7 @@
   {
    "path": "../../audio/room-tone-180s.wav",
    "start": 0,
-   "end": 56.805,
+   "end": 164.993,
    "gain": 0.04,
    "loop": false
   }

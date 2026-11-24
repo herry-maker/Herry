@@ -13,132 +13,132 @@
     "title": "Menghubungkan bacaan dan masalah",
     "shot": 1,
     "start": 0,
-    "end": 4.45,
-    "scale": 0.889
+    "end": 4.12,
+    "scale": 0.824
    },
    {
     "scene": 5,
     "title": "Menghubungkan bacaan dan masalah",
     "shot": 2,
-    "start": 4.45,
-    "end": 8.89,
-    "scale": 0.889
+    "start": 4.12,
+    "end": 8.24,
+    "scale": 0.824
    },
    {
     "scene": 5,
     "title": "Menghubungkan bacaan dan masalah",
     "shot": 3,
-    "start": 8.89,
-    "end": 13.34,
-    "scale": 0.889
+    "start": 8.24,
+    "end": 12.36,
+    "scale": 0.824
    },
    {
     "scene": 6,
     "title": "Memperjelas pernyataan masalah",
     "shot": 1,
-    "start": 13.34,
-    "end": 17.17,
-    "scale": 0.957
+    "start": 12.36,
+    "end": 15.85,
+    "scale": 0.872
    },
    {
     "scene": 6,
     "title": "Memperjelas pernyataan masalah",
     "shot": 2,
-    "start": 17.17,
-    "end": 21.96,
-    "scale": 0.957
+    "start": 15.85,
+    "end": 20.21,
+    "scale": 0.872
    },
    {
     "scene": 6,
     "title": "Memperjelas pernyataan masalah",
     "shot": 3,
-    "start": 21.96,
-    "end": 27.7,
-    "scale": 0.957
+    "start": 20.21,
+    "end": 25.44,
+    "scale": 0.872
    },
    {
     "scene": 7,
     "title": "Menyusun pernyataan masalah",
     "shot": 1,
-    "start": 27.7,
-    "end": 31.34,
+    "start": 25.44,
+    "end": 29.08,
     "scale": 0.909
    },
    {
     "scene": 7,
     "title": "Menyusun pernyataan masalah",
     "shot": 2,
-    "start": 31.34,
-    "end": 34.97,
+    "start": 29.08,
+    "end": 32.71,
     "scale": 0.909
    },
    {
     "scene": 7,
     "title": "Menyusun pernyataan masalah",
     "shot": 3,
-    "start": 34.97,
-    "end": 37.7,
+    "start": 32.71,
+    "end": 35.44,
     "scale": 0.909
    },
    {
     "scene": 7,
     "title": "Menyusun pernyataan masalah",
     "shot": 4,
-    "start": 37.7,
-    "end": 41.34,
+    "start": 35.44,
+    "end": 39.08,
     "scale": 0.909
    },
    {
     "scene": 8,
     "title": "Merumuskan pertanyaan penelitian",
     "shot": 1,
-    "start": 41.34,
-    "end": 45.32,
+    "start": 39.08,
+    "end": 43.06,
     "scale": 0.996
    },
    {
     "scene": 8,
     "title": "Merumuskan pertanyaan penelitian",
     "shot": 2,
-    "start": 45.32,
-    "end": 48.31,
+    "start": 43.06,
+    "end": 46.05,
     "scale": 0.996
    },
    {
     "scene": 8,
     "title": "Merumuskan pertanyaan penelitian",
     "shot": 3,
-    "start": 48.31,
-    "end": 51.3,
+    "start": 46.05,
+    "end": 49.04,
     "scale": 0.996
    },
    {
     "scene": 8,
     "title": "Merumuskan pertanyaan penelitian",
     "shot": 4,
-    "start": 51.3,
-    "end": 53.29,
+    "start": 49.04,
+    "end": 51.03,
     "scale": 0.996
    },
    {
     "scene": 8,
     "title": "Merumuskan pertanyaan penelitian",
     "shot": 5,
-    "start": 53.29,
-    "end": 56.28,
+    "start": 51.03,
+    "end": 54.02,
     "scale": 0.996
    }
   ],
   "draft_part": 2,
   "note": "Re-timed 60 s draft of four scenes for review only; the real timeline is ../../project.json",
   "timing": {
-   "mode": "words",
-   "note": "Cue times come from per-word timestamps of the actual recording."
+   "mode": "words+dialogue-insert",
+   "note": "Narrator cue times are word-aligned (Scribe) and shifted by the inserted role clips; dialogue cue times are placed inside each clip by character share."
   },
   "working_note": "Shots and cues are timed to the recorded narration (see metadata.timing). Scene choreography is scaled per scene from the 15 s plan."
  },
  "voice": {
-  "path": "../../audio/narasi.wav",
+  "path": "../../audio/narasi-mix.wav",
   "lead": 0,
   "tail": 0
  },
@@ -164,90 +164,90 @@
    "text": "lalu memperbaiki kalimat pertanyaannya."
   },
   {
-   "start": 9.87,
-   "end": 12.49,
+   "start": 9.56,
+   "end": 11.88,
    "text": "Vidka: Jadi masalah saya bukan «musik», tapi tempo."
   },
   {
-   "start": 13.59,
-   "end": 15.63,
+   "start": 12.61,
+   "end": 14.65,
    "text": "«Siswa kurang kompak» masih terlalu umum."
   },
   {
-   "start": 17.21,
-   "end": 18.39,
+   "start": 16.23,
+   "end": 17.41,
    "text": "Apa yang sebenarnya terjadi?"
   },
   {
-   "start": 19.95,
-   "end": 22.41,
+   "start": 18.29,
+   "end": 20.503,
    "text": "Vidka: Saat tempo naik, dua siswa tertinggal,"
   },
   {
-   "start": 22.73,
-   "end": 23.71,
+   "start": 20.563,
+   "end": 21.818,
    "text": "dan latihan berhenti."
   },
   {
-   "start": 24.81,
-   "end": 26.61,
+   "start": 22.548,
+   "end": 24.348,
    "text": "Kejadian dan dampaknya kini terlihat jelas."
   },
   {
-   "start": 27.95,
-   "end": 29.89,
+   "start": 25.688,
+   "end": 27.628,
    "text": "Pernyataan masalah disusun dari tiga unsur."
   },
   {
-   "start": 30.31,
-   "end": 31.85,
+   "start": 28.048,
+   "end": 29.588,
    "text": "Pertama, kejadian yang diamati."
   },
   {
-   "start": 32.33,
-   "end": 33.91,
+   "start": 30.068,
+   "end": 31.648,
    "text": "Kedua, dampaknya pada latihan."
   },
   {
-   "start": 35.45,
-   "end": 37.37,
+   "start": 33.188,
+   "end": 35.108,
    "text": "Ketiga, hal yang belum dipahami."
   },
   {
-   "start": 38.89,
-   "end": 40.75,
+   "start": 36.628,
+   "end": 38.488,
    "text": "Tiga kalimat ini menjadi dasar pertanyaan."
   },
   {
-   "start": 41.59,
-   "end": 43.37,
+   "start": 39.328,
+   "end": 41.108,
    "text": "Vidka menulis satu pertanyaan yang lengkap."
   },
   {
-   "start": 44.39,
-   "end": 45.87,
+   "start": 42.128,
+   "end": 43.608,
    "text": "Pertanyaan ini menyebut pesertanya,"
   },
   {
-   "start": 46.83,
-   "end": 48.13,
+   "start": 44.568,
+   "end": 45.868,
    "text": "proses yang ingin dipahami,"
   },
   {
-   "start": 48.95,
-   "end": 52.21,
+   "start": 46.688,
+   "end": 49.948,
    "text": "dan konteks tempat proses itu terjadi."
   },
   {
-   "start": 53.69,
-   "end": 55.67,
+   "start": 51.428,
+   "end": 53.408,
    "text": "Satu kalimat, tiga unsur yang jelas."
   }
  ],
  "shots": [
   {
    "start": 0,
-   "end": 4.447,
+   "end": 4.12,
    "layers": [
     {
      "type": "image",
@@ -296,11 +296,11 @@
      },
      "keys": [
       {
-       "t": 0.445,
+       "t": 0.412,
        "x": 60
       },
       {
-       "t": 1.601,
+       "t": 1.483,
        "x": 380
       }
      ]
@@ -313,7 +313,7 @@
      "size": 30,
      "w": 1190,
      "color": "#1F3A5F",
-     "to": 0.445
+     "to": 0.412
     },
     {
      "type": "image",
@@ -328,11 +328,11 @@
      },
      "keys": [
       {
-       "t": 1.957,
+       "t": 1.813,
        "x": 60
       },
       {
-       "t": 3.113,
+       "t": 2.884,
        "x": 380
       }
      ]
@@ -345,7 +345,7 @@
      "size": 30,
      "w": 1190,
      "color": "#1F3A5F",
-     "to": 1.957
+     "to": 1.813
     },
     {
      "type": "text",
@@ -355,7 +355,7 @@
      "size": 30,
      "w": 870,
      "color": "#1F3A5F",
-     "from": 1.601
+     "from": 1.483
     },
     {
      "type": "text",
@@ -365,13 +365,13 @@
      "size": 30,
      "w": 870,
      "color": "#1F3A5F",
-     "from": 3.113
+     "from": 2.884
     }
    ]
   },
   {
-   "start": 4.447,
-   "end": 8.893,
+   "start": 4.12,
+   "end": 8.24,
    "layers": [
     {
      "type": "image",
@@ -397,7 +397,7 @@
      "size": 42,
      "w": 540,
      "color": "#1F3A5F",
-     "to": 3.824
+     "to": 3.543
     },
     {
      "type": "text",
@@ -407,7 +407,7 @@
      "size": 42,
      "w": 540,
      "color": "#1F3A5F",
-     "to": 3.824
+     "to": 3.543
     },
     {
      "type": "image",
@@ -462,11 +462,11 @@
      },
      "keys": [
       {
-       "t": 0.267,
+       "t": 0.247,
        "progress": 0
       },
       {
-       "t": 1.067,
+       "t": 0.989,
        "progress": 1
       }
      ]
@@ -492,11 +492,11 @@
      },
      "keys": [
       {
-       "t": 1.601,
+       "t": 1.483,
        "progress": 0
       },
       {
-       "t": 2.401,
+       "t": 2.225,
        "progress": 1
       }
      ]
@@ -530,11 +530,11 @@
      },
      "keys": [
       {
-       "t": 3.024,
+       "t": 2.802,
        "progress": 0
       },
       {
-       "t": 3.735,
+       "t": 3.461,
        "progress": 1
       }
      ]
@@ -547,7 +547,7 @@
      "size": 42,
      "w": 540,
      "color": "#1F3A5F",
-     "from": 3.824
+     "from": 3.543
     },
     {
      "type": "text",
@@ -557,13 +557,13 @@
      "size": 40,
      "w": 540,
      "color": "#1F3A5F",
-     "from": 3.824
+     "from": 3.543
     }
    ]
   },
   {
-   "start": 8.893,
-   "end": 13.34,
+   "start": 8.24,
+   "end": 12.36,
    "layers": [
     {
      "type": "image",
@@ -571,7 +571,7 @@
      "x": 420,
      "y": 60,
      "w": 380,
-     "to": 1.957
+     "to": 1.813
     },
     {
      "type": "image",
@@ -579,7 +579,7 @@
      "x": 420,
      "y": 60,
      "w": 380,
-     "from": 1.957
+     "from": 1.813
     },
     {
      "type": "image",
@@ -594,11 +594,11 @@
      },
      "keys": [
       {
-       "t": 0.178,
+       "t": 0.165,
        "x": 60
       },
       {
-       "t": 0.889,
+       "t": 0.824,
        "x": 160
       }
      ]
@@ -611,7 +611,7 @@
      "size": 30,
      "w": 1070,
      "color": "#1F3A5F",
-     "from": 0.889
+     "from": 0.824
     },
     {
      "type": "image",
@@ -626,23 +626,23 @@
      },
      "keys": [
       {
-       "t": 2.134,
+       "t": 1.978,
        "y": 300
       },
       {
-       "t": 3.024,
+       "t": 2.802,
        "y": 230
       },
       {
-       "t": 3.379,
+       "t": 3.131,
        "y": 230
       },
       {
-       "t": 3.78,
+       "t": 3.502,
        "y": 222
       },
       {
-       "t": 4.18,
+       "t": 3.873,
        "y": 230
       }
      ]
@@ -655,7 +655,7 @@
      "size": 40,
      "w": 370,
      "color": "#6b7280",
-     "to": 1.957
+     "to": 1.813
     },
     {
      "type": "text",
@@ -666,13 +666,13 @@
      "w": 370,
      "color": "#3E9B5F",
      "bold": true,
-     "from": 1.957
+     "from": 1.813
     }
    ]
   },
   {
-   "start": 13.34,
-   "end": 17.169,
+   "start": 12.36,
+   "end": 15.847,
    "layers": [
     {
      "type": "image",
@@ -718,11 +718,11 @@
      },
      "keys": [
       {
-       "t": 0.766,
+       "t": 0.697,
        "progress": 0
       },
       {
-       "t": 1.723,
+       "t": 1.569,
        "progress": 1
       }
      ]
@@ -735,7 +735,7 @@
      "size": 30,
      "w": 570,
      "color": "#EC4338",
-     "from": 1.819
+     "from": 1.657
     },
     {
      "type": "image",
@@ -750,12 +750,12 @@
      },
      "keys": [
       {
-       "t": 2.298,
+       "t": 2.092,
        "x": 640,
        "y": 150
       },
       {
-       "t": 3.255,
+       "t": 2.964,
        "x": 240,
        "y": 240
       }
@@ -764,8 +764,8 @@
    ]
   },
   {
-   "start": 17.169,
-   "end": 21.956,
+   "start": 15.847,
+   "end": 20.207,
    "layers": [
     {
      "type": "image",
@@ -813,7 +813,7 @@
      "size": 40,
      "w": 1030,
      "color": "#1F3A5F",
-     "from": 0.287
+     "from": 0.262
     },
     {
      "type": "text",
@@ -823,7 +823,7 @@
      "size": 40,
      "w": 1030,
      "color": "#1F3A5F",
-     "from": 1.723
+     "from": 1.569
     },
     {
      "type": "text",
@@ -833,7 +833,7 @@
      "size": 40,
      "w": 1030,
      "color": "#1F3A5F",
-     "from": 3.159
+     "from": 2.877
     },
     {
      "type": "image",
@@ -848,37 +848,37 @@
      },
      "keys": [
       {
-       "t": 0.191,
+       "t": 0.174,
        "x": 240,
        "y": 240
       },
       {
-       "t": 0.766,
+       "t": 0.697,
        "x": 520,
        "y": 240
       },
       {
-       "t": 1.627,
+       "t": 1.482,
        "x": 240,
        "y": 310
       },
       {
-       "t": 2.202,
+       "t": 2.005,
        "x": 620,
        "y": 310
       },
       {
-       "t": 3.063,
+       "t": 2.79,
        "x": 240,
        "y": 380
       },
       {
-       "t": 3.638,
+       "t": 3.313,
        "x": 560,
        "y": 380
       },
       {
-       "t": 4.595,
+       "t": 4.185,
        "x": 700,
        "y": 300
       }
@@ -887,8 +887,8 @@
    ]
   },
   {
-   "start": 21.956,
-   "end": 27.7,
+   "start": 20.207,
+   "end": 25.438,
    "layers": [
     {
      "type": "text",
@@ -933,11 +933,11 @@
      },
      "keys": [
       {
-       "t": 1.915,
+       "t": 1.744,
        "x": 560
       },
       {
-       "t": 2.872,
+       "t": 2.616,
        "x": 640
       }
      ]
@@ -966,67 +966,67 @@
        "angle": 3.562
       },
       {
-       "t": 0.239,
+       "t": 0.218,
        "angle": 2.722
       },
       {
-       "t": 0.479,
+       "t": 0.436,
        "angle": 3.562
       },
       {
-       "t": 0.718,
+       "t": 0.654,
        "angle": 2.722
       },
       {
-       "t": 0.957,
+       "t": 0.872,
        "angle": 3.562
       },
       {
-       "t": 1.197,
+       "t": 1.09,
        "angle": 2.722
       },
       {
-       "t": 1.436,
+       "t": 1.308,
        "angle": 3.562
       },
       {
-       "t": 1.675,
+       "t": 1.526,
        "angle": 2.722
       },
       {
-       "t": 1.915,
+       "t": 1.744,
        "angle": 3.562
       },
       {
-       "t": 2.154,
+       "t": 1.962,
        "angle": 2.722
       },
       {
-       "t": 2.393,
+       "t": 2.18,
        "angle": 3.562
       },
       {
-       "t": 2.633,
+       "t": 2.398,
        "angle": 2.722
       },
       {
-       "t": 2.872,
+       "t": 2.616,
        "angle": 3.562
       },
       {
-       "t": 3.111,
+       "t": 2.834,
        "angle": 2.722
       },
       {
-       "t": 3.351,
+       "t": 3.052,
        "angle": 3.562
       },
       {
-       "t": 3.59,
+       "t": 3.27,
        "angle": 2.722
       },
       {
-       "t": 3.829,
+       "t": 3.487,
        "angle": 3.562
       }
      ]
@@ -1039,7 +1039,7 @@
      "size": 30,
      "w": 390,
      "color": "#EC4338",
-     "to": 3.829
+     "to": 3.487
     },
     {
      "type": "text",
@@ -1050,13 +1050,13 @@
      "w": 410,
      "color": "#EC4338",
      "bold": true,
-     "from": 3.829
+     "from": 3.487
     }
    ]
   },
   {
-   "start": 27.7,
-   "end": 31.337,
+   "start": 25.438,
+   "end": 29.075,
    "layers": [
     {
      "type": "text",
@@ -1114,8 +1114,8 @@
    ]
   },
   {
-   "start": 31.337,
-   "end": 34.975,
+   "start": 29.075,
+   "end": 32.713,
    "layers": [
     {
      "type": "text",
@@ -1192,8 +1192,8 @@
    ]
   },
   {
-   "start": 34.975,
-   "end": 37.703,
+   "start": 32.713,
+   "end": 35.441,
    "layers": [
     {
      "type": "text",
@@ -1289,8 +1289,8 @@
    ]
   },
   {
-   "start": 37.703,
-   "end": 41.34,
+   "start": 35.441,
+   "end": 39.078,
    "layers": [
     {
      "type": "text",
@@ -1442,8 +1442,8 @@
    ]
   },
   {
-   "start": 41.34,
-   "end": 45.324,
+   "start": 39.078,
+   "end": 43.062,
    "layers": [
     {
      "type": "image",
@@ -1521,8 +1521,8 @@
    ]
   },
   {
-   "start": 45.324,
-   "end": 48.312,
+   "start": 43.062,
+   "end": 46.05,
    "layers": [
     {
      "type": "text",
@@ -1577,8 +1577,8 @@
    ]
   },
   {
-   "start": 48.312,
-   "end": 51.3,
+   "start": 46.05,
+   "end": 49.038,
    "layers": [
     {
      "type": "text",
@@ -1633,8 +1633,8 @@
    ]
   },
   {
-   "start": 51.3,
-   "end": 53.292,
+   "start": 49.038,
+   "end": 51.03,
    "layers": [
     {
      "type": "text",
@@ -1689,8 +1689,8 @@
    ]
   },
   {
-   "start": 53.292,
-   "end": 56.28,
+   "start": 51.03,
+   "end": 54.018,
    "layers": [
     {
      "type": "text",
@@ -1759,92 +1759,92 @@
  ],
  "sfx": [
   {
-   "time": 0.534,
+   "time": 0.494,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 2.045,
+   "time": 1.895,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 7.559,
+   "time": 7.004,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 10.939,
+   "time": 10.135,
    "kind": "chime",
    "gain": 0.05
   },
   {
-   "time": 14.202,
+   "time": 13.145,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 17.457,
+   "time": 16.109,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 18.893,
+   "time": 17.417,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 20.329,
+   "time": 18.725,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 25.785,
+   "time": 23.694,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 27.973,
+   "time": 25.711,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 31.61,
+   "time": 29.348,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 35.247,
+   "time": 32.985,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 39.339,
+   "time": 37.077,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 41.639,
+   "time": 39.377,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 45.623,
-   "kind": "pop",
-   "gain": 0.04
-  },
-  {
-   "time": 48.611,
+   "time": 43.361,
    "kind": "pop",
    "gain": 0.04
   },
   {
-   "time": 51.599,
+   "time": 46.349,
    "kind": "pop",
    "gain": 0.04
   },
   {
-   "time": 53.69,
+   "time": 49.337,
+   "kind": "pop",
+   "gain": 0.04
+  },
+  {
+   "time": 51.428,
    "kind": "chime",
    "gain": 0.05
   }
@@ -1853,7 +1853,7 @@
   {
    "path": "../../audio/room-tone-180s.wav",
    "start": 0,
-   "end": 56.28,
+   "end": 164.993,
    "gain": 0.04,
    "loop": false
   }

@@ -13,116 +13,116 @@
     "title": "Kebingungan awal",
     "shot": 1,
     "start": 0,
-    "end": 3.87,
-    "scale": 0.969
+    "end": 3.6,
+    "scale": 0.901
    },
    {
     "scene": 1,
     "title": "Kebingungan awal",
     "shot": 2,
-    "start": 3.87,
-    "end": 7.75,
-    "scale": 0.969
+    "start": 3.6,
+    "end": 7.21,
+    "scale": 0.901
    },
    {
     "scene": 1,
     "title": "Kebingungan awal",
     "shot": 3,
-    "start": 7.75,
-    "end": 10.66,
-    "scale": 0.969
+    "start": 7.21,
+    "end": 9.91,
+    "scale": 0.901
    },
    {
     "scene": 1,
     "title": "Kebingungan awal",
     "shot": 4,
-    "start": 10.66,
-    "end": 14.53,
-    "scale": 0.969
+    "start": 9.91,
+    "end": 13.51,
+    "scale": 0.901
    },
    {
     "scene": 2,
     "title": "Memperbaiki kata kunci",
     "shot": 1,
-    "start": 14.53,
-    "end": 18.72,
+    "start": 13.51,
+    "end": 17.7,
     "scale": 1.047
    },
    {
     "scene": 2,
     "title": "Memperbaiki kata kunci",
     "shot": 2,
-    "start": 18.72,
-    "end": 23.95,
+    "start": 17.7,
+    "end": 22.93,
     "scale": 1.047
    },
    {
     "scene": 2,
     "title": "Memperbaiki kata kunci",
     "shot": 3,
-    "start": 23.95,
-    "end": 30.23,
+    "start": 22.93,
+    "end": 29.21,
     "scale": 1.047
    },
    {
     "scene": 3,
     "title": "Memilih referensi relevan",
     "shot": 1,
-    "start": 30.23,
-    "end": 33.78,
+    "start": 29.21,
+    "end": 32.76,
     "scale": 0.887
    },
    {
     "scene": 3,
     "title": "Memilih referensi relevan",
     "shot": 2,
-    "start": 33.78,
-    "end": 37.32,
+    "start": 32.76,
+    "end": 36.3,
     "scale": 0.887
    },
    {
     "scene": 3,
     "title": "Memilih referensi relevan",
     "shot": 3,
-    "start": 37.32,
-    "end": 43.53,
+    "start": 36.3,
+    "end": 42.51,
     "scale": 0.887
    },
    {
     "scene": 4,
     "title": "Memeriksa isi sumber",
     "shot": 1,
-    "start": 43.53,
-    "end": 47.18,
+    "start": 42.51,
+    "end": 46.16,
     "scale": 0.912
    },
    {
     "scene": 4,
     "title": "Memeriksa isi sumber",
     "shot": 2,
-    "start": 47.18,
-    "end": 50.83,
+    "start": 46.16,
+    "end": 49.81,
     "scale": 0.912
    },
    {
     "scene": 4,
     "title": "Memeriksa isi sumber",
     "shot": 3,
-    "start": 50.83,
-    "end": 57.21,
+    "start": 49.81,
+    "end": 56.19,
     "scale": 0.912
    }
   ],
   "draft_part": 1,
   "note": "Re-timed 60 s draft of four scenes for review only; the real timeline is ../../project.json",
   "timing": {
-   "mode": "words",
-   "note": "Cue times come from per-word timestamps of the actual recording."
+   "mode": "words+dialogue-insert",
+   "note": "Narrator cue times are word-aligned (Scribe) and shifted by the inserted role clips; dialogue cue times are placed inside each clip by character share."
   },
   "working_note": "Shots and cues are timed to the recorded narration (see metadata.timing). Scene choreography is scaled per scene from the 15 s plan."
  },
  "voice": {
-  "path": "../../audio/narasi.wav",
+  "path": "../../audio/narasi-mix.wav",
   "lead": 0,
   "tail": 0
  },
@@ -138,100 +138,100 @@
    "text": "Semua tentang musik, tak satu pun terasa tepat."
   },
   {
-   "start": 5.7,
-   "end": 7.18,
+   "start": 5.36,
+   "end": 7.415,
    "text": "Vidka: Pak, referensinya banyak sekali."
   },
   {
-   "start": 8.34,
-   "end": 9.66,
+   "start": 7.475,
+   "end": 9.26,
    "text": "Mana yang harus saya pakai?"
   },
   {
-   "start": 11.26,
-   "end": 13.26,
+   "start": 10.24,
+   "end": 12.24,
    "text": "Herry: Mulai dari masalahmu, bukan tumpukannya."
   },
   {
-   "start": 14.78,
-   "end": 16.42,
+   "start": 13.76,
+   "end": 15.4,
    "text": "Kata kunci «musik» terlalu luas."
   },
   {
-   "start": 17.5,
-   "end": 19.08,
+   "start": 16.48,
+   "end": 18.06,
    "text": "Herry: Apa yang sebenarnya kamu amati?"
   },
   {
-   "start": 20.46,
-   "end": 22.76,
+   "start": 19.44,
+   "end": 21.74,
    "text": "Vidka menghapus «musik» dan mengetik ulang:"
   },
   {
-   "start": 23.76,
-   "end": 26.26,
+   "start": 22.74,
+   "end": 25.24,
    "text": "kekompakan tempo, ansambel, siswa SMP."
   },
   {
-   "start": 27.24,
-   "end": 29.64,
+   "start": 26.22,
+   "end": 28.62,
    "text": "Tugasmu: tulis tiga kata kunci khusus."
   },
   {
-   "start": 30.48,
-   "end": 31.84,
+   "start": 29.46,
+   "end": 30.82,
    "text": "Dua artikel lolos saringan."
   },
   {
-   "start": 32.78,
-   "end": 34.66,
+   "start": 31.76,
+   "end": 33.64,
    "text": "Vidka membandingkan bagian pesertanya."
   },
   {
-   "start": 35.48,
-   "end": 36.7,
+   "start": 34.46,
+   "end": 35.68,
    "text": "Herry: Yang pertama memberi konsep."
   },
   {
-   "start": 37.34,
-   "end": 39.06,
+   "start": 36.32,
+   "end": 38.04,
    "text": "Yang kedua memberi konteks siswamu."
   },
   {
-   "start": 39.74,
-   "end": 42.66,
+   "start": 38.72,
+   "end": 41.64,
    "text": "Keduanya dipakai, untuk tujuan yang berbeda."
   },
   {
-   "start": 43.78,
-   "end": 45.7,
+   "start": 42.76,
+   "end": 44.68,
    "text": "Membaca artikel bukan mencatat semuanya."
   },
   {
-   "start": 46.52,
-   "end": 48.2,
+   "start": 45.5,
+   "end": 47.18,
    "text": "Vidka menelusuri bagian metode,"
   },
   {
-   "start": 49,
-   "end": 49.94,
+   "start": 47.98,
+   "end": 48.92,
    "text": "lalu bagian hasil."
   },
   {
-   "start": 50.96,
-   "end": 53.88,
+   "start": 49.94,
+   "end": 52.86,
    "text": "Satu temuan ditandai, lalu satu pertanyaan:"
   },
   {
-   "start": 54.7,
-   "end": 56.5,
+   "start": 53.68,
+   "end": 55.48,
    "text": "temuan ini mendukung pernyataan apa?"
   }
  ],
  "shots": [
   {
    "start": 0,
-   "end": 3.875,
+   "end": 3.603,
    "layers": [
     {
      "type": "image",
@@ -253,25 +253,25 @@
      },
      "keys": [
       {
-       "t": 0.291,
+       "t": 0.27,
        "x": 430,
        "y": 120,
        "angle": -0.05
       },
       {
-       "t": 1.55,
+       "t": 1.441,
        "x": 580,
        "y": 330,
        "angle": 0.04
       },
       {
-       "t": 2.519,
+       "t": 2.342,
        "x": 580,
        "y": 330,
        "angle": 0.04
       },
       {
-       "t": 3.293,
+       "t": 3.062,
        "x": 600,
        "y": 330,
        "angle": 0
@@ -296,13 +296,13 @@
      "w": 660,
      "bold": true,
      "color": "#EC4338",
-     "from": 1.744
+     "from": 1.621
     }
    ]
   },
   {
-   "start": 3.875,
-   "end": 7.749,
+   "start": 3.603,
+   "end": 7.205,
    "layers": [
     {
      "type": "image",
@@ -324,7 +324,7 @@
      "x": 520,
      "y": 226.66666666666669,
      "w": 280,
-     "to": 2.131
+     "to": 1.981
     },
     {
      "type": "image",
@@ -332,7 +332,7 @@
      "x": 520,
      "y": 226.66666666666669,
      "w": 280,
-     "from": 2.131
+     "from": 1.981
     },
     {
      "type": "image",
@@ -347,12 +347,12 @@
      },
      "keys": [
       {
-       "t": 0.194,
+       "t": 0.18,
        "x": 260,
        "y": 380
       },
       {
-       "t": 1.356,
+       "t": 1.261,
        "x": 590,
        "y": 345
       }
@@ -371,11 +371,11 @@
      },
      "keys": [
       {
-       "t": 2.325,
+       "t": 2.162,
        "y": 220
       },
       {
-       "t": 3.293,
+       "t": 3.062,
        "y": 330
       }
      ]
@@ -392,8 +392,8 @@
    ]
   },
   {
-   "start": 7.749,
-   "end": 10.655,
+   "start": 7.205,
+   "end": 9.907,
    "layers": [
     {
      "type": "image",
@@ -443,11 +443,11 @@
      },
      "keys": [
       {
-       "t": 0.387,
+       "t": 0.36,
        "x": 1200
       },
       {
-       "t": 2.519,
+       "t": 2.342,
        "x": 960
       }
      ]
@@ -455,8 +455,8 @@
    ]
   },
   {
-   "start": 10.655,
-   "end": 14.53,
+   "start": 9.907,
+   "end": 13.51,
    "layers": [
     {
      "type": "image",
@@ -515,7 +515,7 @@
      "size": 28,
      "w": 480,
      "color": "#1F3A5F",
-     "from": 0.969
+     "from": 0.901
     },
     {
      "type": "line",
@@ -542,11 +542,11 @@
      },
      "keys": [
       {
-       "t": 0.291,
+       "t": 0.27,
        "progress": 0
       },
       {
-       "t": 0.969,
+       "t": 0.901,
        "progress": 1
       }
      ]
@@ -584,11 +584,11 @@
      },
      "keys": [
       {
-       "t": 1.55,
+       "t": 1.441,
        "progress": 0
       },
       {
-       "t": 2.519,
+       "t": 2.342,
        "progress": 1
       }
      ]
@@ -596,8 +596,8 @@
    ]
   },
   {
-   "start": 14.53,
-   "end": 18.717,
+   "start": 13.51,
+   "end": 17.697,
    "layers": [
     {
      "type": "image",
@@ -708,8 +708,8 @@
    ]
   },
   {
-   "start": 18.717,
-   "end": 23.95,
+   "start": 17.697,
+   "end": 22.93,
    "layers": [
     {
      "type": "image",
@@ -840,8 +840,8 @@
    ]
   },
   {
-   "start": 23.95,
-   "end": 30.23,
+   "start": 22.93,
+   "end": 29.21,
    "layers": [
     {
      "type": "image",
@@ -950,8 +950,8 @@
    ]
   },
   {
-   "start": 30.23,
-   "end": 33.777,
+   "start": 29.21,
+   "end": 32.757,
    "layers": [
     {
      "type": "image",
@@ -1112,8 +1112,8 @@
    ]
   },
   {
-   "start": 33.777,
-   "end": 37.323,
+   "start": 32.757,
+   "end": 36.303,
    "layers": [
     {
      "type": "image",
@@ -1259,8 +1259,8 @@
    ]
   },
   {
-   "start": 37.323,
-   "end": 43.53,
+   "start": 36.303,
+   "end": 42.51,
    "layers": [
     {
      "type": "image",
@@ -1449,8 +1449,8 @@
    ]
   },
   {
-   "start": 43.53,
-   "end": 47.178,
+   "start": 42.51,
+   "end": 46.158,
    "layers": [
     {
      "type": "image",
@@ -1565,8 +1565,8 @@
    ]
   },
   {
-   "start": 47.178,
-   "end": 50.826,
+   "start": 46.158,
+   "end": 49.806,
    "layers": [
     {
      "type": "image",
@@ -1709,8 +1709,8 @@
    ]
   },
   {
-   "start": 50.826,
-   "end": 57.21,
+   "start": 49.806,
+   "end": 56.19,
    "layers": [
     {
      "type": "image",
@@ -1831,97 +1831,97 @@
  ],
  "sfx": [
   {
-   "time": 0.387,
+   "time": 0.36,
    "kind": "paper",
    "gain": 0.05
   },
   {
-   "time": 4.165,
+   "time": 3.873,
    "kind": "paper",
    "gain": 0.05
   },
   {
-   "time": 6.296,
+   "time": 5.854,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 11.818,
+   "time": 10.988,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 19.031,
+   "time": 18.011,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 20.182,
+   "time": 19.162,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 21.124,
+   "time": 20.104,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 22.066,
+   "time": 21.046,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 24.159,
+   "time": 23.139,
    "kind": "pop",
    "gain": 0.04
   },
   {
-   "time": 30.585,
+   "time": 29.565,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 38.387,
+   "time": 37.367,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 40.781,
+   "time": 39.761,
    "kind": "pop",
    "gain": 0.05
   },
   {
-   "time": 41.491,
+   "time": 40.471,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 42.466,
+   "time": 41.446,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 43.986,
+   "time": 42.966,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 47.452,
+   "time": 46.432,
    "kind": "paper",
    "gain": 0.04
   },
   {
-   "time": 51.373,
+   "time": 50.353,
    "kind": "tap",
    "gain": 0.05
   },
   {
-   "time": 52.103,
+   "time": 51.083,
    "kind": "tap",
    "gain": 0.04
   },
   {
-   "time": 52.832,
+   "time": 51.812,
    "kind": "tap",
    "gain": 0.04
   }
@@ -1930,7 +1930,7 @@
   {
    "path": "../../audio/room-tone-180s.wav",
    "start": 0,
-   "end": 57.21,
+   "end": 164.993,
    "gain": 0.04,
    "loop": false
   }
