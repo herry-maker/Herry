@@ -171,7 +171,7 @@ scenes.push({talk: [
 const cards = (x) => [img('note-card', x, 120, 300), hand('Bacaan 1:', x + 20, 126, 30, {color: RED}), hand('mendengar teman', x + 20, 175, 32), img('note-card', x, 330, 300), hand('Bacaan 2:', x + 20, 336, 30, {color: RED}), hand('isyarat gerak', x + 20, 385, 32)];
 scenes.push({talk: [
   {dur: 4, layers: [ // top-down: two reading notes move toward the research notebook
-    img('notebook', 700, 140, 480), hand('pertanyaan sementara', 730, 180, 30, {color: RED}),
+    img('notebook', 700, 140, 480), hand('pertanyaan sementara', 730, 100, 30, {color: RED}),
     mv(img('note-card', 60, 120, 300), 'prop', 'Catatan bacaan pertama digeser mendekat', [{t: .4, x: 60}, {t: 1.6, x: 380}]),
     hand('Bacaan 1:', 80, 126, 30, {color: RED, to: .4}), hand('mendengar teman', 80, 175, 32, {to: .4}),
     hand('Bacaan 1:', 400, 126, 30, {color: RED, from: 1.6}), hand('mendengar teman', 400, 175, 32, {from: 1.6}),
@@ -184,7 +184,7 @@ scenes.push({talk: [
     mv(img('notebook', 300, 330, 200), 'prop', 'Buku penelitian didorong ke depan Vidka', [{t: .2, x: 300}, {t: 1.0, x: 340}, {t: 1.8, x: 344}]),
   ]},
   {dur: 4, layers: [ // Vidka writes the provisional question, connectors drawn
-    img('notebook', 700, 140, 480), hand('pertanyaan sementara', 730, 180, 30, {color: RED}), ...cards(380),
+    img('notebook', 700, 140, 480), hand('pertanyaan sementara', 730, 100, 30, {color: RED}), ...cards(380),
     hand('Bagaimana kelompok kami', 730, 230, 36, {from: .4}), hand('menggunakan keduanya?', 730, 282, 36, {from: 1.6}),
     {...write(730, 1120, 210, 0.3, 1.5), to: 1.6}, mv(img('pencil', 730, 262, 90), 'prop', 'Pensil menulis baris kedua', [{t: 1.6, x: 730}, {t: 2.8, x: 1080}, {t: 3.3, x: 1110, y: 220}]),
     draw(line([[680, 200], [740, 250]], {color: RED, lineWidth: 4}), 'information', 'Garis penghubung bacaan 1', 2.9, 3.5),
@@ -192,7 +192,7 @@ scenes.push({talk: [
   ]},
 ], hold: [
   {dur: 5, layers: [
-    img('notebook', 700, 140, 480), hand('pertanyaan sementara', 730, 180, 30, {color: RED}), hand('Bagaimana kelompok kami', 730, 230, 36), hand('menggunakan keduanya?', 730, 282, 36), ...cards(380),
+    img('notebook', 700, 140, 480), hand('pertanyaan sementara', 730, 100, 30, {color: RED}), hand('Bagaimana kelompok kami', 730, 230, 36), hand('menggunakan keduanya?', 730, 282, 36), ...cards(380),
     line([[680, 200], [740, 250]], {color: RED, lineWidth: 4}), line([[680, 400], [740, 300]], {color: RED, lineWidth: 4}),
     label('Contoh bacaan ilustratif.', 40, 40, 30),
     draw(underline(730, 330, 330, {color: YELLOW}), 'information', 'Pertanyaan sementara digarisbawahi', 1.0, 1.8),
@@ -225,7 +225,7 @@ sfx: [[0.3, 'tap', .05, 'talk'], [2.9, 'tap', .05, 'talk'], [4.7, 'tap', .04, 't
 // 7. Menyusun pernyataan masalah (A: apa yang belum jelas? | V: bagaimana siswa mengikuti tempo teman | A: hubungkan bukti awal & bacaan; mengapa penting)
 const row = (i, lab, text, from) => [txt(lab, 120, 84 + i * 120, 28, {color: RED, bold: true, ...(from !== undefined ? {from} : {})}), hand(text, 120, 118 + i * 120, 40, {w: 1040, ...(from !== undefined ? {from} : {})})];
 scenes.push({talk: [
-  {dur: 3, layers: [desk(), vidka('listen', {to: 1.3}), vidka('think', {from: 1.3}), ardipal('talk', 1000), mv(img('notebook', 700, 330, 220), 'prop', 'Ardipal mendorong buku ke arah Vidka', [{t: .3, x: 760}, {t: 1.2, x: 700}, {t: 2.6, x: 704}])]},
+  {dur: 3, layers: [desk(), vidka('listen', {to: 1.3}), vidka('think', {from: 1.3}), ardipal('talk', 1000), mv(img('notebook', 700, 300, 220), 'prop', 'Ardipal mendorong buku ke arah Vidka melintasi meja', [{t: .2, x: 920}, {t: 1.8, x: 800}, {t: 2.6, x: 804}])]},
   {dur: 7, layers: [
     ...row(0, 'BELUM JELAS', 'Bagaimana siswa mengikuti tempo teman.'), {...write(120, 900, 104, 0.2, 1.4), to: 2.0},
     ...row(1, 'BUKTI AWAL', 'Tempo naik, siswa tertinggal, latihan berhenti.', 2.0), {...mv(img('pencil', 120, 224, 90), 'prop', 'Pensil menulis bukti awal', [{t: 2.0, x: 120}, {t: 3.4, x: 940}, {t: 3.8, x: 960, y: 200}]), from: 2.0, to: 4.2},
@@ -248,8 +248,8 @@ const bigQ = (size = 46) => Q.map((q, i) => hand(q, 120, 130 + i * 80, size));
 scenes.push({talk: [
   {dur: 5.5, layers: [ // over the shoulder: Vidka finishes writing before any highlight
     img('vidka-write', 20, 150, 400), img('notebook', 440, 110, 620),
-    hand(Q[0], 480, 160, 32, {from: .3}), hand(Q[1], 480, 212, 32, {from: 1.9}), hand(Q[2], 480, 264, 32, {from: 3.5}),
-    mv(img('pencil', 470, 140, 90), 'prop', 'Pensil menulis tiga baris pertanyaan lalu diangkat', [{t: .2, x: 470, y: 140}, {t: 1.8, x: 1000, y: 140}, {t: 1.9, x: 470, y: 192}, {t: 3.4, x: 1010, y: 192}, {t: 3.5, x: 470, y: 244}, {t: 4.6, x: 860, y: 244}, {t: 5.2, x: 900, y: 170}]),
+    hand(Q[0], 480, 200, 32, {from: .3}), hand(Q[1], 480, 252, 32, {from: 1.9}), hand(Q[2], 480, 304, 32, {from: 3.5}),
+    mv(img('pencil', 470, 180, 90), 'prop', 'Pensil menulis tiga baris pertanyaan lalu diangkat', [{t: .2, x: 470, y: 180}, {t: 1.8, x: 1000, y: 180}, {t: 1.9, x: 470, y: 232}, {t: 3.4, x: 1010, y: 232}, {t: 3.5, x: 470, y: 284}, {t: 4.6, x: 860, y: 284}, {t: 5.2, x: 900, y: 210}]),
   ]},
   {dur: 4.5, layers: [ // highlights: siapa, proses apa, konteks apa (one at a time)
     ...bigQ(),
@@ -265,7 +265,7 @@ scenes.push({talk: [
 scenes.push({talk: [
   {dur: 2, layers: [
     img('vidka-stand-read', 380, 208, 210), ardipal('listen', 760, {w: 210}),
-    mv(img('questionnaire', 100, 150, 200), 'prop', 'Kuesioner diangkat dan dibaca', [{t: .2, angle: -.04, y: 170}, {t: 1.0, angle: .03, y: 150}, {t: 1.8, angle: -.02, y: 152}]), txt('Kuesioner', 110, 430, 34, {color: NAVY, bold: true}),
+    mv(img('questionnaire', 100, 150, 200), 'prop', 'Kuesioner diangkat setinggi mata lalu dibaca', [{t: .2, angle: -.15, y: 170}, {t: 1.0, angle: .08, y: 90}, {t: 1.8, angle: -.05, y: 110}]), txt('Kuesioner', 110, 430, 34, {color: NAVY, bold: true}),
   ]},
   {dur: 2.5, layers: [
     img('vidka-stand-look', 380, 208, 210), ardipal('talk', 760, {w: 210}),

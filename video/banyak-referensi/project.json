@@ -2502,7 +2502,7 @@
      "type": "text",
      "text": "pertanyaan sementara",
      "x": 730,
-     "y": 180,
+     "y": 100,
      "size": 30,
      "w": 540,
      "color": "#EC4338"
@@ -2701,7 +2701,7 @@
      "type": "text",
      "text": "pertanyaan sementara",
      "x": 730,
-     "y": 180,
+     "y": 100,
      "size": 30,
      "w": 540,
      "color": "#EC4338"
@@ -2910,7 +2910,7 @@
      "type": "text",
      "text": "pertanyaan sementara",
      "x": 730,
-     "y": 180,
+     "y": 100,
      "size": 30,
      "w": 540,
      "color": "#EC4338"
@@ -3507,25 +3507,25 @@
      "type": "image",
      "path": "art/notebook.png",
      "x": 700,
-     "y": 330,
+     "y": 300,
      "w": 220,
      "id": "prop-47",
      "motion": {
       "role": "prop",
-      "reason": "Ardipal mendorong buku ke arah Vidka"
+      "reason": "Ardipal mendorong buku ke arah Vidka melintasi meja"
      },
      "keys": [
       {
-       "t": 0.268,
-       "x": 760
+       "t": 0.179,
+       "x": 920
       },
       {
-       "t": 1.071,
-       "x": 700
+       "t": 1.607,
+       "x": 800
       },
       {
        "t": 2.321,
-       "x": 704
+       "x": 804
       }
      ]
     }
@@ -3843,7 +3843,7 @@
      "type": "text",
      "text": "Bagaimana siswa pemula menggunakan",
      "x": 480,
-     "y": 160,
+     "y": 200,
      "size": 32,
      "w": 790,
      "color": "#1F3A5F",
@@ -3853,7 +3853,7 @@
      "type": "text",
      "text": "isyarat bunyi dan gerak untuk menjaga",
      "x": 480,
-     "y": 212,
+     "y": 252,
      "size": 32,
      "w": 790,
      "color": "#1F3A5F",
@@ -3863,7 +3863,7 @@
      "type": "text",
      "text": "tempo dalam ansambel?",
      "x": 480,
-     "y": 264,
+     "y": 304,
      "size": 32,
      "w": 790,
      "color": "#1F3A5F",
@@ -3873,7 +3873,7 @@
      "type": "image",
      "path": "art/pencil.png",
      "x": 470,
-     "y": 140,
+     "y": 180,
      "w": 90,
      "id": "prop-54",
      "motion": {
@@ -3884,37 +3884,37 @@
       {
        "t": 0.209,
        "x": 470,
-       "y": 140
+       "y": 180
       },
       {
        "t": 1.881,
        "x": 1000,
-       "y": 140
+       "y": 180
       },
       {
        "t": 1.986,
        "x": 470,
-       "y": 192
+       "y": 232
       },
       {
        "t": 3.554,
        "x": 1010,
-       "y": 192
+       "y": 232
       },
       {
        "t": 3.658,
        "x": 470,
-       "y": 244
+       "y": 284
       },
       {
        "t": 4.808,
        "x": 860,
-       "y": 244
+       "y": 284
       },
       {
        "t": 5.435,
        "x": 900,
-       "y": 170
+       "y": 210
       }
      ]
     }
@@ -4183,23 +4183,23 @@
      "id": "prop-60",
      "motion": {
       "role": "prop",
-      "reason": "Kuesioner diangkat dan dibaca"
+      "reason": "Kuesioner diangkat setinggi mata lalu dibaca"
      },
      "keys": [
       {
        "t": 0.202,
-       "angle": -0.04,
+       "angle": -0.15,
        "y": 170
       },
       {
        "t": 1.01,
-       "angle": 0.03,
-       "y": 150
+       "angle": 0.08,
+       "y": 90
       },
       {
        "t": 1.817,
-       "angle": -0.02,
-       "y": 152
+       "angle": -0.05,
+       "y": 110
       }
      ]
     },
