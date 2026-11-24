@@ -45,14 +45,19 @@ Folder `output/`, `drafts/*/output/` (cache render) dan `audio/*.wav` (33 MB PCM
 
 ## Cara menjalankan ulang
 
-Prasyarat: Node 20+, FFmpeg + FFprobe, Git. Pasang skill (sekali):
+Prasyarat: Node 20+, FFmpeg + FFprobe, Git, Python 3.9+. Pasang runtime upstream sekali dengan skrip bootstrap repo ini (sparse checkout minimal ke `~/.cache/stickman-video-director`, `npm ci`, venv Python, `doctor`, lalu mencatat commit upstream di `b6-bootstrap.json`):
 
 ```bash
-git clone --depth 1 https://github.com/kaomei/stickman-video-director.git
-cd stickman-video-director/skills/directing-stickman-videos && npm ci && node scripts/autopilot.mjs doctor
+.claude/skills/stickman-video/scripts/bootstrap.sh install --style B1
 ```
 
-Dari folder skill tersebut (`SKILL` = path absolutnya; `PROJ` = path absolut folder ini):
+```bash
+.claude/skills/stickman-video/scripts/check.sh --project video/banyak-referensi
+```
+
+`check.sh` tidak memasang apa pun dan diakhiri satu baris `READY` atau `NOT READY`. Rute layanan (narasi lewat konektor ElevenLabs dengan ID suara terdaftar, satu take berbayar dengan SHA dipin; gambar lewat ElevenLabs/Figma atau raster buatan sendiri; mixing lewat FFmpeg) didokumentasikan di `.claude/skills/stickman-video/SKILL.md`.
+
+Dari folder skill upstream (`SKILL` = `~/.cache/stickman-video-director/skills/directing-stickman-videos`; `PROJ` = path absolut folder ini):
 
 ```bash
 # 1. buat audio placeholder (sekali), lalu (opsional) gambar ulang aset dan bangun ulang manifest

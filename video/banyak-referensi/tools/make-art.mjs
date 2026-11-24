@@ -4,8 +4,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {createRequire} from 'node:module';
-// Resolve @napi-rs/canvas from the installed stickman Skill (SKILL_DIR) or a local install.
-const SKILL_DIR = process.env.SKILL_DIR || path.resolve('.');
+// Resolve @napi-rs/canvas from the installed stickman Skill: SKILL_DIR, else the bootstrap cache
+// (B6_UPSTREAM_DIR or ~/.cache/stickman-video-director, see .claude/skills/stickman-video/scripts/bootstrap.sh).
+import os from 'node:os';
+const CACHE = process.env.B6_UPSTREAM_DIR || path.join(os.homedir(), '.cache', 'stickman-video-director');
+const SKILL_DIR = process.env.SKILL_DIR || path.join(CACHE, 'skills', 'directing-stickman-videos');
+if (!fs.existsSync(path.join(SKILL_DIR, 'package.json'))) { console.error(`stickman Skill not found at ${SKILL_DIR}; run .claude/skills/stickman-video/scripts/bootstrap.sh install, or set SKILL_DIR`); process.exit(1); }
 const {createCanvas} = createRequire(path.join(SKILL_DIR, 'package.json'))('@napi-rs/canvas');
 
 const OUT = path.resolve(process.argv[2] || '../art');
