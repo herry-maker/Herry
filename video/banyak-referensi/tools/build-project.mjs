@@ -309,7 +309,7 @@ scenes.push({talk: [
     txt('diperiksa lagi pada 12:04 · 14:50 · 19:12', 420, 528, 24, {color: GRAY, from: 3.0}),
   ]},
 ], hold: [
-  {dur: 5, layers: [...pair(), line([[540, 270], [740, 270]], {color: RED, lineWidth: 5}), txt('pola penggunaan isyarat', 420, 440, 40, {color: NAVY, bold: true}), label('Simulasi', 40, 30, 30), label('diperiksa lagi pada 12:04 · 14:50 · 19:12', 420, 528, 24), draw(underline(420, 490, 440, {color: YELLOW}), 'information', 'Pola isyarat digarisbawahi', 1.0, 1.8), draw(line([[540, 270], [740, 270]], {color: RED, lineWidth: 7}), 'information', 'Penghubung pengamatan–wawancara ditebalkan', 3.0, 3.6)]},
+  {dur: 5, layers: [...pair(), line([[540, 270], [740, 270]], {color: RED, lineWidth: 5}), txt('pola penggunaan isyarat', 420, 440, 40, {color: NAVY, bold: true}), label('Simulasi', 40, 30, 30), label('diperiksa lagi pada 12:04 · 14:50 · 19:12', 420, 528, 24), draw(underline(420, 490, 440, {color: YELLOW}), 'information', 'Pola isyarat digarisbawahi', 0.3, 1.0), draw(line([[540, 270], [740, 270]], {color: RED, lineWidth: 7}), 'information', 'Penghubung pengamatan–wawancara ditebalkan', 2.2, 2.8)]},
 ], sfx: [[0.3, 'tap', .05, 'talk'], [4.4, 'pop', .04, 'talk'], [6.6, 'tap', .05, 'talk'], [7.7, 'chime', .05, 'talk']]});
 
 // 11. Menyesuaikan rancangan dengan pertanyaan (V: kalau menguji metronom? | A: pertanyaannya berubah: ukuran tempo, perbandingan, faktor lain)
