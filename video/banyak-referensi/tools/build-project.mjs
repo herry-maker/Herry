@@ -357,13 +357,13 @@ scenes.push({talk: [
   ]},
 ], hold: [
   {dur: 2.5, layers: [ // one page: the four elements the critique asked to see together, before the task
-    img('notebook', 300, 60, 680), txt('Halaman rencana Vidka', 360, 90, 28, {color: RED}),
-    hand('Masalah: tempo belum konsisten', 360, 150, 27, {from: .2}),
-    draw(underline(360, 176, 460, {color: YELLOW}), 'information', 'Baris masalah digarisbawahi', 0.4, 0.9),
-    hand('Pertanyaan: bagaimana isyarat menjaga tempo?', 360, 192, 25, {from: .6}),
-    hand('Data: pengamatan dan wawancara', 360, 234, 25, {from: 1.0}),
-    hand('Alasan: sesuai proses dan konteks kelompok', 360, 276, 25, {from: 1.4}),
-    draw(underline(360, 312, 480, {color: YELLOW}), 'information', 'Baris alasan digarisbawahi', 1.8, 2.3),
+    img('notebook', 300, 60, 680), txt('Halaman rencana Vidka', 360, 145, 28, {color: RED}),
+    hand('Masalah: tempo belum konsisten', 360, 205, 27, {from: .2}),
+    draw(underline(360, 231, 460, {color: YELLOW}), 'information', 'Baris masalah digarisbawahi', 0.4, 0.9),
+    hand('Pertanyaan: bagaimana isyarat menjaga tempo?', 360, 247, 25, {from: .6}),
+    hand('Data: pengamatan dan wawancara', 360, 289, 25, {from: 1.0}),
+    hand('Alasan: sesuai proses dan konteks kelompok', 360, 331, 25, {from: 1.4}),
+    draw(underline(360, 367, 480, {color: YELLOW}), 'information', 'Baris alasan digarisbawahi', 1.8, 2.3),
   ]},
   {dur: 2.5, layers: [
     img('card', 120, 110, 820), txt('Tugas akhir', 150, 130, 30, {color: RED, bold: true}),

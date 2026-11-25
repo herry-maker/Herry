@@ -1,0 +1,785 @@
+{
+ "reviewer": {
+  "id": "independent-reviewer-agent-filmbody-v3",
+  "kind": "agent",
+  "method": "Independent full-film re-review of the 43-shot (shot-0..shot-42) B1 render after the content revision covering scenes 1-4, 7, 8, 10 and 12 (commit caf83f4, duration 182.587s -> 192.375s). Method: (1) read output/film-reference/evidence.json and review-template.json for the authoritative current shot list, frame_index/source_time and the 7 required checks; (2) read project.json in full for every shot's layer/keyframe data, and cross-referenced project.json's own 'metadata.scenes' outline (scene/title/phase/shot/start/end/scale) to get the authoritative scene<->shot-id mapping, since this is ground truth rather than inferred; (3) located every content change named in the critique (scene1 opening line + metronome, scene2 search label, scene3 sticky-note captions, scene4 claim card, scene7 problem-statement restructure, scene8 checkmark label + dialogue extension, scene10 timestamp line + dialogue extension + motion-gap fix, scene12 new summary page + compressed task card) by grepping project.json for its literal new/changed text and by diffing project.json between commit caf83f4~1 and HEAD (and reading commit caf83f4's own message), rather than trusting the shot numbers given in the task brief. CORRECTION TO THE TASK BRIEF: the brief's claim that shot-ids shifted by +1 from shot-19 onward (because scene 12 gained a shot) does not hold. Direct comparison of findings-film-v2.json's shot-by-shot content descriptions (42 shots, shot-0..shot-41) against the current 43-shot structure, plus the project.json git diff, shows shots 0-40 are unchanged in index/order/content-mapping (only their absolute timestamps shifted, because scenes 1/8/10 grew longer); the only structural change is that the former single shot-41 (task card, 6.0s) was split into a new shot-41 (brand-new 'Halaman rencana Vidka' summary page, 3.0s) followed by a new shot-42 (the same task card, now compressed to 3.0s). So the actual new/changed-content shots are: shot-24 (scene 7 hold, NOT shot-19/20 as the brief guessed), shot-26+shot-27 (scene 8 talk2+hold, NOT shot-22/23), shot-32/33/34+shot-35 (scene 10 talk1-3+hold, NOT shot-29-31), and shot-41+shot-42 (scene 12, roughly matching the brief's guess). Scenes 1-4's changed shots (0-4, 5, 9, 13) do match the brief's numbers. (4) For every shot with new/changed content, extracted start/mid/end and additional in-between frames from output/film.mp4 with ffmpeg at the shot's exact absolute source_time windows, read them, and for scene 10's motion-gap fix additionally stepped frames every 0.2-0.5s across 154.2-158.6s absolute (both the removed-gap window and beyond) to directly confirm visible, gradual pixel-level motion rather than trusting the edited keyframe numbers. Zoomed crops (PIL) were used to inspect shot-41's header-vs-ring-band collision at full detail. (5) For shots not touched by this revision, confirmed via project.json's scene outline that their total scene duration and internal content are byte-identical to the pre-revision cut (verified for scenes 5/6/9/11 and the untouched shots of scenes 2/3/4/8/10/12), then did representative frame spot-checks (shot-0, shot-5, shot-9, shot-13, shot-17 end, shot-22 early, shot-25, shot-32, shot-33) to confirm the render genuinely matches, rather than assuming identity from timestamps alone. Shots 0-13 (scenes 1-4) were additionally cross-checked against review/preview-review-v9.json, which already independently reviewed and approved this exact sample (98/98, 0 blocking) against the current bounds. Findings-film-v2.json's own pre-existing non-blocking defects (shot-17 typography_captions residual ring-overlap flash; shot-22 contact_continuity notebook/ring-vs-chin overlap) were spot-checked frame-by-frame and confirmed still present unchanged, so they are carried forward as 'unmet' rather than silently dropped or re-litigated. (6) Checked audio: per-segment volumedetect across all 4 new/extended TTS regions (scene1 opening line, scene8 Herry extension, scene10 both Herry lines) confirms healthy, non-silent, non-clipping levels; whole-film loudnorm analysis measures -20.2 LUFS integrated / -1.8 dBTP true peak, consistent with the previously-approved -20.3 LUFS baseline. One genuine blocking finding was identified: shot-41 (the brand-new 'Halaman rencana Vidka' summary page) reintroduces the ring-band/header text collision for its full 3.0s duration, confirmed by zoomed pixel inspection, not a one-frame artifact."
+ },
+ "full_playback": {
+  "viewed_ranges": [
+   {
+    "start": 0,
+    "end": 192.375979
+   }
+  ],
+  "observations": [
+   {
+    "time": 99.5,
+    "detail": "Scene 7's HOLD (shot-24) correctly renders the new single progressively-revealed 4-line problem statement (kejadian -> dampak -> ketidakjelasan) inside a resized navy bracket (y=140-380); fits without overflow, each line stages at a sensible interval, and the closing underline lands under the last line only. See shot-24 for full detail."
+   },
+   {
+    "time": 119.7,
+    "detail": "Scene 8's checkmark label change ('lengkap' -> 'lebih terarah', moved to x=960/size 28) renders with ample clearance from both the question text and the frame edge; Herry's extended TALK line reads naturally and does not produce caption overlap or truncation. See shot-26/shot-27."
+   },
+   {
+    "time": 156.3,
+    "detail": "Scene 10's new 'diperiksa lagi pada 12:04 . 14:50 . 19:12' timestamp line fits cleanly under 'pola penggunaan isyarat' in both the talk and hold shots. The motion-gap fix (underline/line-thickening events moved earlier in the hold) was verified by direct frame-stepping across 154.2-158.6s absolute and produces real, gradual, visible motion inside the previously-flagged 154.25-156.50s dead window -- confirmed from pixels, not from the edited keyframe numbers alone. See shot-34/shot-35."
+   },
+   {
+    "time": 188.0,
+    "detail": "Scene 12's new 'Halaman rencana Vidka' summary shot (shot-41) is entirely new content: its 4-line recap (Masalah/Pertanyaan/Data/Alasan) and two staggered underlines are well composed and fully legible, BUT its red header text collides with the notebook's spiral-ring band for the shot's entire 3.0s duration -- a regression of a ring-overlap defect class that was fixed in several shots of the pre-revision body review. This is the review's one blocking finding."
+   },
+   {
+    "time": 191.0,
+    "detail": "The task card (shot-42) that follows is compressed to half its old duration (6.0s -> 3.0s) but remains fully legible and unrushed; all beats (underline, checkmark, pose-swap) land with room to spare, and the 'Easy Lemon' music-credit line is present and legible throughout."
+   },
+   {
+    "time": 75.157,
+    "detail": "Carried forward: the pre-existing sub-second ring-overlap flash at the shot-17/shot-18 cut (scene 5, untouched by this revision) is still present, confirmed by spot check; not perceptible at normal playback speed."
+   },
+   {
+    "time": 90.4,
+    "detail": "Carried forward: the pre-existing notebook-ring/Ardipal-chin contact overlap in shot-22's first ~0.5s (scene 7 TALK, untouched by this revision) is still present, confirmed by zoomed spot check."
+   }
+  ]
+ },
+ "baseline": [
+  {
+   "reference_id": "b1-ryan-v4",
+   "start": 0.5,
+   "end": 9.0,
+   "observations": [
+    {
+     "time": 0.5,
+     "detail": "Re-confirmed: the B1 baseline's single stick figure, fully opaque props with no overlapping outlines, and bold-headline/grey-support-line typography remain the craft bar this project is measured against."
+    },
+    {
+     "time": 9.0,
+     "detail": "Re-confirmed: ref-9's single unmistakable physical action (toppling video stack with motion lines) is the bar for legible prop motion; this revision's scene-10 motion-gap fix (shot-35) was held to this same bar and verified to produce real, visible, gradual motion rather than a sub-pixel non-event."
+    }
+   ]
+  }
+ ],
+ "blocking_issues": [
+  "shot-41 (scene 12, 'Halaman rencana Vidka' summary page, absolute 186.376-189.375s): the new red header text sits directly across the notebook's spiral-ring band for the shot's entire 3.0s duration, with three ring loops visibly crossing through its letterforms (zoomed crop confirms this at 186.4s, 188.1s, 189.0s and 189.3s -- i.e. throughout the shot, not a transient frame). This is a regression of the ring-overlap typography/composition fault that was identified and fixed in shots 14, 16, 17 and 25 of the pre-revision full-film review (the fix pattern there was to keep headers at y=100+ with the notebook's rings ending by y~170-180; this shot's notebook sits higher, at y=60, with its header placed at y=90, squarely inside the ring band). Recommended fix: raise the header to clear the rings (e.g. move the notebook down or the header up/outside the ring band), following the same pattern already used successfully elsewhere in the film."
+ ],
+ "shots": {
+  "shot-0": "CARRIED_FORWARD_PASS_SAMPLE_V9",
+  "shot-1": "CARRIED_FORWARD_PASS_SAMPLE_V9",
+  "shot-2": "CARRIED_FORWARD_PASS_SAMPLE_V9",
+  "shot-3": "CARRIED_FORWARD_PASS_SAMPLE_V9",
+  "shot-4": "CARRIED_FORWARD_PASS_SAMPLE_V9",
+  "shot-5": "CARRIED_FORWARD_PASS_SAMPLE_V9",
+  "shot-6": "CARRIED_FORWARD_PASS",
+  "shot-7": "CARRIED_FORWARD_PASS",
+  "shot-8": "CARRIED_FORWARD_PASS",
+  "shot-9": "CARRIED_FORWARD_PASS_SAMPLE_V9",
+  "shot-10": "CARRIED_FORWARD_PASS",
+  "shot-11": "CARRIED_FORWARD_PASS",
+  "shot-12": "CARRIED_FORWARD_PASS",
+  "shot-13": "CARRIED_FORWARD_PASS_SAMPLE_V9",
+  "shot-14": "CARRIED_FORWARD_PASS",
+  "shot-15": "CARRIED_FORWARD_PASS",
+  "shot-16": "CARRIED_FORWARD_PASS",
+  "shot-17": {
+   "drawing_character": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "semantic_acting": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "contact_continuity": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "composition_evidence": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "typography_captions": {
+    "status": "unmet",
+    "observations": [
+     {
+      "time": 75.157,
+      "phase": "end",
+      "detail": "Unchanged from findings-film-v2: spot-checked at absolute 75.157s (shot-17 end phase). The 'pertanyaan sementara' header and the first line of the new question still sit with their baseline touching/crossing the notebook's spiral-ring band for a brief moment right at the shot-17/shot-18 cut -- the same sub-second residual ring-overlap flash documented previously, not perceptible at normal playback speed. No content in this shot changed in this revision (scene 5 is not one of the scenes touched by the current critique); carried forward as 'unmet' rather than upgraded, since the defect itself was not re-fixed."
+     }
+    ],
+    "comparisons": []
+   },
+   "timing_pacing": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "sound": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   }
+  },
+  "shot-18": "CARRIED_FORWARD_PASS",
+  "shot-19": "CARRIED_FORWARD_PASS",
+  "shot-20": "CARRIED_FORWARD_PASS",
+  "shot-21": "CARRIED_FORWARD_PASS",
+  "shot-22": {
+   "drawing_character": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "semantic_acting": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "contact_continuity": {
+    "status": "unmet",
+    "observations": [
+     {
+      "time": 90.4,
+      "phase": "start",
+      "detail": "Unchanged from findings-film-v2: spot-checked at absolute 90.4s (shot-22 early, local t~0.2s, notebook prop-48 at its keyed start x=920). Zoomed crop confirms the notebook's top-right spiral ring still visibly overlaps/crosses Ardipal's chin and beard for roughly the first 0.5s of the shot, the same fault documented previously. Scene 7's TALK shots (22-23) were not touched by this revision -- only scene 7's HOLD (shot-24) text was restructured -- so this pre-existing fault is carried forward as 'unmet', not re-litigated or re-fixed."
+     }
+    ],
+    "comparisons": []
+   },
+   "composition_evidence": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "typography_captions": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "timing_pacing": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "sound": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   }
+  },
+  "shot-23": "CARRIED_FORWARD_PASS",
+  "shot-24": {
+   "drawing_character": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 99.122,
+      "phase": "start",
+      "detail": "No character on screen this shot (notebook/paper insert only, scene 7 'Menyusun pernyataan masalah' hold); line art for the bracket, underline and text is the same clean single-weight style used throughout the body, consistent with the B1 contract."
+     }
+    ],
+    "comparisons": []
+   },
+   "semantic_acting": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 100.3,
+      "phase": "mid",
+      "detail": "The four lines reveal in a sensible escalating stagger: line 1 'Tempo meningkat, siswa tertinggal,' at local t=0 (absolute 99.122s), line 2 'latihan pun berhenti --' at t=1.214 (100.336s), then lines 3-4 ('belum jelas bagaimana siswa' / 'mengikuti tempo teman saat latihan.') together at t=2.429 (101.551s) in the attention-grabbing red used for the 'not yet clear' clause. This matches the kejadian->dampak->ketidakjelasan narration it accompanies ('Tempo meningkat, siswa tertinggal, latihan pun berhenti -- belum jelas bagaimana siswa mengikuti tempo teman saat latihan.') one clause at a time."
+     },
+     {
+      "time": 103.9,
+      "phase": "mid",
+      "detail": "The navy bracket (information-53) is redrawn to its new taller span (points y=140 to y=380) with a progress animation from t=0.364-1.579 (absolute 99.486-100.701s), after which it sits static; the underline (information-54) draws under the final line only, from t=3.643-4.858 (102.765-103.98s), confirmed via frame step at 103.0s/104.5s as a genuine progress-animated underline, not an instant pop."
+     }
+    ],
+    "comparisons": []
+   },
+   "contact_continuity": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 104.5,
+      "phase": "end",
+      "detail": "All four text lines, the header 'PERNYATAAN MASALAH', the bracket and the underline stay on blank paper with no overlapping art/props in this shot; no ring-band or prop collision (this shot has no notebook-ring art, just the grid-paper background)."
+     }
+    ],
+    "comparisons": []
+   },
+   "composition_evidence": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 103.9,
+      "phase": "mid",
+      "detail": "Extracted frames at local t=1.2s, 3.9s and the end phase (104.5/104.98s) confirm the 4-line block (x=120, w=1040, y=150/196/254/308) fits fully inside the 1280x720 frame with no overflow: the longest rendered line ends around x=660, well inside the 1040px wrap width and far short of the bracket at x=1190-1210, which itself sits with a 70px margin from the right edge. Vertically the bracket (y=140-380) correctly encloses all four lines (which run from y=150 to roughly y=352 rendered) while the 'PERNYATAAN MASALAH' header at y=90 sits outside/above the bracket as a separate heading -- no clipping or crowding anywhere."
+     },
+     {
+      "time": 104.98,
+      "phase": "end",
+      "detail": "The underline (y=368) sits cleanly below the last line of text ('mengikuti tempo teman saat latihan.', baseline ~y=352) without crossing into any of the four text lines; it also does not touch the bracket's vertical stroke at x=1190."
+     }
+    ],
+    "comparisons": []
+   },
+   "typography_captions": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 104.98,
+      "phase": "end",
+      "detail": "All four lines are fully legible in both colors used (navy for kejadian/dampak, red for the ketidakjelasan clause), properly sized (38/38/44/44) and never overlap each other given the 54-58px line spacing used (150/196/254/308)."
+     }
+    ],
+    "comparisons": []
+   },
+   "timing_pacing": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 99.122,
+      "phase": "start",
+      "detail": "Shot duration is unchanged at 6.072s (99.122-105.194s, identical to the pre-revision boundary); the new 4-line reveal (complete by local t=2.429/absolute 101.551s) and its underline (complete by t=4.858/absolute 103.98s) both finish comfortably inside this unchanged budget, leaving a ~1.2s settled hold before the cut to shot-25/scene 8."
+     }
+    ],
+    "comparisons": []
+   },
+   "sound": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 99.122,
+      "detail": "Dialogue/audio for this shot is unchanged by this revision (only the on-screen text layout changed); mean volume sampled in the surrounding region is consistent with the rest of the film (no new recording for scene 7)."
+     }
+    ],
+    "comparisons": []
+   }
+  },
+  "shot-25": {
+   "drawing_character": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "semantic_acting": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "contact_continuity": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "composition_evidence": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "typography_captions": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "timing_pacing": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 105.194,
+      "phase": "start",
+      "detail": "Shot-25's own captioned dialogue (105.194-111.723s, 'Bagaimana siswa pemula menggunakan isyarat bunyi dan gerak untuk menjaga tempo dalam ansambel?') and pencil-write keyframes are byte-for-byte unchanged from the pre-revision cut; only the shot's tail boundary (when it cuts to shot-26) moved from 110.94s to 112.643s because the scene-8 TALK phase was re-split after shot-26's dialogue grew. The extra ~1.7s is a static, fully-written hold before the cut -- spot-checked at 143.8-equivalent style frame within shot-25's own range, no new overflow or emptiness introduced."
+     }
+    ],
+    "comparisons": []
+   },
+   "sound": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   }
+  },
+  "shot-26": {
+   "drawing_character": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "semantic_acting": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 119.0,
+      "phase": "mid",
+      "detail": "The three-part breakdown (SIAPA / PROSES APA / KONTEKS APA with underlines under 'siswa pemula', then the process clause, then the context clause) is unchanged in content; it still completes by local t=5.418 (absolute 118.061s), comfortably inside the new, longer shot duration (112.643-118.738s, 6.095s total vs ~4.71s before), leaving extra settled time rather than crowding the reveal."
+     }
+    ],
+    "comparisons": []
+   },
+   "contact_continuity": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "composition_evidence": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "typography_captions": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 119.1,
+      "phase": "mid",
+      "detail": "New caption 'Sekarang pastikan dapat dijawab dengan data yang tersedia.' (114.895-120.238s) was verified by frame extraction: it reads as a natural continuation of 'Jelas: siapa, proses apa, dan dalam konteks apa.' with no truncation, and it deliberately runs 1.5s past this shot's own end (118.738s) into shot-27's start, which is a normal caption-over-cut overlap, not an error -- the next caption ('Saya gunakan kuesioner saja?') only starts at 123.738s, so there is no two-caption overlap."
+     }
+    ],
+    "comparisons": []
+   },
+   "timing_pacing": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 112.643,
+      "detail": "Shot duration grew from ~4.71s to 6.095s to accommodate the longer Herry line; the on-screen three-part breakdown still finishes with time to spare (see semantic_acting), so the extension reads as a comfortable pause for the new sentence rather than a rushed or padded shot."
+     }
+    ],
+    "comparisons": []
+   },
+   "sound": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 116.0,
+      "detail": "Volume sampled across 114.9-120.3s (the new sentence) measures mean -22.4 dB / max -2.1 dB, consistent with the rest of the dialogue track -- the new TTS line is present, not silent, and not clipping."
+     }
+    ],
+    "comparisons": []
+   }
+  },
+  "shot-27": {
+   "drawing_character": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "semantic_acting": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 119.7,
+      "phase": "start",
+      "detail": "Green checkmark draws in beside the three-line question (keys t=0.3-0.9) and the label 'lebih terarah' fades in right after (from=0.9), correctly resolving the SIAPA/PROSES APA/KONTEKS APA breakdown from shot-26 with the revised framing (the question is now 'more focused' rather than simply 'complete')."
+     }
+    ],
+    "comparisons": []
+   },
+   "contact_continuity": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "composition_evidence": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 119.7,
+      "phase": "mid",
+      "detail": "Frame-checked at local t~1.0s and at the shot's end: the actual rendered question text ('Bagaimana siswa pemula menggunakan / isyarat bunyi dan gerak untuk menjaga / tempo dalam ansambel?') is well short of its 1150px wrap width (ending around x=730), leaving a wide gap before the checkmark (tip near x=1125) and the 'lebih terarah' label (x=960-1090, size 28). No overlap between the label/checkmark and the question text, and the label does not clip the right frame edge (1090 < 1280)."
+     }
+    ],
+    "comparisons": []
+   },
+   "typography_captions": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 123.5,
+      "phase": "end",
+      "detail": "'lebih terarah' is fully legible in green at its new position throughout the hold; the closing underline under 'tempo dalam ansambel?' (t=2.2-3.2) draws cleanly under that line only."
+     }
+    ],
+    "comparisons": []
+   },
+   "timing_pacing": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "sound": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   }
+  },
+  "shot-28": "CARRIED_FORWARD_PASS",
+  "shot-29": "CARRIED_FORWARD_PASS",
+  "shot-30": "CARRIED_FORWARD_PASS",
+  "shot-31": "CARRIED_FORWARD_PASS",
+  "shot-32": {
+   "drawing_character": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "semantic_acting": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "contact_continuity": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 143.8,
+      "detail": "Both written lines stay clear of the notebook's spiral-ring band at this shot's larger notebook scale; no overlap."
+     }
+    ],
+    "comparisons": []
+   },
+   "composition_evidence": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "typography_captions": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "timing_pacing": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 143.8,
+      "phase": "end",
+      "detail": "Shot grew from 3.03s to 5.343s to carry the extended case-study justification ('Studi kasus kualitatif dapat sesuai: kita menelaah proses secara mendalam dalam satu kelompok dan konteks latihannya.'). The on-screen write-in ('Studi kasus kualitatif' / 'memahami kelompok ini') still finishes by local t=5.009s, just before the shot ends, and the extra runway is filled by Herry visibly still talking (frame-checked at 143.8s) rather than a dead static hold."
+     }
+    ],
+    "comparisons": []
+   },
+   "sound": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   }
+  },
+  "shot-33": {
+   "drawing_character": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "semantic_acting": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "contact_continuity": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "composition_evidence": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "typography_captions": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "timing_pacing": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 148.8,
+      "phase": "end",
+      "detail": "Shot grew from 2.84s to 5.009s; spot-checked near the end (148.8s) shows the metronome still swinging, the clock/'12:04' note settled, and the new caption 'Saya membandingkan pengamatan dengan wawancara?' beginning to play under an otherwise static tableau -- a natural continuation, not an empty hold."
+     }
+    ],
+    "comparisons": []
+   },
+   "sound": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   }
+  },
+  "shot-34": {
+   "drawing_character": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "semantic_acting": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 153.0,
+      "phase": "mid",
+      "detail": "The pengamatan/wawancara card comparison plays out unchanged, then the new text 'diperiksa lagi pada 12:04 · 14:50 · 19:12' fades in (from=5.009, absolute 154.197s) right after the 'pola penggunaan isyarat' underline completes (3.673-5.009), timed to Herry's new line 'Periksa juga apakah pola ini muncul lagi pada latihan lain.'"
+     }
+    ],
+    "comparisons": []
+   },
+   "contact_continuity": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "composition_evidence": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 154.2,
+      "phase": "end",
+      "detail": "Frame-checked at 154.2s: the new timestamp line (x=420, y=528, size 24, grey) sits well below 'pola penggunaan isyarat' (y=440) and its underline (y=490) with clear vertical gaps, and does not collide with either of the two note cards above (which end around y=400). Text is small (size 24, the smallest in the project) but still legible at full resolution."
+     }
+    ],
+    "comparisons": []
+   },
+   "typography_captions": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "timing_pacing": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 149.188,
+      "detail": "Shot duration (149.188-155.532s, 6.344s) is unchanged from before this revision; the new timestamp line is the last thing to appear (from local t=5.009) and the shot ends at t=6.344, giving it ~1.3s of visible hold -- not clipped."
+     }
+    ],
+    "comparisons": []
+   },
+   "sound": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 151.0,
+      "detail": "Volume sampled across 149.2-152.2s measures mean -19.5 dB / max -2.0 dB, consistent with the rest of the track; the new TTS for 'Ya, untuk menelaah pola penggunaan isyarat' / the lead-in to the extended prompt is present and properly leveled."
+     }
+    ],
+    "comparisons": []
+   }
+  },
+  "shot-35": {
+   "drawing_character": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "semantic_acting": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 156.1,
+      "phase": "mid",
+      "detail": "MOTION-GAP FIX VERIFIED BY FRAME STEPPING (not just by trusting the edited keyframe numbers): stepped film.mp4 at 0.2-0.5s intervals across 154.2-158.6s absolute. At 154.2-154.8s (end of shot-34) the underline under 'pola penggunaan isyarat' is already fully drawn and static. At the shot-34/35 cut (155.532s) it resets to undrawn (shot-35 redraws its own copy). At 155.6s (local t=0.07, before its t=0.3 key) it is still fully absent. At 156.1s (local t=0.57, inside the t=0.3-1.0 key window) it is visibly ~40% drawn. At 156.5s (local t=0.97) it is fully drawn. This is genuine, gradual, visible pixel-level motion landing inside the renderer-flagged 154.25-156.50s dead window, not an instantaneous pop and not a sub-pixel non-event."
+     },
+     {
+      "time": 158.0,
+      "phase": "mid",
+      "detail": "The second moved event (the pengamatan-wawancara connector line thickening from lineWidth 5 to 7, now keyed at local t=2.2-2.8 / absolute 157.732-158.332) was also verified frame-by-frame: thin and static at 157.5s, visibly mid-thickening with a slight overdraw cap at 157.8s, fully thickened by 158.3s -- a real animated transition, confirmed by direct pixel inspection rather than by the authored keyframe numbers alone."
+     }
+    ],
+    "comparisons": []
+   },
+   "contact_continuity": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "composition_evidence": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 155.8,
+      "phase": "start",
+      "detail": "The static timestamp line 'diperiksa lagi pada 12:04 · 14:50 · 19:12' and the 'Simulasi' label (new to this shot) both sit clear of the note cards and of each other throughout; no overlap introduced by carrying the timestamp line into the hold."
+     }
+    ],
+    "comparisons": []
+   },
+   "typography_captions": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "timing_pacing": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 155.532,
+      "detail": "Shot duration (155.532-160.532s, 5.0s) is unchanged by this revision; only the two motion events' start keys moved earlier (1.0->0.3 and 3.0->2.2 local), which is exactly what closes the previously-flagged dead window without altering the shot's overall length or its final resting state."
+     }
+    ],
+    "comparisons": []
+   },
+   "sound": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   }
+  },
+  "shot-36": "CARRIED_FORWARD_PASS",
+  "shot-37": "CARRIED_FORWARD_PASS",
+  "shot-38": "CARRIED_FORWARD_PASS",
+  "shot-39": "CARRIED_FORWARD_PASS",
+  "shot-40": "CARRIED_FORWARD_PASS",
+  "shot-41": {
+   "drawing_character": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 186.4,
+      "phase": "start",
+      "detail": "No character on screen this shot (notebook insert only); line art for the notebook, text and underlines matches the established style."
+     }
+    ],
+    "comparisons": []
+   },
+   "semantic_acting": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 188.1,
+      "phase": "mid",
+      "detail": "The four lines (Masalah / Pertanyaan / Data / Alasan) reveal progressively and evenly staggered every 0.48s (from=0.24, 0.72, 1.2, 1.68), each completing its thought in sequence; the two underlines (under 'Masalah: tempo belum konsisten' at t=0.48-1.08, under 'Alasan: sesuai proses dan konteks kelompok' at t=2.16-2.76) draw cleanly under their own lines with no overlap of other text, correctly emphasising the problem and the rationale as the closing recap's two load-bearing lines."
+     }
+    ],
+    "comparisons": []
+   },
+   "contact_continuity": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 188.1,
+      "detail": "The four body lines (y=150/192/234/276) and both underlines sit below the notebook's ring band with a clear margin and do not collide with each other or with the ring art."
+     }
+    ],
+    "comparisons": []
+   },
+   "composition_evidence": {
+    "status": "unmet",
+    "observations": [
+     {
+      "time": 189.0,
+      "phase": "end",
+      "detail": "BLOCKING: the red header 'Halaman rencana Vidka' (x=360, y=90) sits directly across the notebook's spiral-ring band for the entire shot. The notebook image is placed at y=60 with its rings spanning roughly y=65-160, and the header at y=90 falls squarely inside that band. Zoomed crop (330,60)-(920,180) at the 189.0s frame shows three of the eight ring loops physically crossing through the letters of 'Halaman rencana Vidka' ('H', the loop over 'r'/'c', and a loop over the tail of 'Vidka'), the same ring-overlap typography fault that was identified and fixed in multiple earlier shots (14, 16, 17, 25) of the pre-revision body review. This is a regression of a previously-fixed defect class, reintroduced in this shot's brand-new header, and it persists for the full ~3.0s duration of the shot (confirmed static across samples at 186.4s, 188.1s, 189.0s, 189.3s), not a one-frame flash."
+     }
+    ],
+    "comparisons": []
+   },
+   "typography_captions": {
+    "status": "unmet",
+    "observations": [
+     {
+      "time": 189.0,
+      "phase": "end",
+      "detail": "BLOCKING: same finding as composition_evidence -- 'Halaman rencana Vidka' is partially illegible for the shot's full duration because three ring loops are drawn over the letterforms. The four body lines below it (Masalah/Pertanyaan/Data/Alasan, y=150-312) are fully legible with no ring interference; only the header is affected."
+     }
+    ],
+    "comparisons": []
+   },
+   "timing_pacing": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 186.376,
+      "detail": "Shot duration is 2.999s (186.376-189.375s); all four lines and both underlines complete by local t=2.76, leaving the beat readable without feeling rushed. This new shot, plus the following task-card shot (3.0s), together total 6.0s -- matching the single 6.0s hold the pre-revision cut used for the task card alone, so no net runtime was added to the closing beat."
+     }
+    ],
+    "comparisons": []
+   },
+   "sound": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 186.4,
+      "detail": "No new dialogue in this shot (silent hold over music/room tone, consistent with the rest of the film's HOLD beats); no issues."
+     }
+    ],
+    "comparisons": []
+   }
+  },
+  "shot-42": {
+   "drawing_character": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 191.5,
+      "phase": "mid",
+      "detail": "Vidka's pose-swap from thinking to nodding (keyed at local t=1.68) reads cleanly on a single frame, same convention as shots 21/27's checkmark beats."
+     }
+    ],
+    "comparisons": []
+   },
+   "semantic_acting": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 191.5,
+      "detail": "Yellow underline draws under 'Tulis pertanyaanmu. Pilih data' (t=0.24-0.84) and the green checkmark appears beside the card as Vidka's pose switches to nodding (t=1.68-2.16) -- the same task-confirmation beat used at shots 21/31's hold, uncompressed in its internal choreography even though the shot itself is now half as long."
+     }
+    ],
+    "comparisons": []
+   },
+   "contact_continuity": {
+    "status": "pass",
+    "observations": [],
+    "comparisons": []
+   },
+   "composition_evidence": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 189.5,
+      "phase": "start",
+      "detail": "The task text ('Tugas akhir' / 'Tulis pertanyaanmu. Pilih data dan jelaskan alasannya.') is fully contained within the card border with no bleed; frame-checked at start, mid and end -- nothing is clipped or cut off despite the shorter duration."
+     }
+    ],
+    "comparisons": []
+   },
+   "typography_captions": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 192.3,
+      "phase": "end",
+      "detail": "The grey music-attribution line 'Musik: \"Easy Lemon\" Kevin MacLeod (incompetech.com), CC BY 4.0' is present and legible at the bottom-left for the shot's full 3.0s, confirmed at 189.5s, 190.7s, 191.5s and 192.3s -- unchanged from the pre-revision task card and not truncated by the compression."
+     }
+    ],
+    "comparisons": []
+   },
+   "timing_pacing": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 189.375,
+      "phase": "start",
+      "detail": "Shot duration is 3.0s (189.375-192.375s), exactly half the pre-revision single task-card shot's 6.0s. All beats (text display, underline, pose-swap, checkmark) still land inside this window with room to spare (checkmark completes by t=2.16, 0.84s before the film ends), so the compression reads as a tighter final beat, not a rushed or clipped one."
+     }
+    ],
+    "comparisons": []
+   },
+   "sound": {
+    "status": "pass",
+    "observations": [
+     {
+      "time": 190.0,
+      "detail": "No new dialogue in this shot; background music/room tone only, consistent with the rest of the film's closing hold. Whole-film loudnorm check: Integrated -20.2 LUFS, True Peak -1.8 dBTP -- no clipping across the full 192.4s runtime."
+     }
+    ],
+    "comparisons": []
+   }
+  }
+ }
+}
