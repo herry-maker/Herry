@@ -1,0 +1,27 @@
+Sidang Kecil Sebelum Sidang — Cerita 3 (Vidka, Dr. Herry, Prof. Ardipal)
+Gaya: Stick-figure Explainer (火柴人讲解), pustaka Lemo-Opuscar (github.com/lemomo-ai/lemo-opuscar), alat produksi di core/.
+Semua gambar (kertas, figur, meja, halaman, teks) digambar oleh kode di folder ini: rig.js, film.js, index.html.
+Tidak ada gambar hasil generator, tidak ada stok foto/footage.
+
+FONT (SIL Open Font License 1.1; teks lisensi di fonts/OFL-Jost.txt)
+- Jost — The Jost Project Authors — https://github.com/indestructible-type/Jost
+  (berkas: https://github.com/google/fonts/tree/main/ofl/jost) → fonts/Jost-Variable.ttf
+
+SUARA (dialog tiga tokoh, bahasa Indonesia)
+- Dibuat dengan ElevenLabs (model eleven_v4) melalui akun ElevenLabs pemilik proyek, satu berkas per kalimat (voice/*.wav), dari lines.json:
+  - Vidka        → suara pustaka "Mona - Storyteller"          (voice_id zjmMdjff4JG35O3EQJBV)
+  - Dr. Herry    → suara pustaka "Baron – Calm & Mature"       (voice_id gQQvBatMocMgEreeSqHb)
+  - Prof. Ardipal→ suara pustaka "Fikri - Warm & Steady Storyteller" (voice_id uzkxbhFCx9Ni2LANf1zB)
+  Hak pakai mengikuti ketentuan langganan ElevenLabs pemilik proyek dan ketentuan pustaka suara ElevenLabs; periksa sebelum distribusi komersial.
+- Pemeriksaan ucapan-ke-teks (asr_check.py / Whisper) TIDAK dapat dijalankan di lingkungan produksi ini (unduhan model terblokir);
+  durasi tiap kalimat diukur dari berkas, teks subtitle diambil dari naskah.
+
+MUSIK DAN FOLEY
+- Seluruh skor (kalimba, celesta, marimba, glockenspiel, vibrafon, string lembut) dan foley disintesis dengan numpy di mix.py,
+  memakai fungsi pembantu core/audio/sfx.py (Lemo-Opuscar). Tidak ada pustaka sampel, tidak ada musik pihak ketiga.
+
+RUJUKAN YANG DISEBUT DI KARTU PENUTUP
+- Szpunar, K. K., Khan, N. Y., & Schacter, D. L. (2013). Interpolated memory tests reduce mind wandering and improve learning of online lectures.
+  PNAS 110(16), 6313–6317. https://doi.org/10.1073/pnas.1221764110
+- Brame, C. J. (2016). Effective educational videos: principles and guidelines for maximizing student learning from video content.
+  CBE—Life Sciences Education 15(4), es6. https://doi.org/10.1187/cbe.16-03-0125

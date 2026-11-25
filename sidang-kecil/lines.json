@@ -1,0 +1,52 @@
+[
+ {"id":"s01a","scene":1,"who":"V","text":"Lima bab sudah lengkap. Tinggal dijilid!","say":"[excited] Lima bab sudah lengkap. Tinggal dijilid!"},
+ {"id":"s01b","scene":1,"who":"H","text":"Sebelum itu, boleh kami menjadi pembaca yang belum mengenal penelitianmu?","say":"[warmly] Sebelum itu, boleh kami menjadi pembaca yang belum mengenal penelitianmu?"},
+ {"id":"s01c","scene":1,"who":"V","text":"Boleh… asal jangan terlalu sulit.","say":"[nervous] Boleh… asal jangan terlalu sulit."},
+
+ {"id":"s02a","scene":2,"who":"A","text":"Saya sudah membaca dua halaman. Mengapa penelitian ini perlu dilakukan?","say":"[calm] Saya sudah membaca dua halaman. Mengapa penelitian ini perlu dilakukan?"},
+ {"id":"s02b","scene":2,"who":"V","text":"Masalahnya baru muncul di halaman tujuh.","say":"Masalahnya baru muncul di halaman tujuh."},
+ {"id":"s02c","scene":2,"who":"A","text":"Apa yang membuat pembaca menunggu sejauh itu?","say":"[curious] Apa yang membuat pembaca menunggu sejauh itu?"},
+
+ {"id":"s03a","scene":3,"who":"H","text":"Tujuanmu memahami koordinasi tempo. Kesimpulanmu menyebut siswa lebih percaya diri.","say":"[calm] Tujuanmu memahami koordinasi tempo. Kesimpulanmu menyebut siswa lebih percaya diri."},
+ {"id":"s03b","scene":3,"who":"V","text":"Keduanya menarik.","say":"Keduanya menarik."},
+ {"id":"s03c","scene":3,"who":"H","text":"Tetapi, apakah yang kedua menjawab tujuan pertama?","say":"[softly] Tetapi, apakah yang kedua menjawab tujuan pertama?"},
+
+ {"id":"s04a","scene":4,"who":"A","text":"Di sini banyak ‘menurut peneliti A, B, dan C’. Apa kesimpulanmu dari percakapan mereka?","say":"[calm] Di sini banyak \"menurut peneliti A, B, dan C\". Apa kesimpulanmu dari percakapan mereka?"},
+ {"id":"s04b","scene":4,"who":"V","text":"Saya belum menuliskannya.","say":"[softly] Saya belum menuliskannya."},
+ {"id":"s04c","scene":4,"who":"A","text":"Itulah hubungan yang dibutuhkan pembaca.","say":"[warmly] Itulah hubungan yang dibutuhkan pembaca."},
+
+ {"id":"s05a","scene":5,"who":"H","text":"Mengapa memilih tiga sesi latihan ini?","say":"[curious] Mengapa memilih tiga sesi latihan ini?"},
+ {"id":"s05b","scene":5,"who":"V","text":"Rekamannya paling jelas.","say":"Rekamannya paling jelas."},
+ {"id":"s05c","scene":5,"who":"H","text":"Apakah sesi yang sulit atau berbeda justru terlewat?","say":"[calm] Apakah sesi yang sulit atau berbeda justru terlewat?"},
+
+ {"id":"s06a","scene":6,"who":"V","text":"Kutipan ini membuktikan semua pemain bergantung pada isyarat visual.","say":"[confident] Kutipan ini membuktikan semua pemain bergantung pada isyarat visual."},
+ {"id":"s06b","scene":6,"who":"A","text":"Ini ucapan satu pemain. Bagaimana pengalaman pemain lainnya?","say":"[calm] Ini ucapan satu pemain. Bagaimana pengalaman pemain lainnya?"},
+ {"id":"s06c","scene":6,"who":"V","text":"Klaim saya terlalu luas.","say":"[softly] Klaim saya… terlalu luas."},
+
+ {"id":"s07a","scene":7,"who":"H","text":"Tabel ini menunjukkan apa?","say":"[curious] Tabel ini menunjukkan apa?"},
+ {"id":"s07b","scene":7,"who":"V","text":"Semua kejadian yang saya catat.","say":"Semua kejadian yang saya catat."},
+ {"id":"s07c","scene":7,"who":"H","text":"Pola mana yang perlu diperhatikan pembaca, dan mengapa pola itu penting?","say":"[calm] Pola mana yang perlu diperhatikan pembaca, dan mengapa pola itu penting?"},
+
+ {"id":"s08a","scene":8,"who":"A","text":"Hasilmu: pemain saling melihat. Pembahasanmu: pemain menggunakan pandangan.","say":"[calm] Hasilmu: pemain saling melihat. Pembahasanmu: pemain menggunakan pandangan."},
+ {"id":"s08b","scene":8,"who":"V","text":"Artinya sama.","say":"Artinya sama."},
+ {"id":"s08c","scene":8,"who":"A","text":"Lalu, apa yang tindakan itu jelaskan tentang koordinasi mereka?","say":"[curious] Lalu, apa yang tindakan itu jelaskan tentang koordinasi mereka?"},
+
+ {"id":"s09a","scene":9,"who":"V","text":"Semua guru harus memakai latihan ini.","say":"[confident] Semua guru harus memakai latihan ini."},
+ {"id":"s09b","scene":9,"who":"H","text":"Apakah efektivitasnya sudah kamu uji?","say":"[calm] Apakah efektivitasnya sudah kamu uji?"},
+ {"id":"s09c","scene":9,"who":"V","text":"Belum.","say":"[softly] Belum."},
+ {"id":"s09d","scene":9,"who":"H","text":"Tulis sebagai usulan yang perlu diuji.","say":"[warmly] Tulis sebagai usulan yang perlu diuji."},
+
+ {"id":"s10a","scene":10,"who":"V","text":"‘Implementasi koordinatif menghasilkan optimalisasi temporal.’","say":"[confident] \"Implementasi koordinatif menghasilkan optimalisasi temporal.\""},
+ {"id":"s10b","scene":10,"who":"A","text":"Apa maksudnya dalam kejadian yang kamu amati?","say":"[curious] Apa maksudnya dalam kejadian yang kamu amati?"},
+ {"id":"s10c","scene":10,"who":"V","text":"Pemain masuk bersama setelah anggukan.","say":"Pemain masuk bersama setelah anggukan."},
+ {"id":"s10d","scene":10,"who":"A","text":"Mulai dari kejelasan itu.","say":"[warmly] Mulai dari kejelasan itu."},
+
+ {"id":"s11a","scene":11,"who":"H","text":"Saya ingin memeriksa kutipan ini. Halamannya di mana?","say":"[calm] Saya ingin memeriksa kutipan ini. Halamannya di mana?"},
+ {"id":"s11b","scene":11,"who":"V","text":"Belum tercatat.","say":"[softly] Belum tercatat."},
+ {"id":"s11c","scene":11,"who":"H","text":"Lengkapi penunjuk sumber sesuai pedoman. Pembaca perlu bisa menelusurinya.","say":"[calm] Lengkapi penunjuk sumber sesuai pedoman. Pembaca perlu bisa menelusurinya."},
+
+ {"id":"s12a","scene":12,"who":"A","text":"Masih ingin langsung dijilid?","say":"[warmly] Masih ingin langsung dijilid?"},
+ {"id":"s12b","scene":12,"who":"V","text":"Saya ingin memperbaiki hubungan antarbab dulu.","say":"[calm] Saya ingin memperbaiki hubungan antarbab dulu."},
+ {"id":"s12c","scene":12,"who":"H","text":"Pilih satu perbaikan terpenting.","say":"[calm] Pilih satu perbaikan terpenting."},
+ {"id":"s12d","scene":12,"who":"V","text":"Memastikan kesimpulan benar-benar menjawab tujuan.","say":"[softly] Memastikan kesimpulan benar-benar menjawab tujuan."}
+]

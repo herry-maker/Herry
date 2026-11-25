@@ -1,0 +1,155 @@
+1
+00:00:00,400 --> 00:00:03,607
+Vidka: Lima bab sudah lengkap. Tinggal dijilid!
+
+2
+00:00:03,607 --> 00:00:08,240
+Dr. Herry: Sebelum itu, boleh kami menjadi pembaca yang belum mengenal penelitianmu?
+
+3
+00:00:08,240 --> 00:00:12,268
+Vidka: Boleh… asal jangan terlalu sulit.
+
+4
+00:00:17,685 --> 00:00:22,791
+Prof. Ardipal: Saya sudah membaca dua halaman. Mengapa penelitian ini perlu dilakukan?
+
+5
+00:00:22,791 --> 00:00:26,167
+Vidka: Masalahnya baru muncul di halaman tujuh.
+
+6
+00:00:26,167 --> 00:00:29,715
+Prof. Ardipal: Apa yang membuat pembaca menunggu sejauh itu?
+
+7
+00:00:35,865 --> 00:00:42,418
+Dr. Herry: Tujuanmu memahami koordinasi tempo. Kesimpulanmu menyebut siswa lebih percaya diri.
+
+8
+00:00:42,418 --> 00:00:44,291
+Vidka: Keduanya menarik.
+
+9
+00:00:44,291 --> 00:00:48,727
+Dr. Herry: Tetapi, apakah yang kedua menjawab tujuan pertama?
+
+10
+00:00:54,543 --> 00:01:01,566
+Prof. Ardipal: Di sini banyak ‘menurut peneliti A, B, dan C’. Apa kesimpulanmu dari percakapan mereka?
+
+11
+00:01:01,566 --> 00:01:03,905
+Vidka: Saya belum menuliskannya.
+
+12
+00:01:03,905 --> 00:01:07,357
+Prof. Ardipal: Itulah hubungan yang dibutuhkan pembaca.
+
+13
+00:01:13,507 --> 00:01:16,152
+Dr. Herry: Mengapa memilih tiga sesi latihan ini?
+
+14
+00:01:16,152 --> 00:01:18,582
+Vidka: Rekamannya paling jelas.
+
+15
+00:01:18,582 --> 00:01:23,109
+Dr. Herry: Apakah sesi yang sulit atau berbeda justru terlewat?
+
+16
+00:01:28,859 --> 00:01:33,857
+Vidka: Kutipan ini membuktikan semua pemain bergantung pada isyarat visual.
+
+17
+00:01:33,857 --> 00:01:38,303
+Prof. Ardipal: Ini ucapan satu pemain. Bagaimana pengalaman pemain lainnya?
+
+18
+00:01:38,303 --> 00:01:41,750
+Vidka: Klaim saya terlalu luas.
+
+19
+00:01:47,167 --> 00:01:49,638
+Dr. Herry: Tabel ini menunjukkan apa?
+
+20
+00:01:49,638 --> 00:01:52,468
+Vidka: Semua kejadian yang saya catat.
+
+21
+00:01:52,468 --> 00:01:57,896
+Dr. Herry: Pola mana yang perlu diperhatikan pembaca, dan mengapa pola itu penting?
+
+22
+00:02:02,746 --> 00:02:09,010
+Prof. Ardipal: Hasilmu: pemain saling melihat. Pembahasanmu: pemain menggunakan pandangan.
+
+23
+00:02:09,010 --> 00:02:10,880
+Vidka: Artinya sama.
+
+24
+00:02:10,880 --> 00:02:15,604
+Prof. Ardipal: Lalu, apa yang tindakan itu jelaskan tentang koordinasi mereka?
+
+25
+00:02:21,487 --> 00:02:24,656
+Vidka: Semua guru harus memakai latihan ini.
+
+26
+00:02:24,656 --> 00:02:27,469
+Dr. Herry: Apakah efektivitasnya sudah kamu uji?
+
+27
+00:02:27,469 --> 00:02:28,982
+Vidka: Belum.
+
+28
+00:02:28,982 --> 00:02:32,167
+Dr. Herry: Tulis sebagai usulan yang perlu diuji.
+
+29
+00:02:37,117 --> 00:02:41,509
+Vidka: ‘Implementasi koordinatif menghasilkan optimalisasi temporal.’
+
+30
+00:02:41,509 --> 00:02:44,739
+Prof. Ardipal: Apa maksudnya dalam kejadian yang kamu amati?
+
+31
+00:02:44,739 --> 00:02:47,854
+Vidka: Pemain masuk bersama setelah anggukan.
+
+32
+00:02:47,854 --> 00:02:50,351
+Prof. Ardipal: Mulai dari kejelasan itu.
+
+33
+00:02:55,901 --> 00:02:59,866
+Dr. Herry: Saya ingin memeriksa kutipan ini. Halamannya di mana?
+
+34
+00:02:59,866 --> 00:03:01,443
+Vidka: Belum tercatat.
+
+35
+00:03:01,443 --> 00:03:07,236
+Dr. Herry: Lengkapi penunjuk sumber sesuai pedoman. Pembaca perlu bisa menelusurinya.
+
+36
+00:03:12,986 --> 00:03:15,056
+Prof. Ardipal: Masih ingin langsung dijilid?
+
+37
+00:03:15,056 --> 00:03:18,325
+Vidka: Saya ingin memperbaiki hubungan antarbab dulu.
+
+38
+00:03:18,325 --> 00:03:21,092
+Dr. Herry: Pilih satu perbaikan terpenting.
+
+39
+00:03:21,542 --> 00:03:25,597
+Vidka: Memastikan kesimpulan benar-benar menjawab tujuan.

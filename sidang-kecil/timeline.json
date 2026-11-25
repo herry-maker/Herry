@@ -1,0 +1,531 @@
+{
+ "dur": 214.047,
+ "scenes": [
+  {
+   "n": 1,
+   "t0": 0.0,
+   "t1": 17.285,
+   "card": 12.318,
+   "last_end": 11.768,
+   "q": [
+    "Apa yang membuat pembaca",
+    "percaya pada sebuah skripsi?"
+   ]
+  },
+  {
+   "n": 2,
+   "t0": 17.285,
+   "t1": 35.465,
+   "card": 29.765,
+   "last_end": 29.215,
+   "q": [
+    "Bagian mana bisa dipadatkan agar",
+    "persoalan utama segera terlihat?"
+   ]
+  },
+  {
+   "n": 3,
+   "t0": 35.465,
+   "t1": 54.143,
+   "card": 48.777,
+   "last_end": 48.227,
+   "q": [
+    "Apakah temuan menarik selalu",
+    "merupakan jawaban penelitian?"
+   ]
+  },
+  {
+   "n": 4,
+   "t0": 54.143,
+   "t1": 73.107,
+   "card": 67.407,
+   "last_end": 66.857,
+   "q": [
+    "Apa yang dapat dipahami setelah",
+    "sumber-sumber itu dibaca bersama?"
+   ]
+  },
+  {
+   "n": 5,
+   "t0": 73.107,
+   "t1": 88.459,
+   "card": 83.159,
+   "last_end": 82.609,
+   "q": [
+    "Bagaimana pilihan bahan dapat",
+    "memengaruhi gambaran hasil?"
+   ]
+  },
+  {
+   "n": 6,
+   "t0": 88.459,
+   "t1": 106.767,
+   "card": 101.8,
+   "last_end": 101.25,
+   "q": [
+    "Seberapa jauh bukti ini mendukung",
+    "kalimat di atasnya?"
+   ]
+  },
+  {
+   "n": 7,
+   "t0": 106.767,
+   "t1": 122.346,
+   "card": 117.946,
+   "last_end": 117.396,
+   "q": [
+    "Jika tabel dihapus,",
+    "pesan apa yang hilang?"
+   ]
+  },
+  {
+   "n": 8,
+   "t0": 122.346,
+   "t1": 141.087,
+   "card": 135.654,
+   "last_end": 135.104,
+   "q": [
+    "Penjelasan apa yang belum diberikan",
+    "oleh deskripsi kejadian?"
+   ]
+  },
+  {
+   "n": 9,
+   "t0": 141.087,
+   "t1": 156.717,
+   "card": 152.217,
+   "last_end": 151.667,
+   "q": [
+    "Apa perbedaan temuan,",
+    "implikasi, dan usulan?"
+   ]
+  },
+  {
+   "n": 10,
+   "t0": 156.717,
+   "t1": 175.501,
+   "card": 170.401,
+   "last_end": 169.851,
+   "q": [
+    "Apakah istilah ini memperjelas",
+    "makna atau menutupinya?"
+   ]
+  },
+  {
+   "n": 11,
+   "t0": 175.501,
+   "t1": 192.586,
+   "card": 187.286,
+   "last_end": 186.736,
+   "q": [
+    "Bisakah pembaca menemukan kembali",
+    "bukti yang kamu gunakan?"
+   ]
+  },
+  {
+   "n": 12,
+   "t0": 192.586,
+   "t1": 214.047,
+   "card": 205.647,
+   "last_end": 205.097,
+   "q": [
+    "Temukan satu bagian yang belum",
+    "selaras dalam drafmu. Tuliskan",
+    "perbaikan dan alasannya."
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "s01a",
+   "scene": 1,
+   "who": "V",
+   "text": "Lima bab sudah lengkap. Tinggal dijilid!",
+   "say": "[excited] Lima bab sudah lengkap. Tinggal dijilid!",
+   "t": 0.6,
+   "d": 2.857,
+   "scene_t0": 0.0
+  },
+  {
+   "id": "s01b",
+   "scene": 1,
+   "who": "H",
+   "text": "Sebelum itu, boleh kami menjadi pembaca yang belum mengenal penelitianmu?",
+   "say": "[warmly] Sebelum itu, boleh kami menjadi pembaca yang belum mengenal penelitianmu?",
+   "t": 3.807,
+   "d": 4.283,
+   "scene_t0": 0.0
+  },
+  {
+   "id": "s01c",
+   "scene": 1,
+   "who": "V",
+   "text": "Boleh… asal jangan terlalu sulit.",
+   "say": "[nervous] Boleh… asal jangan terlalu sulit.",
+   "t": 8.44,
+   "d": 3.328,
+   "scene_t0": 0.0
+  },
+  {
+   "id": "s02a",
+   "scene": 2,
+   "who": "A",
+   "text": "Saya sudah membaca dua halaman. Mengapa penelitian ini perlu dilakukan?",
+   "say": "[calm] Saya sudah membaca dua halaman. Mengapa penelitian ini perlu dilakukan?",
+   "t": 17.885,
+   "d": 4.756,
+   "scene_t0": 17.285
+  },
+  {
+   "id": "s02b",
+   "scene": 2,
+   "who": "V",
+   "text": "Masalahnya baru muncul di halaman tujuh.",
+   "say": "Masalahnya baru muncul di halaman tujuh.",
+   "t": 22.991,
+   "d": 3.026,
+   "scene_t0": 17.285
+  },
+  {
+   "id": "s02c",
+   "scene": 2,
+   "who": "A",
+   "text": "Apa yang membuat pembaca menunggu sejauh itu?",
+   "say": "[curious] Apa yang membuat pembaca menunggu sejauh itu?",
+   "t": 26.367,
+   "d": 2.848,
+   "scene_t0": 17.285
+  },
+  {
+   "id": "s03a",
+   "scene": 3,
+   "who": "H",
+   "text": "Tujuanmu memahami koordinasi tempo. Kesimpulanmu menyebut siswa lebih percaya diri.",
+   "say": "[calm] Tujuanmu memahami koordinasi tempo. Kesimpulanmu menyebut siswa lebih percaya diri.",
+   "t": 36.065,
+   "d": 6.203,
+   "scene_t0": 35.465
+  },
+  {
+   "id": "s03b",
+   "scene": 3,
+   "who": "V",
+   "text": "Keduanya menarik.",
+   "say": "Keduanya menarik.",
+   "t": 42.618,
+   "d": 1.523,
+   "scene_t0": 35.465
+  },
+  {
+   "id": "s03c",
+   "scene": 3,
+   "who": "H",
+   "text": "Tetapi, apakah yang kedua menjawab tujuan pertama?",
+   "say": "[softly] Tetapi, apakah yang kedua menjawab tujuan pertama?",
+   "t": 44.491,
+   "d": 3.736,
+   "scene_t0": 35.465
+  },
+  {
+   "id": "s04a",
+   "scene": 4,
+   "who": "A",
+   "text": "Di sini banyak ‘menurut peneliti A, B, dan C’. Apa kesimpulanmu dari percakapan mereka?",
+   "say": "[calm] Di sini banyak \"menurut peneliti A, B, dan C\". Apa kesimpulanmu dari percakapan mereka?",
+   "t": 54.743,
+   "d": 6.673,
+   "scene_t0": 54.143
+  },
+  {
+   "id": "s04b",
+   "scene": 4,
+   "who": "V",
+   "text": "Saya belum menuliskannya.",
+   "say": "[softly] Saya belum menuliskannya.",
+   "t": 61.766,
+   "d": 1.989,
+   "scene_t0": 54.143
+  },
+  {
+   "id": "s04c",
+   "scene": 4,
+   "who": "A",
+   "text": "Itulah hubungan yang dibutuhkan pembaca.",
+   "say": "[warmly] Itulah hubungan yang dibutuhkan pembaca.",
+   "t": 64.105,
+   "d": 2.752,
+   "scene_t0": 54.143
+  },
+  {
+   "id": "s05a",
+   "scene": 5,
+   "who": "H",
+   "text": "Mengapa memilih tiga sesi latihan ini?",
+   "say": "[curious] Mengapa memilih tiga sesi latihan ini?",
+   "t": 73.707,
+   "d": 2.295,
+   "scene_t0": 73.107
+  },
+  {
+   "id": "s05b",
+   "scene": 5,
+   "who": "V",
+   "text": "Rekamannya paling jelas.",
+   "say": "Rekamannya paling jelas.",
+   "t": 76.352,
+   "d": 2.08,
+   "scene_t0": 73.107
+  },
+  {
+   "id": "s05c",
+   "scene": 5,
+   "who": "H",
+   "text": "Apakah sesi yang sulit atau berbeda justru terlewat?",
+   "say": "[calm] Apakah sesi yang sulit atau berbeda justru terlewat?",
+   "t": 78.782,
+   "d": 3.827,
+   "scene_t0": 73.107
+  },
+  {
+   "id": "s06a",
+   "scene": 6,
+   "who": "V",
+   "text": "Kutipan ini membuktikan semua pemain bergantung pada isyarat visual.",
+   "say": "[confident] Kutipan ini membuktikan semua pemain bergantung pada isyarat visual.",
+   "t": 89.059,
+   "d": 4.648,
+   "scene_t0": 88.459
+  },
+  {
+   "id": "s06b",
+   "scene": 6,
+   "who": "A",
+   "text": "Ini ucapan satu pemain. Bagaimana pengalaman pemain lainnya?",
+   "say": "[calm] Ini ucapan satu pemain. Bagaimana pengalaman pemain lainnya?",
+   "t": 94.057,
+   "d": 4.096,
+   "scene_t0": 88.459
+  },
+  {
+   "id": "s06c",
+   "scene": 6,
+   "who": "V",
+   "text": "Klaim saya terlalu luas.",
+   "say": "[softly] Klaim saya… terlalu luas.",
+   "t": 98.503,
+   "d": 2.747,
+   "scene_t0": 88.459
+  },
+  {
+   "id": "s07a",
+   "scene": 7,
+   "who": "H",
+   "text": "Tabel ini menunjukkan apa?",
+   "say": "[curious] Tabel ini menunjukkan apa?",
+   "t": 107.367,
+   "d": 2.121,
+   "scene_t0": 106.767
+  },
+  {
+   "id": "s07b",
+   "scene": 7,
+   "who": "V",
+   "text": "Semua kejadian yang saya catat.",
+   "say": "Semua kejadian yang saya catat.",
+   "t": 109.838,
+   "d": 2.48,
+   "scene_t0": 106.767
+  },
+  {
+   "id": "s07c",
+   "scene": 7,
+   "who": "H",
+   "text": "Pola mana yang perlu diperhatikan pembaca, dan mengapa pola itu penting?",
+   "say": "[calm] Pola mana yang perlu diperhatikan pembaca, dan mengapa pola itu penting?",
+   "t": 112.668,
+   "d": 4.728,
+   "scene_t0": 106.767
+  },
+  {
+   "id": "s08a",
+   "scene": 8,
+   "who": "A",
+   "text": "Hasilmu: pemain saling melihat. Pembahasanmu: pemain menggunakan pandangan.",
+   "say": "[calm] Hasilmu: pemain saling melihat. Pembahasanmu: pemain menggunakan pandangan.",
+   "t": 122.946,
+   "d": 5.914,
+   "scene_t0": 122.346
+  },
+  {
+   "id": "s08b",
+   "scene": 8,
+   "who": "V",
+   "text": "Artinya sama.",
+   "say": "Artinya sama.",
+   "t": 129.21,
+   "d": 1.52,
+   "scene_t0": 122.346
+  },
+  {
+   "id": "s08c",
+   "scene": 8,
+   "who": "A",
+   "text": "Lalu, apa yang tindakan itu jelaskan tentang koordinasi mereka?",
+   "say": "[curious] Lalu, apa yang tindakan itu jelaskan tentang koordinasi mereka?",
+   "t": 131.08,
+   "d": 4.024,
+   "scene_t0": 122.346
+  },
+  {
+   "id": "s09a",
+   "scene": 9,
+   "who": "V",
+   "text": "Semua guru harus memakai latihan ini.",
+   "say": "[confident] Semua guru harus memakai latihan ini.",
+   "t": 141.687,
+   "d": 2.819,
+   "scene_t0": 141.087
+  },
+  {
+   "id": "s09b",
+   "scene": 9,
+   "who": "H",
+   "text": "Apakah efektivitasnya sudah kamu uji?",
+   "say": "[calm] Apakah efektivitasnya sudah kamu uji?",
+   "t": 144.856,
+   "d": 2.463,
+   "scene_t0": 141.087
+  },
+  {
+   "id": "s09c",
+   "scene": 9,
+   "who": "V",
+   "text": "Belum.",
+   "say": "[softly] Belum.",
+   "t": 147.669,
+   "d": 1.163,
+   "scene_t0": 141.087
+  },
+  {
+   "id": "s09d",
+   "scene": 9,
+   "who": "H",
+   "text": "Tulis sebagai usulan yang perlu diuji.",
+   "say": "[warmly] Tulis sebagai usulan yang perlu diuji.",
+   "t": 149.182,
+   "d": 2.485,
+   "scene_t0": 141.087
+  },
+  {
+   "id": "s10a",
+   "scene": 10,
+   "who": "V",
+   "text": "‘Implementasi koordinatif menghasilkan optimalisasi temporal.’",
+   "say": "[confident] \"Implementasi koordinatif menghasilkan optimalisasi temporal.\"",
+   "t": 157.317,
+   "d": 4.042,
+   "scene_t0": 156.717
+  },
+  {
+   "id": "s10b",
+   "scene": 10,
+   "who": "A",
+   "text": "Apa maksudnya dalam kejadian yang kamu amati?",
+   "say": "[curious] Apa maksudnya dalam kejadian yang kamu amati?",
+   "t": 161.709,
+   "d": 2.88,
+   "scene_t0": 156.717
+  },
+  {
+   "id": "s10c",
+   "scene": 10,
+   "who": "V",
+   "text": "Pemain masuk bersama setelah anggukan.",
+   "say": "Pemain masuk bersama setelah anggukan.",
+   "t": 164.939,
+   "d": 2.765,
+   "scene_t0": 156.717
+  },
+  {
+   "id": "s10d",
+   "scene": 10,
+   "who": "A",
+   "text": "Mulai dari kejelasan itu.",
+   "say": "[warmly] Mulai dari kejelasan itu.",
+   "t": 168.054,
+   "d": 1.797,
+   "scene_t0": 156.717
+  },
+  {
+   "id": "s11a",
+   "scene": 11,
+   "who": "H",
+   "text": "Saya ingin memeriksa kutipan ini. Halamannya di mana?",
+   "say": "[calm] Saya ingin memeriksa kutipan ini. Halamannya di mana?",
+   "t": 176.101,
+   "d": 3.615,
+   "scene_t0": 175.501
+  },
+  {
+   "id": "s11b",
+   "scene": 11,
+   "who": "V",
+   "text": "Belum tercatat.",
+   "say": "[softly] Belum tercatat.",
+   "t": 180.066,
+   "d": 1.227,
+   "scene_t0": 175.501
+  },
+  {
+   "id": "s11c",
+   "scene": 11,
+   "who": "H",
+   "text": "Lengkapi penunjuk sumber sesuai pedoman. Pembaca perlu bisa menelusurinya.",
+   "say": "[calm] Lengkapi penunjuk sumber sesuai pedoman. Pembaca perlu bisa menelusurinya.",
+   "t": 181.643,
+   "d": 5.093,
+   "scene_t0": 175.501
+  },
+  {
+   "id": "s12a",
+   "scene": 12,
+   "who": "A",
+   "text": "Masih ingin langsung dijilid?",
+   "say": "[warmly] Masih ingin langsung dijilid?",
+   "t": 193.186,
+   "d": 1.72,
+   "scene_t0": 192.586
+  },
+  {
+   "id": "s12b",
+   "scene": 12,
+   "who": "V",
+   "text": "Saya ingin memperbaiki hubungan antarbab dulu.",
+   "say": "[calm] Saya ingin memperbaiki hubungan antarbab dulu.",
+   "t": 195.256,
+   "d": 2.919,
+   "scene_t0": 192.586
+  },
+  {
+   "id": "s12c",
+   "scene": 12,
+   "who": "H",
+   "text": "Pilih satu perbaikan terpenting.",
+   "say": "[calm] Pilih satu perbaikan terpenting.",
+   "t": 198.525,
+   "d": 2.067,
+   "scene_t0": 192.586
+  },
+  {
+   "id": "s12d",
+   "scene": 12,
+   "who": "V",
+   "text": "Memastikan kesimpulan benar-benar menjawab tujuan.",
+   "say": "[softly] Memastikan kesimpulan benar-benar menjawab tujuan.",
+   "t": 201.742,
+   "d": 3.355,
+   "scene_t0": 192.586
+  }
+ ],
+ "measured": true
+}
