@@ -95,7 +95,7 @@ scenes.push({talk: [
 // 2. Memperbaiki pencarian (A: apa kata kuncimu? | V: musik | A: persempit ... padanan Inggris)
 scenes.push({talk: [
   {dur: 3, layers: [
-    img('laptop-front', 80, 60, 560), label('Pencarian literatur akademik', 160, 112, 26), img('search-box', 160, 140, 420), hand('musik', 190, 146, 52),
+    img('laptop-front', 80, 60, 560), label('Pencarian literatur akademik', 160, 26, 26), img('search-box', 160, 140, 420), hand('musik', 190, 146, 52),
     vidka('listen', {x: 700, w: 300, to: 2.1}), vidka('turn', {x: 700, w: 300, from: 2.1}), ardipal('talk', 1040, {w: 190, to: 2.1}), ardipal('listen', 1040, {w: 190, from: 2.1}),
     ...[0, 1, 2].map(i => slideY(img('page-plain', 210 + i * 110, 200, 50), 'information', 'Hasil pencarian menumpuk di layar', 0.3 + i * .7, 0.9 + i * .7, 200, 236)),
     txt('terlalu luas', 200, 462, 40, {color: RED, bold: true}),
