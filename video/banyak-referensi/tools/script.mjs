@@ -11,6 +11,9 @@ export const GAP = 0.55; // seconds between consecutive lines
 export const SCENE_MIN = 15; // a scene never runs shorter than its planned 15 s; the hold absorbs the rest
 
 export const SCENES = [
+  {title: 'Pembuka', lines: [
+    {role: 'Ardipal', tts: 'Selamat datang di kisah kedua kita.', cues: ['Ardipal: Selamat datang', 'di kisah kedua kita.']},
+  ], hold: {kind: 'text', text: 'Story 2: Research Journey'}},
   {title: 'Kebingungan awal', lines: [
     {role: 'Vidka', tts: 'Saya mencari bacaan tentang tempo kelompok kami, tetapi malah bingung memilih.', cues: ['Vidka: Saya mencari bacaan tentang', 'tempo kelompok kami,', 'tetapi malah bingung memilih.']},
     {role: 'Herry', tts: 'Buka lagi catatanmu. Apa yang ingin kamu pahami?', cues: ['Herry: Buka lagi catatanmu.', 'Apa yang ingin kamu pahami?']},
@@ -67,6 +70,12 @@ export const SCENES = [
     {role: 'Herry', tts: 'Siapkan persetujuan sebelum mengumpulkan data.', cues: ['Herry: Siapkan persetujuan', 'sebelum mengumpulkan data.']},
     {role: 'Ardipal', tts: 'Dan jelaskan alasan setiap pilihanmu.', cues: ['Ardipal: Dan jelaskan alasan setiap pilihanmu.']},
   ], hold: {kind: 'task', text: 'Tulis pertanyaanmu. Pilih data dan jelaskan alasannya.'}},
+  {title: 'Rangkuman dan penutup', lines: [
+    {role: 'Ardipal', tts: 'Mari kita rangkum tujuh langkah perjalanan penelitian Vidka.', cues: ['Ardipal: Mari kita rangkum tujuh langkah', 'perjalanan penelitian Vidka.']},
+    {role: 'Vidka', tts: 'Semua dimulai dari referensi yang relevan, sampai akhirnya data dan analisis saling terhubung.', cues: ['Vidka: Semua dimulai dari referensi yang relevan,', 'sampai akhirnya data dan analisis', 'saling terhubung.']},
+    {role: 'Vidka', tts: 'Sampai jumpa!', cues: ['Vidka: Sampai jumpa!']},
+    {role: 'Herry', tts: 'Semoga bermanfaat!', cues: ['Herry: Semoga bermanfaat!']},
+  ], hold: {kind: 'text', text: 'Sampai jumpa. Semoga bermanfaat.'}},
 ];
 
 // Stable clip ids: s01-l1, s01-l2, ...

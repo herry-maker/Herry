@@ -58,6 +58,28 @@ const taskCard = (title, l1, l2) => [
 ];
 
 const scenes = [];
+// 0. Pembuka (A: selamat datang di kisah kedua kita)
+scenes.push({talk: [
+  {dur: 10, layers: [
+    txt('Story 2', 300, 220, 90, {bold: true, w: 700}),
+    txt('Research Journey', 300, 340, 56, {color: GRAY, w: 700, from: 2.0}),
+    draw(underline(300, 410, 500, {color: YELLOW}), 'information', 'Garis bawah judul muncul', 3.0, 4.0),
+    ...metronome(950, 460, 90, 0.2, 9.8, 0.6),
+  ]},
+], hold: [
+  {dur: 3.5, layers: [
+    txt('Story 2', 300, 220, 90, {bold: true, w: 700}), txt('Research Journey', 300, 340, 56, {color: GRAY, w: 700}),
+    underline(300, 410, 500, {color: YELLOW}),
+    ...metronome(950, 460, 90, 0.1, 3.4, 0.6),
+  ]},
+  {dur: 1.5, layers: [
+    txt('Story 2', 300, 220, 90, {bold: true, w: 700, to: 1.2}),
+    txt('Research Journey', 300, 340, 56, {color: GRAY, w: 700, to: 1.2}),
+    mv(underline(300, 410, 500, {color: YELLOW}), 'information', 'Garis bawah menyusut sebelum cerita dimulai', [{t: 0, w: 500}, {t: 1.2, w: 60}]),
+    ...metronome(950, 460, 90, 0.1, 1.4, 0.6),
+  ]},
+], sfx: [[0.4, 'chime', .05, 'talk'], [0.5, 'tap', .04, 'hold'], [1.1, 'tap', .04, 'hold'], [1.7, 'tap', .04, 'hold']]});
+
 // 1. Kebingungan awal  (V: artikel banyak, bingung memilih | H: buka catatanmu, apa yang ingin kamu pahami?)
 scenes.push({talk: [
   {dur: 3, layers: [
@@ -386,6 +408,45 @@ scenes.push({talk: [
   ]},
 ],
 sfx: [[0.4, 'tap', .05, 'talk'], [5.4, 'paper', .04, 'talk'], [6.4, 'paper', .04, 'talk'], [7.9, 'tap', .05, 'talk'], [0.4, 'chime', .06, 'hold']]});
+
+// 13. Rangkuman dan penutup (A: mari kita rangkum tujuh langkah | V: semua dimulai dari referensi... | V: sampai jumpa | H: semoga bermanfaat)
+const REFLECTION_ITEMS = [
+  'Memilih referensi relevan',
+  'Menghubungkan bacaan dan masalah',
+  'Menyusun pernyataan masalah',
+  'Merumuskan pertanyaan penelitian',
+  'Menentukan metode penelitian',
+  'Memilih data yang diperlukan',
+  'Menghubungkan data dan analisis',
+];
+const checklist = (t0step = 0.8, startT = 0.3) => REFLECTION_ITEMS.flatMap((text, i) => {
+  const y = 110 + i * 68, t0 = startT + i * t0step;
+  return [
+    draw(line([[130, y + 8], [148, y + 24], [178, y - 10]], {color: GREEN, lineWidth: 5}), 'information', 'Centang: ' + text, t0, t0 + 0.35),
+    hand(text, 200, y - 14, 26, {from: t0}),
+  ];
+});
+scenes.push({talk: [
+  {dur: 6, layers: [
+    txt('Rangkuman Perjalanan', 120, 40, 34, {bold: true, color: RED}),
+    ...checklist(),
+  ]},
+  {dur: 4, layers: [
+    txt('Sampai jumpa!', 120, 100, 54, {bold: true, color: RED, from: .2}),
+    txt('Semoga bermanfaat!', 120, 175, 40, {color: NAVY, from: 2.0}),
+    draw(underline(120, 230, 320, {color: YELLOW}), 'information', 'Penekanan salam saat diucapkan', 0.5, 1.3),
+    draw(line([[120, 232], [440, 232]], {color: YELLOW, lineWidth: 6}), 'information', 'Garis penekanan ditebalkan ulang', 2.2, 3.0),
+    vidka('nod', {x: 300, w: 240}), herry('nod', 640, {w: 200}), ardipal('listen', 900, {w: 200}),
+  ]},
+], hold: [
+  {dur: 5, layers: [
+    txt('Sampai jumpa!', 120, 100, 54, {bold: true, color: RED}),
+    txt('Semoga bermanfaat!', 120, 175, 40, {color: NAVY}),
+    draw(underline(120, 230, 320, {color: YELLOW}), 'information', 'Penekanan salam penutup', 1.0, 1.8),
+    vidka('nod', {x: 300, w: 240}), herry('nod', 640, {w: 200}), ardipal('listen', 900, {w: 200}),
+    ...metronome(1080, 480, 80, 0.3, 4.5, 0.6),
+  ]},
+], sfx: [[0.3, 'pop', .04, 'talk'], [1.1, 'pop', .04, 'talk'], [1.9, 'pop', .04, 'talk'], [2.7, 'pop', .04, 'talk'], [3.5, 'pop', .04, 'talk'], [4.3, 'pop', .04, 'talk'], [5.1, 'pop', .04, 'talk'], [6.3, 'chime', .06, 'talk'], [0.4, 'chime', .06, 'hold']]});
 
 // ---------- assemble ----------
 if (scenes.length !== SCENES.length) throw new Error(`expected ${SCENES.length} scenes, got ${scenes.length}`);
