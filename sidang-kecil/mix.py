@@ -113,6 +113,11 @@ def paper(d=.22, v=1.0):
 def pencil(d=.8, v=1.0):
     tt = t_(d); x = bp(noise(d), 1800, 6000) * (.55 + .45 * np.abs(np.sin(2 * np.pi * 7.3 * tt + np.sin(tt * 19)))) * np.minimum(1, tt / .05) * np.minimum(1, np.maximum(0, (d - tt) / .08))
     return norm(x) * .3 * v
+def metro_tick(v=1.0):
+    # the metronome prop (scene 3): a small, dry wooden click, quiet — a motif in the background, not a foreground sound
+    d = .05; tt = t_(d)
+    x = np.sin(2 * np.pi * 1800 * tt) * env_exp(d, .004) + hp(noise(d), 3500) * env_exp(d, .0015) * .5
+    return norm(x) * .22 * v
 def tick(v=1.0):
     d = .05; tt = t_(d); x = np.sin(2 * np.pi * 2400 * tt) * env_exp(d, .006) + hp(noise(d), 4000) * env_exp(d, .002) * .5; return norm(x) * .35 * v
 def breath(v=1.0):
@@ -134,6 +139,7 @@ for e in EV:
     elif ty == 'trace': putF(bp(noise(d), 700, 3000) * .5 * np.sin(np.pi * t_(d) / d) ** .5 * .12, t, .6, .35)
     elif ty == 'flip': putF(paper(.2, .9), t, .9, .3)
     elif ty == 'tick': putF(tick(), t, .8, .3)
+    elif ty == 'metronome': putF(metro_tick(), t, .55, .5)
     elif ty == 'pencil': putF(pencil(d), t, .9, -.2)
     elif ty == 'strike': putF(pencil(.25, 1.2), t, .9, -.2)
     elif ty in ('pullback', 'pushin', 'track'): putF(sweep(d, .6), t, .5, 0)

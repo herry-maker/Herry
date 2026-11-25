@@ -3,9 +3,28 @@ Gaya: Stick-figure Explainer (火柴人讲解), pustaka Lemo-Opuscar (github.com
 Semua gambar (kertas, figur, meja, halaman, teks) digambar oleh kode di folder ini: rig.js, film.js, index.html.
 Tidak ada gambar hasil generator, tidak ada stok foto/footage.
 
-FONT (SIL Open Font License 1.1; teks lisensi di fonts/OFL-Jost.txt)
+FONT (SIL Open Font License 1.1; teks lisensi di fonts/OFL-*.txt)
 - Jost — The Jost Project Authors — https://github.com/indestructible-type/Jost
-  (berkas: https://github.com/google/fonts/tree/main/ofl/jost) → fonts/Jost-Variable.ttf
+  (berkas: https://github.com/google/fonts/tree/main/ofl/jost) → fonts/Jost-Variable.ttf — label kecil berjarak-huruf
+- Caveat — Pablo Impallari, Igino Marini — https://github.com/googlefonts/caveat
+  (berkas: https://github.com/google/fonts/tree/main/ofl/caveat) → fonts/Caveat-Variable.ttf — judul dan judul pertanyaan jeda (revisi 2)
+- Baloo 2 — Mark George / Ek Type — https://github.com/ekType/Baloo2
+  (berkas: https://github.com/google/fonts/tree/main/ofl/baloo2) → fonts/Baloo2-Variable.ttf — narasi/subtitle dan label halaman (revisi 2)
+
+REVISI GAYA (lihat TREATMENT.md §11 untuk alasan tiap perubahan)
+- Pengguna melampirkan satu video (1280×720, ber-narasi Indonesia, judul internal "Story 2 — Research Journey") sebagai
+  acuan tampilan karakter, dialog, properti, dan kamera. Film itu BUKAN dibuat di proyek ini; sumbernya tidak diketahui
+  (diunggah langsung oleh pengguna). Tidak ada potongan gambar, suara, atau kode dari video itu dipakai di sini — yang
+  dipelajari hanyalah tata bahasa visualnya (DIRECTOR.md §12 pustaka Lemo-Opuscar: referensi mengajarkan komposisi,
+  bukan aset). Seluruh gambar di `rig.js`/`film.js` tetap gambar kode sendiri, dengan tokoh, pakaian, dan warna yang
+  berbeda dari video itu.
+- Rujukan yang dibaca untuk melandasi keputusan desain (dicari lewat alat pencarian web pada sesi produksi; ringkasan
+  dan catatan jujur soal kekuatan buktinya ada di TREATMENT.md §11):
+  - Fiorella, L., & Mayer, R. E. — beberapa eksperimen tentang menonton instruktur menggambar ("dynamic drawing").
+  - Schneider, S., dkk. (2023). Progressive drawing in instructional videos. Heliyon, 9(2). https://doi.org/10.1016/j.heliyon.2023.e13353
+  - Mayer, R. E. — prinsip koherensi, ringkasan dalam Cambridge Handbook of Multimedia Learning (median d=0,97 lintas uji).
+  - Cohen, S. (2014). Annotation and reading comprehension on an e-reader (disertasi, University of Virginia). https://libraetd.lib.virginia.edu/public_view/tq57nr288
+  - List, A., & Lin, L. (2023), dirujuk dalam poster Educational Data Mining 2024, tentang jumlah anotasi dan pemahaman multi-teks.
 
 SUARA (dialog tiga tokoh, bahasa Indonesia)
 - Dibuat dengan ElevenLabs (model eleven_v4) melalui akun ElevenLabs pemilik proyek, satu berkas per kalimat (voice/*.wav), dari lines.json:

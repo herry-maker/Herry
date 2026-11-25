@@ -1,11 +1,21 @@
 'use strict';
-// Stick-figure rig for «Sidang Kecil Sebelum Sidang» (Stick-figure Explainer style, Lemo-Opuscar).
-// Technique learnt from the style's demo engine: one skeleton (hip, curved spine, two-bone arms, IK legs, head on the neck),
-// every limb one quadratic curve with the joint as control point, damped springs per pose parameter, joined hands as one hose.
+// Rig for «Sidang Kecil Sebelum Sidang», revision 2: a notebook-and-grid-paper explainer look, built on the same
+// procedural engine as revision 1 (Lemo-Opuscar's Stick-figure Explainer technique: one skeleton — hip, curved spine,
+// two-bone arms, IK legs, head on the neck — every limb one quadratic curve, damped springs per pose parameter, joined
+// hands as one hose). What changed in this revision, and why, is written out in TREATMENT.md §11. In short: the three
+// named people (Vidka, Dr. Herry, Prof. Ardipal) now carry a face, hair and a clothed silhouette, drawn on a light grid
+// page instead of plain paper; the chain of five chapters stays bare on purpose, so a reader never confuses a diagram
+// of the thesis with a person. The skeleton, springs and joined-hands geometry below are unchanged from revision 1.
 const W = 1920, H = 1080;
 const cv = document.getElementById('c'), g = cv.getContext('2d');
-const C = { paper: '#F3F0EA', ink: '#24242C', mute: '#9C978C', tint: '#E2DDD2', sig: '#EB4A2A' };
-const LW = 7, EN = 'Jost';
+const C = {
+  paper: '#F6F5F1', grid: '#C7CEDB', ink: '#262626', mute: '#8E8A82', tint: '#E4E1D8',
+  sig: '#E0502A',    // red — a gap the reader should notice (unanswered question, a claim wider than its evidence)
+  navy: '#2C3E66',   // navy — a structured option or category (a list of possible readings, a label)
+  gold: '#D8A41E',   // gold/yellow — a highlighted phrase worth a second look
+  leaf: '#3F8F5F',   // green — a repair confirmed, a connection now in place
+};
+const LW = 7, EN = 'Jost', HAND = 'Caveat', RND = "'Baloo 2'";
 
 const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x)), lerp = (a, b, t) => a + (b - a) * t;
 const seg = (t, a, b) => clamp((t - a) / (b - a)), ss = t => { t = clamp(t); return t * t * (3 - 2 * t); };
@@ -20,17 +30,37 @@ function mulberry(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; let 
 function hex(h) { return [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)); }
 function mix(a, b, t) { const A = hex(a), B = hex(b); return 'rgb(' + A.map((v, i) => Math.round(lerp(v, B[i], clamp(t)))).join(',') + ')'; }
 
-// ---- paper: one flat warm off-white with a very fine matte grain, drawn once ----
+// ---- page: a soft grid-paper sheet (a page from a research notebook, not a flat studio backdrop) ----
+const GRID = 112;
 let paperC = null;
 function paper() {
   if (!paperC) {
     paperC = document.createElement('canvas'); paperC.width = W; paperC.height = H;
     const x = paperC.getContext('2d'); x.fillStyle = C.paper; x.fillRect(0, 0, W, H);
     const id = x.getImageData(0, 0, W, H), d = id.data, r = mulberry(11);
-    for (let i = 0; i < d.length; i += 4) { const n = (r() + r() - 1) * 3.2; d[i] += n; d[i + 1] += n; d[i + 2] += n; }
+    for (let i = 0; i < d.length; i += 4) { const n = (r() + r() - 1) * 2.0; d[i] += n; d[i + 1] += n; d[i + 2] += n; }
     x.putImageData(id, 0, 0);
+    x.strokeStyle = C.grid; x.lineWidth = 1.4; x.globalAlpha = .38;
+    for (let gx = 0; gx <= W; gx += GRID) { x.beginPath(); x.moveTo(gx, 0); x.lineTo(gx, H); x.stroke(); }
+    for (let gy = 0; gy <= H; gy += GRID) { x.beginPath(); x.moveTo(0, gy); x.lineTo(W, gy); x.stroke(); }
   }
   g.drawImage(paperC, 0, 0);
+}
+// a short stroke that grows from a0 to a1 as f goes 0→1, with a hand's faint waver (the dynamic-drawing /
+// progressive-reveal device: TREATMENT.md §11 cites Fiorella & Mayer and Schneider et al. 2023 for why a mark that
+// draws itself, rather than appearing whole, is worth the extra code here).
+function growStroke(x0, y0, x1, y1, f, col, lw, seed = 1) {
+  f = clamp(f); if (f <= 0) return;
+  const r = mulberry(seed * 97 + 3), n = 5, pts = [];
+  for (let i = 0; i <= n; i++) {
+    const t = i / n, bow = Math.sin(Math.PI * t) * (2.2 + 1.4 * r());
+    pts.push([lerp(x0, x1, t), lerp(y0, y1, t) - bow * .35]);
+  }
+  const upto = f * (n);
+  g.save(); g.strokeStyle = col; g.lineWidth = lw; g.lineCap = 'round'; g.lineJoin = 'round';
+  g.beginPath(); g.moveTo(pts[0][0], pts[0][1]);
+  for (let i = 1; i <= n; i++) { const k = clamp(upto - (i - 1)); if (k <= 0) break; const p = i <= upto ? pts[i] : L2D(pts[i - 1], pts[i], k); g.lineTo(p[0], p[1]); if (k < 1) break; }
+  g.stroke(); g.restore();
 }
 
 // ---- skeleton (figure height = 1; angle a has direction (sin a, cos a): 0 down, +π/2 right, ±π up) ----
@@ -82,22 +112,88 @@ function armTo(f, p, side, P, reach = .97) {
   return p;
 }
 
-// ---- drawing: the even hose ----
+// ---- drawing: the even hose, now in a shirt, with shoes and (for the three named people only) a face ----
 const FIG = { w: 8, head: 7.5, k: .8 };
+// a character's "look": torso tint, hair/face kind. The chain of five chapters passes none of this — on purpose
+// (TREATMENT.md §11): a diagram of a thesis should never be mistaken for a person at a table.
+const LOOK = {
+  V: { tint: '#ECD2C8', kind: 'ponytail' },
+  H: { tint: '#CBD6E3', kind: 'glasses' },
+  A: { tint: '#D7DCC6', kind: 'curly' },
+};
 function ctrl(A, B, E, k) { const m = [(A[0] + E[0]) / 2, (A[1] + E[1]) / 2]; return [B[0] + (B[0] - m[0]) * k, B[1] + (B[1] - m[1]) * k]; }
 const qpt = (A, Q, E, t) => { const s = 1 - t; return [s * s * A[0] + 2 * s * t * Q[0] + t * t * E[0], s * s * A[1] + 2 * s * t * Q[1] + t * t * E[1]]; };
+// a thin filled "leaf" between two quadratic curves — used for the ponytail, cheap stand-in for a variable-width stroke
+function leafShape(A, Q1, Q2, E) {
+  g.beginPath(); g.moveTo(A[0], A[1]); g.quadraticCurveTo(Q1[0], Q1[1], E[0], E[1]); g.quadraticCurveTo(Q2[0], Q2[1], A[0], A[1]); g.closePath(); g.fill(); g.stroke();
+}
+// local→world for a point in the head's own frame (hr = head radius, ang = head's small tilt, Hd = head centre)
+function headPt(Hd, ang, hr, lx, ly) { const c = Math.cos(ang), s = Math.sin(ang); return [Hd[0] + (c * lx - s * ly) * hr, Hd[1] + (s * lx + c * ly) * hr]; }
+function hairFace(kind, j, S, p, col, fill) {
+  const Hd = j.Hd, hr = GEO.headR * S, ang = (p.lean + p.head) * .8;
+  const P = (lx, ly) => headPt(Hd, ang, hr, lx, ly);
+  // eyes, brows, a mouth that flattens a little when the figure leans back or down (free: reuses the pose, no new state)
+  const mood = clamp(-p.lean * 5, -1, 1), smile = lerp(.1, -.015, (mood + 1) / 2);
+  g.save(); g.strokeStyle = col; g.fillStyle = col; g.lineCap = 'round'; g.lineJoin = 'round';
+  for (const sx of [-1, 1]) {
+    const e = P(sx * .33, -.03); g.lineWidth = Math.max(1.1, hr * .05);
+    g.beginPath(); g.arc(e[0], e[1], Math.max(1.3, hr * .075), 0, Math.PI * 2); g.fill();
+    const b0 = P(sx * .2, -.26), b1 = P(sx * .48, -.3 - .05 * sx * ang * 2);
+    g.beginPath(); g.moveTo(b0[0], b0[1]); g.lineTo(b1[0], b1[1]); g.stroke();
+  }
+  const m0 = P(-.26, .24), m1 = P(.26, .24), mc = P(0, .24 + smile);
+  g.lineWidth = Math.max(1.3, hr * .06); g.beginPath(); g.moveTo(m0[0], m0[1]); g.quadraticCurveTo(mc[0], mc[1], m1[0], m1[1]); g.stroke();
+  g.restore();
+  g.save(); g.strokeStyle = col; g.fillStyle = col; g.lineCap = 'round'; g.lineJoin = 'round'; g.lineWidth = Math.max(1.6, hr * .09);
+  if (kind === 'ponytail') {
+    const a0 = P(-.62, -.58), q1 = P(-1.32, -.5), q2 = P(-1.1, .15), e = P(-1.3, .55);
+    leafShape(a0, q1, q2, e);
+    for (const t of [.55, .8]) { const b = qpt(a0, q1, e, t), c = qpt(a0, q2, e, t); g.beginPath(); g.moveTo(b[0], b[1]); g.lineTo([c[0] + (c[0] - b[0]) * .4, c[1] + (c[1] - b[1]) * .4][0], c[1] + (c[1] - b[1]) * .4); g.stroke(); }
+    const f0 = P(-.5, -.82), f1 = P(.46, -.84), fc = P(-.02, -1.02);
+    g.beginPath(); g.moveTo(f0[0], f0[1]); g.quadraticCurveTo(fc[0], fc[1], f1[0], f1[1]); g.stroke();
+  } else if (kind === 'glasses') {
+    const r = hr * .3, eL = P(-.33, -.03), eR = P(.33, -.03);
+    g.lineWidth = Math.max(1.6, hr * .07);
+    g.beginPath(); g.arc(eL[0], eL[1], r, 0, Math.PI * 2); g.stroke();
+    g.beginPath(); g.arc(eR[0], eR[1], r, 0, Math.PI * 2); g.stroke();
+    const bl = P(-.08, -.03), br = P(.08, -.03); g.beginPath(); g.moveTo(bl[0], bl[1]); g.lineTo(br[0], br[1]); g.stroke();
+    const tl = P(-.62, -.08); g.beginPath(); g.moveTo(eL[0] - (eL[0] - eR[0]) * .03, eL[1]); g.lineTo(tl[0], tl[1]); g.stroke();
+    const h0 = P(-.56, -.82), h1 = P(.56, -.84), hc = P(0, -.98);
+    g.lineWidth = Math.max(1.3, hr * .05); g.beginPath(); g.moveTo(h0[0], h0[1]); g.quadraticCurveTo(hc[0], hc[1], h1[0], h1[1]); g.stroke();
+  } else if (kind === 'curly') {
+    const bumps = [[-.58, -.68], [-.3, -.92], [0, -1.0], [.3, -.92], [.58, -.68], [-.78, -.4], [.78, -.4]];
+    for (const [bx, by] of bumps) { const c = P(bx, by); g.beginPath(); g.arc(c[0], c[1], hr * .22, 0, Math.PI * 2); g.stroke(); }
+    const j0 = P(-.3, .52), j1 = P(.3, .52), jc = P(0, .66);
+    g.beginPath(); g.moveTo(j0[0], j0[1]); g.quadraticCurveTo(jc[0], jc[1], j1[0], j1[1]); g.stroke();
+  }
+  g.restore();
+}
 function figure(f, p) {
-  const S = f.S, j = joints(f, p), col = f.col || C.ink, fill = f.fill || C.paper;
+  const S = f.S, j = joints(f, p), col = f.col || C.ink, fill = f.fill || C.paper, look = f.look && LOOK[f.look];
   const sc = (f.lws ?? clamp(Math.sqrt(S / 380), .6, 1.05)) * (f.lwk ?? 1);
   const w = Math.max(3 * (f.lwk ?? 1), FIG.w * sc), hw = Math.max(3 * (f.lwk ?? 1), FIG.head * sc);
+  if (look) {   // the shirt: a plain straight-sided silhouette between hip and shoulder, behind the limb strokes.
+    // (a curve toward the spine's own bend point pinches both sides in at once, like a corset — a quad stays honest in every pose.)
+    const sd = V.norm(V.sub(j.N, j.Hp)), perp = [-sd[1], sd[0]], hipW = .105 * S, shW = .1 * S;
+    const Hl = V.add(j.Hp, V.mul(perp, hipW)), Hr = V.sub(j.Hp, V.mul(perp, hipW));
+    const Sl = V.add(j.Sh, V.mul(perp, shW)), Sr = V.sub(j.Sh, V.mul(perp, shW));
+    g.save(); g.fillStyle = look.tint; g.strokeStyle = mix(look.tint, C.ink, .45); g.lineWidth = Math.max(1.2, w * .4); g.lineJoin = 'round';
+    g.beginPath(); g.moveTo(Hl[0], Hl[1]); g.lineTo(Sl[0], Sl[1]); g.lineTo(Sr[0], Sr[1]); g.lineTo(Hr[0], Hr[1]); g.closePath(); g.fill(); g.stroke(); g.restore();
+  }
   g.save(); g.strokeStyle = col; g.fillStyle = col; g.lineCap = 'round'; g.lineJoin = 'round'; g.lineWidth = w;
   g.beginPath();
   for (const [K, F] of [j.lL, j.lR]) { const Q = ctrl(j.Hp, K, F, FIG.k); g.moveTo(j.Hp[0], j.Hp[1]); g.quadraticCurveTo(Q[0], Q[1], F[0], F[1]); }
   g.moveTo(j.Hp[0], j.Hp[1]); g.quadraticCurveTo(j.Cc[0], j.Cc[1], j.N[0], j.N[1]);
   [j.aL, j.aR].forEach(([El, Hn], ai) => { if (ai === 0 && f.noL || ai === 1 && f.noR) return; const Q = ctrl(j.Sh, El, Hn, FIG.k); g.moveTo(j.Sh[0], j.Sh[1]); g.quadraticCurveTo(Q[0], Q[1], Hn[0], Hn[1]); });
   g.stroke();
+  if (look) for (const [K, F] of [j.lL, j.lR]) {   // shoes: a small flattened ellipse past each ankle, along the shin
+    const d = V.norm(V.sub(F, K)), ang = Math.atan2(d[1], d[0]), rx = .11 * S, ry = .052 * S;
+    const c = V.add(F, V.mul(d, rx * .55));
+    g.save(); g.translate(c[0], c[1]); g.rotate(ang); g.fillStyle = col; g.beginPath(); g.ellipse(0, 0, rx, ry, 0, 0, Math.PI * 2); g.fill(); g.restore();
+  }
   g.beginPath(); g.arc(j.Hd[0], j.Hd[1], GEO.headR * S, 0, Math.PI * 2); g.fillStyle = fill; g.fill();
   g.lineWidth = hw; g.beginPath(); g.arc(j.Hd[0], j.Hd[1], GEO.headR * S, 0, Math.PI * 2); g.stroke();
+  if (look) hairFace(look.kind, j, S, p, col, fill);
   g.restore();
   return j;
 }
@@ -218,9 +314,9 @@ function drawGroup(P, Ls, T) {
 // ---- type ----
 let TXT = null;   // for window.TEXTS: every text drawn this frame, in screen pixels
 let SCR = null;   // current world→screen transform for text boxes drawn in world space: {x,y,z}
-function text(s, x, y, { size = 28, w = 500, col = C.ink, align = 'left', track = 0, a = 1, pass = false } = {}) {
+function text(s, x, y, { size = 28, w = 500, col = C.ink, align = 'left', track = 0, a = 1, pass = false, font = EN } = {}) {
   if (a <= 0 || !s) return;
-  g.save(); g.globalAlpha = clamp(a); g.font = `${w} ${size}px ${EN}`; g.fillStyle = col; g.textAlign = align; g.textBaseline = 'alphabetic';
+  g.save(); g.globalAlpha = clamp(a); g.font = `${w} ${size}px ${font}`; g.fillStyle = col; g.textAlign = align; g.textBaseline = 'alphabetic';
   g.letterSpacing = track + 'px'; g.fillText(s, x, y);
   if (TXT) {
     const m = g.measureText(s), x0 = align === 'left' ? x : align === 'right' ? x - m.width : x - m.width / 2;
@@ -236,4 +332,55 @@ function hud(s, x, y, o, tin, tout = 1e9, dy = 16) {
   const a = eo(seg(T_NOW, tin, tin + .38)) * (1 - seg(T_NOW, tout, tout + .3));
   if (a <= 0) return;
   text(s, x, y + dy * (1 - eo(seg(T_NOW, tin, tin + .45))), { ...o, a });
+}
+
+// ---- small reusable props added in revision 2 (TREATMENT.md §11): a sticky note, a self-check list, a metronome ----
+function sticky(x, y, w, h, rot, fill, label, a = 1) {
+  if (a <= 0) return;
+  g.save(); g.globalAlpha = a; g.translate(x, y); g.rotate(rot);
+  g.fillStyle = fill; g.strokeStyle = mix(fill, C.ink, .55); g.lineWidth = 2.4; g.lineJoin = 'round';
+  g.beginPath(); g.roundRect(-w / 2, -h / 2, w, h, 6); g.fill(); g.stroke();
+  if (label) { g.font = `600 ${Math.round(h * .3)}px ${HAND}`; g.fillStyle = C.ink; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(label, 0, h * .06); }
+  g.restore();
+}
+// a short self-check list: items = [text,...]; checked = how many (can be fractional while one tick is drawing in)
+function checklist(x, y, items, checked, a = 1) {
+  if (a <= 0) return;
+  const row = 46, box = 22;
+  g.save(); g.globalAlpha = a;
+  items.forEach((s, i) => {
+    const y0 = y + i * row, k = clamp(checked - i);
+    g.strokeStyle = k > 0 ? C.leaf : C.mute; g.lineWidth = 2.6; g.lineJoin = 'round';
+    g.beginPath(); g.roundRect(x, y0 - box / 2, box, box, 4); g.stroke();
+    if (k > 0) {
+      const p0 = [x + box * .2, y0], p1 = [x + box * .42, y0 + box * .26], p2 = [x + box * .82, y0 - box * .28];
+      const f = clamp(k * 2); g.strokeStyle = C.leaf; g.lineWidth = 3; g.lineCap = 'round'; g.lineJoin = 'round';
+      g.beginPath(); g.moveTo(p0[0], p0[1]);
+      if (f <= 1) g.lineTo(L2D(p0, p1, f)[0], L2D(p0, p1, f)[1]); else { g.lineTo(p1[0], p1[1]); g.lineTo(L2D(p1, p2, f - 1)[0], L2D(p1, p2, f - 1)[1]); }
+      g.stroke();
+    }
+    text(s, x + box + 16, y0 + 7, { size: 25, w: 500, col: k > 0 ? C.ink : C.mute, font: RND });
+  });
+  g.restore();
+}
+// a small metronome, ticking at `bpm` (one tick per beat: the arm crosses centre once every 60/bpm seconds, the
+// convention a real metronome keeps — the mix's own foley ticks are placed on the same zero-crossings, metronomeTick(t,bpm)
+// below). t is absolute seconds so the swing stays continuous across the cut.
+function metronome(x, y, s, t, bpm = 72, a = 1) {
+  if (a <= 0) return;
+  g.save(); g.globalAlpha = a; g.translate(x, y);
+  g.strokeStyle = C.ink; g.fillStyle = C.paper; g.lineWidth = 2.6; g.lineJoin = 'round'; g.lineCap = 'round';
+  g.beginPath(); g.moveTo(-.32 * s, 0); g.lineTo(.32 * s, 0); g.lineTo(.14 * s, -.92 * s); g.lineTo(-.14 * s, -.92 * s); g.closePath(); g.fill(); g.stroke();
+  const ang = Math.sin(2 * Math.PI * (bpm / 120) * t) * .34;
+  g.save(); g.rotate(ang); g.strokeStyle = C.sig; g.lineWidth = 3;
+  g.beginPath(); g.moveTo(0, -.04 * s); g.lineTo(0, -.86 * s); g.stroke();
+  g.beginPath(); g.arc(0, -.86 * s, s * .05, 0, Math.PI * 2); g.fillStyle = C.sig; g.fill(); g.restore();
+  g.beginPath(); g.arc(0, 0, s * .045, 0, Math.PI * 2); g.fillStyle = C.ink; g.fill();
+  g.restore();
+}
+// the metronome's own tick times, so mix.py's foley lands exactly on the arm's zero-crossings
+function metronomeTicks(t0, t1, bpm = 72) {
+  const T = 60 / bpm, out = []; let k = Math.ceil(t0 / T);
+  for (let t = k * T; t <= t1; t += T) out.push(t);
+  return out;
 }

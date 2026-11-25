@@ -153,7 +153,38 @@ Suara: dikompresi, ≈ 10 dB RMS di atas musik; musik mengalah 300 Hz–4 kHz da
 
 Jeda lima detik tidak menuntut jawaban lengkap; ia memberi waktu mulai mempertimbangkan. Untuk diskusi kelas, jeda video pada adegan **3, 6, dan 8**, minta mahasiswa menjelaskan alasannya kepada teman. Format pertanyaan tersisip mengikuti bukti Szpunar dkk. (2013) dan prinsip fokus visual Brame (2016); penerapannya pada cerita ini belum diuji pada mahasiswa.
 
-## 11. Pemeriksaan "bukan demo lagi" (diisi setelah DEMO.md dibaca)
+## 11. Revisi gaya, atas satu video referensi yang diberikan pengguna
+
+Pengguna melampirkan satu video (judul internalnya *Story 2 — Research Journey*, 1280×720, ber-narasi Indonesia) sebagai acuan tampilan, dialog, properti, dan kamera untuk Cerita 3. Bagian ini mencatat apa yang dipelajari dari video itu, apa yang diterapkan, apa yang sengaja diubah, dan rujukan yang melandasi tiap keputusan. **Tidak ada berkas dari video itu disalin**; yang dipelajari hanyalah tata bahasa visualnya (DIRECTOR.md §12: referensi mengajarkan tata bahasa, bukan aset) — seluruh gambar di film ini tetap digambar oleh kode sendiri di `rig.js`/`film.js`.
+
+**Yang diamati pada video referensi:**
+- Figur tongkat diilustrasikan, bukan diagram murni: ada wajah (mata, alis, mulut), rambut yang membedakan tokoh (kuncir, kacamata, rambut keriting), sepatu, dan siluet pakaian.
+- Latar kertas berkotak (grid) lembut, bukan kertas polos.
+- Dua keluarga huruf: judul dan kalimat penekanan dalam huruf tulisan tangan tebal; narasi dalam huruf sans membulat yang ramah.
+- Properti: sticky note berwarna, daftar periksa bercentang, kotak tugas bertepi warna, kutipan dengan garis bawah tangan.
+- Warna fungsional, bukan dekoratif: merah untuk masalah/pertanyaan, kuning untuk penyorotan, navy untuk daftar terstruktur, hijau untuk tercentang/selesai.
+- Kamera nyaris selalu diam; komposisi berganti lewat potongan (cut), bukan pergerakan kamera yang menerus.
+
+**Yang diterapkan ke Cerita 3 (lihat `rig.js`, bagian "revisi 2", dan `film.js`):**
+- Vidka, Dr. Herry, dan Prof. Ardipal kini punya wajah, rambut pembeda (Vidka kuncir, Dr. Herry kacamata, Prof. Ardipal rambut keriting plus janggut), sepatu, dan kaus bersiluet bertona lembut berbeda per tokoh — sementara **rantai lima bab tetap polos tanpa wajah**, sebuah pilihan yang disengaja: diagram tesis tidak boleh tertukar dengan orang sungguhan.
+- Latar berganti ke kertas kotak-kotak lembut (`GRID`, di `rig.js`).
+- Huruf Caveat (OFL) untuk judul dan judul pertanyaan jeda; Baloo 2 (OFL) untuk narasi dan label; Jost tetap dipakai untuk label kecil berjarak-huruf (tingkatan "data", bukan tampilan utama).
+- Empat warna fungsional ditambahkan pada palet (`C.sig` merah tetap untuk celah/masalah, `C.gold` kuning untuk sorotan, `C.navy` untuk opsi terstruktur, `C.leaf` hijau untuk perbaikan yang sudah tersambung) dan diterapkan ulang ke adegan 4, 7, 8, 9, 10 — setiap pewarnaan sekarang menandai satu tindakan membaca kritis yang spesifik, bukan sekadar aksen.
+- Properti baru: sticky note emas untuk sesi latihan terpilih di adegan 5 (menggantikan kartu polos), daftar periksa "satu per satu" di akhir adegan 12 (empat perbaikan, tercentang hijau selaras dengan nada glockenspiel yang sama yang sudah menjalankan rantai bab), dan metronom kecil di adegan 3 — tepat saat dialog menyebut "koordinasi tempo" — yang berdetak pada 72 BPM, tempo musik film ini sendiri.
+- Garis bawah dan progres jeda kini "ditulis" secara bertahap (`growStroke`), bukan muncul utuh sekaligus: mengikuti prinsip dynamic-drawing/progressive-reveal (lihat rujukan di bawah).
+- Kamera diratakan mengikuti tata bahasa video referensi: nyaris seluruh adegan kini kunci-diam dengan potongan keras, dan hanya **tiga** gerakan kamera yang benar-benar menerus dipertahankan — adegan 3 (celah tujuan–kesimpulan), adegan 6 (titik balik "klaim saya terlalu luas"), adegan 12 (penutup) — masing-masing puncak emosi babak itu, sehingga gerakan kamera sendiri menjadi sinyal penekanan, bukan hiasan yang terus-menerus.
+- Teks bawah (subtitle) kini satu baris datar di tengah-bawah, huruf Baloo 2, tanpa batang warna; nama pembicara kecil dan netral di atasnya — karena warna kini dicadangkan khusus untuk sistem anotasi, bukan untuk menandai siapa yang bicara. Karena tiga tokoh perlu tetap terbedakan (berbeda dari rujukan yang hanya berdialog dua arah), teks subtitle diberi plat latar lembut agar tetap terbaca saat kamera mendekat dan tubuh karakter terisi penuh (bukan lagi garis kosong seperti pada revisi pertama).
+
+**Rujukan yang melandasi, dengan catatan jujur tentang kekuatannya:**
+- Dynamic-drawing/progressive-reveal pada video papan tulis dikaitkan dengan retensi dan transfer yang lebih baik dibanding gambar yang langsung utuh (Fiorella & Mayer, dalam beberapa eksperimen tentang menonton instruktur menggambar; Schneider dkk. 2023, *Heliyon*, tentang gambar progresif pada siswa menengah). Materi pemasaran sering melebih-lebihkan angka persisnya (misalnya klaim "naik 15%" yang beredar tanpa rujukan utuh); klaim spesifik semacam itu sengaja tidak dipakai di sini.
+- Video dengan gaya tangan-menggambar dinilai paling melibatkan dan membantu ingatan bagi peserta berpengetahuan awal rendah (studi tahun 2020 pada jurnal Springer tentang format kuliah). Pencarian yang sama menemukan studi lain yang justru melihat tangan sebagai distraktor dalam kondisi tertentu — bukti belum sepenuhnya satu arah.
+- Prinsip koherensi Mayer: pembelajaran membaik ketika materi yang menarik tapi tak relevan dihilangkan (ukuran efek median d=0,97 pada ringkasan Mayer). Pencarian terpisah tidak menemukan studi yang menguji **gerakan kamera** secara khusus; menyimpulkan bahwa kamera yang terus bergerak juga "materi ekstra" adalah **kesimpulan penulis sendiri**, diterapkan dengan hati-hati sebagai tiga pengecualian bertujuan, bukan larangan mutlak.
+- Pengodean warna pada anotasi/marginalia: bukti eksperimental terkuat yang ditemukan adalah tentang anotasi secara umum (disertasi Cohen 2014 pada pembaca kelas tujuh; temuan List & Lin 2023 bahwa jumlah anotasi memprediksi pemahaman multi-teks) — bukan tentang pengodean warna itu sendiri secara terisolasi. Panduan "satu warna, satu arti, konsisten" yang dipakai di sini mengikuti praktik baik yang umum diajarkan, bukan hasil eksperimen terkontrol tentang warna.
+- Pencarian literatur dilakukan dengan alat pencarian web pada sesi ini; judul dan tautan lengkap dicatat di `CREDITS`.
+
+**Yang sengaja tidak ditiru:** karakter, nama tokoh, jalan cerita, dan musik video referensi tidak dipakai ulang — hanya tata bahasa visualnya (DIRECTOR.md §12). Pilihan warna fungsional, denah ruang-meja, dan gerak kamera tiga-sinyal adalah racikan sendiri untuk cerita ini, bukan jiplakan satu-ke-satu dari video yang dilampirkan.
+
+## 12. Pemeriksaan "bukan demo lagi" (diisi setelah DEMO.md dibaca)
 
 | Unsur | Demo (*Six Hands Away*) | Film ini |
 |---|---|---|

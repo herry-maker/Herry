@@ -31,22 +31,34 @@ function kf(u, K) {                                   // keyframes [[u, cam], �
   }
   return K[K.length - 1][1];
 }
-// scene-local helpers: u = time since the cut, l(id) = local start of a line, e(id) = local end
+// Camera grammar, revision 2 (TREATMENT.md §11): the reference studied for this revision holds almost every shot
+// locked and cuts between compositions rather than panning or pushing through them — the grammar of a slide board,
+// not a documentary. Mayer's coherence principle (reduce processing that doesn't serve the lesson) is the nearest
+// research footing for "fewer moving parts reads easier", though the search behind that citation found no study of
+// camera motion specifically, so the inference from "extraneous pictures" to "extraneous camera drift" is mine, not
+// theirs. Three moments still get a real, held camera MOVE rather than a cut — scene 3 (the goal/conclusion gap),
+// scene 6 (the turn: "my claim is too wide"), scene 12 (the finale) — each the emotional peak of its half of the
+// film, so the move itself becomes a signal ("this matters") rather than wallpaper. Every other scene is a locked
+// hold or a hard cut between two holds (two keyframes a millisecond apart: kf() eases over that gap, which at 60
+// fps is sub-frame, i.e. a cut).
 const CAMS = {
-  1: (s) => { const p = lt('s01c') - s.t0; return [[0, WIDE], [p, WIDE], [p + 2.2, { x: 1000, y: 600, z: 1.2 }]]; },
-  2: (s) => { const c = camPage(PA, 2.0); return [[0, c], [lt('s02c') - s.t0 - .4, { ...c, x: c.x + 36 }], [lt('s02c') - s.t0 - .399, { ...c, x: c.x + 36 }]]; },
-  3: (s) => { const c = camPage(PH + 125, 1.7, 1470), p = le('s03c') - s.t0 + .9; return [[0, c], [p, c], [p + 1.2, CHAINCAM]]; },
-  4: (s) => { const a = camPage(PA, 2.1), b = camPage(PV, 2.1), m = le('s04c') - s.t0 + .1, w = le('s04c') - s.t0 + 1.9; return [[0, a], [m, a], [m + .7, b], [w, b], [w + 1.0, { x: 700, y: 700, z: 1.1 }]]; },
+  1: () => [[0, WIDE]],
+  2: (s) => { const a = camPage(PA, 2.0), b = camPage(PA, 2.22), cut = lt('s02c') - s.t0 - .4; return [[0, a], [cut, a], [cut + .001, b]]; },
+  3: (s) => { const c = camPage(PH + 125, 1.7, 1470), p = le('s03c') - s.t0 + .9; return [[0, c], [p, c], [p + 1.2, CHAINCAM]]; },   // earned move #1: the gap
+  4: (s) => { const a = camPage(PA, 2.1), b = camPage(PV, 2.1), cut = le('s04c') - s.t0 + .1; return [[0, a], [cut, a], [cut + .001, b]]; },
   5: () => [[0, { x: 1180, y: 474, z: 1.35 }]],
-  6: (s) => { const a = camPage(PV, 2.3), p = lt('s06b') - s.t0 + LINE.s06b.d * .75; return [[0, a], [p, a], [p + 1.1, { x: 1150, y: 680, z: 1.0 }]]; },
-  7: (s) => { const a = { x: 1200, y: 660, z: 1.1 }, b = camPage(PH, 2.1), p = lt('s07b') - s.t0; return [[0, a], [p, a], [p + 1.6, b]]; },
-  8: (s) => { const L = camPage(PH, 1.8, 1420), R = camPage(PH + 250, 1.8, 1420), a = lt('s08a') - s.t0, b = lt('s08b') - s.t0, c = lt('s08c') - s.t0, D = LINE.s08a.d, w = le('s08c') - s.t0 + .4;
-    return [[0, L], [a + D * .45, L], [a + D * .45 + .7, R], [b, R], [b + .7, L], [c, L], [c + .9, R], [w - .3, R], [w + .5, L]]; },
+  6: (s) => { const a = camPage(PV, 2.3), p = lt('s06b') - s.t0 + LINE.s06b.d * .75; return [[0, a], [p, a], [p + 1.1, { x: 1150, y: 680, z: 1.0 }]]; },   // earned move #2: the turn
+  7: (s) => { const a = { x: 1200, y: 660, z: 1.1 }, b = camPage(PH, 2.1), cut = lt('s07b') - s.t0; return [[0, a], [cut, a], [cut + .001, b]]; },
+  8: (s) => {
+    const L = camPage(PH, 1.8, 1420), R = camPage(PH + 250, 1.8, 1420);
+    const a = lt('s08a') - s.t0, b = lt('s08b') - s.t0, c = lt('s08c') - s.t0, D = LINE.s08a.d, w = le('s08c') - s.t0 + .4, t1 = a + D * .45;
+    return [[0, L], [t1, L], [t1 + .001, R], [b, R], [b + .001, L], [c, L], [c + .001, R], [w - .3, R], [w - .299, L]];
+  },
   9: () => [[0, camPage(PV, 2.1)]],
-  10: (s) => { const a = { x: 1060, y: 600, z: 1.2 }, b = camPage(PV, 2.0), p = lt('s10b') - s.t0 - .3; return [[0, a], [p, a], [p + 1.2, b]]; },
-  11: (s) => { const a = camPage(PH, 1.8), b = camPage(PH + 250, 1.8), c = camPage(1660, 1.8), w = le('s11c') - s.t0 + .3;
-    const t1 = lt('s11c') - s.t0 + .3, t2 = t1 + 1.4, t3 = t2 + .4, t4 = t3 + 1.4; return [[0, a], [t1, a], [t2, b], [t3, b], [t4, c], [w, c], [w + .001, a]]; },
-  12: (s) => { const a = { x: 1040, y: 620, z: 1.3 }, p = le('s12d') - s.t0 - .2; return [[0, a], [p, a], [p + 1.4, { x: 960, y: 640, z: .95 }]]; },
+  10: (s) => { const a = { x: 1060, y: 600, z: 1.2 }, b = camPage(PV, 2.0), cut = B.s10.cut - s.t0; return [[0, a], [cut, a], [cut + .001, b]]; },   // the cut lands on the same beat as the jargon → plain-sentence swap
+  11: (s) => { const a = camPage(PH, 1.8), b = camPage(PH + 250, 1.8), c = camPage(1660, 1.8);
+    const t1 = lt('s11c') - s.t0 + .3, t2 = t1 + 1.1, t3 = t2 + 1.1; return [[0, a], [t1, a], [t1 + .001, b], [t2, b], [t2 + .001, c], [t3, c]]; },
+  12: (s) => { const a = { x: 1040, y: 620, z: 1.3 }, p = le('s12d') - s.t0 - .2; return [[0, a], [p, a], [p + 1.4, { x: 960, y: 640, z: .95 }]]; },   // earned move #3: the finale
 };
 function camera(T) { const s = scn(T); return kf(T - s.t0, CAMS[s.n](s)); }
 
@@ -125,7 +137,10 @@ function folder(x, ang, a = 1) {
   const an = -Math.PI * .62 * ang; g.save(); g.translate(x - w / 2, y0); g.rotate(an); rrect(0, -8, w, 10, 4, C.paper, C.ink); g.restore();
   g.restore();
 }
-// a page: rows of text as strokes. o = {rows, accent:[], grow:{row,f}, blocks:[[a,b],…], blank:[a,b], words:[[row,text,col]], mute:bool, tint:bool}
+// a page: rows of text as strokes. o = {rows, accent:[] (red by default, accentCol overrides), accent2:[] (a second
+// marked set, green by default via accent2Col — e.g. the fix that answers the gap on the same page), grow:{row,f},
+// blocks:[[a,b],…], blank:[a,b], words:[[row,text,col]], tint:bool}. Three colours, three reading-comprehension
+// actions: red marks a gap, gold a phrase worth a second look, green a repair now in place (TREATMENT.md §11).
 function page(x, o = {}, a = 1) {
   if (a <= 0) return; g.save(); g.globalAlpha = a;
   const w = o.w ?? PG.w, h = o.h ?? PG.h, x0 = x - w / 2, y0 = TB.top - h, rows = o.rows ?? 13, step = (h - 50) / rows;
@@ -138,33 +153,32 @@ function page(x, o = {}, a = 1) {
     if (o.words && o.words.some(wd => wd[0] === r)) continue;
     const y = y0 + 30 + r * step, len = (.62 + .36 * rnd()) * (w - 40), last = o.lastShort && o.lastShort.includes(r);
     let f = 1; if (o.grow && o.grow.row === r) f = o.grow.f; if (f <= 0) continue;
-    const acc = o.accent && o.accent.includes(r), struck = o.struck && o.struck.includes(r);
+    const acc = o.accent && o.accent.includes(r), acc2 = o.accent2 && o.accent2.includes(r), struck = o.struck && o.struck.includes(r);
     const L = (last ? len * .45 : len) * f;
-    line(x0 + 20, y, x0 + 20 + L, y, acc ? C.sig : (o.tint ? C.tint : C.tint), acc ? PW() * 1.15 : PW() * .9);
+    const col = acc2 ? (o.accent2Col ?? C.leaf) : acc ? (o.accentCol ?? C.sig) : C.tint;
+    line(x0 + 20, y, x0 + 20 + L, y, col, (acc || acc2) ? PW() * 1.15 : PW() * .9);
     if (struck) line(x0 + 14, y - 1, x0 + 20 + L + 6, y + 1, C.ink, PW() * .8);
   }
-  if (o.words) for (const [r, s, col, f] of o.words) { const y = y0 + 30 + r * step + 5; text(s, x0 + 20, y, { size: o.wsize ?? 15, w: 500, col: col ?? C.ink, a: f ?? 1 }); }
+  if (o.words) for (const [r, s, col, f] of o.words) { const y = y0 + 30 + r * step + 5; text(s, x0 + 20, y, { size: o.wsize ?? 15, w: 500, col: col ?? C.ink, a: f ?? 1, font: RND }); }
   if (o.label) text(o.label, x0, y0 - 44, { size: 15, w: 600, col: C.mute, track: 3 });
-  if (o.sub) text(o.sub, x0, y0 - 18, { size: 20, w: 500, col: o.subCol ?? C.ink });
+  if (o.sub) text(o.sub, x0, y0 - 18, { size: 20, w: 500, col: o.subCol ?? C.ink, font: RND });
   g.restore();
 }
-function card(x, star, grey, a = 1) { if (a <= 0) return; g.save(); g.globalAlpha = a; rrect(x - 55, TB.top - 70, 110, 70, 5, grey ? C.tint : C.paper, grey ? C.mute : C.ink);
-  if (star) text('★', x, TB.top - 90, { size: 18, w: 600, col: C.mute, align: 'center' }); else text('—', x, TB.top - 90, { size: 18, w: 600, col: C.mute, align: 'center' }); g.restore(); }
 function fileBox(x, a = 1) { if (a <= 0) return; g.save(); g.globalAlpha = a; rrect(x - 40, TB.top - 150, 80, 150, 5, C.tint, C.mute); line(x - 28, TB.top - 128, x + 28, TB.top - 128, C.mute); g.restore(); }
 function laptop(x, o = {}) {
-  const w = 270, h = 180, x0 = x - w / 2, y0 = TB.top - h - 10;
+  const w = 270, h = 180, x0 = x - w / 2, y0 = TB.top - h - 10, col = o.col ?? C.gold;
   rrect(x0, y0, w, h, 8, C.paper, C.ink); line(x0 - 20, TB.top, x0 + w + 20, TB.top, C.ink, PW() * 1.2);
   const cols = 7, rowsN = 6, gx0 = x0 + 22, gy0 = y0 + 22, gw = w - 44, gh = h - 60, cw = gw / cols, rh = gh / rowsN;
   for (let c = 0; c <= cols; c++) line(gx0 + c * cw, gy0, gx0 + c * cw, gy0 + gh, C.tint, PW() * .6);
   for (let r = 0; r <= rowsN; r++) line(gx0, gy0 + r * rh, gx0 + gw, gy0 + r * rh, C.tint, PW() * .6);
-  if (o.rows) for (const r of o.rows) { const k = o.rowsK ?? 1; rrect(gx0, gy0 + r * rh, gw * k, rh, 0, null, C.sig, PW() * 1.1); }
-  if (o.caption > 0) line(gx0, y0 + h - 18, gx0 + gw * .7 * o.caption, y0 + h - 18, C.sig, PW() * 1.1);
+  if (o.rows) for (const r of o.rows) { const k = o.rowsK ?? 1; rrect(gx0, gy0 + r * rh, gw * k, rh, 0, null, col, PW() * 1.1); }
+  if (o.caption > 0) line(gx0, y0 + h - 18, gx0 + gw * .7 * o.caption, y0 + h - 18, col, PW() * 1.1);
 }
 function book(x, w, h, col, lab) { rrect(x - w / 2, TB.top - h, w, h, 4, C.paper, col); line(x - w / 2 + 14, TB.top - h + 4, x - w / 2 + 14, TB.top - 4, col, PW() * .8); if (lab) text(lab, x - w / 2, TB.top - h - 18, { size: 15, w: 600, col: C.mute, track: 3 }); }
 function pencil(hand, towards) { const ang = Math.atan2(towards[1] - hand[1], towards[0] - hand[0]); line(hand[0] - Math.cos(ang) * 22, hand[1] - Math.sin(ang) * 22, hand[0] + Math.cos(ang) * 24, hand[1] + Math.sin(ang) * 24, C.ink, PW() * .9); }
 
 // ---------------- the three people: target poses per scene, springs in between ----------------
-const Fv = { x: BIG[0].x, gy: GY, S: BIG[0].S }, Fh = { x: BIG[1].x, gy: GY, S: BIG[1].S }, Fa = { x: BIG[2].x, gy: GY, S: BIG[2].S };
+const Fv = { x: BIG[0].x, gy: GY, S: BIG[0].S, look: 'V' }, Fh = { x: BIG[1].x, gy: GY, S: BIG[1].S, look: 'H' }, Fa = { x: BIG[2].x, gy: GY, S: BIG[2].S, look: 'A' };
 const FB = [Fv, Fh, Fa];
 const P = (o) => Object.assign(rest(), o);
 const HOLD = { la: -1.05, lb: 1.25, ra: 1.05, rb: -1.25 };                              // the draft between the palms
@@ -286,37 +300,39 @@ function props(T) {
       folder(PV - 20, 0); break; }
     case 4: {
       const x = lerp(PA, PV, eio(seg(T, B.s4.slide, B.s4.slide + .7)));
-      page(x, { seed: 7, blocks: [[0, 2], [4, 6], [8, 10], [11, 12]], blank: T < B.s4.write ? [11, 12] : [12, 12], accent: T >= B.s4.write ? [11] : [], grow: { row: 11, f: seg(T, B.s4.write, B.s4.write + .9) }, label: 'BAB II · KAJIAN TEORI',
-        words: [[0, 'menurut A …', C.mute], [4, 'menurut B …', C.mute], [8, 'menurut C …', C.mute]] });
+      page(x, { seed: 7, blocks: [[0, 2], [4, 6], [8, 10], [11, 12]], blank: T < B.s4.write ? [11, 12] : [12, 12], accent: T >= B.s4.write ? [11] : [], accentCol: C.leaf, grow: { row: 11, f: seg(T, B.s4.write, B.s4.write + .9) }, label: 'BAB II · KAJIAN TEORI',
+        words: [[0, 'menurut A …', C.navy], [4, 'menurut B …', C.navy], [8, 'menurut C …', C.navy]] });
       folder(PV - 20, 0); break; }
-    case 5: {
-      [1180, 1310, 1440].forEach(x => card(x, true, false));
-      const f = eio(seg(T, B.s5.drag, B.s5.drag + .7)); card(lerp(880, 1050, f), false, T < B.s5.drag + .5, 1);
+    case 5: {   // three chosen sessions as gold sticky notes; the excluded one turns green once Vidka folds it back in
+      [1180, 1310, 1440].forEach((x, i) => sticky(x, TB.top - 40, 104, 66, (i - 1) * .055, C.gold, '★', 1));
+      const f = eio(seg(T, B.s5.drag, B.s5.drag + .7)), included = T >= B.s5.drag + .4;
+      sticky(lerp(880, 1050, f), TB.top - 40, 104, 66, -.08, included ? C.leaf : C.tint, included ? '✓' : '–', 1);
       break; }
     case 6: {
       page(PV, { seed: 8, blocks: [[0, 1], [3, 6], [8, 12]], accent: [4, 5], label: 'KUTIPAN PEMAIN 1' });
       const a = ss(seg(T, B.s6.pull + .3, B.s6.pull + .9)); [1300, 1390, 1480].forEach((x, i) => fileBox(x, Math.min(1, a * 3 - i * .4)));
       if (a > 0) text('PEMAIN 2–4 · BELUM DIBUKA', 1260, TB.top - 170, { size: 15, w: 600, col: C.mute, track: 3, a });
       break; }
-    case 7: {
+    case 7: {   // gold, not red: a pattern worth noticing, not a gap
       const rows = T >= B.s7.rows ? [2, 4] : [], cap = seg(T, B.s7.caption, B.s7.caption + .8);
-      laptop(PH, { rows, caption: cap });
+      laptop(PH, { rows, caption: cap, col: C.gold });
       break; }
     case 8: {
-      page(PH, { seed: 9, accent: [5], label: 'HASIL', sub: 'pemain saling melihat', grow: { row: 11, f: seg(T, B.s8.write, B.s8.write + .9) }, blank: T < B.s8.write ? [11, 12] : [12, 12], words: T >= B.s8.write + .5 ? [[12, 'Dalam situasi apa?', C.sig, seg(T, B.s8.write + .5, B.s8.write + .9)]] : [] , accent2: null, accent: T >= B.s8.write ? [5, 11] : [5] });
+      page(PH, { seed: 9, accent: [5], label: 'HASIL', sub: 'pemain saling melihat', grow: { row: 11, f: seg(T, B.s8.write, B.s8.write + .9) }, blank: T < B.s8.write ? [11, 12] : [12, 12],
+        words: T >= B.s8.write + .5 ? [[12, 'Dalam situasi apa?', C.gold, seg(T, B.s8.write + .5, B.s8.write + .9)]] : [], accent2: T >= B.s8.write ? [11] : [], accent2Col: C.gold });
       page(PH + 250, { seed: 10, accent: [5], label: 'PEMBAHASAN', sub: 'pemain menggunakan pandangan' });
       break; }
-    case 9: {
+    case 9: {   // red marks the overclaim as it's struck; the rewritten line comes back in green — a repair, not just an edit
       const f = Math.min(seg(T, B.s9.under0, B.s9.under1), .45), sw = T >= B.s9.swap;
-      page(PV, { seed: 11, accent: sw ? [6, 8] : [6], struck: sw ? [6] : [], grow: sw ? { row: 8, f: seg(T, B.s9.swap, B.s9.swap + .9) } : null, blank: sw ? null : [8, 8], label: 'SARAN',
+      page(PV, { seed: 11, accent: [6], struck: sw ? [6] : [], accent2: sw ? [8] : [], grow: sw ? { row: 8, f: seg(T, B.s9.swap, B.s9.swap + .9) } : null, blank: sw ? null : [8, 8], label: 'SARAN',
         words: [[7, sw ? '' : '', C.ink]] });
       if (f > 0 && !sw) line(PV - 75, rowY(6) + 9, PV - 75 + 150 * f, rowY(6) + 9, C.ink, PW() * 1.3);
       if (sw) line(PV - 75, rowY(6) + 9, PV - 75 + 68, rowY(6) + 9, C.ink, PW() * 1.3);
       break; }
-    case 10: {
+    case 10: {   // jargon in red, the plain sentence that replaces it in green — the cut (CAMS §10) lands on the same beat
       const cut = T >= B.s10.cut;
-      page(PV, { seed: 12, rows: 13, blocks: [[0, 1], [6, 12]], accent: [], label: 'BAB IV · PEMBAHASAN', wsize: 15,
-        words: cut ? [[2, 'Pemain masuk bersama', C.sig], [3, 'setelah anggukan.', C.sig]] : [[2, 'Implementasi koordinatif', C.sig], [3, 'menghasilkan optimalisasi', C.sig], [4, 'temporal.', C.sig]] });
+      page(PV, { seed: 12, rows: 13, blocks: [[0, 1], [6, 12]], label: 'BAB IV · PEMBAHASAN', wsize: 15,
+        words: cut ? [[2, 'Pemain masuk bersama', C.leaf], [3, 'setelah anggukan.', C.leaf]] : [[2, 'Implementasi koordinatif', C.sig], [3, 'menghasilkan optimalisasi', C.sig], [4, 'temporal.', C.sig]] });
       folder(PV - 20 - 400, 0, 0); break; }
     case 11: {
       page(PH, { seed: 13, accent: [7], label: 'KUTIPAN', words: T >= B.s11.write + .3 ? [[8, 'hlm. ?', C.sig, seg(T, B.s11.write + .3, B.s11.write + .6)]] : [], blank: [8, 8] });
@@ -336,25 +352,40 @@ function propsFront(T) {           // drawn in front of the people: the table hi
 
 // ---------------- screen: title, name labels, question cards, subtitles ----------------
 function wrapCardHold(s) { return s.t1 - s.card; }
+// a title in the handwriting font, with a hand-drawn underline that grows in under it (the title-card convention
+// borrowed for this revision: TREATMENT.md §11)
+function titleCard(big, small, x, y, tin, hold, underCol = C.gold) {
+  hud(big, x, y, { size: 108, w: 700, font: HAND, track: -1 }, tin, tin + hold);
+  hud(small, x, y + 92, { size: 56, w: 500, font: HAND, col: '#5B6B86' }, tin + .12, tin + hold);
+  const a = eo(seg(T_NOW, tin + .5, tin + .9)) * (1 - seg(T_NOW, tin + hold, tin + hold + .3));
+  if (a > 0) { const f = clamp(seg(T_NOW, tin + .55, tin + 1.15)); growStroke(x, y + 116, x + 540, y + 116, f, underCol, 5, 7); }
+}
 function hudScreen(T) {
   const s = scn(T), u = T - s.t0;
   if (s.n === 1) {
-    hud('CERITA 3   ·   VIDKA, DR. HERRY, PROF. ARDIPAL', 124, 118, { size: 21, w: 500, col: C.mute, track: 3 }, .3, 4.3, 10);
-    hud('Sidang Kecil', 116, 236, { size: 84, w: 600, track: -2 }, .5, 4.3);
-    hud('Sebelum Sidang', 116, 328, { size: 84, w: 600, track: -2 }, .62, 4.3);
+    hud('CERITA 3   ·   VIDKA, DR. HERRY, PROF. ARDIPAL', 124, 150, { size: 20, w: 500, col: C.mute, track: 3 }, .3, 4.3, 10);
+    titleCard('Sidang Kecil', 'sebelum sidang', 116, 300, .5, 3.8);
   }
-  if (s.n === 6) hud('CONTOH SIMULASI', 1796, 118, { size: 21, w: 500, col: C.mute, track: 3, align: 'right' }, s.t0 + .4, s.t1 - .3);
+  if (s.n === 3) metronome(1812, 190, 150, T, 72, eo(seg(T, s.t0 + .6, s.t0 + 1.1)) * (1 - seg(T, s.t1 - .3, s.t1)));   // “koordinasi tempo” — the film’s own tempo, made visible
+  if (s.n === 6) hud('CONTOH SIMULASI', 1796, 150, { size: 20, w: 500, col: C.mute, track: 3, align: 'right' }, s.t0 + .4, s.t1 - .3);
+  // the self-check, just before the last card: four repairs, ticked off in the same rhythm as the chain's own accent
+  if (s.n === 12) {
+    const t0 = B.s12.pulse - .15, items = ['Tujuan ↔ kesimpulan', 'Suara penulis dalam kajian teori', 'Klaim dibatasi oleh bukti', 'Sumber dapat ditelusuri'];
+    const a = eo(seg(T, t0, t0 + .3)) * (1 - seg(T, s.card - .1, s.card + .2));
+    if (a > 0) { text('SATU PER SATU', 1460, 420, { size: 18, w: 600, col: C.mute, track: 3, a });
+      checklist(1460, 460, items, clamp((T - B.s12.pulse) / STEP12), a); }
+  }
   // question card: the viewer is the fourth reader
   const tc = s.card, a = eo(seg(T, tc, tc + .4));
   if (a > 0) {
     const final = s.n === 12;
-    hud(final ? 'TUGAS AKHIR   ·   PEMBACA KEEMPAT' : 'PEMBACA KEEMPAT   ·   JEDA UNTUK BERPIKIR', 124, 118, { size: 21, w: 500, col: C.mute, track: 3 }, tc, 1e9, 10);
+    hud(final ? 'TUGAS AKHIR   ·   PEMBACA KEEMPAT' : 'PEMBACA KEEMPAT   ·   JEDA UNTUK BERPIKIR', 124, 150, { size: 20, w: 500, col: C.mute, track: 3 }, tc, 1e9, 10);
     const rem = 1 - seg(T, tc + .4, s.t1 - .1);
-    g.save(); g.strokeStyle = C.tint; g.lineWidth = 3; g.lineCap = 'round'; g.globalAlpha = a; g.beginPath(); g.moveTo(124, 142); g.lineTo(124 + 420 * rem, 142); g.stroke(); g.restore();
-    s.q.forEach((ln, i) => hud(ln, 116, 236 + i * 72, { size: 60, w: 600, track: -1.5, col: final && i === 0 ? C.sig : C.ink }, tc + .08 * i, 1e9, 18));
+    if (rem > 0) growStroke(124, 174, 124 + 420, 174, rem, C.gold, 4, s.n + 2);
+    s.q.forEach((ln, i) => hud(ln, 116, 272 + i * 78, { size: 62, w: 700, font: HAND, track: -1, col: final && i === 0 ? C.sig : C.ink }, tc + .08 * i, 1e9, 18));
     if (final) {
-      hud('Contoh struktur lima bab · sesuaikan dengan pedoman kampus', 124, 520, { size: 21, w: 500, col: C.mute }, tc + .6);
-      hud('Pertanyaan tersisip: Szpunar, Khan & Schacter 2013 · Brame 2016', 124, 554, { size: 21, w: 500, col: C.mute }, tc + .7);
+      hud('Contoh struktur lima bab · sesuaikan dengan pedoman kampus', 124, 556, { size: 21, w: 500, col: C.mute, font: RND }, tc + .6);
+      hud('Pertanyaan tersisip: Szpunar, Khan & Schacter 2013 · Brame 2016', 124, 590, { size: 21, w: 500, col: C.mute, font: RND }, tc + .7);
     }
   }
 }
@@ -363,14 +394,24 @@ function nameLabels(T) {
   BIG.forEach((b, i) => { const t0 = 1.0 + .25 * i, a = ss(seg(T, t0, t0 + .4)) * (1 - ss(seg(T, 4.6, 5.1))); if (a <= 0) return;
     text(NAME[b.who], b.x, GY - b.S - 26, { size: 18, w: 600, col: C.mute, align: 'center', track: 3, a }); });
 }
+// Captions, revision 2: a single plain line at bottom-centre in the rounded caption face, no colour bar — the
+// reference's convention. Three speakers still need telling apart, so a small muted name sits above the line
+// rather than inside a coloured tag; colour itself stays reserved for the annotation system (red/navy/gold/green),
+// so a speaker label never competes with what the annotations mean (TREATMENT.md §11).
 const SUBS = LINES.map(l => ({ ...l, t0: +(l.t - .2).toFixed(3), t1: +(Math.max(l.end + .5, l.t + 1.8)).toFixed(3) }));
 function drawSubs(T) {
   const s = SUBS.find(s => T >= s.t0 && T < s.t1); if (!s) return;
   const a = ss(seg(T, s.t0, s.t0 + .12)) * (1 - ss(seg(T, s.t1 - .12, s.t1)));
   const keep = TXT; TXT = null;
-  g.save(); g.fillStyle = C.sig; g.globalAlpha = a; g.fillRect(124, 972, 4, 62); g.restore();
-  text(NAME[s.who], 146, 992, { size: 18, w: 600, col: C.mute, track: 3, a });
-  text(s.text, 146, 1030, { size: 36, w: 500, col: C.ink, a });
+  // a soft plate behind the caption: at a close camera a character can stand tall enough to reach the caption band,
+  // and a filled torso (unlike the old bare line) truly hides text behind it — so the strip gets its own backing,
+  // like a sentence strip laid over the page, rather than trusting empty space that a push-in might fill.
+  g.save(); g.font = `600 33px ${RND}`; const w1 = g.measureText(s.text).width; g.font = `600 17px ${RND}`; const w2 = g.measureText(NAME[s.who]).width; g.restore();
+  const w = Math.max(w1, w2) + 72, x0 = 960 - w / 2;
+  g.save(); g.globalAlpha = a * .92; g.fillStyle = C.paper; g.beginPath(); g.roundRect(x0, 964, w, 92, 14); g.fill();
+  g.strokeStyle = C.tint; g.lineWidth = 2; g.beginPath(); g.roundRect(x0, 964, w, 92, 14); g.stroke(); g.restore();
+  text(NAME[s.who], 960, 992, { size: 17, w: 600, col: C.mute, align: 'center', track: 3, a, font: RND });
+  text(s.text, 960, 1034, { size: 33, w: 600, col: C.ink, align: 'center', a, font: RND });
   TXT = keep;
 }
 
@@ -381,7 +422,7 @@ function drawFilm(T) {
   g.save(); g.setTransform(cam.z, 0, 0, cam.z, W / 2 - cam.x * cam.z, H / 2 - cam.y * cam.z); SCR = cam;
   drawChain(T);
   const PB = SIMB.at(Math.min(T, DUR + .2));
-  const J = BIG.map((b, i) => figure({ x: b.x, gy: GY, S: b.S }, PB[i]));
+  const J = BIG.map((b, i) => figure(FB[i], PB[i]));
   nameLabels(T);
   // the pencil in Vidka's right hand while she writes
   const s = scn(T), writing = (s.n === 3 && T >= B.s3.pencil - .2 && T < s.t1) || (s.n === 4 && T >= B.s4.write - .3 && T < s.card) || (s.n === 7 && T >= B.s7.caption - .3 && T < s.card) || (s.n === 8 && T >= B.s8.write - .3 && T < s.card) || (s.n === 9) || (s.n === 11 && T >= B.s11.write - .3 && T < s.card);
@@ -406,6 +447,7 @@ function events() {
   E.push({ t: 1.0, type: 'paper' }); E.push({ t: B.s1.mapHand, type: 'tap' }); E.push({ t: B.s1.chair, type: 'chair', d: .6 });
   E.push({ t: lt('s02a'), type: 'trace', d: B.s2.cut - .3 - lt('s02a') }); E.push({ t: B.s2.cut, type: 'flip' }); E.push({ t: B.s2.cut + .2, type: 'tick' });
   E.push({ t: S[3].t0 + .2, type: 'paper' }); E.push({ t: B.s3.pencil, type: 'pencil', d: .5 }); E.push({ t: B.s3.pull, type: 'pullback', d: 1.2 });
+  for (const t of metronomeTicks(S[3].t0 + .7, S[3].t1 - .4, 72)) E.push({ t, type: 'metronome' });   // the metronome prop (hudScreen, scene 3), ticking in view
   for (let k = 0; k < 3; k++) E.push({ t: B.s3.pulse + STEP3 * (k + 1), type: 'node', k: k + 1 });
   E.push({ t: B.s3.pulse, type: 'pulse', d: 3 * STEP3 }); E.push({ t: B.s3.pulse + 3 * STEP3, type: 'letgo' });
   E.push({ t: lt('s04a') + LINE.s04a.d * .05, type: 'tick' }); E.push({ t: lt('s04a') + LINE.s04a.d * .4, type: 'tick' }); E.push({ t: lt('s04a') + LINE.s04a.d * .7, type: 'tick' });
@@ -428,7 +470,11 @@ window.EV = events().filter(e => e.t >= FROM - 1e-6 && e.t <= TO + 1e-6).map(e =
 window.BEATS = B;
 window.render = t => drawFilm(FROM + t);
 window.TEXTS = t => { TXT = []; window.render(t); const o = TXT; TXT = null; return o.filter(o => o.x1 > 0 && o.x0 < W && o.y1 > 0 && o.y0 < H); };
-Promise.all([document.fonts.load(`600 40px ${EN}`), document.fonts.load(`500 40px ${EN}`), document.fonts.load(`400 40px ${EN}`)]).then(() => {
+Promise.all([
+  document.fonts.load(`600 40px ${EN}`), document.fonts.load(`500 40px ${EN}`), document.fonts.load(`400 40px ${EN}`),
+  document.fonts.load(`700 80px ${HAND}`), document.fonts.load(`500 40px ${HAND}`), document.fonts.load(`600 40px ${HAND}`),
+  document.fonts.load(`400 40px ${RND}`), document.fonts.load(`500 40px ${RND}`), document.fonts.load(`600 40px ${RND}`), document.fonts.load(`700 40px ${RND}`),
+]).then(() => {
   SIMB = simulate(3, bigTarget, -2.0, DUR + .5);
   window.render(0); window.READY = true;
 });
