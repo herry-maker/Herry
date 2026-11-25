@@ -12,7 +12,7 @@ export const SCENE_MIN = 15; // a scene never runs shorter than its planned 15 s
 
 export const SCENES = [
   {title: 'Kebingungan awal', lines: [
-    {role: 'Vidka', tts: 'Pak, artikel saya banyak, tetapi saya bingung memilih.', cues: ['Vidka: Pak, artikel saya banyak,', 'tetapi saya bingung memilih.']},
+    {role: 'Vidka', tts: 'Saya mencari bacaan tentang tempo kelompok kami, tetapi malah bingung memilih.', cues: ['Vidka: Saya mencari bacaan tentang', 'tempo kelompok kami,', 'tetapi malah bingung memilih.']},
     {role: 'Herry', tts: 'Buka lagi catatanmu. Apa yang ingin kamu pahami?', cues: ['Herry: Buka lagi catatanmu.', 'Apa yang ingin kamu pahami?']},
   ], hold: {kind: 'text', text: 'Bagaimana kelompok kami menjaga tempo?'}},
   {title: 'Memperbaiki pencarian', lines: [
@@ -45,7 +45,7 @@ export const SCENES = [
   ], hold: {kind: 'text', text: 'Belum jelas bagaimana siswa mengikuti tempo teman saat latihan.'}},
   {title: 'Merumuskan pertanyaan penelitian', lines: [
     {role: 'Vidka', tts: 'Bagaimana siswa pemula menggunakan isyarat bunyi dan gerak untuk menjaga tempo dalam ansambel?', cues: ['Vidka: Bagaimana siswa pemula', 'menggunakan isyarat bunyi dan gerak', 'untuk menjaga tempo dalam ansambel?']},
-    {role: 'Herry', tts: 'Jelas: siapa, proses apa, dan dalam konteks apa.', cues: ['Herry: Jelas: siapa, proses apa,', 'dan dalam konteks apa.']},
+    {role: 'Herry', tts: 'Jelas: siapa, proses apa, dan dalam konteks apa. Sekarang pastikan dapat dijawab dengan data yang tersedia.', cues: ['Herry: Jelas: siapa, proses apa,', 'dan dalam konteks apa.', 'Sekarang pastikan dapat dijawab', 'dengan data yang tersedia.']},
   ], hold: {kind: 'text', text: 'Bagaimana siswa pemula menggunakan isyarat bunyi dan gerak untuk menjaga tempo dalam ansambel?'}},
   {title: 'Memilih data yang diperlukan', lines: [
     {role: 'Vidka', tts: 'Saya gunakan kuesioner saja?', cues: ['Vidka: Saya gunakan kuesioner saja?']},
@@ -53,9 +53,9 @@ export const SCENES = [
     {role: 'Vidka', tts: 'Belum cukup. Saya perlu mengamati, lalu menanyakan alasannya.', cues: ['Vidka: Belum cukup.', 'Saya perlu mengamati,', 'lalu menanyakan alasannya.']},
   ], hold: {kind: 'task', text: 'Data apa yang diperlukan untuk pertanyaanmu?'}},
   {title: 'Menjelaskan alasan metodologi', lines: [
-    {role: 'Herry', tts: 'Studi kasus kualitatif dapat sesuai untuk memahami kelompok ini.', cues: ['Herry: Studi kasus kualitatif dapat sesuai', 'untuk memahami kelompok ini.']},
+    {role: 'Herry', tts: 'Studi kasus kualitatif dapat sesuai: kita menelaah proses secara mendalam dalam satu kelompok dan konteks latihannya.', cues: ['Herry: Studi kasus kualitatif dapat sesuai:', 'kita menelaah proses secara mendalam', 'dalam satu kelompok dan konteks latihannya.']},
     {role: 'Vidka', tts: 'Saya membandingkan pengamatan dengan wawancara?', cues: ['Vidka: Saya membandingkan pengamatan', 'dengan wawancara?']},
-    {role: 'Herry', tts: 'Ya, untuk menelaah pola penggunaan isyarat.', cues: ['Herry: Ya, untuk menelaah pola penggunaan isyarat.']},
+    {role: 'Herry', tts: 'Ya, untuk menelaah pola penggunaan isyarat. Periksa juga apakah pola ini muncul lagi pada latihan lain.', cues: ['Herry: Ya, untuk menelaah pola penggunaan isyarat.', 'Periksa juga apakah pola ini muncul lagi', 'pada latihan lain.']},
   ], hold: {kind: 'text', text: 'Simulasi'}},
   {title: 'Menyesuaikan rancangan dengan pertanyaan', lines: [
     {role: 'Vidka', tts: 'Kalau menguji apakah latihan metronom meningkatkan kestabilan tempo?', cues: ['Vidka: Kalau menguji apakah latihan metronom', 'meningkatkan kestabilan tempo?']},

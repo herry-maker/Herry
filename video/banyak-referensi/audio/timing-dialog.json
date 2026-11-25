@@ -1,6 +1,6 @@
 {
  "mode": "dialogue-clips",
- "duration": 182.587,
+ "duration": 192.375,
  "voice": "audio/narasi-dialog.wav",
  "hold_seconds": 5,
  "gap_seconds": 0.55,
@@ -11,22 +11,22 @@
   {
    "start": 0,
    "end": 15,
-   "talk_end": 7.278,
-   "hold": 7.722,
+   "talk_end": 9.461,
+   "hold": 5.539,
    "lines": [
     {
      "id": "s01-l1",
      "role": "Vidka",
      "start": 0.4,
-     "end": 3.79,
-     "gain_db": 5.21,
+     "end": 5.973,
+     "gain_db": 4,
      "cue_split": "chars"
     },
     {
      "id": "s01-l2",
      "role": "Herry",
-     "start": 4.34,
-     "end": 7.278,
+     "start": 6.523,
+     "end": 9.461,
      "gain_db": 10.12,
      "cue_split": "chars"
     }
@@ -210,8 +210,8 @@
   },
   {
    "start": 105.194,
-   "end": 120.646,
-   "talk_end": 115.646,
+   "end": 123.738,
+   "talk_end": 118.738,
    "hold": 5,
    "lines": [
     {
@@ -226,127 +226,127 @@
      "id": "s08-l2",
      "role": "Herry",
      "start": 111.803,
-     "end": 115.646,
-     "gain_db": 13.77,
-     "cue_split": "pauses"
+     "end": 118.738,
+     "gain_db": 10.71,
+     "cue_split": "chars"
     }
    ]
   },
   {
-   "start": 120.646,
-   "end": 135.743,
-   "talk_end": 130.743,
+   "start": 123.738,
+   "end": 138.836,
+   "talk_end": 133.836,
    "hold": 5,
    "lines": [
     {
      "id": "s09-l1",
      "role": "Vidka",
-     "start": 120.646,
-     "end": 122.225,
+     "start": 123.738,
+     "end": 125.317,
      "gain_db": 3.19,
      "cue_split": "single"
     },
     {
      "id": "s09-l2",
      "role": "Ardipal",
-     "start": 123.075,
-     "end": 125.481,
+     "start": 126.167,
+     "end": 128.574,
      "gain_db": -3.29,
      "cue_split": "chars"
     },
     {
      "id": "s09-l3",
      "role": "Vidka",
-     "start": 126.331,
-     "end": 130.743,
+     "start": 129.424,
+     "end": 133.836,
      "gain_db": 4.82,
      "cue_split": "chars"
     }
    ]
   },
   {
-   "start": 135.743,
-   "end": 150.743,
-   "talk_end": 145.199,
-   "hold": 5.544,
+   "start": 138.836,
+   "end": 160.532,
+   "talk_end": 155.532,
+   "hold": 5,
    "lines": [
     {
      "id": "s10-l1",
      "role": "Herry",
-     "start": 135.743,
-     "end": 138.833,
-     "gain_db": 8.25,
-     "cue_split": "chars"
+     "start": 138.836,
+     "end": 145.156,
+     "gain_db": 12.17,
+     "cue_split": "pauses"
     },
     {
      "id": "s10-l2",
      "role": "Vidka",
-     "start": 139.383,
-     "end": 142.076,
+     "start": 145.706,
+     "end": 148.4,
      "gain_db": 3.91,
      "cue_split": "chars"
     },
     {
      "id": "s10-l3",
      "role": "Herry",
-     "start": 142.926,
-     "end": 145.199,
-     "gain_db": 11.84,
-     "cue_split": "single"
+     "start": 149.25,
+     "end": 155.532,
+     "gain_db": 11.65,
+     "cue_split": "pauses"
     }
    ]
   },
   {
-   "start": 150.743,
-   "end": 165.927,
-   "talk_end": 160.927,
+   "start": 160.532,
+   "end": 175.717,
+   "talk_end": 170.717,
    "hold": 5,
    "lines": [
     {
      "id": "s11-l1",
      "role": "Vidka",
-     "start": 150.743,
-     "end": 154.644,
+     "start": 160.532,
+     "end": 164.433,
      "gain_db": 2.07,
      "cue_split": "chars"
     },
     {
      "id": "s11-l2",
      "role": "Ardipal",
-     "start": 155.494,
-     "end": 160.927,
+     "start": 165.283,
+     "end": 170.717,
      "gain_db": -3.82,
      "cue_split": "pauses"
     }
    ]
   },
   {
-   "start": 165.927,
-   "end": 182.587,
-   "talk_end": 176.587,
+   "start": 175.717,
+   "end": 192.375,
+   "talk_end": 186.376,
    "hold": 6,
    "lines": [
     {
      "id": "s12-l1",
      "role": "Vidka",
-     "start": 165.927,
-     "end": 170.897,
+     "start": 175.717,
+     "end": 180.686,
      "gain_db": 4.93,
      "cue_split": "chars"
     },
     {
      "id": "s12-l2",
      "role": "Herry",
-     "start": 171.447,
-     "end": 173.898,
+     "start": 181.236,
+     "end": 183.687,
      "gain_db": 12.43,
      "cue_split": "chars"
     },
     {
      "id": "s12-l3",
      "role": "Ardipal",
-     "start": 174.448,
-     "end": 176.587,
+     "start": 184.237,
+     "end": 186.376,
      "gain_db": -1.91,
      "cue_split": "single"
     }
@@ -356,14 +356,21 @@
  "cues": [
   {
    "start": 0.4,
-   "end": 4.26,
-   "text": "Pak, artikel saya banyak, tetapi saya bingung memilih.",
+   "end": 3.697,
+   "text": "Saya mencari bacaan tentang tempo kelompok kami,",
    "scene": 1,
    "line": "s01-l1"
   },
   {
-   "start": 4.34,
-   "end": 8.778,
+   "start": 3.777,
+   "end": 6.443,
+   "text": "tetapi malah bingung memilih.",
+   "scene": 1,
+   "line": "s01-l1"
+  },
+  {
+   "start": 6.523,
+   "end": 10.961,
    "text": "Buka lagi catatanmu. Apa yang ingin kamu pahami?",
    "scene": 1,
    "line": "s01-l2"
@@ -552,126 +559,154 @@
   },
   {
    "start": 111.803,
-   "end": 117.146,
+   "end": 114.815,
    "text": "Jelas: siapa, proses apa, dan dalam konteks apa.",
    "scene": 8,
    "line": "s08-l2"
   },
   {
-   "start": 120.646,
-   "end": 122.995,
+   "start": 114.895,
+   "end": 120.238,
+   "text": "Sekarang pastikan dapat dijawab dengan data yang tersedia.",
+   "scene": 8,
+   "line": "s08-l2"
+  },
+  {
+   "start": 123.738,
+   "end": 126.087,
    "text": "Saya gunakan kuesioner saja?",
    "scene": 9,
    "line": "s09-l1"
   },
   {
-   "start": 123.075,
-   "end": 126.251,
+   "start": 126.167,
+   "end": 129.344,
    "text": "Apakah itu menunjukkan tindakan saat latihan?",
    "scene": 9,
    "line": "s09-l2"
   },
   {
-   "start": 126.331,
-   "end": 128.659,
+   "start": 129.424,
+   "end": 131.752,
    "text": "Belum cukup. Saya perlu mengamati,",
    "scene": 9,
    "line": "s09-l3"
   },
   {
-   "start": 128.739,
-   "end": 132.243,
+   "start": 131.832,
+   "end": 135.336,
    "text": "lalu menanyakan alasannya.",
    "scene": 9,
    "line": "s09-l3"
   },
   {
-   "start": 135.743,
-   "end": 137.321,
-   "text": "Studi kasus kualitatif dapat sesuai",
+   "start": 138.836,
+   "end": 140.981,
+   "text": "Studi kasus kualitatif dapat sesuai:",
    "scene": 10,
    "line": "s10-l1"
   },
   {
-   "start": 137.401,
-   "end": 139.303,
-   "text": "untuk memahami kelompok ini.",
+   "start": 141.061,
+   "end": 142.643,
+   "text": "kita menelaah proses secara mendalam",
    "scene": 10,
    "line": "s10-l1"
   },
   {
-   "start": 139.383,
-   "end": 142.846,
+   "start": 142.723,
+   "end": 145.626,
+   "text": "dalam satu kelompok dan konteks latihannya.",
+   "scene": 10,
+   "line": "s10-l1"
+  },
+  {
+   "start": 145.706,
+   "end": 149.17,
    "text": "Saya membandingkan pengamatan dengan wawancara?",
    "scene": 10,
    "line": "s10-l2"
   },
   {
-   "start": 142.926,
-   "end": 146.699,
+   "start": 149.25,
+   "end": 152.114,
    "text": "Ya, untuk menelaah pola penggunaan isyarat.",
    "scene": 10,
    "line": "s10-l3"
   },
   {
-   "start": 150.743,
-   "end": 152.759,
+   "start": 152.194,
+   "end": 154.231,
+   "text": "Periksa juga apakah pola ini muncul lagi",
+   "scene": 10,
+   "line": "s10-l3"
+  },
+  {
+   "start": 154.311,
+   "end": 157.032,
+   "text": "pada latihan lain.",
+   "scene": 10,
+   "line": "s10-l3"
+  },
+  {
+   "start": 160.532,
+   "end": 162.548,
    "text": "Kalau menguji apakah latihan metronom",
    "scene": 11,
    "line": "s11-l1"
   },
   {
-   "start": 152.839,
-   "end": 155.414,
+   "start": 162.628,
+   "end": 165.203,
    "text": "meningkatkan kestabilan tempo?",
    "scene": 11,
    "line": "s11-l1"
   },
   {
-   "start": 155.494,
-   "end": 156.51,
+   "start": 165.283,
+   "end": 166.299,
    "text": "Pertanyaannya berubah.",
    "scene": 11,
    "line": "s11-l2"
   },
   {
-   "start": 156.59,
-   "end": 159.049,
+   "start": 166.379,
+   "end": 168.839,
    "text": "Perlu ukuran tempo, perbandingan yang sesuai,",
    "scene": 11,
    "line": "s11-l2"
   },
   {
-   "start": 159.129,
-   "end": 162.427,
+   "start": 168.919,
+   "end": 172.217,
    "text": "dan perhatian pada faktor lain.",
    "scene": 11,
    "line": "s11-l2"
   },
   {
-   "start": 165.927,
-   "end": 168.13,
+   "start": 175.717,
+   "end": 177.919,
    "text": "Sekarang bacaan, masalah, pertanyaan,",
    "scene": 12,
    "line": "s12-l1"
   },
   {
-   "start": 168.21,
-   "end": 171.367,
+   "start": 177.999,
+   "end": 181.156,
    "text": "dan cara penelitian saya saling terhubung.",
    "scene": 12,
    "line": "s12-l1"
   },
   {
-   "start": 171.447,
-   "end": 174.368,
+   "start": 181.236,
+   "end": 184.157,
    "text": "Siapkan persetujuan sebelum mengumpulkan data.",
    "scene": 12,
    "line": "s12-l2"
   },
   {
-   "start": 174.448,
-   "end": 178.087,
+   "start": 184.237,
+   "end": 187.876,
    "text": "Dan jelaskan alasan setiap pilihanmu.",
    "scene": 12,
    "line": "s12-l3"
