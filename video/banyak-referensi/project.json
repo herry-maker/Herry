@@ -3172,6 +3172,15 @@
     },
     {
      "type": "text",
+     "text": "pertanyaan sementara",
+     "x": 730,
+     "y": 100,
+     "size": 30,
+     "w": 540,
+     "color": "#EC4338"
+    },
+    {
+     "type": "text",
      "text": "Bagaimana kelompok kami",
      "x": 730,
      "y": 230,
