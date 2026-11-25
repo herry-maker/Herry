@@ -29,6 +29,10 @@ CARDS = {
 LEAD = 0.6          # first line starts this long after the cut
 GAP = 0.35          # silence between lines
 REACT = 0.55        # Vidka's wordless reaction before the card
+# scene 12 carries extra silent choreography after the last line — the chain's pull-back, clasp, accent run and the
+# cast turning to face the draft (film.js, B.s12.*), plus the new self-check list — none of which fits in a plain
+# reaction beat. Giving it a longer, scene-specific react avoids the card cutting that sequence off mid-beat.
+REACT_EXTRA = {12: 3.5}
 MIN_SCENE = 15.0
 MIN_CARD = 4.4
 # extra beats inside a scene: {scene: {line id: extra pause before it}}
@@ -49,7 +53,7 @@ for sc in range(1, 13):
         out_lines.append({**l, 't': round(t, 3), 'd': round(d, 3), 'scene_t0': round(T, 3)})
         t += d + GAP
     last_end = t - GAP
-    card_t = max(last_end + REACT, T + 9.6)
+    card_t = max(last_end + REACT + REACT_EXTRA.get(sc, 0), T + 9.6)
     chars = sum(len(re.sub(r'\s', '', s)) for s in CARDS[sc])
     hold = max(MIN_CARD, chars / 15 + 1.5 + 0.4)
     if sc == 12:
