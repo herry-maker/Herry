@@ -198,7 +198,7 @@ scenes.push({talk: [
   ]},
 ], hold: [
   {dur: 5, layers: [
-    img('notebook', 700, 140, 480), hand('pertanyaan sementara', 730, 100, 30, {color: RED}), hand('Bagaimana kelompok kami', 730, 230, 36), hand('menggunakan keduanya?', 730, 282, 36), ...cards(380),
+    img('notebook', 700, 140, 480), hand('Bagaimana kelompok kami', 730, 230, 36), hand('menggunakan keduanya?', 730, 282, 36), ...cards(380),
     line([[680, 200], [740, 250]], {color: RED, lineWidth: 4}), line([[680, 400], [740, 300]], {color: RED, lineWidth: 4}),
     label('Contoh bacaan ilustratif.', 40, 40, 30),
     draw(underline(730, 330, 330, {color: YELLOW}), 'information', 'Pertanyaan sementara digarisbawahi', 1.0, 1.8),
