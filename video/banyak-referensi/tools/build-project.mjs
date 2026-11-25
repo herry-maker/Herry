@@ -64,7 +64,7 @@ scenes.push({talk: [
     txt('Story 2', 300, 220, 90, {bold: true, w: 700}),
     txt('Research Journey', 300, 340, 56, {color: GRAY, w: 700, from: 2.0}),
     draw(underline(300, 410, 500, {color: YELLOW}), 'information', 'Garis bawah judul muncul', 3.0, 4.0),
-    ...metronome(950, 460, 90, 0.2, 9.8, 0.6),
+    ...metronome(950, 460, 90, 0.2, 9.8, 6.4), // talk's real duration is far shorter than its 10s plan budget (fT~0.24), so this shot uses a ~10x longer plan-period to keep the same real-world tick rate as the hold shots below
   ]},
 ], hold: [
   {dur: 3.5, layers: [
