@@ -45,12 +45,13 @@ export const SCENES = [
   ], hold: {kind: 'text', text: 'Belum jelas bagaimana siswa mengikuti tempo teman saat latihan.'}},
   {title: 'Merumuskan pertanyaan penelitian', lines: [
     {role: 'Vidka', tts: 'Bagaimana siswa pemula menggunakan isyarat bunyi dan gerak untuk menjaga tempo dalam ansambel?', cues: ['Vidka: Bagaimana siswa pemula', 'menggunakan isyarat bunyi dan gerak', 'untuk menjaga tempo dalam ansambel?']},
-    {role: 'Herry', tts: 'Jelas: siapa, proses apa, dan dalam konteks apa. Sekarang pastikan dapat dijawab dengan data yang tersedia.', cues: ['Herry: Jelas: siapa, proses apa,', 'dan dalam konteks apa.', 'Sekarang pastikan dapat dijawab', 'dengan data yang tersedia.']},
+    {role: 'Herry', tts: 'Oke, ini sudah jelas: siapa, proses apa, dan dalam konteks apa. Sekarang pastikan bisa dijawab dengan data yang tersedia.', cues: ['Herry: Oke, ini sudah jelas:', 'siapa, proses apa, dan dalam konteks apa.', 'Sekarang pastikan bisa dijawab', 'dengan data yang tersedia.']},
+    {role: 'Vidka', tts: 'Oh, jadi harus saya cek dulu datanya.', cues: ['Vidka: Oh, jadi harus saya cek', 'dulu datanya.']},
   ], hold: {kind: 'text', text: 'Bagaimana siswa pemula menggunakan isyarat bunyi dan gerak untuk menjaga tempo dalam ansambel?'}},
   {title: 'Memilih data yang diperlukan', lines: [
-    {role: 'Vidka', tts: 'Saya gunakan kuesioner saja?', cues: ['Vidka: Saya gunakan kuesioner saja?']},
+    {role: 'Vidka', tts: 'Saya gunakan kuesioner saja? Soalnya lebih cepat dibagikan ke semua siswa.', cues: ['Vidka: Saya gunakan kuesioner saja?', 'Soalnya lebih cepat dibagikan', 'ke semua siswa.']},
     {role: 'Ardipal', tts: 'Apakah itu menunjukkan tindakan saat latihan?', cues: ['Ardipal: Apakah itu menunjukkan', 'tindakan saat latihan?']},
-    {role: 'Vidka', tts: 'Belum cukup. Saya perlu mengamati, lalu menanyakan alasannya.', cues: ['Vidka: Belum cukup.', 'Saya perlu mengamati,', 'lalu menanyakan alasannya.']},
+    {role: 'Vidka', tts: 'Oh, jadi kuesioner saja belum cukup, ya? Saya perlu mengamati, lalu menanyakan alasannya.', cues: ['Vidka: Oh, jadi kuesioner saja', 'belum cukup, ya?', 'Saya perlu mengamati,', 'lalu menanyakan alasannya.']},
   ], hold: {kind: 'task', text: 'Data apa yang diperlukan untuk pertanyaanmu?'}},
   {title: 'Menjelaskan alasan metodologi', lines: [
     {role: 'Herry', tts: 'Studi kasus kualitatif dapat sesuai: kita menelaah proses secara mendalam dalam satu kelompok dan konteks latihannya.', cues: ['Herry: Studi kasus kualitatif dapat sesuai:', 'kita menelaah proses secara mendalam', 'dalam satu kelompok dan konteks latihannya.']},
@@ -62,7 +63,7 @@ export const SCENES = [
     {role: 'Ardipal', tts: 'Pertanyaannya berubah. Perlu ukuran tempo, perbandingan yang sesuai, dan perhatian pada faktor lain.', cues: ['Ardipal: Pertanyaannya berubah.', 'Perlu ukuran tempo, perbandingan yang sesuai,', 'dan perhatian pada faktor lain.']},
   ], hold: {kind: 'text', text: 'Pertanyaan menentukan rancangan.'}},
   {title: 'Menunjukkan hasil belajar', lines: [
-    {role: 'Vidka', tts: 'Sekarang bacaan, masalah, pertanyaan, dan cara penelitian saya saling terhubung.', cues: ['Vidka: Sekarang bacaan, masalah, pertanyaan,', 'dan cara penelitian saya saling terhubung.']},
+    {role: 'Vidka', tts: 'Sekarang saya lihat semuanya nyambung: bacaan, masalah, pertanyaan, dan caranya.', cues: ['Vidka: Sekarang saya lihat semuanya nyambung:', 'bacaan, masalah, pertanyaan,', 'dan caranya.']},
     {role: 'Herry', tts: 'Siapkan persetujuan sebelum mengumpulkan data.', cues: ['Herry: Siapkan persetujuan', 'sebelum mengumpulkan data.']},
     {role: 'Ardipal', tts: 'Dan jelaskan alasan setiap pilihanmu.', cues: ['Ardipal: Dan jelaskan alasan setiap pilihanmu.']},
   ], hold: {kind: 'task', text: 'Tulis pertanyaanmu. Pilih data dan jelaskan alasannya.'}},
