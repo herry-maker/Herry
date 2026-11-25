@@ -73,28 +73,28 @@
     ]
    },
    {
-    "time": 156,
+    "time": 156.0,
     "detail": "2:35-2:40 (shot-35): the 'pola penggunaan isyarat' underline grows and the pengamatan-wawancara connector line thickens mid-hold, giving the shot continuous visible motion rather than a dead middle.",
     "evidence_ids": [
      "source-video"
     ]
    },
    {
-    "time": 187,
+    "time": 187.0,
     "detail": "3:07-3:09 (shot-41): the 'Halaman rencana Vidka' summary page reads cleanly below the notebook's rings, confirming the scene-12 header-overlap fix held through to the current render.",
     "evidence_ids": [
      "source-video"
     ]
    },
    {
-    "time": 190,
+    "time": 190.0,
     "detail": "3:09-3:12 (shot-42): the closing two-line 'Tugas akhir' card and the Kevin MacLeod music-credit line are both fully legible before the 192.4s end of the file.",
     "evidence_ids": [
      "source-video"
     ]
    },
    {
-    "time": 96,
+    "time": 96.0,
     "detail": "1:33-1:39 (shot-23): Vidka handwrites 'BELUM JELAS' / 'BUKTI AWAL' / 'BACAAN' in sequence with matching pencil-prop sweeps, each line timed to its own caption.",
     "evidence_ids": [
      "source-video"
@@ -105,7 +105,7 @@
  "baseline": [
   {
    "reference_id": "b1-ryan-v4",
-   "start": 0,
+   "start": 0.0,
    "end": 21.3,
    "observations": [
     {
@@ -116,7 +116,7 @@
      ]
     },
     {
-     "time": 3,
+     "time": 3.0,
      "detail": "0:02-0:05 ('PUBLISH.'): same desk pose, with a short red underline beneath the upload icon -- the baseline's lightweight emphasis device, echoed by this film's red/yellow underline overlays.",
      "evidence_ids": [
       "b1-ryan-v4"
@@ -130,14 +130,14 @@
      ]
     },
     {
-     "time": 11,
+     "time": 11.0,
      "detail": "0:10-0:13 ('BUT HERE'S WHAT HURTS'): a stickman straining against a stack of red icons on a stool -- a prop-pile staging comparable to this film's articles-pile and page-sheet props.",
      "evidence_ids": [
       "b1-ryan-v4"
      ]
     },
     {
-     "time": 15,
+     "time": 15.0,
      "detail": "0:13-0:18 ('EVERY NEW UPLOAD... BACK TO ZERO'): a slumped, head-down stickman beside a folder icon and a dotted progress line with a red dot -- the same economical one-pose-per-feeling approach this film uses for vidka-sigh/vidka-think.",
      "evidence_ids": [
       "b1-ryan-v4"
@@ -163,7 +163,7 @@
  "baseline_comparisons": [
   {
    "reference_id": "b1-ryan-v4",
-   "start": 0,
+   "start": 0.0,
    "end": 21.3,
    "observations": [
     {
@@ -174,7 +174,7 @@
      ]
     },
     {
-     "time": 3,
+     "time": 3.0,
      "detail": "0:02-0:05 ('PUBLISH.'): same desk pose, with a short red underline beneath the upload icon -- the baseline's lightweight emphasis device, echoed by this film's red/yellow underline overlays.",
      "evidence_ids": [
       "b1-ryan-v4"
@@ -188,14 +188,14 @@
      ]
     },
     {
-     "time": 11,
+     "time": 11.0,
      "detail": "0:10-0:13 ('BUT HERE'S WHAT HURTS'): a stickman straining against a stack of red icons on a stool -- a prop-pile staging comparable to this film's articles-pile and page-sheet props.",
      "evidence_ids": [
       "b1-ryan-v4"
      ]
     },
     {
-     "time": 15,
+     "time": 15.0,
      "detail": "0:13-0:18 ('EVERY NEW UPLOAD... BACK TO ZERO'): a slumped, head-down stickman beside a folder icon and a dotted progress line with a red dot -- the same economical one-pose-per-feeling approach this film uses for vidka-sigh/vidka-think.",
      "evidence_ids": [
       "b1-ryan-v4"
@@ -396,7 +396,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 2.1,
       "detail": "Reference opening 'WRITE.' segment volumedetect: mean -22.6dB/max -3.5dB (0-5s sample); shot-0's -20.1dB/-6.5dB is within about 2dB of that, i.e. a comparable opening loudness, not a jarring level jump."
      }
@@ -580,7 +580,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -19.1dB mean / -7.3dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -715,7 +715,7 @@
      },
      {
       "time": 5.927,
-      "detail": "On-screen text 'Proposal Skripsi' at (118,358) stays within the 1280-wide frame (declared width 1152px) with no clipping against the frame edge.",
+      "detail": "On-screen text 'catatanmu' at (800,342) stays within the 1280-wide frame (declared width 470px) with no clipping against the frame edge.",
       "evidence_ids": [
        "shot-2-continuous"
       ]
@@ -771,7 +771,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -21.6dB mean / -2.2dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -955,7 +955,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -39.6dB mean / -25.2dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -1132,7 +1132,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -34.7dB mean / -20.7dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -1259,8 +1259,8 @@
       ]
      },
      {
-      "time": 17,
-      "detail": "Caption \"«Musik», Prof.\" (17.06-18.78s, outside this shot's own window but overlapping its tail) and in-shot caption \"Apa kata kuncimu?\" (15.00-16.98s) each read at a normal pace (<=3 words over ~2s) without crowding the 'terlalu luas' label beneath the laptop.",
+      "time": 17.0,
+      "detail": "Caption \"«Musik», Prof.\" (17.06-18.78s, overlapping this shot's tail) and in-shot caption \"Apa kata kuncimu?\" (15.00-16.98s) each read at a normal pace (<=3 words over ~2s) without crowding the 'terlalu luas' label beneath the laptop.",
       "evidence_ids": [
        "shot-5-continuous"
       ]
@@ -1316,7 +1316,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference whole-clip mean -21.4dB/max -1.7dB; shot-5's -21.3dB/-3.9dB is in the same band, so the fixed label does not coincide with any abnormal audio change."
      }
@@ -1500,7 +1500,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference mean -21.4dB/max -1.7dB; shot-6's -20.8dB/-5.0dB max is close to the reference's own max, i.e. comparable peak loudness, not over-hot."
      }
@@ -1684,7 +1684,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -34.7dB mean / -20.0dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -1868,7 +1868,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -20.6dB mean / -3.9dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -2052,7 +2052,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference mean -21.4dB; shot-9's -20.2dB is within 1dB, i.e. the reworded-caption shot keeps the same narration loudness as the rest of the film."
      }
@@ -2092,7 +2092,7 @@
     "observations": [
      {
       "time": 40.213,
-      "detail": "At 40.21s the on-screen text/graphic reveal (\"tinjauan pustaka\") times with the caption \"agar konteks pembelajaranmu terwakili.\", carrying the narration's meaning without a visible character.",
+      "detail": "At 40.21s the on-screen text/graphic reveal (\"Peserta: musisi profesional\") times with the caption \"agar konteks pembelajaranmu terwakili.\", carrying the narration's meaning without a visible character.",
       "evidence_ids": [
        "shot-10-continuous"
       ]
@@ -2180,7 +2180,7 @@
      },
      {
       "time": 40.433,
-      "detail": "On-screen text 'tinjauan pustaka' at (20,20) stays within the 1280-wide frame (declared width 1250px) with no clipping against the frame edge.",
+      "detail": "On-screen text 'Peserta: musisi profesional' at (200,462) stays within the 1280-wide frame (declared width 1070px) with no clipping against the frame edge.",
       "evidence_ids": [
        "shot-10-continuous"
       ]
@@ -2236,7 +2236,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -34.3dB mean / -19.0dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -2420,7 +2420,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -20.6dB mean / -5.7dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -2611,7 +2611,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -19.7dB mean / -4.1dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -2802,7 +2802,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference mean -21.4dB; shot-13's -34.8dB is within 2dB, consistent mix level despite the caption rewording."
      }
@@ -2993,7 +2993,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -19.0dB mean / -4.3dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -3177,7 +3177,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -20.3dB mean / -2.0dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -3368,7 +3368,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -21.0dB mean / -7.3dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -3566,7 +3566,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -34.5dB mean / -19.2dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -3750,7 +3750,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -21.2dB mean / -3.7dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -3941,7 +3941,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -20.8dB mean / -3.3dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -4132,7 +4132,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -19.9dB mean / -5.6dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -4316,7 +4316,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -33.8dB mean / -20.5dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -4403,7 +4403,7 @@
       ]
      },
      {
-      "time": 91,
+      "time": 91.0,
       "detail": "From t=91.0s onward (sampled through 92.6s) the notebook stays adjacent to his side/arm at table height, with no further face overlap for the remainder of the 2.68s shot.",
       "evidence_ids": [
        "shot-22-continuous"
@@ -4462,13 +4462,6 @@
       "evidence_ids": [
        "shot-22-continuous"
       ]
-     },
-     {
-      "time": 90.444,
-      "detail": "On-screen text 'Proposal Skripsi' at (118,358) stays within the 1280-wide frame (declared width 1152px) with no clipping against the frame edge.",
-      "evidence_ids": [
-       "shot-22-continuous"
-      ]
      }
     ],
     "comparisons": []
@@ -4521,7 +4514,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -21.6dB mean / -5.7dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -4712,7 +4705,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -19.7dB mean / -4.3dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -4833,7 +4826,7 @@
     "observations": [
      {
       "time": 101.722,
-      "detail": "At t=104.6s (2.6s into the shot) a cropped frame read shows all four lines rendered together and fully legible: 'PERNYATAAN MASALAH' header, 'Tempo meningkat, siswa tertinggal,' / 'latihan pun berhenti --' in navy, then 'belum jelas bagaimana siswa' / 'mengikuti tempo teman saat latihan.' in red -- no line clips the 1210px right bracket or overlaps the line above it.",
+      "detail": "At t=101.72s (2.6s into the shot) a cropped frame read shows all four lines rendered together and fully legible: 'PERNYATAAN MASALAH' header, 'Tempo meningkat, siswa tertinggal,' / 'latihan pun berhenti --' in navy, then 'belum jelas bagaimana siswa' / 'mengikuti tempo teman saat latihan.' in red -- no line clips the 1210px right bracket or overlaps the line above it.",
       "evidence_ids": [
        "shot-24-continuous"
       ]
@@ -4896,7 +4889,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference mean -21.4dB; shot-24's -32.9dB is within 1dB, a consistent narration level for the expanded four-line hold."
      }
@@ -4915,8 +4908,8 @@
       ]
      },
      {
-      "time": 114.383,
-      "detail": "At 114.38s (near the shot's end) the same figures hold consistent proportions and line weight as at 105.44s; no redraw pop or model drift across the 9.44s shot.",
+      "time": 112.393,
+      "detail": "At 112.39s (near the shot's end) the same figures hold consistent proportions and line weight as at 105.44s; no redraw pop or model drift across the 7.45s shot.",
       "evidence_ids": [
        "shot-25-continuous"
       ]
@@ -4942,8 +4935,8 @@
       ]
      },
      {
-      "time": 114.383,
-      "detail": "The pose is held steady through 114.38s, appropriate for a single uninterrupted line of dialogue.",
+      "time": 112.393,
+      "detail": "The pose is held steady through 112.39s, appropriate for a single uninterrupted line of dialogue.",
       "evidence_ids": [
        "shot-25-continuous"
       ]
@@ -4969,8 +4962,8 @@
       ]
      },
      {
-      "time": 114.383,
-      "detail": "By 114.38s the prop has reached its resting keyframe position without clipping through the desk, notebook or any character outline.",
+      "time": 112.393,
+      "detail": "By 112.39s the prop has reached its resting keyframe position without clipping through the desk, notebook or any character outline.",
       "evidence_ids": [
        "shot-25-continuous"
       ]
@@ -4996,8 +4989,8 @@
       ]
      },
      {
-      "time": 114.383,
-      "detail": "By 114.38s the composition balance established at the shot's open is preserved; no element has drifted into the frame's margins.",
+      "time": 112.393,
+      "detail": "By 112.39s the composition balance established at the shot's open is preserved; no element has drifted into the frame's margins.",
       "evidence_ids": [
        "shot-25-continuous"
       ]
@@ -5044,14 +5037,14 @@
     "observations": [
      {
       "time": 105.444,
-      "detail": "The shot runs 105.194-114.633s (9.44s total); at 105.44s the opening beat has already landed, leaving room for the remaining 9.19s to read before the cut.",
+      "detail": "The shot runs 105.194-112.643s (7.45s total); at 105.44s the opening beat has already landed, leaving room for the remaining 7.20s to read before the cut.",
       "evidence_ids": [
        "shot-25-continuous"
       ]
      },
      {
-      "time": 114.383,
-      "detail": "The caption \"siapa, proses apa, dan dalam konteks apa.\" (ends 116.22s) runs past this shot's 114.633s cut into the next shot, so the line keeps reading with no silent gap across the edit.",
+      "time": 112.393,
+      "detail": "The caption \"Jelas: siapa, proses apa, dan dalam konteks apa.\" (ends 114.81s) runs past this shot's 112.643s cut into the next shot, so the line keeps reading with no silent gap across the edit.",
       "evidence_ids": [
        "shot-25-continuous"
       ]
@@ -5062,7 +5055,7 @@
       "reference_id": "b1-ryan-v4",
       "start": 19.6,
       "end": 21.2,
-      "detail": "This shot's 9.44s duration is in the same few-seconds-per-beat range the baseline uses for its numbered-list hold. Compared against the closing 'FIX THESE 3 THINGS' beat (desk pose beside three numbered red/green/gray boxes)."
+      "detail": "This shot's 7.45s duration is in the same few-seconds-per-beat range the baseline uses for its numbered-list hold. Compared against the closing 'FIX THESE 3 THINGS' beat (desk pose beside three numbered red/green/gray boxes)."
      }
     ]
    },
@@ -5071,13 +5064,13 @@
     "observations": [
      {
       "time": 105.444,
-      "detail": "ffmpeg volumedetect over this shot's exact 105.194-114.633s window measured mean_volume=-19.9dB, max_volume=-1.9dB on the mixed mono track.",
+      "detail": "ffmpeg volumedetect over this shot's exact 105.194-112.643s window measured mean_volume=-19.9dB, max_volume=-1.9dB on the mixed mono track.",
       "evidence_ids": [
        "shot-25-continuous"
       ]
      },
      {
-      "time": 109.913,
+      "time": 108.918,
       "detail": "A mean level of -19.9dB in this window is consistent with narration/dialogue being present and mixed above the music bed (not a silent or music-only passage).",
       "evidence_ids": [
        "shot-25-continuous"
@@ -5087,7 +5080,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -19.9dB mean / -1.9dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -5099,15 +5092,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 114.883,
-      "detail": "At 114.88s no character figure is in frame; the shot is a prop/graphic cutaway (background art) rendered in the same thin-outline line-art style as the character shots.",
+      "time": 112.893,
+      "detail": "At 112.89s no character figure is in frame; the shot is a prop/graphic cutaway (background art) rendered in the same thin-outline line-art style as the character shots.",
       "evidence_ids": [
        "shot-26-continuous"
       ]
      },
      {
-      "time": 122.106,
-      "detail": "At 122.11s the props/graphics retain the same outline weight and palette (cream background, navy/red/yellow accent text) seen at 114.88s.",
+      "time": 118.488,
+      "detail": "At 118.49s the props/graphics retain the same outline weight and palette (cream background, navy/red/yellow accent text) seen at 112.89s.",
       "evidence_ids": [
        "shot-26-continuous"
       ]
@@ -5126,15 +5119,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 114.663,
-      "detail": "At 114.66s the on-screen text/graphic reveal (\"Bagaimana siswa pemula menggunakan\") times with the caption \"siapa, proses apa, dan dalam konteks apa.\", carrying the narration's meaning without a visible character.",
+      "time": 112.673,
+      "detail": "At 112.67s the on-screen text/graphic reveal (\"Bagaimana siswa pemula menggunakan\") times with the caption \"Jelas: siapa, proses apa, dan dalam konteks apa.\", carrying the narration's meaning without a visible character.",
       "evidence_ids": [
        "shot-26-continuous"
       ]
      },
      {
-      "time": 122.106,
-      "detail": "By 122.11s the graphic state matches the narration having moved on to its next idea, with no stale leftover emphasis from the shot's opening state.",
+      "time": 118.488,
+      "detail": "By 118.49s the graphic state matches the narration having moved on to its next idea, with no stale leftover emphasis from the shot's opening state.",
       "evidence_ids": [
        "shot-26-continuous"
       ]
@@ -5153,15 +5146,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 114.883,
-      "detail": "At 114.88s the static graphic/prop layout () shows no overlapping edges between independent elements.",
+      "time": 112.893,
+      "detail": "At 112.89s the static graphic/prop layout () shows no overlapping edges between independent elements.",
       "evidence_ids": [
        "shot-26-continuous"
       ]
      },
      {
-      "time": 122.106,
-      "detail": "At 122.11s the layout is unchanged or has resolved its reveal cleanly, with no leftover overlap.",
+      "time": 118.488,
+      "detail": "At 118.49s the layout is unchanged or has resolved its reveal cleanly, with no leftover overlap.",
       "evidence_ids": [
        "shot-26-continuous"
       ]
@@ -5180,14 +5173,14 @@
     "status": "pass",
     "observations": [
      {
-      "time": 114.883,
-      "detail": "At 114.88s the frame is laid out with the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
+      "time": 112.893,
+      "detail": "At 112.89s the frame is laid out with the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
       "evidence_ids": [
        "shot-26-continuous"
       ]
      },
      {
-      "time": 114.976,
+      "time": 112.914,
       "detail": "The 'Sorotan peserta: siswa pemula' overlay (underline) is drawn in the frame's existing negative space, reinforcing rather than crowding the composition.",
       "evidence_ids": [
        "shot-26-continuous"
@@ -5207,21 +5200,21 @@
     "status": "pass",
     "observations": [
      {
-      "time": 114.663,
-      "detail": "Caption \"siapa, proses apa, dan dalam konteks apa.\" runs 113.15-116.22s (3.07s, 7 words, ~2.3 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
+      "time": 112.673,
+      "detail": "Caption \"Jelas: siapa, proses apa, dan dalam konteks apa.\" runs 111.80-114.81s (3.01s, 8 words, ~2.7 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
       "evidence_ids": [
        "shot-26-continuous"
       ]
      },
      {
-      "time": 116.302,
-      "detail": "Caption \"Sekarang pastikan bisa dijawab dengan data yang tersedia.\" runs 116.30-119.81s (3.51s, 8 words, ~2.3 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
+      "time": 114.895,
+      "detail": "Caption \"Sekarang pastikan dapat dijawab dengan data yang tersedia.\" runs 114.89-120.24s (5.34s, 8 words, ~1.5 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
       "evidence_ids": [
        "shot-26-continuous"
       ]
      },
      {
-      "time": 114.883,
+      "time": 112.893,
       "detail": "On-screen text 'Bagaimana siswa pemula menggunakan' at (120,130) stays within the 1280-wide frame (declared width 1150px) with no clipping against the frame edge.",
       "evidence_ids": [
        "shot-26-continuous"
@@ -5234,15 +5227,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 114.883,
-      "detail": "The shot runs 114.633-122.356s (7.72s total); at 114.88s the opening beat has already landed, leaving room for the remaining 7.47s to read before the cut.",
+      "time": 112.893,
+      "detail": "The shot runs 112.643-118.738s (6.09s total); at 112.89s the opening beat has already landed, leaving room for the remaining 5.84s to read before the cut.",
       "evidence_ids": [
        "shot-26-continuous"
       ]
      },
      {
-      "time": 122.106,
-      "detail": "The caption \"Oh, jadi harus saya cek dulu datanya.\" (ends 123.86s) runs past this shot's 122.356s cut into the next shot, so the line keeps reading with no silent gap across the edit.",
+      "time": 118.488,
+      "detail": "The caption \"Sekarang pastikan dapat dijawab dengan data yang tersedia.\" (ends 120.24s) runs past this shot's 118.738s cut into the next shot, so the line keeps reading with no silent gap across the edit.",
       "evidence_ids": [
        "shot-26-continuous"
       ]
@@ -5253,7 +5246,7 @@
       "reference_id": "b1-ryan-v4",
       "start": 19.6,
       "end": 21.2,
-      "detail": "This shot's 7.72s duration is in the same few-seconds-per-beat range the baseline uses for its numbered-list hold. Compared against the closing 'FIX THESE 3 THINGS' beat (desk pose beside three numbered red/green/gray boxes)."
+      "detail": "This shot's 6.09s duration is in the same few-seconds-per-beat range the baseline uses for its numbered-list hold. Compared against the closing 'FIX THESE 3 THINGS' beat (desk pose beside three numbered red/green/gray boxes)."
      }
     ]
    },
@@ -5261,14 +5254,14 @@
     "status": "pass",
     "observations": [
      {
-      "time": 114.883,
-      "detail": "ffmpeg volumedetect over this shot's exact 114.633-122.356s window measured mean_volume=-20.6dB, max_volume=-1.9dB on the mixed mono track.",
+      "time": 112.893,
+      "detail": "ffmpeg volumedetect over this shot's exact 112.643-118.738s window measured mean_volume=-20.6dB, max_volume=-1.9dB on the mixed mono track.",
       "evidence_ids": [
        "shot-26-continuous"
       ]
      },
      {
-      "time": 118.494,
+      "time": 115.691,
       "detail": "A mean level of -20.6dB in this window is consistent with narration/dialogue being present and mixed above the music bed (not a silent or music-only passage).",
       "evidence_ids": [
        "shot-26-continuous"
@@ -5278,7 +5271,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -20.6dB mean / -1.9dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -5290,15 +5283,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 122.606,
-      "detail": "At 122.61s no character figure is in frame; the shot is a prop/graphic cutaway (background art) rendered in the same thin-outline line-art style as the character shots.",
+      "time": 118.988,
+      "detail": "At 118.99s no character figure is in frame; the shot is a prop/graphic cutaway (background art) rendered in the same thin-outline line-art style as the character shots.",
       "evidence_ids": [
        "shot-27-continuous"
       ]
      },
      {
-      "time": 127.106,
-      "detail": "At 127.11s the props/graphics retain the same outline weight and palette (cream background, navy/red/yellow accent text) seen at 122.61s.",
+      "time": 123.488,
+      "detail": "At 123.49s the props/graphics retain the same outline weight and palette (cream background, navy/red/yellow accent text) seen at 118.99s.",
       "evidence_ids": [
        "shot-27-continuous"
       ]
@@ -5344,15 +5337,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 122.606,
-      "detail": "At 122.61s the static graphic/prop layout () shows no overlapping edges between independent elements.",
+      "time": 118.988,
+      "detail": "At 118.99s the static graphic/prop layout () shows no overlapping edges between independent elements.",
       "evidence_ids": [
        "shot-27-continuous"
       ]
      },
      {
-      "time": 127.106,
-      "detail": "At 127.11s the layout is unchanged or has resolved its reveal cleanly, with no leftover overlap.",
+      "time": 123.488,
+      "detail": "At 123.49s the layout is unchanged or has resolved its reveal cleanly, with no leftover overlap.",
       "evidence_ids": [
        "shot-27-continuous"
       ]
@@ -5371,14 +5364,14 @@
     "status": "pass",
     "observations": [
      {
-      "time": 122.606,
-      "detail": "At 122.61s the frame is laid out with the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
+      "time": 118.988,
+      "detail": "At 118.99s the frame is laid out with the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
       "evidence_ids": [
        "shot-27-continuous"
       ]
      },
      {
-      "time": 122.656,
+      "time": 119.038,
       "detail": "The 'Centang: pertanyaan lebih terarah' overlay (line) is drawn in the frame's existing negative space, reinforcing rather than crowding the composition.",
       "evidence_ids": [
        "shot-27-continuous"
@@ -5399,7 +5392,7 @@
     "observations": [
      {
       "time": 119.738,
-      "detail": "Caption-independent label 'lebih terarah' at (960,200) size 28 sits to the right of the three-line question block (which ends around x=900 at its widest line), so it does not overlap any of the three question lines above it.",
+      "detail": "Label 'lebih terarah' at (960,200) size 28 sits to the right of the three-line question block (which ends around x=900 at its widest line), so it does not overlap any of the three question lines above it.",
       "evidence_ids": [
        "shot-27-continuous"
       ]
@@ -5418,15 +5411,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 122.606,
-      "detail": "The shot runs 122.356-127.356s (5.00s total); at 122.61s the opening beat has already landed, leaving room for the remaining 4.75s to read before the cut.",
+      "time": 118.988,
+      "detail": "The shot runs 118.738-123.738s (5.00s total); at 118.99s the opening beat has already landed, leaving room for the remaining 4.75s to read before the cut.",
       "evidence_ids": [
        "shot-27-continuous"
       ]
      },
      {
-      "time": 127.106,
-      "detail": "The last caption in this shot ends at 123.86s, leaving a 3.50s silent hold before the 127.356s cut -- enough beat to register the line before the next shot.",
+      "time": 123.488,
+      "detail": "The last caption in this shot ends at 120.24s, leaving a 3.50s silent hold before the 123.738s cut -- enough beat to register the line before the next shot.",
       "evidence_ids": [
        "shot-27-continuous"
       ]
@@ -5462,7 +5455,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference mean -21.4dB; shot-27's much quieter -46.0dB mean reflects a held beat with no new line, the same kind of brief dialogue-free pause the baseline uses between its own cards."
      }
@@ -5474,15 +5467,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 127.606,
-      "detail": "At 127.61s the frame shows ardipal-listen, vidka-stand-read: round-head, dot-eyed stickman figures with unfilled thin black outlines and simple stick limbs, matching the character sheet used across the film.",
+      "time": 123.988,
+      "detail": "At 123.99s the frame shows ardipal-listen, vidka-stand-read: round-head, dot-eyed stickman figures with unfilled thin black outlines and simple stick limbs, matching the character sheet used across the film.",
       "evidence_ids": [
        "shot-28-continuous"
       ]
      },
      {
-      "time": 130.282,
-      "detail": "At 130.28s (near the shot's end) the same figures hold consistent proportions and line weight as at 127.61s; no redraw pop or model drift across the 3.18s shot.",
+      "time": 125.508,
+      "detail": "At 125.51s (near the shot's end) the same figures hold consistent proportions and line weight as at 123.99s; no redraw pop or model drift across the 2.02s shot.",
       "evidence_ids": [
        "shot-28-continuous"
       ]
@@ -5501,15 +5494,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 127.386,
-      "detail": "At 127.39s, while the caption reads \"Saya gunakan kuesioner saja? Soalnya lebih cepat dibagikan\", vidka stands holding the sheet up at eye level, reading -- the pose matches the line's meaning.",
+      "time": 123.768,
+      "detail": "At 123.77s, while the caption reads \"Saya gunakan kuesioner saja?\", vidka stands holding the sheet up at eye level, reading -- the pose matches the line's meaning.",
       "evidence_ids": [
        "shot-28-continuous"
       ]
      },
      {
-      "time": 130.282,
-      "detail": "By 130.28s the pose has changed to: ardipal stands with arms at his sides, listening, a legible shift from the shot's opening pose that tracks the dialogue's progress.",
+      "time": 125.508,
+      "detail": "By 125.51s the pose has changed to: ardipal stands with arms at his sides, listening, a legible shift from the shot's opening pose that tracks the dialogue's progress.",
       "evidence_ids": [
        "shot-28-continuous"
       ]
@@ -5528,15 +5521,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 127.606,
-      "detail": "At 127.61s the prop 'questionnaire.png' sits at its keyframed start position; kuesioner diangkat setinggi mata lalu dibaca.",
+      "time": 123.988,
+      "detail": "At 123.99s the prop 'questionnaire.png' sits at its keyframed start position; kuesioner diangkat setinggi mata lalu dibaca.",
       "evidence_ids": [
        "shot-28-continuous"
       ]
      },
      {
-      "time": 130.282,
-      "detail": "By 130.28s the prop has reached its resting keyframe position without clipping through the desk, notebook or any character outline.",
+      "time": 125.508,
+      "detail": "By 125.51s the prop has reached its resting keyframe position without clipping through the desk, notebook or any character outline.",
       "evidence_ids": [
        "shot-28-continuous"
       ]
@@ -5555,15 +5548,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 127.606,
-      "detail": "At 127.61s the frame is laid out with a character group on one side and the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
+      "time": 123.988,
+      "detail": "At 123.99s the frame is laid out with a character group on one side and the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
       "evidence_ids": [
        "shot-28-continuous"
       ]
      },
      {
-      "time": 130.282,
-      "detail": "By 130.28s the composition balance established at the shot's open is preserved; no element has drifted into the frame's margins.",
+      "time": 125.508,
+      "detail": "By 125.51s the composition balance established at the shot's open is preserved; no element has drifted into the frame's margins.",
       "evidence_ids": [
        "shot-28-continuous"
       ]
@@ -5582,14 +5575,14 @@
     "status": "pass",
     "observations": [
      {
-      "time": 127.386,
-      "detail": "Caption \"Saya gunakan kuesioner saja? Soalnya lebih cepat dibagikan\" runs 127.36-131.59s (4.24s, 8 words, ~1.9 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
+      "time": 123.768,
+      "detail": "Caption \"Saya gunakan kuesioner saja?\" runs 123.74-126.09s (2.35s, 4 words, ~1.7 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
       "evidence_ids": [
        "shot-28-continuous"
       ]
      },
      {
-      "time": 127.606,
+      "time": 123.988,
       "detail": "On-screen text 'Kuesioner' at (110,430) stays within the 1280-wide frame (declared width 1160px) with no clipping against the frame edge.",
       "evidence_ids": [
        "shot-28-continuous"
@@ -5602,15 +5595,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 127.606,
-      "detail": "The shot runs 127.356-130.532s (3.18s total); at 127.61s the opening beat has already landed, leaving room for the remaining 2.93s to read before the cut.",
+      "time": 123.988,
+      "detail": "The shot runs 123.738-125.758s (2.02s total); at 123.99s the opening beat has already landed, leaving room for the remaining 1.77s to read before the cut.",
       "evidence_ids": [
        "shot-28-continuous"
       ]
      },
      {
-      "time": 130.282,
-      "detail": "The caption \"Saya gunakan kuesioner saja? Soalnya lebih cepat dibagikan\" (ends 131.59s) runs past this shot's 130.532s cut into the next shot, so the line keeps reading with no silent gap across the edit.",
+      "time": 125.508,
+      "detail": "The caption \"Saya gunakan kuesioner saja?\" (ends 126.09s) runs past this shot's 125.758s cut into the next shot, so the line keeps reading with no silent gap across the edit.",
       "evidence_ids": [
        "shot-28-continuous"
       ]
@@ -5621,7 +5614,7 @@
       "reference_id": "b1-ryan-v4",
       "start": 19.6,
       "end": 21.2,
-      "detail": "This shot's 3.18s duration is in the same few-seconds-per-beat range the baseline uses for its numbered-list hold. Compared against the closing 'FIX THESE 3 THINGS' beat (desk pose beside three numbered red/green/gray boxes)."
+      "detail": "This shot's 2.02s duration is in the same few-seconds-per-beat range the baseline uses for its numbered-list hold. Compared against the closing 'FIX THESE 3 THINGS' beat (desk pose beside three numbered red/green/gray boxes)."
      }
     ]
    },
@@ -5629,14 +5622,14 @@
     "status": "pass",
     "observations": [
      {
-      "time": 127.606,
-      "detail": "ffmpeg volumedetect over this shot's exact 127.356-130.532s window measured mean_volume=-21.5dB, max_volume=-3.3dB on the mixed mono track.",
+      "time": 123.988,
+      "detail": "ffmpeg volumedetect over this shot's exact 123.738-125.758s window measured mean_volume=-21.5dB, max_volume=-3.3dB on the mixed mono track.",
       "evidence_ids": [
        "shot-28-continuous"
       ]
      },
      {
-      "time": 128.944,
+      "time": 124.748,
       "detail": "A mean level of -21.5dB in this window is consistent with narration/dialogue being present and mixed above the music bed (not a silent or music-only passage).",
       "evidence_ids": [
        "shot-28-continuous"
@@ -5646,7 +5639,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -21.5dB mean / -3.3dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -5658,15 +5651,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 130.782,
-      "detail": "At 130.78s the frame shows ardipal-talk, vidka-stand-look: round-head, dot-eyed stickman figures with unfilled thin black outlines and simple stick limbs, matching the character sheet used across the film.",
+      "time": 126.008,
+      "detail": "At 126.01s the frame shows ardipal-talk, vidka-stand-look: round-head, dot-eyed stickman figures with unfilled thin black outlines and simple stick limbs, matching the character sheet used across the film.",
       "evidence_ids": [
        "shot-29-continuous"
       ]
      },
      {
-      "time": 134.252,
-      "detail": "At 134.25s (near the shot's end) the same figures hold consistent proportions and line weight as at 130.78s; no redraw pop or model drift across the 3.97s shot.",
+      "time": 128.032,
+      "detail": "At 128.03s (near the shot's end) the same figures hold consistent proportions and line weight as at 126.01s; no redraw pop or model drift across the 2.52s shot.",
       "evidence_ids": [
        "shot-29-continuous"
       ]
@@ -5685,15 +5678,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 130.562,
-      "detail": "At 130.56s, while the caption reads \"Saya gunakan kuesioner saja? Soalnya lebih cepat dibagikan\", vidka stands, turning her head toward the door -- the pose matches the line's meaning.",
+      "time": 125.788,
+      "detail": "At 125.79s, while the caption reads \"Saya gunakan kuesioner saja?\", vidka stands, turning her head toward the door -- the pose matches the line's meaning.",
       "evidence_ids": [
        "shot-29-continuous"
       ]
      },
      {
-      "time": 134.252,
-      "detail": "By 134.25s the pose has changed to: ardipal gestures with one hand while speaking, a legible shift from the shot's opening pose that tracks the dialogue's progress.",
+      "time": 128.032,
+      "detail": "By 128.03s the pose has changed to: ardipal gestures with one hand while speaking, a legible shift from the shot's opening pose that tracks the dialogue's progress.",
       "evidence_ids": [
        "shot-29-continuous"
       ]
@@ -5712,15 +5705,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 130.782,
-      "detail": "At 130.78s the prop 'door.png' sits at its keyframed start position; pintu ruang latihan masuk ke bidang pandang.",
+      "time": 126.008,
+      "detail": "At 126.01s the prop 'door.png' sits at its keyframed start position; pintu ruang latihan masuk ke bidang pandang.",
       "evidence_ids": [
        "shot-29-continuous"
       ]
      },
      {
-      "time": 134.252,
-      "detail": "By 134.25s the prop has reached its resting keyframe position without clipping through the desk, notebook or any character outline.",
+      "time": 128.032,
+      "detail": "By 128.03s the prop has reached its resting keyframe position without clipping through the desk, notebook or any character outline.",
       "evidence_ids": [
        "shot-29-continuous"
       ]
@@ -5739,15 +5732,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 130.782,
-      "detail": "At 130.78s the frame is laid out with a character group on one side and the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
+      "time": 126.008,
+      "detail": "At 126.01s the frame is laid out with a character group on one side and the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
       "evidence_ids": [
        "shot-29-continuous"
       ]
      },
      {
-      "time": 134.252,
-      "detail": "By 134.25s the composition balance established at the shot's open is preserved; no element has drifted into the frame's margins.",
+      "time": 128.032,
+      "detail": "By 128.03s the composition balance established at the shot's open is preserved; no element has drifted into the frame's margins.",
       "evidence_ids": [
        "shot-29-continuous"
       ]
@@ -5766,21 +5759,21 @@
     "status": "pass",
     "observations": [
      {
-      "time": 130.562,
-      "detail": "Caption \"Saya gunakan kuesioner saja? Soalnya lebih cepat dibagikan\" runs 127.36-131.59s (4.24s, 8 words, ~1.9 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
+      "time": 125.788,
+      "detail": "Caption \"Saya gunakan kuesioner saja?\" runs 123.74-126.09s (2.35s, 4 words, ~1.7 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
       "evidence_ids": [
        "shot-29-continuous"
       ]
      },
      {
-      "time": 131.671,
-      "detail": "Caption \"ke semua siswa.\" runs 131.67-133.40s (1.73s, 3 words, ~1.7 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
+      "time": 126.167,
+      "detail": "Caption \"Apakah itu menunjukkan tindakan saat latihan?\" runs 126.17-129.34s (3.18s, 6 words, ~1.9 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
       "evidence_ids": [
        "shot-29-continuous"
       ]
      },
      {
-      "time": 130.782,
+      "time": 126.008,
       "detail": "On-screen text 'RUANG LATIHAN' at (960,110) stays within the 1280-wide frame (declared width 310px) with no clipping against the frame edge.",
       "evidence_ids": [
        "shot-29-continuous"
@@ -5793,15 +5786,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 130.782,
-      "detail": "The shot runs 130.532-134.502s (3.97s total); at 130.78s the opening beat has already landed, leaving room for the remaining 3.72s to read before the cut.",
+      "time": 126.008,
+      "detail": "The shot runs 125.758-128.282s (2.52s total); at 126.01s the opening beat has already landed, leaving room for the remaining 2.27s to read before the cut.",
       "evidence_ids": [
        "shot-29-continuous"
       ]
      },
      {
-      "time": 134.252,
-      "detail": "The caption \"Apakah itu menunjukkan tindakan saat latihan?\" (ends 136.66s) runs past this shot's 134.502s cut into the next shot, so the line keeps reading with no silent gap across the edit.",
+      "time": 128.032,
+      "detail": "The caption \"Apakah itu menunjukkan tindakan saat latihan?\" (ends 129.34s) runs past this shot's 128.282s cut into the next shot, so the line keeps reading with no silent gap across the edit.",
       "evidence_ids": [
        "shot-29-continuous"
       ]
@@ -5812,7 +5805,7 @@
       "reference_id": "b1-ryan-v4",
       "start": 19.6,
       "end": 21.2,
-      "detail": "This shot's 3.97s duration is in the same few-seconds-per-beat range the baseline uses for its numbered-list hold. Compared against the closing 'FIX THESE 3 THINGS' beat (desk pose beside three numbered red/green/gray boxes)."
+      "detail": "This shot's 2.52s duration is in the same few-seconds-per-beat range the baseline uses for its numbered-list hold. Compared against the closing 'FIX THESE 3 THINGS' beat (desk pose beside three numbered red/green/gray boxes)."
      }
     ]
    },
@@ -5820,14 +5813,14 @@
     "status": "pass",
     "observations": [
      {
-      "time": 130.782,
-      "detail": "ffmpeg volumedetect over this shot's exact 130.532-134.502s window measured mean_volume=-20.0dB, max_volume=-3.9dB on the mixed mono track.",
+      "time": 126.008,
+      "detail": "ffmpeg volumedetect over this shot's exact 125.758-128.282s window measured mean_volume=-20.0dB, max_volume=-3.9dB on the mixed mono track.",
       "evidence_ids": [
        "shot-29-continuous"
       ]
      },
      {
-      "time": 132.517,
+      "time": 127.02,
       "detail": "A mean level of -20.0dB in this window is consistent with narration/dialogue being present and mixed above the music bed (not a silent or music-only passage).",
       "evidence_ids": [
        "shot-29-continuous"
@@ -5837,7 +5830,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -20.0dB mean / -3.9dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -5849,15 +5842,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 134.752,
-      "detail": "At 134.75s no character figure is in frame; the shot is a prop/graphic cutaway (notebook, questionnaire) rendered in the same thin-outline line-art style as the character shots.",
+      "time": 128.532,
+      "detail": "At 128.53s no character figure is in frame; the shot is a prop/graphic cutaway (notebook, questionnaire) rendered in the same thin-outline line-art style as the character shots.",
       "evidence_ids": [
        "shot-30-continuous"
       ]
      },
      {
-      "time": 142.987,
-      "detail": "At 142.99s the props/graphics retain the same outline weight and palette (cream background, navy/red/yellow accent text) seen at 134.75s.",
+      "time": 133.586,
+      "detail": "At 133.59s the props/graphics retain the same outline weight and palette (cream background, navy/red/yellow accent text) seen at 128.53s.",
       "evidence_ids": [
        "shot-30-continuous"
       ]
@@ -5876,15 +5869,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 134.532,
-      "detail": "At 134.53s the on-screen text/graphic reveal (\"Belum cukup.\") times with the caption \"Apakah itu menunjukkan tindakan saat latihan?\", carrying the narration's meaning without a visible character.",
+      "time": 128.312,
+      "detail": "At 128.31s the on-screen text/graphic reveal (\"Belum cukup.\") times with the caption \"Apakah itu menunjukkan tindakan saat latihan?\", carrying the narration's meaning without a visible character.",
       "evidence_ids": [
        "shot-30-continuous"
       ]
      },
      {
-      "time": 142.987,
-      "detail": "By 142.99s the graphic state matches the narration having moved on to its next idea, with no stale leftover emphasis from the shot's opening state.",
+      "time": 133.586,
+      "detail": "By 133.59s the graphic state matches the narration having moved on to its next idea, with no stale leftover emphasis from the shot's opening state.",
       "evidence_ids": [
        "shot-30-continuous"
       ]
@@ -5903,15 +5896,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 134.752,
-      "detail": "At 134.75s the prop 'notebook.png' sits at its keyframed start position; buku pengamatan ditempatkan pertama.",
+      "time": 128.532,
+      "detail": "At 128.53s the prop 'notebook.png' sits at its keyframed start position; buku pengamatan ditempatkan pertama.",
       "evidence_ids": [
        "shot-30-continuous"
       ]
      },
      {
-      "time": 142.987,
-      "detail": "By 142.99s the prop has reached its resting keyframe position without clipping through the desk, notebook or any character outline.",
+      "time": 133.586,
+      "detail": "By 133.59s the prop has reached its resting keyframe position without clipping through the desk, notebook or any character outline.",
       "evidence_ids": [
        "shot-30-continuous"
       ]
@@ -5930,14 +5923,14 @@
     "status": "pass",
     "observations": [
      {
-      "time": 134.752,
-      "detail": "At 134.75s the frame is laid out with the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
+      "time": 128.532,
+      "detail": "At 128.53s the frame is laid out with the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
       "evidence_ids": [
        "shot-30-continuous"
       ]
      },
      {
-      "time": 140.537,
+      "time": 132.119,
       "detail": "The 'Urutan: mengamati lalu menanyakan' overlay (arrow) is drawn in the frame's existing negative space, reinforcing rather than crowding the composition.",
       "evidence_ids": [
        "shot-30-continuous"
@@ -5957,21 +5950,21 @@
     "status": "pass",
     "observations": [
      {
-      "time": 134.532,
-      "detail": "Caption \"Apakah itu menunjukkan tindakan saat latihan?\" runs 133.48-136.66s (3.18s, 6 words, ~1.9 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
+      "time": 128.312,
+      "detail": "Caption \"Apakah itu menunjukkan tindakan saat latihan?\" runs 126.17-129.34s (3.18s, 6 words, ~1.9 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
       "evidence_ids": [
        "shot-30-continuous"
       ]
      },
      {
-      "time": 136.735,
-      "detail": "Caption \"Oh, jadi kuesioner saja belum cukup, ya?\" runs 136.74-139.59s (2.86s, 7 words, ~2.5 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
+      "time": 129.424,
+      "detail": "Caption \"Belum cukup. Saya perlu mengamati,\" runs 129.42-131.75s (2.33s, 5 words, ~2.1 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
       "evidence_ids": [
        "shot-30-continuous"
       ]
      },
      {
-      "time": 134.752,
+      "time": 128.532,
       "detail": "On-screen text 'Belum cukup.' at (120,70) stays within the 1280-wide frame (declared width 1150px) with no clipping against the frame edge.",
       "evidence_ids": [
        "shot-30-continuous"
@@ -5984,15 +5977,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 134.752,
-      "detail": "The shot runs 134.502-143.237s (8.73s total); at 134.75s the opening beat has already landed, leaving room for the remaining 8.48s to read before the cut.",
+      "time": 128.532,
+      "detail": "The shot runs 128.282-133.836s (5.55s total); at 128.53s the opening beat has already landed, leaving room for the remaining 5.30s to read before the cut.",
       "evidence_ids": [
        "shot-30-continuous"
       ]
      },
      {
-      "time": 142.987,
-      "detail": "The caption \"Saya perlu mengamati, lalu menanyakan alasannya.\" (ends 144.74s) runs past this shot's 143.237s cut into the next shot, so the line keeps reading with no silent gap across the edit.",
+      "time": 133.586,
+      "detail": "The caption \"lalu menanyakan alasannya.\" (ends 135.34s) runs past this shot's 133.836s cut into the next shot, so the line keeps reading with no silent gap across the edit.",
       "evidence_ids": [
        "shot-30-continuous"
       ]
@@ -6003,7 +5996,7 @@
       "reference_id": "b1-ryan-v4",
       "start": 19.6,
       "end": 21.2,
-      "detail": "This shot's 8.73s duration is in the same few-seconds-per-beat range the baseline uses for its numbered-list hold. Compared against the closing 'FIX THESE 3 THINGS' beat (desk pose beside three numbered red/green/gray boxes)."
+      "detail": "This shot's 5.55s duration is in the same few-seconds-per-beat range the baseline uses for its numbered-list hold. Compared against the closing 'FIX THESE 3 THINGS' beat (desk pose beside three numbered red/green/gray boxes)."
      }
     ]
    },
@@ -6011,14 +6004,14 @@
     "status": "pass",
     "observations": [
      {
-      "time": 134.752,
-      "detail": "ffmpeg volumedetect over this shot's exact 134.502-143.237s window measured mean_volume=-20.6dB, max_volume=-5.7dB on the mixed mono track.",
+      "time": 128.532,
+      "detail": "ffmpeg volumedetect over this shot's exact 128.282-133.836s window measured mean_volume=-20.6dB, max_volume=-5.7dB on the mixed mono track.",
       "evidence_ids": [
        "shot-30-continuous"
       ]
      },
      {
-      "time": 138.87,
+      "time": 131.059,
       "detail": "A mean level of -20.6dB in this window is consistent with narration/dialogue being present and mixed above the music bed (not a silent or music-only passage).",
       "evidence_ids": [
        "shot-30-continuous"
@@ -6028,7 +6021,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -20.6dB mean / -5.7dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -6040,15 +6033,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 143.487,
-      "detail": "At 143.49s the frame shows vidka-nod, vidka-think: round-head, dot-eyed stickman figures with unfilled thin black outlines and simple stick limbs, matching the character sheet used across the film.",
+      "time": 134.086,
+      "detail": "At 134.09s the frame shows vidka-nod, vidka-think: round-head, dot-eyed stickman figures with unfilled thin black outlines and simple stick limbs, matching the character sheet used across the film.",
       "evidence_ids": [
        "shot-31-continuous"
       ]
      },
      {
-      "time": 147.987,
-      "detail": "At 147.99s (near the shot's end) the same figures hold consistent proportions and line weight as at 143.49s; no redraw pop or model drift across the 5.00s shot.",
+      "time": 138.586,
+      "detail": "At 138.59s (near the shot's end) the same figures hold consistent proportions and line weight as at 134.09s; no redraw pop or model drift across the 5.00s shot.",
       "evidence_ids": [
        "shot-31-continuous"
       ]
@@ -6067,15 +6060,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 143.267,
-      "detail": "At 143.27s, while the caption reads \"Saya perlu mengamati, lalu menanyakan alasannya.\", vidka rests a hand near her chin in a thinking pose -- the pose matches the line's meaning.",
+      "time": 133.866,
+      "detail": "At 133.87s, while the caption reads \"lalu menanyakan alasannya.\", vidka rests a hand near her chin in a thinking pose -- the pose matches the line's meaning.",
       "evidence_ids": [
        "shot-31-continuous"
       ]
      },
      {
-      "time": 147.987,
-      "detail": "By 147.99s the pose has changed to: vidka nods in agreement, a legible shift from the shot's opening pose that tracks the dialogue's progress.",
+      "time": 138.586,
+      "detail": "By 138.59s the pose has changed to: vidka nods in agreement, a legible shift from the shot's opening pose that tracks the dialogue's progress.",
       "evidence_ids": [
        "shot-31-continuous"
       ]
@@ -6094,15 +6087,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 143.487,
-      "detail": "At 143.49s the character figures (vidka-nod, vidka-think) and any desk/notebook props keep clear outlines with no limb or object passing through another shape.",
+      "time": 134.086,
+      "detail": "At 134.09s the character figures (vidka-nod, vidka-think) and any desk/notebook props keep clear outlines with no limb or object passing through another shape.",
       "evidence_ids": [
        "shot-31-continuous"
       ]
      },
      {
-      "time": 147.987,
-      "detail": "At 147.99s (shot end) the same figures remain correctly layered (desk in front of chair legs, hands in front of torsos) with no new clipping introduced.",
+      "time": 138.586,
+      "detail": "At 138.59s (shot end) the same figures remain correctly layered (desk in front of chair legs, hands in front of torsos) with no new clipping introduced.",
       "evidence_ids": [
        "shot-31-continuous"
       ]
@@ -6121,14 +6114,14 @@
     "status": "pass",
     "observations": [
      {
-      "time": 143.487,
-      "detail": "At 143.49s the frame is laid out with a character group on one side and the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
+      "time": 134.086,
+      "detail": "At 134.09s the frame is laid out with a character group on one side and the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
       "evidence_ids": [
        "shot-31-continuous"
       ]
      },
      {
-      "time": 143.637,
+      "time": 134.236,
       "detail": "The 'Baris tugas digarisbawahi saat dibaca' overlay (underline) is drawn in the frame's existing negative space, reinforcing rather than crowding the composition.",
       "evidence_ids": [
        "shot-31-continuous"
@@ -6148,14 +6141,14 @@
     "status": "pass",
     "observations": [
      {
-      "time": 143.267,
-      "detail": "Caption \"Saya perlu mengamati, lalu menanyakan alasannya.\" runs 139.67-144.74s (5.07s, 6 words, ~1.2 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
+      "time": 133.866,
+      "detail": "Caption \"lalu menanyakan alasannya.\" runs 131.83-135.34s (3.50s, 3 words, ~0.9 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
       "evidence_ids": [
        "shot-31-continuous"
       ]
      },
      {
-      "time": 143.487,
+      "time": 134.086,
       "detail": "On-screen text 'Tugas' at (150,130) stays within the 1280-wide frame (declared width 1120px) with no clipping against the frame edge.",
       "evidence_ids": [
        "shot-31-continuous"
@@ -6168,15 +6161,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 143.487,
-      "detail": "The shot runs 143.237-148.237s (5.00s total); at 143.49s the opening beat has already landed, leaving room for the remaining 4.75s to read before the cut.",
+      "time": 134.086,
+      "detail": "The shot runs 133.836-138.836s (5.00s total); at 134.09s the opening beat has already landed, leaving room for the remaining 4.75s to read before the cut.",
       "evidence_ids": [
        "shot-31-continuous"
       ]
      },
      {
-      "time": 147.987,
-      "detail": "The last caption in this shot ends at 144.74s, leaving a 3.50s silent hold before the 148.237s cut -- enough beat to register the line before the next shot.",
+      "time": 138.586,
+      "detail": "The last caption in this shot ends at 135.34s, leaving a 3.50s silent hold before the 138.836s cut -- enough beat to register the line before the next shot.",
       "evidence_ids": [
        "shot-31-continuous"
       ]
@@ -6195,14 +6188,14 @@
     "status": "pass",
     "observations": [
      {
-      "time": 143.487,
-      "detail": "ffmpeg volumedetect over this shot's exact 143.237-148.237s window measured mean_volume=-34.9dB, max_volume=-20.7dB on the mixed mono track.",
+      "time": 134.086,
+      "detail": "ffmpeg volumedetect over this shot's exact 133.836-138.836s window measured mean_volume=-34.9dB, max_volume=-20.7dB on the mixed mono track.",
       "evidence_ids": [
        "shot-31-continuous"
       ]
      },
      {
-      "time": 145.737,
+      "time": 136.336,
       "detail": "A quieter mean level of -34.9dB (vs. roughly -19 to -22dB in dialogue-bearing shots) is consistent with this beat carrying music bed only, with no dialogue line scheduled in this window.",
       "evidence_ids": [
        "shot-31-continuous"
@@ -6212,7 +6205,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -34.9dB mean / -20.7dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -6224,15 +6217,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 148.487,
-      "detail": "At 148.49s the frame shows herry-talk: round-head, dot-eyed stickman figures with unfilled thin black outlines and simple stick limbs, matching the character sheet used across the film.",
+      "time": 139.086,
+      "detail": "At 139.09s the frame shows herry-talk: round-head, dot-eyed stickman figures with unfilled thin black outlines and simple stick limbs, matching the character sheet used across the film.",
       "evidence_ids": [
        "shot-32-continuous"
       ]
      },
      {
-      "time": 153.33,
-      "detail": "At 153.33s (near the shot's end) the same figures hold consistent proportions and line weight as at 148.49s; no redraw pop or model drift across the 5.34s shot.",
+      "time": 143.929,
+      "detail": "At 143.93s (near the shot's end) the same figures hold consistent proportions and line weight as at 139.09s; no redraw pop or model drift across the 5.34s shot.",
       "evidence_ids": [
        "shot-32-continuous"
       ]
@@ -6251,15 +6244,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 148.267,
-      "detail": "At 148.27s, while the caption reads \"Studi kasus kualitatif dapat sesuai:\", herry gestures with one hand while talking -- the pose matches the line's meaning.",
+      "time": 138.866,
+      "detail": "At 138.87s, while the caption reads \"Studi kasus kualitatif dapat sesuai:\", herry gestures with one hand while talking -- the pose matches the line's meaning.",
       "evidence_ids": [
        "shot-32-continuous"
       ]
      },
      {
-      "time": 153.33,
-      "detail": "The pose is held steady through 153.33s, appropriate for a single uninterrupted line of dialogue.",
+      "time": 143.929,
+      "detail": "The pose is held steady through 143.93s, appropriate for a single uninterrupted line of dialogue.",
       "evidence_ids": [
        "shot-32-continuous"
       ]
@@ -6278,15 +6271,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 148.487,
-      "detail": "At 148.49s the prop 'pencil.png' sits at its keyframed start position; pensil vidka menulis.",
+      "time": 139.086,
+      "detail": "At 139.09s the prop 'pencil.png' sits at its keyframed start position; pensil vidka menulis.",
       "evidence_ids": [
        "shot-32-continuous"
       ]
      },
      {
-      "time": 153.33,
-      "detail": "By 153.33s the prop has reached its resting keyframe position without clipping through the desk, notebook or any character outline.",
+      "time": 143.929,
+      "detail": "By 143.93s the prop has reached its resting keyframe position without clipping through the desk, notebook or any character outline.",
       "evidence_ids": [
        "shot-32-continuous"
       ]
@@ -6305,15 +6298,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 148.487,
-      "detail": "At 148.49s the frame is laid out with a character group on one side and the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
+      "time": 139.086,
+      "detail": "At 139.09s the frame is laid out with a character group on one side and the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
       "evidence_ids": [
        "shot-32-continuous"
       ]
      },
      {
-      "time": 153.33,
-      "detail": "By 153.33s the composition balance established at the shot's open is preserved; no element has drifted into the frame's margins.",
+      "time": 143.929,
+      "detail": "By 143.93s the composition balance established at the shot's open is preserved; no element has drifted into the frame's margins.",
       "evidence_ids": [
        "shot-32-continuous"
       ]
@@ -6332,21 +6325,21 @@
     "status": "pass",
     "observations": [
      {
-      "time": 148.267,
-      "detail": "Caption \"Studi kasus kualitatif dapat sesuai:\" runs 148.24-150.38s (2.15s, 5 words, ~2.3 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
+      "time": 138.866,
+      "detail": "Caption \"Studi kasus kualitatif dapat sesuai:\" runs 138.84-140.98s (2.14s, 5 words, ~2.3 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
       "evidence_ids": [
        "shot-32-continuous"
       ]
      },
      {
-      "time": 150.462,
-      "detail": "Caption \"kita menelaah proses secara mendalam\" runs 150.46-152.04s (1.58s, 5 words, ~3.2 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
+      "time": 141.061,
+      "detail": "Caption \"kita menelaah proses secara mendalam\" runs 141.06-142.64s (1.58s, 5 words, ~3.2 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
       "evidence_ids": [
        "shot-32-continuous"
       ]
      },
      {
-      "time": 148.487,
+      "time": 139.086,
       "detail": "On-screen text 'rencana penelitian' at (220,24) stays within the 1280-wide frame (declared width 1050px) with no clipping against the frame edge.",
       "evidence_ids": [
        "shot-32-continuous"
@@ -6359,15 +6352,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 148.487,
-      "detail": "The shot runs 148.237-153.580s (5.34s total); at 148.49s the opening beat has already landed, leaving room for the remaining 5.09s to read before the cut.",
+      "time": 139.086,
+      "detail": "The shot runs 138.836-144.179s (5.34s total); at 139.09s the opening beat has already landed, leaving room for the remaining 5.09s to read before the cut.",
       "evidence_ids": [
        "shot-32-continuous"
       ]
      },
      {
-      "time": 153.33,
-      "detail": "The caption \"dalam satu kelompok dan konteks latihannya.\" (ends 155.03s) runs past this shot's 153.580s cut into the next shot, so the line keeps reading with no silent gap across the edit.",
+      "time": 143.929,
+      "detail": "The caption \"dalam satu kelompok dan konteks latihannya.\" (ends 145.63s) runs past this shot's 144.179s cut into the next shot, so the line keeps reading with no silent gap across the edit.",
       "evidence_ids": [
        "shot-32-continuous"
       ]
@@ -6386,14 +6379,14 @@
     "status": "pass",
     "observations": [
      {
-      "time": 148.487,
-      "detail": "ffmpeg volumedetect over this shot's exact 148.237-153.580s window measured mean_volume=-19.5dB, max_volume=-2.0dB on the mixed mono track.",
+      "time": 139.086,
+      "detail": "ffmpeg volumedetect over this shot's exact 138.836-144.179s window measured mean_volume=-19.5dB, max_volume=-2.0dB on the mixed mono track.",
       "evidence_ids": [
        "shot-32-continuous"
       ]
      },
      {
-      "time": 150.909,
+      "time": 141.507,
       "detail": "A mean level of -19.5dB in this window is consistent with narration/dialogue being present and mixed above the music bed (not a silent or music-only passage).",
       "evidence_ids": [
        "shot-32-continuous"
@@ -6403,7 +6396,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -19.5dB mean / -2.0dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -6442,14 +6435,14 @@
     "status": "pass",
     "observations": [
      {
-      "time": 146.349,
+      "time": 146.379,
       "detail": "Stepping frames at t=146.1/146.35/146.5s (relative 1.92/2.17/2.32s), the clock-note card is seen rising from y=460 toward y=420 across this window, matching the prop's keys (t=2.17 y=460 -> t=3.339 y=420); this is real, visible upward motion, not a static card that only appears to move.",
       "evidence_ids": [
        "shot-33-continuous"
       ]
      },
      {
-      "time": 147.519,
+      "time": 147.579,
       "detail": "At t=147.52s (relative 3.339s) the red '12:04' text fades in (from=3.339) directly on the now-raised card, timing the new timestamp annotation's appearance to the moment the card finishes rising into its held position.",
       "evidence_ids": [
        "shot-33-continuous"
@@ -6469,15 +6462,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 153.83,
-      "detail": "At 153.83s the prop 'metronome-arm.png' sits at its keyframed start position; lengan metronom berayun menandai tempo.",
+      "time": 144.429,
+      "detail": "At 144.43s the prop 'metronome-arm.png' sits at its keyframed start position; lengan metronom berayun menandai tempo.",
       "evidence_ids": [
        "shot-33-continuous"
       ]
      },
      {
-      "time": 158.339,
-      "detail": "By 158.34s the prop has reached its resting keyframe position without clipping through the desk, notebook or any character outline.",
+      "time": 148.938,
+      "detail": "By 148.94s the prop has reached its resting keyframe position without clipping through the desk, notebook or any character outline.",
       "evidence_ids": [
        "shot-33-continuous"
       ]
@@ -6496,15 +6489,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 153.83,
-      "detail": "At 153.83s the frame is laid out with the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
+      "time": 144.429,
+      "detail": "At 144.43s the frame is laid out with the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
       "evidence_ids": [
        "shot-33-continuous"
       ]
      },
      {
-      "time": 158.339,
-      "detail": "By 158.34s the composition balance established at the shot's open is preserved; no element has drifted into the frame's margins.",
+      "time": 148.938,
+      "detail": "By 148.94s the composition balance established at the shot's open is preserved; no element has drifted into the frame's margins.",
       "evidence_ids": [
        "shot-33-continuous"
       ]
@@ -6543,15 +6536,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 153.83,
-      "detail": "The shot runs 153.580-158.589s (5.01s total); at 153.83s the opening beat has already landed, leaving room for the remaining 4.76s to read before the cut.",
+      "time": 144.429,
+      "detail": "The shot runs 144.179-149.188s (5.01s total); at 144.43s the opening beat has already landed, leaving room for the remaining 4.76s to read before the cut.",
       "evidence_ids": [
        "shot-33-continuous"
       ]
      },
      {
-      "time": 158.339,
-      "detail": "The last caption in this shot ends at 158.57s, leaving a 0.02s silent hold before the 158.589s cut -- enough beat to register the line before the next shot.",
+      "time": 148.938,
+      "detail": "The last caption in this shot ends at 149.17s, leaving a 0.02s silent hold before the 149.188s cut -- enough beat to register the line before the next shot.",
       "evidence_ids": [
        "shot-33-continuous"
       ]
@@ -6587,7 +6580,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference mean -21.4dB; shot-33's -21.7dB is close, i.e. the new timestamp graphic did not require (and did not get) a different audio treatment."
      }
@@ -6599,15 +6592,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 158.839,
-      "detail": "At 158.84s no character figure is in frame; the shot is a prop/graphic cutaway (note-card) rendered in the same thin-outline line-art style as the character shots.",
+      "time": 149.438,
+      "detail": "At 149.44s no character figure is in frame; the shot is a prop/graphic cutaway (note-card) rendered in the same thin-outline line-art style as the character shots.",
       "evidence_ids": [
        "shot-34-continuous"
       ]
      },
      {
-      "time": 164.684,
-      "detail": "At 164.68s the props/graphics retain the same outline weight and palette (cream background, navy/red/yellow accent text) seen at 158.84s.",
+      "time": 155.282,
+      "detail": "At 155.28s the props/graphics retain the same outline weight and palette (cream background, navy/red/yellow accent text) seen at 149.44s.",
       "evidence_ids": [
        "shot-34-continuous"
       ]
@@ -6626,15 +6619,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 158.651,
-      "detail": "At 158.65s the on-screen text/graphic reveal (\"Pengamatan\") times with the caption \"Ya, untuk menelaah pola penggunaan isyarat.\", carrying the narration's meaning without a visible character.",
+      "time": 149.25,
+      "detail": "At 149.25s the on-screen text/graphic reveal (\"Pengamatan\") times with the caption \"Ya, untuk menelaah pola penggunaan isyarat.\", carrying the narration's meaning without a visible character.",
       "evidence_ids": [
        "shot-34-continuous"
       ]
      },
      {
-      "time": 164.684,
-      "detail": "By 164.68s the graphic state matches the narration having moved on to its next idea, with no stale leftover emphasis from the shot's opening state.",
+      "time": 155.282,
+      "detail": "By 155.28s the graphic state matches the narration having moved on to its next idea, with no stale leftover emphasis from the shot's opening state.",
       "evidence_ids": [
        "shot-34-continuous"
       ]
@@ -6653,15 +6646,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 158.839,
-      "detail": "At 158.84s the static graphic/prop layout (note-card) shows no overlapping edges between independent elements.",
+      "time": 149.438,
+      "detail": "At 149.44s the static graphic/prop layout (note-card) shows no overlapping edges between independent elements.",
       "evidence_ids": [
        "shot-34-continuous"
       ]
      },
      {
-      "time": 164.684,
-      "detail": "At 164.68s the layout is unchanged or has resolved its reveal cleanly, with no leftover overlap.",
+      "time": 155.282,
+      "detail": "At 155.28s the layout is unchanged or has resolved its reveal cleanly, with no leftover overlap.",
       "evidence_ids": [
        "shot-34-continuous"
       ]
@@ -6727,15 +6720,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 158.839,
-      "detail": "The shot runs 158.589-164.934s (6.34s total); at 158.84s the opening beat has already landed, leaving room for the remaining 6.09s to read before the cut.",
+      "time": 149.438,
+      "detail": "The shot runs 149.188-155.532s (6.34s total); at 149.44s the opening beat has already landed, leaving room for the remaining 6.09s to read before the cut.",
       "evidence_ids": [
        "shot-34-continuous"
       ]
      },
      {
-      "time": 164.684,
-      "detail": "The caption \"pada latihan lain.\" (ends 166.43s) runs past this shot's 164.934s cut into the next shot, so the line keeps reading with no silent gap across the edit.",
+      "time": 155.282,
+      "detail": "The caption \"pada latihan lain.\" (ends 157.03s) runs past this shot's 155.532s cut into the next shot, so the line keeps reading with no silent gap across the edit.",
       "evidence_ids": [
        "shot-34-continuous"
       ]
@@ -6764,7 +6757,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference mean -21.4dB; shot-34's -19.7dB is within 1dB."
      }
@@ -6776,15 +6769,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 165.184,
-      "detail": "At 165.18s no character figure is in frame; the shot is a prop/graphic cutaway (note-card) rendered in the same thin-outline line-art style as the character shots.",
+      "time": 155.782,
+      "detail": "At 155.78s no character figure is in frame; the shot is a prop/graphic cutaway (note-card) rendered in the same thin-outline line-art style as the character shots.",
       "evidence_ids": [
        "shot-35-continuous"
       ]
      },
      {
-      "time": 169.684,
-      "detail": "At 169.68s the props/graphics retain the same outline weight and palette (cream background, navy/red/yellow accent text) seen at 165.18s.",
+      "time": 160.282,
+      "detail": "At 160.28s the props/graphics retain the same outline weight and palette (cream background, navy/red/yellow accent text) seen at 155.78s.",
       "evidence_ids": [
        "shot-35-continuous"
       ]
@@ -6810,7 +6803,7 @@
       ]
      },
      {
-      "time": 158,
+      "time": 158.0,
       "detail": "Stepping frames at t=157.0/157.732/158.0/158.332s (relative 1.47/2.2/2.47/2.8s), the red connector line between the 'Pengamatan' and 'Wawancara' cards is visibly thin at 157.0s and 157.732s and visibly thicker/bolder at 158.0s and 158.332s -- confirming the second motion gap (line-weight increase, keys t=2.2->2.8 progress 0->1) also produces real, visible change across frames, not merely a keyframe number with no screen effect.",
       "evidence_ids": [
        "shot-35-continuous"
@@ -6830,15 +6823,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 165.184,
-      "detail": "At 165.18s the static graphic/prop layout (note-card) shows no overlapping edges between independent elements.",
+      "time": 155.782,
+      "detail": "At 155.78s the static graphic/prop layout (note-card) shows no overlapping edges between independent elements.",
       "evidence_ids": [
        "shot-35-continuous"
       ]
      },
      {
-      "time": 169.684,
-      "detail": "At 169.68s the layout is unchanged or has resolved its reveal cleanly, with no leftover overlap.",
+      "time": 160.282,
+      "detail": "At 160.28s the layout is unchanged or has resolved its reveal cleanly, with no leftover overlap.",
       "evidence_ids": [
        "shot-35-continuous"
       ]
@@ -6857,14 +6850,14 @@
     "status": "pass",
     "observations": [
      {
-      "time": 165.184,
-      "detail": "At 165.18s the frame is laid out with the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
+      "time": 155.782,
+      "detail": "At 155.78s the frame is laid out with the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
       "evidence_ids": [
        "shot-35-continuous"
       ]
      },
      {
-      "time": 165.234,
+      "time": 155.832,
       "detail": "The 'Pola isyarat digarisbawahi' overlay (underline) is drawn in the frame's existing negative space, reinforcing rather than crowding the composition.",
       "evidence_ids": [
        "shot-35-continuous"
@@ -6884,15 +6877,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 164.964,
-      "detail": "Caption \"pada latihan lain.\" runs 163.71-166.43s (2.72s, 3 words, ~1.1 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
+      "time": 155.562,
+      "detail": "Caption \"pada latihan lain.\" runs 154.31-157.03s (2.72s, 3 words, ~1.1 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
       "evidence_ids": [
        "shot-35-continuous"
       ]
      },
      {
-      "time": 165.184,
-      "detail": "On-screen text 'Pengamatan' at (90,159) stays within the 1280-wide frame (declared width 1180px) with no clipping against the frame edge.",
+      "time": 155.782,
+      "detail": "On-screen text 'Pengamatan' at (130,158) stays within the 1280-wide frame (declared width 1140px) with no clipping against the frame edge.",
       "evidence_ids": [
        "shot-35-continuous"
       ]
@@ -6941,7 +6934,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference mean -21.4dB; shot-35's quieter -36.1dB matches a held beat with no new narration line, as seen elsewhere in the film's task-card/hold shots."
      }
@@ -6953,15 +6946,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 170.184,
-      "detail": "At 170.18s no character figure is in frame; the shot is a prop/graphic cutaway (metronome-arm, metronome-body, note-card) rendered in the same thin-outline line-art style as the character shots.",
+      "time": 160.782,
+      "detail": "At 160.78s no character figure is in frame; the shot is a prop/graphic cutaway (metronome-arm, metronome-body, note-card) rendered in the same thin-outline line-art style as the character shots.",
       "evidence_ids": [
        "shot-36-continuous"
       ]
      },
      {
-      "time": 173.758,
-      "detail": "At 173.76s the props/graphics retain the same outline weight and palette (cream background, navy/red/yellow accent text) seen at 170.18s.",
+      "time": 164.356,
+      "detail": "At 164.36s the props/graphics retain the same outline weight and palette (cream background, navy/red/yellow accent text) seen at 160.78s.",
       "evidence_ids": [
        "shot-36-continuous"
       ]
@@ -6980,15 +6973,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 169.964,
-      "detail": "At 169.96s the on-screen text/graphic reveal (\"memahami proses\") times with the caption \"Kalau menguji apakah latihan metronom\", carrying the narration's meaning without a visible character.",
+      "time": 160.562,
+      "detail": "At 160.56s the on-screen text/graphic reveal (\"memahami proses\") times with the caption \"Kalau menguji apakah latihan metronom\", carrying the narration's meaning without a visible character.",
       "evidence_ids": [
        "shot-36-continuous"
       ]
      },
      {
-      "time": 173.758,
-      "detail": "By 173.76s the graphic state matches the narration having moved on to its next idea, with no stale leftover emphasis from the shot's opening state.",
+      "time": 164.356,
+      "detail": "By 164.36s the graphic state matches the narration having moved on to its next idea, with no stale leftover emphasis from the shot's opening state.",
       "evidence_ids": [
        "shot-36-continuous"
       ]
@@ -7007,15 +7000,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 170.184,
-      "detail": "At 170.18s the prop 'note-card.png' sits at its keyframed start position; vidka membalik ke halaman pertanyaan kedua.",
+      "time": 160.782,
+      "detail": "At 160.78s the prop 'note-card.png' sits at its keyframed start position; vidka membalik ke halaman pertanyaan kedua.",
       "evidence_ids": [
        "shot-36-continuous"
       ]
      },
      {
-      "time": 173.758,
-      "detail": "By 173.76s the prop has reached its resting keyframe position without clipping through the desk, notebook or any character outline.",
+      "time": 164.356,
+      "detail": "By 164.36s the prop has reached its resting keyframe position without clipping through the desk, notebook or any character outline.",
       "evidence_ids": [
        "shot-36-continuous"
       ]
@@ -7034,15 +7027,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 170.184,
-      "detail": "At 170.18s the frame is laid out with the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
+      "time": 160.782,
+      "detail": "At 160.78s the frame is laid out with the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
       "evidence_ids": [
        "shot-36-continuous"
       ]
      },
      {
-      "time": 173.758,
-      "detail": "By 173.76s the composition balance established at the shot's open is preserved; no element has drifted into the frame's margins.",
+      "time": 164.356,
+      "detail": "By 164.36s the composition balance established at the shot's open is preserved; no element has drifted into the frame's margins.",
       "evidence_ids": [
        "shot-36-continuous"
       ]
@@ -7061,21 +7054,21 @@
     "status": "pass",
     "observations": [
      {
-      "time": 169.964,
-      "detail": "Caption \"Kalau menguji apakah latihan metronom\" runs 169.93-171.95s (2.02s, 5 words, ~2.5 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
+      "time": 160.562,
+      "detail": "Caption \"Kalau menguji apakah latihan metronom\" runs 160.53-162.55s (2.02s, 5 words, ~2.5 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
       "evidence_ids": [
        "shot-36-continuous"
       ]
      },
      {
-      "time": 172.029,
-      "detail": "Caption \"meningkatkan kestabilan tempo?\" runs 172.03-174.60s (2.58s, 3 words, ~1.2 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
+      "time": 162.628,
+      "detail": "Caption \"meningkatkan kestabilan tempo?\" runs 162.63-165.20s (2.58s, 3 words, ~1.2 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
       "evidence_ids": [
        "shot-36-continuous"
       ]
      },
      {
-      "time": 170.184,
+      "time": 160.782,
       "detail": "On-screen text 'memahami proses' at (150,100) stays within the 1280-wide frame (declared width 1120px) with no clipping against the frame edge.",
       "evidence_ids": [
        "shot-36-continuous"
@@ -7088,15 +7081,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 170.184,
-      "detail": "The shot runs 169.934-174.008s (4.07s total); at 170.18s the opening beat has already landed, leaving room for the remaining 3.82s to read before the cut.",
+      "time": 160.782,
+      "detail": "The shot runs 160.532-164.606s (4.07s total); at 160.78s the opening beat has already landed, leaving room for the remaining 3.82s to read before the cut.",
       "evidence_ids": [
        "shot-36-continuous"
       ]
      },
      {
-      "time": 173.758,
-      "detail": "The caption \"meningkatkan kestabilan tempo?\" (ends 174.60s) runs past this shot's 174.008s cut into the next shot, so the line keeps reading with no silent gap across the edit.",
+      "time": 164.356,
+      "detail": "The caption \"meningkatkan kestabilan tempo?\" (ends 165.20s) runs past this shot's 164.606s cut into the next shot, so the line keeps reading with no silent gap across the edit.",
       "evidence_ids": [
        "shot-36-continuous"
       ]
@@ -7115,14 +7108,14 @@
     "status": "pass",
     "observations": [
      {
-      "time": 170.184,
-      "detail": "ffmpeg volumedetect over this shot's exact 169.934-174.008s window measured mean_volume=-19.3dB, max_volume=-5.0dB on the mixed mono track.",
+      "time": 160.782,
+      "detail": "ffmpeg volumedetect over this shot's exact 160.532-164.606s window measured mean_volume=-19.3dB, max_volume=-5.0dB on the mixed mono track.",
       "evidence_ids": [
        "shot-36-continuous"
       ]
      },
      {
-      "time": 171.971,
+      "time": 162.569,
       "detail": "A mean level of -19.3dB in this window is consistent with narration/dialogue being present and mixed above the music bed (not a silent or music-only passage).",
       "evidence_ids": [
        "shot-36-continuous"
@@ -7132,7 +7125,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -19.3dB mean / -5.0dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -7144,15 +7137,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 174.258,
-      "detail": "At 174.26s the frame shows ardipal-point, vidka-stand-look: round-head, dot-eyed stickman figures with unfilled thin black outlines and simple stick limbs, matching the character sheet used across the film.",
+      "time": 164.856,
+      "detail": "At 164.86s the frame shows ardipal-point, vidka-stand-look: round-head, dot-eyed stickman figures with unfilled thin black outlines and simple stick limbs, matching the character sheet used across the film.",
       "evidence_ids": [
        "shot-37-continuous"
       ]
      },
      {
-      "time": 179.868,
-      "detail": "At 179.87s (near the shot's end) the same figures hold consistent proportions and line weight as at 174.26s; no redraw pop or model drift across the 6.11s shot.",
+      "time": 170.467,
+      "detail": "At 170.47s (near the shot's end) the same figures hold consistent proportions and line weight as at 164.86s; no redraw pop or model drift across the 6.11s shot.",
       "evidence_ids": [
        "shot-37-continuous"
       ]
@@ -7171,15 +7164,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 174.038,
-      "detail": "At 174.04s, while the caption reads \"meningkatkan kestabilan tempo?\", vidka stands, turning her head toward the door -- the pose matches the line's meaning.",
+      "time": 164.636,
+      "detail": "At 164.64s, while the caption reads \"meningkatkan kestabilan tempo?\", vidka stands, turning her head toward the door -- the pose matches the line's meaning.",
       "evidence_ids": [
        "shot-37-continuous"
       ]
      },
      {
-      "time": 179.868,
-      "detail": "By 179.87s the pose has changed to: ardipal points toward the boxed terms on the notebook page, a legible shift from the shot's opening pose that tracks the dialogue's progress.",
+      "time": 170.467,
+      "detail": "By 170.47s the pose has changed to: ardipal points toward the boxed terms on the notebook page, a legible shift from the shot's opening pose that tracks the dialogue's progress.",
       "evidence_ids": [
        "shot-37-continuous"
       ]
@@ -7198,15 +7191,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 174.258,
-      "detail": "At 174.26s the character figures (ardipal-point, vidka-stand-look) and any desk/notebook props keep clear outlines with no limb or object passing through another shape.",
+      "time": 164.856,
+      "detail": "At 164.86s the character figures (ardipal-point, vidka-stand-look) and any desk/notebook props keep clear outlines with no limb or object passing through another shape.",
       "evidence_ids": [
        "shot-37-continuous"
       ]
      },
      {
-      "time": 179.868,
-      "detail": "At 179.87s (shot end) the same figures remain correctly layered (desk in front of chair legs, hands in front of torsos) with no new clipping introduced.",
+      "time": 170.467,
+      "detail": "At 170.47s (shot end) the same figures remain correctly layered (desk in front of chair legs, hands in front of torsos) with no new clipping introduced.",
       "evidence_ids": [
        "shot-37-continuous"
       ]
@@ -7225,14 +7218,14 @@
     "status": "pass",
     "observations": [
      {
-      "time": 174.258,
-      "detail": "At 174.26s the frame is laid out with a character group on one side and the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
+      "time": 164.856,
+      "detail": "At 164.86s the frame is laid out with a character group on one side and the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
       "evidence_ids": [
        "shot-37-continuous"
       ]
      },
      {
-      "time": 174.823,
+      "time": 165.421,
       "detail": "The 'Kotak: ukuran tempo' overlay (line) is drawn in the frame's existing negative space, reinforcing rather than crowding the composition.",
       "evidence_ids": [
        "shot-37-continuous"
@@ -7252,21 +7245,21 @@
     "status": "pass",
     "observations": [
      {
-      "time": 174.038,
-      "detail": "Caption \"meningkatkan kestabilan tempo?\" runs 172.03-174.60s (2.58s, 3 words, ~1.2 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
+      "time": 164.636,
+      "detail": "Caption \"meningkatkan kestabilan tempo?\" runs 162.63-165.20s (2.58s, 3 words, ~1.2 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
       "evidence_ids": [
        "shot-37-continuous"
       ]
      },
      {
-      "time": 174.684,
-      "detail": "Caption \"Pertanyaannya berubah.\" runs 174.68-175.70s (1.02s, 2 words, ~2.0 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
+      "time": 165.283,
+      "detail": "Caption \"Pertanyaannya berubah.\" runs 165.28-166.30s (1.02s, 2 words, ~2.0 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
       "evidence_ids": [
        "shot-37-continuous"
       ]
      },
      {
-      "time": 174.258,
+      "time": 164.856,
       "detail": "On-screen text 'Pertanyaannya berubah.' at (380,70) stays within the 1280-wide frame (declared width 890px) with no clipping against the frame edge.",
       "evidence_ids": [
        "shot-37-continuous"
@@ -7279,15 +7272,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 174.258,
-      "detail": "The shot runs 174.008-180.118s (6.11s total); at 174.26s the opening beat has already landed, leaving room for the remaining 5.86s to read before the cut.",
+      "time": 164.856,
+      "detail": "The shot runs 164.606-170.717s (6.11s total); at 164.86s the opening beat has already landed, leaving room for the remaining 5.86s to read before the cut.",
       "evidence_ids": [
        "shot-37-continuous"
       ]
      },
      {
-      "time": 179.868,
-      "detail": "The caption \"dan perhatian pada faktor lain.\" (ends 181.62s) runs past this shot's 180.118s cut into the next shot, so the line keeps reading with no silent gap across the edit.",
+      "time": 170.467,
+      "detail": "The caption \"dan perhatian pada faktor lain.\" (ends 172.22s) runs past this shot's 170.717s cut into the next shot, so the line keeps reading with no silent gap across the edit.",
       "evidence_ids": [
        "shot-37-continuous"
       ]
@@ -7306,14 +7299,14 @@
     "status": "pass",
     "observations": [
      {
-      "time": 174.258,
-      "detail": "ffmpeg volumedetect over this shot's exact 174.008-180.118s window measured mean_volume=-19.9dB, max_volume=-4.4dB on the mixed mono track.",
+      "time": 164.856,
+      "detail": "ffmpeg volumedetect over this shot's exact 164.606-170.717s window measured mean_volume=-19.9dB, max_volume=-4.4dB on the mixed mono track.",
       "evidence_ids": [
        "shot-37-continuous"
       ]
      },
      {
-      "time": 177.063,
+      "time": 167.661,
       "detail": "A mean level of -19.9dB in this window is consistent with narration/dialogue being present and mixed above the music bed (not a silent or music-only passage).",
       "evidence_ids": [
        "shot-37-continuous"
@@ -7323,7 +7316,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -19.9dB mean / -4.4dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -7335,15 +7328,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 180.368,
-      "detail": "At 180.37s the frame shows vidka-think: round-head, dot-eyed stickman figures with unfilled thin black outlines and simple stick limbs, matching the character sheet used across the film.",
+      "time": 170.967,
+      "detail": "At 170.97s the frame shows vidka-think: round-head, dot-eyed stickman figures with unfilled thin black outlines and simple stick limbs, matching the character sheet used across the film.",
       "evidence_ids": [
        "shot-38-continuous"
       ]
      },
      {
-      "time": 184.868,
-      "detail": "At 184.87s (near the shot's end) the same figures hold consistent proportions and line weight as at 180.37s; no redraw pop or model drift across the 5.00s shot.",
+      "time": 175.467,
+      "detail": "At 175.47s (near the shot's end) the same figures hold consistent proportions and line weight as at 170.97s; no redraw pop or model drift across the 5.00s shot.",
       "evidence_ids": [
        "shot-38-continuous"
       ]
@@ -7362,15 +7355,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 180.148,
-      "detail": "At 180.15s, while the caption reads \"dan perhatian pada faktor lain.\", vidka rests a hand near her chin in a thinking pose -- the pose matches the line's meaning.",
+      "time": 170.747,
+      "detail": "At 170.75s, while the caption reads \"dan perhatian pada faktor lain.\", vidka rests a hand near her chin in a thinking pose -- the pose matches the line's meaning.",
       "evidence_ids": [
        "shot-38-continuous"
       ]
      },
      {
-      "time": 184.868,
-      "detail": "The pose is held steady through 184.87s, appropriate for a single uninterrupted line of dialogue.",
+      "time": 175.467,
+      "detail": "The pose is held steady through 175.47s, appropriate for a single uninterrupted line of dialogue.",
       "evidence_ids": [
        "shot-38-continuous"
       ]
@@ -7389,15 +7382,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 180.368,
-      "detail": "At 180.37s the prop 'pencil.png' sits at its keyframed start position; pensil vidka menulis.",
+      "time": 170.967,
+      "detail": "At 170.97s the prop 'pencil.png' sits at its keyframed start position; pensil vidka menulis.",
       "evidence_ids": [
        "shot-38-continuous"
       ]
      },
      {
-      "time": 184.868,
-      "detail": "By 184.87s the prop has reached its resting keyframe position without clipping through the desk, notebook or any character outline.",
+      "time": 175.467,
+      "detail": "By 175.47s the prop has reached its resting keyframe position without clipping through the desk, notebook or any character outline.",
       "evidence_ids": [
        "shot-38-continuous"
       ]
@@ -7416,15 +7409,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 180.368,
-      "detail": "At 180.37s the frame is laid out with a character group on one side and the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
+      "time": 170.967,
+      "detail": "At 170.97s the frame is laid out with a character group on one side and the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
       "evidence_ids": [
        "shot-38-continuous"
       ]
      },
      {
-      "time": 184.868,
-      "detail": "By 184.87s the composition balance established at the shot's open is preserved; no element has drifted into the frame's margins.",
+      "time": 175.467,
+      "detail": "By 175.47s the composition balance established at the shot's open is preserved; no element has drifted into the frame's margins.",
       "evidence_ids": [
        "shot-38-continuous"
       ]
@@ -7443,14 +7436,14 @@
     "status": "pass",
     "observations": [
      {
-      "time": 180.148,
-      "detail": "Caption \"dan perhatian pada faktor lain.\" runs 178.32-181.62s (3.30s, 5 words, ~1.5 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
+      "time": 170.747,
+      "detail": "Caption \"dan perhatian pada faktor lain.\" runs 168.92-172.22s (3.30s, 5 words, ~1.5 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
       "evidence_ids": [
        "shot-38-continuous"
       ]
      },
      {
-      "time": 180.368,
+      "time": 170.967,
       "detail": "On-screen text 'Pertanyaan menentukan' at (240,170) stays within the 1280-wide frame (declared width 1030px) with no clipping against the frame edge.",
       "evidence_ids": [
        "shot-38-continuous"
@@ -7463,15 +7456,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 180.368,
-      "detail": "The shot runs 180.118-185.118s (5.00s total); at 180.37s the opening beat has already landed, leaving room for the remaining 4.75s to read before the cut.",
+      "time": 170.967,
+      "detail": "The shot runs 170.717-175.717s (5.00s total); at 170.97s the opening beat has already landed, leaving room for the remaining 4.75s to read before the cut.",
       "evidence_ids": [
        "shot-38-continuous"
       ]
      },
      {
-      "time": 184.868,
-      "detail": "The last caption in this shot ends at 181.62s, leaving a 3.50s silent hold before the 185.118s cut -- enough beat to register the line before the next shot.",
+      "time": 175.467,
+      "detail": "The last caption in this shot ends at 172.22s, leaving a 3.50s silent hold before the 175.717s cut -- enough beat to register the line before the next shot.",
       "evidence_ids": [
        "shot-38-continuous"
       ]
@@ -7490,14 +7483,14 @@
     "status": "pass",
     "observations": [
      {
-      "time": 180.368,
-      "detail": "ffmpeg volumedetect over this shot's exact 180.118-185.118s window measured mean_volume=-36.0dB, max_volume=-18.1dB on the mixed mono track.",
+      "time": 170.967,
+      "detail": "ffmpeg volumedetect over this shot's exact 170.717-175.717s window measured mean_volume=-36.0dB, max_volume=-18.1dB on the mixed mono track.",
       "evidence_ids": [
        "shot-38-continuous"
       ]
      },
      {
-      "time": 182.618,
+      "time": 173.217,
       "detail": "A quieter mean level of -36.0dB (vs. roughly -19 to -22dB in dialogue-bearing shots) is consistent with this beat carrying music bed only, with no dialogue line scheduled in this window.",
       "evidence_ids": [
        "shot-38-continuous"
@@ -7507,7 +7500,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -36.0dB mean / -18.1dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -7519,15 +7512,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 185.368,
-      "detail": "At 185.37s no character figure is in frame; the shot is a prop/graphic cutaway (background art) rendered in the same thin-outline line-art style as the character shots.",
+      "time": 175.967,
+      "detail": "At 175.97s no character figure is in frame; the shot is a prop/graphic cutaway (background art) rendered in the same thin-outline line-art style as the character shots.",
       "evidence_ids": [
        "shot-39-continuous"
       ]
      },
      {
-      "time": 190.453,
-      "detail": "At 190.45s the props/graphics retain the same outline weight and palette (cream background, navy/red/yellow accent text) seen at 185.37s.",
+      "time": 180.797,
+      "detail": "At 180.80s the props/graphics retain the same outline weight and palette (cream background, navy/red/yellow accent text) seen at 175.97s.",
       "evidence_ids": [
        "shot-39-continuous"
       ]
@@ -7546,15 +7539,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 185.148,
-      "detail": "At 185.15s the on-screen text/graphic reveal (\"Rancangan Vidka\") times with the caption \"Sekarang saya lihat semuanya nyambung:\", carrying the narration's meaning without a visible character.",
+      "time": 175.747,
+      "detail": "At 175.75s the on-screen text/graphic reveal (\"Rancangan Vidka\") times with the caption \"Sekarang bacaan, masalah, pertanyaan,\", carrying the narration's meaning without a visible character.",
       "evidence_ids": [
        "shot-39-continuous"
       ]
      },
      {
-      "time": 190.453,
-      "detail": "By 190.45s the graphic state matches the narration having moved on to its next idea, with no stale leftover emphasis from the shot's opening state.",
+      "time": 180.797,
+      "detail": "By 180.80s the graphic state matches the narration having moved on to its next idea, with no stale leftover emphasis from the shot's opening state.",
       "evidence_ids": [
        "shot-39-continuous"
       ]
@@ -7573,15 +7566,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 185.368,
-      "detail": "At 185.37s the static graphic/prop layout () shows no overlapping edges between independent elements.",
+      "time": 175.967,
+      "detail": "At 175.97s the static graphic/prop layout () shows no overlapping edges between independent elements.",
       "evidence_ids": [
        "shot-39-continuous"
       ]
      },
      {
-      "time": 190.453,
-      "detail": "At 190.45s the layout is unchanged or has resolved its reveal cleanly, with no leftover overlap.",
+      "time": 180.797,
+      "detail": "At 180.80s the layout is unchanged or has resolved its reveal cleanly, with no leftover overlap.",
       "evidence_ids": [
        "shot-39-continuous"
       ]
@@ -7600,14 +7593,14 @@
     "status": "pass",
     "observations": [
      {
-      "time": 185.368,
-      "detail": "At 185.37s the frame is laid out with the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
+      "time": 175.967,
+      "detail": "At 175.97s the frame is laid out with the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
       "evidence_ids": [
        "shot-39-continuous"
       ]
      },
      {
-      "time": 185.453,
+      "time": 176.037,
       "detail": "The 'Kotak bacaan' overlay (line) is drawn in the frame's existing negative space, reinforcing rather than crowding the composition.",
       "evidence_ids": [
        "shot-39-continuous"
@@ -7627,21 +7620,21 @@
     "status": "pass",
     "observations": [
      {
-      "time": 185.148,
-      "detail": "Caption \"Sekarang saya lihat semuanya nyambung:\" runs 185.12-187.66s (2.54s, 5 words, ~2.0 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
+      "time": 175.747,
+      "detail": "Caption \"Sekarang bacaan, masalah, pertanyaan,\" runs 175.72-177.92s (2.20s, 4 words, ~1.8 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
       "evidence_ids": [
        "shot-39-continuous"
       ]
      },
      {
-      "time": 187.74,
-      "detail": "Caption \"bacaan, masalah, pertanyaan, dan caranya.\" runs 187.74-191.07s (3.33s, 5 words, ~1.5 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
+      "time": 177.999,
+      "detail": "Caption \"dan cara penelitian saya saling terhubung.\" runs 178.00-181.16s (3.16s, 6 words, ~1.9 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
       "evidence_ids": [
        "shot-39-continuous"
       ]
      },
      {
-      "time": 185.368,
+      "time": 175.967,
       "detail": "On-screen text 'Rancangan Vidka' at (120,80) stays within the 1280-wide frame (declared width 1150px) with no clipping against the frame edge.",
       "evidence_ids": [
        "shot-39-continuous"
@@ -7654,15 +7647,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 185.368,
-      "detail": "The shot runs 185.118-190.703s (5.59s total); at 185.37s the opening beat has already landed, leaving room for the remaining 5.34s to read before the cut.",
+      "time": 175.967,
+      "detail": "The shot runs 175.717-181.047s (5.33s total); at 175.97s the opening beat has already landed, leaving room for the remaining 5.08s to read before the cut.",
       "evidence_ids": [
        "shot-39-continuous"
       ]
      },
      {
-      "time": 190.453,
-      "detail": "The caption \"bacaan, masalah, pertanyaan, dan caranya.\" (ends 191.07s) runs past this shot's 190.703s cut into the next shot, so the line keeps reading with no silent gap across the edit.",
+      "time": 180.797,
+      "detail": "The caption \"dan cara penelitian saya saling terhubung.\" (ends 181.16s) runs past this shot's 181.047s cut into the next shot, so the line keeps reading with no silent gap across the edit.",
       "evidence_ids": [
        "shot-39-continuous"
       ]
@@ -7673,7 +7666,7 @@
       "reference_id": "b1-ryan-v4",
       "start": 19.6,
       "end": 21.2,
-      "detail": "This shot's 5.59s duration is in the same few-seconds-per-beat range the baseline uses for its numbered-list hold. Compared against the closing 'FIX THESE 3 THINGS' beat (desk pose beside three numbered red/green/gray boxes)."
+      "detail": "This shot's 5.33s duration is in the same few-seconds-per-beat range the baseline uses for its numbered-list hold. Compared against the closing 'FIX THESE 3 THINGS' beat (desk pose beside three numbered red/green/gray boxes)."
      }
     ]
    },
@@ -7681,14 +7674,14 @@
     "status": "pass",
     "observations": [
      {
-      "time": 185.368,
-      "detail": "ffmpeg volumedetect over this shot's exact 185.118-190.703s window measured mean_volume=-20.5dB, max_volume=-2.0dB on the mixed mono track.",
+      "time": 175.967,
+      "detail": "ffmpeg volumedetect over this shot's exact 175.717-181.047s window measured mean_volume=-20.5dB, max_volume=-2.0dB on the mixed mono track.",
       "evidence_ids": [
        "shot-39-continuous"
       ]
      },
      {
-      "time": 187.911,
+      "time": 178.382,
       "detail": "A mean level of -20.5dB in this window is consistent with narration/dialogue being present and mixed above the music bed (not a silent or music-only passage).",
       "evidence_ids": [
        "shot-39-continuous"
@@ -7698,7 +7691,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -20.5dB mean / -2.0dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -7710,15 +7703,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 190.953,
-      "detail": "At 190.95s the frame shows ardipal-listen, ardipal-talk, herry-listen, herry-talk, vidka-listen, vidka-tidy: round-head, dot-eyed stickman figures with unfilled thin black outlines and simple stick limbs, matching the character sheet used across the film.",
+      "time": 181.297,
+      "detail": "At 181.30s the frame shows ardipal-listen, ardipal-talk, herry-listen, herry-talk, vidka-listen, vidka-tidy: round-head, dot-eyed stickman figures with unfilled thin black outlines and simple stick limbs, matching the character sheet used across the film.",
       "evidence_ids": [
        "shot-40-continuous"
       ]
      },
      {
-      "time": 196.038,
-      "detail": "At 196.04s (near the shot's end) the same figures hold consistent proportions and line weight as at 190.95s; no redraw pop or model drift across the 5.59s shot.",
+      "time": 186.126,
+      "detail": "At 186.13s (near the shot's end) the same figures hold consistent proportions and line weight as at 181.30s; no redraw pop or model drift across the 5.33s shot.",
       "evidence_ids": [
        "shot-40-continuous"
       ]
@@ -7737,15 +7730,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 190.733,
-      "detail": "At 190.73s, while the caption reads \"bacaan, masalah, pertanyaan, dan caranya.\", vidka squares up the loose article sheets on the desk -- the pose matches the line's meaning.",
+      "time": 181.077,
+      "detail": "At 181.08s, while the caption reads \"dan cara penelitian saya saling terhubung.\", vidka squares up the loose article sheets on the desk -- the pose matches the line's meaning.",
       "evidence_ids": [
        "shot-40-continuous"
       ]
      },
      {
-      "time": 196.038,
-      "detail": "By 196.04s the pose has changed to: ardipal gestures with one hand while speaking, a legible shift from the shot's opening pose that tracks the dialogue's progress.",
+      "time": 186.126,
+      "detail": "By 186.13s the pose has changed to: ardipal gestures with one hand while speaking, a legible shift from the shot's opening pose that tracks the dialogue's progress.",
       "evidence_ids": [
        "shot-40-continuous"
       ]
@@ -7764,15 +7757,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 190.953,
-      "detail": "At 190.95s the prop 'laptop-closed.png' sits at its keyframed start position; vidka menutup laptop.",
+      "time": 181.297,
+      "detail": "At 181.30s the prop 'laptop-closed.png' sits at its keyframed start position; vidka menutup laptop.",
       "evidence_ids": [
        "shot-40-continuous"
       ]
      },
      {
-      "time": 196.038,
-      "detail": "By 196.04s the prop has reached its resting keyframe position without clipping through the desk, notebook or any character outline.",
+      "time": 186.126,
+      "detail": "By 186.13s the prop has reached its resting keyframe position without clipping through the desk, notebook or any character outline.",
       "evidence_ids": [
        "shot-40-continuous"
       ]
@@ -7791,14 +7784,14 @@
     "status": "pass",
     "observations": [
      {
-      "time": 190.953,
-      "detail": "At 190.95s the frame is laid out with a character group on one side and the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
+      "time": 181.297,
+      "detail": "At 181.30s the frame is laid out with a character group on one side and the text/graphic block occupying the opposite side, leaving a clear reading path and not touching the 1280x720 frame edges.",
       "evidence_ids": [
        "shot-40-continuous"
       ]
      },
      {
-      "time": 194.724,
+      "time": 184.884,
       "detail": "The 'Penekanan pada alasan pilihan' overlay (underline) is drawn in the frame's existing negative space, reinforcing rather than crowding the composition.",
       "evidence_ids": [
        "shot-40-continuous"
@@ -7818,21 +7811,21 @@
     "status": "pass",
     "observations": [
      {
-      "time": 190.733,
-      "detail": "Caption \"bacaan, masalah, pertanyaan, dan caranya.\" runs 187.74-191.07s (3.33s, 5 words, ~1.5 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
+      "time": 181.077,
+      "detail": "Caption \"dan cara penelitian saya saling terhubung.\" runs 178.00-181.16s (3.16s, 6 words, ~1.9 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
       "evidence_ids": [
        "shot-40-continuous"
       ]
      },
      {
-      "time": 191.148,
-      "detail": "Caption \"Siapkan persetujuan sebelum mengumpulkan data.\" runs 191.15-194.07s (2.92s, 5 words, ~1.7 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
+      "time": 181.236,
+      "detail": "Caption \"Siapkan persetujuan sebelum mengumpulkan data.\" runs 181.24-184.16s (2.92s, 5 words, ~1.7 words/s), a comfortable reading speed that does not force the viewer to speed-read.",
       "evidence_ids": [
        "shot-40-continuous"
       ]
      },
      {
-      "time": 190.953,
+      "time": 181.297,
       "detail": "On-screen text 'persetujuan dulu' at (880,150) stays within the 1280-wide frame (declared width 390px) with no clipping against the frame edge.",
       "evidence_ids": [
        "shot-40-continuous"
@@ -7845,15 +7838,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 190.953,
-      "detail": "The shot runs 190.703-196.288s (5.59s total); at 190.95s the opening beat has already landed, leaving room for the remaining 5.34s to read before the cut.",
+      "time": 181.297,
+      "detail": "The shot runs 181.047-186.376s (5.33s total); at 181.30s the opening beat has already landed, leaving room for the remaining 5.08s to read before the cut.",
       "evidence_ids": [
        "shot-40-continuous"
       ]
      },
      {
-      "time": 196.038,
-      "detail": "The caption \"Dan jelaskan alasan setiap pilihanmu.\" (ends 197.79s) runs past this shot's 196.288s cut into the next shot, so the line keeps reading with no silent gap across the edit.",
+      "time": 186.126,
+      "detail": "The caption \"Dan jelaskan alasan setiap pilihanmu.\" (ends 187.88s) runs past this shot's 186.376s cut into the next shot, so the line keeps reading with no silent gap across the edit.",
       "evidence_ids": [
        "shot-40-continuous"
       ]
@@ -7864,7 +7857,7 @@
       "reference_id": "b1-ryan-v4",
       "start": 19.6,
       "end": 21.2,
-      "detail": "This shot's 5.59s duration is in the same few-seconds-per-beat range the baseline uses for its numbered-list hold. Compared against the closing 'FIX THESE 3 THINGS' beat (desk pose beside three numbered red/green/gray boxes)."
+      "detail": "This shot's 5.33s duration is in the same few-seconds-per-beat range the baseline uses for its numbered-list hold. Compared against the closing 'FIX THESE 3 THINGS' beat (desk pose beside three numbered red/green/gray boxes)."
      }
     ]
    },
@@ -7872,14 +7865,14 @@
     "status": "pass",
     "observations": [
      {
-      "time": 190.953,
-      "detail": "ffmpeg volumedetect over this shot's exact 190.703-196.288s window measured mean_volume=-22.0dB, max_volume=-2.1dB on the mixed mono track.",
+      "time": 181.297,
+      "detail": "ffmpeg volumedetect over this shot's exact 181.047-186.376s window measured mean_volume=-22.0dB, max_volume=-2.1dB on the mixed mono track.",
       "evidence_ids": [
        "shot-40-continuous"
       ]
      },
      {
-      "time": 193.495,
+      "time": 183.712,
       "detail": "A mean level of -22.0dB in this window is consistent with narration/dialogue being present and mixed above the music bed (not a silent or music-only passage).",
       "evidence_ids": [
        "shot-40-continuous"
@@ -7889,7 +7882,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference b1-ryan-v4's whole-clip mix measures mean_volume=-21.4dB, max_volume=-1.7dB (ffmpeg volumedetect); this shot's -22.0dB mean / -2.1dB max sits in the same general mixed-narration-plus-bed loudness range, not markedly hotter or more buried."
      }
@@ -7901,15 +7894,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 196.538,
-      "detail": "At 196.54s no character figure is in frame; the shot is a prop/graphic cutaway (notebook) rendered in the same thin-outline line-art style as the character shots.",
+      "time": 186.626,
+      "detail": "At 186.63s no character figure is in frame; the shot is a prop/graphic cutaway (notebook) rendered in the same thin-outline line-art style as the character shots.",
       "evidence_ids": [
        "shot-41-continuous"
       ]
      },
      {
-      "time": 199.038,
-      "detail": "At 199.04s the props/graphics retain the same outline weight and palette (cream background, navy/red/yellow accent text) seen at 196.54s.",
+      "time": 189.125,
+      "detail": "At 189.12s the props/graphics retain the same outline weight and palette (cream background, navy/red/yellow accent text) seen at 186.63s.",
       "evidence_ids": [
        "shot-41-continuous"
       ]
@@ -7928,15 +7921,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 196.318,
-      "detail": "At 196.32s the on-screen text/graphic reveal (\"Halaman rencana Vidka\") times with the caption \"Dan jelaskan alasan setiap pilihanmu.\", carrying the narration's meaning without a visible character.",
+      "time": 186.406,
+      "detail": "At 186.41s the on-screen text/graphic reveal (\"Halaman rencana Vidka\") times with the caption \"Dan jelaskan alasan setiap pilihanmu.\", carrying the narration's meaning without a visible character.",
       "evidence_ids": [
        "shot-41-continuous"
       ]
      },
      {
-      "time": 199.038,
-      "detail": "By 199.04s the graphic state matches the narration having moved on to its next idea, with no stale leftover emphasis from the shot's opening state.",
+      "time": 189.125,
+      "detail": "By 189.12s the graphic state matches the narration having moved on to its next idea, with no stale leftover emphasis from the shot's opening state.",
       "evidence_ids": [
        "shot-41-continuous"
       ]
@@ -7955,15 +7948,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 196.538,
-      "detail": "At 196.54s the static graphic/prop layout (notebook) shows no overlapping edges between independent elements.",
+      "time": 186.626,
+      "detail": "At 186.63s the static graphic/prop layout (notebook) shows no overlapping edges between independent elements.",
       "evidence_ids": [
        "shot-41-continuous"
       ]
      },
      {
-      "time": 199.038,
-      "detail": "At 199.04s the layout is unchanged or has resolved its reveal cleanly, with no leftover overlap.",
+      "time": 189.125,
+      "detail": "At 189.12s the layout is unchanged or has resolved its reveal cleanly, with no leftover overlap.",
       "evidence_ids": [
        "shot-41-continuous"
       ]
@@ -8010,14 +8003,14 @@
     "observations": [
      {
       "time": 187.176,
-      "detail": "A cropped frame read at t=186.9s (0.52s in) confirms the fix in commit ba67d3f: the 'Halaman rencana Vidka' header now sits at y=145, clearly below the notebook's ring row (rings end roughly y=100-110 for this notebook placement), with a visible gap between the last ring and the header's top -- no overlap.",
+      "detail": "A cropped frame read at t=187.18s (0.8s in) confirms the fix in commit ba67d3f: the 'Halaman rencana Vidka' header now sits at y=145, clearly below the notebook's ring row (rings end roughly y=100-110 for this notebook placement), with a visible gap between the last ring and the header's top -- no overlap.",
       "evidence_ids": [
        "shot-41-continuous"
       ]
      },
      {
       "time": 188.876,
-      "detail": "By t=189.1s all four body lines ('Masalah:...' at y=205, 'Pertanyaan:...' at y=247, 'Data:...' at y=289, 'Alasan:...' at y=331) are visible with even ~42px line spacing and two yellow underlines (y=231 and y=367) that sit under their own lines only, not crossing into the line below.",
+      "detail": "By t=188.88s all four body lines ('Masalah:...' at y=205, 'Pertanyaan:...' at y=247, 'Data:...' at y=289, 'Alasan:...' at y=331) are visible with even ~42px line spacing and two yellow underlines (y=231 and y=367) that sit under their own lines only, not crossing into the line below.",
       "evidence_ids": [
        "shot-41-continuous"
       ]
@@ -8036,15 +8029,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 196.538,
-      "detail": "The shot runs 196.288-199.288s (3.00s total); at 196.54s the opening beat has already landed, leaving room for the remaining 2.75s to read before the cut.",
+      "time": 186.626,
+      "detail": "The shot runs 186.376-189.375s (3.00s total); at 186.63s the opening beat has already landed, leaving room for the remaining 2.75s to read before the cut.",
       "evidence_ids": [
        "shot-41-continuous"
       ]
      },
      {
-      "time": 199.038,
-      "detail": "The last caption in this shot ends at 197.79s, leaving a 1.50s silent hold before the 199.288s cut -- enough beat to register the line before the next shot.",
+      "time": 189.125,
+      "detail": "The last caption in this shot ends at 187.88s, leaving a 1.50s silent hold before the 189.375s cut -- enough beat to register the line before the next shot.",
       "evidence_ids": [
        "shot-41-continuous"
       ]
@@ -8073,7 +8066,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference mean -21.4dB; shot-41's quieter -34.9dB is consistent with a hold shot carrying the tail of the prior caption rather than a fresh loud line."
      }
@@ -8085,15 +8078,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 199.538,
-      "detail": "At 199.54s the frame shows vidka-nod, vidka-think: round-head, dot-eyed stickman figures with unfilled thin black outlines and simple stick limbs, matching the character sheet used across the film.",
+      "time": 189.625,
+      "detail": "At 189.62s the frame shows vidka-nod, vidka-think: round-head, dot-eyed stickman figures with unfilled thin black outlines and simple stick limbs, matching the character sheet used across the film.",
       "evidence_ids": [
        "shot-42-continuous"
       ]
      },
      {
-      "time": 202.038,
-      "detail": "At 202.04s (near the shot's end) the same figures hold consistent proportions and line weight as at 199.54s; no redraw pop or model drift across the 3.00s shot.",
+      "time": 192.125,
+      "detail": "At 192.12s (near the shot's end) the same figures hold consistent proportions and line weight as at 189.62s; no redraw pop or model drift across the 3.00s shot.",
       "evidence_ids": [
        "shot-42-continuous"
       ]
@@ -8139,15 +8132,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 199.538,
-      "detail": "At 199.54s the character figures (vidka-nod, vidka-think) and any desk/notebook props keep clear outlines with no limb or object passing through another shape.",
+      "time": 189.625,
+      "detail": "At 189.62s the character figures (vidka-nod, vidka-think) and any desk/notebook props keep clear outlines with no limb or object passing through another shape.",
       "evidence_ids": [
        "shot-42-continuous"
       ]
      },
      {
-      "time": 202.038,
-      "detail": "At 202.04s (shot end) the same figures remain correctly layered (desk in front of chair legs, hands in front of torsos) with no new clipping introduced.",
+      "time": 192.125,
+      "detail": "At 192.12s (shot end) the same figures remain correctly layered (desk in front of chair legs, hands in front of torsos) with no new clipping introduced.",
       "evidence_ids": [
        "shot-42-continuous"
       ]
@@ -8213,15 +8206,15 @@
     "status": "pass",
     "observations": [
      {
-      "time": 199.538,
-      "detail": "The shot runs 199.288-202.288s (3.00s total); at 199.54s the opening beat has already landed, leaving room for the remaining 2.75s to read before the cut.",
+      "time": 189.625,
+      "detail": "The shot runs 189.375-192.375s (3.00s total); at 189.62s the opening beat has already landed, leaving room for the remaining 2.75s to read before the cut.",
       "evidence_ids": [
        "shot-42-continuous"
       ]
      },
      {
-      "time": 202.038,
-      "detail": "At 202.04s, close to the 202.288s cut, the held graphic has had time to register without feeling rushed.",
+      "time": 192.125,
+      "detail": "At 192.12s, close to the 192.375s cut, the held graphic has had time to register without feeling rushed.",
       "evidence_ids": [
        "shot-42-continuous"
       ]
@@ -8257,7 +8250,7 @@
     "comparisons": [
      {
       "reference_id": "b1-ryan-v4",
-      "start": 0,
+      "start": 0.0,
       "end": 21.3,
       "detail": "Reference mean -21.4dB; shot-42's quieter -35.7dB matches the other task-card/hold shots sampled, and its music-only ending is the same kind of instrumental close the baseline uses after its last spoken line."
      }
