@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "herry-tools": {
+      "source": {
+        "source": "github",
+        "repo": "herry-maker/Herry"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "paperbanana@herry-tools": true
+  }
+}

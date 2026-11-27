@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "paperbanana": {
+      "command": "uvx",
+      "args": ["--from", "paperbanana[mcp]", "paperbanana-mcp"]
+    }
+  }
+}

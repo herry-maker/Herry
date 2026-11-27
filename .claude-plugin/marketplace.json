@@ -1,0 +1,24 @@
+{
+  "name": "herry-tools",
+  "owner": {
+    "name": "herry-maker",
+    "url": "https://github.com/herry-maker"
+  },
+  "metadata": {
+    "description": "Plugins maintained in the herry-maker/Herry repository.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "paperbanana",
+      "source": "./plugins/paperbanana",
+      "description": "Academic diagram and statistical plot generation via the PaperBanana MCP server and skills.",
+      "version": "0.3.0",
+      "author": { "name": "herry-maker" },
+      "homepage": "https://github.com/llmsresearch/paperbanana",
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": ["academic", "diagram", "plot", "figure", "mcp"]
+    }
+  ]
+}

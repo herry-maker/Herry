@@ -1,0 +1,14 @@
+{
+  "name": "paperbanana",
+  "version": "0.3.0",
+  "description": "Generate publication-quality academic diagrams and statistical plots from text or data with PaperBanana's multi-agent pipeline (MCP server + /generate-diagram, /generate-plot, /evaluate-diagram skills).",
+  "author": {
+    "name": "herry-maker",
+    "url": "https://github.com/herry-maker/Herry"
+  },
+  "homepage": "https://github.com/llmsresearch/paperbanana",
+  "repository": "https://github.com/llmsresearch/paperbanana",
+  "license": "MIT",
+  "keywords": ["academic", "diagram", "plot", "figure", "paper", "mcp", "research", "visualization"],
+  "mcpServers": "./.mcp.json"
+}
