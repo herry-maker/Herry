@@ -7,7 +7,10 @@ numpy>=1.24.0
 music21>=8.3.0
 pytesseract>=0.3.10
 
-# System requirement: poppler-utils
-# Ubuntu/Debian: sudo apt-get install poppler-utils
-# macOS: brew install poppler
+# Speech / audio transcription (OpenAI Whisper; pulls in torch)
+openai-whisper>=20250625
+
+# System requirements: poppler-utils, ffmpeg
+# Ubuntu/Debian: sudo apt-get install poppler-utils ffmpeg
+# macOS: brew install poppler ffmpeg
 # Windows: Download from https://github.com/oschwartz10612/poppler-windows/releases/
